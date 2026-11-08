@@ -10,6 +10,7 @@
     "build:data": "node scripts/build-data.mjs",
     "build": "npm run build:data && vite build",
     "preview": "vite preview",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=lumina --branch=main",
     "check": "node scripts/check-data.mjs"
   },
   "dependencies": {

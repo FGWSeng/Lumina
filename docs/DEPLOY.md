@@ -10,7 +10,41 @@
 
 ---
 
-## 一、方式 A：Git 集成（推荐，长期维护）
+## 一点五、新版 Cloudflare 的实际流程（2026）
+
+2026 版控制台已移除 Pages 独立入口，全部并入 Workers。但：
+
+| 域名 | 国内可达 | 结论 |
+|------|---------|------|
+| `*.workers.dev` | ✗ DNS 污染 | 不能用于分享 |
+| `*.pages.dev` | ✓ | 静态站应使用 Pages |
+
+Pages 的 API 仍然可用，用 wrangler 直接创建和部署：
+
+```bash
+npx wrangler login
+npx wrangler pages project create lumina --production-branch=main
+npm run deploy
+```
+
+`npm run deploy` 等价于：
+
+```bash
+npm run build
+wrangler pages deploy dist --project-name=lumina --branch=main
+```
+
+生产地址：`https://lumina-19z.pages.dev`
+
+注意：
+
+- Pages 项目通过 wrangler 直传，**不会随 `git push` 自动部署**，每次更新内容后执行 `npm run deploy`；
+- 如果以后控制台恢复 Pages 的 Git 集成，可在项目 Settings 里连接仓库，恢复自动部署；
+- 不要用 Workers 项目部署同一份代码：`workers.dev` 在国内打不开。
+
+---
+
+## 一、方式 A：Git 集成（旧版控制台）
 
 ### 1. 推送仓库
 
