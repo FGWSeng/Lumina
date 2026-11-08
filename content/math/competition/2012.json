@@ -18,6 +18,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "求 $\\displaystyle\\lim_{n\\to\\infty}(n!)^{\\frac{1}{n^{2}}}$。",
+      "formulasUsed": [
+        {
+          "name": "把幂搬进对数",
+          "latex": "$$\\left(n!\\right)^{\\frac{1}{n^{2}}}=\\exp\\left(\\frac{1}{n^{2}}\\ln n!\\right)$$"
+        },
+        {
+          "name": "对数求和的放缩",
+          "latex": "$$\\ln n!=\\sum_{k=1}^{n}\\ln k\\leqslant n\\ln n,\\qquad \\ln n!\\geqslant0$$"
+        },
+        {
+          "name": "夹逼",
+          "latex": "$$0\\leqslant\\frac{\\ln n!}{n^{2}}\\leqslant\\frac{\\ln n}{n}\\to0\\Longrightarrow \\left(n!\\right)^{\\frac{1}{n^{2}}}\\to\\mathrm{e}^{0}=1$$"
+        },
+        {
+          "name": "Cauchy 命题（算术平均）",
+          "latex": "$$a_{n}\\to a\\Longrightarrow \\frac{a_{1}+\\cdots+a_{n}}{n}\\to a$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $1/n^{2}$ 次幂搬进对数",
@@ -56,6 +74,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求通过直线 $L:\\begin{cases}2x+y-3z+2=0,\\\\ 5x+5y-4z+3=0\\end{cases}$ 的两个互相垂直的平面 $\\pi_1,\\pi_2$，使其中一个平面过点 $(4,-3,1)$。",
+      "formulasUsed": [
+        {
+          "name": "平面束方程",
+          "latex": "$$\\pi:\\ \\left(2x+y-3z+2\\right)+\\lambda\\left(5x+5y-4z+3\\right)=0$$"
+        },
+        {
+          "name": "过点定参数",
+          "latex": "$$\\pi_{1}\\ \\text{过}\\ (4,-3,1)\\Longrightarrow \\left(8-3-3+2\\right)+\\lambda\\left(20-15-4+3\\right)=0\\Longrightarrow \\lambda$$"
+        },
+        {
+          "name": "两平面垂直的条件",
+          "latex": "$$\\pi_{1}\\perp\\pi_{2}\\iff \\vec n_{1}\\cdot\\vec n_{2}=0\\iff A_{1}A_{2}+B_{1}B_{2}+C_{1}C_{2}=0$$"
+        },
+        {
+          "name": "平面的点法式",
+          "latex": "$$A(x-x_{0})+B(y-y_{0})+C(z-z_{0})=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把「过一条直线的所有平面」写成一个参数族",
@@ -98,6 +134,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "已知函数 $z=u(x,y)\\mathrm{e}^{ax+by}$，且 $\\dfrac{\\partial^{2}u}{\\partial x\\partial y}=0$，确定常数 $a,b$，使 $z$ 满足方程 $\\dfrac{\\partial^{2}z}{\\partial x\\partial y}-\\dfrac{\\partial z}{\\partial x}-\\dfrac{\\partial z}{\\partial y}+z=0$。",
+      "formulasUsed": [
+        {
+          "name": "指数因子下的乘积求导",
+          "latex": "$$z=u\\,\\mathrm{e}^{ax+by}\\Longrightarrow z_{x}=\\left(u_{x}+au\\right)\\mathrm{e}^{ax+by},\\qquad z_{y}=\\left(u_{y}+bu\\right)\\mathrm{e}^{ax+by}$$"
+        },
+        {
+          "name": "混合偏导",
+          "latex": "$$z_{xy}=\\left[u_{xy}+bu_{x}+au_{y}+\\left(ab\\right)u\\right]\\mathrm{e}^{ax+by}$$"
+        },
+        {
+          "name": "代入后用 $u_{xy}=0$",
+          "latex": "$$z_{xy}-z_{x}-z_{y}+z=\\mathrm{e}^{ax+by}\\left[\\left(b-1\\right)u_{x}+\\left(a-1\\right)u_{y}+\\left(ab-a-b+1\\right)u\\right]$$"
+        },
+        {
+          "name": "系数比较法",
+          "latex": "$$\\left(ab-a-b+1\\right)=0,\\quad a=1,\\quad b=1\\Longrightarrow \\left(a-1\\right)\\left(b-1\\right)=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $z$ 的一、二阶偏导全部算出来",
@@ -136,6 +190,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $u=u(x)$ 连续可微，$u(2)=1$，且 $\\displaystyle\\int_L\\left[(x+2y)u\\,\\mathrm{d}x+\\left(x+u^{3}\\right)u\\,\\mathrm{d}y\\right]$ 在右半平面上与路径无关，求 $u(x)$。",
+      "formulasUsed": [
+        {
+          "name": "路径无关的条件",
+          "latex": "$$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x},\\qquad P=(x+2y)u,\\ Q=\\left(x+u^{3}\\right)u$$"
+        },
+        {
+          "name": "整理成关于 $u$ 的方程",
+          "latex": "$$u+2y u'(y)=u+3u^{3},\\qquad \\text{即}\\ 2y\\frac{\\mathrm{d}u}{\\mathrm{d}y}=3u^{3}$$"
+        },
+        {
+          "name": "把 $x$ 当未知函数（一阶线性）",
+          "latex": "$$\\frac{\\mathrm{d}x}{\\mathrm{d}u}-\\frac{2}{3u}x=\\frac{1}{u^{2}}\\Longrightarrow x=\\mathrm{e}^{\\int\\frac{2}{3u}\\mathrm{d}u}\\left[\\int\\frac{1}{u^{2}}\\mathrm{e}^{-\\int\\frac{2}{3u}\\mathrm{d}u}\\mathrm{d}u+C\\right]$$"
+        },
+        {
+          "name": "通解公式与初值",
+          "latex": "$$x=u^{2/3}\\left(-\\frac{3}{u^{5/3}}+C\\right),\\qquad u(2)=1\\Longrightarrow C$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写出路径无关条件",
@@ -178,6 +250,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求 $\\displaystyle\\lim_{x\\to+\\infty}\\sqrt[3]{x}\\int_x^{x+1}\\frac{\\sin t}{\\sqrt{t+\\cos t}}\\,\\mathrm{d}t$。",
+      "formulasUsed": [
+        {
+          "name": "积分绝对值不等式",
+          "latex": "$$\\left|\\int_{x}^{x+1}g(t)\\,\\mathrm{d}t\\right|\\leqslant\\int_{x}^{x+1}\\left|g(t)\\right|\\mathrm{d}t$$"
+        },
+        {
+          "name": "分母放缩",
+          "latex": "$$t+\\cos t\\geqslant t-1\\Longrightarrow \\frac{\\left|\\sin t\\right|}{\\sqrt{t+\\cos t}}\\leqslant\\frac{1}{\\sqrt{t-1}}\\quad(t&gt;1)$$"
+        },
+        {
+          "name": "基本积分",
+          "latex": "$$\\int_{x}^{x+1}\\frac{\\mathrm{d}t}{\\sqrt{t-1}}=2\\left(\\sqrt{x}-\\sqrt{x-1}\\right)\\sim\\frac{1}{\\sqrt{x}}$$"
+        },
+        {
+          "name": "夹逼收口",
+          "latex": "$$\\sqrt[3]{x}\\cdot O\\left(x^{-\\frac12}\\right)=O\\left(x^{-\\frac16}\\right)\\to0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：判结构——区间长度为 $1$、被积函数有界",
@@ -220,6 +310,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "计算 $\\displaystyle\\int_0^{+\\infty}\\mathrm{e}^{-2x}|\\sin x|\\,\\mathrm{d}x$。",
+      "formulasUsed": [
+        {
+          "name": "周期分段与区间可加",
+          "latex": "$$\\int_0^{+\\infty}=\\sum_{k=0}^{\\infty}\\int_{k\\pi}^{(k+1)\\pi}$$"
+        },
+        {
+          "name": "母版积分",
+          "latex": "$$\\int_0^{\\pi}\\mathrm{e}^{-2x}\\left|\\sin x\\right|\\mathrm{d}x=\\int_0^{\\pi}\\mathrm{e}^{-2x}\\sin x\\,\\mathrm{d}x=\\frac{1+\\mathrm{e}^{-2\\pi}}{5}$$"
+        },
+        {
+          "name": "平移得到第 $k$ 段",
+          "latex": "$$\\int_{k\\pi}^{(k+1)\\pi}\\mathrm{e}^{-2x}\\left|\\sin x\\right|\\mathrm{d}x=\\mathrm{e}^{-2k\\pi}\\cdot\\frac{1+\\mathrm{e}^{-2\\pi}}{5}$$"
+        },
+        {
+          "name": "几何级数求和",
+          "latex": "$$\\sum_{k=0}^{\\infty}q^{k}=\\frac{1}{1-q},\\qquad q=\\mathrm{e}^{-2\\pi}$$"
+        },
+        {
+          "name": "指数型三角积分通式",
+          "latex": "$$\\int\\mathrm{e}^{ax}\\sin bx\\,\\mathrm{d}x=\\frac{\\mathrm{e}^{ax}\\left(a\\sin bx-b\\cos bx\\right)}{a^{2}+b^{2}}+C$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出「周期 × 衰减」的分段结构",
@@ -262,6 +374,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "求方程 $x^{2}\\sin\\dfrac{1}{x}=2x-501$ 的近似解，精确到 $0.001$，其中 $x$ 取充分大的正数。",
+      "formulasUsed": [
+        {
+          "name": "正弦的三阶展开",
+          "latex": "$$\\sin u=u-\\frac{u^{3}}{6}+O\\left(u^{5}\\right)\\qquad(u\\to0)$$"
+        },
+        {
+          "name": "代入 $u=\\frac1x$",
+          "latex": "$$x^{2}\\sin\\frac1x=x-\\frac{1}{6x}+O\\left(\\frac{1}{x^{3}}\\right)$$"
+        },
+        {
+          "name": "方程化为代数式",
+          "latex": "$$x-\\frac{1}{6x}=2x-501\\Longrightarrow x=501+O\\left(\\frac1x\\right)$$"
+        },
+        {
+          "name": "误差估计（Peano 余项）",
+          "latex": "$$\\left|R_{3}(u)\\right|\\leqslant C\\left|u\\right|^{5},\\qquad \\left|x^{2}R_{3}\\left(\\frac1x\\right)\\right|\\leqslant\\frac{C}{x^{3}}$$"
+        },
+        {
+          "name": "精度换算",
+          "latex": "$$\\text{取}\\ x\\approx501\\ \\text{时}\\ \\left|x-501\\right|\\approx\\frac{1}{6\\cdot501}&lt;0.001$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看清「$x$ 很大」意味着 $\\frac1x$ 很小，可以展开",
@@ -304,6 +438,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $y=f(x)$ 二阶可导，且 $f''(x)&gt;0$，$f(0)=0$，$f'(0)=0$。求 $\\displaystyle\\lim_{x\\to0}\\frac{x^{3}f(u)}{f(x)\\sin^{3}u}$，其中 $u$ 是曲线 $y=f(x)$ 上点 $P(x,f(x))$ 处的切线在 $x$ 轴上的截距。",
+      "formulasUsed": [
+        {
+          "name": "切线方程与截距",
+          "latex": "$$Y=f(x)+f'(x)\\left(X-x\\right)\\Longrightarrow u=x-\\frac{f(x)}{f'(x)}$$"
+        },
+        {
+          "name": "Peano 型二阶展开（$f(0)=f'(0)=0$）",
+          "latex": "$$f(x)=\\frac{f''(0)}{2}x^{2}+o\\left(x^{2}\\right),\\qquad f'(x)=f''(0)x+o(x)$$"
+        },
+        {
+          "name": "截距的主项",
+          "latex": "$$u=x-\\frac{f''(0)x^{2}/2}{f''(0)x}=x-\\frac{x}{2}=\\frac{x}{2}$$"
+        },
+        {
+          "name": "等价无穷小",
+          "latex": "$$\\sin^{3}u\\sim u^{3},\\qquad f(u)\\sim\\frac{f''(0)}{2}u^{2}$$"
+        },
+        {
+          "name": "比值收口",
+          "latex": "$$\\frac{x^{3}f(u)}{f(x)\\sin^{3}u}\\sim\\frac{x^{3}\\cdot\\frac{f''(0)}{2}u^{2}}{\\frac{f''(0)}{2}x^{2}\\cdot u^{3}}=\\frac{x}{u}\\longrightarrow 2$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写出切线方程并解出截距 $u$",
@@ -346,6 +502,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求最小实数 $C$，使得满足 $\\displaystyle\\int_0^{1}|f(x)|\\,\\mathrm{d}x=1$ 的连续函数 $f(x)$ 都有 $\\displaystyle\\int_0^{1}f\\left(\\sqrt{x}\\right)\\mathrm{d}x\\leqslant C$。",
+      "formulasUsed": [
+        {
+          "name": "换元把目标积分变成同型",
+          "latex": "$$\\int_0^{1}f\\left(\\sqrt{x}\\right)\\mathrm{d}x\\ \\xrightarrow{\\ \\sqrt{x}=t\\ }\\ 2\\int_0^{1}t\\,f(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "放缩（$0\\leqslant t\\leqslant1$）",
+          "latex": "$$\\left|\\int_0^{1}t\\,f(t)\\,\\mathrm{d}t\\right|\\leqslant\\int_0^{1}t\\left|f(t)\\right|\\mathrm{d}t\\leqslant\\int_0^{1}\\left|f(t)\\right|\\mathrm{d}t=1$$"
+        },
+        {
+          "name": "得到上界",
+          "latex": "$$\\int_0^{1}f\\left(\\sqrt{x}\\right)\\mathrm{d}x\\leqslant2\\int_0^{1}\\left|f(t)\\right|\\mathrm{d}t=2$$"
+        },
+        {
+          "name": "逼近序列否定更小的 $C$",
+          "latex": "$$f_{\\varepsilon}\\ \\text{集中靠近}\\ t=1\\Longrightarrow \\int_0^{1}f_{\\varepsilon}\\left(\\sqrt{x}\\right)\\mathrm{d}x\\to2-\\varepsilon$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把目标积分换元成与条件同型的积分",
@@ -388,6 +562,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 为连续函数，$t&gt;0$。区域 $\\Omega$ 由抛物面 $z=x^{2}+y^{2}$ 和球面 $x^{2}+y^{2}+z^{2}=t^{2}$ 所围成。定义三重积分 $F(t)=\\displaystyle\\iiint_{\\Omega}f\\left(x^{2}+y^{2}+z^{2}\\right)\\mathrm{d}v$，求 $F(t)$ 的导数 $F'(t)$。",
+      "formulasUsed": [
+        {
+          "name": "柱面坐标",
+          "latex": "$$\\iiint_{\\Omega}f\\left(x^{2}+y^{2}+z^{2}\\right)\\mathrm{d}v=\\int_0^{2\\pi}\\int_0^{r_{0}}\\int_{z_{1}\\left(r\\right)}^{z_{2}\\left(r\\right)}f\\left(r^{2}+z^{2}\\right)r\\,\\mathrm{d}z\\,\\mathrm{d}r\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "两曲面交线定半径",
+          "latex": "$$r^{2}=\\sqrt{t^{2}-r^{2}}\\ \\text{或}\\ z=r^{2},\\ z^{2}+r^{2}=t^{2}\\Longrightarrow \\text{交线由}\\ r^{2}+r^{4}=t^{2}\\ \\text{确定}$$"
+        },
+        {
+          "name": "含参积分求导（Leibniz 法则）",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}t}\\int_{a(t)}^{b(t)}g\\left(r,t\\right)\\mathrm{d}r=g\\left(b,t\\right)b'(t)-g\\left(a,t\\right)a'(t)+\\int_{a(t)}^{b(t)}g_{t}\\left(r,t\\right)\\mathrm{d}r$$"
+        },
+        {
+          "name": "边界项抵消",
+          "latex": "$$\\text{同一条交线上两项相等，代入后相消，只剩对}\\ t\\ \\text{的偏导项}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：用柱面坐标把区域写成「$r$ 与 $z$ 的夹层」",
@@ -430,6 +622,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 与 $\\displaystyle\\sum_{n=1}^{\\infty}b_n$ 为正项级数。(1) 若 $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac{a_n}{a_{n+1}b_n}-\\frac{1}{b_{n+1}}\\right)&gt;0$，则 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛；(2) 若 $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac{a_n}{a_{n+1}b_n}-\\frac{1}{b_{n+1}}\\right)&lt;0$，且 $\\displaystyle\\sum_{n=1}^{\\infty}b_n$ 发散，则 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 发散。",
+      "formulasUsed": [
+        {
+          "name": "把判别式改写成差分",
+          "latex": "$$\\frac{a_{n}}{a_{n+1}b_{n}}-\\frac{1}{b_{n+1}}=\\frac{1}{a_{n+1}}\\left(\\frac{a_{n}}{b_{n}}-\\frac{a_{n+1}}{b_{n+1}}\\right)$$"
+        },
+        {
+          "name": "正极限给差分下界",
+          "latex": "$$\\lim_{n\\to\\infty}\\left(\\frac{a_{n}}{b_{n}}-\\frac{a_{n+1}}{b_{n+1}}\\right)\\cdot\\frac{1}{a_{n+1}}&gt;0\\Longrightarrow \\frac{a_{n}}{b_{n}}-\\frac{a_{n+1}}{b_{n+1}}\\geqslant c\\,a_{n+1}$$"
+        },
+        {
+          "name": "望远镜求和",
+          "latex": "$$\\sum_{n=1}^{N}\\left(\\frac{a_{n}}{b_{n}}-\\frac{a_{n+1}}{b_{n+1}}\\right)=\\frac{a_{1}}{b_{1}}-\\frac{a_{N+1}}{b_{N+1}}\\leqslant\\frac{a_{1}}{b_{1}}\\Longrightarrow \\sum a_{n}\\ \\text{收敛}$$"
+        },
+        {
+          "name": "负极限给递推不等式",
+          "latex": "$$\\frac{a_{n+1}}{b_{n+1}}\\geqslant\\left(1+\\delta\\right)\\frac{a_{n}}{b_{n}}\\Longrightarrow \\frac{a_{n}}{b_{n}}\\ \\text{单调增}\\Longrightarrow \\sum a_{n}\\ \\text{发散}$$"
+        },
+        {
+          "name": "比较判别法",
+          "latex": "$$0\\leqslant a_{n}\\leqslant Mb_{n}\\ \\text{且}\\ \\sum b_{n}\\ \\text{收敛}\\Longrightarrow \\sum a_{n}\\ \\text{收敛}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把判别式改写成 $\\frac{a_n}{b_n}-\\frac{a_{n+1}}{b_{n+1}}$ 的形式",

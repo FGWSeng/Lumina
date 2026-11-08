@@ -18,6 +18,20 @@
       ],
       "difficulty": 4,
       "stemHtml": "求极限 $\\displaystyle\\lim_{n\\to\\infty}\\left(1+\\sin\\left(\\pi\\sqrt{1+4n^{2}}\\right)\\right)^{n}$。",
+      "formulasUsed": [
+        {
+          "name": "根号减整（有理化）",
+          "latex": "$$\\sqrt{1+4n^{2}}-2n=\\frac{1}{\\sqrt{1+4n^{2}}+2n}\\sim\\frac{1}{4n}$$"
+        },
+        {
+          "name": "正弦的周期性",
+          "latex": "$$\\sin\\left(2n\\pi+\\theta\\right)=\\sin\\theta,\\qquad \\sin\\theta\\sim\\theta\\ (\\theta\\to0)$$"
+        },
+        {
+          "name": "$1^{\\infty}$ 型的标准处理",
+          "latex": "$$\\lim\\left(1+u_{n}\\right)^{n}=\\mathrm{e}^{\\\\lim n u_{n}}\\qquad(u_{n}\\to0)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把根号写成「整数 ＋ 小数」",
@@ -60,6 +74,20 @@
       ],
       "difficulty": 3,
       "stemHtml": "证明广义积分 $\\displaystyle\\int_0^{+\\infty}\\frac{\\sin x}{x}\\,\\mathrm{d}x$ 不是绝对收敛的。",
+      "formulasUsed": [
+        {
+          "name": "绝对收敛的含义",
+          "latex": "$$\\int_0^{+\\infty}\\frac{\\sin x}{x}\\mathrm{d}x\\ \\text{绝对收敛}\\iff\\int_0^{+\\infty}\\frac{\\left|\\sin x\\right|}{x}\\mathrm{d}x\\ \\text{收敛}$$"
+        },
+        {
+          "name": "按周期分段并放缩",
+          "latex": "$$\\int_{k\\pi}^{(k+1)\\pi}\\frac{\\left|\\sin x\\right|}{x}\\mathrm{d}x\\geqslant\\frac{1}{(k+1)\\pi}\\int_{k\\pi}^{(k+1)\\pi}\\left|\\sin x\\right|\\mathrm{d}x=\\frac{2}{(k+1)\\pi}$$"
+        },
+        {
+          "name": "与调和级数比较",
+          "latex": "$$\\sum_{k=1}^{\\infty}\\frac{2}{(k+1)\\pi}=+\\infty\\Longrightarrow \\int_0^{+\\infty}\\frac{\\left|\\sin x\\right|}{x}\\mathrm{d}x\\ \\text{发散}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把「非绝对收敛」翻译成「绝对值积分发散」",
@@ -98,6 +126,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $y=y(x)$ 由方程 $x^{3}+3x^{2}y-2y^{3}=2$ 所确定，求 $y(x)$ 的极值。",
+      "formulasUsed": [
+        {
+          "name": "隐函数一阶导（通式）",
+          "latex": "$$F(x,y)=0\\Longrightarrow y'=-\\frac{F_{x}}{F_{y}},\\qquad F=x^{3}+3x^{2}y-2y^{3}-2$$"
+        },
+        {
+          "name": "驻点条件",
+          "latex": "$$y'=0\\Longrightarrow F_{x}=3x^{2}+6xy=0\\Longrightarrow x=0\\ \\text{或}\\ x=-2y$$"
+        },
+        {
+          "name": "驻点必须满足原方程",
+          "latex": "$$x^{3}+3x^{2}y-2y^{3}=2$$"
+        },
+        {
+          "name": "隐函数二阶导",
+          "latex": "$$y''=-\\frac{F_{xx}+2F_{xy}y'+F_{yy}\\left(y'\\right)^{2}}{F_{y}},\\qquad \\text{驻点处}\\ y''=-\\frac{F_{xx}}{F_{y}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：隐函数求导，写出 $y'$ 的最简形式",
@@ -140,6 +186,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "过曲线 $y=\\sqrt[3]{x}\\ (x\\geqslant0)$ 上的点 $A$ 作切线，使该切线与曲线及 $x$ 轴所围成的平面图形面积为 $\\dfrac34$，求点 $A$ 的坐标。",
+      "formulasUsed": [
+        {
+          "name": "切线方程",
+          "latex": "$$y-x_{0}^{1/3}=\\frac{1}{3}x_{0}^{-2/3}\\left(x-x_{0}\\right),\\qquad x_{0}&gt;0$$"
+        },
+        {
+          "name": "切线与 $x$ 轴的交点",
+          "latex": "$$0-x_{0}^{1/3}=\\frac{1}{3}x_{0}^{-2/3}\\left(x-x_{0}\\right)\\Longrightarrow x=-2x_{0}$$"
+        },
+        {
+          "name": "面积＝三角形减曲边梯形",
+          "latex": "$$S=\\frac{1}{2}\\left(3x_{0}\\right)x_{0}^{1/3}-\\int_0^{x_{0}}x^{1/3}\\mathrm{d}x=\\frac{3}{2}x_{0}^{4/3}-\\frac{3}{4}x_{0}^{4/3}=\\frac{3}{4}x_{0}^{4/3}$$"
+        },
+        {
+          "name": "面积条件",
+          "latex": "$$\\frac{3}{4}x_{0}^{4/3}=\\frac{3}{4}\\Longrightarrow x_{0}=1\\Longrightarrow A\\left(1,1\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：设切点、写切线、求 $x$ 轴截距",
@@ -182,6 +246,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "计算定积分 $\\displaystyle I=\\int_{-\\pi}^{\\pi}\\frac{x\\sin x\\cdot\\arctan\\mathrm{e}^{x}}{1+\\cos^{2}x}\\,\\mathrm{d}x$。",
+      "formulasUsed": [
+        {
+          "name": "对称区间合并",
+          "latex": "$$\\int_{-a}^{a}g(x)\\mathrm{d}x=\\int_0^{a}\\left[g(x)+g(-x)\\right]\\mathrm{d}x$$"
+        },
+        {
+          "name": "反正切互补",
+          "latex": "$$\\arctan t+\\arctan\\frac{1}{t}=\\frac{\\pi}{2}\\qquad(t&gt;0),\\qquad \\arctan\\mathrm{e}^{-x}=\\frac{\\pi}{2}-\\arctan\\mathrm{e}^{x}$$"
+        },
+        {
+          "name": "配对公式",
+          "latex": "$$\\int_0^{\\pi}x\\,h\\left(\\sin x\\right)\\mathrm{d}x=\\frac{\\pi}{2}\\int_0^{\\pi}h\\left(\\sin x\\right)\\mathrm{d}x$$"
+        },
+        {
+          "name": "基本积分",
+          "latex": "$$\\int_0^{\\pi}\\frac{\\sin x}{1+\\cos^{2}x}\\mathrm{d}x=\\left[-\\arctan\\left(\\cos x\\right)\\right]_0^{\\pi}=\\frac{\\pi}{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出「非奇非偶 ＋ 对称区间」的固定处理",
@@ -224,6 +306,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在 $x=0$ 处存在二阶导数，且 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}=0$。证明：级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\left|f\\left(\\frac1n\\right)\\right|$ 收敛。",
+      "formulasUsed": [
+        {
+          "name": "由极限条件读出低阶项",
+          "latex": "$$\\lim_{x\\to0}\\frac{f(x)}{x}=0\\Longrightarrow f(0)=0,\\ f'(0)=0$$"
+        },
+        {
+          "name": "二阶 Taylor（Peano 余项）",
+          "latex": "$$f(x)=f''(0)\\frac{x^{2}}{2}+o\\left(x^{2}\\right)\\qquad(x\\to0)$$"
+        },
+        {
+          "name": "代入 $x=\\frac1n$",
+          "latex": "$$f\\left(\\frac1n\\right)=O\\left(\\frac{1}{n^{2}}\\right)\\Longrightarrow \\sum_{n=1}^{\\infty}\\left|f\\left(\\frac1n\\right)\\right|\\leqslant C\\sum\\frac{1}{n^{2}}$$"
+        },
+        {
+          "name": "$p$-级数",
+          "latex": "$$\\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}\\ \\text{收敛}\\iff p&gt;1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：从极限条件读出 $f(0)$ 与 $f'(0)$",
@@ -266,6 +366,20 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $\\left|f(x)\\right|\\leqslant\\pi$，$f'(x)\\geqslant m&gt;0\\ (\\forall x\\in[a,b])$，证明：$\\displaystyle\\left|\\int_a^b\\sin f(x)\\,\\mathrm{d}x\\right|\\leqslant\\frac{2}{m}$。",
+      "formulasUsed": [
+        {
+          "name": "换元把振荡变成单调",
+          "latex": "$$u=f(x),\\qquad \\mathrm{d}x=\\frac{\\mathrm{d}u}{f'(x)}\\leqslant\\frac{\\mathrm{d}u}{m}$$"
+        },
+        {
+          "name": "单个「波瓣」的上界",
+          "latex": "$$\\left|\\int_{u_{1}}^{u_{2}}\\sin u\\,\\mathrm{d}u\\right|\\leqslant2,\\qquad \\left|\\int_{a}^{b}\\sin f(x)\\mathrm{d}x\\right|\\leqslant\\frac{2}{m}$$"
+        },
+        {
+          "name": "分段的长度控制",
+          "latex": "$$f'(x)\\geqslant m\\Longrightarrow \\text{每段长}\\leqslant\\frac{\\pi}{m}\\Longrightarrow \\text{段数}\\leqslant\\frac{f(b)-f(a)}{\\pi}+1\\leqslant3$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看清「$f'\\geqslant m$」能干什么",
@@ -304,6 +418,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\Sigma$ 是一个光滑封闭曲面（方向朝外），给定第二型曲面积分 $\\displaystyle I=\\iint_{\\Sigma}\\left(x^{3}-x\\right)\\mathrm{d}y\\mathrm{d}z+\\left(2y^{3}-y\\right)\\mathrm{d}z\\mathrm{d}x+\\left(3z^{3}-z\\right)\\mathrm{d}x\\mathrm{d}y$。试确定曲面 $\\Sigma$，使 $I$ 最小，并求最小值。",
+      "formulasUsed": [
+        {
+          "name": "Gauss 公式",
+          "latex": "$$\\iint_{\\Sigma}P\\,\\mathrm{d}y\\mathrm{d}z+Q\\,\\mathrm{d}z\\mathrm{d}x+R\\,\\mathrm{d}x\\mathrm{d}y=\\iiint_{V}\\left(\\frac{\\partial P}{\\partial x}+\\frac{\\partial Q}{\\partial y}+\\frac{\\partial R}{\\partial z}\\right)\\mathrm{d}V$$"
+        },
+        {
+          "name": "本题的散度",
+          "latex": "$$\\nabla\\cdot\\vec F=\\left(3x^{2}-1\\right)+\\left(6y^{2}-1\\right)+\\left(9z^{2}-1\\right)$$"
+        },
+        {
+          "name": "取最小 ⟺ 只留散度为负的部分",
+          "latex": "$$\\Omega_{0}:\\ 3x^{2}+6y^{2}+9z^{2}\\leqslant3,\\qquad I_{\\min}=\\iiint_{\\Omega_{0}}\\left(3x^{2}+6y^{2}+9z^{2}-3\\right)\\mathrm{d}V$$"
+        },
+        {
+          "name": "广义球坐标",
+          "latex": "$$x=a\\rho\\sin\\varphi\\cos\\theta,\\ y=b\\rho\\sin\\varphi\\sin\\theta,\\ z=c\\rho\\cos\\varphi,\\qquad \\mathrm{d}V=abc\\,\\rho^{2}\\sin\\varphi\\,\\mathrm{d}\\rho\\mathrm{d}\\varphi\\mathrm{d}\\theta$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：封闭曲面 ＋ 朝外 ⇒ 直接上 Gauss 公式",
@@ -346,6 +478,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\displaystyle I_a(r)=\\oint_C\\frac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{\\left(x^{2}+y^{2}\\right)^{a}}$，其中 $a$ 为常数，$C$ 为椭圆 $x^{2}+xy+y^{2}=r^{2}$（取正向）。求 $\\displaystyle\\lim_{r\\to+\\infty}I_a(r)$。",
+      "formulasUsed": [
+        {
+          "name": "环流的极坐标表达",
+          "latex": "$$y\\,\\mathrm{d}x-x\\,\\mathrm{d}y=-r^{2}\\mathrm{d}\\theta\\Longrightarrow I_{a}=\\oint_{C}\\frac{-r^{2}\\mathrm{d}\\theta}{\\left(x^{2}+y^{2}\\right)^{a}}$$"
+        },
+        {
+          "name": "椭圆参数化",
+          "latex": "$$x^{2}+xy+y^{2}=r^{2}\\iff \\left(x+\\frac y2\\right)^{2}+\\frac{3y^{2}}{4}=r^{2}\\Longrightarrow x=r\\cos t-\\frac{r}{\\sqrt3}\\sin t,\\qquad y=\\frac{2r}{\\sqrt3}\\sin t$$"
+        },
+        {
+          "name": "$a=1$：挖洞后环流守恒",
+          "latex": "$$\\oint_{C}=\\oint_{x^{2}+y^{2}=\\varepsilon^{2}}\\Longrightarrow I_{1}=-2\\pi$$"
+        },
+        {
+          "name": "Green 公式（$a\\neq1$ 时无奇点）",
+          "latex": "$$\\oint_{C}P\\,\\mathrm{d}x+Q\\,\\mathrm{d}y=\\iint_{D}\\left(Q_{x}-P_{y}\\right)\\mathrm{d}x\\mathrm{d}y$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先看 $a=1$ 这个「特殊值」，其余 $a$ 另算",
@@ -388,6 +538,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "判断级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1+\\frac12+\\cdots+\\frac1n}{(n+1)(n+2)}$ 的敛散性，若收敛，求其和。",
+      "formulasUsed": [
+        {
+          "name": "调和数的增长速度",
+          "latex": "$$H_{n}=1+\\frac12+\\cdots+\\frac1n\\leqslant1+\\ln n,\\qquad H_{n}\\sim\\ln n$$"
+        },
+        {
+          "name": "分母裂项",
+          "latex": "$$\\frac{1}{(n+1)(n+2)}=\\frac{1}{n+1}-\\frac{1}{n+2}$$"
+        },
+        {
+          "name": "比较到 $p$-级数",
+          "latex": "$$\\frac{H_{n}}{(n+1)(n+2)}\\leqslant\\frac{1+\\ln n}{n^{2}}\\Longrightarrow \\text{收敛}$$"
+        },
+        {
+          "name": "望远镜求和",
+          "latex": "$$\\sum_{n=1}^{N}\\frac{H_{n}}{(n+1)(n+2)}=\\frac{H_{1}}{2}-\\frac{H_{N}}{N+2}+\\sum_{n=2}^{N}\\frac{1}{n\\left(n+2\\right)}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：收敛性——用 $H_n$ 的增长速度压到 $p$-级数",

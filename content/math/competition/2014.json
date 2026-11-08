@@ -18,6 +18,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "已知 $y_1=\\mathrm{e}^{x}$ 和 $y_2=x\\mathrm{e}^{x}$ 是齐次二阶常系数线性微分方程的解，则该方程为________。",
+      "formulasUsed": [
+        {
+          "name": "常系数齐次方程与特征根",
+          "latex": "$$y''+py'+qy=0\\Longrightarrow r^{2}+pr+q=0$$"
+        },
+        {
+          "name": "重根情形的一般解",
+          "latex": "$$r_{1}=r_{2}=r\\Longrightarrow y=\\left(C_{1}+C_{2}x\\right)\\mathrm{e}^{rx}$$"
+        },
+        {
+          "name": "由解反求方程（韦达）",
+          "latex": "$$\\mathrm{e}^{x},\\ x\\mathrm{e}^{x}\\ \\text{是解}\\Longrightarrow r=1\\ \\text{为二重根}\\Longrightarrow \\left(r-1\\right)^{2}=0\\Longrightarrow y''-2y'+y=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：由「两个解」读出特征根",
@@ -56,6 +70,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设有曲面 $S:z=x^{2}+2y^{2}$ 和平面 $L:2x+2y+z=0$，则与 $L$ 平行的 $S$ 的切平面是________。",
+      "formulasUsed": [
+        {
+          "name": "显式曲面的法向量",
+          "latex": "$$z=f(x,y)\\Longrightarrow \\vec n=\\left(-f_{x},-f_{y},1\\right)$$"
+        },
+        {
+          "name": "本题的法向量",
+          "latex": "$$z=x^{2}+2y^{2}\\Longrightarrow \\vec n=\\left(-2x,-4y,1\\right)$$"
+        },
+        {
+          "name": "平行条件与切点",
+          "latex": "$$\\vec n\\parallel\\left(2,2,1\\right)\\Longrightarrow -2x=2k,\\ -4y=2k,\\ 1=k\\Longrightarrow x=-1,\\ y=-\\frac12$$"
+        },
+        {
+          "name": "切平面（点法式）",
+          "latex": "$$A\\left(x-x_{0}\\right)+B\\left(y-y_{0}\\right)+C\\left(z-z_{0}\\right)=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写出曲面上任一点的切平面法向量",
@@ -94,6 +126,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设函数 $y=y(x)$ 由方程 $x=\\displaystyle\\int_1^{y-x}\\sin^{2}\\frac{\\pi t}{4}\\,\\mathrm{d}t$ 所确定，求 $\\left.\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}\\right|_{x=0}=$________。",
+      "formulasUsed": [
+        {
+          "name": "变上限积分求导（含链式）",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\int_{a}^{\\varphi(x)}g(t)\\mathrm{d}t=g\\left(\\varphi(x)\\right)\\varphi'(x)$$"
+        },
+        {
+          "name": "本题两边求导",
+          "latex": "$$1=\\sin^{2}\\frac{\\pi\\left(y-x\\right)}{4}\\cdot\\left(y'-1\\right)$$"
+        },
+        {
+          "name": "先定 $x=0$ 时的 $y$",
+          "latex": "$$0=\\int_{1}^{y-0}\\sin^{2}\\frac{\\pi t}{4}\\mathrm{d}t\\Longrightarrow y=1\\Longrightarrow \\sin^{2}\\frac{\\pi}{4}=\\frac12$$"
+        },
+        {
+          "name": "解出导数",
+          "latex": "$$y'=1+\\frac{1}{\\sin^{2}\\left(\\pi/4\\right)}=3$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先定 $x=0$ 时的 $y$",
@@ -131,6 +181,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $\\displaystyle x_n=\\sum_{k=1}^{n}\\frac{k}{(k+1)!}$，则 $\\displaystyle\\lim_{n\\to\\infty}x_n=$________。",
+      "formulasUsed": [
+        {
+          "name": "阶乘裂项",
+          "latex": "$$\\frac{k}{(k+1)!}=\\frac{1}{k!}-\\frac{1}{(k+1)!}$$"
+        },
+        {
+          "name": "望远镜求和",
+          "latex": "$$\\sum_{k=1}^{n}\\left(\\frac{1}{k!}-\\frac{1}{(k+1)!}\\right)=1-\\frac{1}{(n+1)!}$$"
+        },
+        {
+          "name": "取极限",
+          "latex": "$$\\lim_{n\\to\\infty}\\left[1-\\frac{1}{(n+1)!}\\right]=1,\\qquad \\sum_{k=0}^{\\infty}\\frac{1}{k!}=\\mathrm{e}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把分子凑成「分母因子之差」",
@@ -169,6 +233,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "已知 $\\displaystyle\\lim_{x\\to0}\\left(1+x+\\frac{f(x)}{x}\\right)^{\\frac1x}=\\mathrm{e}^{3}$，则 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x^{2}}=$________。",
+      "formulasUsed": [
+        {
+          "name": "$1^{\\infty}$ 型取对数",
+          "latex": "$$\\left(1+u\\right)^{\\frac1x}\\to\\mathrm{e}^{3}\\Longrightarrow \\frac{1}{x}\\ln\\left(1+u\\right)\\to3,\\qquad u=x+\\frac{f(x)}{x}$$"
+        },
+        {
+          "name": "对数等价",
+          "latex": "$$\\ln\\left(1+u\\right)\\sim u\\Longrightarrow \\frac{1}{x}\\left(x+\\frac{f(x)}{x}\\right)\\to3$$"
+        },
+        {
+          "name": "还原所求",
+          "latex": "$$1+\\lim_{x\\to0}\\frac{f(x)}{x^{2}}=3\\Longrightarrow \\lim_{x\\to0}\\frac{f(x)}{x^{2}}=2$$"
+        },
+        {
+          "name": "指数还原",
+          "latex": "$$\\mathrm{e}^{u}-1\\sim u\\qquad(u\\to0)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：$1^{\\infty}$ 型取对数，把指数搬下来",
@@ -207,6 +289,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $n$ 为正整数，计算 $\\displaystyle I=\\int_{\\mathrm{e}^{-2n\\pi}}^{1}\\left|\\frac{\\mathrm{d}}{\\mathrm{d}x}\\cos\\left(\\ln\\frac1x\\right)\\right|\\mathrm{d}x$。",
+      "formulasUsed": [
+        {
+          "name": "先化简被积函数",
+          "latex": "$$\\cos\\left(\\ln\\frac1x\\right)=\\cos\\left(-\\ln x\\right)=\\cos\\left(\\ln x\\right)\\Longrightarrow \\left|\\frac{\\mathrm{d}}{\\mathrm{d}x}\\cos\\left(\\ln x\\right)\\right|=\\left|\\frac{\\sin\\left(\\ln x\\right)}{x}\\right|$$"
+        },
+        {
+          "name": "换元吃掉 $\\frac1x$",
+          "latex": "$$u=\\ln x,\\quad \\mathrm{d}u=\\frac{\\mathrm{d}x}{x}\\Longrightarrow I=\\int_{-2n\\pi}^{0}\\left|\\sin u\\right|\\mathrm{d}u$$"
+        },
+        {
+          "name": "一个周期的绝对值积分",
+          "latex": "$$\\int_0^{2\\pi}\\left|\\sin u\\right|\\mathrm{d}u=4$$"
+        },
+        {
+          "name": "整段结果",
+          "latex": "$$I=n\\int_0^{2\\pi}\\left|\\sin u\\right|\\mathrm{d}u=4n$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先化简被积函数，别被 $\\ln\\frac1x$ 吓住",
@@ -245,6 +345,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 在 $[0,1]$ 上有二阶导数，且存在正常数 $A,B$ 使 $\\left|f(x)\\right|\\leqslant A$，$\\left|f''(x)\\right|\\leqslant B$。证明：对任意 $x\\in[0,1]$，$\\left|f'(x)\\right|\\leqslant2A+\\dfrac{B}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "在 $x$ 处对两端点作 Taylor",
+          "latex": "$$f(0)=f(x)-f'(x)x+\\frac{f''(\\xi_{1})}{2}x^{2},\\qquad f(1)=f(x)+f'(x)\\left(1-x\\right)+\\frac{f''(\\xi_{2})}{2}\\left(1-x\\right)^{2}$$"
+        },
+        {
+          "name": "相减解出 $f'(x)$",
+          "latex": "$$f'(x)=f(1)-f(0)-\\frac{f''(\\xi_{2})}{2}\\left(1-x\\right)^{2}+\\frac{f''(\\xi_{1})}{2}x^{2}$$"
+        },
+        {
+          "name": "逐项估绝对值",
+          "latex": "$$\\left|f'(x)\\right|\\leqslant2A+\\frac{B}{2}\\left[\\left(1-x\\right)^{2}+x^{2}\\right]$$"
+        },
+        {
+          "name": "二次函数取极值",
+          "latex": "$$\\max_{x\\in[0,1]}\\left[\\left(1-x\\right)^{2}+x^{2}\\right]=1\\Longrightarrow \\left|f'(x)\\right|\\leqslant2A+\\frac{B}{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $f(0)$、$f(1)$ 都「在 $x$ 处」展开",
@@ -287,6 +405,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "(1) 设一球缺高为 $h$，所在球半径为 $R$，证明该球缺的体积为 $\\dfrac{\\pi}{3}\\left(3R-h\\right)h^{2}$，球冠的面积为 $2\\pi Rh$。(2) 设球体 $\\left(x-1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-1\\right)^{2}\\leqslant12$ 被平面 $P:x+y+z=6$ 所截的小球缺为 $\\Omega$，记球上缺的球冠为 $\\Sigma$（方向指向球外），求 $I=\\displaystyle\\iint_{\\Sigma}x\\,\\mathrm{d}y\\mathrm{d}z+y\\,\\mathrm{d}z\\mathrm{d}x+z\\,\\mathrm{d}x\\mathrm{d}y$。",
+      "formulasUsed": [
+        {
+          "name": "平行截面体积（先二后一）",
+          "latex": "$$V=\\int_{R-h}^{R}\\pi\\left(R^{2}-z^{2}\\right)\\mathrm{d}z=\\frac{\\pi h^{2}}{3}\\left(3R-h\\right)$$"
+        },
+        {
+          "name": "球面面积元素与球冠面积",
+          "latex": "$$\\mathrm{d}S=R^{2}\\sin\\varphi\\,\\mathrm{d}\\varphi\\mathrm{d}\\theta,\\qquad S=\\int_0^{\\varphi_{0}}2\\pi R^{2}\\sin\\varphi\\,\\mathrm{d}\\varphi=2\\pi Rh$$"
+        },
+        {
+          "name": "球缺的几何量",
+          "latex": "$$\\text{球心到平面距离}\\ d=\\frac{\\left|1+1+1-6\\right|}{\\sqrt3}=\\sqrt3,\\qquad h=R-d=2\\sqrt3-\\sqrt3=\\sqrt3$$"
+        },
+        {
+          "name": "补面后用 Gauss",
+          "latex": "$$I_{\\text{闭}}=\\iiint_{\\Omega}\\left(1+1+1\\right)\\mathrm{d}V=3V_{\\Omega},\\qquad I=I_{\\text{闭}}-I_{\\text{补面}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：(1) 体积——平行截面是圆，用「先二后一」",
@@ -329,6 +465,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f$ 在 $[a,b]$ 上非负连续、严格单增，且对任意 $n\\in\\mathbb{N}$，存在 $x_n\\in[a,b]$ 使 $\\left[f\\left(x_n\\right)\\right]^{n}=\\dfrac{1}{b-a}\\displaystyle\\int_a^b\\left[f(x)\\right]^{n}\\mathrm{d}x$，求 $\\displaystyle\\lim_{n\\to\\infty}x_n$。",
+      "formulasUsed": [
+        {
+          "name": "把区间搬到 $[0,1]$",
+          "latex": "$$x=a+\\left(b-a\\right)t\\Longrightarrow \\frac{1}{b-a}\\int_a^{b}f^{n}\\mathrm{d}x=\\int_0^{1}F^{n}\\left(t\\right)\\mathrm{d}t$$"
+        },
+        {
+          "name": "最大值两侧夹住",
+          "latex": "$$M^{n}\\geqslant\\int_0^{1}F^{n}\\mathrm{d}t\\geqslant M^{n}\\left(1-c\\right)\\Longrightarrow \\left[f\\left(x_{n}\\right)\\right]^{n}\\geqslant M^{n}\\left(1-c\\right)$$"
+        },
+        {
+          "name": "由单调性逼出位置",
+          "latex": "$$f\\left(x_{n}\\right)\\geqslant M\\left(1-c\\right)^{1/n}\\Longrightarrow x_{n}\\to\\ \\text{最大值点}$$"
+        },
+        {
+          "name": "积分中值定理",
+          "latex": "$$\\int_a^{b}g(x)\\mathrm{d}x=g\\left(\\xi\\right)\\left(b-a\\right),\\qquad \\xi\\in(a,b)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把区间搬到 $[0,1]$，问题不变",
@@ -371,6 +525,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $A_n=\\dfrac{n}{n^{2}+1}+\\dfrac{n}{n^{2}+2^{2}}+\\cdots+\\dfrac{n}{n^{2}+n^{2}}$，求 $\\displaystyle\\lim_{n\\to\\infty}n\\left(\\frac{\\pi}{4}-A_n\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "右和与定积分",
+          "latex": "$$A_{n}=\\sum_{i=1}^{n}\\frac{1}{n}\\cdot\\frac{1}{1+\\left(i/n\\right)^{2}}\\longrightarrow \\int_0^{1}\\frac{\\mathrm{d}x}{1+x^{2}}=\\frac{\\pi}{4}$$"
+        },
+        {
+          "name": "误差写成逐段积分差",
+          "latex": "$$\\frac{\\pi}{4}-A_{n}=\\sum_{i=1}^{n}\\int_{x_{i-1}}^{x_{i}}\\left[\\frac{1}{1+x^{2}}-\\frac{1}{1+x_{i}^{2}}\\right]\\mathrm{d}x$$"
+        },
+        {
+          "name": "Lagrange 中值定理",
+          "latex": "$$\\frac{1}{1+x^{2}}-\\frac{1}{1+x_{i}^{2}}=-\\frac{2\\xi}{\\left(1+\\xi^{2}\\right)^{2}}\\left(x-x_{i}\\right),\\qquad \\xi\\in\\left(x_{i-1},x_{i}\\right)$$"
+        },
+        {
+          "name": "求和变定积分",
+          "latex": "$$n\\left(\\frac{\\pi}{4}-A_{n}\\right)\\longrightarrow\\frac{1}{2}\\int_0^{1}\\frac{2x\\,\\mathrm{d}x}{\\left(1+x^{2}\\right)^{2}}=\\frac{1}{4}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $A_n$ 认成右和",

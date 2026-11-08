@@ -13,10 +13,29 @@
       "title": "乘积因子取极限",
       "tags": [
         "乘积因子取极限",
+        "$(1+u)^{\\alpha}-1$",
         "$x-\\sin x$ 三阶"
       ],
       "difficulty": 3,
       "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\frac{\\left(x-\\sin x\\right)\\mathrm{e}^{-x^{2}}}{\\sqrt{1-x^{3}}-1}$。",
+      "formulasUsed": [
+        {
+          "name": "分子三阶展开",
+          "latex": "$$x-\\sin x=\\frac{x^{3}}{6}+O\\left(x^{5}\\right)$$"
+        },
+        {
+          "name": "分母「根号减 1」一阶展开",
+          "latex": "$$\\sqrt{1+u}=1+\\frac{u}{2}+o\\left(u\\right)\\Longrightarrow \\sqrt{1-x^{3}}-1=-\\frac{x^{3}}{2}+o\\left(x^{3}\\right)$$"
+        },
+        {
+          "name": "指数因子不影响阶",
+          "latex": "$$\\mathrm{e}^{-x^{2}}\\to1$$"
+        },
+        {
+          "name": "同阶相除",
+          "latex": "$$\\frac{\\left(x-\\sin x\\right)\\mathrm{e}^{-x^{2}}}{\\sqrt{1-x^{3}}-1}\\longrightarrow\\frac{x^{3}/6}{-x^{3}/2}=-\\frac13$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：判型，先把 $\\mathrm{e}^{-x^{2}}$ 摘出去",
@@ -58,6 +77,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "设函数 $f(x)=\\left(x+1\\right)^{n}\\mathrm{e}^{-x^{2}}$，则 $f^{(n)}(-1)=$________。",
+      "formulasUsed": [
+        {
+          "name": "Leibniz 公式",
+          "latex": "$$\\left(uv\\right)^{(n)}=\\sum_{k=0}^{n}\\mathrm{C}_{n}^{k}u^{(k)}v^{(n-k)}$$"
+        },
+        {
+          "name": "取 $u=(x+1)^{n}$、只看非零项",
+          "latex": "$$u^{(k)}=0\\ \\left(k&lt;n\\right),\\ u^{(n)}=n!\\Longrightarrow f^{(n)}(x)=n!\\,\\mathrm{e}^{-x^{2}}+\\text{含因子}\\ \\left(x+1\\right)\\ \\text{的项}$$"
+        },
+        {
+          "name": "代 $x=-1$",
+          "latex": "$$f^{(n)}(-1)=n!\\,\\mathrm{e}^{-1}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：判断这是「乘积高阶导数在某点取值」",
@@ -91,10 +124,29 @@
       "title": "隐函数求导",
       "tags": [
         "隐函数求导",
+        "$\\arctan\\frac xy$ 链式",
         "点斜式"
       ],
       "difficulty": 3,
       "stemHtml": "设 $y=f(x)$ 是由方程 $\\arctan\\dfrac{x}{y}=\\ln\\sqrt{x^{2}+y^{2}}-\\dfrac12\\ln2+\\dfrac{\\pi}{4}$ 确定的隐函数，且满足 $f(1)=1$，则曲线 $y=f(x)$ 在点 $\\left(1,1\\right)$ 处的切线方程为________。",
+      "formulasUsed": [
+        {
+          "name": "反正切的链式求导",
+          "latex": "$$\\left(\\arctan\\frac xy\\right)'=\\frac{1}{1+\\left(x/y\\right)^{2}}\\cdot\\frac{y-xy'}{y^{2}}=\\frac{y-xy'}{x^{2}+y^{2}}$$"
+        },
+        {
+          "name": "右边对数求导",
+          "latex": "$$\\left(\\ln\\sqrt{x^{2}+y^{2}}\\right)'=\\frac{x+yy'}{x^{2}+y^{2}}$$"
+        },
+        {
+          "name": "约去公分母解出 $y'$",
+          "latex": "$$y-xy'=x+yy'\\Longrightarrow y'\\left(1\\right)=\\frac{y-x}{x+y}\\bigg|_{\\left(1,1\\right)}=0$$"
+        },
+        {
+          "name": "切线方程",
+          "latex": "$$y-1=0\\cdot\\left(x-1\\right)\\Longrightarrow y=1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先验点是否在曲线上",
@@ -137,6 +189,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "已知 $\\displaystyle\\int_0^{+\\infty}\\frac{\\sin x}{x}\\,\\mathrm{d}x=\\frac{\\pi}{2}$，则 $\\displaystyle\\int_0^{+\\infty}\\!\\!\\int_0^{+\\infty}\\frac{\\sin x\\sin\\left(x+y\\right)}{x\\left(x+y\\right)}\\,\\mathrm{d}x\\mathrm{d}y=$________。",
+      "formulasUsed": [
+        {
+          "name": "换元把 $x+y$ 合成一个变量",
+          "latex": "$$u=x+y,\\qquad \\int_0^{+\\infty}\\!\\!\\int_0^{+\\infty}\\frac{\\sin x\\sin\\left(x+y\\right)}{x\\left(x+y\\right)}\\mathrm{d}x\\mathrm{d}y=\\int_0^{+\\infty}\\frac{\\sin x}{x}F\\left(x\\right)\\mathrm{d}x$$"
+        },
+        {
+          "name": "其中 $F$ 的导数",
+          "latex": "$$F\\left(x\\right)=\\int_x^{+\\infty}\\frac{\\sin u}{u}\\mathrm{d}u,\\qquad F'\\left(x\\right)=-\\frac{\\sin x}{x}$$"
+        },
+        {
+          "name": "$FF'$ 直接积出",
+          "latex": "$$\\int_0^{+\\infty}\\frac{\\sin x}{x}F\\left(x\\right)\\mathrm{d}x=-\\int_0^{+\\infty}FF'\\mathrm{d}x=\\frac{F^{2}\\left(0\\right)}{2}$$"
+        },
+        {
+          "name": "用已知积分",
+          "latex": "$$F\\left(0\\right)=\\int_0^{+\\infty}\\frac{\\sin x}{x}\\mathrm{d}x=\\frac{\\pi}{2}\\Longrightarrow I=\\frac{\\pi^{2}}{8}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看出 $x$ 与 $x+y$ 成对，作换元 $u=x+y$",
@@ -175,6 +245,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $f(x)$、$g(x)$ 在 $x=0$ 的某一邻域 $U$ 内有定义，对任意 $x\\in U$，$f(x)\\neq g(x)$，且 $\\displaystyle\\lim_{x\\to0}f(x)=\\lim_{x\\to0}g(x)=a&gt;0$，则 $\\displaystyle\\lim_{x\\to0}\\frac{\\left[f(x)\\right]^{g(x)}-\\left[g(x)\\right]^{g(x)}}{f(x)-g(x)}=$________。",
+      "formulasUsed": [
+        {
+          "name": "提取公共因子",
+          "latex": "$$\\left[f\\right]^{g}-\\left[g\\right]^{g}=\\left[g\\right]^{g}\\left[\\left(\\frac fg\\right)^{g}-1\\right]$$"
+        },
+        {
+          "name": "$A^{B}-1\\sim B\\ln A$",
+          "latex": "$$\\left(\\frac fg\\right)^{g}-1\\sim g\\ln\\frac fg=g\\ln\\left(1+\\frac{f-g}{g}\\right)\\sim\\frac{g\\left(f-g\\right)}{g}=f-g$$"
+        },
+        {
+          "name": "约分取极限",
+          "latex": "$$\\frac{\\left[f\\right]^{g}-\\left[g\\right]^{g}}{f-g}\\longrightarrow a^{a}$$"
+        },
+        {
+          "name": "幂指函数有意义的前提",
+          "latex": "$$f,g&gt;0\\ \\text{于}\\ U\\Longrightarrow \\left[f\\right]^{g}=\\mathrm{e}^{g\\ln f}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先确认幂有意义",
@@ -217,6 +305,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设数列 $\\left\\{a_n\\right\\}$ 满足：$a_1=1$，且 $a_{n+1}=\\dfrac{a_n}{\\left(n+1\\right)\\left(a_n+1\\right)}$，$n\\geqslant1$。求极限 $\\displaystyle\\lim_{n\\to\\infty}n!\\,a_n$。",
+      "formulasUsed": [
+        {
+          "name": "先证正性再取倒数",
+          "latex": "$$a_{n}&gt;0\\Longrightarrow \\frac{1}{a_{n+1}}=\\frac{\\left(n+1\\right)\\left(a_{n}+1\\right)}{a_{n}}=\\frac{n+1}{a_{n}}+\\left(n+1\\right)$$"
+        },
+        {
+          "name": "除以 $(n+1)!$ 造差分",
+          "latex": "$$c_{n}=\\frac{1}{n!\\,a_{n}}\\Longrightarrow c_{n+1}=c_{n}+\\frac{1}{n!},\\qquad c_{1}=1$$"
+        },
+        {
+          "name": "累加",
+          "latex": "$$c_{n}=1+\\sum_{k=1}^{n-1}\\frac{1}{k!}\\longrightarrow\\mathrm{e}$$"
+        },
+        {
+          "name": "取倒数得极限",
+          "latex": "$$\\lim_{n\\to\\infty}n!\\,a_{n}=\\lim_{n\\to\\infty}\\frac{1}{c_{n}}=\\frac1{\\mathrm{e}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先证正性，才能取倒数",
@@ -259,6 +365,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在 $\\left[0,1\\right]$ 上连续，在 $\\left(0,1\\right)$ 内可导，且 $f(0)=0$，$f(1)=1$。证明：（1）存在 $x_0\\in\\left(0,1\\right)$，使 $f(x_0)=2-3x_0$；（2）存在 $\\xi,\\eta\\in\\left(0,1\\right)$，$\\xi\\neq\\eta$，使 $\\left[1+f'(\\xi)\\right]\\left[1+f'(\\eta)\\right]=4$。",
+      "formulasUsed": [
+        {
+          "name": "零点定理",
+          "latex": "$$g\\left(x\\right)=f\\left(x\\right)+3x-2,\\quad g\\left(0\\right)=-2,\\ g\\left(1\\right)=2\\Longrightarrow \\exists x_{0},\\ g\\left(x_{0}\\right)=0\\Longrightarrow f\\left(x_{0}\\right)=2-3x_{0}$$"
+        },
+        {
+          "name": "用 $x_{0}$ 把区间切成两段",
+          "latex": "$$\\left[0,x_{0}\\right],\\ \\left[x_{0},1\\right]$$"
+        },
+        {
+          "name": "两段各用 Lagrange 中值",
+          "latex": "$$f'\\left(\\xi\\right)=\\frac{f\\left(x_{0}\\right)-f\\left(0\\right)}{x_{0}}=\\frac{2-3x_{0}}{x_{0}},\\qquad f'\\left(\\eta\\right)=\\frac{f\\left(1\\right)-f\\left(x_{0}\\right)}{1-x_{0}}=\\frac{3x_{0}-1}{1-x_{0}}$$"
+        },
+        {
+          "name": "相乘恒为 4",
+          "latex": "$$\\left[1+f'\\left(\\xi\\right)\\right]\\left[1+f'\\left(\\eta\\right)\\right]=\\frac{2}{x_{0}}\\cdot\\frac{2}{1-x_{0}}=4$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：第（1）问移项，变成求零点",
@@ -296,10 +420,28 @@
       "title": "齐次复合的二阶偏导",
       "tags": [
         "齐次复合的二阶偏导",
-        "函数方程 $u o rac1u$ 联立"
+        "函数方程 $u o\\frac1u$ 联立"
       ],
       "difficulty": 4,
       "stemHtml": "已知 $z=xf\\!\\left(\\dfrac yx\\right)+2y\\varphi\\!\\left(\\dfrac xy\\right)$，其中 $f,\\varphi$ 均为二次可微函数。（1）求 $\\dfrac{\\partial z}{\\partial x}$、$\\dfrac{\\partial^{2}z}{\\partial x\\partial y}$；（2）当 $f=\\varphi$，且 $\\left.\\dfrac{\\partial^{2}z}{\\partial x\\partial y}\\right|_{x=a}=-by^{2}$ 时，求 $f(y)$。",
+      "formulasUsed": [
+        {
+          "name": "内层偏导",
+          "latex": "$$\\left(\\frac yx\\right)_{x}=-\\frac{y}{x^{2}},\\ \\left(\\frac yx\\right)_{y}=\\frac1x,\\qquad \\left(\\frac xy\\right)_{x}=-\\frac{y}{x^{2}},\\ \\left(\\frac xy\\right)_{y}=\\frac1x$$"
+        },
+        {
+          "name": "$z_{x}$ 与 $z_{xy}$",
+          "latex": "$$z_{x}=f-\\frac{y}{x}f'-\\frac{2y^{2}}{x^{2}}\\varphi',\\qquad z_{xy}=\\frac{\\partial}{\\partial y}\\left(z_{x}\\right)\\ \\text{（对}\\ f,f',\\varphi'\\ \\text{再用链式）}$$"
+        },
+        {
+          "name": "齐次型组合（欧拉定理）",
+          "latex": "$$z=xf\\left(\\frac yx\\right)+2y\\varphi\\left(\\frac xy\\right)\\Longrightarrow xz_{x}+yz_{y}=z+2y\\varphi$$"
+        },
+        {
+          "name": "第（2）问的换元",
+          "latex": "$$f=\\varphi,\\ x=a\\Longrightarrow \\text{关于}\\ f\\ \\text{的一元方程；令}\\ u\\to\\frac1u\\ \\text{得第二式，联立消元，两次积分}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先备好两个内函数的偏导",
@@ -351,6 +493,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "计算 $I=\\displaystyle\\oint_\\Gamma\\left|\\sqrt3\\,y-x\\right|\\mathrm{d}x-5z\\,\\mathrm{d}z$，其中 $\\Gamma:\\begin{cases}x^{2}+y^{2}+z^{2}=8,\\\\ x^{2}+y^{2}=2z,\\end{cases}$ 从 $z$ 轴正向往原点看去取逆时针方向。",
+      "formulasUsed": [
+        {
+          "name": "联立消元认出曲线",
+          "latex": "$$x^{2}+y^{2}=2z,\\ x^{2}+y^{2}+z^{2}=8\\Longrightarrow z^{2}+2z-8=0\\Longrightarrow z=2,\\ x^{2}+y^{2}=4$$"
+        },
+        {
+          "name": "参数化",
+          "latex": "$$x=2\\cos t,\\ y=2\\sin t,\\ z\\equiv2\\Longrightarrow \\mathrm{d}z=0$$"
+        },
+        {
+          "name": "绝对值内的合并",
+          "latex": "$$\\left|\\sqrt3\\,y-x\\right|=\\left|2\\sqrt3\\sin t-2\\cos t\\right|=4\\left|\\sin\\left(t-\\frac{\\pi}{6}\\right)\\right|$$"
+        },
+        {
+          "name": "整周期与奇偶",
+          "latex": "$$\\int_0^{2\\pi}\\left|A\\sin\\left(t+\\varphi\\right)\\right|\\mathrm{d}t=4\\left|A\\right|$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：联立消元，先把曲线认出来",
@@ -394,6 +554,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "证明 $f(n)=\\displaystyle\\sum_{m=1}^{n}\\int_0^{m}\\cos\\frac{2\\pi n\\left[x+1\\right]}{m}\\,\\mathrm dx$ 等于 $n$ 的所有正因子（包括 $1$ 与 $n$）之和，其中 $\\left[x+1\\right]$ 表示不超过 $x+1$ 的最大整数；并计算 $f(2021)$。",
+      "formulasUsed": [
+        {
+          "name": "取整函数分段",
+          "latex": "$$\\left[x+1\\right]=k\\ \\text{当}\\ x\\in\\left[k-1,k\\right)$$"
+        },
+        {
+          "name": "余弦的整周期积分",
+          "latex": "$$\\int_0^{m}\\cos\\frac{2\\pi n}{m}\\left[x+1\\right]\\mathrm{d}x=\\sum_{k=1}^{m}\\frac{m}{2\\pi n}\\left[\\sin\\frac{2\\pi nk}{m}-\\sin\\frac{2\\pi n\\left(k-1\\right)}{m}\\right]$$"
+        },
+        {
+          "name": "分两种情形",
+          "latex": "$$m\\mid n\\Longrightarrow \\text{每段积分为}\\ m;\\qquad m\\nmid n\\Longrightarrow \\text{整周期为零}$$"
+        },
+        {
+          "name": "因子和",
+          "latex": "$$f\\left(n\\right)=\\sum_{m\\mid n}m,\\qquad f\\left(2021\\right)=1+43+47+2021\\ \\left(2021=43\\cdot47\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：按取整函数把内层积分切段",
@@ -431,13 +609,35 @@
       "title": "单调有界",
       "tags": [
         "单调有界",
-        "$ arepsilon$ 分段",
+        "$\\varepsilon$ 分段",
         "莱布尼茨",
         "分部积分造望远镜",
         "部分分式"
       ],
       "difficulty": 4,
       "stemHtml": "设 $u_n=\\displaystyle\\int_0^{1}\\frac{\\mathrm dt}{\\left(1+t^{4}\\right)^{n}}$（$n\\geqslant1$）。（1）证明数列 $\\left\\{u_n\\right\\}$ 收敛，并求 $\\displaystyle\\lim_{n\\to\\infty}u_n$；（2）证明级数 $\\sum_{n=1}^{\\infty}\\left(-1\\right)^{n}u_n$ 条件收敛；（3）证明 $p\\geqslant1$ 时 $\\sum_{n=1}^{\\infty}\\frac{u_n}{n^{p}}$ 收敛，并求 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{u_n}{n}$。",
+      "formulasUsed": [
+        {
+          "name": "单调有界",
+          "latex": "$$u_{n+1}\\leqslant u_{n},\\qquad 0\\leqslant u_{n}\\leqslant1\\Longrightarrow \\left\\{u_{n}\\right\\}\\ \\text{收敛}$$"
+        },
+        {
+          "name": "$\\varepsilon$ 分段（不用控制收敛）",
+          "latex": "$$u_{n}=\\int_0^{\\delta}\\frac{\\mathrm{d}t}{\\left(1+t^{4}\\right)^{n}}+\\int_{\\delta}^{1}\\frac{\\mathrm{d}t}{\\left(1+t^{4}\\right)^{n}}\\leqslant\\delta+\\frac{1}{\\left(1+\\delta^{4}\\right)^{n}}$$"
+        },
+        {
+          "name": "下界估计给「不绝对」",
+          "latex": "$$u_{n}\\geqslant\\delta\\left(1+\\delta^{4}\\right)^{-n},\\qquad \\delta=n^{-1/2}\\Longrightarrow u_{n}\\geqslant c\\,n^{-1/2}\\Longrightarrow \\sum_{n}u_{n}\\ \\text{发散}$$"
+        },
+        {
+          "name": "分部积分造出差分",
+          "latex": "$$u_{n}-u_{n+1}=\\int_0^{1}\\frac{t^{4}}{\\left(1+t^{4}\\right)^{n+1}}\\mathrm{d}t\\geqslant0$$"
+        },
+        {
+          "name": "望远镜求和",
+          "latex": "$$\\sum_{n=1}^{\\infty}\\frac{u_{n}}{n}=\\int_0^{1}\\left[\\sum_{n=1}^{\\infty}\\frac{1}{n\\left(1+t^{4}\\right)^{n}}\\right]\\mathrm{d}t=-\\int_0^{1}\\ln\\left(1-\\frac{1}{1+t^{4}}\\right)\\mathrm{d}t$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：单调有界，先拿到收敛",

@@ -18,6 +18,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "已知可导函数 $f(x)$ 满足 $f(x)\\cos x+2\\displaystyle\\int_0^{x}f(t)\\sin t\\,\\mathrm{d}t=x+1$，则 $f(x)=$________。",
+      "formulasUsed": [
+        {
+          "name": "变上限积分求导",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\int_0^{x}f(t)\\sin t\\,\\mathrm{d}t=f(x)\\sin x$$"
+        },
+        {
+          "name": "求导后整理",
+          "latex": "$$f'\\cos x-f\\sin x+2f\\sin x=1\\Longrightarrow \\left(f\\cos x\\right)'=1$$"
+        },
+        {
+          "name": "积分得通解",
+          "latex": "$$f(x)\\cos x=x+C$$"
+        },
+        {
+          "name": "回原方程取初值",
+          "latex": "$$x=0:\\ f(0)\\cdot1+0=1\\Longrightarrow C=1\\Longrightarrow f(x)=\\frac{x+1}{\\cos x}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：两边求导，把积分消掉",
@@ -56,6 +74,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "极限 $\\displaystyle\\lim_{n\\to\\infty}\\sin^{2}\\left(\\pi\\sqrt{n^{2}+n}\\right)=$________。",
+      "formulasUsed": [
+        {
+          "name": "$\\sin^{2}$ 的周期性",
+          "latex": "$$\\sin^{2}\\left(n\\pi+\\theta\\right)=\\sin^{2}\\theta$$"
+        },
+        {
+          "name": "根号减整（展开或有理化）",
+          "latex": "$$\\sqrt{n^{2}+n}=n\\sqrt{1+\\frac1n}=n+\\frac12-\\frac{1}{8n}+O\\left(\\frac{1}{n^{2}}\\right)$$"
+        },
+        {
+          "name": "代回取极限",
+          "latex": "$$\\sin^{2}\\left(\\pi\\sqrt{n^{2}+n}\\right)=\\sin^{2}\\left(\\pi\\left(\\frac12-\\frac{1}{8n}+\\cdots\\right)\\right)\\longrightarrow\\sin^{2}\\frac{\\pi}{2}=1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：用 $\\sin^{2}$ 的 $\\pi$ 周期性，把 $n\\pi$ 减掉",
@@ -94,6 +126,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $w=f(u,v)$ 具有二阶连续偏导数，$u=x-cy$，$v=x+cy$，$c$ 为非零常数，则 $w_{xx}-\\dfrac{1}{c^{2}}w_{yy}=$________。",
+      "formulasUsed": [
+        {
+          "name": "一阶链式",
+          "latex": "$$w_{x}=f_{1}+f_{2},\\qquad w_{y}=c\\left(-f_{1}+f_{2}\\right)$$"
+        },
+        {
+          "name": "二阶链式（$f_{1},f_{2}$ 仍是 $u,v$ 的函数）",
+          "latex": "$$w_{xx}=f_{11}+2f_{12}+f_{22},\\qquad w_{yy}=c^{2}\\left(f_{11}-2f_{12}+f_{22}\\right)$$"
+        },
+        {
+          "name": "组合相减",
+          "latex": "$$w_{xx}-\\frac{1}{c^{2}}w_{yy}=4f_{12}\\left(u,v\\right),\\qquad u=x-cy,\\ v=x+cy$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：一次链式，写出 $w_x$ 与 $w_y$",
@@ -132,6 +178,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(x)$ 有二阶连续导数，$f(0)=f'(0)=0$，$f''(0)=6$，则 $\\displaystyle\\lim_{x\\to0}\\frac{f\\left(\\sin^{2}x\\right)}{x^{4}}=$________。",
+      "formulasUsed": [
+        {
+          "name": "由三个条件读出主项",
+          "latex": "$$f(0)=f'(0)=0,\\ f''(0)=6\\Longrightarrow f(u)=3u^{2}+o\\left(u^{2}\\right)$$"
+        },
+        {
+          "name": "内层的主部",
+          "latex": "$$u=\\sin^{2}x\\sim x^{2}\\Longrightarrow f\\left(\\sin^{2}x\\right)=3x^{4}+o\\left(x^{4}\\right)$$"
+        },
+        {
+          "name": "取极限",
+          "latex": "$$\\frac{f\\left(\\sin^{2}x\\right)}{x^{4}}\\longrightarrow3$$"
+        },
+        {
+          "name": "Peano 余项形式",
+          "latex": "$$f(u)=f''(0)\\frac{u^{2}}{2}+o\\left(u^{2}\\right)\\qquad(u\\to0)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出「零、零导数、非零二阶」，只剩二次主项",
@@ -170,6 +234,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "不定积分 $I=\\displaystyle\\int\\frac{\\mathrm{e}^{-\\sin x}\\sin2x}{\\left(1-\\sin x\\right)^{2}}\\,\\mathrm{d}x=$________。",
+      "formulasUsed": [
+        {
+          "name": "换元把三角压成代数",
+          "latex": "$$v=\\sin x,\\quad \\mathrm{d}v=\\cos x\\,\\mathrm{d}x,\\qquad \\sin2x=2\\sin x\\cos x$$"
+        },
+        {
+          "name": "本题的被积函数变为",
+          "latex": "$$\\int\\frac{\\mathrm{e}^{-\\sin x}2\\sin x\\cos x}{\\left(1-\\sin x\\right)^{2}}\\mathrm{d}x=2\\int\\frac{\\mathrm{e}^{-v}v}{\\left(1-v\\right)^{2}}\\mathrm{d}v$$"
+        },
+        {
+          "name": "凑组合的导数",
+          "latex": "$$\\left(\\frac{\\mathrm{e}^{-v}}{1-v}\\right)'=\\frac{-\\mathrm{e}^{-v}\\left(1-v\\right)+\\mathrm{e}^{-v}}{\\left(1-v\\right)^{2}}=\\frac{\\mathrm{e}^{-v}v}{\\left(1-v\\right)^{2}}$$"
+        },
+        {
+          "name": "写出结果",
+          "latex": "$$I=2\\frac{\\mathrm{e}^{-\\sin x}}{1-\\sin x}+C$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：换元 $v=\\sin x$，把三角结构压成代数结构",
@@ -203,11 +285,25 @@
       "title": "球坐标",
       "tags": [
         "球坐标",
-        "锥面定 $ arphi$",
+        "锥面定 $\\varphi$",
         "半球定 $ ho$"
       ],
       "difficulty": 2,
       "stemHtml": "记由曲面 $z^{2}=x^{2}+y^{2}$ 和 $z=\\sqrt{4-x^{2}-y^{2}}$ 围成的空间区域为 $V$，则 $\\displaystyle\\iiint_V z\\,\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z=$________。",
+      "formulasUsed": [
+        {
+          "name": "两曲面的交线",
+          "latex": "$$z^{2}=x^{2}+y^{2},\\ z=\\sqrt{4-x^{2}-y^{2}}\\Longrightarrow z=\\sqrt2,\\ r=\\sqrt2\\Longrightarrow \\varphi=\\frac{\\pi}{4},\\ R=2$$"
+        },
+        {
+          "name": "球坐标",
+          "latex": "$$x=r\\sin\\varphi\\cos\\theta,\\ y=r\\sin\\varphi\\sin\\theta,\\ z=r\\cos\\varphi,\\qquad \\mathrm{d}V=r^{2}\\sin\\varphi\\,\\mathrm{d}r\\mathrm{d}\\varphi\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "分离变量积分",
+          "latex": "$$\\iiint_{V}z\\,\\mathrm{d}V=\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_0^{\\pi/4}\\cos\\varphi\\sin\\varphi\\,\\mathrm{d}\\varphi\\int_0^{2}r^{3}\\mathrm{d}r=2\\pi\\cdot\\frac14\\cdot4=2\\pi$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出两个曲面与它们的交线",
@@ -246,6 +342,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设二元函数 $f(x,y)$ 在平面上有连续二阶偏导数。对任何角度 $\\alpha$，定义 $g_{\\alpha}(t)=f\\left(t\\cos\\alpha,t\\sin\\alpha\\right)$。若对任何 $\\alpha$ 都有 $\\dfrac{\\mathrm{d}g_{\\alpha}(0)}{\\mathrm{d}t}=0$ 且 $\\dfrac{\\mathrm{d}^{2}g_{\\alpha}(0)}{\\mathrm{d}t^{2}}&gt;0$，证明 $f(0,0)$ 是 $f(x,y)$ 的极小值。",
+      "formulasUsed": [
+        {
+          "name": "方向导数与链式",
+          "latex": "$$g_{\\alpha}'(0)=f_{x}\\cos\\alpha+f_{y}\\sin\\alpha,\\qquad g_{\\alpha}''(0)=f_{xx}\\cos^{2}\\alpha+2f_{xy}\\sin\\alpha\\cos\\alpha+f_{yy}\\sin^{2}\\alpha$$"
+        },
+        {
+          "name": "一阶条件给驻点",
+          "latex": "$$f_{x}\\cos\\alpha+f_{y}\\sin\\alpha=0\\ \\left(\\forall\\alpha\\right)\\Longrightarrow f_{x}=f_{y}=0$$"
+        },
+        {
+          "name": "二阶条件给正定",
+          "latex": "$$f_{xx}\\cos^{2}\\alpha+2f_{xy}\\sin\\alpha\\cos\\alpha+f_{yy}\\sin^{2}\\alpha&gt;0\\ \\left(\\forall\\alpha\\right)\\Longrightarrow f_{xx}&gt;0,\\ f_{xx}f_{yy}-f_{xy}^{2}&gt;0$$"
+        },
+        {
+          "name": "二元极值充分条件",
+          "latex": "$$\\text{驻点}\\ +\\ \\text{Hessian 正定}\\Longrightarrow \\text{严格极小}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $g_{\\alpha}$ 的一、二阶导数翻译成 $f$ 的偏导",
@@ -288,6 +402,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设曲线 $\\Gamma$ 为 $\\begin{cases}x^{2}+y^{2}+z^{2}=1,\\ x\\geqslant0,y\\geqslant0,z\\geqslant0\\\\x+z=1\\end{cases}$ 上从点 $A(1,0,0)$ 到点 $B(0,0,1)$ 的一段，求 $I=\\displaystyle\\int_{\\Gamma}y\\,\\mathrm{d}x+z\\,\\mathrm{d}y+x\\,\\mathrm{d}z$。",
+      "formulasUsed": [
+        {
+          "name": "Stokes 公式",
+          "latex": "$$\\oint_{\\Gamma}P\\,\\mathrm{d}x+Q\\,\\mathrm{d}y+R\\,\\mathrm{d}z=\\iint_{S}\\left(\\nabla\\times\\vec F\\right)\\cdot\\vec n\\,\\mathrm{d}S$$"
+        },
+        {
+          "name": "本题的旋度",
+          "latex": "$$\\vec F=\\left(y,z,x\\right)\\Longrightarrow \\nabla\\times\\vec F=\\left(-1,-1,-1\\right)$$"
+        },
+        {
+          "name": "补线成闭曲线",
+          "latex": "$$\\Gamma+\\Gamma_{1}\\ \\text{闭合},\\qquad \\Gamma_{1}:B\\to A\\ \\text{沿}\\ x+z=1,\\ y=0$$"
+        },
+        {
+          "name": "投影面积",
+          "latex": "$$\\iint_{S}\\left(-1,-1,-1\\right)\\cdot\\vec n\\,\\mathrm{d}S=-\\left(\\text{投影面积}\\right),\\qquad \\text{截面为圆}\\ r=\\sqrt{\\frac12}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：算旋度，判断该用 Stokes",
@@ -330,6 +462,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)&gt;0$ 且在实轴上连续，若对任意实数 $t$，$\\displaystyle\\int_{-\\infty}^{+\\infty}\\mathrm{e}^{-\\left|t-x\\right|}f(x)\\,\\mathrm{d}x\\leqslant1$。证明：$\\forall a&lt;b$，有 $\\displaystyle\\int_a^{b}f(x)\\,\\mathrm{d}x\\leqslant\\frac{b-a+2}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "只对 $t\\in[a,b]$ 用条件",
+          "latex": "$$\\int_a^{b}\\mathrm{d}t\\int_{-\\infty}^{+\\infty}\\mathrm{e}^{-\\left|t-x\\right|}f(x)\\mathrm{d}x\\leqslant b-a$$"
+        },
+        {
+          "name": "交换积分次序",
+          "latex": "$$\\int_{-\\infty}^{+\\infty}f(x)\\left[\\int_a^{b}\\mathrm{e}^{-\\left|t-x\\right|}\\mathrm{d}t\\right]\\mathrm{d}x\\leqslant b-a$$"
+        },
+        {
+          "name": "内层积分算出",
+          "latex": "$$\\int_a^{b}\\mathrm{e}^{-\\left|t-x\\right|}\\mathrm{d}t=2-\\mathrm{e}^{-\\left(x-a\\right)}-\\mathrm{e}^{-\\left(b-x\\right)}\\qquad\\left(x\\in\\left[a,b\\right]\\right)$$"
+        },
+        {
+          "name": "用条件压两个尾巴",
+          "latex": "$$\\int_a^{b}f\\leqslant b-a+\\int_{-\\infty}^{a}\\mathrm{e}^{-\\left(a-x\\right)}f+\\int_b^{+\\infty}\\mathrm{e}^{-\\left(x-b\\right)}f\\leqslant b-a+2$$"
+        },
+        {
+          "name": "收口",
+          "latex": "$$\\int_a^{b}f\\left(x\\right)\\mathrm{d}x\\leqslant\\frac{b-a+2}{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把「对一切 $t$」限制到 $t\\in\\left[a,b\\right]$",
@@ -372,6 +526,20 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\left\\{a_n\\right\\}$ 为一个数列，$p$ 为固定的正整数，且 $\\displaystyle\\lim_{n\\to\\infty}\\left(a_{n+p}-a_n\\right)=\\lambda$（$\\lambda$ 为常数）。证明：$\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{n}=\\frac{\\lambda}{p}$。",
+      "formulasUsed": [
+        {
+          "name": "差分条件的展开",
+          "latex": "$$a_{n+p}-a_{n}=\\lambda+o\\left(1\\right)\\Longrightarrow a_{n+p}=a_{n}+\\lambda+o\\left(1\\right)$$"
+        },
+        {
+          "name": "按模 $p$ 拆子列并裂项",
+          "latex": "$$a_{r+kp}=a_{r}+\\sum_{j=1}^{k}\\left(a_{r+jp}-a_{r+\\left(j-1\\right)p}\\right)=\\left(a_{r}\\right)+k\\lambda+o\\left(k\\right)$$"
+        },
+        {
+          "name": "Cesàro 平均 / Stolz",
+          "latex": "$$\\frac{a_{n}}{n}=\\frac{a_{r+kp}}{r+kp}\\longrightarrow\\frac{k\\lambda}{kp}=\\frac{\\lambda}{p}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把数列按模 $p$ 分成 $p$ 个子列",

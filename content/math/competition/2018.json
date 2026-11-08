@@ -13,10 +13,25 @@
       "title": "提公因子",
       "tags": [
         "提公因子",
+        "$(1+u)^{\\alpha}$ 展开",
         "夹逼"
       ],
       "difficulty": 2,
       "stemHtml": "设 $\\alpha\\in\\left(0,1\\right)$，则 $\\displaystyle\\lim_{n\\to\\infty}\\left[\\left(n+1\\right)^{\\alpha}-n^{\\alpha}\\right]=$________。",
+      "formulasUsed": [
+        {
+          "name": "提出 $n^{\\alpha}$",
+          "latex": "$$\\left(n+1\\right)^{\\alpha}-n^{\\alpha}=n^{\\alpha}\\left[\\left(1+\\frac1n\\right)^{\\alpha}-1\\right]$$"
+        },
+        {
+          "name": "Bernoulli 型不等式（$0<\\alpha<1$）",
+          "latex": "$$\\left(1+u\\right)^{\\alpha}&lt;1+u^{\\alpha}\\qquad(u&gt;0)\\Longrightarrow 0\\leqslant n^{\\alpha}\\left[\\left(1+\\frac1n\\right)^{\\alpha}-1\\right]&lt;n^{\\alpha}\\cdot n^{-\\alpha}=1$$"
+        },
+        {
+          "name": "夹逼得零",
+          "latex": "$$0\\leqslant\\left(n+1\\right)^{\\alpha}-n^{\\alpha}&lt;1,\\qquad \\text{且}\\ n^{\\alpha}\\left[\\left(1+\\frac1n\\right)^{\\alpha}-1\\right]=O\\left(n^{\\alpha-1}\\right)\\to0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：提出 $n^{\\alpha}$，把差变成「$n^{\\alpha}$ × 一个小量」",
@@ -55,6 +70,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "若曲线 $y=y(x)$ 由 $\\begin{cases}x=t+\\cos t\\\\ \\mathrm{e}^{y}+ty+\\sin t=1\\end{cases}$ 确定，则此曲线在 $t=0$ 对应点处的切线方程为________。",
+      "formulasUsed": [
+        {
+          "name": "参数曲线的斜率",
+          "latex": "$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t}$$"
+        },
+        {
+          "name": "隐式关系求 $\\mathrm{d}y/\\mathrm{d}t$",
+          "latex": "$$\\mathrm{e}^{y}+ty+\\sin t=1\\ \\xrightarrow{\\ \\frac{\\mathrm{d}}{\\mathrm{d}t}\\ }\\ \\mathrm{e}^{y}y'+y+ty'+\\cos t=0$$"
+        },
+        {
+          "name": "定 $t=0$ 的点与斜率",
+          "latex": "$$t=0:\\ x=1,\\ \\mathrm{e}^{y}=1\\Longrightarrow y=0;\\qquad y'\\left(0\\right)=-1,\\ x'\\left(0\\right)=1\\Longrightarrow k=-1$$"
+        },
+        {
+          "name": "切线方程",
+          "latex": "$$y-0=-\\left(x-1\\right)\\Longrightarrow x+y-1=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先定 $t=0$ 处的点",
@@ -93,6 +126,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "积分 $\\displaystyle\\int\\frac{\\ln\\left(x+\\sqrt{1+x^{2}}\\right)}{\\left(1+x^{2}\\right)^{3/2}}\\,\\mathrm{d}x=$________。",
+      "formulasUsed": [
+        {
+          "name": "关键导数",
+          "latex": "$$\\left[\\ln\\left(x+\\sqrt{1+x^{2}}\\right)\\right]'=\\frac{1}{\\sqrt{1+x^{2}}}$$"
+        },
+        {
+          "name": "关键原函数",
+          "latex": "$$\\int\\frac{\\mathrm{d}x}{\\left(1+x^{2}\\right)^{3/2}}=\\frac{x}{\\sqrt{1+x^{2}}}+C$$"
+        },
+        {
+          "name": "分部积分",
+          "latex": "$$\\int u\\,\\mathrm{d}v=uv-\\int v\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "本题结果",
+          "latex": "$$I=\\frac{x}{\\sqrt{1+x^{2}}}\\ln\\left(x+\\sqrt{1+x^{2}}\\right)-\\int\\frac{x\\,\\mathrm{d}x}{\\left(1+x^{2}\\right)^{2}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $\\frac{\\mathrm dx}{\\left(1+x^{2}\\right)^{3/2}}$ 认出是某个函数的微分",
@@ -131,6 +182,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "极限 $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x\\sqrt{\\cos2x}\\sqrt[3]{\\cos3x}}{x^{2}}=$________。",
+      "formulasUsed": [
+        {
+          "name": "乘积型「$1-\\prod$」的拆分",
+          "latex": "$$1-abc=\\left(1-a\\right)+a\\left(1-b\\right)+ab\\left(1-c\\right)$$"
+        },
+        {
+          "name": "余弦的二阶等价",
+          "latex": "$$1-\\cos t\\sim\\frac{t^{2}}{2}\\Longrightarrow 1-\\cos x\\sim\\frac{x^{2}}{2},\\qquad 1-\\cos2x\\sim2x^{2}$$"
+        },
+        {
+          "name": "根式的一阶展开",
+          "latex": "$$\\sqrt{1+u}=1+\\frac{u}{2}+o\\left(u\\right),\\qquad \\left(1+u\\right)^{1/3}=1+\\frac{u}{3}+o\\left(u\\right)$$"
+        },
+        {
+          "name": "三段的贡献",
+          "latex": "$$1-\\cos x\\sim\\frac{x^{2}}{2},\\quad 1-\\sqrt{\\cos2x}\\sim\\frac{x^{2}}{2},\\quad 1-\\sqrt[3]{\\cos3x}\\sim\\frac{3x^{2}}{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把乘积拆成三段差",
@@ -169,6 +238,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设函数 $f(t)$ 在 $t\\neq0$ 时一阶连续可导，且 $f(1)=0$。求函数 $f\\left(x^{2}-y^{2}\\right)$，使得曲线积分 $\\displaystyle\\int_L y\\left[2-f\\left(x^{2}-y^{2}\\right)\\right]\\mathrm{d}x+xf\\left(x^{2}-y^{2}\\right)\\mathrm{d}y$ 与路径无关，其中 $L$ 为任一不与直线 $y=\\pm x$ 相交的分段光滑闭曲线。",
+      "formulasUsed": [
+        {
+          "name": "路径无关条件",
+          "latex": "$$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x},\\qquad P=y\\left[2-f\\left(u\\right)\\right],\\ Q=xf\\left(u\\right),\\ u=x^{2}-y^{2}$$"
+        },
+        {
+          "name": "链式求导",
+          "latex": "$$Q_{x}=f+2x^{2}f',\\qquad P_{y}=2-f+2y^{2}f'$$"
+        },
+        {
+          "name": "化成关于 $f$ 的方程",
+          "latex": "$$f+2x^{2}f'=2-f+2y^{2}f'\\Longrightarrow 2u f'\\left(u\\right)=2-2f\\left(u\\right)\\Longrightarrow \\frac{f'}{1-f}=\\frac{1}{u}$$"
+        },
+        {
+          "name": "积分并用初值",
+          "latex": "$$f\\left(u\\right)=1-\\frac{C}{u},\\qquad f(1)=0\\Longrightarrow C=1\\Longrightarrow f\\left(x^{2}-y^{2}\\right)=1-\\frac{1}{x^{2}-y^{2}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写 $P,Q$，把路径无关翻译成偏导相等",
@@ -207,6 +294,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $f(x)$ 在 $\\left[0,1\\right]$ 上连续，且 $1\\leqslant f(x)\\leqslant3$。证明：$1\\leqslant\\displaystyle\\int_0^{1}f(x)\\,\\mathrm{d}x\\int_0^{1}\\frac{1}{f(x)}\\,\\mathrm{d}x\\leqslant\\frac{4}{3}$。",
+      "formulasUsed": [
+        {
+          "name": "Cauchy-Schwarz（积分形式）",
+          "latex": "$$\\left(\\int_0^{1}f\\cdot1\\right)^{2}\\leqslant\\int_0^{1}f^{2}\\int_0^{1}1;\\qquad \\left(\\int_0^{1}1\\right)^{2}\\leqslant\\int_0^{1}f\\int_0^{1}\\frac1f$$"
+        },
+        {
+          "name": "二次不等式刻画值域",
+          "latex": "$$1\\leqslant f\\leqslant3\\Longrightarrow \\left(f-1\\right)\\left(f-3\\right)\\leqslant0\\Longrightarrow f+\\frac{3}{f}\\leqslant4$$"
+        },
+        {
+          "name": "上界",
+          "latex": "$$A+3B\\leqslant4,\\qquad A=\\int_0^{1}f,\\ B=\\int_0^{1}\\frac1f\\Longrightarrow AB\\leqslant\\frac{4}{3}$$"
+        },
+        {
+          "name": "AM-GM 取极值",
+          "latex": "$$A+3B\\geqslant2\\sqrt{3AB}\\Longrightarrow 1\\leqslant AB\\leqslant\\frac43$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：下界用 Cauchy 不等式",
@@ -245,6 +350,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "计算三重积分 $\\displaystyle\\iiint_V\\left(x^{2}+y^{2}\\right)\\mathrm{d}V$，其中 $V$ 是由 $x^{2}+y^{2}+\\left(z-2\\right)^{2}\\geqslant4$，$x^{2}+y^{2}+\\left(z-1\\right)^{2}\\leqslant9$，$z\\geqslant0$ 所围成的空心立体。",
+      "formulasUsed": [
+        {
+          "name": "球壳相减",
+          "latex": "$$V=V_{1}\\left(R=3,\\ \\text{球心}\\ z=1\\right)-V_{2}\\left(R=2,\\ \\text{球心}\\ z=2\\right)-\\text{截块}$$"
+        },
+        {
+          "name": "广义球坐标（球心在 $z$ 轴上不影响 $x^{2}+y^{2}$）",
+          "latex": "$$\\iiint_{x^{2}+y^{2}+\\left(z-z_{0}\\right)^{2}\\leqslant R^{2}}\\left(x^{2}+y^{2}\\right)\\mathrm{d}V=\\frac{8\\pi R^{5}}{15}$$"
+        },
+        {
+          "name": "球坐标下的 $x^{2}+y^{2}$",
+          "latex": "$$\\mathrm{d}V=r^{2}\\sin\\varphi\\,\\mathrm{d}r\\mathrm{d}\\varphi\\mathrm{d}\\theta,\\qquad x^{2}+y^{2}=r^{2}\\sin^{2}\\varphi$$"
+        },
+        {
+          "name": "先二后一（截块）",
+          "latex": "$$\\int_{z_{1}}^{z_{2}}\\mathrm{d}z\\iint_{x^{2}+y^{2}\\leqslant R^{2}-\\left(z-z_{0}\\right)^{2}}\\left(x^{2}+y^{2}\\right)\\mathrm{d}x\\mathrm{d}y=\\int\\frac{\\pi}{2}\\left[\\text{半径}\\right]^{4}\\mathrm{d}z$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $V$ 拆成「大球 − 小球 − 下半块」",
@@ -291,6 +414,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $f(x,y)$ 在区域 $D$ 内可微，$\\sqrt{\\left(\\dfrac{\\partial f}{\\partial x}\\right)^{2}+\\left(\\dfrac{\\partial f}{\\partial y}\\right)^{2}}\\leqslant M$，$A\\left(x_1,y_1\\right)$、$B\\left(x_2,y_2\\right)$ 是 $D$ 内两点，线段 $AB\\subset D$。证明：$\\left|f\\left(x_2,y_2\\right)-f\\left(x_1,y_1\\right)\\right|\\leqslant M\\left|AB\\right|$。",
+      "formulasUsed": [
+        {
+          "name": "沿线段压成一元函数",
+          "latex": "$$\\varphi\\left(t\\right)=f\\left(x_{1}+t\\left(x_{2}-x_{1}\\right),\\ y_{1}+t\\left(y_{2}-y_{1}\\right)\\right),\\qquad t\\in\\left[0,1\\right]$$"
+        },
+        {
+          "name": "Lagrange 中值定理",
+          "latex": "$$f\\left(B\\right)-f\\left(A\\right)=\\varphi\\left(1\\right)-\\varphi\\left(0\\right)=\\varphi'\\left(\\xi\\right),\\qquad \\xi\\in\\left(0,1\\right)$$"
+        },
+        {
+          "name": "链式与梯度",
+          "latex": "$$\\varphi'\\left(\\xi\\right)=f_{x}\\left(P\\right)\\left(x_{2}-x_{1}\\right)+f_{y}\\left(P\\right)\\left(y_{2}-y_{1}\\right)=\\nabla f\\left(P\\right)\\cdot\\overrightarrow{AB}$$"
+        },
+        {
+          "name": "Cauchy 不等式收口",
+          "latex": "$$\\left|\\nabla f\\cdot\\overrightarrow{AB}\\right|\\leqslant\\left|\\nabla f\\right|\\left|AB\\right|\\leqslant M\\left|AB\\right|$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：沿线段把二元函数压成一元函数",
@@ -329,6 +470,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "证明：对于连续函数 $f(x)&gt;0$，有 $\\displaystyle\\ln\\int_0^{1}f(x)\\,\\mathrm{d}x\\geqslant\\int_0^{1}\\ln f(x)\\,\\mathrm{d}x$。",
+      "formulasUsed": [
+        {
+          "name": "离散 AM-GM",
+          "latex": "$$\\left(f\\left(x_{1}\\right)\\cdots f\\left(x_{n}\\right)\\right)^{1/n}\\leqslant\\frac{f\\left(x_{1}\\right)+\\cdots+f\\left(x_{n}\\right)}{n}$$"
+        },
+        {
+          "name": "取对数把积变和",
+          "latex": "$$\\frac1n\\sum_{k=1}^{n}\\ln f\\left(x_{k}\\right)\\leqslant\\ln\\left[\\frac1n\\sum_{k=1}^{n}f\\left(x_{k}\\right)\\right]$$"
+        },
+        {
+          "name": "黎曼和取极限",
+          "latex": "$$\\frac1n\\sum_{k=1}^{n}\\ln f\\left(x_{k}\\right)\\to\\int_0^{1}\\ln f\\left(x\\right)\\mathrm{d}x,\\qquad \\frac1n\\sum f\\left(x_{k}\\right)\\to\\int_0^{1}f\\left(x\\right)\\mathrm{d}x$$"
+        },
+        {
+          "name": "对数连续",
+          "latex": "$$\\ln\\ \\text{连续}\\Longrightarrow \\ln\\int_0^{1}f\\left(x\\right)\\mathrm{d}x\\geqslant\\int_0^{1}\\ln f\\left(x\\right)\\mathrm{d}x$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先证有限版（离散 AM-GM）",
@@ -367,6 +526,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "已知 $\\left\\{a_k\\right\\}$、$\\left\\{b_k\\right\\}$ 是正项数列，且 $b_{k+1}-b_k\\geqslant\\delta&gt;0\\ (k=1,2,\\cdots)$，$\\delta$ 为常数。证明：若级数 $\\displaystyle\\sum_{k=1}^{\\infty}a_k$ 收敛，则级数 $\\displaystyle\\sum_{k=1}^{\\infty}\\frac{k\\sqrt[k]{\\left(a_1a_2\\cdots a_k\\right)\\left(b_1b_2\\cdots b_k\\right)}}{b_{k+1}b_k}$ 收敛。",
+      "formulasUsed": [
+        {
+          "name": "Abel 变换（分部求和）",
+          "latex": "$$\\sum_{k=1}^{n}x_{k}y_{k}=X_{n}y_{n}+\\sum_{k=1}^{n-1}X_{k}\\left(y_{k}-y_{k+1}\\right),\\qquad X_{k}=x_{1}+\\cdots+x_{k}$$"
+        },
+        {
+          "name": "AM-GM 压住目标通项",
+          "latex": "$$k\\sqrt[k]{a_{1}\\cdots a_{k}}\\leqslant a_{1}+\\cdots+a_{k},\\qquad k\\sqrt[k]{b_{1}\\cdots b_{k}}\\leqslant b_{1}+\\cdots+b_{k}$$"
+        },
+        {
+          "name": "差分条件给分母下界",
+          "latex": "$$b_{k+1}-b_{k}\\geqslant\\delta\\Longrightarrow b_{k}\\geqslant b_{1}+\\left(k-1\\right)\\delta\\Longrightarrow \\frac{1}{b_{k+1}b_{k}}=O\\left(\\frac{1}{k^{2}}\\right)$$"
+        },
+        {
+          "name": "比较判别法收口",
+          "latex": "$$\\sum\\frac{k\\sqrt[k]{\\left(a_{1}\\cdots a_{k}\\right)\\left(b_{1}\\cdots b_{k}\\right)}}{b_{k+1}b_{k}}\\leqslant\\sum\\frac{\\left(a_{1}+\\cdots+a_{k}\\right)\\left(b_{1}+\\cdots+b_{k}\\right)}{b_{k+1}b_{k}}\\ \\text{收敛}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看清新级数的通项，先想「怎么被 $a_k$ 控住」",

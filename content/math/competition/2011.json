@@ -18,6 +18,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "求 $\\displaystyle\\lim_{x\\to0}\\frac{(1+x)^{\\frac{2}{x}}-\\mathrm{e}^{2}\\left(1-\\ln(1+x)\\right)}{x}$。",
+      "formulasUsed": [
+        {
+          "name": "幂指函数化为指数",
+          "latex": "$$u^{v}=\\mathrm{e}^{v\\ln u}\\qquad(u&gt;0)$$"
+        },
+        {
+          "name": "对数展开",
+          "latex": "$$\\ln(1+x)=x-\\frac{x^{2}}{2}+\\frac{x^{3}}{3}+O\\left(x^{4}\\right)\\qquad(x\\to0)$$"
+        },
+        {
+          "name": "指数展开",
+          "latex": "$$\\mathrm{e}^{u}=1+u+\\frac{u^{2}}{2}+\\frac{u^{3}}{6}+O\\left(u^{4}\\right)\\qquad(u\\to0)$$"
+        },
+        {
+          "name": "提公因子判阶",
+          "latex": "$$\\frac{A-B}{x}=\\mathrm{e}^{2}\\cdot\\frac{\\left(\\mathrm{e}^{u}-1\\right)-\\left(1-\\ln(1+x)\\right)}{x},\\qquad u=\\frac{2}{x}\\ln(1+x)-2$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把幂指部分写成 $\\mathrm{e}^{2}\\cdot\\mathrm{e}^{(\\cdot)}$",
@@ -56,6 +74,20 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $a_n=\\cos\\dfrac{\\theta}{2}\\cdot\\cos\\dfrac{\\theta}{2^{2}}\\cdots\\cos\\dfrac{\\theta}{2^{n}}$，求 $\\displaystyle\\lim_{n\\to\\infty}a_n$。",
+      "formulasUsed": [
+        {
+          "name": "二倍角公式（迭代用）",
+          "latex": "$$\\sin 2u=2\\sin u\\cos u\\Longrightarrow \\cos u=\\frac{\\sin 2u}{2\\sin u}$$"
+        },
+        {
+          "name": "余弦连乘的闭式",
+          "latex": "$$\\prod_{k=1}^{n}\\cos\\frac{\\theta}{2^{k}}=\\frac{\\sin\\theta}{2^{n}\\sin\\left(\\theta/2^{n}\\right)}$$"
+        },
+        {
+          "name": "重要极限",
+          "latex": "$$\\lim_{u\\to0}\\frac{\\sin u}{u}=1\\Longrightarrow \\frac{\\sin\\theta}{2^{n}\\sin\\left(\\theta/2^{n}\\right)}\\to\\frac{\\sin\\theta}{\\theta}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出「角度减半的余弦连乘」",
@@ -94,6 +126,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求 $\\displaystyle\\iint_D\\operatorname{sgn}(xy-1)\\,\\mathrm{d}x\\mathrm{d}y$，其中 $D=\\{(x,y)\\mid 0\\leqslant x\\leqslant2,\\ 0\\leqslant y\\leqslant2\\}$。",
+      "formulasUsed": [
+        {
+          "name": "符号函数的定义",
+          "latex": "$$\\operatorname{sgn}t=\\begin{cases}1,&amp;t&gt;0\\\\ 0,&amp;t=0\\\\ -1,&amp;t&lt;0\\end{cases}$$"
+        },
+        {
+          "name": "按分界线拆区域",
+          "latex": "$$\\iint_{D}\\operatorname{sgn}(xy-1)\\,\\mathrm{d}\\sigma=\\iint_{D_{1}}\\mathrm{d}\\sigma-\\iint_{D_{2}}\\mathrm{d}\\sigma,\\qquad D_{1}=\\{xy&gt;1\\}$$"
+        },
+        {
+          "name": "面积用定积分算",
+          "latex": "$$A_{1}=\\int_{1/2}^{2}\\left(2-\\frac1x\\right)\\mathrm{d}x$$"
+        },
+        {
+          "name": "基本积分",
+          "latex": "$$\\int\\frac{1}{x}\\mathrm{d}x=\\ln|x|+C$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：读懂 $\\operatorname{sgn}$——它只让区域分块",
@@ -136,6 +186,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2n-1}{2^{n}}x^{2n-2}$ 的和函数，并求级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2n-1}{2^{2n-1}}$ 的和。",
+      "formulasUsed": [
+        {
+          "name": "幂级数逐项积分与求导",
+          "latex": "$$\\sum a_{n}x^{n}\\ \\xrightarrow{\\ \\int\\ }\\ \\sum\\frac{a_{n}}{n+1}x^{n+1},\\qquad \\sum a_{n}x^{n}\\ \\xrightarrow{\\ \\frac{\\mathrm{d}}{\\mathrm{d}x}\\ }\\ \\sum n a_{n}x^{n-1}$$"
+        },
+        {
+          "name": "几何级数求和",
+          "latex": "$$\\sum_{n=0}^{\\infty}q^{n}=\\frac{1}{1-q}\\quad(|q|&lt;1),\\qquad \\sum_{n=1}^{\\infty}nq^{n-1}=\\frac{1}{(1-q)^{2}}$$"
+        },
+        {
+          "name": "收敛半径",
+          "latex": "$$R=\\lim_{n\\to\\infty}\\left|\\frac{a_{n}}{a_{n+1}}\\right|$$"
+        },
+        {
+          "name": "本题的化简路径",
+          "latex": "$$\\int_0^{x}\\sum_{n\\geqslant1}\\frac{2n-1}{2^{n}}t^{2n-2}\\mathrm{d}t=\\sum_{n\\geqslant1}\\frac{2n-1}{2^{n}}\\frac{x^{2n-1}}{2n-1}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看清系数 $(2n-1)$ 与幂次 $x^{2n-2}$ 的搭配",
@@ -173,11 +241,29 @@
       "title": "算术平均定理",
       "tags": [
         "算术平均定理",
-        "$ arepsilon$-$N$",
+        "$\\varepsilon$-$N$",
         "Stolz"
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\{a_n\\}_{n=0}^{\\infty}$ 为数列，$a,\\lambda$ 为有限数，求证：(1) 如果 $\\displaystyle\\lim_{n\\to\\infty}a_n=a$，则 $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_1+a_2+\\cdots+a_n}{n}=a$；(2) 如果存在正整数 $p$，使得 $\\displaystyle\\lim_{n\\to\\infty}\\left(a_{n+p}-a_n\\right)=\\lambda$，则 $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{n}=\\frac{\\lambda}{p}$。",
+      "formulasUsed": [
+        {
+          "name": "极限的 $\\varepsilon$-$N$ 定义",
+          "latex": "$$\\lim_{n\\to\\infty}a_{n}=a\\iff \\forall\\varepsilon&gt;0,\\ \\exists N,\\ n&gt;N\\Rightarrow\\left|a_{n}-a\\right|&lt;\\varepsilon$$"
+        },
+        {
+          "name": "算术平均的拆分",
+          "latex": "$$\\frac{a_{1}+\\cdots+a_{n}}{n}=a+\\frac{1}{n}\\sum_{k=1}^{N}\\left(a_{k}-a\\right)+\\frac{1}{n}\\sum_{k=N+1}^{n}\\left(a_{k}-a\\right)$$"
+        },
+        {
+          "name": "Stolz 定理",
+          "latex": "$$b_{n}\\uparrow\\infty,\\quad \\lim_{n\\to\\infty}\\frac{a_{n+1}-a_{n}}{b_{n+1}-b_{n}}=\\lambda\\Longrightarrow \\lim_{n\\to\\infty}\\frac{a_{n}}{b_{n}}=\\lambda$$"
+        },
+        {
+          "name": "按余数拆子列",
+          "latex": "$$n=pk+r\\ (r=0,1,\\cdots,p-1),\\qquad a_{n}=a_{r}+k\\lambda+o(k)\\Longrightarrow \\frac{a_{n}}{n}\\to\\frac{\\lambda}{p}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：(1) 用 $\\varepsilon$-$N$，把「前有限项」与「后面无穷项」分开",
@@ -219,6 +305,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 在闭区间 $[-1,1]$ 上具有连续的三阶导数，且 $f(-1)=0$，$f(1)=1$，$f'(0)=0$。求证：在开区间 $(-1,1)$ 内至少存在一点 $x_0$，使得 $f'''(x_0)=3$。",
+      "formulasUsed": [
+        {
+          "name": "三阶 Taylor（Lagrange 余项）",
+          "latex": "$$f(x)=f(0)+f'(0)x+\\frac{f''(0)}{2}x^{2}+\\frac{f'''(\\xi)}{6}x^{3},\\qquad \\xi\\in(0,x)$$"
+        },
+        {
+          "name": "在 $x=\\pm1$ 各写一次",
+          "latex": "$$f(1)=f(0)+\\frac{f''(0)}{2}+\\frac{f'''(\\xi_{1})}{6},\\qquad f(-1)=f(0)+\\frac{f''(0)}{2}-\\frac{f'''(\\xi_{2})}{6}$$"
+        },
+        {
+          "name": "相减消去偶数阶项",
+          "latex": "$$f(1)-f(-1)=\\frac{f'''(\\xi_{1})+f'''(\\xi_{2})}{6}=1\\Longrightarrow f'''(\\xi_{1})+f'''(\\xi_{2})=6$$"
+        },
+        {
+          "name": "介值定理收口",
+          "latex": "$$\\frac{f'''(\\xi_{1})+f'''(\\xi_{2})}{2}=3\\Longrightarrow \\exists x_{0},\\ f'''(x_{0})=3$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看条件形态，判断该在 $0$ 点做泰勒展开",
@@ -261,6 +365,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "在 $xOy$ 平面上，有一条从点 $(a,0)$ 向右的射线，线密度为 $\\rho$。在点 $(0,h)$ 处（其中 $h&gt;0$）有一质量为 $m$ 的质点。求射线对该质点的引力。",
+      "formulasUsed": [
+        {
+          "name": "万有引力定律",
+          "latex": "$$\\mathrm{d}F=G\\,\\frac{m\\,\\mathrm{d}m}{r^{2}},\\qquad \\mathrm{d}m=\\rho\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "微元的距离与方向",
+          "latex": "$$r=\\sqrt{x^{2}+h^{2}},\\qquad \\cos\\theta=\\frac{x}{\\sqrt{x^{2}+h^{2}}},\\quad \\sin\\theta=\\frac{-h}{\\sqrt{x^{2}+h^{2}}}$$"
+        },
+        {
+          "name": "投影到两轴",
+          "latex": "$$\\mathrm{d}F_{x}=Gm\\rho\\,\\frac{x\\,\\mathrm{d}x}{\\left(x^{2}+h^{2}\\right)^{3/2}},\\qquad \\mathrm{d}F_{y}=-Gm\\rho\\,\\frac{h\\,\\mathrm{d}x}{\\left(x^{2}+h^{2}\\right)^{3/2}}$$"
+        },
+        {
+          "name": "两个基本积分",
+          "latex": "$$\\int_a^{+\\infty}\\frac{x\\,\\mathrm{d}x}{\\left(x^{2}+h^{2}\\right)^{3/2}}=\\frac{1}{\\sqrt{a^{2}+h^{2}}},\\qquad \\int_a^{+\\infty}\\frac{\\mathrm{d}x}{\\left(x^{2}+h^{2}\\right)^{3/2}}=\\frac{1}{h^{2}}\\left(1-\\frac{a}{\\sqrt{a^{2}+h^{2}}}\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：取微元，写出「大小 ＋ 方向」",
@@ -302,6 +424,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $z=z(x,y)$ 是由方程 $F\\left(z+\\dfrac1x,\\ z-\\dfrac1y\\right)=0$ 确定的隐函数，且具有连续的二阶偏导数。求证：$x^{2}\\dfrac{\\partial z}{\\partial x}-y^{2}\\dfrac{\\partial z}{\\partial y}=1$，且 $x^{3}\\dfrac{\\partial^{2}z}{\\partial x^{2}}+xy(x-y)\\dfrac{\\partial^{2}z}{\\partial x\\partial y}-y^{3}\\dfrac{\\partial^{2}z}{\\partial y^{2}}=-2$。",
+      "formulasUsed": [
+        {
+          "name": "全微分（隐函数不用解出 $z$）",
+          "latex": "$$\\mathrm{d}F=F_{1}\\left(\\mathrm{d}z-\\frac{\\mathrm{d}x}{x^{2}}\\right)+F_{2}\\left(\\mathrm{d}z+\\frac{\\mathrm{d}y}{y^{2}}\\right)=0$$"
+        },
+        {
+          "name": "隐函数偏导（通式）",
+          "latex": "$$z_{x}=-\\frac{F_{x}}{F_{z}},\\qquad z_{y}=-\\frac{F_{y}}{F_{z}},\\qquad F_{z}=F_{1}+F_{2}$$"
+        },
+        {
+          "name": "本题的两个偏导",
+          "latex": "$$z_{x}=\\frac{F_{1}}{x^{2}\\left(F_{1}+F_{2}\\right)},\\qquad z_{y}=-\\frac{F_{2}}{y^{2}\\left(F_{1}+F_{2}\\right)}$$"
+        },
+        {
+          "name": "对已证恒等式继续求偏导",
+          "latex": "$$x^{2}z_{x}-y^{2}z_{y}=1,\\qquad\\left(x^{2}z_{x}-y^{2}z_{y}\\right)_{x}=0\\Longrightarrow 2xz_{x}+x^{2}z_{xx}-y^{2}z_{xy}=0$$"
+        },
+        {
+          "name": "乘积求导与二阶混合偏导",
+          "latex": "$$(uv)'=u'v+uv',\\qquad z_{xy}=z_{yx}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：用全微分而不是解方程组",
@@ -344,6 +488,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设函数 $f(x)$ 连续，$a,b,c$ 为常数，$\\Sigma$ 是单位球面 $x^{2}+y^{2}+z^{2}=1$。求证：$\\displaystyle\\iint_{\\Sigma}f(ax+by+cz)\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}f\\left(\\sqrt{a^{2}+b^{2}+c^{2}}\\,u\\right)\\mathrm{d}u$。",
+      "formulasUsed": [
+        {
+          "name": "球面上的方向积分通式",
+          "latex": "$$\\iint_{\\Sigma}g\\left(\\vec n\\cdot\\vec r\\right)\\mathrm{d}S=2\\pi\\int_{-1}^{1}g\\left(\\left|\\vec n\\right|u\\right)\\mathrm{d}u,\\qquad \\vec n=(a,b,c)$$"
+        },
+        {
+          "name": "切片法：平面截球得圆",
+          "latex": "$$ax+by+cz=\\left|\\vec n\\right|u\\Longrightarrow \\text{截圆半径}^{2}=1-u^{2}$$"
+        },
+        {
+          "name": "面积元素与 $\\mathrm{d}u$ 的关系",
+          "latex": "$$\\mathrm{d}S=\\frac{2\\pi\\sqrt{1-u^{2}}}{\\left|\\vec n\\right|\\sqrt{1-u^{2}}}\\,\\mathrm{d}u=\\frac{2\\pi}{\\left|\\vec n\\right|}\\mathrm{d}u$$"
+        },
+        {
+          "name": "特例核对",
+          "latex": "$$g\\equiv1\\Longrightarrow 2\\pi\\int_{-1}^{1}\\mathrm{d}u=4\\pi=\\text{单位球面面积}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看出被积函数只依赖「沿某方向的分量」",

@@ -210,9 +210,13 @@ for (const subject of registry.subjects) {
               }
             : null
           const answerHtml = renderMath(q.answerHtml || '')
+          const formulasUsed = (q.formulasUsed || []).map((f) => ({
+            name: f.name,
+            expr: renderMath(f.latex),
+          }))
           const typeName = TYPE_NAMES[q.type] || '解答题'
 
-          const detail = { id, stem: stemHtml, steps, moral, answer: answerHtml }
+          const detail = { id, stem: stemHtml, steps, moral, answer: answerHtml, formulas: formulasUsed }
           fs.writeFileSync(path.join(OUT_Q, `${id}.json`), JSON.stringify(detail), 'utf8')
 
           const search = [String(paper.year), q.number, typeName, ...(q.tags || []), stemText].join(' ')

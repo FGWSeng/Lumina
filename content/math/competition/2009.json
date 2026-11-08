@@ -18,6 +18,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "$\\displaystyle\\iint_D\\frac{(x+y)\\ln\\left(1+\\frac{y}{x}\\right)}{\\sqrt{1-x-y}}\\,\\mathrm{d}x\\mathrm{d}y=$ ＿＿＿＿，其中 $D$ 是由直线 $x+y=1$ 与两坐标轴围成的三角形区域。",
+      "formulasUsed": [
+        {
+          "name": "二重积分换元（通式）",
+          "latex": "$$\\iint_{D}f(x,y)\\,\\mathrm{d}x\\mathrm{d}y=\\iint_{D'}f\\big(x(u,v),y(u,v)\\big)\\left|J\\right|\\mathrm{d}u\\mathrm{d}v$$"
+        },
+        {
+          "name": "雅可比行列式",
+          "latex": "$$J=\\frac{\\partial(x,y)}{\\partial(u,v)}=x_{u}y_{v}-x_{v}y_{u}$$"
+        },
+        {
+          "name": "矩形区域上的可分离积分",
+          "latex": "$$\\iint_{[a,b]\\times[c,d]}\\varphi(u)\\psi(v)\\,\\mathrm{d}u\\mathrm{d}v=\\left(\\int_a^b\\varphi(u)\\mathrm{d}u\\right)\\left(\\int_c^d\\psi(v)\\mathrm{d}v\\right)$$"
+        },
+        {
+          "name": "分部积分与幂函数积分",
+          "latex": "$$\\int u\\,\\mathrm{d}v=uv-\\int v\\,\\mathrm{d}u,\\qquad\\int_0^1u^{2k}\\mathrm{d}u=\\frac{1}{2k+1}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先认清两个「不好积」的东西，一次换干净",
@@ -59,6 +77,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(x)$ 是连续函数，满足 $\\displaystyle f(x)=3x^{2}-\\int_0^2 f(x)\\,\\mathrm{d}x-2$，则 $f(x)=$ ＿＿＿＿。",
+      "formulasUsed": [
+        {
+          "name": "定积分是常数（与积分变量记号无关）",
+          "latex": "$$\\int_a^bf(x)\\mathrm{d}x=\\int_a^bf(t)\\mathrm{d}t\\in\\mathbb{R}$$"
+        },
+        {
+          "name": "Newton-Leibniz 公式",
+          "latex": "$$\\int_a^bf(x)\\mathrm{d}x=F(b)-F(a),\\qquad F'(x)=f(x)$$"
+        },
+        {
+          "name": "幂函数积分",
+          "latex": "$$\\int x^{n}\\mathrm{d}x=\\frac{x^{n+1}}{n+1}+C\\quad(n\\neq-1)$$"
+        },
+        {
+          "name": "解一次方程",
+          "latex": "$$A=4-2A\\Longrightarrow3A=4$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出「定积分是一个数」",
@@ -96,6 +132,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "曲面 $z=\\dfrac{x^{2}}{2}+y^{2}-2$ 的平行于平面 $2x+2y-z=0$ 的切平面方程是 ＿＿＿＿。",
+      "formulasUsed": [
+        {
+          "name": "隐式曲面的法向量",
+          "latex": "$$F(x,y,z)=0\\Longrightarrow\\vec n=\\left(F_{x},F_{y},F_{z}\\right)$$"
+        },
+        {
+          "name": "显式曲面 $z=f(x,y)$ 的法向量",
+          "latex": "$$z=f(x,y)\\Longrightarrow\\vec n=\\left(-f_{x},-f_{y},1\\right)$$"
+        },
+        {
+          "name": "切平面（点法式）",
+          "latex": "$$F_{x}(P)(x-x_{0})+F_{y}(P)(y-y_{0})+F_{z}(P)(z-z_{0})=0$$"
+        },
+        {
+          "name": "两平面平行的条件",
+          "latex": "$$\\pi_{1}\\parallel\\pi_{2}\\iff\\vec n_{1}=k\\vec n_{2}\\iff\\frac{A_{1}}{A_{2}}=\\frac{B_{1}}{B_{2}}=\\frac{C_{1}}{C_{2}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把「平行」翻译成「法向量成比例」",
@@ -133,6 +187,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设函数 $y=y(x)$ 由方程 $x\\,\\mathrm{e}^{f(y)}=\\mathrm{e}^{y}\\ln 29$ 确定，其中 $f$ 具有二阶导数，且 $f'\\neq1$，则 $\\dfrac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=$ ＿＿＿＿。",
+      "formulasUsed": [
+        {
+          "name": "对数把乘幂压成加减",
+          "latex": "$$\\ln(ab)=\\ln a+\\ln b,\\qquad\\ln\\mathrm{e}^{y}=y$$"
+        },
+        {
+          "name": "隐函数一阶导（通式）",
+          "latex": "$$F(x,y)=0\\Longrightarrow y'=-\\frac{F_{x}}{F_{y}}\\quad\\left(F_{y}\\neq0\\right)$$"
+        },
+        {
+          "name": "复合求导：$f(y)$ 对 $x$ 求导",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}x}f(y)=f'(y)\\,y',\\qquad\\frac{\\mathrm{d}}{\\mathrm{d}x}f'(y)=f''(y)\\,y'$$"
+        },
+        {
+          "name": "商的求导法则",
+          "latex": "$$\\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：两边取对数，把指数结构压平",
@@ -171,6 +243,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\left(\\frac{\\mathrm{e}^{x}+\\mathrm{e}^{2x}+\\cdots+\\mathrm{e}^{nx}}{n}\\right)^{\\frac{\\mathrm{e}}{x}}$，其中 $n$ 是给定的正整数。",
+      "formulasUsed": [
+        {
+          "name": "幂指函数化为指数",
+          "latex": "$$u^{v}=\\mathrm{e}^{v\\ln u}\\quad(u&gt;0)$$"
+        },
+        {
+          "name": "等价无穷小",
+          "latex": "$$\\ln(1+t)\\sim t,\\qquad\\mathrm{e}^{u}-1\\sim u\\qquad(t,u\\to0)$$"
+        },
+        {
+          "name": "等差数列求和",
+          "latex": "$$\\sum_{k=1}^{n}k=\\frac{n(n+1)}{2}$$"
+        },
+        {
+          "name": "极限的四则运算",
+          "latex": "$$\\lim\\frac{F(x)}{G(x)}=\\frac{\\lim F}{\\lim G}\\quad\\left(\\lim G\\neq0\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：定型——底数趋 $1$、指数趋 $\\infty$",
@@ -209,6 +299,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 连续，$g(x)=\\displaystyle\\int_0^1 f(xt)\\,\\mathrm{d}t$，且 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}=A$（$A$ 为常数），求 $g'(x)$ 并讨论 $g'(x)$ 在 $x=0$ 处的连续性。",
+      "formulasUsed": [
+        {
+          "name": "含参积分的换元",
+          "latex": "$$\\int_0^1f(xt)\\,\\mathrm{d}t=\\frac{1}{x}\\int_0^{x}f(u)\\,\\mathrm{d}u\\quad(x\\neq0)$$"
+        },
+        {
+          "name": "变上限积分求导",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\int_a^{x}f(u)\\,\\mathrm{d}u=f(x)$$"
+        },
+        {
+          "name": "商的求导法则",
+          "latex": "$$\\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}}$$"
+        },
+        {
+          "name": "洛必达法则（$0/0$ 型）",
+          "latex": "$$\\lim_{x\\to a}\\frac{F(x)}{G(x)}=\\lim_{x\\to a}\\frac{F'(x)}{G'(x)}$$"
+        },
+        {
+          "name": "导数定义",
+          "latex": "$$g'(0)=\\lim_{x\\to0}\\frac{g(x)-g(0)}{x}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：积分号里带参数 $x$，先换元把它赶出去",
@@ -251,6 +363,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "已知平面区域 $D=\\{(x,y)\\mid 0\\leqslant x\\leqslant\\pi,\\ 0\\leqslant y\\leqslant\\pi\\}$，$L$ 为 $D$ 的正向边界。试证：(1) $\\displaystyle\\oint_L x\\mathrm{e}^{\\sin y}\\mathrm{d}y-y\\mathrm{e}^{-\\sin x}\\mathrm{d}x=\\oint_L x\\mathrm{e}^{-\\sin y}\\mathrm{d}y-y\\mathrm{e}^{\\sin x}\\mathrm{d}x$；(2) $\\displaystyle\\oint_L x\\mathrm{e}^{\\sin y}\\mathrm{d}y-y\\mathrm{e}^{-\\sin x}\\mathrm{d}x\\geqslant\\frac52\\pi^{2}$。",
+      "formulasUsed": [
+        {
+          "name": "Green 公式",
+          "latex": "$$\\oint_{L}P\\,\\mathrm{d}x+Q\\,\\mathrm{d}y=\\iint_{D}\\left(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "关于 $y=x$ 对称的二重积分",
+          "latex": "$$D:D(x,y)\\ \\text{对称}\\Longrightarrow\\iint_{D}h(x,y)\\,\\mathrm{d}x\\mathrm{d}y=\\iint_{D}h(y,x)\\,\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "指数函数的双边展开",
+          "latex": "$$\\mathrm{e}^{t}+\\mathrm{e}^{-t}=2\\sum_{n=0}^{\\infty}\\frac{t^{2n}}{(2n)!}\\geqslant2+t^{2}$$"
+        },
+        {
+          "name": "Wallis 型定积分",
+          "latex": "$$\\int_0^{\\pi}\\sin^{2}x\\,\\mathrm{d}x=\\frac{\\pi}{2},\\qquad\\int_0^{\\pi}\\sin x\\,\\mathrm{d}x=2$$"
+        },
+        {
+          "name": "正方形区域上的可分离积分",
+          "latex": "$$\\iint_{[0,\\pi]^{2}}h(x)\\,\\mathrm{d}x\\mathrm{d}y=\\pi\\int_0^{\\pi}h(x)\\,\\mathrm{d}x$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：闭曲线上的第二型积分，一律先上 Green",
@@ -293,6 +427,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "已知 $y_1=x\\mathrm{e}^{x}+\\mathrm{e}^{2x}$，$y_2=x\\mathrm{e}^{x}+\\mathrm{e}^{-x}$，$y_3=x\\mathrm{e}^{x}+\\mathrm{e}^{2x}-\\mathrm{e}^{-x}$ 是某二阶常系数线性非齐次微分方程的三个解，试求此微分方程。",
+      "formulasUsed": [
+        {
+          "name": "非齐次方程解的结构",
+          "latex": "$$y_{\\text{通}}=Y_{\\text{齐}}+y^{*},\\qquad y_{1}-y_{2}\\ \\text{必为齐次解}$$"
+        },
+        {
+          "name": "常系数齐次方程与特征根",
+          "latex": "$$y''+py'+qy=0\\Longrightarrow r^{2}+pr+q=0,\\qquad y=\\mathrm{e}^{rx}$$"
+        },
+        {
+          "name": "线性算子的线性性",
+          "latex": "$$L[y]=y''+py'+qy,\\qquad L\\left[y_{1}-y_{3}\\right]=0$$"
+        },
+        {
+          "name": "乘积求导",
+          "latex": "$$\\left(x\\mathrm{e}^{x}\\right)'=(1+x)\\mathrm{e}^{x},\\qquad\\left(x\\mathrm{e}^{x}\\right)''=(2+x)\\mathrm{e}^{x}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：三解相减，剥出齐次解",
@@ -331,6 +483,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设抛物线 $y=ax^{2}+bx+2\\ln c$ 过原点，当 $0\\leqslant x\\leqslant1$ 时 $y\\geqslant0$。又已知该抛物线与 $x$ 轴及直线 $x=1$ 所围图形的面积为 $\\frac13$。试确定 $a,b,c$，使此图形绕 $x$ 轴旋转一周而成的旋转体体积 $V$ 最小。",
+      "formulasUsed": [
+        {
+          "name": "曲边梯形面积",
+          "latex": "$$A=\\int_a^{b}y(x)\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "绕 $x$ 轴旋转体的体积",
+          "latex": "$$V=\\pi\\int_a^{b}y^{2}(x)\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "Lagrange 乘数法",
+          "latex": "$$\\nabla V(a,b)=\\lambda\\nabla g(a,b),\\qquad g(a,b)=2a+3b-2=0$$"
+        },
+        {
+          "name": "二元二次型正定的判据",
+          "latex": "$$Q=pa^{2}+2rab+qb^{2}&gt;0\\iff p&gt;0,\\ pq-r^{2}&gt;0$$"
+        },
+        {
+          "name": "多项式积分",
+          "latex": "$$\\int_0^1x^{2}\\mathrm{d}x=\\frac13,\\qquad\\int_0^1x^{3}\\mathrm{d}x=\\frac14,\\qquad\\int_0^1x^{4}\\mathrm{d}x=\\frac15$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把三条信息翻译成三个方程/目标",
@@ -373,6 +547,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $n$ 为正整数，$u_n(x)$ 满足 $u_n'(x)=u_n(x)+x^{n-1}\\mathrm{e}^{x}$，且 $u_n(1)=\\dfrac{\\mathrm{e}}{n}$，求函数项级数 $\\displaystyle\\sum_{n=1}^{\\infty}u_n(x)$ 之和。",
+      "formulasUsed": [
+        {
+          "name": "一阶线性方程的通解公式",
+          "latex": "$$y'+P(x)y=Q(x)\\Longrightarrow y=\\mathrm{e}^{-\\int P}\\left(\\int Q\\,\\mathrm{e}^{\\int P}\\mathrm{d}x+C\\right)$$"
+        },
+        {
+          "name": "积分因子",
+          "latex": "$$\\mu(x)=\\mathrm{e}^{\\int P(x)\\mathrm{d}x},\\qquad\\left(y\\mu\\right)'=\\mu Q$$"
+        },
+        {
+          "name": "幂函数积分",
+          "latex": "$$\\int x^{n-1}\\mathrm{d}x=\\frac{x^{n}}{n}+C$$"
+        },
+        {
+          "name": "对数级数展开",
+          "latex": "$$\\sum_{n=1}^{\\infty}\\frac{x^{n}}{n}=-\\ln(1-x),\\qquad x\\in[-1,1)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把每个 $u_n$ 解出来，再谈求和",
@@ -411,6 +603,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求当 $x\\to1^{-}$ 时与 $\\displaystyle\\sum_{n=0}^{\\infty}x^{n^{2}}$ 等价的一个无穷大量。",
+      "formulasUsed": [
+        {
+          "name": "单调函数的夹逼（积分判别思想）",
+          "latex": "$$f\\downarrow\\Longrightarrow f(n)&lt;\\int_{n-1}^{n}f(t)\\,\\mathrm{d}t&lt;f(n-1)$$"
+        },
+        {
+          "name": "Gauss 积分（通式与特例）",
+          "latex": "$$\\int_0^{+\\infty}\\mathrm{e}^{-at^{2}}\\mathrm{d}t=\\frac12\\sqrt{\\frac{\\pi}{a}},\\qquad\\int_0^{+\\infty}\\mathrm{e}^{-u^{2}}\\mathrm{d}u=\\frac{\\sqrt{\\pi}}{2}$$"
+        },
+        {
+          "name": "换元 $u=t\\sqrt{a}$",
+          "latex": "$$\\int_0^{+\\infty}x^{t^{2}}\\mathrm{d}t=\\frac{1}{\\sqrt{\\ln\\frac1x}}\\int_0^{+\\infty}\\mathrm{e}^{-u^{2}}\\mathrm{d}u$$"
+        },
+        {
+          "name": "等价无穷小与等价无穷大",
+          "latex": "$$-\\ln x\\sim1-x\\ (x\\to1^{-}),\\qquad\\frac{F(x)}{G(x)}\\to1\\iff F\\sim G$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先定性——这是「压缩型」级数，求和没有初等闭式",

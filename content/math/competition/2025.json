@@ -17,6 +17,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(x)=x-\\ln\\left(1+x\\right)-\\frac12x\\sin x$，$g(x)=ax^{3}$，且 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{g(x)}=1$，求 $a$。",
+      "formulasUsed": [
+        {
+          "name": "按分母定阶",
+          "latex": "$$g\\left(x\\right)=ax^{3}\\Longrightarrow f\\ \\text{只要展到}\\ x^{3}$$"
+        },
+        {
+          "name": "两个展开",
+          "latex": "$$\\ln\\left(1+x\\right)=x-\\frac{x^{2}}{2}+\\frac{x^{3}}{3}-\\cdots,\\qquad \\sin x=x-\\frac{x^{3}}{6}+\\cdots$$"
+        },
+        {
+          "name": "逐项相减",
+          "latex": "$$x-\\ln\\left(1+x\\right)=\\frac{x^{2}}{2}-\\frac{x^{3}}{3}+\\cdots,\\qquad \\frac12x\\sin x=\\frac{x^{2}}{2}-\\frac{x^{4}}{12}+\\cdots$$"
+        },
+        {
+          "name": "同阶取系数",
+          "latex": "$$f\\left(x\\right)\\sim-\\frac{x^{3}}{3}\\Longrightarrow \\frac{f}{ax^{3}}\\to1\\Longrightarrow a=-\\frac13$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看分母是 $ax^{3}$，就把分子展到 $x^{3}$",
@@ -55,6 +73,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设平面过原点与点 $\\left(6,-3,2\\right)$，且与平面 $4x-y+2z-8=0$ 垂直，求此平面方程。",
+      "formulasUsed": [
+        {
+          "name": "过原点 ⇒ 无常数项",
+          "latex": "$$Ax+By+Cz=0$$"
+        },
+        {
+          "name": "「垂直于给定平面」给第二个面内向量",
+          "latex": "$$\\vec n_{1}=\\left(4,-1,2\\right)\\ \\text{与所求平面的法向量垂直}$$"
+        },
+        {
+          "name": "两个面内向量叉乘",
+          "latex": "$$\\vec n=\\left(6,-3,2\\right)\\times\\left(4,-1,2\\right)=\\left(-4,-4,6\\right)\\parallel\\left(2,2,-3\\right)$$"
+        },
+        {
+          "name": "点法式",
+          "latex": "$$2x+2y-3z=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：过原点 ⇒ 没有常数项，只需定法向量",
@@ -92,6 +128,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "求 $\\displaystyle\\lim_{x\\to0}\\frac{\\displaystyle\\int_0^{\\sin^{2}x}\\ln\\left(1+t\\right)\\mathrm dt}{\\left(\\sqrt[3]{1+x^{3}}-1\\right)\\sin x}$。",
+      "formulasUsed": [
+        {
+          "name": "分母化幂读出阶数",
+          "latex": "$$\\sqrt[3]{1+x^{3}}-1\\sim\\frac{x^{3}}{3},\\qquad \\sin x\\sim x\\Longrightarrow \\text{分母}\\sim\\frac{x^{4}}{3}$$"
+        },
+        {
+          "name": "分子变上限 ＋ 等价",
+          "latex": "$$\\ln\\left(1+t\\right)\\sim t\\Longrightarrow \\int_0^{\\sin^{2}x}\\ln\\left(1+t\\right)\\mathrm{d}t\\sim\\frac{\\sin^{4}x}{2}$$"
+        },
+        {
+          "name": "上限的阶",
+          "latex": "$$\\sin^{2}x\\sim x^{2}\\Longrightarrow \\text{分子}\\sim\\frac{x^{4}}{2}$$"
+        },
+        {
+          "name": "同阶相除",
+          "latex": "$$\\frac{x^{4}/2}{x^{4}/3}=\\frac32$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把分母化成幂函数，读出阶数",
@@ -130,6 +184,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(u,v)$ 有一阶连续偏导，$f\\left(2,0\\right)=3$、$f_u'\\left(2,0\\right)=5$，$z=z(x,y)$ 由 $xz=f\\left(2x-y,xyz\\right)$ 确定，求 $\\left.\\frac{\\partial z}{\\partial x}\\right|_{\\left(x,y\\right)=\\left(1,0\\right)}$。",
+      "formulasUsed": [
+        {
+          "name": "先代点定 $z$",
+          "latex": "$$x=1,\\ y=0\\Longrightarrow z=f\\left(2,0\\right)=3$$"
+        },
+        {
+          "name": "隐函数两边对 $x$ 求导",
+          "latex": "$$z+xz_{x}=f_{u}\\cdot2+f_{v}\\cdot\\left(yz+xyz_{x}\\right)$$"
+        },
+        {
+          "name": "代入数值",
+          "latex": "$$3+z_{x}=2\\cdot5+0\\Longrightarrow z_{x}=7$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先代点把 $z$ 定下来",
@@ -167,6 +235,28 @@
       ],
       "difficulty": 3,
       "stemHtml": "设曲线 $L$ 为球面 $x^{2}+y^{2}+z^{2}=4$ 与平面 $x+y+z=3$ 的交线，求 $\\displaystyle\\int_L\\left(x^{2}+2xy\\right)\\mathrm ds$。",
+      "formulasUsed": [
+        {
+          "name": "认出圆并算半径",
+          "latex": "$$d=\\frac{\\left|0+0+0-3\\right|}{\\sqrt3}=\\sqrt3\\Longrightarrow \\rho=\\sqrt{R^{2}-d^{2}}=1,\\qquad \\text{周长}=2\\pi$$"
+        },
+        {
+          "name": "置换对称平摊",
+          "latex": "$$\\oint_{L}x^{2}\\mathrm{d}s=\\oint_{L}y^{2}\\mathrm{d}s=\\oint_{L}z^{2}\\mathrm{d}s=\\frac13\\oint_{L}\\left(x^{2}+y^{2}+z^{2}\\right)\\mathrm{d}s=\\frac13\\cdot4\\cdot2\\pi$$"
+        },
+        {
+          "name": "交叉项用完全平方",
+          "latex": "$$2\\oint xy\\,\\mathrm{d}s=\\oint\\left(x+y\\right)^{2}\\mathrm{d}s-\\oint x^{2}\\mathrm{d}s-\\oint y^{2}\\mathrm{d}s$$"
+        },
+        {
+          "name": "用平面方程换掉 $x+y$",
+          "latex": "$$x+y=3-z,\\qquad \\oint z\\,\\mathrm{d}s=\\bar z\\cdot2\\pi=2\\pi\\Longrightarrow \\oint\\left(x+y\\right)^{2}\\mathrm{d}s=6\\pi+\\frac{8\\pi}{3}$$"
+        },
+        {
+          "name": "合并",
+          "latex": "$$I=\\frac{8\\pi}{3}+\\frac{10\\pi}{3}=6\\pi$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出 $L$ 是圆，弧长可直接算",
@@ -209,6 +299,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f$ 在 $\\left(-\\infty,+\\infty\\right)$ 上连续、在 $x=0$ 处可导，且 $f(x)=x^{3}+x^{2}\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}-x\\int_0^1f(x)\\mathrm dx$。求 $f(x)$。",
+      "formulasUsed": [
+        {
+          "name": "把两个「与 $x$ 无关」的量记成常数",
+          "latex": "$$a=\\lim_{x\\to0}\\frac{f\\left(x\\right)}{x},\\qquad b=\\int_0^{1}f\\left(x\\right)\\mathrm{d}x\\Longrightarrow f\\left(x\\right)=x^{3}+ax^{2}-bx$$"
+        },
+        {
+          "name": "连续性定 $f\\left(0\\right)$",
+          "latex": "$$f\\left(0\\right)=\\lim_{x\\to0}\\left(x^{3}+ax^{2}-bx\\right)=0$$"
+        },
+        {
+          "name": "可导性认成 $f'\\left(0\\right)$",
+          "latex": "$$a=f'\\left(0\\right)=\\lim_{x\\to0}\\frac{f\\left(x\\right)-f\\left(0\\right)}{x}\\Longrightarrow a=-b$$"
+        },
+        {
+          "name": "积分定 $b$",
+          "latex": "$$b=\\int_0^{1}\\left(x^{3}+ax^{2}-bx\\right)\\mathrm{d}x=\\frac14+\\frac{a}{3}-\\frac{b}{2}\\Longrightarrow b=\\frac{3}{22},\\ a=-\\frac{3}{22}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把两处「与 $x$ 无关」的量记成常数",
@@ -252,6 +360,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求微分方程 $y'x\\ln x\\sin y+\\left(1-x\\cos y\\right)\\cos y=0$ 的通解。",
+      "formulasUsed": [
+        {
+          "name": "换元消三角",
+          "latex": "$$z=\\cos y\\Longrightarrow z'=-\\sin y\\,y'\\Longrightarrow -x\\ln x\\,z'+z-xz^{2}=0$$"
+        },
+        {
+          "name": "伯努利线性化",
+          "latex": "$$u=\\frac1z\\Longrightarrow u'=-\\frac{z'}{z^{2}}\\Longrightarrow x\\ln x\\,u'+u=x$$"
+        },
+        {
+          "name": "积分因子 $\\ln x$",
+          "latex": "$$\\ln x\\,u'+\\frac{u}{x}=1\\Longrightarrow \\left(u\\ln x\\right)'=1\\Longrightarrow u\\ln x=x+C$$"
+        },
+        {
+          "name": "回代得隐式通解",
+          "latex": "$$\\frac{\\ln x}{\\cos y}=x+C$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：整理成标准形，看清非线性来自 $\\cos^{2}y$",
@@ -292,6 +418,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\Omega$ 由平面 $x=0$、$x=y$、$y=z$、$z=1$、$z=2$ 围成，求 $\\displaystyle\\iiint_\\Omega\\frac{\\mathrm dx\\mathrm dy\\mathrm dz}{\\sqrt{y^{2}+z^{2}}}$。",
+      "formulasUsed": [
+        {
+          "name": "把五张平面读成链",
+          "latex": "$$0\\leqslant x\\leqslant y\\leqslant z,\\qquad 1\\leqslant z\\leqslant2$$"
+        },
+        {
+          "name": "先积 $x$（不含被积变量）",
+          "latex": "$$\\int_0^{y}\\mathrm{d}x=y\\Longrightarrow \\int_1^{2}\\mathrm{d}z\\int_0^{z}\\frac{y\\,\\mathrm{d}y}{\\sqrt{y^{2}+z^{2}}}$$"
+        },
+        {
+          "name": "中层标准积分",
+          "latex": "$$\\int\\frac{y\\,\\mathrm{d}y}{\\sqrt{y^{2}+z^{2}}}=\\sqrt{y^{2}+z^{2}}$$"
+        },
+        {
+          "name": "外层一次积完",
+          "latex": "$$\\int_1^{2}\\left(\\sqrt2-1\\right)z\\,\\mathrm{d}z=\\frac{3}{2}\\left(\\sqrt2-1\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把五张平面读成一条链",
@@ -333,6 +477,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "判断级数 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 的收敛性，其中 $a_n=\\sin^{2}x\\sin^{2}2x\\cdots\\sin^{2}2^{n}x$，$x\\in\\left(-\\infty,+\\infty\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "相邻两因子的统一上界",
+          "latex": "$$\\left|\\sin2t\\right|=2\\left|\\sin t\\right|\\left|\\cos t\\right|\\leqslant2\\left|\\sin t\\right|$$"
+        },
+        {
+          "name": "把 $a_n^{3/2}$ 重组成乘积",
+          "latex": "$$a_{n}^{\\frac32}=\\prod_{k=0}^{n}\\left|\\sin2^{k}x\\right|^{3},\\qquad \\text{取}\\ f\\left(t\\right)=\\left|\\sin t\\right|^{3}\\ \\text{则}\\ a_{n}^{\\frac32}=\\prod_{k=0}^{n}f\\left(2^{k}x\\right)$$"
+        },
+        {
+          "name": "相邻配对压缩",
+          "latex": "$$\\left|\\sin2t\\right|\\leqslant2\\left|\\sin t\\right|\\Longrightarrow \\prod_{k=0}^{n}\\left|\\sin2^{k}x\\right|\\leqslant C\\,2^{-n}\\ \\text{型上界}$$"
+        },
+        {
+          "name": "开方回 $a_n$",
+          "latex": "$$a_{n}\\leqslant C'\\,2^{-\\frac{2n}{3}}\\Longrightarrow \\sum a_{n}\\ \\text{收敛}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：单个 $\\sin^{2}$ 可以接近 $1$，只能找「相邻两因子」的统一上界",
@@ -377,6 +539,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f,g$ 在 $\\left[a,b\\right]$ 上连续可导，满足 (i) $\\displaystyle\\int_a^bf=\\int_a^bg=0$；(ii) $f'g-fg'&gt;0$，$x\\in\\left[a,b\\right]$；(iii) $g$ 在 $\\left(a,b\\right)$ 上有唯一零点 $\\xi$。证明：(1) $\\displaystyle\\int_a^bf(x)\\left(\\int_a^xg(s)\\mathrm ds\\right)\\mathrm dx=-\\int_a^bg(x)\\left(\\int_a^xf(s)\\mathrm ds\\right)\\mathrm dx$；(2) $\\displaystyle\\int_a^bf(x)\\left(\\int_a^xg(s)\\mathrm ds\\right)\\mathrm dx&gt;0$。",
+      "formulasUsed": [
+        {
+          "name": "分部积分（边界项归零）",
+          "latex": "$$\\int_a^b f\\left(x\\right)\\left[\\int_a^x g\\left(s\\right)\\mathrm{d}s\\right]\\mathrm{d}x=F\\left(b\\right)G\\left(b\\right)-F\\left(a\\right)G\\left(a\\right)-\\int_a^b F\\left(x\\right)g\\left(x\\right)\\mathrm{d}x$$"
+        },
+        {
+          "name": "二重积分写法",
+          "latex": "$$\\int_a^b f\\left(x\\right)\\left[\\int_a^x g\\left(s\\right)\\mathrm{d}s\\right]\\mathrm{d}x=\\iint_{D}f\\left(x\\right)g\\left(s\\right)\\mathrm{d}x\\mathrm{d}s,\\qquad D:\\ a\\leqslant s\\leqslant x\\leqslant b$$"
+        },
+        {
+          "name": "$g/f$ 单调递减 ⇒ 唯一零点",
+          "latex": "$$\\left(\\frac{g}{f}\\right)'=\\frac{f g'-f'g}{f^{2}}&lt;0,\\qquad f'g-fg'&gt;0\\Longrightarrow \\frac{g}{f}\\ \\text{严格单调}\\Longrightarrow \\text{唯一}\\ \\xi$$"
+        },
+        {
+          "name": "按 $\\xi$ 切块 + 分离变量",
+          "latex": "$$D_{1}\\cup D_{2}\\cup D_{3},\\qquad \\iint_{D_{2}}f\\left(x\\right)g\\left(s\\right)=\\left(\\int_a^{\\xi}f\\right)\\left(\\int_{\\xi}^{b}g\\right)=0\\Longrightarrow \\text{符号相反}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：记两个原函数，分部积分把边界项消掉",

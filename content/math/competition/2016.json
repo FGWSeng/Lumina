@@ -18,6 +18,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "若 $f(x)$ 在点 $x=a$ 处可导且 $f(a)\\neq0$，则 $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac{f\\left(a+\\frac1n\\right)}{f(a)}\\right)^{n}=$________。",
+      "formulasUsed": [
+        {
+          "name": "$1^{\\infty}$ 型的等价写法",
+          "latex": "$$\\lim\\left(\\frac{f\\left(a+\\frac1n\\right)}{f\\left(a\\right)}\\right)^{n}=\\mathrm{e}^{\\lim n\\left[\\frac{f\\left(a+\\frac1n\\right)}{f\\left(a\\right)}-1\\right]}$$"
+        },
+        {
+          "name": "导数定义",
+          "latex": "$$n\\left[\\frac{f\\left(a+\\frac1n\\right)-f\\left(a\\right)}{f\\left(a\\right)}\\right]=\\frac{1}{f\\left(a\\right)}\\cdot\\frac{f\\left(a+\\frac1n\\right)-f\\left(a\\right)}{1/n}\\longrightarrow\\frac{f'(a)}{f(a)}$$"
+        },
+        {
+          "name": "对数等价",
+          "latex": "$$\\ln\\left(1+u\\right)\\sim u\\Longrightarrow \\text{结果}=\\mathrm{e}^{\\frac{f'(a)}{f(a)}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出 $1^{\\infty}$ 型，先把底数拆成 $1+u_n$",
@@ -56,6 +70,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "若 $f(1)=0$，$f'(1)$ 存在，则 $\\displaystyle\\lim_{x\\to0}\\frac{f\\left(\\sin^{2}x+\\cos x\\right)\\tan3x}{\\left(\\mathrm{e}^{x^{2}}-1\\right)\\sin x}=$________。",
+      "formulasUsed": [
+        {
+          "name": "分母的等价无穷小",
+          "latex": "$$\\tan3x\\sim3x,\\qquad \\mathrm{e}^{x^{2}}-1\\sim x^{2},\\qquad \\sin x\\sim x\\Longrightarrow \\text{分母}\\sim3x^{3}$$"
+        },
+        {
+          "name": "把 $f$ 的变量凑成 $1$",
+          "latex": "$$\\sin^{2}x+\\cos x=1+\\left(\\cos x-1\\right)+\\sin^{2}x,\\qquad \\cos x-1\\sim-\\frac{x^{2}}{2},\\ \\sin^{2}x\\sim x^{2}$$"
+        },
+        {
+          "name": "导数定义（差商）",
+          "latex": "$$f\\left(1+t\\right)-f\\left(1\\right)=f'(1)\\,t+o\\left(t\\right),\\qquad t\\sim\\frac{x^{2}}{2}$$"
+        },
+        {
+          "name": "合并系数",
+          "latex": "$$\\frac{f'(1)\\cdot\\frac{x^{2}}{2}\\cdot3x}{x^{2}\\cdot x}=\\frac{3}{2}f'(1)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把分母的等价无穷小换掉",
@@ -98,6 +130,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(x)$ 有连续导数且 $f(1)=2$，记 $z=f\\left(\\mathrm{e}^{x}y^{2}\\right)$。若 $\\dfrac{\\partial z}{\\partial x}=z$，则当 $x&gt;0$ 时，$f(x)=$________。",
+      "formulasUsed": [
+        {
+          "name": "链式法则（同变量）",
+          "latex": "$$z=f\\left(u\\right),\\ u=\\mathrm{e}^{x}y^{2}\\Longrightarrow \\frac{\\partial z}{\\partial x}=f'(u)\\,\\mathrm{e}^{x}y^{2}=u\\,f'(u)$$"
+        },
+        {
+          "name": "条件化为一元方程",
+          "latex": "$$\\frac{\\partial z}{\\partial x}=z\\Longrightarrow u\\,f'(u)=f\\left(u\\right)\\Longrightarrow \\frac{f'}{f}=\\frac1u$$"
+        },
+        {
+          "name": "可分离变量的通解",
+          "latex": "$$\\ln\\left|f\\right|=\\ln\\left|u\\right|+C\\Longrightarrow f\\left(u\\right)=Cu$$"
+        },
+        {
+          "name": "初值定常数",
+          "latex": "$$f(1)=2\\Longrightarrow C=2\\Longrightarrow f(x)=2x$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：链式法则写出 $\\partial z/\\partial x$，注意两者同变量",
@@ -136,6 +186,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(x)=\\mathrm{e}^{x}\\sin2x$，则 $f^{(4)}(0)=$________。",
+      "formulasUsed": [
+        {
+          "name": "系数与高阶导的关系",
+          "latex": "$$f(x)=\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(0)}{n!}x^{n}\\Longrightarrow f^{(4)}(0)=4!\\cdot\\left[x^{4}\\right]f$$"
+        },
+        {
+          "name": "两个标准展开",
+          "latex": "$$\\mathrm{e}^{x}=\\sum_{k=0}^{\\infty}\\frac{x^{k}}{k!},\\qquad \\sin2x=2x-\\frac{\\left(2x\\right)^{3}}{3!}+\\frac{\\left(2x\\right)^{5}}{5!}-\\cdots$$"
+        },
+        {
+          "name": "乘积的卷积求和",
+          "latex": "$$\\left[x^{4}\\right]\\left(\\mathrm{e}^{x}\\sin2x\\right)=\\sum_{k=0}^{4}\\frac{1}{k!}\\cdot\\left[x^{4-k}\\right]\\sin2x=-\\frac43+\\frac{2}{6}=-1$$"
+        },
+        {
+          "name": "答案",
+          "latex": "$$f^{(4)}(0)=4!\\cdot\\left(-1\\right)=-24$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：为什么用展开而不是硬求四阶导",
@@ -174,6 +242,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "曲面 $z=\\dfrac{x^{2}}{2}+y^{2}$ 平行于平面 $2x+2y-z=0$ 的切平面方程为________。",
+      "formulasUsed": [
+        {
+          "name": "显式曲面的法向量",
+          "latex": "$$z=\\frac{x^{2}}{2}+y^{2}\\Longrightarrow \\vec n=\\left(-x,-2y,1\\right)$$"
+        },
+        {
+          "name": "平行条件定切点",
+          "latex": "$$\\vec n\\parallel\\left(2,2,-1\\right)\\Longrightarrow \\vec n=-1\\cdot\\left(2,2,-1\\right)\\Longrightarrow x=2,\\ y=1,\\ z=3$$"
+        },
+        {
+          "name": "切平面（点法式）",
+          "latex": "$$2\\left(x-2\\right)+2\\left(y-1\\right)-\\left(z-3\\right)=0\\Longrightarrow 2x+2y-z-3=0$$"
+        },
+        {
+          "name": "两平面平行的一般判据",
+          "latex": "$$\\frac{A_{1}}{A_{2}}=\\frac{B_{1}}{B_{2}}=\\frac{C_{1}}{C_{2}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写出切平面法向量与平行条件",
@@ -212,6 +298,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在 $[0,1]$ 上可导，$f(0)=0$，且当 $x\\in(0,1)$ 时 $0&lt;f'(x)&lt;1$。试证：当 $a\\in(0,1)$ 时，$\\left(\\displaystyle\\int_0^{a}f(x)\\,\\mathrm{d}x\\right)^{2}&gt;\\displaystyle\\int_0^{a}f^{3}(x)\\,\\mathrm{d}x$。",
+      "formulasUsed": [
+        {
+          "name": "把不等式变成函数比零点",
+          "latex": "$$F(a)=\\left(\\int_0^{a}f\\right)^{2}-\\int_0^{a}f^{3},\\qquad F(0)=0$$"
+        },
+        {
+          "name": "变上限求导 ＋ 平方的导数",
+          "latex": "$$F'(a)=2f(a)\\int_0^{a}f-\\left[f(a)\\right]^{3}=f(a)\\left[2\\int_0^{a}f-f^{2}(a)\\right]$$"
+        },
+        {
+          "name": "再设一层辅助函数",
+          "latex": "$$g(a)=2\\int_0^{a}f-f^{2}(a)\\Longrightarrow g'(a)=2f(a)-2f(a)f'(a)=2f(a)\\left[1-f'(a)\\right]$$"
+        },
+        {
+          "name": "条件给出符号",
+          "latex": "$$f&gt;0,\\ 0&lt;f'&lt;1\\Longrightarrow g'(a)&gt;0,\\ g(0)=0\\Longrightarrow g(a)&gt;0\\Longrightarrow F'(a)&gt;0\\Longrightarrow F(a)&gt;0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把「两个积分比大小」变成「一个函数比零点」",
@@ -254,6 +358,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设某物体所在空间区域为 $\\Omega:x^{2}+y^{2}+2z^{2}\\leqslant x+y+2z$，密度函数为 $x^{2}+y^{2}+z^{2}$，求该物体的质量 $M=\\displaystyle\\iiint_{\\Omega}\\left(x^{2}+y^{2}+z^{2}\\right)\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z$。",
+      "formulasUsed": [
+        {
+          "name": "配方看清区域",
+          "latex": "$$x^{2}+y^{2}+2z^{2}\\leqslant x+y+2z\\iff \\left(x-\\frac12\\right)^{2}+\\left(y-\\frac12\\right)^{2}+2\\left(z-\\frac12\\right)^{2}\\leqslant1$$"
+        },
+        {
+          "name": "线性变换到单位球",
+          "latex": "$$X=\\frac{x-1/2}{1},\\ Y=y-\\frac12,\\ Z=\\sqrt2\\left(z-\\frac12\\right),\\qquad \\mathrm{d}x\\mathrm{d}y\\mathrm{d}z=\\frac{1}{\\sqrt2}\\mathrm{d}X\\mathrm{d}Y\\mathrm{d}Z$$"
+        },
+        {
+          "name": "球对称性（奇函数项为零）",
+          "latex": "$$\\iiint_{X^{2}+Y^{2}+Z^{2}\\leqslant1}X\\,\\mathrm{d}V=0,\\qquad \\iiint X^{2}\\mathrm{d}V=\\frac{4\\pi}{15}$$"
+        },
+        {
+          "name": "常数项用球体积",
+          "latex": "$$\\iiint_{X^{2}+Y^{2}+Z^{2}\\leqslant1}\\mathrm{d}V=\\frac{4\\pi}{3}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：配方，看清 $\\Omega$ 是什么",
@@ -296,6 +418,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 在 $[0,1]$ 上具有连续导数，$f(0)=0$、$f(1)=1$。证明：$\\displaystyle\\lim_{n\\to\\infty}n\\left(\\int_0^{1}f(x)\\,\\mathrm{d}x-\\frac1n\\sum_{k=1}^{n}f\\left(\\frac{k}{n}\\right)\\right)=-\\frac12$。",
+      "formulasUsed": [
+        {
+          "name": "把总和拆成逐段积分差",
+          "latex": "$$\\int_0^{1}f-\\frac1n\\sum_{k=1}^{n}f\\left(\\frac{k}{n}\\right)=\\sum_{k=1}^{n}\\int_{x_{k-1}}^{x_{k}}\\left[f(x)-f\\left(x_{k}\\right)\\right]\\mathrm{d}x$$"
+        },
+        {
+          "name": "把差写成导数的积分",
+          "latex": "$$f(x)-f\\left(x_{k}\\right)=-\\int_{x}^{x_{k}}f'(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "乘 $n$ 归一化",
+          "latex": "$$u=n\\left(t-x_{k-1}\\right)\\Longrightarrow n\\int_{x_{k-1}}^{x_{k}}\\left(x_{k}-x\\right)\\mathrm{d}x=\\frac{1}{2n}$$"
+        },
+        {
+          "name": "取极限得主项",
+          "latex": "$$n\\left(\\int_0^{1}f-\\frac1n\\sum f\\left(\\frac{k}{n}\\right)\\right)\\longrightarrow-\\int_0^{1}\\left(1-u\\right)f'(u)\\,\\mathrm{d}u=-\\frac12\\left[f(1)-f(0)\\right]$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把总和拆成逐段的积分差",
@@ -338,6 +478,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 在 $[0,1]$ 上连续，且 $I=\\displaystyle\\int_0^{1}f(x)\\,\\mathrm{d}x\\neq0$。证明在 $(0,1)$ 内存在不同的两点 $x_1,x_2$，使得 $\\dfrac{1}{f\\left(x_1\\right)}+\\dfrac{1}{f\\left(x_2\\right)}=\\dfrac{2}{I}$。",
+      "formulasUsed": [
+        {
+          "name": "把 $I$ 吸收进函数",
+          "latex": "$$F(x)=\\frac{1}{I}\\int_0^{x}f(t)\\,\\mathrm{d}t,\\qquad F(0)=0,\\ F(1)=1$$"
+        },
+        {
+          "name": "介值定理找中点",
+          "latex": "$$F\\left(\\xi\\right)=\\frac12\\Longrightarrow \\exists\\xi\\in\\left(0,1\\right)$$"
+        },
+        {
+          "name": "两段各用 Lagrange 中值",
+          "latex": "$$F\\left(\\xi\\right)-F(0)=\\frac{f\\left(x_{1}\\right)}{I}\\xi,\\qquad F(1)-F\\left(\\xi\\right)=\\frac{f\\left(x_{2}\\right)}{I}\\left(1-\\xi\\right)$$"
+        },
+        {
+          "name": "取倒数相加",
+          "latex": "$$\\frac{1}{f\\left(x_{1}\\right)}+\\frac{1}{f\\left(x_{2}\\right)}=\\frac{I}{\\xi\\cdot\\frac12}+\\frac{I}{\\left(1-\\xi\\right)\\cdot\\frac12}=\\frac{2}{I}\\left[\\frac{1}{2\\xi}+\\frac{1}{2\\left(1-\\xi\\right)}\\right]&gt;\\frac{2}{I}$$"
+        },
+        {
+          "name": "$I$ 的符号与连续",
+          "latex": "$$I\\neq0,\\qquad f\\ \\text{连续且}\\ f(x)\\neq0\\Longrightarrow f\\ \\text{定号}\\Longrightarrow \\frac{1}{f\\left(x_{1}\\right)}+\\frac{1}{f\\left(x_{2}\\right)}=\\frac{2}{I}\\ \\text{可达}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $I$ 吸收进函数，构造「从 $0$ 到 $1$」的规范积分",
@@ -380,6 +542,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在 $(-\\infty,+\\infty)$ 上可导，且满足 $f(x)=f(x+2)=f(x+\\sqrt3)$，用 Fourier 级数理论证明 $f(x)$ 为常数。",
+      "formulasUsed": [
+        {
+          "name": "Fourier 展开（周期 $2$ 与 $\\sqrt3$ 的公周期）",
+          "latex": "$$f(x)=\\frac{a_{0}}{2}+\\sum_{n=1}^{\\infty}\\left(a_{n}\\cos n\\pi x+b_{n}\\sin n\\pi x\\right)$$"
+        },
+        {
+          "name": "平移两个周期做换元",
+          "latex": "$$f\\left(x+\\sqrt3\\right)=f(x)\\Longrightarrow a_{n}\\left(\\cos n\\pi\\sqrt3-1\\right)+b_{n}\\sin n\\pi\\sqrt3=0$$"
+        },
+        {
+          "name": "同类方程联立",
+          "latex": "$$a_{n}\\left(\\cos2n\\pi-1\\right)+b_{n}\\sin2n\\pi=0\\Longrightarrow b_{n}=0\\Longrightarrow a_{n}\\left(\\cos n\\pi\\sqrt3-1\\right)=0$$"
+        },
+        {
+          "name": "$\\sqrt3$ 无理 ⇒ 系数全零",
+          "latex": "$$\\cos n\\pi\\sqrt3\\neq1\\Longrightarrow a_{n}=b_{n}=0\\Longrightarrow f\\equiv\\frac{a_{0}}{2}\\ \\text{为常数}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：定周期、写系数、说明级数收敛到 $f$",

@@ -6,7 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const SRC_DIR = 'E:/考研/数学/数学竞赛/真题详解'
+const SRC_DIR = 'E:/考研/数学/数学竞赛/真题详解/html'
 const OUT_DIR = path.resolve('content/math/competition')
 
 const files = fs
@@ -36,6 +36,21 @@ function cleanTags(src) {
 
 function stripTagSpan(stemHtml) {
   return stemHtml.replace(/<span class="tag">[\s\S]*?<\/span>/, '').trim()
+}
+
+function parseFormulasUsed(article) {
+  const fx = article.match(/<div class="fx">([\s\S]*?)<\/ol>/)
+  if (!fx) return []
+  const out = []
+  const liRe = /<li>([\s\S]*?)<\/li>/g
+  let li
+  while ((li = liRe.exec(fx[1]))) {
+    const block = li[1]
+    const name = textOf((block.match(/<span class="n">([\s\S]*?)<\/span>/) || [])[1] || '')
+    const fms = [...block.matchAll(/<div class="fm">([\s\S]*?)<\/div>/g)].map((m) => m[1].trim())
+    if (name && fms.length) out.push({ name, latex: fms.join('\n') })
+  }
+  return out
 }
 
 function parseQuestion(article, seq, year, stageName) {
@@ -89,6 +104,7 @@ function parseQuestion(article, seq, year, stageName) {
     tags,
     difficulty,
     stemHtml,
+    formulasUsed: parseFormulasUsed(article),
     steps,
     moral,
     answerHtml,

@@ -17,6 +17,20 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $x_n=(1+a)(1+a^{2})\\cdots(1+a^{2^{n}})$，其中 $|a|&lt;1$，求 $\\displaystyle\\lim_{n\\to\\infty}x_n$。",
+      "formulasUsed": [
+        {
+          "name": "平方差公式（通式）",
+          "latex": "$$(1-x)(1+x)=1-x^{2}$$"
+        },
+        {
+          "name": "连乘闭合（反复用平方差）",
+          "latex": "$$\\prod_{k=0}^{n}\\left(1+a^{2^{k}}\\right)=\\frac{1-a^{2^{n+1}}}{1-a}\\qquad(a\\neq1)$$"
+        },
+        {
+          "name": "等比项取极限",
+          "latex": "$$|a|&lt;1\\Longrightarrow a^{m}\\to0\\ (m\\to\\infty),\\qquad \\frac{1-a^{2^{n+1}}}{1-a}\\to\\frac{1}{1-a}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出这是「平方差机器」的标准长相",
@@ -55,6 +69,20 @@
       ],
       "difficulty": 3,
       "stemHtml": "求 $\\displaystyle\\lim_{x\\to+\\infty}\\mathrm{e}^{-x}\\left(1+\\frac{1}{x}\\right)^{x^{2}}$。",
+      "formulasUsed": [
+        {
+          "name": "幂指函数化为指数",
+          "latex": "$$u^{v}=\\mathrm{e}^{v\\ln u}\\qquad(u&gt;0),\\qquad \\mathrm{e}^{A}\\mathrm{e}^{B}=\\mathrm{e}^{A+B}$$"
+        },
+        {
+          "name": "对数二阶展开",
+          "latex": "$$\\ln(1+t)=t-\\frac{t^{2}}{2}+o\\left(t^{2}\\right)\\qquad(t\\to0)$$"
+        },
+        {
+          "name": "二阶小量趋于零",
+          "latex": "$$x^{2}\\cdot o\\left(\\frac{1}{x^{2}}\\right)\\to0\\Longrightarrow \\lim_{x\\to+\\infty}\\mathrm{e}^{\\left[x^{2}\\ln\\left(1+\\frac1x\\right)-x\\right]}=\\mathrm{e}^{-\\frac12}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把幂写成指数，让 $x^{2}$ 与 $\\ln$ 相乘",
@@ -93,6 +121,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $s&gt;0$，求 $\\displaystyle I=\\int_0^{+\\infty}\\mathrm{e}^{-sx}x^{n}\\,\\mathrm{d}x\\ (n=1,2,\\cdots)$。",
+      "formulasUsed": [
+        {
+          "name": "分部积分（通式）",
+          "latex": "$$\\int u\\,\\mathrm{d}v=uv-\\int v\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "递推关系",
+          "latex": "$$I_{n}=\\int_0^{+\\infty}\\mathrm{e}^{-sx}x^{n}\\mathrm{d}x=\\frac{n}{s}I_{n-1},\\qquad I_{0}=\\int_0^{+\\infty}\\mathrm{e}^{-sx}\\mathrm{d}x=\\frac1s$$"
+        },
+        {
+          "name": "归纳结果（Gamma 函数）",
+          "latex": "$$I_{n}=\\frac{n!}{s^{n+1}},\\qquad \\Gamma(n+1)=\\int_0^{+\\infty}\\mathrm{e}^{-t}t^{n}\\mathrm{d}t=n!$$"
+        },
+        {
+          "name": "收敛判据",
+          "latex": "$$\\int_0^{+\\infty}\\mathrm{e}^{-sx}x^{n}\\mathrm{d}x&nbsp;\\text{收敛}\\iff s&gt;0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先确认收敛，再动手算",
@@ -130,6 +176,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(t)$ 有二阶连续导数，$r=\\sqrt{x^{2}+y^{2}}$，$g(x,y)=f\\left(\\dfrac1r\\right)$，求 $\\dfrac{\\partial^{2}g}{\\partial x^{2}}+\\dfrac{\\partial^{2}g}{\\partial y^{2}}$。",
+      "formulasUsed": [
+        {
+          "name": "Laplace 算子",
+          "latex": "$$\\Delta g=\\frac{\\partial^{2}g}{\\partial x^{2}}+\\frac{\\partial^{2}g}{\\partial y^{2}}$$"
+        },
+        {
+          "name": "复合函数二阶链式",
+          "latex": "$$\\Delta f(u)=f''(u)\\left|\\nabla u\\right|^{2}+f'(u)\\,\\Delta u$$"
+        },
+        {
+          "name": "内层 $u=\\frac1r$ 的梯度与调和性",
+          "latex": "$$\\left|\\nabla\\frac1r\\right|^{2}=\\frac{1}{r^{4}},\\qquad \\Delta\\frac1r=0\\qquad(r&gt;0)$$"
+        },
+        {
+          "name": "代入即得",
+          "latex": "$$\\Delta g=\\frac{1}{r^{4}}f''\\left(\\frac1r\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把内层的两个偏导备好",
@@ -172,6 +236,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "求直线 $\\ell_1:\\begin{cases}x-y=0,\\\\ z=0\\end{cases}$ 与直线 $\\ell_2:\\dfrac{x-2}{4}=\\dfrac{y-1}{-2}=\\dfrac{z-3}{-1}$ 的距离。",
+      "formulasUsed": [
+        {
+          "name": "直线化「一点 ＋ 一方向」",
+          "latex": "$$\\ell:\\ \\frac{x-x_{0}}{m}=\\frac{y-y_{0}}{n}=\\frac{z-z_{0}}{p}\\Longrightarrow \\vec s=(m,n,p)$$"
+        },
+        {
+          "name": "叉积（公垂方向）",
+          "latex": "$$\\left|\\vec s_{1}\\times\\vec s_{2}\\right|=\\left|\\vec s_{1}\\right|\\left|\\vec s_{2}\\right|\\sin\\theta$$"
+        },
+        {
+          "name": "异面直线距离（通式）",
+          "latex": "$$d=\\frac{\\left|\\left(\\overrightarrow{P_{1}P_{2}}\\right)\\cdot\\left(\\vec s_{1}\\times\\vec s_{2}\\right)\\right|}{\\left|\\vec s_{1}\\times\\vec s_{2}\\right|}$$"
+        },
+        {
+          "name": "混合积的坐标算法",
+          "latex": "$$\\left(\\vec a,\\vec b,\\vec c\\right)=\\begin{vmatrix}a_{1}&amp;a_{2}&amp;a_{3}\\\\ b_{1}&amp;b_{2}&amp;b_{3}\\\\ c_{1}&amp;c_{2}&amp;c_{3}\\end{vmatrix}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把两直线的「一点 ＋ 一方向」读出来",
@@ -210,6 +292,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 在 $(-\\infty,+\\infty)$ 上具有二阶导数，并且 $f''(x)&gt;0$，$\\displaystyle\\lim_{x\\to+\\infty}f'(x)=\\alpha&gt;0$，$\\displaystyle\\lim_{x\\to-\\infty}f'(x)=\\beta&lt;0$，且存在一点 $x_0$ 使得 $f(x_0)&lt;0$。证明：方程 $f(x)=0$ 在 $(-\\infty,+\\infty)$ 内恰有两个实根。",
+      "formulasUsed": [
+        {
+          "name": "Taylor 带 Lagrange 余项",
+          "latex": "$$f(x)=f(x_{0})+f'(x_{0})(x-x_{0})+\\frac{f''(\\xi)}{2}(x-x_{0})^{2},\\qquad \\xi\\ \\text{在}\\ x_{0}\\ \\text{与}\\ x\\ \\text{之间}$$"
+        },
+        {
+          "name": "导数的保号性",
+          "latex": "$$\\lim_{x\\to+\\infty}f'(x)=\\alpha&gt;0\\Longrightarrow \\exists M,\\ x&gt;M\\ \\text{时}\\ f'(x)&gt;\\frac{\\alpha}{2}&gt;0$$"
+        },
+        {
+          "name": "介值定理",
+          "latex": "$$f\\ \\text{连续},\\ f(a)&lt;0&lt;f(b)\\Longrightarrow \\exists c\\in(a,b),\\ f(c)=0$$"
+        },
+        {
+          "name": "Rolle 定理（反证「至多两根」）",
+          "latex": "$$f(a)=f(b)=0\\Longrightarrow \\exists\\xi\\in(a,b),\\ f'(\\xi)=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把三个条件翻译成「碗形」",
@@ -252,6 +352,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $y=f(x)$ 由参数方程 $\\begin{cases}x=2t+t^{2},\\\\ y=\\psi(t)\\end{cases}\\ (t&gt;-1)$ 所确定，其中 $\\psi(t)$ 具有二阶导数，且 $\\dfrac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\dfrac{3}{4(1+t)}$。若曲线 $y=\\psi(t)$ 与 $y=\\displaystyle\\int_1^{t^{2}}\\mathrm{e}^{-u^{2}}\\,\\mathrm{d}u+\\frac{3}{2\\mathrm{e}}$ 在 $t=1$ 处相切，求函数 $\\psi(t)$。",
+      "formulasUsed": [
+        {
+          "name": "参数式一阶、二阶导",
+          "latex": "$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{\\psi'(t)}{x'(t)},\\qquad \\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\frac{1}{x'(t)}\\frac{\\mathrm{d}}{\\mathrm{d}t}\\left[\\frac{\\psi'(t)}{x'(t)}\\right]$$"
+        },
+        {
+          "name": "已知的二阶导条件",
+          "latex": "$$\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\frac{3}{4(1+t)},\\qquad x'(t)=2+2t$$"
+        },
+        {
+          "name": "一阶线性方程通解",
+          "latex": "$$\\psi''+P(t)\\psi'=Q(t)\\Longrightarrow \\psi'=\\mathrm{e}^{-\\int P}\\left(\\int Q\\,\\mathrm{e}^{\\int P}\\mathrm{d}t+C\\right)$$"
+        },
+        {
+          "name": "变上限积分求导",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}t}\\int_1^{t^{2}}\\mathrm{e}^{-u^{2}}\\mathrm{d}u=2t\\,\\mathrm{e}^{-t^{4}}$$"
+        },
+        {
+          "name": "两曲线在 $t=1$ 相切",
+          "latex": "$$\\psi(1)=g(1),\\qquad \\psi'(1)=g'(1)\\qquad\\left(g(t)=\\int_1^{t^{2}}\\mathrm{e}^{-u^{2}}\\mathrm{d}u+\\frac{3}{2\\mathrm{e}}\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：用参数式二阶导公式，把已知条件翻译成 $\\psi$ 的方程",
@@ -294,6 +416,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $a_n&gt;0$，$S_n=\\displaystyle\\sum_{k=1}^{n}a_k$，证明：(1) 当 $\\alpha&gt;1$ 时，级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{a_n}{S_n^{\\alpha}}$ 收敛；(2) 当 $\\alpha\\leqslant1$ 且 $S_n\\to\\infty\\ (n\\to\\infty)$ 时，该级数发散。",
+      "formulasUsed": [
+        {
+          "name": "把项变成差",
+          "latex": "$$a_{n}=S_{n}-S_{n-1}\\qquad(n\\geqslant2)$$"
+        },
+        {
+          "name": "Lagrange 中值定理",
+          "latex": "$$\\frac{S_{n}^{1-\\alpha}-S_{n-1}^{1-\\alpha}}{1-\\alpha}=\\left(\\alpha-1\\right)\\xi^{-\\alpha}a_{n},\\qquad \\xi\\in\\left(S_{n-1},S_{n}\\right)$$"
+        },
+        {
+          "name": "望远镜求和",
+          "latex": "$$\\sum_{n=2}^{N}\\left(S_{n-1}^{1-\\alpha}-S_{n}^{1-\\alpha}\\right)=S_{1}^{1-\\alpha}-S_{N}^{1-\\alpha}\\leqslant S_{1}^{1-\\alpha}\\quad(\\alpha&gt;1)$$"
+        },
+        {
+          "name": "收敛的必要条件",
+          "latex": "$$\\sum a_{n}\\ \\text{收敛}\\Longrightarrow a_{n}\\to0\\qquad(\\alpha\\leqslant1\\ \\text{时项不趋于零})$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出 $a_n=S_n-S_{n-1}$，把「项」变成「差」",
@@ -336,6 +476,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\ell$ 是过原点、方向向量为 $(\\alpha,\\beta,\\gamma)$ 的直线（其中 $\\alpha^{2}+\\beta^{2}+\\gamma^{2}=1$）。质量分布均匀的椭球体 $\\dfrac{x^{2}}{a^{2}}+\\dfrac{y^{2}}{b^{2}}+\\dfrac{z^{2}}{c^{2}}\\leqslant1$（其中 $0&lt;c&lt;b&lt;a$，密度为 $1$）绕 $\\ell$ 旋转。(1) 求其转动惯量；(2) 求其转动惯量关于方向 $(\\alpha,\\beta,\\gamma)$ 的最大值和最小值。",
+      "formulasUsed": [
+        {
+          "name": "转动惯量定义",
+          "latex": "$$I=\\iiint_{V}\\rho\\, d^{2}\\,\\mathrm{d}V,\\qquad d^{2}=\\left|\\vec r\\right|^{2}-\\left(\\vec r\\cdot\\vec e\\right)^{2},\\qquad \\left|\\vec e\\right|=1$$"
+        },
+        {
+          "name": "广义球坐标（把椭球拉成单位球）",
+          "latex": "$$x=a\\rho\\sin\\varphi\\cos\\theta,\\quad y=b\\rho\\sin\\varphi\\sin\\theta,\\quad z=c\\rho\\cos\\varphi,\\qquad J=abc\\,\\rho^{2}\\sin\\varphi$$"
+        },
+        {
+          "name": "单位球上的二阶矩",
+          "latex": "$$\\iiint_{\\rho\\leqslant1}x^{2}\\,\\mathrm{d}V=\\frac{4\\pi}{15}\\quad(\\text{同理}\\ y^{2},z^{2})$$"
+        },
+        {
+          "name": "二次型在单位球上的最值",
+          "latex": "$$Q\\left(\\vec e\\right)=a^{2}\\alpha^{2}+b^{2}\\beta^{2}+c^{2}\\gamma^{2},\\qquad \\alpha^{2}+\\beta^{2}+\\gamma^{2}=1\\Longrightarrow \\min=c^{2},\\ \\max=a^{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写出「到轴距离的平方」",
@@ -378,6 +536,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $\\varphi(x)$ 具有连续的导数，在围绕原点的任意光滑的简单闭曲线 $C$ 上，曲线积分 $\\displaystyle\\oint_C\\frac{2xy\\,\\mathrm{d}x+\\varphi(x)\\,\\mathrm{d}y}{x^{4}+y^{2}}$ 的值为常数。(1) 设 $L$ 为正向闭曲线 $(x-2)^{2}+y^{2}=1$，证明 $\\displaystyle\\oint_L\\frac{2xy\\,\\mathrm{d}x+\\varphi(x)\\,\\mathrm{d}y}{x^{4}+y^{2}}=0$；(2) 求函数 $\\varphi(x)$；(3) 设 $C$ 是围绕原点的光滑简单正向闭曲线，求此积分值。",
+      "formulasUsed": [
+        {
+          "name": "路径无关的条件",
+          "latex": "$$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}\\qquad(\\text{单连通区域内 }P,Q\\text{ 连续可微})$$"
+        },
+        {
+          "name": "Green 公式",
+          "latex": "$$\\oint_{L}P\\,\\mathrm{d}x+Q\\,\\mathrm{d}y=\\iint_{D}\\left(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "含奇点时挖洞",
+          "latex": "$$\\oint_{C}=\\oint_{C_{\\varepsilon}},\\qquad C\\ \\text{与}\\ C_{\\varepsilon}\\ \\text{都正向绕原点}$$"
+        },
+        {
+          "name": "不绕原点则环流为零",
+          "latex": "$$L:\\ (x-2)^{2}+y^{2}=1\\ \\text{不围原点}\\Longrightarrow \\oint_{L}=0$$"
+        },
+        {
+          "name": "待定函数的比较法",
+          "latex": "$$\\frac{\\partial Q}{\\partial x}=\\frac{\\partial P}{\\partial y}\\Longrightarrow \\varphi'(x)\\,x^{4}=2x^{4}-4x\\varphi(x)\\Longrightarrow \\varphi(x)=x^{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：读懂「绕原点的闭曲线积分恒为常数」这句话",

@@ -13,10 +13,29 @@
       "title": "对数提公因式",
       "tags": [
         "对数提公因式",
-        "$\\ln(1+u)\\sim u$"
+        "$\\ln(1+u)\\sim u$",
+        "$\\arctan v\\sim v$"
       ],
       "difficulty": 2,
       "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\frac{\\ln\\left(\\mathrm{e}^{\\sin x}+\\sqrt[3]{1-\\cos x}\\right)-\\sin x}{\\arctan\\left(4\\sqrt[3]{1-\\cos x}\\right)}$。",
+      "formulasUsed": [
+        {
+          "name": "对数套指数",
+          "latex": "$$\\ln\\left(\\mathrm{e}^{u}+v\\right)=u+\\ln\\left(1+v\\,\\mathrm{e}^{-u}\\right),\\qquad \\ln\\left(1+w\\right)\\sim w\\ (w\\to0)$$"
+        },
+        {
+          "name": "三次根与余弦",
+          "latex": "$$1-\\cos x\\sim\\frac{x^{2}}{2},\\qquad \\sqrt[3]{1-\\cos x}\\sim\\left(\\frac{x^{2}}{2}\\right)^{1/3}=2^{-1/3}x^{2/3}$$"
+        },
+        {
+          "name": "反正切等价",
+          "latex": "$$\\arctan w\\sim w\\qquad(w\\to0)$$"
+        },
+        {
+          "name": "同阶相消",
+          "latex": "$$\\frac{\\ln\\left(\\mathrm{e}^{\\sin x}+v\\right)-\\sin x}{\\arctan\\left(4v\\right)}\\sim\\frac{v\\,\\mathrm{e}^{-\\sin x}}{4v}=\\frac14$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先确认是 $0/0$，再想「为什么分子要减 $\\sin x$」",
@@ -55,6 +74,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设隐函数 $y=y(x)$ 由方程 $y^{2}\\left(x-y\\right)=x^{2}$ 所确定，则 $\\displaystyle\\int\\frac{\\mathrm{d}x}{y^{2}}=$________。",
+      "formulasUsed": [
+        {
+          "name": "齐次方程换元",
+          "latex": "$$y=tx\\Longrightarrow y^{2}\\left(x-y\\right)=t^{2}x^{3}\\left(1-t\\right)=x^{2}\\Longrightarrow x=\\frac{1}{t^{2}\\left(1-t\\right)}$$"
+        },
+        {
+          "name": "微分与代换",
+          "latex": "$$\\mathrm{d}x=x'(t)\\,\\mathrm{d}t,\\qquad y^{2}=t^{2}x^{2}\\Longrightarrow \\frac{\\mathrm{d}x}{y^{2}}=\\frac{x'(t)}{t^{2}x^{2}}\\mathrm{d}t$$"
+        },
+        {
+          "name": "化为有理式积分",
+          "latex": "$$\\frac{x'}{t^{2}x^{2}}=\\frac{\\mathrm{d}}{\\mathrm{d}t}\\left(-\\frac{1}{tx}\\right)\\Longrightarrow \\int\\frac{\\mathrm{d}x}{y^{2}}=-\\frac{1}{tx}+C$$"
+        },
+        {
+          "name": "回代",
+          "latex": "$$t=\\frac yx\\Longrightarrow \\int\\frac{\\mathrm{d}x}{y^{2}}=-\\frac{1}{y}+C$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出方程是齐次的，令 $y=tx$",
@@ -96,6 +133,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "定积分 $\\displaystyle\\int_0^{\\frac{\\pi}{2}}\\frac{\\mathrm{e}^{x}\\left(1+\\sin x\\right)}{1+\\cos x}\\,\\mathrm{d}x=$________。",
+      "formulasUsed": [
+        {
+          "name": "半角化简",
+          "latex": "$$\\frac{1+\\sin x}{1+\\cos x}=\\frac{\\sin x}{1+\\cos x}+\\frac{1}{1+\\cos x}=\\tan\\frac x2+\\frac{1}{1+\\cos x}$$"
+        },
+        {
+          "name": "关键导数",
+          "latex": "$$\\left(\\tan\\frac x2\\right)'=\\frac{1}{2\\cos^{2}\\left(x/2\\right)}=\\frac{1}{1+\\cos x}$$"
+        },
+        {
+          "name": "凑 $\\mathrm{e}^{x}\\left(f+f'\\right)$",
+          "latex": "$$\\mathrm{e}^{x}\\left[f\\left(x\\right)+f'\\left(x\\right)\\right]=\\left[\\mathrm{e}^{x}f\\left(x\\right)\\right]',\\qquad f=\\tan\\frac x2$$"
+        },
+        {
+          "name": "代上下限",
+          "latex": "$$I=\\left[\\mathrm{e}^{x}\\tan\\frac x2\\right]_0^{\\pi/2}=\\mathrm{e}^{\\pi/2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看到 $\\mathrm e^{x}$ 乘三角分式，先想「$\\mathrm e^{x}\\left(f+f'\\right)$」",
@@ -129,10 +184,33 @@
       "title": "凑 $y^{2}\\mathrm d(x/y)$",
       "tags": [
         "凑 $y^{2}\\mathrm d(x/y)$",
-        "二次式配方"
+        "二次式配方",
+        "$\\arctan$ 积分"
       ],
       "difficulty": 3,
       "stemHtml": "已知 $\\mathrm{d}u(x,y)=\\dfrac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{3x^{2}-2xy+3y^{2}}$，则 $u(x,y)=$________。",
+      "formulasUsed": [
+        {
+          "name": "分子的全微分",
+          "latex": "$$\\mathrm{d}\\left(\\frac xy\\right)=\\frac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{y^{2}}\\Longrightarrow y\\,\\mathrm{d}x-x\\,\\mathrm{d}y=y^{2}\\,\\mathrm{d}t,\\ t=\\frac xy$$"
+        },
+        {
+          "name": "分母同提 $y^{2}$",
+          "latex": "$$3x^{2}-2xy+3y^{2}=y^{2}\\left(3t^{2}-2t+3\\right)$$"
+        },
+        {
+          "name": "换元后的一元积分",
+          "latex": "$$u=\\int\\frac{\\mathrm{d}t}{3t^{2}-2t+3}=\\frac{1}{3}\\int\\frac{\\mathrm{d}t}{\\left(t-\\frac13\\right)^{2}+\\frac89}$$"
+        },
+        {
+          "name": "标准积分",
+          "latex": "$$\\int\\frac{\\mathrm{d}w}{w^{2}+a^{2}}=\\frac{1}{a}\\arctan\\frac wa+C\\Longrightarrow u=\\frac{1}{2\\sqrt2}\\arctan\\frac{3t-1}{2\\sqrt2}+C$$"
+        },
+        {
+          "name": "回代",
+          "latex": "$$t=\\frac xy\\Longrightarrow u=\\frac{1}{2\\sqrt2}\\arctan\\frac{3x-y}{2\\sqrt2\\,y}+C$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出分子是 $y^{2}\\mathrm d\\left(\\frac xy\\right)$",
@@ -175,6 +253,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $a,b,c,\\mu&gt;0$，曲面 $xyz=\\mu$ 与曲面 $\\dfrac{x^{2}}{a^{2}}+\\dfrac{y^{2}}{b^{2}}+\\dfrac{z^{2}}{c^{2}}=1$ 相切，则 $\\mu=$________。",
+      "formulasUsed": [
+        {
+          "name": "两曲面相切 ⟺ 法向量平行",
+          "latex": "$$\\nabla\\left(xyz\\right)=\\left(yz,xz,xy\\right),\\qquad \\nabla\\left(\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}+\\frac{z^{2}}{c^{2}}\\right)=\\left(\\frac{2x}{a^{2}},\\frac{2y}{b^{2}},\\frac{2z}{c^{2}}\\right)$$"
+        },
+        {
+          "name": "平行给比例式",
+          "latex": "$$yz=\\lambda\\frac{2x}{a^{2}},\\qquad xz=\\lambda\\frac{2y}{b^{2}},\\qquad xy=\\lambda\\frac{2z}{c^{2}}$$"
+        },
+        {
+          "name": "三式乘 $x,y,z$ 相加",
+          "latex": "$$3xyz=2\\lambda\\left(\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}+\\frac{z^{2}}{c^{2}}\\right)=2\\lambda$$"
+        },
+        {
+          "name": "落在椭球面上",
+          "latex": "$$\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}+\\frac{z^{2}}{c^{2}}=1\\Longrightarrow \\mu=xyz=\\frac{2\\lambda}{3},\\qquad \\lambda=\\frac32\\Longrightarrow \\mu=1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把「相切」翻译成「法向量平行」",
@@ -213,6 +309,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "计算三重积分 $\\displaystyle\\iiint_{\\Omega}\\frac{xyz}{x^{2}+y^{2}}\\,\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z$，其中 $\\Omega$ 是由曲面 $\\left(x^{2}+y^{2}+z^{2}\\right)^{2}=2xy$ 围成的区域在第一卦限部分。",
+      "formulasUsed": [
+        {
+          "name": "球坐标与雅可比",
+          "latex": "$$x=r\\sin\\varphi\\cos\\theta,\\ y=r\\sin\\varphi\\sin\\theta,\\ z=r\\cos\\varphi,\\qquad \\mathrm{d}V=r^{2}\\sin\\varphi\\,\\mathrm{d}r\\mathrm{d}\\varphi\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "曲面方程定 $r$ 的上限",
+          "latex": "$$\\left(x^{2}+y^{2}+z^{2}\\right)^{2}=2xy\\Longrightarrow r^{4}=2r^{2}\\sin^{2}\\varphi\\sin\\theta\\cos\\theta\\Longrightarrow r=\\sin\\varphi\\sqrt{\\sin2\\theta}$$"
+        },
+        {
+          "name": "被积函数化简",
+          "latex": "$$\\frac{xyz}{x^{2}+y^{2}}=\\frac{r^{3}\\sin^{2}\\varphi\\cos\\varphi\\sin\\theta\\cos\\theta}{r^{2}\\sin^{2}\\varphi}=r\\cos\\varphi\\sin\\theta\\cos\\theta$$"
+        },
+        {
+          "name": "分离变量后逐层积分",
+          "latex": "$$\\iiint_{\\Omega}=\\int_0^{\\pi/2}\\!\\!\\cos\\theta\\sin\\theta\\,\\mathrm{d}\\theta\\int_0^{\\pi/2}\\!\\!\\cos\\varphi\\sin\\varphi\\,\\mathrm{d}\\varphi\\int_0^{\\sin\\varphi\\sqrt{\\sin2\\theta}}\\!\\!r^{4}\\,\\mathrm{d}r$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把曲面代成球坐标，解出 $r$ 的上限",
@@ -255,6 +369,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $f(x)$ 在 $\\left[0,+\\infty\\right)$ 上可微，$f(0)=0$，且存在常数 $A&gt;0$，使得 $\\left|f'(x)\\right|\\leqslant A\\left|f(x)\\right|$ 在 $\\left[0,+\\infty\\right)$ 上成立。证明：在 $\\left(0,+\\infty\\right)$ 上有 $f(x)\\equiv0$。",
+      "formulasUsed": [
+        {
+          "name": "把导数控成积分不等式",
+          "latex": "$$\\left|f(x)\\right|=\\left|\\int_0^{x}f'(t)\\mathrm{d}t\\right|\\leqslant A\\int_0^{x}\\left|f(t)\\right|\\mathrm{d}t$$"
+        },
+        {
+          "name": "第一段的极大值点法",
+          "latex": "$$M=\\max_{0\\leqslant x\\leqslant\\delta}\\left|f(x)\\right|=\\left|f\\left(x_{0}\\right)\\right|\\leqslant A\\int_0^{x_{0}}\\left|f\\right|\\leqslant AM\\delta\\Longrightarrow M\\left(1-A\\delta\\right)\\leqslant0$$"
+        },
+        {
+          "name": "逐段右推",
+          "latex": "$$\\delta=\\frac{1}{2A}\\Longrightarrow M=0\\ \\text{于}\\ \\left[0,\\delta\\right],\\ \\text{再以}\\ \\delta\\ \\text{为起点重复}$$"
+        },
+        {
+          "name": "Gronwall 型结论",
+          "latex": "$$\\left|f(x)\\right|\\leqslant A\\int_0^{x}\\left|f\\right|\\Longrightarrow \\left|f\\right|\\equiv0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：想清楚「$A$ 该用在哪儿」",
@@ -293,6 +425,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "计算积分 $I=\\displaystyle\\int_0^{2\\pi}\\mathrm{d}\\varphi\\int_0^{\\pi}\\mathrm{e}^{\\sin\\theta\\left(\\cos\\varphi-\\sin\\varphi\\right)}\\sin\\theta\\,\\mathrm{d}\\theta$。",
+      "formulasUsed": [
+        {
+          "name": "把累次积分认成球面第一型",
+          "latex": "$$\\int_0^{2\\pi}\\mathrm{d}\\varphi\\int_0^{\\pi}\\mathrm{e}^{\\sin\\theta\\left(\\cos\\varphi-\\sin\\varphi\\right)}\\sin\\theta\\,\\mathrm{d}\\theta=\\iint_{\\Sigma}\\mathrm{e}^{x-y}\\,\\mathrm{d}S$$"
+        },
+        {
+          "name": "方向化：$x-y=\\sqrt2\\,t$",
+          "latex": "$$\\vec n=\\frac{\\left(1,-1,0\\right)}{\\sqrt2},\\qquad \\iint_{\\Sigma}\\mathrm{e}^{\\vec n\\cdot\\vec r}\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}\\mathrm{e}^{\\left|\\vec n\\right|u}\\mathrm{d}u$$"
+        },
+        {
+          "name": "球带面积（阿基米德定理）",
+          "latex": "$$\\text{高为}\\ \\mathrm{d}u\\ \\text{的球带面积}=2\\pi\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "一维积分",
+          "latex": "$$\\iint_{\\Sigma}\\mathrm{e}^{x-y}\\mathrm{d}S=2\\pi\\int_{-1}^{1}\\mathrm{e}^{\\sqrt2\\,u}\\mathrm{d}u=\\frac{2\\pi}{\\sqrt2}\\left(\\mathrm{e}^{\\sqrt2}-\\mathrm{e}^{-\\sqrt2}\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把累次积分认成球面上的第一型曲面积分",
@@ -336,6 +486,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 是仅有正实根的多项式函数，满足 $\\dfrac{f'(x)}{f(x)}=-\\displaystyle\\sum_{n=0}^{\\infty}c_nx^{n}$。试证：$c_n&gt;0\\ (n\\geqslant0)$，极限 $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{\\sqrt[n]{c_n}}$ 存在，且等于 $f(x)$ 的最小根。",
+      "formulasUsed": [
+        {
+          "name": "按根分解并取对数",
+          "latex": "$$f(x)=a\\prod_{i=1}^{k}\\left(1-\\frac{x}{r_{i}}\\right)\\Longrightarrow \\frac{f'(x)}{f(x)}=-\\sum_{i=1}^{k}\\frac{1}{r_{i}-x}$$"
+        },
+        {
+          "name": "几何展开比较系数",
+          "latex": "$$\\frac{1}{r_{i}-x}=\\sum_{n=0}^{\\infty}\\frac{x^{n}}{r_{i}^{n+1}}\\Longrightarrow c_{n}=\\sum_{i=1}^{k}\\frac{1}{r_{i}^{n+1}}&gt;0$$"
+        },
+        {
+          "name": "最小根压住求和",
+          "latex": "$$\\frac{1}{r_{\\min}^{n+1}}\\leqslant c_{n}\\leqslant\\frac{k}{r_{\\min}^{n+1}}\\Longrightarrow \\sqrt[n]{c_{n}}\\to\\frac{1}{r_{\\min}}$$"
+        },
+        {
+          "name": "根值极限的一般命题",
+          "latex": "$$\\lim_{n\\to\\infty}\\left(a_{1}^{n}+\\cdots+a_{k}^{n}\\right)^{1/n}=\\max_{i}a_{i}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $f$ 按根分解，再对数求导",
@@ -377,6 +545,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 在 $\\left[0,+\\infty\\right)$ 上具有连续导数，满足 $3\\left[3+f^{2}(x)\\right]f'(x)=2\\left[1+f^{2}(x)\\right]^{2}\\mathrm{e}^{-x^{2}}$，且 $f(0)\\leqslant1$。证明：存在常数 $M&gt;0$，使得 $x\\in\\left[0,+\\infty\\right)$ 时，恒有 $\\left|f(x)\\right|\\leqslant M$。",
+      "formulasUsed": [
+        {
+          "name": "凑全微分",
+          "latex": "$$3\\left(3+f^{2}\\right)f'=\\left(3f+f^{3}\\right)'\\Longrightarrow \\left(3f+f^{3}\\right)'=2\\left(1+f^{2}\\right)^{2}\\mathrm{e}^{-x^{2}}$$"
+        },
+        {
+          "name": "分离变量",
+          "latex": "$$\\frac{3f'}{1+f^{2}}=2\\,\\mathrm{e}^{-x^{2}}\\Longrightarrow 3\\arctan f\\left(x\\right)=2\\int_0^{x}\\mathrm{e}^{-t^{2}}\\mathrm{d}t+C$$"
+        },
+        {
+          "name": "标准积分",
+          "latex": "$$\\int\\frac{\\mathrm{d}f}{1+f^{2}}=\\arctan f,\\qquad \\int_0^{+\\infty}\\mathrm{e}^{-x^{2}}\\mathrm{d}x=\\frac{\\sqrt\\pi}{2}$$"
+        },
+        {
+          "name": "得到界",
+          "latex": "$$3\\arctan f\\left(x\\right)-3\\arctan f\\left(0\\right)=2\\int_0^{x}\\mathrm{e}^{-t^{2}}\\mathrm{d}t\\leqslant\\sqrt\\pi\\Longrightarrow \\left|f(x)\\right|\\leqslant M$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：分离变量，认清左边是某个 $g(y)$ 的导数",

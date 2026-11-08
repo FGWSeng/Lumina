@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { ChevronDown, Search, X } from 'lucide-react'
 
 export default function Formulas() {
@@ -7,7 +8,7 @@ export default function Formulas() {
   const [open, setOpen] = useState(() => new Set())
   const [mode, setMode] = useState('multi')
   const [q, setQ] = useState('')
-  const [active, setActive] = useState('')
+  const [params, setParams] = useSearchParams()
   const navRef = useRef(null)
 
   useEffect(() => {
@@ -20,7 +21,11 @@ export default function Formulas() {
       .catch((e) => setError(e.message))
   }, [])
 
-  const chapters = useMemo(() => {
+  const allChapters = data?.chapters || []
+  const activeId = params.get('ch') || allChapters[0]?.id || ''
+  const activeChapter = allChapters.find((c) => c.id === activeId) || allChapters[0]
+
+  const filtered = useMemo(() => {
     if (!data) return []
     const kw = q.trim().toLowerCase()
     if (!kw) return data.chapters
@@ -31,7 +36,7 @@ export default function Formulas() {
           .map((g) => ({
             ...g,
             formulas: g.formulas.filter((f) =>
-              `${f.name} ${f.tags.join(' ')} ${f.memory} ${f.derive.join(' ')}`.toLowerCase().includes(kw),
+              `${f.name} ${f.tags.join(' ')} ${f.memory} ${f.derive.join(' ')} ${f.when}`.toLowerCase().includes(kw),
             ),
           }))
           .filter((g) => g.formulas.length),
@@ -39,10 +44,27 @@ export default function Formulas() {
       .filter((ch) => ch.groups.length)
   }, [data, q])
 
+  const searching = q.trim().length > 0
+  const displayChapters = searching ? filtered : activeChapter ? [activeChapter] : []
+
   const visibleIds = useMemo(
-    () => chapters.flatMap((ch) => ch.groups.flatMap((g) => g.formulas.map((f) => f.id))),
-    [chapters],
+    () => displayChapters.flatMap((ch) => ch.groups.flatMap((g) => g.formulas.map((f) => f.id))),
+    [displayChapters],
   )
+  const visibleIdSet = useMemo(() => new Set(visibleIds), [visibleIds])
+  const openVisible = [...open].filter((id) => visibleIdSet.has(id)).length
+
+  function selectChapter(id) {
+    setParams(
+      (prev) => {
+        const p = new URLSearchParams(prev)
+        p.set('ch', id)
+        return p
+      },
+      { replace: true },
+    )
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   function toggle(id) {
     setOpen((prev) => {
@@ -58,7 +80,7 @@ export default function Formulas() {
   }
 
   function expandAll() {
-    setOpen(new Set(visibleIds))
+    setOpen((prev) => new Set([...prev, ...visibleIds]))
   }
 
   function collapseAll() {
@@ -69,14 +91,13 @@ export default function Formulas() {
     setMode(next)
     if (next === 'accordion') {
       setOpen((prev) => {
-        const first = [...prev][0]
+        const first = [...prev].find((id) => visibleIdSet.has(id))
         return first ? new Set([first]) : new Set()
       })
     }
   }
 
   function jump(id) {
-    setActive(id)
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
@@ -107,7 +128,7 @@ export default function Formulas() {
       <div className="shell" style={{ gridTemplateColumns: 'minmax(0,1fr)' }}>
         <div className="empty">
           <div className="big">正在加载公式…</div>
-          <div className="small">首次加载约 2 MB，之后会走缓存</div>
+          <div className="small">首次加载约 5 MB，之后会走缓存</div>
         </div>
       </div>
     )
@@ -118,26 +139,29 @@ export default function Formulas() {
       <aside className="sidebar formula-sidebar">
         <div className="panel formula-nav-panel">
           <div className="panel-head">
-            <div className="panel-title">章节索引</div>
-            <span className="tiny muted">
-              {data.chapters.length} 章 · {data.count} 条
-            </span>
+            <div className="panel-title">章节目录</div>
+            <span className="tiny muted">{allChapters.length} 章</span>
           </div>
-          <div className="panel-body">
+          <div className="panel-body" ref={navRef}>
             <div className="tree formula-nav-tree">
-              {data.chapters.map((ch) => (
+              {allChapters.map((ch) => (
                 <div key={ch.id} className="nav-chapter">
-                  <button className={`tree-item ${active === ch.id ? 'active' : ''}`} onClick={() => jump(ch.id)}>
+                  <button
+                    className={`tree-item ${!searching && activeChapter?.id === ch.id ? 'active' : ''}`}
+                    onClick={() => selectChapter(ch.id)}
+                  >
                     <span className="nav-ch-no">{ch.no.replace('第', '').replace('章', '')}</span>
                     <span className="nav-ch-title">{ch.title}</span>
                   </button>
-                  <div className="nav-groups">
-                    {ch.groups.map((g) => (
-                      <button key={g.id} className="nav-group" onClick={() => jump(g.id)}>
-                        <span className="nav-g-title">{g.title}</span>
-                      </button>
-                    ))}
-                  </div>
+                  {!searching && activeChapter?.id === ch.id && (
+                    <div className="nav-groups">
+                      {ch.groups.map((g) => (
+                        <button key={g.id} className="nav-group" onClick={() => jump(g.id)}>
+                          <span className="nav-g-title">{g.title}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -155,6 +179,16 @@ export default function Formulas() {
             <span className="chip">{data.count} 条公式</span>
             <span className="chip gold">点击卡片展开推导</span>
           </div>
+        </div>
+
+        <div className="mobile-chapter-bar">
+          <select className="select" value={activeChapter?.id || ''} onChange={(e) => selectChapter(e.target.value)}>
+            {allChapters.map((ch) => (
+              <option key={ch.id} value={ch.id}>
+                {ch.no}　{ch.title}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="toolbar formula-toolbar">
@@ -187,20 +221,27 @@ export default function Formulas() {
 
         <div className="row wrap" style={{ justifyContent: 'space-between', marginBottom: 10 }}>
           <span className="small muted">
-            共 <strong style={{ color: 'var(--ink)' }}>{visibleIds.length}</strong> 条
-            {q && ` · 搜索「${q}」`}
+            {searching ? (
+              <>
+                搜索到 <strong style={{ color: 'var(--ink)' }}>{visibleIds.length}</strong> 条，分布在 {filtered.length} 章
+              </>
+            ) : (
+              <>
+                {activeChapter?.no} · <strong style={{ color: 'var(--ink)' }}>{visibleIds.length}</strong> 条
+              </>
+            )}
           </span>
-          <span className="tiny muted">已展开 {open.size} 条</span>
+          <span className="tiny muted">已展开 {openVisible} 条</span>
         </div>
 
-        {chapters.length === 0 && (
+        {searching && filtered.length === 0 && (
           <div className="empty">
             <div className="big">没有匹配的公式</div>
             <div className="small">换个关键词试试，比如「泰勒」「柯西」「Green」。</div>
           </div>
         )}
 
-        {chapters.map((ch) => (
+        {displayChapters.map((ch) => (
           <section key={ch.id} id={ch.id} className="formula-chapter">
             <div className="chapter-head">
               <span className="sno">{ch.no}</span>
@@ -223,6 +264,7 @@ export default function Formulas() {
                 </div>
               ))}
             </details>
+
             {ch.freq && <div className="freq" dangerouslySetInnerHTML={{ __html: ch.freq }} />}
             {ch.lead && <p className="lead" dangerouslySetInnerHTML={{ __html: ch.lead }} />}
 
@@ -276,6 +318,14 @@ export default function Formulas() {
                 </div>
               </div>
             ))}
+
+            {searching && (
+              <div className="row" style={{ justifyContent: 'center', marginTop: 12 }}>
+                <button className="btn sm" onClick={() => selectChapter(ch.id)}>
+                  只查看这一章
+                </button>
+              </div>
+            )}
           </section>
         ))}
       </main>

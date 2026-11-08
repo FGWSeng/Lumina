@@ -19,6 +19,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\frac{1-\\sqrt{1-x^{2}}\\,\\cos x}{1+x^{2}-\\cos^{2}x}$。",
+      "formulasUsed": [
+        {
+          "name": "乘积型「$1-ab$」的拆法",
+          "latex": "$$1-\\sqrt{1-x^{2}}\\cos x=\\left(1-\\sqrt{1-x^{2}}\\right)+\\sqrt{1-x^{2}}\\left(1-\\cos x\\right)$$"
+        },
+        {
+          "name": "根式与余弦各展到二阶",
+          "latex": "$$\\sqrt{1+u}=1+\\frac{u}{2}+o\\left(u\\right)\\Longrightarrow 1-\\sqrt{1-x^{2}}\\sim\\frac{x^{2}}{2},\\qquad 1-\\cos x\\sim\\frac{x^{2}}{2}$$"
+        },
+        {
+          "name": "分母化简",
+          "latex": "$$1+x^{2}-\\cos^{2}x=\\sin^{2}x+x^{2}\\sim2x^{2}$$"
+        },
+        {
+          "name": "同阶取系数比",
+          "latex": "$$\\frac{\\frac{x^{2}}{2}+\\frac{x^{2}}{2}}{2x^{2}}=\\frac12$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先化简分母，把它换成幂函数",
@@ -58,6 +76,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(x)=\\begin{cases}1,&amp;x&gt;0,\\\\ 0,&amp;x\\leqslant0,\\end{cases}$，$g(x)=\\begin{cases}x-1,&amp;x\\geqslant1,\\\\ 1-x,&amp;x&lt;1,\\end{cases}$，则复合函数 $f\\left[g(x)\\right]$ 的间断点为 $x=$________。",
+      "formulasUsed": [
+        {
+          "name": "外层只看符号",
+          "latex": "$$f\\left(t\\right)=1\\ \\left(t&gt;0\\right),\\qquad f\\left(t\\right)=0\\ \\left(t\\leqslant0\\right)$$"
+        },
+        {
+          "name": "内层的符号分区",
+          "latex": "$$g\\left(x\\right)=1-x\\ \\left(x&lt;1\\right),\\qquad g\\left(x\\right)=x-1\\ \\left(x\\geqslant1\\right)$$"
+        },
+        {
+          "name": "写成分段",
+          "latex": "$$f\\left[g\\left(x\\right)\\right]=1\\ \\left(x\\neq1\\right),\\qquad f\\left[g\\left(1\\right)\\right]=f\\left(0\\right)=0$$"
+        },
+        {
+          "name": "间断判据",
+          "latex": "$$\\lim_{x\\to1^{-}}=\\lim_{x\\to1^{+}}=1\\neq f\\left(1\\right)=0\\Longrightarrow x=1\\ \\text{为可去间断点}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：外层只认符号，先定内层 $g(x)$ 的符号",
@@ -96,6 +132,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to1^-}(1-x)^{3}\\sum_{n=1}^{\\infty}n^{2}x^{n}$。",
+      "formulasUsed": [
+        {
+          "name": "几何级数",
+          "latex": "$$\\sum_{n=1}^{\\infty}x^{n}=\\frac{x}{1-x}\\qquad\\left(\\left|x\\right|&lt;1\\right)$$"
+        },
+        {
+          "name": "乘 $x$ 再求导",
+          "latex": "$$\\sum n x^{n}=\\left(x\\frac{\\mathrm{d}}{\\mathrm{d}x}\\right)\\frac{x}{1-x}=\\frac{x}{\\left(1-x\\right)^{2}}$$"
+        },
+        {
+          "name": "再来一次",
+          "latex": "$$\\sum n^{2}x^{n}=\\left(x\\frac{\\mathrm{d}}{\\mathrm{d}x}\\right)^{2}\\frac{x}{1-x}=\\frac{x\\left(1+x\\right)}{\\left(1-x\\right)^{3}}$$"
+        },
+        {
+          "name": "约极点后取极限",
+          "latex": "$$\\left(1-x\\right)^{3}\\sum n^{2}x^{n}=x\\left(1+x\\right)\\longrightarrow2$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：从几何级数出发，两次「乘 $x$ 再求导」",
@@ -130,6 +184,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "微分方程 $x\\ln x\\sin y\\,\\dfrac{\\mathrm dy}{\\mathrm dx}+\\cos y\\left(1-x\\cos y\\right)=0$ 的通解为________。",
+      "formulasUsed": [
+        {
+          "name": "换元把三角压成代数",
+          "latex": "$$u=\\cos y\\Longrightarrow u'=-\\sin y\\,y'\\Longrightarrow -x\\ln x\\,u'+u-xu^{2}=0$$"
+        },
+        {
+          "name": "伯努利型线性化",
+          "latex": "$$w=\\frac1u\\Longrightarrow x\\ln x\\,w'+w=x$$"
+        },
+        {
+          "name": "除以 $x$ 凑全微分",
+          "latex": "$$\\ln x\\,w'+\\frac{w}{x}=1\\Longrightarrow \\left(w\\ln x\\right)'=1\\Longrightarrow w\\ln x=x+C$$"
+        },
+        {
+          "name": "回代写成隐式通解",
+          "latex": "$$\\cos y=\\frac1w=\\frac{\\ln x}{x+C}\\Longrightarrow \\left(x+C\\right)\\cos y=\\ln x$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：看到 $\\sin y\\,\\mathrm dy$ 与 $\\cos y$ 同场，令 $u=\\cos y$",
@@ -172,6 +244,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "记 $D=\\left\\{\\left(x,y\\right)\\mid 0\\leqslant x+y\\leqslant\\frac{\\pi}{2},\\ 0\\leqslant x-y\\leqslant\\frac{\\pi}{2}\\right\\}$，则 $\\displaystyle\\iint_D y\\sin\\left(x+y\\right)\\mathrm dx\\mathrm dy=$________。",
+      "formulasUsed": [
+        {
+          "name": "$x\\pm y$ 型换元",
+          "latex": "$$u=x+y,\\ v=x-y\\Longrightarrow x=\\frac{u+v}{2},\\ y=\\frac{u-v}{2},\\qquad \\left|\\frac{\\partial\\left(x,y\\right)}{\\partial\\left(u,v\\right)}\\right|=\\frac12$$"
+        },
+        {
+          "name": "区域变成矩形",
+          "latex": "$$0\\leqslant u\\leqslant\\frac{\\pi}{2},\\qquad 0\\leqslant v\\leqslant\\frac{\\pi}{2}$$"
+        },
+        {
+          "name": "被积式分离",
+          "latex": "$$y\\sin\\left(x+y\\right)=\\frac{u-v}{2}\\sin u=\\frac12\\left(u\\sin u-v\\sin u\\right)$$"
+        },
+        {
+          "name": "两个一维积分",
+          "latex": "$$\\int_0^{\\pi/2}u\\sin u\\,\\mathrm{d}u=1,\\qquad \\int_0^{\\pi/2}v\\,\\mathrm{d}v=\\frac{\\pi^{2}}{8}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：边界是 $x\\pm y$ 的常数，直接换元",
@@ -210,6 +300,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "记 $\\overrightarrow{OA}$ 与 $\\overrightarrow{OB}$ 的夹角为 $\\alpha$，$\\left|\\overrightarrow{OA}\\right|=1$，$\\left|\\overrightarrow{OB}\\right|=2$，$\\overrightarrow{OP}=\\left(1-\\lambda\\right)\\overrightarrow{OA}$，$\\overrightarrow{OQ}=\\lambda\\overrightarrow{OB}$，$0\\leqslant\\lambda\\leqslant1$。（1）问 $\\lambda$ 为何值时 $\\left|\\overrightarrow{PQ}\\right|$ 最小；（2）设（1）中的 $\\lambda$ 满足 $0&lt;\\lambda&lt;\\frac15$，求 $\\alpha$ 的取值范围。",
+      "formulasUsed": [
+        {
+          "name": "把 $\\overrightarrow{PQ}$ 拆开",
+          "latex": "$$\\overrightarrow{PQ}=\\overrightarrow{OQ}-\\overrightarrow{OP}=\\lambda\\overrightarrow{OB}-\\left(1-\\lambda\\right)\\overrightarrow{OA}$$"
+        },
+        {
+          "name": "模长平方展开",
+          "latex": "$$\\left|\\overrightarrow{PQ}\\right|^{2}=\\left(1-\\lambda\\right)^{2}\\left|\\overrightarrow{OA}\\right|^{2}+\\lambda^{2}\\left|\\overrightarrow{OB}\\right|^{2}-2\\lambda\\left(1-\\lambda\\right)\\overrightarrow{OA}\\cdot\\overrightarrow{OB}$$"
+        },
+        {
+          "name": "二次函数取顶点",
+          "latex": "$$f\\left(\\lambda\\right)=a\\lambda^{2}+b\\lambda+c\\Longrightarrow \\lambda^{*}=-\\frac{b}{2a}\\ \\text{（需检验在}\\ \\left[0,1\\right]\\ \\text{内）}$$"
+        },
+        {
+          "name": "余弦单调性反解 $\\alpha$",
+          "latex": "$$\\cos\\alpha=\\frac{5\\lambda-1}{4\\left(1-\\lambda\\right)}\\Longrightarrow \\cos\\ \\text{在}\\ \\left(0,\\pi\\right)\\ \\text{上单调减}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：用 $\\overrightarrow{OA},\\overrightarrow{OB}$ 表示 $\\overrightarrow{PQ}$",
@@ -252,6 +360,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f(x)$ 在 $\\left(-1,1\\right)$ 上二阶可导，$f(0)=1$，且当 $x\\geqslant0$ 时 $f(x)\\geqslant0$、$f'(x)\\leqslant0$、$f''(x)\\leqslant f(x)$，证明 $f'(0)\\geqslant-\\sqrt2$。",
+      "formulasUsed": [
+        {
+          "name": "构造 $\\left[f'\\right]^{2}-f^{2}$",
+          "latex": "$$F\\left(x\\right)=\\left[f'\\left(x\\right)\\right]^{2}-f^{2}\\left(x\\right),\\qquad F'=2f'\\left(f''-f\\right)\\geqslant0$$"
+        },
+        {
+          "name": "Lagrange 中值连起 $f'$ 与 $f$",
+          "latex": "$$f\\left(x\\right)-f\\left(0\\right)=xf'\\left(\\xi\\right),\\qquad \\xi\\in\\left(0,x\\right)$$"
+        },
+        {
+          "name": "$f''\\leqslant f$ 的两边夹",
+          "latex": "$$F\\left(\\xi\\right)\\geqslant F\\left(0\\right)=\\left[f'\\left(0\\right)\\right]^{2}-1\\Longrightarrow \\left[f'\\left(0\\right)\\right]^{2}\\leqslant1+\\left[f'\\left(\\xi\\right)\\right]^{2}$$"
+        },
+        {
+          "name": "取极限定向",
+          "latex": "$$f'\\ \\text{单调不增},\\ \\left|f'\\left(\\xi\\right)\\right|\\leqslant\\frac{1-f\\left(x\\right)}{x}\\Longrightarrow f'\\left(0\\right)\\geqslant-\\sqrt2$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：用 Lagrange 中值把 $f'(\\xi)$ 与 $f(x)-f(0)$ 挂上",
@@ -292,6 +418,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "证明：对任意正整数 $n$，恒有 $\\displaystyle\\int_0^{\\frac{\\pi}{2}}x\\left(\\frac{\\sin nx}{\\sin x}\\right)^{4}\\mathrm dx\\leqslant\\left(\\frac{n^{2}}{4}-\\frac18\\right)\\pi^{2}$。",
+      "formulasUsed": [
+        {
+          "name": "$n$ 倍角的上界",
+          "latex": "$$\\left|\\sin nx\\right|\\leqslant n\\left|\\sin x\\right|\\Longrightarrow \\left(\\frac{\\sin nx}{\\sin x}\\right)^{4}\\leqslant n^{4}$$"
+        },
+        {
+          "name": "正弦的下界（$0<x<\\frac{\\pi}{2}$）",
+          "latex": "$$\\sin x\\geqslant\\frac{2x}{\\pi}$$"
+        },
+        {
+          "name": "按 $\\frac{\\pi}{2n}$ 拆段",
+          "latex": "$$\\int_0^{\\frac{\\pi}{2n}}+\\int_{\\frac{\\pi}{2n}}^{\\frac{\\pi}{2}},\\qquad \\text{前段用}\\ n\\sin x\\ \\text{控，后段用}\\ \\frac{2x}{\\pi}\\ \\text{控}$$"
+        },
+        {
+          "name": "逐段上去",
+          "latex": "$$\\int_0^{\\frac{\\pi}{2}}x\\left(\\frac{\\sin nx}{\\sin x}\\right)^{4}\\mathrm{d}x\\leqslant\\left(\\frac{n^{2}}{4}-\\frac18\\right)\\pi^{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把 $n$ 倍角压成单角，证 $\\left|\\sin nx\\right|\\leqslant n\\sin x$",
@@ -336,6 +480,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $z=f(x,y)$ 是区域 $D=\\left\\{\\left(x,y\\right)\\mid 0\\leqslant x\\leqslant1,\\ 0\\leqslant y\\leqslant1\\right\\}$ 上的可微函数，$f(0,0)=0$，且 $\\mathrm dz\\big|_{\\left(0,0\\right)}=3\\mathrm dx+2\\mathrm dy$，求 $\\displaystyle\\lim_{x\\to0^{+}}\\frac{\\int_0^{x^{2}}\\mathrm dt\\int_x^{\\sqrt t}f(t,u)\\,\\mathrm du}{1-\\sqrt[4]{1-x^{4}}}$。",
+      "formulasUsed": [
+        {
+          "name": "内层下限含 $x$：先交换次序",
+          "latex": "$$\\int_0^{x^{2}}\\mathrm{d}t\\int_x^{\\sqrt t}f\\left(t,u\\right)\\mathrm{d}u=\\iint_{D_{x}}f\\left(t,u\\right)\\mathrm{d}t\\mathrm{d}u\\Longrightarrow \\text{先画区域再换序}$$"
+        },
+        {
+          "name": "分母一阶展开",
+          "latex": "$$\\left(1-u\\right)^{1/4}=1-\\frac{u}{4}+o\\left(u\\right)\\Longrightarrow 1-\\sqrt[4]{1-x^{4}}\\sim\\frac{x^{4}}{4}$$"
+        },
+        {
+          "name": "可微性展开",
+          "latex": "$$f\\left(t,u\\right)=3t+2u+o\\left(\\sqrt{t^{2}+u^{2}}\\right)$$"
+        },
+        {
+          "name": "洛必达 ＋ 积分中值",
+          "latex": "$$\\text{分子对}\\ x\\ \\text{求导后用中值提出}\\ f\\Longrightarrow \\text{与}\\ \\frac{x^{4}}{4}\\ \\text{同阶比}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：内层下限含 $x$，先交换积分次序",
@@ -378,6 +540,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设正项级数 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛，证明：存在收敛的正项级数 $\\displaystyle\\sum_{n=1}^{\\infty}b_n$，使 $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{b_n}=0$。",
+      "formulasUsed": [
+        {
+          "name": "收敛的尾巴刻画",
+          "latex": "$$\\sum a_{n}\\ \\text{收敛}\\iff \\forall k,\\ \\sum_{n=N_{k}}^{\\infty}a_{n}&lt;\\frac{1}{2^{k}}\\ \\text{对充分大的}\\ N_{k}$$"
+        },
+        {
+          "name": "分段定义放大级数",
+          "latex": "$$b_{n}=2^{k}a_{n}\\qquad\\left(N_{k}\\leqslant n&lt;N_{k+1}\\right)$$"
+        },
+        {
+          "name": "先查比值",
+          "latex": "$$\\frac{a_{n}}{b_{n}}=2^{-k}\\to0$$"
+        },
+        {
+          "name": "再查收敛",
+          "latex": "$$\\sum_{n=N_{k}}^{N_{k+1}-1}b_{n}=2^{k}\\sum a_{n}&lt;2^{k}\\cdot\\frac{1}{2^{k}}=1\\Longrightarrow \\sum b_{n}\\ \\text{收敛}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把「收敛」翻译成「尾巴可任意小」",

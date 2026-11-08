@@ -646,7 +646,7 @@ button { font: inherit; color: inherit; }
 }
 
 /* ---------- 公式背诵页 ---------- */
-.formula-shell { grid-template-columns: 220px minmax(0, 1fr); }
+.formula-shell { grid-template-columns: 248px minmax(0, 1fr); }
 .formula-main { max-width: 900px; }
 .formula-hero { padding: 24px 0 20px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
 .formula-hero h1 { font-size: clamp(24px, 4vw, 34px); margin: 8px 0 6px; }
@@ -959,3 +959,69 @@ button { font: inherit; color: inherit; }
 .formula-main .katex { font-size: 1.02em; }
 .formula-main .katex-display { overflow-x: auto; overflow-y: hidden; }
 .formula-body .katex { font-size: 1em; }
+
+/* 移动端章节选择 */
+.mobile-chapter-bar { display: none; }
+@media (max-width: 980px) {
+  .mobile-chapter-bar { display: block; margin-bottom: 12px; }
+  .mobile-chapter-bar .select {
+    width: 100%; height: 44px; font-size: 14px; padding: 0 12px;
+    background: var(--surface); border: 1px solid var(--line);
+  }
+}
+
+/* 移动端章节选择 */
+.mobile-chapter-bar { display: none; }
+@media (max-width: 980px) {
+  .mobile-chapter-bar { display: block; margin-bottom: 12px; }
+  .mobile-chapter-bar .select {
+    width: 100%; height: 44px; font-size: 14px; padding: 0 12px;
+    background: var(--surface); border: 1px solid var(--line);
+  }
+}
+
+/* 本题用到的公式 */
+.formula-used {
+  margin-top: 12px;
+  padding: 15px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+.formula-used .label {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  color: var(--brand); margin-bottom: 8px;
+}
+.formula-used ol { margin: 0; padding-left: 20px; }
+.formula-used li { margin: 10px 0; }
+.formula-used li:first-child { margin-top: 0; }
+.fu-name { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.fu-expr { margin-top: 2px; overflow-x: auto; }
+.fu-expr .katex-display { margin: 2px 0 0; }
+
+@media (max-width: 640px) {
+  .q-actions .btn.half { flex: 1 1 calc(33.33% - 7px); }
+}
+
+/* 本题用到的公式 */
+.formula-used {
+  margin-top: 12px;
+  padding: 15px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+}
+.formula-used .label {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  color: var(--brand); margin-bottom: 8px;
+}
+.formula-used ol { margin: 0; padding-left: 20px; }
+.formula-used li { margin: 10px 0; }
+.formula-used li:first-child { margin-top: 0; }
+.fu-name { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.fu-expr { margin-top: 2px; overflow-x: auto; }
+.fu-expr .katex-display { margin: 2px 0 0; }
+
+@media (max-width: 640px) {
+  .q-actions .btn.half { flex: 1 1 calc(33.33% - 7px); }
+}

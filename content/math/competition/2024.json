@@ -17,6 +17,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "求 $\\displaystyle\\int_0^1\\ln\\left(1+x^{2}\\right)\\mathrm dx$。",
+      "formulasUsed": [
+        {
+          "name": "分部积分",
+          "latex": "$$\\int\\ln\\left(1+x^{2}\\right)\\mathrm{d}x=x\\ln\\left(1+x^{2}\\right)-\\int\\frac{2x^{2}}{1+x^{2}}\\mathrm{d}x$$"
+        },
+        {
+          "name": "拆成 $1$ 减标准式",
+          "latex": "$$\\frac{2x^{2}}{1+x^{2}}=2-\\frac{2}{1+x^{2}}$$"
+        },
+        {
+          "name": "标准积分",
+          "latex": "$$\\int\\frac{\\mathrm{d}x}{1+x^{2}}=\\arctan x$$"
+        },
+        {
+          "name": "代限",
+          "latex": "$$I=\\ln2-2+2\\cdot\\frac{\\pi}{4}=\\ln2-2+\\frac{\\pi}{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：被积式只有一个对数，直接分部积分",
@@ -54,6 +72,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $D:x^{2}+y^{2}\\leqslant r^{2}$（$r&gt;0$），求 $\\displaystyle\\lim_{r\\to0^{+}}\\frac{\\iint_D\\left(\\mathrm e^{x^{2}+y^{2}}-1\\right)\\mathrm dx\\mathrm dy}{r^{4}}$。",
+      "formulasUsed": [
+        {
+          "name": "圆盘上极坐标",
+          "latex": "$$\\iint_{D}g\\left(\\rho\\right)\\mathrm{d}\\sigma=2\\pi\\int_0^{r}g\\left(\\rho\\right)\\rho\\,\\mathrm{d}\\rho$$"
+        },
+        {
+          "name": "二阶小量",
+          "latex": "$$\\mathrm{e}^{u}-1\\sim u\\Longrightarrow \\mathrm{e}^{\\rho^{2}}-1\\sim\\rho^{2}$$"
+        },
+        {
+          "name": "积分",
+          "latex": "$$\\iint_{D}\\left(\\mathrm{e}^{x^{2}+y^{2}}-1\\right)\\mathrm{d}\\sigma\\sim2\\pi\\int_0^{r}\\rho^{3}\\mathrm{d}\\rho=\\frac{\\pi}{2}r^{4}$$"
+        },
+        {
+          "name": "取极限",
+          "latex": "$$\\frac{\\frac{\\pi}{2}r^{4}}{r^{4}}\\longrightarrow\\frac{\\pi}{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：圆盘 ＋ $\\rho$ 的函数 ⇒ 上极坐标",
@@ -93,6 +129,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "已知 $z=f\\left(xy,\\mathrm e^{x+y}\\right)$，$f$ 具有二阶连续偏导数，求 $\\dfrac{\\partial^{2}z}{\\partial x\\partial y}$。",
+      "formulasUsed": [
+        {
+          "name": "一阶链式",
+          "latex": "$$z_{x}=y\\,f_{1}+\\mathrm{e}^{x+y}f_{2},\\qquad u=xy,\\ v=\\mathrm{e}^{x+y}$$"
+        },
+        {
+          "name": "再对 $y$ 求导（裸项 ＋ 链式项）",
+          "latex": "$$z_{xy}=f_{1}+y\\left(xf_{11}+\\mathrm{e}^{x+y}f_{12}\\right)+\\mathrm{e}^{x+y}f_{2}+\\mathrm{e}^{x+y}\\left(xf_{21}+\\mathrm{e}^{x+y}f_{22}\\right)$$"
+        },
+        {
+          "name": "合并同类项",
+          "latex": "$$z_{xy}=f_{1}+\\mathrm{e}^{x+y}f_{2}+xy\\,f_{11}+2\\mathrm{e}^{x+y}f_{12}+\\mathrm{e}^{2\\left(x+y\\right)}f_{22}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先写一阶，中间变量取 $u=xy$、$v=\\mathrm e^{x+y}$",
@@ -130,6 +180,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "直线 $L:\\frac{x-1}{1}=\\frac{y}{1}=\\frac{z-1}{-1}$ 在平面 $\\pi:x-y+2z-1=0$ 上的投影直线 $L_0$ 的单位方向向量为________。",
+      "formulasUsed": [
+        {
+          "name": "读出方向与法向",
+          "latex": "$$\\vec s=\\left(1,1,-1\\right),\\qquad \\vec n=\\left(1,-1,2\\right)$$"
+        },
+        {
+          "name": "投影：把 $\\vec s$ 沿 $\\vec n$ 的分量减掉",
+          "latex": "$$\\vec s_{0}=\\vec s-\\frac{\\vec s\\cdot\\vec n}{\\left|\\vec n\\right|^{2}}\\vec n$$"
+        },
+        {
+          "name": "代入数值",
+          "latex": "$$\\vec s\\cdot\\vec n=-2,\\ \\left|\\vec n\\right|^{2}=6\\Longrightarrow \\vec s_{0}=\\left(1,1,-1\\right)+\\frac13\\left(1,-1,2\\right)=\\frac13\\left(4,2,-1\\right)$$"
+        },
+        {
+          "name": "单位化",
+          "latex": "$$\\vec e=\\frac{\\left(4,2,-1\\right)}{\\sqrt{21}}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：读出两个向量",
@@ -167,6 +235,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $L$ 为圆周 $x^{2}+y^{2}=9$，取逆时针方向，求 $\\displaystyle\\oint_L\\frac{-y}{4x^{2}+y^{2}}\\mathrm dx+\\frac{x}{4x^{2}+y^{2}}\\mathrm dy$。",
+      "formulasUsed": [
+        {
+          "name": "先查奇点",
+          "latex": "$$4x^{2}+y^{2}=0\\ \\text{只在原点},\\qquad x^{2}+y^{2}=9\\ \\text{不含原点}\\Longrightarrow \\text{可直接参数化}$$"
+        },
+        {
+          "name": "参数化",
+          "latex": "$$x=3\\cos t,\\ y=3\\sin t,\\qquad \\mathrm{d}x=-3\\sin t\\,\\mathrm{d}t,\\ \\mathrm{d}y=3\\cos t\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "转成一元积分",
+          "latex": "$$\\oint_L\\frac{-y\\,\\mathrm{d}x+x\\,\\mathrm{d}y}{4x^{2}+y^{2}}=\\int_0^{2\\pi}\\frac{9\\,\\mathrm{d}t}{36\\cos^{2}t+9\\sin^{2}t}=\\int_0^{2\\pi}\\frac{\\mathrm{d}t}{1+3\\cos^{2}t}$$"
+        },
+        {
+          "name": "标准公式",
+          "latex": "$$\\int_0^{2\\pi}\\frac{\\mathrm{d}t}{a+b\\cos^{2}t}=\\frac{2\\pi}{\\sqrt{a\\left(a+b\\right)}}\\Longrightarrow I=\\frac{2\\pi}{2}=\\pi$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先查奇点，再决定能不能用 Green",
@@ -205,6 +291,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "求微分方程 $\\left(x^{3}-y^{2}\\right)\\mathrm dx+\\left(x^{2}y+xy\\right)\\mathrm dy=0$ 的通解。",
+      "formulasUsed": [
+        {
+          "name": "先验两个判据",
+          "latex": "$$P=x^{3}-y^{2},\\ Q=x^{2}y+xy\\Longrightarrow P_{y}=-2y\\neq Q_{x}=2xy+y\\ \\text{（非恰当）}$$"
+        },
+        {
+          "name": "换元 $y=ux$",
+          "latex": "$$y=ux,\\qquad \\mathrm{d}y=u\\,\\mathrm{d}x+x\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "整理",
+          "latex": "$$\\left[x^{3}\\left(1-u^{2}\\right)+x^{3}\\left(u^{3}+u^{2}\\right)\\right]\\mathrm{d}x+x^{4}\\left(u^{2}+u\\right)\\mathrm{d}u=0$$"
+        },
+        {
+          "name": "分离变量后积分",
+          "latex": "$$\\frac{\\mathrm{d}x}{x}=-\\frac{u^{2}+u}{1-u^{2}+u^{3}+u^{2}}\\mathrm{d}u\\Longrightarrow \\text{回代}\\ u=\\frac yx$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：两个判据依次排除，再动手换元",
@@ -248,6 +352,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)=\\begin{cases}\\frac{1}{\\ln\\left(1+x\\right)}-\\frac1x,&amp;0&lt;x\\leqslant1,\\\\[4pt] k,&amp;x=0.\\end{cases}$（1）求 $k$ 使 $f$ 在 $\\left[0,1\\right]$ 上连续；（2）对该 $k$ 求 $f$ 的最小值 $\\lambda$ 与最大值 $\\mu$。",
+      "formulasUsed": [
+        {
+          "name": "通分与两个 Taylor 首项",
+          "latex": "$$\\frac{1}{\\ln\\left(1+x\\right)}-\\frac1x=\\frac{x-\\ln\\left(1+x\\right)}{x\\ln\\left(1+x\\right)}\\sim\\frac{x^{2}/2}{x^{2}}=\\frac12$$"
+        },
+        {
+          "name": "对数展开",
+          "latex": "$$\\ln\\left(1+x\\right)=x-\\frac{x^{2}}{2}+\\frac{x^{3}}{3}-\\cdots$$"
+        },
+        {
+          "name": "单调性定最值",
+          "latex": "$$f'\\left(x\\right)&lt;0\\Longrightarrow f\\ \\text{递减}\\Longrightarrow \\text{最大值在左端、最小值在右端}$$"
+        },
+        {
+          "name": "最值",
+          "latex": "$$\\mu=f\\left(0^{+}\\right)=\\frac12,\\qquad \\lambda=f\\left(1\\right)=\\frac{1}{\\ln2}-1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：连续化就是求右极限，通分后用两个 Taylor 首项",
@@ -290,6 +412,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "计算 $I=\\displaystyle\\iint_S\\left(x^{2}-z\\right)\\mathrm dy\\mathrm dz+\\left(y^{2}-y\\right)\\mathrm dz\\mathrm dx+\\left(z^{2}-z\\right)\\mathrm dx\\mathrm dy$，其中 $S$ 为上半球面 $x^{2}+y^{2}+z^{2}=R^{2}$（$z\\geqslant0$）的上侧。",
+      "formulasUsed": [
+        {
+          "name": "补面封闭",
+          "latex": "$$S\\cup D\\ \\text{（}\\ z=0\\ \\text{的圆盘）封闭},\\qquad \\text{取外侧}$$"
+        },
+        {
+          "name": "Gauss 公式",
+          "latex": "$$\\oiint_{\\partial V}\\vec F\\cdot\\vec n\\,\\mathrm{d}S=\\iiint_{V}\\nabla\\cdot\\vec F\\,\\mathrm{d}V$$"
+        },
+        {
+          "name": "散度",
+          "latex": "$$\\nabla\\cdot\\vec F=2x+2y+2z-1$$"
+        },
+        {
+          "name": "对称性",
+          "latex": "$$\\iiint_{V}x\\,\\mathrm{d}V=\\iiint_{V}y\\,\\mathrm{d}V=0,\\qquad \\iiint_{V}z\\,\\mathrm{d}V=\\bar z\\,V$$"
+        },
+        {
+          "name": "补面积分为零",
+          "latex": "$$\\text{在}\\ z=0\\ \\text{上}\\ z^{2}-z=0\\Longrightarrow I=\\iiint_{V}\\left(2z-1\\right)\\mathrm{d}V$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：$S$ 不封闭，补圆盘封成半球体",
@@ -332,6 +476,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f$ 在 $\\left(-\\infty,+\\infty\\right)$ 上有连续导数、$f\\geqslant0$，且存在 $M&gt;0$ 使 $\\left|f'(x)-f'(y)\\right|\\leqslant M\\left|x-y\\right|$。证明：对任意实数 $x$，$\\left(f'(x)\\right)^{2}\\leqslant2Mf(x)$。",
+      "formulasUsed": [
+        {
+          "name": "条件翻译成单侧 Lipschitz",
+          "latex": "$$\\left|f'\\left(x\\right)-f'\\left(x-a\\right)\\right|\\leqslant M\\left|a\\right|\\Longrightarrow f'\\left(x\\right)-f'\\left(x-a\\right)\\leqslant Ma$$"
+        },
+        {
+          "name": "向左积分抬起 $f$",
+          "latex": "$$f\\left(x\\right)-f\\left(x-a\\right)=\\int_{x-a}^{x}f'\\left(t\\right)\\mathrm{d}t\\geqslant\\int_{x-a}^{x}\\left[f'\\left(x\\right)-Ma\\right]\\mathrm{d}t=af'\\left(x\\right)-Ma^{2}$$"
+        },
+        {
+          "name": "$f\\geqslant0$ 给下界",
+          "latex": "$$f\\left(x\\right)\\geqslant af'\\left(x\\right)-Ma^{2}\\Longrightarrow f'\\left(x\\right)\\leqslant\\frac{f\\left(x\\right)}{a}+Ma$$"
+        },
+        {
+          "name": "选最优步长",
+          "latex": "$$a=\\sqrt{\\frac{f\\left(x\\right)}{M}}\\Longrightarrow \\left[f'\\left(x\\right)\\right]^{2}\\leqslant2Mf\\left(x\\right)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把条件翻译成「$f'$ 是 $M$-Lipschitz」，只取对我有利的一侧",
@@ -374,6 +536,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\sum_{k=1}^{\\infty}\\frac{\\left(-1\\right)^{\\left[\\sqrt n\\right]}}{n^{2}+k^{2}}$ 收敛，其中 $\\left[x\\right]$ 表示不超过 $x$ 的最大整数。",
+      "formulasUsed": [
+        {
+          "name": "内层先算",
+          "latex": "$$\\sum_{k=1}^{\\infty}\\frac{1}{n^{2}+k^{2}}\\ \\text{收敛},\\qquad \\sum_{k=1}^{\\infty}\\frac{1}{n^{2}+k^{2}}=O\\left(\\frac1n\\right)$$"
+        },
+        {
+          "name": "$[\\sqrt n]$ 分块",
+          "latex": "$$\\left[\\sqrt n\\right]=m\\iff m^{2}\\leqslant n&lt;\\left(m+1\\right)^{2}$$"
+        },
+        {
+          "name": "Abel 分部求和",
+          "latex": "$$\\sum_{n=N_{1}}^{N_{2}}c_{n}\\lambda_{n}=C_{N_{2}}\\lambda_{N_{2}}+\\sum_{n}\\left(C_{n}-C_{n-1}\\right)\\lambda_{n},\\qquad C_{n}=\\sum_{k\\leqslant n}c_{k}$$"
+        },
+        {
+          "name": "块起点部分和为 $O\\left(\\sqrt n\\right)$",
+          "latex": "$$\\left|\\sum_{n=m^{2}}^{\\left(m+1\\right)^{2}-1}\\left(-1\\right)^{m}\\right|=O\\left(\\sqrt n\\right)\\Longrightarrow \\text{两块分别收敛与趋零}$$"
+        },
+        {
+          "name": "不绝对",
+          "latex": "$$\\sum_{n}\\sum_{k}\\frac{1}{n^{2}+k^{2}}\\ \\text{发散}\\Longrightarrow \\text{非绝对收敛}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：内层绝对收敛，先把 $k$ 求和算掉",

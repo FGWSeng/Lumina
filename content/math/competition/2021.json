@@ -18,6 +18,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to+\\infty}\\sqrt{x^{2}+x+1}\\;\\frac{x-\\ln\\left(\\mathrm e^{x}+x\\right)}{x}$。",
+      "formulasUsed": [
+        {
+          "name": "配成一对",
+          "latex": "$$\\frac{\\sqrt{x^{2}+x+1}}{x}=\\sqrt{1+\\frac1x+\\frac{1}{x^{2}}}\\to1$$"
+        },
+        {
+          "name": "对数提出 $\\mathrm{e}^{x}$",
+          "latex": "$$\\ln\\left(\\mathrm{e}^{x}+x\\right)=x+\\ln\\left(1+x\\mathrm{e}^{-x}\\right)$$"
+        },
+        {
+          "name": "对数等价",
+          "latex": "$$\\ln\\left(1+u\\right)\\sim u,\\qquad u=x\\mathrm{e}^{-x}\\to0\\Longrightarrow x-\\ln\\left(\\mathrm{e}^{x}+x\\right)\\sim-x\\mathrm{e}^{-x}$$"
+        },
+        {
+          "name": "收口",
+          "latex": "$$\\sqrt{x^{2}+x+1}\\cdot\\frac{x-\\ln\\left(\\mathrm{e}^{x}+x\\right)}{x}\\sim\\frac{\\sqrt{x^{2}+x+1}}{x}\\left(-x\\mathrm{e}^{-x}\\right)\\to0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把 $\\sqrt{x^{2}+x+1}$ 和分母的 $x$ 配成一对",
@@ -56,6 +74,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设 $z=z(x,y)$ 是由方程 $2\\sin\\left(x+2y-3z\\right)=x+2y-3z$ 所确定的二元隐函数，则 $\\dfrac{\\partial z}{\\partial x}+\\dfrac{\\partial z}{\\partial y}=$________。",
+      "formulasUsed": [
+        {
+          "name": "隐函数偏导（通式）",
+          "latex": "$$F\\left(x,y,z\\right)=0\\Longrightarrow z_{x}=-\\frac{F_{x}}{F_{z}},\\qquad F=2\\sin u-u,\\ u=x+2y-3z$$"
+        },
+        {
+          "name": "对 $x$ 求偏导",
+          "latex": "$$\\left(2\\cos u-1\\right)\\left(1-3z_{x}\\right)=0$$"
+        },
+        {
+          "name": "两种情形都给 $z_{x}=\\frac13$",
+          "latex": "$$\\cos u=\\frac12\\Longrightarrow u\\ \\text{为常数}\\Longrightarrow z_{x}=\\frac13;\\qquad 2\\cos u-1\\neq0\\Longrightarrow 1-3z_{x}=0\\Longrightarrow z_{x}=\\frac13$$"
+        },
+        {
+          "name": "对 $y$ 同理并相加",
+          "latex": "$$1+2y'-3z_y=0\\Longrightarrow z_{y}=\\frac23\\Longrightarrow z_{x}+z_{y}=1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出方程只依赖一个组合量",
@@ -99,6 +135,24 @@
       ],
       "difficulty": 3,
       "stemHtml": "设函数 $f(x)$ 连续，且 $f(0)\\neq0$，则 $\\displaystyle\\lim_{x\\to0}\\frac{2\\displaystyle\\int_0^{x}\\left(x-t\\right)f(t)\\,\\mathrm dt}{x\\displaystyle\\int_0^{x}f\\left(x-t\\right)\\mathrm dt}=$________。",
+      "formulasUsed": [
+        {
+          "name": "分母换元",
+          "latex": "$$\\int_0^{x}f\\left(x-t\\right)\\mathrm{d}t\\ \\xrightarrow{\\ u=x-t\\ }\\ \\int_0^{x}f\\left(u\\right)\\mathrm{d}u$$"
+        },
+        {
+          "name": "分子拆项",
+          "latex": "$$2\\int_0^{x}\\left(x-t\\right)f\\left(t\\right)\\mathrm{d}t=2x\\int_0^{x}f\\left(t\\right)\\mathrm{d}t-2\\int_0^{x}tf\\left(t\\right)\\mathrm{d}t$$"
+        },
+        {
+          "name": "洛必达一次",
+          "latex": "$$\\frac{2\\int_0^{x}f+2xf-2xf}{x f\\left(x\\right)+\\int_0^{x}f\\left(u\\right)\\mathrm{d}u}=\\frac{2\\int_0^{x}f\\left(t\\right)\\mathrm{d}t}{xf\\left(x\\right)+\\int_0^{x}f}$$"
+        },
+        {
+          "name": "等价量收尾",
+          "latex": "$$\\text{分子}\\sim2f\\left(0\\right)x,\\quad \\text{分母}\\sim2f\\left(0\\right)x\\Longrightarrow \\text{极限}=1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：分母换元，把 $f(x-t)$ 变成 $f(u)$",
@@ -141,6 +195,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "过三条直线 $L_1:\\begin{cases}x=0,\\\\ y-z=2,\\end{cases}$ $L_2:\\begin{cases}x=0,\\\\ x+y-z+2=0,\\end{cases}$ $L_3:\\begin{cases}x=\\sqrt2,\\\\ y-z=0,\\end{cases}$ 的圆柱面方程为________。",
+      "formulasUsed": [
+        {
+          "name": "化对称式，读出公共方向",
+          "latex": "$$L_{1}:\\ \\frac{x}{0}=\\frac{y-2}{1}=\\frac{z}{1},\\qquad L_{2}:\\ \\frac{x}{0}=\\frac{y+2}{1}=\\frac{z}{1},\\qquad L_{3}:\\ \\frac{x-\\sqrt2}{0}=\\frac{y}{1}=\\frac{z}{1}$$"
+        },
+        {
+          "name": "与三线垂直的截面",
+          "latex": "$$\\text{取平面}\\ y-z=0\\ \\text{截三线，得三点}\\ \\left(0,0,0\\right),\\left(0,0,-2\\right),\\left(\\sqrt2,0,0\\right)$$"
+        },
+        {
+          "name": "点到直线的距离",
+          "latex": "$$d=\\frac{\\left|\\left(\\vec P-\\vec P_{0}\\right)\\times\\vec s\\right|}{\\left|\\vec s\\right|}$$"
+        },
+        {
+          "name": "圆柱面方程",
+          "latex": "$$d^{2}=R^{2}\\Longrightarrow \\text{整理成二次型等零的形式}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：化成对称式，确认三线平行",
@@ -179,6 +251,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "记 $D=\\left\\{\\left(x,y\\right)\\mid x^{2}+y^{2}\\leqslant\\pi\\right\\}$，则 $\\displaystyle\\iint_D\\left(\\sin x^{2}\\cos y^{2}+y\\sqrt{x^{2}+y^{2}}\\right)\\mathrm dx\\mathrm dy=$________。",
+      "formulasUsed": [
+        {
+          "name": "奇偶直接归零",
+          "latex": "$$y\\sqrt{x^{2}+y^{2}}\\ \\text{关于}\\ y\\ \\text{为奇}\\Longrightarrow \\iint_{D}y\\sqrt{x^{2}+y^{2}}\\,\\mathrm{d}\\sigma=0$$"
+        },
+        {
+          "name": "积化和差",
+          "latex": "$$\\sin x^{2}\\cos y^{2}=\\frac12\\left[\\sin\\left(x^{2}+y^{2}\\right)+\\sin\\left(x^{2}-y^{2}\\right)\\right]$$"
+        },
+        {
+          "name": "轮换对称消掉差项",
+          "latex": "$$\\iint_{D}\\sin\\left(x^{2}-y^{2}\\right)\\mathrm{d}\\sigma=0\\qquad\\left(\\text{关于}\\ y=x\\ \\text{反对称}\\right)$$"
+        },
+        {
+          "name": "极坐标",
+          "latex": "$$\\iint_{D}\\sin x^{2}\\cos y^{2}\\mathrm{d}\\sigma=\\frac12\\cdot2\\pi\\int_0^{\\sqrt\\pi}r\\sin r^{2}\\mathrm{d}r=\\pi$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先扫奇偶，$y\\sqrt{x^{2}+y^{2}}$ 直接归零",
@@ -218,6 +308,28 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $x_1=2021$，$x_n^{2}-2\\left(x_n+1\\right)x_{n+1}+2021=0$（$n\\geqslant1$），证明数列 $\\left\\{x_n\\right\\}$ 收敛，并求 $\\displaystyle\\lim_{n\\to\\infty}x_n$。",
+      "formulasUsed": [
+        {
+          "name": "解出 $x_{n+1}$",
+          "latex": "$$x_{n+1}=\\frac{x_{n}^{2}+2021}{2\\left(x_{n}+1\\right)}$$"
+        },
+        {
+          "name": "平移洗成 $x+\\frac ax$",
+          "latex": "$$y_{n}=x_{n}+1\\Longrightarrow y_{n+1}=\\frac{y_{n}^{2}+2020}{2y_{n}}=\\frac12\\left(y_{n}+\\frac{2020}{y_{n}}\\right)$$"
+        },
+        {
+          "name": "均值不等式给下界",
+          "latex": "$$y_{n+1}\\geqslant\\sqrt{2020}\\Longrightarrow y_{n}\\geqslant\\sqrt{2020}\\ \\left(n\\geqslant2\\right)$$"
+        },
+        {
+          "name": "单调性",
+          "latex": "$$y_{n+1}-y_{n}=\\frac{2020-y_{n}^{2}}{2y_{n}}\\leqslant0$$"
+        },
+        {
+          "name": "取极限解出 $A$",
+          "latex": "$$A=\\frac12\\left(A+\\frac{2020}{A}\\right)\\Longrightarrow A=\\sqrt{2020}\\Longrightarrow \\lim x_{n}=\\sqrt{2020}-1$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先把 $x_{n+1}$ 解出来",
@@ -265,6 +377,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在 $\\left[0,+\\infty\\right)$ 上是有界连续函数，证明：方程 $y''+14y'+13y=f(x)$ 的每一个解在 $\\left[0,+\\infty\\right)$ 上都是有界函数。",
+      "formulasUsed": [
+        {
+          "name": "特征根",
+          "latex": "$$r^{2}+14r+13=\\left(r+1\\right)\\left(r+13\\right)=0\\Longrightarrow r_{1}=-1,\\ r_{2}=-13$$"
+        },
+        {
+          "name": "通解结构",
+          "latex": "$$y=C_{1}\\mathrm{e}^{-x}+C_{2}\\mathrm{e}^{-13x}+y^{*}\\left(x\\right)$$"
+        },
+        {
+          "name": "常数变易法",
+          "latex": "$$y^{*}=\\int_0^{x}\\left[\\mathrm{e}^{-\\left(x-t\\right)}\\right]f\\left(t\\right)\\mathrm{d}t\\ \\text{型的有界表示}$$"
+        },
+        {
+          "name": "有界输入有界输出",
+          "latex": "$$\\left|\\int_0^{x}\\mathrm{e}^{-\\left(x-t\\right)}f\\left(t\\right)\\mathrm{d}t\\right|\\leqslant\\sup\\left|f\\right|\\int_0^{x}\\mathrm{e}^{-\\left(x-t\\right)}\\mathrm{d}t\\leqslant\\sup\\left|f\\right|$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：齐次部分先看特征根",
@@ -307,6 +437,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "对于 4 次齐次函数 $f\\left(x,y,z\\right)=a_1x^{4}+a_2y^{4}+a_3z^{4}+3a_4x^{2}y^{2}+3a_5y^{2}z^{2}+3a_6x^{2}z^{2}$，计算曲面积分 $\\displaystyle\\oiint_{\\Sigma}f\\left(x,y,z\\right)\\mathrm dS$，其中 $\\Sigma:x^{2}+y^{2}+z^{2}=1$。",
+      "formulasUsed": [
+        {
+          "name": "欧拉齐次定理",
+          "latex": "$$f\\ \\text{为}\\ 4\\ \\text{次齐次}\\Longrightarrow xf_{x}+yf_{y}+zf_{z}=4f$$"
+        },
+        {
+          "name": "单位球面上的外法向",
+          "latex": "$$\\vec n=\\vec r=\\left(x,y,z\\right),\\qquad \\mathrm{d}S\\ \\text{对应}\\ x^{2}+y^{2}+z^{2}=1$$"
+        },
+        {
+          "name": "化为三重积分",
+          "latex": "$$\\oiint_{\\Sigma}f\\,\\mathrm{d}S=\\iint_{\\Sigma}f\\vec r\\cdot\\vec n\\,\\mathrm{d}S=\\iiint_{x^{2}+y^{2}+z^{2}\\leqslant1}\\left(\\vec r\\cdot\\nabla f+3f\\right)\\mathrm{d}V=\\iiint7f\\,\\mathrm{d}V$$"
+        },
+        {
+          "name": "球对称求各系数",
+          "latex": "$$\\iiint_{x^{2}+y^{2}+z^{2}\\leqslant1}x^{4}\\mathrm{d}V=\\frac{4\\pi}{35},\\qquad \\iiint x^{2}y^{2}\\mathrm{d}V=\\frac{4\\pi}{105}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：欧拉定理把 $f$ 换成偏导组合",
@@ -353,6 +501,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在闭区间 $\\left[a,b\\right]$ 上有连续的二阶导数，证明 $\\displaystyle\\lim_{n\\to\\infty}n^{2}\\left[\\int_a^bf(x)\\mathrm dx-\\frac{b-a}{n}\\sum_{k=1}^{n}f\\left(a+\\frac{2k-1}{2n}\\left(b-a\\right)\\right)\\right]=\\frac{\\left(b-a\\right)^{2}}{24}\\left[f'(b)-f'(a)\\right]$。",
+      "formulasUsed": [
+        {
+          "name": "中点法则误差按段拆开",
+          "latex": "$$E_{n}=\\sum_{k=1}^{n}\\int_{\\xi_{k}-h}^{\\xi_{k}+h}\\left[f\\left(x\\right)-f\\left(\\xi_{k}\\right)\\right]\\mathrm{d}x,\\qquad h=\\frac{b-a}{2n}$$"
+        },
+        {
+          "name": "二阶 Taylor（一次项积零）",
+          "latex": "$$f\\left(x\\right)=f\\left(\\xi_{k}\\right)+f'\\left(\\xi_{k}\\right)\\left(x-\\xi_{k}\\right)+\\frac{f''\\left(\\eta\\right)}{2}\\left(x-\\xi_{k}\\right)^{2}$$"
+        },
+        {
+          "name": "二次项积分",
+          "latex": "$$\\int_{\\xi_{k}-h}^{\\xi_{k}+h}\\left(x-\\xi_{k}\\right)^{2}\\mathrm{d}x=\\frac{2h^{3}}{3}$$"
+        },
+        {
+          "name": "夹逼取极限",
+          "latex": "$$n^{2}E_{n}\\longrightarrow\\frac{\\left(b-a\\right)^{2}}{24}\\left[f'\\left(b\\right)-f'\\left(a\\right)\\right]$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把方括号认成「中点法则的误差」，按段拆开",
@@ -400,6 +566,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\left\\{a_n\\right\\}$ 与 $\\left\\{b_n\\right\\}$ 均为正实数列，$a_1=b_1=1$，且 $b_n=a_nb_{n-1}-2$（$n=2,3,\\cdots$）。又设 $\\left\\{b_n\\right\\}$ 有界，证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{a_1a_2\\cdots a_n}$ 收敛，并求其和。",
+      "formulasUsed": [
+        {
+          "name": "反解并化成连乘",
+          "latex": "$$b_{n}=a_{n}b_{n-1}-2\\Longrightarrow a_{n}=\\frac{b_{n}+2}{b_{n-1}}\\Longrightarrow P_{n}=a_{1}\\cdots a_{n}=\\frac{b_{n}+2}{b_{1}}$$"
+        },
+        {
+          "name": "连乘的递推关系",
+          "latex": "$$\\frac{1}{P_{n}}=\\frac{b_{n-1}}{b_{n}+2}\\cdot\\frac{1}{P_{n-1}},\\qquad P_{n}=a_{1}\\cdots a_{n}$$"
+        },
+        {
+          "name": "$b_n$ 有界给出控制",
+          "latex": "$$\\left|b_{n}\\right|\\leqslant B\\Longrightarrow \\frac{b_{n}}{b_{n+1}+2}\\ \\text{与}\\ \\frac{1}{P_{n}}\\ \\text{同步压界}$$"
+        },
+        {
+          "name": "望远镜与部分和",
+          "latex": "$$\\frac{1}{P_{k}}\\ \\text{可写成相邻两项之差}\\Longrightarrow S_{n}=\\sum_{k=1}^{n}\\frac{1}{P_{k}}\\ \\text{单调有界}\\Longrightarrow \\text{收敛}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：反解出 $a_n$，把连乘积化成 $b$ 的形式",

@@ -18,6 +18,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "求极限 $\\displaystyle\\lim_{n\\to\\infty}n\\left(\\frac{\\sin\\frac{\\pi}{n}}{n^{2}+1}+\\frac{\\sin\\frac{2\\pi}{n}}{n^{2}+2}+\\cdots+\\frac{\\sin\\pi}{n^{2}+n}\\right)=$________。",
+      "formulasUsed": [
+        {
+          "name": "配出黎曼和",
+          "latex": "$$n\\cdot\\frac{\\sin\\left(i\\pi/n\\right)}{n^{2}+i}=\\frac{1}{n}\\cdot\\frac{\\sin\\left(i\\pi/n\\right)}{1+i/n^{2}}$$"
+        },
+        {
+          "name": "分母夹住",
+          "latex": "$$\\frac{n}{n^{2}+i}\\leqslant\\frac{1}{n}\\leqslant\\frac{n+1}{n^{2}+i}\\Longrightarrow \\frac{1}{1+1/n}\\cdot\\frac{1}{n}\\leqslant\\frac{n}{n^{2}+i}\\leqslant\\frac{1}{n}$$"
+        },
+        {
+          "name": "黎曼和定义",
+          "latex": "$$\\lim_{n\\to\\infty}\\frac{1}{n}\\sum_{i=1}^{n}g\\left(\\frac{i}{n}\\right)=\\int_0^{1}g(x)\\mathrm{d}x$$"
+        },
+        {
+          "name": "定积分值",
+          "latex": "$$\\int_0^{1}\\sin\\left(\\pi x\\right)\\mathrm{d}x=\\frac{2}{\\pi}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把外层的 $n$ 拆进每一项，配出 $\\frac1n$",
@@ -56,6 +74,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设函数 $z=z(x,y)$ 由方程 $F\\left(x+\\frac{z}{y},\\ y+\\frac{z}{x}\\right)=0$ 确定（$F(u,v)$ 有连续偏导，$xF_u+yF_v\\neq0$），则 $x\\dfrac{\\partial z}{\\partial x}+y\\dfrac{\\partial z}{\\partial y}=$________（结果不显含 $F$ 及其偏导）。",
+      "formulasUsed": [
+        {
+          "name": "隐函数偏导（通式）",
+          "latex": "$$F\\left(u,v\\right)=0,\\ u=x+\\frac{z}{y},\\ v=y+\\frac{z}{x}\\Longrightarrow z_{x}=-\\frac{F_{u}u_{x}+F_{v}v_{x}}{F_{u}u_{z}+F_{v}v_{z}}$$"
+        },
+        {
+          "name": "中间变量的偏导",
+          "latex": "$$u_{x}=1,\\ u_{z}=\\frac1y,\\ v_{y}=1,\\ v_{z}=\\frac1x$$"
+        },
+        {
+          "name": "整理出组合",
+          "latex": "$$x z_{x}+y z_{y}=z-xy\\qquad\\left(\\text{通式整理后的结论}\\right)$$"
+        },
+        {
+          "name": "隐函数存在的条件",
+          "latex": "$$xF_{u}+yF_{v}\\neq0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：对 $x$ 求偏导，把两个中间变量都写全",
@@ -94,6 +130,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "曲面 $z=x^{2}+y^{2}+1$ 在点 $M(1,-1,3)$ 处的切平面与曲面 $z=x^{2}+y^{2}$ 所围区域的体积为________。",
+      "formulasUsed": [
+        {
+          "name": "切平面（显式曲面）",
+          "latex": "$$z=f\\left(x_{0},y_{0}\\right)+f_{x}\\left(x-x_{0}\\right)+f_{y}\\left(y-y_{0}\\right)$$"
+        },
+        {
+          "name": "本题的切平面与交线",
+          "latex": "$$z=3+2\\left(x-1\\right)-2\\left(y+1\\right)=2x-2y+3,\\qquad \\text{与}\\ z=x^{2}+y^{2}\\ \\text{联立}$$"
+        },
+        {
+          "name": "体积用二重积分",
+          "latex": "$$V=\\iint_{D}\\left[z_{\\text{上}}-z_{\\text{下}}\\right]\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "平移后用极坐标",
+          "latex": "$$x=1+r\\cos\\theta,\\ y=-1+r\\sin\\theta\\Longrightarrow \\mathrm{d}x\\mathrm{d}y=r\\,\\mathrm{d}r\\mathrm{d}\\theta$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写切平面",
@@ -132,6 +186,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "函数 $f(x)=\\begin{cases}3,&amp;x\\in[-5,0)\\\\0,&amp;x\\in[0,5)\\end{cases}$ 在 $(-5,5]$ 上的 Fourier 级数在 $x=0$ 处收敛的值是________。",
+      "formulasUsed": [
+        {
+          "name": "Fourier 系数",
+          "latex": "$$a_{n}=\\frac{1}{l}\\int_{-l}^{l}f(x)\\cos\\frac{n\\pi x}{l}\\mathrm{d}x,\\qquad b_{n}=\\frac{1}{l}\\int_{-l}^{l}f(x)\\sin\\frac{n\\pi x}{l}\\mathrm{d}x$$"
+        },
+        {
+          "name": "Dirichlet 收敛定理",
+          "latex": "$$S\\left(x_{0}\\right)=\\frac{f\\left(x_{0}^{-}\\right)+f\\left(x_{0}^{+}\\right)}{2}$$"
+        },
+        {
+          "name": "本题的左、右极限",
+          "latex": "$$f\\left(0^{-}\\right)=3,\\ f\\left(0^{+}\\right)=0\\Longrightarrow S\\left(0\\right)=\\frac32$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：确认 $x=0$ 是跳跃间断点",
@@ -170,6 +238,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设区间 $(0,+\\infty)$ 上的函数 $u(x)=\\displaystyle\\int_0^{+\\infty}\\mathrm{e}^{-xt^{2}}\\,\\mathrm{d}t$，则 $u(x)$ 的初等表达式是________。",
+      "formulasUsed": [
+        {
+          "name": "Gauss 积分（通式）",
+          "latex": "$$\\int_0^{+\\infty}\\mathrm{e}^{-at^{2}}\\mathrm{d}t=\\frac12\\sqrt{\\frac{\\pi}{a}}\\qquad(a&gt;0)$$"
+        },
+        {
+          "name": "先算 $u^{2}$（二重积分）",
+          "latex": "$$u^{2}(x)=\\int_0^{+\\infty}\\int_0^{+\\infty}\\mathrm{e}^{-x\\left(s^{2}+t^{2}\\right)}\\mathrm{d}s\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "第一象限极坐标",
+          "latex": "$$s=r\\cos\\theta,\\ t=r\\sin\\theta,\\qquad \\mathrm{d}s\\mathrm{d}t=r\\,\\mathrm{d}r\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "开方取正",
+          "latex": "$$u(x)=\\frac12\\sqrt{\\frac{\\pi}{x}}\\qquad(x&gt;0)$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：直接积不出，改算 $u^{2}(x)$",
@@ -208,6 +294,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $M$ 是以三个正半轴为母线的半圆锥面，求其方程。",
+      "formulasUsed": [
+        {
+          "name": "锥面的定义（母线过顶点）",
+          "latex": "$$\\text{顶点}\\ O(0,0,0),\\qquad \\text{母线上点}\\ =\\ t\\cdot\\left(\\text{准线上点}\\right)$$"
+        },
+        {
+          "name": "准线：平面与球面交线",
+          "latex": "$$x+y+z=1,\\qquad x^{2}+y^{2}+z^{2}=1$$"
+        },
+        {
+          "name": "消去参数得方程",
+          "latex": "$$x+y+z=1,\\ x^{2}+y^{2}+z^{2}=1\\Longrightarrow \\left(x+y+z\\right)^{2}=x^{2}+y^{2}+z^{2}\\Longrightarrow xy+yz+zx=0$$"
+        },
+        {
+          "name": "限定第一卦限",
+          "latex": "$$x\\geqslant0,\\ y\\geqslant0,\\ z\\geqslant0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认清「锥面」的几何结构",
@@ -250,6 +354,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在 $(a,b)$ 内二阶可导，且存在常数 $\\alpha,\\beta$ 使 $\\forall x\\in(a,b)$：$f'(x)=\\alpha f(x)+\\beta f''(x)$。证明 $f(x)$ 在 $(a,b)$ 内无穷阶可导。",
+      "formulasUsed": [
+        {
+          "name": "整理成标准二阶方程",
+          "latex": "$$f'(x)=\\alpha f(x)+\\beta f''(x)\\Longrightarrow \\beta f''-f'+\\alpha f=0$$"
+        },
+        {
+          "name": "特征方程与通解",
+          "latex": "$$\\beta r^{2}-r+\\alpha=0,\\qquad \\beta\\neq0\\Longrightarrow f=C_{1}\\mathrm{e}^{r_{1}x}+C_{2}\\mathrm{e}^{r_{2}x}\\ \\left(\\text{或重根}\\right)$$"
+        },
+        {
+          "name": "可导阶数的提升",
+          "latex": "$$f\\ \\text{二阶可导且}\\ f''=\\frac{f'-\\alpha f}{\\beta}\\Longrightarrow f\\ \\text{三阶可导，逐次递推}$$"
+        },
+        {
+          "name": "退化情形",
+          "latex": "$$\\beta=0\\Longrightarrow f'=\\alpha f\\Longrightarrow f=C\\mathrm{e}^{\\alpha x}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先处理 $\\beta=0$ 的退化情形",
@@ -292,6 +414,20 @@
       ],
       "difficulty": 4,
       "stemHtml": "求幂级数 $\\displaystyle\\sum_{n=0}^{\\infty}\\frac{n^{3}+2}{(n+1)!}(x-1)^{n}$ 的收敛域及其和函数。",
+      "formulasUsed": [
+        {
+          "name": "比值法求收敛半径",
+          "latex": "$$\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_{n}}\\right|=\\frac{1}{R}$$"
+        },
+        {
+          "name": "阶乘型级数",
+          "latex": "$$\\sum_{n=0}^{\\infty}\\frac{u^{n}}{n!}=\\mathrm{e}^{u},\\qquad \\sum_{n=1}^{\\infty}\\frac{u^{n}}{n\\left(n-1\\right)\\cdots}=\\ \\text{由}\\ \\mathrm{e}^{u}\\ \\text{逐项积分得到}$$"
+        },
+        {
+          "name": "多项式拆成下降阶乘",
+          "latex": "$$n^{3}=n\\left(n-1\\right)\\left(n-2\\right)+3n\\left(n-1\\right)+n$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：比值法定收敛半径",
@@ -334,6 +470,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设函数 $f$ 在 $[0,1]$ 上连续，且 $\\displaystyle\\int_0^{1}f(x)\\,\\mathrm{d}x=0$、$\\displaystyle\\int_0^{1}xf(x)\\,\\mathrm{d}x=1$。试证：(1) 存在 $x_0\\in[0,1]$，使 $\\left|f\\left(x_0\\right)\\right|&gt;4$；(2) 存在 $x_1\\in[0,1]$，使 $\\left|f\\left(x_1\\right)\\right|=4$。",
+      "formulasUsed": [
+        {
+          "name": "条件的线性组合",
+          "latex": "$$\\int_0^{1}\\left(x-\\frac12\\right)f(x)\\mathrm{d}x=\\int_0^{1}xf\\mathrm{d}x-\\frac12\\int_0^{1}f\\mathrm{d}x=1$$"
+        },
+        {
+          "name": "放缩到 $\\left|f\\right|$ 的上界",
+          "latex": "$$1\\leqslant\\int_0^{1}\\left|x-\\frac12\\right|\\left|f(x)\\right|\\mathrm{d}x\\leqslant\\frac12\\int_0^{1}\\left|f(x)\\right|\\mathrm{d}x$$"
+        },
+        {
+          "name": "反证取出点值",
+          "latex": "$$\\left|f(x)\\right|\\leqslant4\\ \\left(\\forall x\\right)\\Longrightarrow 1\\leqslant\\frac12\\cdot4=2,\\ \\text{矛盾}\\Longrightarrow \\exists x_{0},\\ \\left|f\\left(x_{0}\\right)\\right|&gt;4$$"
+        },
+        {
+          "name": "积分中值 ＋ 介值",
+          "latex": "$$\\exists\\xi,\\ f\\left(\\xi\\right)=\\int_0^{1}f=0\\Longrightarrow \\left|f\\right|\\ \\text{连续}\\Longrightarrow \\exists x_{1},\\ \\left|f\\left(x_{1}\\right)\\right|=4$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把两个条件合成一个带权积分",
@@ -376,6 +530,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x,y)$ 在 $x^{2}+y^{2}\\leqslant1$ 上有连续二阶偏导数，且 $f_{xx}^{2}+2f_{xy}^{2}+f_{yy}^{2}\\leqslant M$。若 $f(0,0)=0$、$f_x(0,0)=0$、$f_y(0,0)=0$，证明 $\\left|\\displaystyle\\iint_{x^{2}+y^{2}\\leqslant1}f(x,y)\\,\\mathrm{d}x\\mathrm{d}y\\right|\\leqslant\\dfrac{\\pi\\sqrt{M}}{4}$。",
+      "formulasUsed": [
+        {
+          "name": "二元二阶 Taylor（三个零条件）",
+          "latex": "$$f(x,y)=\\frac12\\left[f_{xx}\\left(\\theta\\right)x^{2}+2f_{xy}\\left(\\theta\\right)xy+f_{yy}\\left(\\theta\\right)y^{2}\\right],\\qquad \\left(x,y\\right)=\\left(r\\cos\\theta,r\\sin\\theta\\right)$$"
+        },
+        {
+          "name": "写成内积",
+          "latex": "$$\\left|f\\right|\\leqslant\\frac{r^{2}}{2}\\sqrt{f_{xx}^{2}+2f_{xy}^{2}+f_{yy}^{2}}\\cdot\\sqrt{\\left(\\cos^{2}\\theta+\\sin^{2}\\theta\\right)^{2}}$$"
+        },
+        {
+          "name": "Cauchy-Schwarz",
+          "latex": "$$\\left(\\vec a\\cdot\\vec b\\right)^{2}\\leqslant\\left|\\vec a\\right|^{2}\\left|\\vec b\\right|^{2}$$"
+        },
+        {
+          "name": "极坐标积分收口",
+          "latex": "$$\\left|\\iint_{r\\leqslant1}f\\,\\mathrm{d}\\sigma\\right|\\leqslant\\frac{\\sqrt M}{2}\\int_0^{2\\pi}\\int_0^{1}r^{2}\\cdot r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta=\\frac{\\pi\\sqrt M}{4}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：二阶 Taylor，把三个零条件用上",

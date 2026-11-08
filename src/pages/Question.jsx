@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, Bookmark, BookmarkCheck, Eye, Lightbulb, ListChecks } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bookmark, BookmarkCheck, Eye, Lightbulb, ListChecks, Sigma } from 'lucide-react'
 import { findQuestion, getLibrary, getQuestion, questionNeighbors } from '../lib/data'
 import { Difficulty, Tags } from '../components/ui'
 import { MASTERY, getMastery, isFavorite, setMastery, toggleFavorite, useStore } from '../lib/store'
@@ -14,6 +14,7 @@ export default function Question() {
   const [error, setError] = useState('')
   const [showAnswer, setShowAnswer] = useState(false)
   const [showExplain, setShowExplain] = useState(false)
+  const [showFormulas, setShowFormulas] = useState(false)
 
   useEffect(() => {
     getLibrary().then(setLib)
@@ -24,6 +25,7 @@ export default function Question() {
     setError('')
     setShowAnswer(false)
     setShowExplain(false)
+    setShowFormulas(false)
     getQuestion(questionId)
       .then(setDetail)
       .catch((e) => setError(e.message))
@@ -107,6 +109,9 @@ export default function Question() {
             <button className={`btn ${showExplain ? 'on' : ''} half`} onClick={() => setShowExplain((v) => !v)}>
               <ListChecks size={15} /> 解析
             </button>
+            <button className={`btn ${showFormulas ? 'on' : ''} half`} onClick={() => setShowFormulas((v) => !v)}>
+              <Sigma size={15} /> 公式
+            </button>
             <span className="spacer" />
             <button className={`btn ${fav ? 'on' : ''}`} onClick={() => toggleFavorite(questionId)}>
               {fav ? <BookmarkCheck size={15} /> : <Bookmark size={15} />} {fav ? '已收藏' : '收藏'}
@@ -126,6 +131,20 @@ export default function Question() {
             <div className="answer-box reveal">
               <div className="label">答案</div>
               <div className="body" dangerouslySetInnerHTML={{ __html: detail.answer || '<span class="muted">暂无答案</span>' }} />
+            </div>
+          )}
+
+          {showFormulas && detail && detail.formulas?.length > 0 && (
+            <div className="formula-used reveal">
+              <div className="label">本题用到的公式</div>
+              <ol>
+                {detail.formulas.map((f, i) => (
+                  <li key={i}>
+                    <span className="fu-name">{f.name}</span>
+                    <div className="fu-expr" dangerouslySetInnerHTML={{ __html: f.expr }} />
+                  </li>
+                ))}
+              </ol>
             </div>
           )}
 

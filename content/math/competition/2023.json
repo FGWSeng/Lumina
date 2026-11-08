@@ -18,6 +18,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to3}\\frac{\\sqrt{x^{3}+9}-6}{2-\\sqrt{x^{3}-23}}$。",
+      "formulasUsed": [
+        {
+          "name": "分子有理化",
+          "latex": "$$\\sqrt{x^{3}+9}-6=\\frac{x^{3}-27}{\\sqrt{x^{3}+9}+6}$$"
+        },
+        {
+          "name": "分母有理化",
+          "latex": "$$2-\\sqrt{x^{3}-23}=\\frac{4-\\left(x^{3}-23\\right)}{2+\\sqrt{x^{3}-23}}=\\frac{27-x^{3}}{2+\\sqrt{x^{3}-23}}$$"
+        },
+        {
+          "name": "立方差分解",
+          "latex": "$$x^{3}-27=\\left(x-3\\right)\\left(x^{2}+3x+9\\right)$$"
+        },
+        {
+          "name": "约去后代入",
+          "latex": "$$\\frac{x^{3}-27}{27-x^{3}}\\cdot\\frac{2+\\sqrt{x^{3}-23}}{\\sqrt{x^{3}+9}+6}\\longrightarrow-1\\cdot\\frac{4}{12}=-\\frac13$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：先验型，确认是 $\\frac00$",
@@ -56,6 +74,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $z=f\\left(x^{2}-y^{2},xy\\right)$，且 $f(u,v)$ 有连续的二阶偏导数，则 $\\dfrac{\\partial^{2}z}{\\partial x\\partial y}=$________。",
+      "formulasUsed": [
+        {
+          "name": "一阶链式",
+          "latex": "$$z_{x}=2x\\,f_{1}+y\\,f_{2},\\qquad u=x^{2}-y^{2},\\ v=xy$$"
+        },
+        {
+          "name": "对 $y$ 再求导（裸项 ＋ 链式项）",
+          "latex": "$$z_{xy}=2x\\left(-2y\\,f_{11}+x\\,f_{12}\\right)+f_{2}+y\\left(-2y\\,f_{21}+x\\,f_{22}\\right)$$"
+        },
+        {
+          "name": "合并二阶偏导",
+          "latex": "$$f_{12}=f_{21}\\Longrightarrow z_{xy}=-4xy\\,f_{11}+\\left(2x^{2}-2y^{2}\\right)f_{12}+xy\\,f_{22}+f_{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：写一阶，两个中间变量各带系数",
@@ -93,6 +125,20 @@
       ],
       "difficulty": 2,
       "stemHtml": "设 $f(x)=\\dfrac{1}{x^{2}-3x+2}$，则 $f^{\\left(n\\right)}(0)=$________。",
+      "formulasUsed": [
+        {
+          "name": "部分分式",
+          "latex": "$$\\frac{1}{x^{2}-3x+2}=\\frac{1}{x-2}-\\frac{1}{x-1}$$"
+        },
+        {
+          "name": "一次式的 $n$ 阶导",
+          "latex": "$$\\left(\\frac{1}{x-a}\\right)^{\\left(n\\right)}=\\frac{\\left(-1\\right)^{n}n!}{\\left(x-a\\right)^{n+1}}$$"
+        },
+        {
+          "name": "代 $x=0$",
+          "latex": "$$f^{\\left(n\\right)}\\left(0\\right)=\\left(-1\\right)^{n}n!\\left[-\\frac{1}{2^{n+1}}+1\\right]$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：分母分解，拆成两个一次式之和",
@@ -131,6 +177,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{\\left(-1\\right)^{n-1}x^{2n}}{n\\left(2n-1\\right)}$ 的收敛域为________。",
+      "formulasUsed": [
+        {
+          "name": "缺项级数先换元",
+          "latex": "$$t=x^{2}\\Longrightarrow \\sum_{n=1}^{\\infty}\\frac{\\left(-1\\right)^{n-1}t^{n}}{n\\left(2n-1\\right)}$$"
+        },
+        {
+          "name": "收敛半径",
+          "latex": "$$\\lim\\left|\\frac{u_{n+1}}{u_{n}}\\right|=\\frac{n\\left(2n-1\\right)}{\\left(n+1\\right)\\left(2n+1\\right)}\\to1\\Longrightarrow R_{t}=1\\Longrightarrow \\left|x\\right|&lt;1$$"
+        },
+        {
+          "name": "端点单独检验",
+          "latex": "$$x=\\pm1\\Longrightarrow \\sum\\frac{\\left(-1\\right)^{n-1}}{n\\left(2n-1\\right)}\\ \\text{（莱布尼茨，收敛）}$$"
+        },
+        {
+          "name": "收敛域",
+          "latex": "$$x\\in\\left[-1,1\\right]$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认出是缺项级数，先换元",
@@ -169,6 +233,24 @@
       ],
       "difficulty": 2,
       "stemHtml": "设曲面 $\\Sigma$ 是平面 $y+z=5$ 被柱面 $x^{2}+y^{2}=25$ 所截得的部分，则 $\\displaystyle\\iint_\\Sigma\\left(x+y+z\\right)\\mathrm dS=$________。",
+      "formulasUsed": [
+        {
+          "name": "显式曲面的面积元",
+          "latex": "$$z=5-y\\Longrightarrow \\mathrm{d}S=\\sqrt{1+z_{x}^{2}+z_{y}^{2}}\\,\\mathrm{d}x\\mathrm{d}y=\\sqrt2\\,\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "先用曲面方程化简被积式",
+          "latex": "$$x+y+z=x+5$$"
+        },
+        {
+          "name": "奇函数归零",
+          "latex": "$$\\iint_{D}x\\,\\mathrm{d}x\\mathrm{d}y=0\\Longrightarrow \\iint_{\\Sigma}\\left(x+y+z\\right)\\mathrm{d}S=5\\sqrt2\\iint_{D}\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "圆面积",
+          "latex": "$$\\iint_{x^{2}+y^{2}\\leqslant25}\\mathrm{d}x\\mathrm{d}y=25\\pi\\Longrightarrow I=125\\sqrt2\\,\\pi$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：把平面写成 $z=5-y$，算 $\\mathrm dS$",
@@ -208,6 +290,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "解方程 $\\left(x^{2}+y^{2}+3\\right)\\dfrac{\\mathrm dy}{\\mathrm dx}=2x\\left(2y-\\dfrac{x^{2}}{y}\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "乘 $y$、除 $x$ 整理",
+          "latex": "$$\\frac{y\\,\\mathrm{d}y}{x\\,\\mathrm{d}x}=\\frac{4y^{2}-2x^{2}}{x^{2}+y^{2}+3}$$"
+        },
+        {
+          "name": "换元降维",
+          "latex": "$$U=x^{2},\\ V=y^{2}\\Longrightarrow \\frac{\\mathrm{d}V}{\\mathrm{d}U}=\\frac{4V-2U}{U+V+3}$$"
+        },
+        {
+          "name": "平移到交点再化齐次",
+          "latex": "$$4V-2U=0,\\ U+V+3=0\\Longrightarrow \\left(U,V\\right)=\\left(-2,-1\\right),\\ W=\\frac{V+1}{U+2}$$"
+        },
+        {
+          "name": "齐次后分离变量",
+          "latex": "$$\\frac{\\mathrm{d}W}{\\mathrm{d}U}=F\\left(W\\right)\\Longrightarrow \\int\\frac{\\mathrm{d}W}{F\\left(W\\right)-W}=\\ln\\left|U+2\\right|+C\\ \\text{（再回代）}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：两边乘 $y$、除以 $x$，整理出 $\\frac{y\\mathrm dy}{x\\mathrm dx}$",
@@ -256,6 +356,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $\\Sigma_1$ 是以 $\\left(0,4,0\\right)$ 为顶点且与曲面 $\\Sigma_2:\\frac{x^{2}}{3}+\\frac{y^{2}}{4}+\\frac{z^{2}}{3}=1\\ \\left(y&gt;0\\right)$ 相切的圆锥面，求 $\\Sigma_1$ 与 $\\Sigma_2$ 所围成区域的体积。",
+      "formulasUsed": [
+        {
+          "name": "旋转椭球压到 $xOy$ 平面",
+          "latex": "$$\\Sigma_{2}:\\ \\frac{x^{2}}{3}+\\frac{y^{2}}{4}=1\\ \\left(\\text{绕}\\ y\\ \\text{轴}\\right),\\qquad x^{2}+z^{2}=3\\left(1-\\frac{y^{2}}{4}\\right)$$"
+        },
+        {
+          "name": "切线过顶点（切点在椭圆上）",
+          "latex": "$$\\frac{x x_{0}}{3}+\\frac{y y_{0}}{4}=1\\ \\text{过}\\ \\left(0,4\\right)\\Longrightarrow y_{0}=1$$"
+        },
+        {
+          "name": "圆锥体积",
+          "latex": "$$V_{\\text{锥}}=\\frac13\\pi R^{2}h$$"
+        },
+        {
+          "name": "截面法算椭球帽",
+          "latex": "$$V=\\int_{y_{0}}^{2}\\pi\\left[x^{2}+z^{2}\\right]_{y}\\mathrm{d}y=3\\pi\\int_{1}^{2}\\left(1-\\frac{y^{2}}{4}\\right)\\mathrm{d}y$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：认清 $\\Sigma_2$ 是绕 $y$ 轴的旋转椭球，把问题压到 $xOy$ 平面",
@@ -296,6 +414,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $I_n=n\\displaystyle\\int_1^{a}\\frac{\\mathrm dx}{1+x^{n}}$，$a&gt;1$，求 $\\displaystyle\\lim_{n\\to\\infty}I_n$。",
+      "formulasUsed": [
+        {
+          "name": "把 $x>1$ 拉到 $t<1$",
+          "latex": "$$x=\\frac1t\\Longrightarrow I_{n}=n\\int_{1/a}^{1}\\frac{t^{n-2}}{1+t^{n}}\\mathrm{d}t$$"
+        },
+        {
+          "name": "凑对数微分",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}t}\\ln\\left(1+t^{n}\\right)=\\frac{nt^{n-1}}{1+t^{n}}$$"
+        },
+        {
+          "name": "分段控制（主贡献在 $t$ 接近 $1$）",
+          "latex": "$$\\left[0,1-\\varepsilon\\right]\\ \\text{上}\\ nt^{n-2}\\to0,\\qquad \\left[1-\\varepsilon,1\\right]\\ \\text{上}\\ \\frac{t^{n}}{1+t^{n}}\\to1$$"
+        },
+        {
+          "name": "取极限",
+          "latex": "$$\\lim_{n\\to\\infty}I_{n}=\\ln a$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：判断贡献来自 $x$ 靠近 $1$ 的一段",
@@ -338,6 +474,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设 $f(x)$ 在 $\\left[0,1\\right]$ 上有连续导数，$f(0)=0$。求证 $\\displaystyle\\int_0^{1}f^{2}(x)\\,\\mathrm dx\\leqslant4\\int_0^{1}\\left(1-x\\right)^{2}\\left|f'(x)\\right|^{2}\\mathrm dx$，并求使等号成立的 $f$。",
+      "formulasUsed": [
+        {
+          "name": "分部积分（取 $x-1$ 作原函数）",
+          "latex": "$$\\int_0^{1}f^{2}\\mathrm{d}x=\\left[\\left(x-1\\right)f^{2}\\right]_0^{1}-2\\int_0^{1}\\left(x-1\\right)ff'\\mathrm{d}x=2\\int_0^{1}\\left(1-x\\right)ff'\\mathrm{d}x$$"
+        },
+        {
+          "name": "Cauchy 积分不等式",
+          "latex": "$$\\left|\\int_0^{1}\\left(1-x\\right)ff'\\mathrm{d}x\\right|\\leqslant\\left(\\int_0^{1}f^{2}\\right)^{1/2}\\left(\\int_0^{1}\\left(1-x\\right)^{2}\\left[f'\\right]^{2}\\mathrm{d}x\\right)^{1/2}$$"
+        },
+        {
+          "name": "收口",
+          "latex": "$$\\int_0^{1}f^{2}\\leqslant2\\sqrt{\\int_0^{1}f^{2}}\\cdot\\sqrt{\\int_0^{1}\\left(1-x\\right)^{2}f'^{2}}\\Longrightarrow \\int_0^{1}f^{2}\\leqslant4\\int_0^{1}\\left(1-x\\right)^{2}f'^{2}$$"
+        },
+        {
+          "name": "等号条件",
+          "latex": "$$f'\\ \\text{与}\\ \\left(1-x\\right)f\\ \\text{成比例}\\Longrightarrow f\\left(x\\right)=c\\left(1-x\\right)^{2}$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：选 $(x-1)$ 作原函数做分部积分",
@@ -380,6 +534,24 @@
       ],
       "difficulty": 4,
       "stemHtml": "设数列 $\\left\\{x_n\\right\\}$ 满足 $x_0=\\frac13$、$x_{n+1}=\\frac{x_n^{2}}{1-x_n+x_n^{2}}$（$n\\geqslant0$）。证明 $\\displaystyle\\sum_{n=0}^{\\infty}x_n$ 收敛并求和。",
+      "formulasUsed": [
+        {
+          "name": "分母恒正给正性",
+          "latex": "$$1-x_{n}+x_{n}^{2}&gt;0\\Longrightarrow x_{n+1}&gt;0\\Longrightarrow x_{n}&gt;0$$"
+        },
+        {
+          "name": "取倒数造递推",
+          "latex": "$$y_{n}=\\frac{1}{x_{n}}\\Longrightarrow y_{n+1}=y_{n}^{2}-y_{n}+1$$"
+        },
+        {
+          "name": "望远镜恒等式",
+          "latex": "$$x_{n}=\\frac{1}{y_{n}-1}-\\frac{1}{y_{n+1}-1}$$"
+        },
+        {
+          "name": "求和与极限",
+          "latex": "$$\\sum_{n=0}^{\\infty}x_{n}=\\frac{1}{y_{0}-1}=\\frac12,\\qquad L\\left(L-1\\right)^{2}=0\\Longrightarrow L=0$$"
+        }
+      ],
       "steps": [
         {
           "title": "第一步：分母恒正 ⇒ $x_n>0$，再作差看单调",
