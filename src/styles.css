@@ -733,3 +733,131 @@ button { font: inherit; color: inherit; }
   .formula-toolbar .seg { flex: 1 1 auto; justify-content: center; }
   .formula-toolbar .btn { flex: 1 1 auto; }
 }
+
+/* 章内索引 */
+.chapter-index {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 0 14px;
+  margin-bottom: 12px;
+}
+.chapter-index summary {
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand);
+  list-style: none;
+}
+.chapter-index summary::-webkit-details-marker { display: none; }
+.chapter-index summary::before {
+  content: "▸";
+  margin-right: 6px;
+  display: inline-block;
+  transition: transform .15s;
+}
+.chapter-index[open] summary::before { transform: rotate(90deg); }
+.chapter-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 3px 10px;
+  padding: 0 0 12px;
+}
+.chapter-index-grid button {
+  text-align: left;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chapter-index-grid button:hover { background: var(--brand-soft); color: var(--brand); }
+
+/* 何时用 */
+.formula-when {
+  margin-top: 10px;
+  background: var(--brand-soft);
+  border: 1px solid color-mix(in srgb, var(--brand) 18%, transparent);
+  border-radius: 9px;
+  padding: 11px 14px;
+}
+.formula-when p { margin: 0; font-size: 14px; line-height: 1.9; color: var(--ink-2); }
+.formula-card.flash { animation: formula-flash 1.3s ease; }
+@keyframes formula-flash {
+  0%, 100% { box-shadow: var(--shadow); }
+  30% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 24%, transparent); }
+}
+
+@media (max-width: 640px) {
+  .chapter-index-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* 章内索引 */
+.chapter-index {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 0 14px;
+  margin-bottom: 12px;
+}
+.chapter-index summary {
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand);
+  list-style: none;
+}
+.chapter-index summary::-webkit-details-marker { display: none; }
+.chapter-index summary::before {
+  content: "▸";
+  margin-right: 6px;
+  display: inline-block;
+  transition: transform .15s;
+}
+.chapter-index[open] summary::before { transform: rotate(90deg); }
+.chapter-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 3px 10px;
+  padding: 0 0 12px;
+}
+.chapter-index-grid button {
+  text-align: left;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chapter-index-grid button:hover { background: var(--brand-soft); color: var(--brand); }
+
+/* 何时用 */
+.formula-when {
+  margin-top: 10px;
+  background: var(--brand-soft);
+  border: 1px solid color-mix(in srgb, var(--brand) 18%, transparent);
+  border-radius: 9px;
+  padding: 11px 14px;
+}
+.formula-when p { margin: 0; font-size: 14px; line-height: 1.9; color: var(--ink-2); }
+.formula-card.flash { animation: formula-flash 1.3s ease; }
+@keyframes formula-flash {
+  0%, 100% { box-shadow: var(--shadow); }
+  30% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 24%, transparent); }
+}
+
+@media (max-width: 640px) {
+  .chapter-index-grid { grid-template-columns: 1fr 1fr; }
+}

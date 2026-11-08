@@ -81,6 +81,17 @@ export default function Formulas() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  function jumpToFormula(id) {
+    setOpen((prev) => new Set(prev).add(id))
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id)
+      if (!el) return
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      el.classList.add('flash')
+      setTimeout(() => el.classList.remove('flash'), 1400)
+    })
+  }
+
   if (error) {
     return (
       <div className="shell" style={{ gridTemplateColumns: 'minmax(0,1fr)' }}>
@@ -187,6 +198,17 @@ export default function Formulas() {
               <h2 className="stitle">{ch.title}</h2>
               <span className="chip">{ch.groups.reduce((n, g) => n + g.formulas.length, 0)} 条</span>
             </div>
+
+            <details className="chapter-index">
+              <summary>本章索引 · {ch.groups.reduce((n, g) => n + g.formulas.length, 0)} 条</summary>
+              <div className="chapter-index-grid">
+                {ch.groups.flatMap((g) => g.formulas).map((f) => (
+                  <button key={f.id} onClick={() => jumpToFormula(f.id)}>
+                    {f.name}
+                  </button>
+                ))}
+              </div>
+            </details>
             {ch.freq && <div className="freq" dangerouslySetInnerHTML={{ __html: ch.freq }} />}
             {ch.lead && <p className="lead" dangerouslySetInnerHTML={{ __html: ch.lead }} />}
 
@@ -199,7 +221,7 @@ export default function Formulas() {
                   {g.formulas.map((f) => {
                     const isOpen = open.has(f.id)
                     return (
-                      <article key={f.id} className={`formula-card ${isOpen ? 'open' : ''}`}>
+                      <article key={f.id} id={f.id} className={`formula-card ${isOpen ? 'open' : ''}`}>
                         <button className="formula-head" onClick={() => toggle(f.id)} aria-expanded={isOpen}>
                           <span className="formula-name">{f.name}</span>
                           <span className="formula-tags">
@@ -228,6 +250,12 @@ export default function Formulas() {
                               <div className="formula-label">记忆技巧</div>
                               <p>{f.memory}</p>
                             </div>
+                            {f.when && (
+                              <div className="formula-when">
+                                <div className="formula-label">何时用</div>
+                                <p>{f.when}</p>
+                              </div>
+                            )}
                           </div>
                         )}
                       </article>

@@ -123,8 +123,19 @@ function buildDerive(chapterTitle, groupTitle, name, tip) {
   }
 }
 
+function splitSteps(html) {
+  const s = String(html || '').trim()
+  if (!s) return []
+  const parts = s
+    .split(/(?<=[。；])/)
+    .map((x) => x.trim())
+    .filter(Boolean)
+  return parts.length > 1 ? parts : [s]
+}
+
 const src = JSON.parse(fs.readFileSync(SRC, 'utf8'))
 let count = 0
+let jjCount = 0
 const chapters = src.chapters.map((ch) => ({
   id: ch.id,
   no: ch.no,
@@ -136,14 +147,32 @@ const chapters = src.chapters.map((ch) => ({
     title: g.title,
     formulas: g.formulas.map((f) => {
       count++
-      const { derive, memory } = buildDerive(ch.title, g.title, f.name, f.tip)
+      let derive
+      let memory
+      let when
+      let source
+      if (f.deriveHtml && f.memoryHtml) {
+        derive = splitSteps(f.deriveHtml).map(latexToText)
+        memory = latexToText(f.memoryHtml)
+        when = latexToText(f.whenHtml || '')
+        source = 'jingjiang'
+        jjCount++
+      } else {
+        const r = buildDerive(ch.title, g.title, f.name, f.tip)
+        derive = r.derive
+        memory = r.memory
+        when = ''
+        source = 'auto'
+      }
       return {
         id: f.id,
         name: f.name,
         expr: renderMath(f.expr),
         tags: f.tags,
         derive,
-        memory: renderMath(memory),
+        memory,
+        when,
+        source,
       }
     }),
   })),
@@ -159,5 +188,5 @@ const out = {
 
 fs.writeFileSync(OUT, JSON.stringify(out), 'utf8')
 const kb = (fs.statSync(OUT).size / 1024).toFixed(1)
-console.log(`章节 ${chapters.length} / 公式 ${count} / 体积 ${kb} KB`)
+console.log(`章节 ${chapters.length} / 公式 ${count} / 精讲 ${jjCount} / 体积 ${kb} KB`)
 console.log(`输出 ${OUT}`)
