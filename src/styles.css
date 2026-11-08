@@ -644,3 +644,92 @@ button { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- 公式背诵页 ---------- */
+.formula-shell { grid-template-columns: 220px minmax(0, 1fr); }
+.formula-main { max-width: 900px; }
+.formula-hero { padding: 24px 0 20px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.formula-hero h1 { font-size: clamp(24px, 4vw, 34px); margin: 8px 0 6px; }
+.formula-chapter { scroll-margin-top: 76px; margin-bottom: 34px; }
+.chapter-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.chapter-head .sno {
+  background: var(--brand); color: #fff; font-size: 12px; font-weight: 700;
+  padding: 3px 10px; border-radius: 5px; white-space: nowrap;
+}
+.chapter-head .stitle { font-family: var(--font-serif); font-size: 21px; margin: 0; line-height: 1.4; }
+.freq {
+  background: var(--gold-soft);
+  border-left: 3px solid var(--gold);
+  padding: 10px 14px; border-radius: 8px;
+  font-size: 13px; color: var(--ink-2); line-height: 1.9; margin-bottom: 12px;
+}
+.freq b { color: var(--gold); margin-right: 6px; font-size: 12px; letter-spacing: .06em; }
+.formula-chapter .lead { font-size: 14.5px; color: var(--ink-2); line-height: 1.95; margin: 4px 0 16px; }
+.formula-group { margin-bottom: 16px; }
+.formula-group-title {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 15px; font-weight: 700; color: var(--brand);
+  margin: 16px 0 10px;
+}
+.formula-list { display: flex; flex-direction: column; gap: 10px; }
+.formula-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; overflow: hidden;
+  transition: border-color .15s, box-shadow .15s;
+}
+.formula-card:hover { border-color: var(--line-2); }
+.formula-card.open {
+  border-color: color-mix(in srgb, var(--brand) 26%, transparent);
+  box-shadow: var(--shadow);
+}
+.formula-head {
+  width: 100%; display: flex; align-items: center; gap: 10px;
+  padding: 13px 16px; background: none; border: 0; cursor: pointer; text-align: left;
+}
+.formula-name { font-size: 14.5px; font-weight: 700; color: var(--ink); flex: 1; min-width: 0; }
+.formula-tags { display: flex; gap: 5px; flex: none; }
+.formula-arrow { color: var(--muted); transition: transform .2s; flex: none; }
+.formula-arrow.rot { transform: rotate(180deg); color: var(--brand); }
+.formula-expr { padding: 0 16px 12px; overflow-x: auto; }
+.formula-expr .katex-display { margin: 4px 0 0; }
+.formula-body { padding: 0 16px 16px; }
+.formula-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  color: var(--gold); margin-bottom: 6px;
+}
+.formula-derive .formula-label { color: var(--brand); }
+.formula-derive ol { margin: 0 0 12px; padding-left: 20px; }
+.formula-derive li { font-size: 14px; line-height: 1.9; color: var(--ink-2); margin: 4px 0; }
+.formula-memory {
+  background: var(--gold-soft);
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
+  border-radius: 9px; padding: 11px 14px;
+}
+.formula-memory p { margin: 0; font-size: 14px; line-height: 1.9; color: var(--ink-2); }
+.formula-memory .formula-label { margin-bottom: 4px; }
+
+@media (max-width: 980px) {
+  .formula-shell { grid-template-columns: minmax(0, 1fr); }
+  .formula-sidebar { display: none; }
+}
+@media (max-width: 640px) {
+  .formula-head { padding: 12px 13px; }
+  .formula-expr { padding: 0 13px 10px; }
+  .formula-body { padding: 0 13px 14px; }
+  .chapter-head .stitle { font-size: 18px; }
+  .formula-tags { display: none; }
+}
+
+@media (max-width: 640px) {
+  .formula-toolbar { flex-wrap: wrap; }
+  .formula-toolbar .search { flex: 1 1 100%; }
+  .formula-toolbar .seg { flex: 1 1 auto; justify-content: center; }
+  .formula-toolbar .btn { flex: 1 1 auto; }
+}
+
+@media (max-width: 640px) {
+  .formula-toolbar { flex-wrap: wrap; }
+  .formula-toolbar .search { flex: 1 1 100%; }
+  .formula-toolbar .seg { flex: 1 1 auto; justify-content: center; }
+  .formula-toolbar .btn { flex: 1 1 auto; }
+}

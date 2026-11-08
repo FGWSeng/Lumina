@@ -42,6 +42,9 @@ export default function Layout() {
                 {s.name}
               </NavLink>
             ))}
+            <NavLink to="/formulas" className={({ isActive }) => (isActive ? 'active' : '')}>
+              公式
+            </NavLink>
             <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>
               说明
             </NavLink>

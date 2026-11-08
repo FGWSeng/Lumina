@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Subject from './pages/Subject'
 import Question from './pages/Question'
 import About from './pages/About'
+import Formulas from './pages/Formulas'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="s/:subjectId" element={<Subject />} />
         <Route path="q/:questionId" element={<Question />} />
+        <Route path="formulas" element={<Formulas />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<Home />} />
       </Route>

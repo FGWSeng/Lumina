@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "import": "node scripts/import-html.mjs",
-    "build:data": "node scripts/build-data.mjs",
+    "build:data": "node scripts/build-data.mjs && node scripts/build-formulas.mjs",
     "build": "npm run build:data && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler pages deploy dist --project-name=lumina --branch=main",

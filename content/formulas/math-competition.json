@@ -1,0 +1,2984 @@
+{
+  "subject": "math",
+  "kind": "formula",
+  "title": "竞赛公式大全",
+  "subtitle": "全国大学生数学竞赛 · 非数学 A 类 · 1–17 届初赛校准",
+  "chapters": [
+    {
+      "seq": 1,
+      "id": "ch-1",
+      "no": "第一章",
+      "title": "代数、三角与不等式工具箱",
+      "freq": "<b>竞赛考频</b>　全卷的底层工序：极限化简、级数裂项、不等式放缩，三处都要用。直接考到的有 Z03 计算 2（余弦连乘 + 倍角公式）、Z11 填空 3（半角化简）、Z14 第 4 题（$|\\sin nx|\\leqslant n\\sin x$ 型三角不等式）、Z10 第 3 题与 Z04 计算 1（Cauchy 不等式）、Z12 第 6 题（取整函数分段）。",
+      "lead": "竞赛不给你现成的化简结果，第一刀往往是“把式子变成能约、能裂、能放缩的形状”。本章按先恒等、再三角、后放缩的顺序排，全部是“手上必须有”的东西。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "1.1 代数恒等与求和",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-1-1-1",
+              "name": "二项式定理",
+              "expr": "$$(a+b)^n=\\sum_{k=0}^{n}\\mathrm C_n^k\\,a^{\\,n-k}b^k=\\sum_{k=0}^{n}\\binom{n}{k}a^{n-k}b^k$$",
+              "tags": [
+                "Z08",
+                "Z11"
+              ],
+              "tip": "竞赛里几乎只用它的“取一项”功能：求 $(1+x)^{2n}$ 中 $x^n$ 的系数、或把 $(a+b)^n$ 拆成单项做估计。"
+            },
+            {
+              "seq": 2,
+              "id": "f-1-1-2",
+              "name": "幂差分解与立方和差",
+              "expr": "$$a^n-b^n=(a-b)\\,(a^{n-1}+a^{n-2}b+\\cdots+ab^{n-2}+b^{n-1}),\\qquad a^3\\pm b^3=(a\\pm b)(a^2\\mp ab+b^2)$$",
+              "tags": [],
+              "tip": "见到 $\\sqrt[n]{A}-1$ 型极限，先把它写成 $a^n-b^n$ 再约掉公因子，比洛必达快得多。"
+            },
+            {
+              "seq": 3,
+              "id": "f-1-1-3",
+              "name": "二次方程：求根、韦达、根距",
+              "expr": "$$x_{1,2}=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a},\\qquad x_1+x_2=-\\frac ba,\\quad x_1x_2=\\frac ca,\\quad |x_1-x_2|=\\frac{\\sqrt{\\Delta}}{|a|},\\ \\ \\Delta=b^2-4ac$$",
+              "tags": [
+                "Z02",
+                "Z13"
+              ],
+              "tip": "根距公式在“两曲线交点距离”“判别式定参数范围”里省掉解根这一步。"
+            },
+            {
+              "seq": 4,
+              "id": "f-1-1-4",
+              "name": "三次方程韦达（竞赛常用）",
+              "expr": "$$x_1+x_2+x_3=-\\frac ba,\\quad x_1x_2+x_2x_3+x_3x_1=\\frac ca,\\quad x_1x_2x_3=-\\frac da$$",
+              "tags": [],
+              "tip": "对 $ax^3+bx^2+cx+d=0$。求 $\\sum x_i^2=(\\sum x_i)^2-2\\sum x_ix_j$ 时直接套，不必解方程。"
+            },
+            {
+              "seq": 5,
+              "id": "f-1-1-5",
+              "name": "常用有限和",
+              "expr": "$$\\sum_{k=1}^{n}k=\\frac{n(n+1)}2,\\quad \\sum_{k=1}^{n}k^2=\\frac{n(n+1)(2n+1)}6,\\quad \\sum_{k=1}^{n}k^3=\\left[\\frac{n(n+1)}2\\right]^2$$",
+              "tags": [
+                "Z06",
+                "Z11"
+              ],
+              "tip": "平方和是定积分定义求极限的主力：$\\lim\\frac1{n^3}\\sum k^2=\\frac13$ 就是这么来的。"
+            },
+            {
+              "seq": 6,
+              "id": "f-1-1-6",
+              "name": "裂项与阶乘裂项",
+              "expr": "$$\\frac1{k(k+1)}=\\frac1k-\\frac1{k+1},\\qquad k\\cdot k!=(k+1)!-k!,\\qquad \\frac1{k(k+1)(k+2)}=\\frac12\\left[\\frac1{k(k+1)}-\\frac1{(k+1)(k+2)}\\right]$$",
+              "tags": [
+                "Z03",
+                "Z15"
+              ],
+              "tip": "级数求和的万能第一招：能裂项就一定裂，裂完只剩首尾两项对消。Z15 那道 $x_n$ 递推求和就是这一步。"
+            },
+            {
+              "seq": 7,
+              "id": "f-1-1-7",
+              "name": "幂指互化",
+              "expr": "$$u^{v}=\\mathrm e^{\\,v\\ln u}\\ (u&gt;0),\\qquad \\ln f^{2}=2\\ln|f|$$",
+              "tags": [
+                "Z01",
+                "Z02"
+              ],
+              "tip": "$1^\\infty$、$0^0$、$\\infty^0$ 三种未定式一律先化成 $\\mathrm e^{v\\ln u}$；$\\ln f^2$ 题最爱在 $f&lt;0$ 处设陷阱，必须带绝对值。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "1.2 三角恒等",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-1-2-1",
+              "name": "和差角公式",
+              "expr": "$$\\sin(\\alpha\\pm\\beta)=\\sin\\alpha\\cos\\beta\\pm\\cos\\alpha\\sin\\beta,\\qquad \\cos(\\alpha\\pm\\beta)=\\cos\\alpha\\cos\\beta\\mp\\sin\\alpha\\sin\\beta,\\qquad \\tan(\\alpha\\pm\\beta)=\\frac{\\tan\\alpha\\pm\\tan\\beta}{1\\mp\\tan\\alpha\\tan\\beta}$$",
+              "tags": [],
+              "tip": "注意 $\\cos$ 的符号是“反号”，这是抄错率最高的一处。"
+            },
+            {
+              "seq": 2,
+              "id": "f-1-2-2",
+              "name": "倍角与三倍角",
+              "expr": "$$\\sin2x=2\\sin x\\cos x,\\quad \\cos2x=\\cos^2x-\\sin^2x=1-2\\sin^2x,\\qquad \\sin3x=3\\sin x-4\\sin^3x,\\quad \\cos3x=4\\cos^3x-3\\cos x$$",
+              "tags": [
+                "Z03"
+              ],
+              "tip": "三倍角用来把 $\\sin^3x$、$\\cos^3x$ 一次降成一次式，是三角积分的基本功。"
+            },
+            {
+              "seq": 3,
+              "id": "f-1-2-3",
+              "name": "降幂与半角",
+              "expr": "$$\\sin^2x=\\frac{1-\\cos2x}2,\\quad \\cos^2x=\\frac{1+\\cos2x}2,\\quad \\sin x\\cos x=\\frac{\\sin2x}2,\\quad \\sin^3x=\\frac{3\\sin x-\\sin3x}4,\\quad \\cos^3x=\\frac{3\\cos x+\\cos3x}4$$",
+              "tags": [
+                "Z11"
+              ],
+              "tip": "偶次幂一律降幂，这是 $\\int\\sin^n x\\,dx$ 能算出来的唯一通道。"
+            },
+            {
+              "seq": 4,
+              "id": "f-1-2-4",
+              "name": "积化和差（四条）",
+              "expr": "$$\\sin\\alpha\\cos\\beta=\\tfrac12[\\sin(\\alpha+\\beta)+\\sin(\\alpha-\\beta)],\\qquad \\cos\\alpha\\sin\\beta=\\tfrac12[\\sin(\\alpha+\\beta)-\\sin(\\alpha-\\beta)]$$\r\n$$\\cos\\alpha\\cos\\beta=\\tfrac12[\\cos(\\alpha+\\beta)+\\cos(\\alpha-\\beta)],\\qquad \\sin\\alpha\\sin\\beta=\\tfrac12[\\cos(\\alpha-\\beta)-\\cos(\\alpha+\\beta)]$$",
+              "tags": [],
+              "tip": "两列三角函数相乘要变成加减，全靠它；注意最后一式是 $\\cos(\\alpha-\\beta)-\\cos(\\alpha+\\beta)$，前后不能颠倒。"
+            },
+            {
+              "seq": 5,
+              "id": "f-1-2-5",
+              "name": "和差化积（四条）",
+              "expr": "$$\\sin A+\\sin B=2\\sin\\tfrac{A+B}2\\cos\\tfrac{A-B}2,\\qquad \\sin A-\\sin B=2\\cos\\tfrac{A+B}2\\sin\\tfrac{A-B}2$$\r\n$$\\cos A+\\cos B=2\\cos\\tfrac{A+B}2\\cos\\tfrac{A-B}2,\\qquad \\cos A-\\cos B=-2\\sin\\tfrac{A+B}2\\sin\\tfrac{A-B}2$$",
+              "tags": [],
+              "tip": "口诀“正加正，正在前；正减正，余在前；余加余，余并肩；余减余，负正弦”。最后一条的负号是竞赛里的常见扣分点。"
+            },
+            {
+              "seq": 6,
+              "id": "f-1-2-6",
+              "name": "辅助角公式",
+              "expr": "$$a\\sin x+b\\cos x=\\sqrt{a^2+b^2}\\,\\sin(x+\\varphi),\\qquad \\tan\\varphi=\\frac ba$$",
+              "tags": [],
+              "tip": "求 $\\max/\\min$、定振幅、把两项并成一项再积分，都用它。$\\varphi$ 的象限由 $(a,b)$ 决定，不能只写 $\\arctan(b/a)$。"
+            },
+            {
+              "seq": 7,
+              "id": "f-1-2-7",
+              "name": "万能公式（半角有理化）",
+              "expr": "$$t=\\tan\\frac x2:\\quad \\sin x=\\frac{2t}{1+t^2},\\quad \\cos x=\\frac{1-t^2}{1+t^2},\\quad \\mathrm dx=\\frac{2\\,\\mathrm dt}{1+t^2}$$",
+              "tags": [],
+              "tip": "三角有理式 $\\int R(\\sin x,\\cos x)\\mathrm dx$ 的保底招。代价是有理分式次数变高，所以只在“凑不出 $d(\\sin x)$”时才用。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "1.3 反三角恒等",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-1-3-1",
+              "name": "互余关系",
+              "expr": "$$\\arcsin x+\\arccos x=\\frac\\pi2\\ (|x|\\leqslant1),\\qquad \\arctan x+\\arctan\\frac1x=\\begin{cases}\\dfrac\\pi2,&amp;x&gt;0\\\\[2pt]-\\dfrac\\pi2,&amp;x&lt;0\\end{cases}$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "第二式必须分正负，直接写 $\\frac\\pi2$ 是错的。$\\arctan \\mathrm e^{x}+\\arctan \\mathrm e^{-x}=\\frac\\pi2$ 就是它的变形。"
+            },
+            {
+              "seq": 2,
+              "id": "f-1-3-2",
+              "name": "反正切相加",
+              "expr": "$$\\arctan x+\\arctan y=\\arctan\\frac{x+y}{1-xy}+\\begin{cases}0,&amp;xy&lt;1\\\\ \\pi,&amp;x&gt;0,\\ xy&gt;1\\\\ -\\pi,&amp;x&lt;0,\\ xy&gt;1\\end{cases}$$",
+              "tags": [],
+              "tip": "竞赛里常以“求 $\\arctan$ 级数的和”出现，修正项 $\\pi$ 决定答案对错。"
+            },
+            {
+              "seq": 3,
+              "id": "f-1-3-3",
+              "name": "反三角复合三角（分段）",
+              "expr": "$$\\arcsin(\\sin x)=\\begin{cases}x,&amp;|x|\\leqslant\\dfrac\\pi2\\\\ \\pi-x,&amp;\\dfrac\\pi2&lt;x\\leqslant\\pi\\\\ -\\pi-x,&amp;-\\pi\\leqslant x&lt;-\\dfrac\\pi2\\end{cases},\\qquad \\arccos(\\cos x)=x\\ (0\\leqslant x\\leqslant\\pi)$$",
+              "tags": [],
+              "tip": "这类题考的是“值域限制”，写成 $\\arcsin(\\sin x)=x$ 只在主值区间成立。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "1.4 不等式与放缩",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-1-4-1",
+              "name": "绝对值三角不等式",
+              "expr": "$$\\bigl||a|-|b|\\bigr|\\ \\leqslant\\ |a\\pm b|\\ \\leqslant\\ |a|+|b|$$",
+              "tags": [],
+              "tip": "证明 $|f(x)-f(y)|\\leqslant M|x-y|$（Lipschitz）就是它的微分版，Z07 那道导数估计用的正是它。"
+            },
+            {
+              "seq": 2,
+              "id": "f-1-4-2",
+              "name": "均值不等式链",
+              "expr": "$$\\frac{2}{\\frac1a+\\frac1b}\\ \\leqslant\\ \\sqrt{ab}\\ \\leqslant\\ \\frac{a+b}2\\ \\leqslant\\ \\sqrt{\\frac{a^2+b^2}2}\\qquad(a,b&gt;0)$$",
+              "tags": [
+                "Z10",
+                "Z13",
+                "Z16"
+              ],
+              "tip": "调和 ≤ 几何 ≤ 算术 ≤ 平方。放缩时选哪一端，取决于你要证的是上界还是下界。"
+            },
+            {
+              "seq": 3,
+              "id": "f-1-4-3",
+              "name": "二元与三元 AM-GM",
+              "expr": "$$a^2+b^2\\geqslant 2ab,\\qquad a+b+c\\geqslant 3\\sqrt[3]{abc}\\ (a,b,c&gt;0)$$",
+              "tags": [
+                "Z10",
+                "Z13"
+              ],
+              "tip": "配凑定值是关键：$x+\\frac1x\\geqslant2$、$x(1-x)\\leqslant\\frac14$ 这类“积为定值、和有最小值”要一眼看出。"
+            },
+            {
+              "seq": 4,
+              "id": "f-1-4-4",
+              "name": "Bernoulli 不等式",
+              "expr": "$$(1+x)^n\\geqslant 1+nx\\ (x\\geqslant-1,\\ n\\in\\mathbb N^*),\\qquad (1+x)^{\\alpha}\\geqslant 1+\\alpha x\\ (x\\geqslant0,\\ \\alpha\\geqslant1)$$",
+              "tags": [
+                "Z10",
+                "Z13"
+              ],
+              "tip": "证明数列单调、证明 $(1+\\frac1n)^n$ 有界，都从它出发；幂次为实数时要额外要求 $x\\geqslant0$。"
+            },
+            {
+              "seq": 5,
+              "id": "f-1-4-5",
+              "name": "指数、对数与三角不等式",
+              "expr": "$$\\ln(1+x)\\leqslant x\\ (x&gt;-1),\\qquad \\mathrm e^x\\geqslant 1+x,\\qquad \\mathrm e^x\\geqslant \\mathrm e\\,x$$\r\n$$\\sin x&lt;x&lt;\\tan x\\ \\Bigl(0&lt;x&lt;\\tfrac\\pi2\\Bigr),\\qquad \\frac2\\pi x\\leqslant\\sin x\\leqslant x\\ \\Bigl(0\\leqslant x\\leqslant\\tfrac\\pi2\\Bigr)$$",
+              "tags": [
+                "Z14",
+                "Z15"
+              ],
+              "tip": "Z09 是 $\\int_0^1 x^n\\mathrm e^x\\mathrm dx$ 的估计，用的就是 $\\mathrm e^x\\geqslant1+x$；Z14 的 $\\sin x/x$ 型极限用右端夹逼。"
+            },
+            {
+              "seq": 6,
+              "id": "f-1-4-6",
+              "name": "二阶小量估计",
+              "expr": "$$|\\sin x|\\leqslant|x|,\\qquad 1-\\cos x\\leqslant\\frac{x^2}2,\\qquad \\bigl|\\sin x-x\\bigr|\\leqslant\\frac{|x|^3}6$$",
+              "tags": [
+                "Z12",
+                "Z14"
+              ],
+              "tip": "这三条是“去掉一阶项后还剩多少”的定量版，估计余项时直接引用，比再展开一次省时间。"
+            },
+            {
+              "seq": 7,
+              "id": "f-1-4-7",
+              "name": "取整函数夹逼",
+              "expr": "$$x-1&lt;[x]\\leqslant x,\\qquad \\lim_{n\\to\\infty}\\frac{[nx]}{n}=x$$",
+              "tags": [
+                "Z12"
+              ],
+              "tip": "带 $[\\,\\cdot\\,]$ 的极限一律夹逼，别想着直接算。"
+            },
+            {
+              "seq": 8,
+              "id": "f-1-4-8",
+              "name": "柯西不等式（离散型）",
+              "expr": "$$\\Bigl(\\sum_{i=1}^{n}a_ib_i\\Bigr)^2\\leqslant\\Bigl(\\sum_{i=1}^{n}a_i^2\\Bigr)\\Bigl(\\sum_{i=1}^{n}b_i^2\\Bigr)$$",
+              "tags": [
+                "Z04",
+                "Z10"
+              ],
+              "tip": "求和式上界的第一选择，和积分型柯西（第五章 5.8）是一对，竞赛里两版都考。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "id": "ch-2",
+      "no": "第二章",
+      "title": "极限：存在准则、计算与阶的估计",
+      "freq": "<b>竞赛考频</b>　17 届里出现密度最高的一章，约 25 处。填空中“求极限”几乎每届都有，而 $1^\\infty$ 型是绝对高频：Z01 第 2 题、Z02 计算 2、Z03 计算 1、Z05 计算 1、Z06 填空 5、Z08 填空 1 连续六届都在考。等价无穷小的“差式组”在 Z12 填空 1（$x-\\sin x$ 三阶）与 Z14 填空 1（根号、余弦展二阶）连考两次。",
+      "lead": "竞赛求极限有三条主线：等价替换（最快）、泰勒定阶（最稳）、夹逼与单调有界（证明存在性）。先判断“是计算题还是证明题”，再选主线，别一上来就洛必达。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "2.1 存在准则与证明型极限",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-2-1-1",
+              "name": "夹逼准则",
+              "expr": "$$y_n\\leqslant x_n\\leqslant z_n,\\quad \\lim y_n=\\lim z_n=A\\ \\Longrightarrow\\ \\lim x_n=A$$",
+              "tags": [
+                "Z07",
+                "Z10",
+                "Z13"
+              ],
+              "tip": "和式型极限（$n$ 项相加、每项都趋 0 但项数趋 $\\infty$）的标准解法：分母统一放大、统一缩小，两头夹住。"
+            },
+            {
+              "seq": 2,
+              "id": "f-2-1-2",
+              "name": "单调有界准则",
+              "expr": "$$\\{x_n\\}\\ \\text{单调递增且有上界}\\ \\Longrightarrow\\ \\{x_n\\}\\ \\text{收敛};\\qquad \\text{单调递减且有下界}\\ \\Longrightarrow\\ \\{x_n\\}\\ \\text{收敛}$$",
+              "tags": [
+                "Z12",
+                "Z13",
+                "Z15"
+              ],
+              "tip": "递推数列 $x_{n+1}=f(x_n)$ 的固定套路：先证有界（数学归纳法），再证单调（比较 $x_{n+1}$ 与 $x_n$），最后令 $n\\to\\infty$ 解出 $A=f(A)$。"
+            },
+            {
+              "seq": 3,
+              "id": "f-2-1-3",
+              "name": "压缩映射（比单调有界更快）",
+              "expr": "$$|x_{n+1}-a|\\leqslant q\\,|x_n-a|,\\ 0&lt;q&lt;1\\ \\Longrightarrow\\ x_n\\to a,\\quad |x_n-a|\\leqslant\\frac{q^{\\,n-1}}{1-q}|x_2-x_1|$$",
+              "tags": [],
+              "tip": "只要能把递推式写成“与极限值的距离按比例缩小”，极限存在性和收敛速度一次拿到，不必再讨论单调。"
+            },
+            {
+              "seq": 4,
+              "id": "f-2-1-4",
+              "name": "Stolz 定理（数列的洛必达）",
+              "expr": "$$\\lim_{n\\to\\infty}\\frac{x_n}{y_n}=\\lim_{n\\to\\infty}\\frac{x_{n+1}-x_n}{y_{n+1}-y_n}\\quad\\Bigl(y_n\\ \\text{严格增},\\ y_n\\to+\\infty\\Bigr)$$",
+              "tags": [
+                "Z03"
+              ],
+              "tip": "$\\frac{\\infty}{\\infty}$ 型的数列极限专用，右端存在时等式成立。$\\frac00$ 型要加“$x_n,y_n\\to0$ 且 $y_n$ 严格减”的条件。"
+            },
+            {
+              "seq": 5,
+              "id": "f-2-1-5",
+              "name": "Cesàro 平均（算术平均继承极限）",
+              "expr": "$$x_n\\to A\\ \\Longrightarrow\\ \\frac{x_1+x_2+\\cdots+x_n}{n}\\to A;\\qquad \\text{反之不成立}$$",
+              "tags": [
+                "Z09"
+              ],
+              "tip": "Z16 的二重级数题用它把“逐项有界”升级成“平均收敛”。反向不成立：$x_n=(-1)^n$ 平均值趋 0 但本身发散。"
+            },
+            {
+              "seq": 6,
+              "id": "f-2-1-6",
+              "name": "子列覆盖判定",
+              "expr": "$$x_n\\to A\\iff x_{2k}\\to A\\ \\text{且}\\ x_{2k-1}\\to A;\\qquad \\lim_{x\\to x_0}f(x)=A\\iff f(x_0^-)=f(x_0^+)=A$$",
+              "tags": [],
+              "tip": "竞赛爱考“奇偶子列各自单调、极限不同”的反例，用这条一句话判掉。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "2.2 重要极限与未定式",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-2-2-1",
+              "name": "两个重要极限",
+              "expr": "$$\\lim_{x\\to0}\\frac{\\sin x}{x}=1,\\qquad \\lim_{x\\to\\infty}\\Bigl(1+\\frac1x\\Bigr)^{x}=\\mathrm e=\\lim_{x\\to0}(1+x)^{1/x}$$",
+              "tags": [
+                "Z03"
+              ],
+              "tip": "第二个的实质是 $1^\\infty$；把它写成 $\\exp\\{\\lim\\frac{\\ln(1+x)}x\\}$ 就与下面的通式接上了。"
+            },
+            {
+              "seq": 2,
+              "id": "f-2-2-2",
+              "name": "$1^\\infty$ 型通式（竞赛第一高频）",
+              "expr": "$$u\\to1,\\ v\\to\\infty:\\qquad \\lim u^{v}=\\mathrm e^{\\lim v\\ln u}=\\mathrm e^{\\lim v(u-1)}$$",
+              "tags": [
+                "Z01",
+                "Z02",
+                "Z03",
+                "Z06"
+              ],
+              "tip": "口诀“$\\ln$ 底往里走，指数抄一遍，再乘底减 1”。第二步 $\\ln u\\sim u-1$ 必须 $u\\to1$ 才成立，别提前换。"
+            },
+            {
+              "seq": 3,
+              "id": "f-2-2-3",
+              "name": "幂指型三种未定式统一处理",
+              "expr": "$$1^\\infty,\\ 0^0,\\ \\infty^0:\\qquad \\lim u^{v}=\\exp\\Bigl\\{\\lim v\\ln u\\Bigr\\}$$",
+              "tags": [
+                "Z05",
+                "Z08"
+              ],
+              "tip": "先取对数把幂指变成乘积，再判是 $0\\cdot\\infty$ 还是 $\\frac00$。$x^x$（$x\\to0^+$）就是 $0^0$ 型，答案为 1。"
+            },
+            {
+              "seq": 4,
+              "id": "f-2-2-4",
+              "name": "常用数列极限值",
+              "expr": "$$\\lim_{n\\to\\infty}\\sqrt[n]{n}=1,\\quad \\lim_{n\\to\\infty}\\sqrt[n]{n!}=+\\infty,\\quad \\lim_{n\\to\\infty}\\frac{n!}{n^n}=0,\\quad \\lim_{n\\to\\infty}\\frac{\\ln n}{n^{\\alpha}}=0\\ (\\alpha&gt;0)$$",
+              "tags": [],
+              "tip": "$\\sqrt[n]{n!}\\to\\infty$ 常被误判成 1。记忆锚点：$n!$ 比任何 $a^n$ 快，但 $\\sqrt[n]{\\ }$ 之后变成 $n/\\mathrm e$ 量级。"
+            },
+            {
+              "seq": 5,
+              "id": "f-2-2-5",
+              "name": "定积分定义（黎曼和）",
+              "expr": "$$\\lim_{n\\to\\infty}\\frac1n\\sum_{i=1}^{n}f\\Bigl(\\frac in\\Bigr)=\\int_0^1 f(x)\\,\\mathrm dx,\\qquad \\lim_{n\\to\\infty}\\sum_{i=1}^{n}f\\Bigl(\\xi_i\\Bigr)\\Delta x_i=\\int_a^b f(x)\\,\\mathrm dx$$",
+              "tags": [
+                "Z07",
+                "Z10"
+              ],
+              "tip": "识别信号：和式里有 $\\frac in$、$\\frac1n$，且 $f$ 连续。先凑成 $\\frac1n\\sum f(\\frac in)$ 再换成积分，比夹逼省事。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "2.3 等价无穷小（补全版）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-2-3-1",
+              "name": "基本组（$x o0$）",
+              "expr": "$$\\sin x\\sim\\tan x\\sim\\arcsin x\\sim\\arctan x\\sim\\ln(1+x)\\sim\\mathrm e^{x}-1\\sim x$$\r\n$$a^{x}-1\\sim x\\ln a,\\qquad (1+x)^{\\alpha}-1\\sim\\alpha x,\\qquad 1-\\cos x\\sim\\frac{x^2}2$$",
+              "tags": [
+                "Z08",
+                "Z11",
+                "Z13"
+              ],
+              "tip": "$\\ln(x+\\sqrt{1+x^2})\\sim x$ 也在这一族（它是 $\\mathrm{arsinh}\\,x$）。这几条要背到“看见就换”的程度。"
+            },
+            {
+              "seq": 2,
+              "id": "f-2-3-2",
+              "name": "差式组（等价无穷小的“二次修正”）",
+              "expr": "$$x-\\sin x\\sim\\frac{x^3}6,\\quad \\arcsin x-x\\sim\\frac{x^3}6,\\quad x-\\arctan x\\sim\\frac{x^3}3,\\quad \\tan x-x\\sim\\frac{x^3}3,\\quad x-\\ln(1+x)\\sim\\frac{x^2}2$$",
+              "tags": [
+                "Z12",
+                "Z17"
+              ],
+              "tip": "这是“首项相消后剩几阶”的答案表，竞赛定阶题直接用。符号最容易错的是 $x-\\arcsin x\\sim-\\frac{x^3}6$（负号别丢）。"
+            },
+            {
+              "seq": 3,
+              "id": "f-2-3-3",
+              "name": "进阶组（复合差式）",
+              "expr": "$$[1+f]^{g}-1\\sim gf,\\quad \\ln(1+f)-\\ln(1+g)\\sim f-g,\\quad \\mathrm e^{f}-\\mathrm e^{g}\\sim f-g$$\r\n$$\\sin f-\\sin g\\sim f-g,\\quad \\tan f-\\tan g\\sim f-g,\\quad \\sqrt{1+f}-\\sqrt{1+g}\\sim\\frac{f-g}2$$",
+              "tags": [
+                "Z10",
+                "Z12"
+              ],
+              "tip": "统一来源：$F(f)-F(g)\\approx F'(g)(f-g)$。第二、三、四式的 $F'$ 在 0 处为 1，所以系数是 1；最后一式 $F'=\\frac12$。"
+            },
+            {
+              "seq": 4,
+              "id": "f-2-3-4",
+              "name": "替换的禁区（最容易翻车）",
+              "expr": "$$\\frac{A\\,(B-CD)}{E}\\ \\text{中只有}\\ A,\\ B,\\ E\\ \\text{可换，}\\ B-CD\\ \\text{是加减，不可换}$$",
+              "tags": [
+                "Z13"
+              ],
+              "tip": "判据：替换只对“乘除因子”成立。加减项要换，必须先提公因子把加减变成乘法，或改用泰勒。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "2.4 阶的比较与等价无穷大",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-2-4-1",
+              "name": "无穷大的阶链",
+              "expr": "$$\\ln n\\ \\ll\\ n^{\\varepsilon}\\ \\ll\\ n^{k}\\ \\ll\\ a^{n}\\ (a&gt;1)\\ \\ll\\ n!\\ \\ll\\ n^{n}$$",
+              "tags": [],
+              "tip": "“$\\ll$”表示前者是后者的低阶无穷大。判级数、判极限为 0 时，先在这条链上定位，答案立刻出来。"
+            },
+            {
+              "seq": 2,
+              "id": "f-2-4-2",
+              "name": "常用等价无穷大",
+              "expr": "$$\\ln n!\\sim n\\ln n,\\qquad n!\\sim\\sqrt{2\\pi n}\\,\\Bigl(\\frac n{\\mathrm e}\\Bigr)^{n},\\qquad \\sum_{k=1}^{n}\\frac1k\\sim\\ln n,\\qquad \\sum_{k=1}^{n}k^{p}\\sim\\frac{n^{p+1}}{p+1}$$",
+              "tags": [
+                "Z01",
+                "Z02"
+              ],
+              "tip": "第一、四式直接给“和式的阶”，是竞赛估阶题的落点。第三式的精确版是 $\\ln n+\\gamma+\\frac1{2n}+O(n^{-2})$，$\\gamma\\approx0.5772$。"
+            }
+          ]
+        },
+        {
+          "seq": 5,
+          "title": "2.5 连续、间断点与闭区间性质",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-2-5-1",
+              "name": "连续的三种等价写法",
+              "expr": "$$\\lim_{x\\to x_0}f(x)=f(x_0)\\iff \\lim_{\\Delta x\\to0}\\bigl[f(x_0+\\Delta x)-f(x_0)\\bigr]=0\\iff f(x_0^-)=f(x_0^+)=f(x_0)$$",
+              "tags": [
+                "Z01"
+              ],
+              "tip": "第三种写法是判分段函数连续的唯一入口，别漏“等于函数值”这一半。"
+            },
+            {
+              "seq": 2,
+              "id": "f-2-5-2",
+              "name": "间断点四分类",
+              "expr": "$$\\text{第一类：}f(x_0^-)=f(x_0^+)\\neq f(x_0)\\ (\\text{可去}),\\ f(x_0^-)\\neq f(x_0^+)\\ (\\text{跳跃});\\qquad \\text{第二类：}\\lim f=\\infty\\ (\\text{无穷}),\\ \\lim f\\ \\text{不存在且不趋}\\infty\\ (\\text{振荡})$$",
+              "tags": [
+                "Z14"
+              ],
+              "tip": "分类只看“左右极限是否都存在”，与函数值无关。$x\\sin\\frac1x$ 在 0 处是可去，$\\sin\\frac1x$ 是振荡。"
+            },
+            {
+              "seq": 3,
+              "id": "f-2-5-3",
+              "name": "闭区间连续四定理",
+              "expr": "$$\\text{最值定理：}f\\in C[a,b]\\Rightarrow f\\ \\text{取到}\\ \\max,\\min;\\quad \\text{有界性：}f\\in C[a,b]\\Rightarrow f\\ \\text{有界};\\quad \\text{介值：}\\mu\\in[m,M]\\Rightarrow\\exists\\xi,\\ f(\\xi)=\\mu;\\quad \\text{零点：}f(a)f(b)&lt;0\\Rightarrow\\exists\\xi,\\ f(\\xi)=0$$",
+              "tags": [
+                "Z02",
+                "Z12",
+                "Z16"
+              ],
+              "tip": "零点定理是竞赛证明题的“造点工具”：先造出两端异号，再断言中间有零点。Z12、Z17 的构造题都走这条。"
+            },
+            {
+              "seq": 4,
+              "id": "f-2-5-4",
+              "name": "一致连续（Cantor 定理 + 判别）",
+              "expr": "$$f\\in C[a,b]\\Rightarrow f\\ \\text{在}[a,b]\\text{上一致连续};\\qquad f\\ \\text{在}(a,b)\\text{一致连续}\\iff f(a^+),\\ f(b^-)\\ \\text{均存在且有限}$$",
+              "tags": [
+                "Z08"
+              ],
+              "tip": "判“不一致连续”的实用招：找两列 $x_n,y_n$ 使 $x_n-y_n\\to0$ 但 $|f(x_n)-f(y_n)|\\not\\to0$。$x^2$ 在 $\\mathbb R$ 上就是反例。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "id": "ch-3",
+      "no": "第三章",
+      "title": "导数、微分与高阶导数",
+      "freq": "<b>竞赛考频</b>　竞赛偏爱“可导性的边界”，而不是常规求导。Z08 填空 1–2（导数定义 + 等价无穷小）、Z17 第 2 题（$f(0)=0$ 与导数定义）、Z12 填空 2（莱布尼茨公式 + 因子为零项消失）、Z15 填空 3（$\\left(\\frac1{x-a}\\right)^{(n)}$ 公式）、Z02 第 3 题（参数式二阶导）、Z01 填空 4 与 Z17 填空 4（隐函数二阶导）都是直接考。常规求导反而只是中间步骤。",
+      "lead": "本章按“先定义（可导性判断）→ 再公式表（求导）→ 再高阶 → 最后微分”的顺序。竞赛里前两块的分值远高于后两块，别把时间全花在背表上。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "3.1 定义与可导性判断",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-3-1-1",
+              "name": "导数定义的三种写法",
+              "expr": "$$f'(x_0)=\\lim_{\\Delta x\\to0}\\frac{f(x_0+\\Delta x)-f(x_0)}{\\Delta x}=\\lim_{h\\to0}\\frac{f(x_0+h)-f(x_0)}h=\\lim_{x\\to x_0}\\frac{f(x)-f(x_0)}{x-x_0}$$",
+              "tags": [
+                "Z08",
+                "Z17"
+              ],
+              "tip": "三条铁律：上下一致（分子增量与分母增量同一个）、定点出现（$f$ 的自变量必须是 $x_0$）、双侧极限。缺一条就不是导数。"
+            },
+            {
+              "seq": 2,
+              "id": "f-3-1-2",
+              "name": "由极限值反推函数值与导数",
+              "expr": "$$\\lim_{x\\to x_0}\\frac{f(x)}{x-x_0}=A\\iff f(x_0)=0,\\ f'(x_0)=A;\\qquad \\lim_{x\\to x_0}\\frac{f(x)}{(x-x_0)^{k}}=A\\ (k&gt;1)\\Rightarrow f'(x_0)=0$$",
+              "tags": [
+                "Z17"
+              ],
+              "tip": "分母是 $k$ 阶时，$k&gt;1$ 只能推出 $f'(x_0)=0$，推不出二阶导存在；$0&lt;k&lt;1$ 甚至推不出可导。这是竞赛设的坑。"
+            },
+            {
+              "seq": 3,
+              "id": "f-3-1-3",
+              "name": "$|f(x)|$ 的可导性",
+              "expr": "$$|f|\\ \\text{在}\\ x_0\\ \\text{可导}\\iff f(x_0)\\neq0\\ \\text{或}\\ \\bigl(f(x_0)=0\\ \\text{且}\\ f'(x_0)=0\\bigr);\\qquad \\text{若}\\ f(x_0)\\neq0\\ \\text{则}\\ |f|'\\ = \\operatorname{sgn}(f(x_0))\\cdot f'(x_0)$$",
+              "tags": [],
+              "tip": "$f(x_0)=0$ 且 $f'(x_0)\\neq0$ 时是尖点（如 $|x|$ 在 0），必不可导。判据就是“零点处看一阶导是否也为 0”。"
+            },
+            {
+              "seq": 4,
+              "id": "f-3-1-4",
+              "name": "$x^{\\alpha}\\sin\\frac1{x^{\\beta}}$ 的三档阈值",
+              "expr": "$$\\alpha&gt;0\\Rightarrow f\\ \\text{在}\\ 0\\ \\text{处连续};\\qquad \\alpha&gt;1\\Rightarrow f\\ \\text{在}\\ 0\\ \\text{处可导且}\\ f'(0)=0;\\qquad \\alpha&gt;1+\\beta\\Rightarrow f'\\ \\text{在}\\ 0\\ \\text{处连续}$$",
+              "tags": [],
+              "tip": "三个阈值逐级加 1（或加 $\\beta$）：连续看 $\\alpha&gt;0$，可导看 $\\alpha&gt;1$，导函数连续看 $\\alpha&gt;1+\\beta$。$f(0)=0$ 是定义的一部分。"
+            },
+            {
+              "seq": 5,
+              "id": "f-3-1-5",
+              "name": "带绝对值因子的可导阶数",
+              "expr": "$$g(x)\\,|x|\\ \\text{在}\\ 0\\ \\text{可导}\\iff g(0)=0;\\qquad (x-x_0)^{k}|x-x_0|\\ \\text{恰}\\ k\\ \\text{阶可导},\\ \\text{第}\\ k+1\\ \\text{阶不存在}$$",
+              "tags": [],
+              "tip": "推广：若 $g^{(m)}$ 存在且 $g\\sim ax^{m}$，则 $f=g|x|$ 有 $f^{(m)}(0)=0$、$f^{(m+1)}(0)$ 不存在。$\\ln(1+x^2)|x|$ 就是 $m=2$ 的例子。"
+            },
+            {
+              "seq": 6,
+              "id": "f-3-1-6",
+              "name": "导数极限定理与层次链",
+              "expr": "$$f\\ \\text{连续}+ \\text{去心邻域可导}+\\lim_{x\\to x_0}f'\\ \\text{存在}\\ \\Longrightarrow\\ f'(x_0)=\\lim_{x\\to x_0}f'(x)$$\r\n$$f''\\ \\text{存在}\\Rightarrow f'\\ \\text{连续}\\Rightarrow f\\ \\text{邻域可导}\\Rightarrow f\\ \\text{邻域连续}\\Rightarrow f\\ \\text{邻域可积}\\Rightarrow f\\ \\text{邻域有界}$$",
+              "tags": [],
+              "tip": "反过来全不成立（$x^2\\sin\\frac1{x^2}$ 可导但导函数无界、不连续）。选择题问“哪个条件能推出哪个”就靠这条链。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "3.2 求导公式表（竞赛要用的全在这里）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-3-2-1",
+              "name": "四则与链式",
+              "expr": "$$(uv)'=u'v+uv',\\qquad \\Bigl(\\frac uv\\Bigr)'=\\frac{u'v-uv'}{v^2},\\qquad \\bigl[f(g(x))\\bigr]'=f'(g(x))\\,g'(x)$$",
+              "tags": [
+                "Z09",
+                "Z15"
+              ],
+              "tip": "易错点：$f'(\\sin x)$ 是“先求 $f'$ 再代入 $\\sin x$”，$[f(\\sin x)]'$ 是“先复合再求导”，二者差一个 $\\cos x$。"
+            },
+            {
+              "seq": 2,
+              "id": "f-3-2-2",
+              "name": "基本导数表（一）幂指对",
+              "expr": "$$(x^{\\alpha})'=\\alpha x^{\\alpha-1},\\quad (a^{x})'=a^{x}\\ln a,\\quad (\\mathrm e^{x})'=\\mathrm e^{x},\\quad (\\log_a x)'=\\frac1{x\\ln a},\\quad (\\ln|x|)'=\\frac1x$$",
+              "tags": [],
+              "tip": "$\\ln|x|$ 的导数在负半轴也是 $\\frac1x$，这是它能出现在积分公式里的原因。"
+            },
+            {
+              "seq": 3,
+              "id": "f-3-2-3",
+              "name": "基本导数表（二）三角与反三角",
+              "expr": "$$(\\tan x)'=\\sec^2x,\\quad (\\cot x)'=-\\csc^2x,\\quad (\\sec x)'=\\sec x\\tan x,\\quad (\\csc x)'=-\\csc x\\cot x$$\r\n$$(\\arcsin x)'=\\frac1{\\sqrt{1-x^2}},\\quad (\\arctan x)'=\\frac1{1+x^2},\\quad \\Bigl(\\arctan x+\\arctan\\frac1x\\Bigr)'=0\\ (x\\neq0)$$",
+              "tags": [],
+              "tip": "最后一式导数为 0，正好解释了 1.3 节那个“差一个常数 $\\pi$”的分段公式。"
+            },
+            {
+              "seq": 4,
+              "id": "f-3-2-4",
+              "name": "两个“长根式”的导数（竞赛常客）",
+              "expr": "$$\\bigl[\\ln(x+\\sqrt{x^2+a^2})\\bigr]'=\\frac1{\\sqrt{x^2+a^2}},\\qquad \\bigl[\\ln(x+\\sqrt{x^2-a^2})\\bigr]'=\\frac1{\\sqrt{x^2-a^2}}$$",
+              "tags": [
+                "Z10"
+              ],
+              "tip": "分子有理化一次就出来。它们同时是 $\\int\\frac{\\mathrm dx}{\\sqrt{x^2\\pm a^2}}$ 的原函数，正反两用。"
+            },
+            {
+              "seq": 5,
+              "id": "f-3-2-5",
+              "name": "反函数的一、二阶导",
+              "expr": "$$\\frac{\\mathrm dx}{\\mathrm dy}=\\frac1{y'},\\qquad \\frac{\\mathrm d^2x}{\\mathrm dy^2}=-\\frac{y''}{(y')^3}$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "二阶那个负号来自“对 $y$ 求导要再乘 $\\frac{\\mathrm dx}{\\mathrm dy}$”，漏掉就少一个因子。"
+            },
+            {
+              "seq": 6,
+              "id": "f-3-2-6",
+              "name": "参数方程的一、二阶导",
+              "expr": "$$\\frac{\\mathrm dy}{\\mathrm dx}=\\frac{y'(t)}{x'(t)},\\qquad \\frac{\\mathrm d^2y}{\\mathrm dx^2}=\\frac{y''(t)x'(t)-x''(t)y'(t)}{\\bigl[x'(t)\\bigr]^3}$$",
+              "tags": [
+                "Z02"
+              ],
+              "tip": "二阶不是简单再除一次 $x'$，而是 $\\frac{\\mathrm d}{\\mathrm dt}\\bigl(\\frac{y'}{x'}\\bigr)\\big/ x'$，化简后就是上式。"
+            },
+            {
+              "seq": 7,
+              "id": "f-3-2-7",
+              "name": "隐函数求导",
+              "expr": "$$F(x,y)=0:\\quad \\frac{\\mathrm dy}{\\mathrm dx}=-\\frac{F_x}{F_y};\\qquad F(x,y,z)=0:\\quad \\frac{\\partial z}{\\partial x}=-\\frac{F_x}{F_z},\\ \\frac{\\partial z}{\\partial y}=-\\frac{F_y}{F_z}$$",
+              "tags": [
+                "Z01",
+                "Z03",
+                "Z17"
+              ],
+              "tip": "三个负号都要。前提 $F_y\\neq0$（或 $F_z\\neq0$），竞赛有时故意让你验这个条件不成立时结论失效。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "3.3 高阶导数",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-3-3-1",
+              "name": "莱布尼茨公式",
+              "expr": "$$(uv)^{(n)}=\\sum_{k=0}^{n}\\mathrm C_n^k\\,u^{(k)}v^{(n-k)}$$",
+              "tags": [
+                "Z12"
+              ],
+              "tip": "用于“一个多项式 × 一个易求高阶导的函数”，如 $x^2\\mathrm e^{2x}$：多项式三次以上导数为 0，只需前三项。"
+            },
+            {
+              "seq": 2,
+              "id": "f-3-3-2",
+              "name": "常用 $n$ 阶导数（七个）",
+              "expr": "$$(a^{x})^{(n)}=a^{x}(\\ln a)^{n},\\quad (\\mathrm e^{ax})^{(n)}=a^{n}\\mathrm e^{ax},\\quad \\Bigl(\\frac1{ax+b}\\Bigr)^{(n)}=\\frac{(-1)^{n}n!\\,a^{n}}{(ax+b)^{n+1}}$$\r\n$$[\\sin(ax+b)]^{(n)}=a^{n}\\sin\\Bigl(ax+b+\\frac{n\\pi}2\\Bigr),\\quad [\\cos(ax+b)]^{(n)}=a^{n}\\cos\\Bigl(ax+b+\\frac{n\\pi}2\\Bigr),\\quad [\\ln(ax+b)]^{(n)}=\\frac{(-1)^{n-1}(n-1)!\\,a^{n}}{(ax+b)^{n}}$$\r\n$$(x^{\\alpha})^{(n)}=\\alpha(\\alpha-1)\\cdots(\\alpha-n+1)\\,x^{\\alpha-n},\\qquad (x^{n})^{(n)}=n!,\\quad (x^{k})^{(n)}=0\\ (k&lt;n)$$",
+              "tags": [
+                "Z15"
+              ],
+              "tip": "三角的 $+\\frac{n\\pi}2$ 是“每求一次导相位前进 $90^\\circ$”；$\\ln$ 那条的指数是 $n-1$ 且带 $(-1)^{n-1}$，最易写错。"
+            },
+            {
+              "seq": 3,
+              "id": "f-3-3-3",
+              "name": "$f\\sim Ax^{m}$ 时的导数信息",
+              "expr": "$$f(x)\\sim Ax^{m}\\ (x\\to0)\\ \\Longrightarrow\\ f^{(k)}(0)=0\\ (k&lt;m),\\quad f^{(m)}(0)=A\\,m!$$",
+              "tags": [
+                "Z09"
+              ],
+              "tip": "反过来用：若已知 $f^{(m)}(0)\\neq0$ 且低阶全为 0，则 $f$ 是 $m$ 阶无穷小。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "3.4 微分",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-3-4-1",
+              "name": "可微定义与一阶形式不变性",
+              "expr": "$$\\Delta y=A\\Delta x+o(\\Delta x)\\iff f\\ \\text{在}\\ x\\ \\text{可微，且}\\ A=f'(x);\\qquad \\mathrm dy=f'(x)\\,\\mathrm dx,\\quad \\mathrm dy=f'(u)\\,\\mathrm du\\ (\\text{形式不变})$$",
+              "tags": [
+                "Z03"
+              ],
+              "tip": "一元情形“可微 ⇔ 可导”，多元不成立（见第七章）。形式不变性是凑微分的基础。"
+            },
+            {
+              "seq": 2,
+              "id": "f-3-4-2",
+              "name": "一阶近似与误差估计",
+              "expr": "$$f(x_0+\\Delta x)\\approx f(x_0)+f'(x_0)\\Delta x,\\qquad \\bigl|f(x_0+\\Delta x)-f(x_0)-f'(x_0)\\Delta x\\bigr|\\leqslant\\frac{M_2}{2}(\\Delta x)^2$$",
+              "tags": [],
+              "tip": "右端的 $M_2=\\max|f''|$，来自带 Lagrange 余项的一阶泰勒，是“近似算到第几位”的依据。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "id": "ch-4",
+      "no": "第四章",
+      "title": "中值定理、Taylor 与函数性态",
+      "freq": "<b>竞赛考频</b>　全卷占比最重，约 25 处，且多为压轴证明。Z03 第 3 题（带 Lagrange 余项的 Taylor + 介值）、Z04 第 3 题（余项估计 + 定量精度）、Z08 第 5 题与 Z12 第 3 题（两段 Lagrange）、Z14 第 3 题（构造 $F=[f']^{2}-[f]^{2}$）、Z17 第 6 题（$\\frac fg$ 单调 + 分部积分对称化）、Z09 填空 4（Peano 余项 + $f''$ 主项）都在这一章。规律：题干出现“存在 $\\xi$ 使…”，先想 Rolle；出现“证明不等式”，先想 Lagrange 或 Taylor。",
+      "lead": "这一章的公式不多，值钱的是“怎么造辅助函数”。4.4 那张表是 17 届里反复被验证的构造清单，建议按“要证的式子长什么样 → 反推出谁的导数”来记，而不是死背。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "4.1 三大中值定理",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-4-1-1",
+              "name": "Rolle 定理",
+              "expr": "$$f\\in C[a,b],\\ f\\ \\text{在}(a,b)\\ \\text{可导},\\ f(a)=f(b)\\ \\Longrightarrow\\ \\exists\\xi\\in(a,b),\\ f'(\\xi)=0$$",
+              "tags": [
+                "Z02",
+                "Z12"
+              ],
+              "tip": "三个条件缺一不可。竞赛用法：先造出 $F(a)=F(b)$，再对 $F$ 用 Rolle 得到 $F'(\\xi)=0$，而 $F'$ 恰好是要证的式子。"
+            },
+            {
+              "seq": 2,
+              "id": "f-4-1-2",
+              "name": "Lagrange 中值定理",
+              "expr": "$$f(b)-f(a)=f'(\\xi)(b-a),\\qquad \\frac{f(b)-f(a)}{b-a}=f'(\\xi),\\quad \\xi\\in(a,b)$$",
+              "tags": [
+                "Z08",
+                "Z14"
+              ],
+              "tip": "它把“函数值之差”换成“导数值”，是连接 $f$ 与 $f'$ 的唯一桥梁。证明 $|f(x)-f(y)|\\leqslant M|x-y|$ 就是它的直接推论。"
+            },
+            {
+              "seq": 3,
+              "id": "f-4-1-3",
+              "name": "Cauchy 中值定理",
+              "expr": "$$\\frac{f(b)-f(a)}{g(b)-g(a)}=\\frac{f'(\\xi)}{g'(\\xi)},\\quad \\xi\\in(a,b)\\quad\\bigl(g'\\neq0\\bigr)$$",
+              "tags": [],
+              "tip": "两个函数“同步取中值”，所以能处理 $\\frac{f(b)-f(a)}{g(b)-g(a)}$ 这种比值型。洛必达的证明就靠它。"
+            },
+            {
+              "seq": 4,
+              "id": "f-4-1-4",
+              "name": "两段 Lagrange（分段取中值）",
+              "expr": "$$f(b)-f(a)=\\bigl[f(b)-f(c)\\bigr]+\\bigl[f(c)-f(a)\\bigr]=f'(\\xi_1)(b-c)+f'(\\xi_2)(c-a),\\ \\ \\xi_1\\in(c,b),\\ \\xi_2\\in(a,c)$$",
+              "tags": [
+                "Z08",
+                "Z12"
+              ],
+              "tip": "当 $f'$ 在两端符号相反、或需要两个不同的中值点时，就在中间插一个 $c$ 分成两段。Z07 证 $f'$ 变号用的正是这招。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "4.2 导函数的介值性（Darboux）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-4-2-1",
+              "name": "Darboux 定理（导数介值）",
+              "expr": "$$f\\ \\text{在}[a,b]\\ \\text{可导},\\ f'_+(a)\\,f'_-(b)&lt;0\\ \\Longrightarrow\\ \\exists\\xi\\in(a,b),\\ f'(\\xi)=0$$\r\n$$\\text{更一般：}f'\\ \\text{取遍}\\ f'_+(a)\\ \\text{与}\\ f'_-(b)\\ \\text{之间的一切值}$$",
+              "tags": [],
+              "tip": "关键结论：导函数不一定连续，但一定具有介值性（不会有跳跃间断）。所以 $f'$ 只可能出现振荡型间断，不会出现跳跃。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "4.3 Taylor 公式与展开表",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-4-3-1",
+              "name": "Peano 余项（求极限用）",
+              "expr": "$$f(x)=\\sum_{k=0}^{n}\\frac{f^{(k)}(x_0)}{k!}(x-x_0)^{k}+o\\bigl((x-x_0)^{n}\\bigr)$$",
+              "tags": [
+                "Z09",
+                "Z17"
+              ],
+              "tip": "只要求 $f^{(n)}$ 在 $x_0$ 存在。$x\\to x_0$ 求极限时用它；阶数按分母的阶定，分母是 $x^k$ 就展开到 $k$ 阶。"
+            },
+            {
+              "seq": 2,
+              "id": "f-4-3-2",
+              "name": "Lagrange 余项（估计用）",
+              "expr": "$$f(x)=\\sum_{k=0}^{n}\\frac{f^{(k)}(x_0)}{k!}(x-x_0)^{k}+\\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x-x_0)^{n+1},\\quad \\xi\\ \\text{介于}\\ x_0,x\\ \\text{之间}$$",
+              "tags": [
+                "Z03",
+                "Z04"
+              ],
+              "tip": "要“定量”误差时用它：把 $|f^{(n+1)}|$ 在区间上的最大值 $M$ 提出来，余项就被 $\\frac{M}{(n+1)!}|x-x_0|^{n+1}$ 控制。"
+            },
+            {
+              "seq": 3,
+              "id": "f-4-3-3",
+              "name": "积分余项",
+              "expr": "$$R_n(x)=\\frac1{n!}\\int_{x_0}^{x}f^{(n+1)}(t)\\,(x-t)^{n}\\,\\mathrm dt$$",
+              "tags": [
+                "Z15",
+                "Z17"
+              ],
+              "tip": "它把余项写成积分，适合“再对 $t$ 用一次中值或放缩”的场合。Z17 的对称化处理就从这里起手。"
+            },
+            {
+              "seq": 4,
+              "id": "f-4-3-4",
+              "name": "八个必背展开（含收敛域）",
+              "expr": "$$\\frac1{1-x}=\\sum_{n=0}^{\\infty}x^{n}\\ (|x|&lt;1),\\quad \\frac1{1+x}=\\sum_{n=0}^{\\infty}(-1)^{n}x^{n}\\ (|x|&lt;1)$$\r\n$$\\mathrm e^{x}=\\sum_{n=0}^{\\infty}\\frac{x^{n}}{n!}\\ (x\\in\\mathbb R),\\quad \\sin x=\\sum_{n=0}^{\\infty}\\frac{(-1)^{n}x^{2n+1}}{(2n+1)!},\\quad \\cos x=\\sum_{n=0}^{\\infty}\\frac{(-1)^{n}x^{2n}}{(2n)!}$$",
+              "tags": [
+                "Z08",
+                "Z14"
+              ],
+              "tip": "这五个是全套级数题的地基：求和、判收敛、求 $n$ 阶导在 0 处的值，都回到它们。"
+            },
+            {
+              "seq": 5,
+              "id": "f-4-3-5",
+              "name": "对数与二项展开",
+              "expr": "$$\\ln(1+x)=\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}x^{n}}{n}\\ (-1&lt;x\\leqslant1),\\quad \\ln(1-x)=-\\sum_{n=1}^{\\infty}\\frac{x^{n}}{n}\\ (-1\\leqslant x&lt;1)$$\r\n$$(1+x)^{\\alpha}=1+\\sum_{n=1}^{\\infty}\\frac{\\alpha(\\alpha-1)\\cdots(\\alpha-n+1)}{n!}x^{n}\\ (|x|&lt;1),\\quad \\arctan x=\\sum_{n=0}^{\\infty}\\frac{(-1)^{n}x^{2n+1}}{2n+1}\\ (|x|\\leqslant1)$$",
+              "tags": [
+                "Z10",
+                "Z11"
+              ],
+              "tip": "端点要单独记：$\\ln(1+x)$ 在 $x=1$ 收敛（条件收敛），$\\ln(1-x)$ 在 $x=-1$ 收敛。$\\arctan$ 两端都收敛。这是“收敛域”题的送分点。"
+            },
+            {
+              "seq": 6,
+              "id": "f-4-3-6",
+              "name": "常用带阶展开（记到三阶就够用）",
+              "expr": "$$\\tan x=x+\\frac{x^3}3+\\frac{2x^5}{15}+o(x^5),\\qquad \\arctan x=x-\\frac{x^3}3+\\frac{x^5}5+o(x^5),\\qquad \\arcsin x=x+\\frac{x^3}6+\\frac{3x^5}{40}+o(x^5)$$",
+              "tags": [
+                "Z14",
+                "Z17"
+              ],
+              "tip": "这三条正好和 2.3 的差式组对得上：$\\tan x-x\\sim\\frac{x^3}3$、$x-\\arctan x\\sim\\frac{x^3}3$、$\\arcsin x-x\\sim\\frac{x^3}6$。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "4.4 辅助函数构造表（竞赛最值钱的一页）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-4-4-1",
+              "name": "乘积型：$f'+g f$",
+              "expr": "$$f'(x)+g(x)f(x)\\ \\text{是}\\ \\Bigl[\\mathrm e^{\\int g(x)\\mathrm dx}f(x)\\Bigr]'\\ \\text{的导数（乘积分因子）}$$",
+              "tags": [
+                "Z08"
+              ],
+              "tip": "看到“$f'+Pf$”就乘 $\\mathrm e^{\\int P}$。若 $P$ 是常数 $\\lambda$，就是 $(\\mathrm e^{\\lambda x}f)'$。"
+            },
+            {
+              "seq": 2,
+              "id": "f-4-4-2",
+              "name": "商型：$\\frac{f'g-fg'}{g^2}$",
+              "expr": "$$\\frac{f'g-fg'}{g^{2}}\\ \\text{是}\\ \\Bigl(\\frac fg\\Bigr)'\\ \\text{的导数}$$",
+              "tags": [
+                "Z17"
+              ],
+              "tip": "证“$\\frac{f}{g}$ 单调”或“$\\frac{f}{g}$ 取极值”，直接令 $F=\\frac fg$ 求导，比移项通分清楚。"
+            },
+            {
+              "seq": 3,
+              "id": "f-4-4-3",
+              "name": "含变限积分的构造",
+              "expr": "$$xf(x)+\\int_0^{x}f(t)\\,\\mathrm dt=\\Bigl[x\\int_0^{x}f(t)\\,\\mathrm dt\\Bigr]';\\qquad \\int_0^{x}(x-t)f(t)\\,\\mathrm dt\\ \\text{求导两次得}\\ f(x)$$",
+              "tags": [
+                "Z01",
+                "Z06"
+              ],
+              "tip": "第二式先化简为 $x\\int_0^x f-\\int_0^x tf$ 再求导，一次得 $\\int_0^x f$，两次得 $f$。这是把“积分条件”转成“微分条件”的开关。"
+            },
+            {
+              "seq": 4,
+              "id": "f-4-4-4",
+              "name": "二阶常系数型：$f''\\pm f$",
+              "expr": "$$f''-f=(f'+f)'-(f'+f)=(f'-f)'+(f'-f);\\qquad f''+f=(f'\\cos x-f\\sin x)'/\\cos^2 x\\ \\text{类（或直接解特征方程）}$$",
+              "tags": [
+                "Z14"
+              ],
+              "tip": "第一式的两种拆法对应两个不同的辅助函数，选哪个取决于端点条件给的是 $f'+f$ 还是 $f'-f$。"
+            },
+            {
+              "seq": 5,
+              "id": "f-4-4-5",
+              "name": "Wronskian 型：$fg'-f'g$",
+              "expr": "$$fg'-f'g=\\begin{vmatrix}f&amp;g\\\\f'&amp;g'\\end{vmatrix};\\qquad \\Bigl(\\frac fg\\Bigr)'=\\frac{f'g-fg'}{g^{2}}=-\\frac{fg'-f'g}{g^{2}}$$",
+              "tags": [],
+              "tip": "线性无关的判据：$\\frac{f}{g}\\neq$ 常数 ⇔ $fg'-f'g\\neq0$。二阶线性方程的通解结构就建立在它上面。"
+            },
+            {
+              "seq": 6,
+              "id": "f-4-4-6",
+              "name": "端点对称型（造桥点）",
+              "expr": "$$f(a)=f(b)=0\\ \\text{时，取}\\ c\\in(a,b)\\ \\text{使}\\ f(c)\\ \\text{取到极值（或使某中间式为零），再在}\\ [a,c],[c,b]\\ \\text{上分别用 Rolle / Lagrange}$$",
+              "tags": [
+                "Z12"
+              ],
+              "tip": "“造桥点”是竞赛证明的通用套路：一个中值点不够，就人为插一个 $c$ 把区间劈成两段，得到两个 $\\xi$。"
+            }
+          ]
+        },
+        {
+          "seq": 5,
+          "title": "4.5 单调、极值、凹凸与渐近线",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-4-5-1",
+              "name": "单调性与极值判别",
+              "expr": "$$f'&gt;0\\Rightarrow f\\ \\text{严格增};\\quad f'&lt;0\\Rightarrow f\\ \\text{严格减};\\qquad f'(x_0)=0,\\ f''(x_0)\\neq0\\Rightarrow x_0\\ \\text{为极值点（}f''&lt;0\\ \\text{极大，}f''&gt;0\\ \\text{极小）}$$",
+              "tags": [
+                "Z05",
+                "Z16"
+              ],
+              "tip": "第二判别只给充分条件。$f''(x_0)=0$ 时失效，要回到第一判别（看 $f'$ 是否变号）。"
+            },
+            {
+              "seq": 2,
+              "id": "f-4-5-2",
+              "name": "唯一极值点即最值（一元成立，多元不成立）",
+              "expr": "$$f\\ \\text{在区间内只有一个极值点且为极大}\\ \\Longrightarrow\\ \\text{它也是该区间上的最大值};\\qquad \\text{二元情形不成立（鞍点可以伪装成唯一驻点）}$$",
+              "tags": [
+                "Z11"
+              ],
+              "tip": "这是竞赛设的选择题陷阱：把一元的结论照搬到二元就错。二元必须靠 $AC-B^2$ 或 Hessian 正定来兜底。"
+            },
+            {
+              "seq": 3,
+              "id": "f-4-5-3",
+              "name": "凹凸的三种等价定义",
+              "expr": "$$f\\Bigl(\\frac{a+b}2\\Bigr)\\leqslant\\frac{f(a)+f(b)}2;\\qquad f(x)\\geqslant f(x_0)+f'(x_0)(x-x_0)\\ (\\text{切线在曲线下方});\\qquad f(\\lambda a+(1-\\lambda)b)\\leqslant\\lambda f(a)+(1-\\lambda)f(b)$$",
+              "tags": [
+                "Z02"
+              ],
+              "tip": "$f''&gt;0$ 叫“凹”（下凸），三种定义等价。竞赛证明不等式时用哪个形式，取决于题干给的是中点、切线还是加权。"
+            },
+            {
+              "seq": 4,
+              "id": "f-4-5-4",
+              "name": "Jensen 积分形式",
+              "expr": "$$f''&gt;0\\ \\Longrightarrow\\ f\\Bigl(\\frac{a+b}2\\Bigr)\\leqslant\\frac1{b-a}\\int_a^{b}f(x)\\,\\mathrm dx\\leqslant\\frac{f(a)+f(b)}2$$",
+              "tags": [
+                "Z02",
+                "Z10"
+              ],
+              "tip": "左半边是“中点值 ≤ 平均值”，右半边是“平均值 ≤ 端点平均”。竞赛里估积分上下界、或反过来用积分估函数值，都靠这条双向夹。"
+            },
+            {
+              "seq": 5,
+              "id": "f-4-5-5",
+              "name": "拐点的判别",
+              "expr": "$$\\text{拐点坐标写作}\\ (x_0,\\,f(x_0));\\quad \\text{必要条件}\\ f''(x_0)=0\\ (\\text{或不存在});\\quad f''(x_0)=0,\\ f'''(x_0)\\neq0\\Rightarrow (x_0,f(x_0))\\ \\text{是拐点}$$",
+              "tags": [],
+              "tip": "高阶判据：$f^{(n)}(x_0)=0$（$n&lt;k$）且 $f^{(k)}(x_0)\\neq0$ 时，$k$ 为奇数则拐点、$k$ 为偶数则极值点。写坐标必须带纵坐标，只写 $x_0$ 扣分。"
+            },
+            {
+              "seq": 6,
+              "id": "f-4-5-6",
+              "name": "渐近线三条",
+              "expr": "$$\\text{铅直：}x=x_0\\ \\text{处}\\ \\lim_{x\\to x_0}f=\\infty;\\qquad \\text{水平：}\\lim_{x\\to\\pm\\infty}f=b;\\qquad \\text{斜：}a=\\lim_{x\\to\\pm\\infty}\\frac{f(x)}x\\neq0,\\ b=\\lim_{x\\to\\pm\\infty}\\bigl[f(x)-ax\\bigr]$$",
+              "tags": [],
+              "tip": "技巧：把 $f$ 写成 $ax+b+d(x)$ 且 $d\\to0$，则 $ax+b$ 就是斜渐近线，不必分别算两个极限。左右两侧可能不同，要分开算。"
+            },
+            {
+              "seq": 7,
+              "id": "f-4-5-7",
+              "name": "曲率与曲率圆",
+              "expr": "$$K=\\frac{|y''|}{\\bigl(1+y'^2\\bigr)^{3/2}},\\qquad K_{\\text{参数}}=\\frac{|y''x'-x''y'|}{\\bigl(x'^2+y'^2\\bigr)^{3/2}},\\qquad \\rho=\\frac1K$$",
+              "tags": [],
+              "tip": "曲线与曲率圆在切点处 $y$、$y'$、$y''$ 三个量全相等。这条性质是“求曲率圆方程”的唯一入口。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "id": "ch-5",
+      "no": "第五章",
+      "title": "一元积分：不定、定、反常与应用",
+      "freq": "<b>竞赛考频</b>　定积分是竞赛的“计算地基”，几乎每届都有 1–2 道直接算的。Z16 填空 1（单个对数分部 + $\\arctan$ 收尾）、Z15 填空 3 与 Z12 第 7 题（部分分式）、Z05 第 2 题（对称区间）、Z13 填空 5（奇函数归零）、Z04 第 2 题与 Z06 第 2 题（周期积分）、Z17 第 3 题与 Z16 填空 2（变限定阶）、Z01 第 8 题（Gauss 积分）、Z15 第 5 题（Cauchy 积分不等式）、Z03 第 4 题（引力微元）是典型。",
+      "lead": "顺序是：先背表（5.1）→ 再学四类换元（5.2）→ 分部与有理函数（5.3）→ 定积分的特殊性质（5.4–5.6）→ 反常与 $\\Gamma$（5.7）→ 积分不等式（5.8）→ 应用（5.9）。竞赛的加分点集中在 5.5、5.6、5.8 三处。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "5.1 基本积分表（20 条）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-1-1",
+              "name": "幂、指、对",
+              "expr": "$$\\int x^{\\alpha}\\mathrm dx=\\frac{x^{\\alpha+1}}{\\alpha+1}+C\\ (\\alpha\\neq-1),\\qquad \\int\\frac{\\mathrm dx}x=\\ln|x|+C,\\qquad \\int a^{x}\\mathrm dx=\\frac{a^{x}}{\\ln a}+C$$",
+              "tags": [],
+              "tip": "$\\alpha=-1$ 是唯一的例外，也是“幂函数积分”题最爱考的分界点。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-1-2",
+              "name": "三角与反三角",
+              "expr": "$$\\int\\sin x\\,\\mathrm dx=-\\cos x+C,\\quad \\int\\cos x\\,\\mathrm dx=\\sin x+C,\\quad \\int\\sec^2x\\,\\mathrm dx=\\tan x+C,\\quad \\int\\csc^2x\\,\\mathrm dx=-\\cot x+C$$\r\n$$\\int\\frac{\\mathrm dx}{1+x^2}=\\arctan x+C,\\quad \\int\\frac{\\mathrm dx}{\\sqrt{1-x^2}}=\\arcsin x+C,\\quad \\int\\frac{\\mathrm dx}{a^2+x^2}=\\frac1a\\arctan\\frac xa+C$$",
+              "tags": [
+                "Z16"
+              ],
+              "tip": "带 $a$ 的那条必须提出 $\\frac1a$，忘了就是量纲错误。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-1-3",
+              "name": "四个“对数型”积分",
+              "expr": "$$\\int\\frac{\\mathrm dx}{x^2-a^2}=\\frac1{2a}\\ln\\Bigl|\\frac{x-a}{x+a}\\Bigr|+C,\\quad \\int\\frac{\\mathrm dx}{\\sqrt{x^2\\pm a^2}}=\\ln\\Bigl|x+\\sqrt{x^2\\pm a^2}\\Bigr|+C,\\quad \\int\\tan x\\,\\mathrm dx=-\\ln|\\cos x|+C,\\quad \\int\\sec x\\,\\mathrm dx=\\ln|\\sec x+\\tan x|+C$$",
+              "tags": [
+                "Z10",
+                "Z11"
+              ],
+              "tip": "第一式也可写成 $\\frac1{2a}\\ln\\bigl|\\frac{x-a}{x+a}\\bigr|$，用部分分式拆出来。第二式正是 3.2 里那两个“长根式”的逆运算。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "5.2 四类换元（选哪一类看被积函数）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-2-1",
+              "name": "第一类：凑微分",
+              "expr": "$$\\int f\\bigl(\\varphi(x)\\bigr)\\varphi'(x)\\,\\mathrm dx=\\int f(u)\\,\\mathrm du,\\quad u=\\varphi(x)$$",
+              "tags": [
+                "Z10"
+              ],
+              "tip": "首选。判据：被积式里能“凑出”某个函数的导数。$\\int\\frac{\\ln x}{x}\\mathrm dx$、$\\int\\frac{x}{1+x^2}\\mathrm dx$ 都是这一类。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-2-2",
+              "name": "第二类：三角代换（三种根式）",
+              "expr": "$$\\sqrt{a^2-x^2}:\\ x=a\\sin t;\\qquad \\sqrt{a^2+x^2}:\\ x=a\\tan t;\\qquad \\sqrt{x^2-a^2}:\\ x=a\\sec t$$",
+              "tags": [
+                "Z11"
+              ],
+              "tip": "代换后一定画三角形回代，别把 $t$ 留在答案里。$\\sqrt{a^2-x^2}$ 也可用 $x=a\\cos t$，效果一样。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-2-3",
+              "name": "第三类：倒代换",
+              "expr": "$$x=\\frac1t\\ \\text{适用于分母次数高于分子的情形};\\qquad \\int\\frac{\\mathrm dx}{x\\sqrt{x^2+1}}=-\\ln\\Bigl|\\frac{1+\\sqrt{x^2+1}}x\\Bigr|+C$$",
+              "tags": [
+                "Z15"
+              ],
+              "tip": "倒代换后 $\\mathrm dx=-\\frac{\\mathrm dt}{t^2}$，负号别丢。它专治 $\\int\\frac{\\mathrm dx}{x^n\\sqrt{\\cdots}}$ 型。"
+            },
+            {
+              "seq": 4,
+              "id": "f-5-2-4",
+              "name": "第四类：根式代换与万能代换",
+              "expr": "$$\\sqrt[n]{ax+b}=t\\ \\Longrightarrow\\ x=\\frac{t^{n}-b}{a},\\ \\mathrm dx=\\frac{n t^{n-1}}{a}\\mathrm dt;\\qquad t=\\tan\\frac x2\\ \\text{时}\\ \\sin x=\\frac{2t}{1+t^2},\\ \\mathrm dx=\\frac{2\\,\\mathrm dt}{1+t^2}$$",
+              "tags": [],
+              "tip": "根式代换把无理式一次性有理化，代价是次数升高。三角有理式若凑不出 $d(\\sin x)$，就直接上万能代换。"
+            },
+            {
+              "seq": 5,
+              "id": "f-5-2-5",
+              "name": "有理函数：部分分式分解",
+              "expr": "$$\\frac{P(x)}{Q(x)}=\\text{多项式部分}+\\sum_k\\frac{A_k}{(x-a)^{k}}+\\sum_k\\frac{B_kx+C_k}{(x^2+px+q)^{k}}$$",
+              "tags": [
+                "Z15",
+                "Z12"
+              ],
+              "tip": "先做带余除法（分子次数 ≥ 分母时），再拆。重根要写全 $k=1,\\dots,m$ 各项，只写最高次是常见错误。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "5.3 分部积分与 DI 列表法",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-3-1",
+              "name": "分部积分公式",
+              "expr": "$$\\int u\\,\\mathrm dv=uv-\\int v\\,\\mathrm du$$",
+              "tags": [
+                "Z16",
+                "Z12"
+              ],
+              "tip": "选 $u$ 的顺序：反三角 &gt; 对数 &gt; 幂 &gt; 三角 &gt; 指数（“反对幂三指”）。选错会越分部越复杂。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-3-2",
+              "name": "DI 列表法（快速分部）",
+              "expr": "$$\\int P(x)\\mathrm e^{ax}\\mathrm dx:\\quad \\text{对}\\ P\\ \\text{反复求导至}\\ 0,\\ \\text{对}\\ \\mathrm e^{ax}\\ \\text{反复积分},\\ \\text{交叉相乘、符号}\\ +-+-\\ \\text{交替}$$",
+              "tags": [],
+              "tip": "$\\int x^2\\mathrm e^{2x}\\mathrm dx$、$\\int x^3\\sin x\\,\\mathrm dx$ 用列表法 30 秒出结果，比一次次分部稳。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-3-3",
+              "name": "循环分部（回到自身）",
+              "expr": "$$\\int \\mathrm e^{ax}\\sin bx\\,\\mathrm dx=\\frac{\\mathrm e^{ax}(a\\sin bx-b\\cos bx)}{a^2+b^2}+C$$",
+              "tags": [],
+              "tip": "分部两次回到原积分，设 $I=\\int\\mathrm e^{ax}\\sin bx$，解方程即得。$\\cos$ 版把 $\\sin$ 换成 $\\cos$、符号相应调整。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "5.4 定积分的基本性质",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-4-1",
+              "name": "十条基本性质",
+              "expr": "$$\\int_a^{a}f=0,\\quad \\int_a^{b}f=-\\int_b^{a}f,\\quad \\int_a^{b}(\\alpha f+\\beta g)=\\alpha\\int_a^{b}f+\\beta\\int_a^{b}g,\\quad \\int_a^{b}f=\\int_a^{c}f+\\int_c^{b}f$$\r\n$$f\\geqslant0\\Rightarrow\\int_a^{b}f\\geqslant0;\\quad m(b-a)\\leqslant\\int_a^{b}f\\leqslant M(b-a);\\quad \\Bigl|\\int_a^{b}f\\Bigr|\\leqslant\\int_a^{b}|f|$$",
+              "tags": [
+                "Z05",
+                "Z14"
+              ],
+              "tip": "估值定理是“不给原函数也能估积分”的唯一工具，Z17 的不等式题就靠它开第一条路。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-4-2",
+              "name": "积分中值定理（两种）",
+              "expr": "$$f\\in C[a,b]:\\quad \\int_a^{b}f(x)\\,\\mathrm dx=f(\\xi)(b-a);\\qquad g\\ \\text{不变号}:\\quad \\int_a^{b}f g=f(\\xi)\\int_a^{b}g,\\quad \\xi\\in[a,b]$$",
+              "tags": [
+                "Z14"
+              ],
+              "tip": "第二式（广义中值）是“去掉权函数”的标准动作：$g$ 不变号才能把它搬到积分号外。竞赛常配 $g=x^n$ 用。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-4-3",
+              "name": "Cauchy 积分不等式",
+              "expr": "$$\\Bigl(\\int_a^{b}f g\\,\\mathrm dx\\Bigr)^2\\leqslant\\Bigl(\\int_a^{b}f^2\\mathrm dx\\Bigr)\\Bigl(\\int_a^{b}g^2\\mathrm dx\\Bigr)$$",
+              "tags": [
+                "Z15",
+                "Z10"
+              ],
+              "tip": "积分版柯西。证明“积分乘积的上界”时第一选择；等号当且仅当 $f$ 与 $g$ 线性相关（成比例）。"
+            }
+          ]
+        },
+        {
+          "seq": 5,
+          "title": "5.5 对称性、周期性、区间再现与 Wallis",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-5-1",
+              "name": "对称区间的奇偶性",
+              "expr": "$$\\int_{-a}^{a}f=0\\ (f\\ \\text{奇}),\\qquad \\int_{-a}^{a}f=2\\int_0^{a}f\\ (f\\ \\text{偶})$$\r\n$$f\\ \\text{无奇偶性时}:\\quad \\int_{-a}^{a}f(x)\\,\\mathrm dx=\\int_0^{a}\\bigl[f(x)+f(-x)\\bigr]\\mathrm dx$$",
+              "tags": [
+                "Z05",
+                "Z13"
+              ],
+              "tip": "第三式是“强行造偶”技巧：把 $f(x)+f(-x)$ 提出来，通常大幅化简。$\\int\\frac{\\mathrm dx}{1+\\mathrm e^{x}}=a$ 就是这么来的（配 $\\arctan\\mathrm e^{x}+\\arctan\\mathrm e^{-x}=\\frac\\pi2$）。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-5-2",
+              "name": "区间再现（换元 $x\\mapsto a+b-x$）",
+              "expr": "$$\\int_a^{b}f(x)\\,\\mathrm dx=\\int_a^{b}f(a+b-x)\\,\\mathrm dx$$",
+              "tags": [
+                "Z06",
+                "Z16"
+              ],
+              "tip": "和原式相加往往能消掉难处理的部分。$\\int_0^{\\pi}\\frac{x\\sin x}{1+\\cos^2x}\\mathrm dx$ 就是靠它把 $x$ 消掉。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-5-3",
+              "name": "$\\sin$ 型区间的三条换算",
+              "expr": "$$\\int_0^{\\pi}f(\\sin x)\\mathrm dx=2\\int_0^{\\pi/2}f(\\sin x)\\mathrm dx;\\qquad \\int_0^{\\pi}xf(\\sin x)\\mathrm dx=\\frac\\pi2\\int_0^{\\pi}f(\\sin x)\\mathrm dx;\\qquad \\int_0^{\\pi}f(\\sin x)\\mathrm dx=\\int_0^{\\pi}f(\\cos x)\\mathrm dx$$",
+              "tags": [
+                "Z16"
+              ],
+              "tip": "第二条是竞赛的“消 $x$ 神器”：只要 $f$ 里只有 $\\sin x$，前面的 $x$ 可以直接换成 $\\frac\\pi2$ 提出来。"
+            },
+            {
+              "seq": 4,
+              "id": "f-5-5-4",
+              "name": "Wallis（点火）公式",
+              "expr": "$$\\int_0^{\\pi/2}\\sin^{n}x\\,\\mathrm dx=\\int_0^{\\pi/2}\\cos^{n}x\\,\\mathrm dx=\\frac{(n-1)!!}{n!!}\\cdot\\frac\\pi2\\ (n\\ \\text{偶});\\qquad =\\frac{(n-1)!!}{n!!}\\ (n\\ \\text{奇})$$",
+              "tags": [],
+              "tip": "只对 $[0,\\frac\\pi2]$ 成立。其他区间（如 $[0,\\pi]$、$[0,2\\pi]$）必须先化成这个区间或先求原函数，直接套是错的。"
+            },
+            {
+              "seq": 5,
+              "id": "f-5-5-5",
+              "name": "$[0,2\\pi]$ 上的 $\\sin^n$／$\\cos^n$",
+              "expr": "$$\\int_0^{2\\pi}\\sin^{n}x\\,\\mathrm dx=0\\ (n\\ \\text{奇}),\\qquad =4\\int_0^{\\pi/2}\\sin^{n}x\\,\\mathrm dx\\ (n\\ \\text{偶})$$",
+              "tags": [],
+              "tip": "奇次幂在一个整周期上积分为 0（正负抵消），偶次幂是四个象限各一份。"
+            },
+            {
+              "seq": 6,
+              "id": "f-5-5-6",
+              "name": "周期函数的积分",
+              "expr": "$$\\int_a^{a+T}f=\\int_0^{T}f,\\qquad \\int_a^{a+nT}f=n\\int_0^{T}f$$",
+              "tags": [
+                "Z04",
+                "Z06"
+              ],
+              "tip": "与起点 $a$ 无关，这一点常被用来把“任意区间”平移到 $[0,T]$。推论：$\\lim_{x\\to+\\infty}\\frac1x\\int_0^x f=\\frac1T\\int_0^T f$。"
+            }
+          ]
+        },
+        {
+          "seq": 6,
+          "title": "5.6 变限积分与牛莱公式",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-6-1",
+              "name": "变上限求导（含上下限都是函数）",
+              "expr": "$$\\frac{\\mathrm d}{\\mathrm dx}\\int_{\\psi(x)}^{\\varphi(x)}f(t)\\,\\mathrm dt=f\\bigl(\\varphi(x)\\bigr)\\varphi'(x)-f\\bigl(\\psi(x)\\bigr)\\psi'(x)$$",
+              "tags": [
+                "Z01",
+                "Z06",
+                "Z09"
+              ],
+              "tip": "口诀“上限代上限 × 上限导 − 下限代下限 × 下限导”。被积函数里若含 $x$，必须先把它移出积分号再求导。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-6-2",
+              "name": "被积函数含 $x$ 的两种处理",
+              "expr": "$$\\int_0^{x}(x-t)f(t)\\,\\mathrm dt=x\\int_0^{x}f(t)\\,\\mathrm dt-\\int_0^{x}tf(t)\\,\\mathrm dt\\ \\Longrightarrow\\ \\frac{\\mathrm d}{\\mathrm dx}=\\int_0^{x}f(t)\\,\\mathrm dt$$\r\n$$\\frac{\\mathrm d}{\\mathrm dx}\\int_{\\alpha(x)}^{\\beta(x)}f(x,t)\\,\\mathrm dt=\\int_{\\alpha}^{\\beta}f_x(x,t)\\,\\mathrm dt+f(x,\\beta)\\beta'-f(x,\\alpha)\\alpha'$$",
+              "tags": [
+                "Z01",
+                "Z04"
+              ],
+              "tip": "第一条求导一次得 $\\int_0^x f$、两次得 $f$，是把积分条件转成微分条件的开关。第二条叫“含参积分求导”，竞赛偶考。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-6-3",
+              "name": "变限积分的连续性与可导性",
+              "expr": "$$f\\ \\text{可积}\\Rightarrow F(x)=\\int_a^{x}f\\ \\text{连续};\\qquad f\\ \\text{连续}\\Rightarrow F'(x)=f(x)$$",
+              "tags": [
+                "Z01"
+              ],
+              "tip": "“连续 ⇒ 可导且导数为 $f$”，所以 $F$ 是 $f$ 的一个原函数。注意 $f$ 只可积时 $F$ 连续但未必可导。"
+            },
+            {
+              "seq": 4,
+              "id": "f-5-6-4",
+              "name": "牛顿–莱布尼茨公式",
+              "expr": "$$\\int_a^{b}f(x)\\,\\mathrm dx=F(b)-F(a)\\quad\\bigl(F'=f,\\ f\\ \\text{连续}\\bigr)$$",
+              "tags": [],
+              "tip": "用之前先确认 $f$ 在 $[a,b]$ 上连续（没有瑕点）。有瑕点就要按反常积分拆开算。"
+            },
+            {
+              "seq": 5,
+              "id": "f-5-6-5",
+              "name": "变限积分的等价无穷小（定阶）",
+              "expr": "$$\\alpha(x)\\sim ax^{m},\\ f(t)\\sim bt^{n}\\ \\Longrightarrow\\ \\int_0^{\\alpha(x)}f(t)\\,\\mathrm dt\\sim \\frac{ab}{n+1}x^{m(n+1)}$$",
+              "tags": [
+                "Z17",
+                "Z16"
+              ],
+              "tip": "这是“变限积分估阶”的通用公式：阶数 = 上限的阶 ×（被积函数的阶 + 1）。Z03 那道题直接套就出答案。"
+            }
+          ]
+        },
+        {
+          "seq": 7,
+          "title": "5.7 反常积分与 Γ 函数",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-7-1",
+              "name": "两类反常积分的定义",
+              "expr": "$$\\int_a^{+\\infty}f=\\lim_{b\\to+\\infty}\\int_a^{b}f;\\qquad \\int_a^{b}\\frac{g(x)}{(x-a)^{q}}\\mathrm dx=\\lim_{\\varepsilon\\to0^+}\\int_{a+\\varepsilon}^{b}\\frac{g(x)}{(x-a)^{q}}\\mathrm dx$$",
+              "tags": [
+                "Z02"
+              ],
+              "tip": "两种都要求极限存在且有限才叫收敛。混合瑕点（上下限都是瑕点）必须在中间任取一点拆成两个。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-7-2",
+              "name": "$p$ 积分判据（两套）",
+              "expr": "$$\\int_a^{+\\infty}\\frac{\\mathrm dx}{x^{p}}\\ \\text{收敛}\\iff p&gt;1;\\qquad \\int_a^{b}\\frac{\\mathrm dx}{(x-a)^{q}}\\ \\text{收敛}\\iff q&lt;1$$",
+              "tags": [],
+              "tip": "两个方向相反，最易记混：无穷限要“幂次大”，瑕点要“幂次小”。带 $\\ln$ 因子的版本见下一条。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-7-3",
+              "name": "带 $\\ln$ 的判据（竞赛加分项）",
+              "expr": "$$\\int_a^{+\\infty}\\frac{\\mathrm dx}{x\\ln^{\\beta}x}\\ \\text{收敛}\\iff \\beta&gt;1;\\qquad \\int_0^{a}\\frac{\\ln^{\\beta}x}{x^{\\alpha}}\\mathrm dx\\ \\text{收敛}\\iff \\alpha&lt;1\\ (\\beta\\ \\text{任意})$$",
+              "tags": [],
+              "tip": "结论：$\\ln$ 的任何幂都不改变 $p$ 积分的敛散性，只影响“临界情形”的判定。$\\int_0^a\\ln^{m}x\\,\\mathrm dx$ 对任意 $m$ 都收敛。"
+            },
+            {
+              "seq": 4,
+              "id": "f-5-7-4",
+              "name": "比较判别与极限比较",
+              "expr": "$$0\\leqslant f\\leqslant g:\\quad \\int g\\ \\text{收敛}\\Rightarrow \\int f\\ \\text{收敛};\\qquad \\lim\\frac{f}{g}=A:\\quad A\\in(0,+\\infty)\\ \\text{时同敛散},\\ A=0\\ \\text{时}\\ \\int g\\ \\text{收敛}\\Rightarrow\\int f\\ \\text{收敛},\\ A=+\\infty\\ \\text{时反之}$$",
+              "tags": [],
+              "tip": "极限比较里 $A$ 的三档对应“同阶”“低阶”“高阶”，和正项级数的极限比较判别完全同构（第十一章）。"
+            },
+            {
+              "seq": 5,
+              "id": "f-5-7-5",
+              "name": "$\\Gamma$ 函数与泊松积分",
+              "expr": "$$\\Gamma(\\alpha)=\\int_0^{+\\infty}x^{\\alpha-1}\\mathrm e^{-x}\\mathrm dx,\\quad \\Gamma(\\alpha+1)=\\alpha\\Gamma(\\alpha),\\quad \\Gamma(n+1)=n!,\\quad \\Gamma\\Bigl(\\frac12\\Bigr)=\\sqrt\\pi$$\r\n$$\\int_0^{+\\infty}\\mathrm e^{-x^{2}}\\mathrm dx=\\frac{\\sqrt\\pi}2$$",
+              "tags": [
+                "Z01",
+                "Z02"
+              ],
+              "tip": "泊松积分是 $\\Gamma(\\frac12)$ 的换元版（$x=t^2$）。$\\int_0^{+\\infty}x^{2n}\\mathrm e^{-x^2}\\mathrm dx=\\frac{(2n-1)!!}{2^{n+1}}\\sqrt\\pi$ 也常用。"
+            }
+          ]
+        },
+        {
+          "seq": 8,
+          "title": "5.8 积分不等式（讲义缺失，竞赛必补）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-8-1",
+              "name": "四条基础放缩",
+              "expr": "$$\\Bigl|\\int_a^{b}f\\Bigr|\\leqslant\\int_a^{b}|f|;\\qquad \\int_a^{b}f^{2}\\geqslant\\frac1{b-a}\\Bigl(\\int_a^{b}f\\Bigr)^{2};\\qquad \\Bigl(\\int_a^{b}f\\Bigr)^{2}\\leqslant(b-a)\\int_a^{b}f^{2}$$",
+              "tags": [
+                "Z04"
+              ],
+              "tip": "第二、三式是柯西不等式的两个“变形用法”：一个给下界、一个给上界，共用一个内核。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-8-2",
+              "name": "Poincaré 型（导数控制函数）",
+              "expr": "$$f(0)=f(1)=0\\ \\Longrightarrow\\ \\int_0^{1}f^{2}\\leqslant\\frac1{\\pi^{2}}\\int_0^{1}f'^{2}$$",
+              "tags": [
+                "Z16"
+              ],
+              "tip": "常数 $\\frac1{\\pi^2}$ 是最优的（由 $\\sin\\pi x$ 取到）。竞赛里用它的弱形式 $\\int f^2\\leqslant\\int f'^2$ 就够，别把常数记错成 1。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-8-3",
+              "name": "分部积分对称化",
+              "expr": "$$\\int_0^{1}f(x)\\,\\mathrm dx=f(1)-\\int_0^{1}xf'(x)\\,\\mathrm dx;\\qquad \\int_0^{1}xf'(x)\\,\\mathrm dx=f(1)-\\int_0^{1}f(x)\\,\\mathrm dx$$",
+              "tags": [
+                "Z17"
+              ],
+              "tip": "这是 Z17 的核心动作：把“函数积分”换成“导数积分”，从而能把已知的 $f'$ 界套进去。$f(1)=0$ 时就是 $\\int f=-\\int xf'$。"
+            },
+            {
+              "seq": 4,
+              "id": "f-5-8-4",
+              "name": "AM-GM 的积分版（带权）",
+              "expr": "$$\\int_a^{b}\\frac{f^{2}+g^{2}}2\\geqslant\\int_a^{b}f g;\\qquad \\sqrt{\\int f^{2}\\cdot\\int g^{2}}\\geqslant\\Bigl|\\int_a^{b}f g\\Bigr|$$",
+              "tags": [
+                "Z10",
+                "Z06"
+              ],
+              "tip": "两式就是“$2ab\\leqslant a^2+b^2$”与柯西的积分版，处理 $\\int fg$ 的上界时交替使用。"
+            }
+          ]
+        },
+        {
+          "seq": 9,
+          "title": "5.9 定积分的几何与物理应用",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-5-9-1",
+              "name": "面积（直角、极坐标、参数）",
+              "expr": "$$S=\\int_a^{b}|f-g|\\,\\mathrm dx;\\qquad S_{\\text{极}}=\\frac12\\int_{\\alpha}^{\\beta}\\rho^{2}(\\theta)\\,\\mathrm d\\theta;\\qquad S_{\\text{参数}}=\\int_{\\alpha}^{\\beta}y(t)x'(t)\\,\\mathrm dt$$",
+              "tags": [
+                "Z03",
+                "Z05"
+              ],
+              "tip": "极坐标面积别漏 $\\frac12$。两曲线围成的“扇形环”是 $\\frac12\\int(\\rho_2^2-\\rho_1^2)$。"
+            },
+            {
+              "seq": 2,
+              "id": "f-5-9-2",
+              "name": "旋转体体积（圆盘与柱壳）",
+              "expr": "$$V_{x}=\\pi\\int_a^{b}f^{2}\\,\\mathrm dx;\\qquad V_{y}=2\\pi\\int_a^{b}x\\,|f(x)|\\,\\mathrm dx;\\qquad V_{\\text{绕任意直线}}=2\\pi\\iint_D r(x,y)\\,\\mathrm d\\sigma$$",
+              "tags": [
+                "Z01",
+                "Z15"
+              ],
+              "tip": "柱壳法适用于“绕 $y$ 轴转、但 $y$ 不好解成 $x$ 的函数”的情形。Pappus：$V=2\\pi d\\cdot S_D$，$d$ 是形心到轴的距离。"
+            },
+            {
+              "seq": 3,
+              "id": "f-5-9-3",
+              "name": "弧长与旋转面面积",
+              "expr": "$$s=\\int_a^{b}\\sqrt{1+y'^{2}}\\,\\mathrm dx;\\quad s_{\\text{参}}=\\int_{\\alpha}^{\\beta}\\sqrt{x'^{2}+y'^{2}}\\,\\mathrm dt;\\quad s_{\\text{极}}=\\int_{\\alpha}^{\\beta}\\sqrt{\\rho^{2}+\\rho'^{2}}\\,\\mathrm d\\theta$$\r\n$$S_{\\text{旋转面}}=2\\pi\\int_a^{b}|y|\\sqrt{1+y'^{2}}\\,\\mathrm dx$$",
+              "tags": [],
+              "tip": "旋转面公式里的 $|y|$ 不能少（$y$ 可能为负）；它是“周长 $2\\pi|y|$ × 弧微分”的积分。"
+            },
+            {
+              "seq": 4,
+              "id": "f-5-9-4",
+              "name": "形心、功、水压力",
+              "expr": "$$\\bar x=\\frac{\\int_a^{b}x\\rho(x)\\,\\mathrm dx}{\\int_a^{b}\\rho(x)\\,\\mathrm dx},\\qquad W=\\int_a^{b}F(x)\\,\\mathrm dx,\\qquad P=\\rho g\\int_0^{h}x\\,l(x)\\,\\mathrm dx$$",
+              "tags": [
+                "Z03",
+                "Z02"
+              ],
+              "tip": "水压力里 $x$ 是深度、$l(x)$ 是该深度处的宽度，微元 $\\mathrm dP=\\rho g\\,x\\,l(x)\\mathrm dx$。三者都是“微元法”，不必背结论，会列微元即可。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "id": "ch-6",
+      "no": "第六章",
+      "title": "向量代数与空间解析几何（讲义缺失，补齐）",
+      "freq": "<b>竞赛考频</b>　Kira 讲义整本没有这一章，但竞赛几乎每届都从里面取分：Z02 计算 5（混合积算异面直线距离）、Z04 计算 2（平面束）、Z07 第 2 题（锥面与准线）、Z13 填空 4（三线共柱与点到直线距离）、Z14 第 2 题（点积与二次函数）、Z16 填空 4（投影）、Z17 填空 2（两平面垂直与叉乘）。填空、计算都可能考，且多为 5–7 分。",
+      "lead": "竞赛不考抽象的向量空间，只考三件事：算距离（点面、点线、异面直线）、写方程（平面、直线、曲面）、判平行垂直（法向量与方向向量）。把这三件事的工具备齐就够了。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "6.1 三种乘积",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-6-1-1",
+              "name": "数量积（点积）",
+              "expr": "$$\\vec a\\cdot\\vec b=a_1b_1+a_2b_2+a_3b_3=|\\vec a||\\vec b|\\cos\\theta,\\qquad \\vec a\\perp\\vec b\\iff \\vec a\\cdot\\vec b=0$$",
+              "tags": [
+                "Z14"
+              ],
+              "tip": "$\\vec v\\cdot\\vec v=|\\vec v|^2$ 是 Z14 第 2 题的关键：把“模的平方”化成“自己点自己”，再配方求最值。"
+            },
+            {
+              "seq": 2,
+              "id": "f-6-1-2",
+              "name": "向量积（叉积）",
+              "expr": "$$|\\vec a\\times\\vec b|=|\\vec a||\\vec b|\\sin\\theta,\\qquad \\vec a\\times\\vec b=\\begin{vmatrix}\\vec i&amp;\\vec j&amp;\\vec k\\\\a_1&amp;a_2&amp;a_3\\\\b_1&amp;b_2&amp;b_3\\end{vmatrix},\\qquad \\vec a\\parallel\\vec b\\iff \\vec a\\times\\vec b=\\vec 0$$",
+              "tags": [
+                "Z02",
+                "Z17"
+              ],
+              "tip": "叉积的结果是向量，方向按右手系；它的模是“以两向量为邻边的平行四边形面积”。求平面法向量、判两直线共面都靠它。"
+            },
+            {
+              "seq": 3,
+              "id": "f-6-1-3",
+              "name": "混合积",
+              "expr": "$$(\\vec a,\\vec b,\\vec c)=(\\vec a\\times\\vec b)\\cdot\\vec c=\\begin{vmatrix}a_1&amp;a_2&amp;a_3\\\\b_1&amp;b_2&amp;b_3\\\\c_1&amp;c_2&amp;c_3\\end{vmatrix},\\qquad \\text{三向量共面}\\iff (\\vec a,\\vec b,\\vec c)=0$$",
+              "tags": [
+                "Z02"
+              ],
+              "tip": "几何意义是以三向量为棱的平行六面体体积。Z02 计算 5 求异面直线距离，分子就是这个混合积，分母是 $|\\vec s_1\\times\\vec s_2|$。"
+            },
+            {
+              "seq": 4,
+              "id": "f-6-1-4",
+              "name": "投影与分解",
+              "expr": "$$\\operatorname{Prj}_{\\vec b}\\vec a=\\frac{\\vec a\\cdot\\vec b}{|\\vec b|};\\qquad \\vec a\\ \\text{在}\\ \\vec n\\ \\text{法向的投影}=\\frac{\\vec a\\cdot\\vec n}{|\\vec n|}$$",
+              "tags": [
+                "Z03",
+                "Z16"
+              ],
+              "tip": "Z16 填空 4 的“投影 = 减去法向分量”：$\\vec s-\\frac{\\vec s\\cdot\\vec n}{|\\vec n|^2}\\vec n$ 才是落到平面内的向量，再单位化。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "6.2 平面与直线",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-6-2-1",
+              "name": "平面方程三种写法",
+              "expr": "$$\\text{点法式：}A(x-x_0)+B(y-y_0)+C(z-z_0)=0;\\qquad \\text{一般式：}Ax+By+Cz+D=0$$",
+              "tags": [
+                "Z04",
+                "Z17"
+              ],
+              "tip": "一般式的法向量直接读出 $(A,B,C)$，这是所有“求切平面、判平行垂直”的起点。"
+            },
+            {
+              "seq": 2,
+              "id": "f-6-2-2",
+              "name": "直线方程（点向式与参数式）",
+              "expr": "$$\\frac{x-x_0}{l}=\\frac{y-y_0}{m}=\\frac{z-z_0}{n};\\qquad x=x_0+lt,\\ y=y_0+mt,\\ z=z_0+nt$$",
+              "tags": [
+                "Z13"
+              ],
+              "tip": "方向向量 $(l,m,n)$。两点式就是“终点减起点”。用到直线的题，先把它写成参数式再代，比解方程组快。"
+            },
+            {
+              "seq": 3,
+              "id": "f-6-2-3",
+              "name": "平面束",
+              "expr": "$$A_1x+B_1y+C_1z+D_1+\\lambda\\bigl(A_2x+B_2y+C_2z+D_2\\bigr)=0$$",
+              "tags": [
+                "Z04"
+              ],
+              "tip": "过两平面交线的所有平面（除第二个平面本身）都由这个式子给出。Z04 计算 2 就是“把已知点代入定 $\\lambda$，再让法向量与给定方向垂直”。"
+            },
+            {
+              "seq": 4,
+              "id": "f-6-2-4",
+              "name": "夹角与平行垂直判据",
+              "expr": "$$\\text{两平面：}\\cos\\theta=\\frac{|\\vec n_1\\cdot\\vec n_2|}{|\\vec n_1||\\vec n_2|};\\qquad \\text{两直线：}\\cos\\theta=\\frac{|\\vec s_1\\cdot\\vec s_2|}{|\\vec s_1||\\vec s_2|};\\qquad \\text{线面：}\\sin\\theta=\\frac{|\\vec s\\cdot\\vec n|}{|\\vec s||\\vec n|}$$",
+              "tags": [
+                "Z17"
+              ],
+              "tip": "线面角用 $\\sin$（因为方向向量与法向量垂直时才“线在面内”）。两平面垂直 ⇔ 法向量点积为 0，Z17 填空 2 就靠这一句。"
+            },
+            {
+              "seq": 5,
+              "id": "f-6-2-5",
+              "name": "三种距离",
+              "expr": "$$\\text{点面：}d=\\frac{|Ax_0+By_0+Cz_0+D|}{\\sqrt{A^2+B^2+C^2}};\\qquad \\text{点线：}d=\\frac{|\\vec M_0M_1\\times\\vec s|}{|\\vec s|};\\qquad \\text{异面直线：}d=\\frac{|(\\vec M_1M_2,\\vec s_1,\\vec s_2)|}{|\\vec s_1\\times\\vec s_2|}$$",
+              "tags": [
+                "Z02",
+                "Z13"
+              ],
+              "tip": "三式全靠“投影/叉积”统一理解：点面是法向投影，点线是叉积模除以方向模，异面直线是混合积除以两方向叉积模。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "6.3 曲面",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-6-3-1",
+              "name": "旋转曲面",
+              "expr": "$$yOz\\ \\text{面上}\\ f(y,z)=0\\ \\text{绕}\\ z\\ \\text{轴旋转}:\\quad f\\bigl(\\pm\\sqrt{x^2+y^2},\\,z\\bigr)=0$$",
+              "tags": [],
+              "tip": "口诀“绕谁转，谁不动；另一个变量换成 $\\pm\\sqrt{\\text{剩下两个的平方和}}$”。绕 $x$ 轴就把 $y$ 换成 $\\pm\\sqrt{y^2+z^2}$。"
+            },
+            {
+              "seq": 2,
+              "id": "f-6-3-2",
+              "name": "柱面与锥面",
+              "expr": "$$\\text{柱面：方程缺哪个变量，母线就平行哪个轴};\\qquad \\frac{z^2}{c^2}=\\frac{x^2}{a^2}+\\frac{y^2}{b^2}\\ \\text{是圆锥面}$$\r\n$$\\text{顶点在原点、准线}\\ \\Gamma:\\ F(x,y,z)=0,\\ z=h:\\quad \\text{锥面方程为}\\ F\\Bigl(\\frac{hx}{z},\\ \\frac{hy}{z},\\ h\\Bigr)=0$$",
+              "tags": [
+                "Z07",
+                "Z13"
+              ],
+              "tip": "Z07 第 2 题的标准解法：设锥面上点 $M(x,y,z)$，它与原点的连线交准线于 $\\bigl(\\frac{hx}z,\\frac{hy}z,h\\bigr)$，代回准线方程即得。Z13 填空 4 的“三线平行”判的是柱面。"
+            },
+            {
+              "seq": 3,
+              "id": "f-6-3-3",
+              "name": "常见二次曲面（认图即可）",
+              "expr": "$$\\text{椭球：}\\frac{x^2}{a^2}+\\frac{y^2}{b^2}+\\frac{z^2}{c^2}=1;\\quad \\text{椭圆抛物面：}z=\\frac{x^2}{a^2}+\\frac{y^2}{b^2};\\quad \\text{单叶双曲面：}\\frac{x^2}{a^2}+\\frac{y^2}{b^2}-\\frac{z^2}{c^2}=1;\\quad \\text{双叶双曲面：}\\frac{z^2}{c^2}-\\frac{x^2}{a^2}-\\frac{y^2}{b^2}=1$$",
+              "tags": [],
+              "tip": "判类型看“负号的个数”：全正椭球，一个负单叶，两个负双叶，零个平方项是抛物面。竞赛只在重积分定限时用它认边界。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "6.4 切平面与法线",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-6-4-1",
+              "name": "隐式曲面 $F(x,y,z)=0$",
+              "expr": "$$\\vec n=\\bigl(F_x,F_y,F_z\\bigr)\\big|_P;\\qquad \\text{切平面：}F_x(P)(x-x_0)+F_y(P)(y-y_0)+F_z(P)(z-z_0)=0;\\qquad \\text{法线：}\\frac{x-x_0}{F_x(P)}=\\frac{y-y_0}{F_y(P)}=\\frac{z-z_0}{F_z(P)}$$",
+              "tags": [
+                "Z01",
+                "Z06",
+                "Z08",
+                "Z11"
+              ],
+              "tip": "“两曲面相切”= 法向量平行（Z11 填空 5）；“切平面平行于某平面”= 法向量与该平面法向量平行（Z01 填空 3、Z06 填空 2、Z08 填空 5 全是这一句）。"
+            },
+            {
+              "seq": 2,
+              "id": "f-6-4-2",
+              "name": "显式曲面 $z=f(x,y)$",
+              "expr": "$$\\vec n=\\bigl(f_x,f_y,-1\\bigr)\\ \\text{或}\\ \\bigl(-f_x,-f_y,1\\bigr);\\qquad \\text{切平面：}z-z_0=f_x(x-x_0)+f_y(y-y_0)$$",
+              "tags": [
+                "Z07"
+              ],
+              "tip": "把 $z-f(x,y)=0$ 当成隐式处理就得到这个结果。曲面面积元 $\\mathrm dS=\\sqrt{1+f_x^2+f_y^2}\\,\\mathrm dx\\mathrm dy$ 用的也是它。"
+            },
+            {
+              "seq": 3,
+              "id": "f-6-4-3",
+              "name": "参数曲面",
+              "expr": "$$\\vec r(u,v)=\\bigl(x(u,v),y(u,v),z(u,v)\\bigr):\\quad \\vec n=\\vec r_u\\times\\vec r_v,\\quad \\mathrm dS=|\\vec r_u\\times\\vec r_v|\\,\\mathrm du\\,\\mathrm dv$$",
+              "tags": [
+                "Z15"
+              ],
+              "tip": "参数化之后“面积元 = 两个切向量叉积的模”。球面 $\\vec r=R(\\sin\\varphi\\cos\\theta,\\sin\\varphi\\sin\\theta,\\cos\\varphi)$ 代入得 $\\mathrm dS=R^2\\sin\\varphi\\,\\mathrm d\\varphi\\mathrm d\\theta$。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "id": "ch-7",
+      "no": "第七章",
+      "title": "多元微分：偏导、可微、极值",
+      "freq": "<b>竞赛考频</b>　约 18 处，是“计算题 + 证明题”的混合区。Z02 计算 4（复合二阶偏导）、Z09 第 2 题（方向导数 + Hessian）、Z12 第 4 题（齐次复合 + 函数方程）、Z15 填空 2 与 Z16 填空 3（两层复合 + $f_{12}=f_{21}$）、Z17 填空 4（隐函数先代点）都是典型。规律：算得对不难，难在“什么时候能交换求导次序”。",
+      "lead": "三条主线：一，偏导与全微分的定义（可微性判断）；二，复合与隐函数的链式结构（算）；三，极值与条件极值（判）。竞赛最爱在第一条上设陷阱：偏导存在推不出可微。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "7.1 二重极限与连续",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-7-1-1",
+              "name": "二重极限的定义与路径法",
+              "expr": "$$\\lim_{(x,y)\\to(x_0,y_0)}f=A\\iff \\forall\\varepsilon&gt;0,\\ \\exists\\delta&gt;0,\\ 0&lt;\\sqrt{(x-x_0)^2+(y-y_0)^2}&lt;\\delta\\Rightarrow|f-A|&lt;\\varepsilon;\\qquad \\text{判不存在：找两条路径极限不同}$$",
+              "tags": [
+                "Z14"
+              ],
+              "tip": "二重极限要求“以任意方式逼近都同值”，比累次极限强。$\\frac{xy}{x^2+y^2}$ 沿 $y=kx$ 得 $\\frac{k}{1+k^2}$，随 $k$ 变，故不存在。"
+            },
+            {
+              "seq": 2,
+              "id": "f-7-1-2",
+              "name": "$\\dfrac{x^{p}y^{q}}{x^{m}+y^{n}}$ 型判据",
+              "expr": "$$m,n\\ \\text{中有奇数}\\Rightarrow \\text{极限不存在};\\qquad m,n\\ \\text{全偶时}:\\ \\frac pm+\\frac qn&gt;1\\Rightarrow \\text{极限为}\\ 0,\\ \\leqslant1\\Rightarrow \\text{极限不存在}$$",
+              "tags": [],
+              "tip": "这是竞赛填空的快判公式。判“不存在”时举证路径取 $y=kx$（或 $x=0$）；判“存在为 0”时用极坐标 $x=r\\cos\\theta$ 放缩。"
+            },
+            {
+              "seq": 3,
+              "id": "f-7-1-3",
+              "name": "连续与有界闭域四定理",
+              "expr": "$$f\\ \\text{在}\\ P_0\\ \\text{连续}\\iff \\lim_{(x,y)\\to P_0}f(x,y)=f(P_0);\\qquad \\text{有界闭域上连续}\\Rightarrow \\text{有界、取到最大最小值、介值}$$",
+              "tags": [],
+              "tip": "多元没有“导数介值”这种结论，但“有界闭域上连续必有最值”成立，这是第九章、第十章求最值的依据。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "7.2 偏导数、全微分与可微性",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-7-2-1",
+              "name": "偏导数的定义与“先代后求”",
+              "expr": "$$f_x(x_0,y_0)=\\lim_{\\Delta x\\to0}\\frac{f(x_0+\\Delta x,y_0)-f(x_0,y_0)}{\\Delta x};\\qquad \\text{求}\\ f_x\\ \\text{时把}\\ y\\ \\text{当常数}$$",
+              "tags": [
+                "Z17"
+              ],
+              "tip": "Z17 填空 4 的技巧“先代点定值再求导”：先把 $y=0$ 代进去使含 $f'_v$ 的项消失，再对 $x$ 求导，能省一半计算。"
+            },
+            {
+              "seq": 2,
+              "id": "f-7-2-2",
+              "name": "混合偏导相等（Schwarz 定理）",
+              "expr": "$$f''_{xy}\\ \\text{与}\\ f''_{yx}\\ \\text{都连续}\\ \\Longrightarrow\\ f''_{xy}=f''_{yx}$$",
+              "tags": [
+                "Z04",
+                "Z15",
+                "Z16"
+              ],
+              "tip": "条件“二阶混合偏导连续”不能省。竞赛题一般默认满足，但问“何时相等”时要答这一句。Z15 填空 2、Z16 填空 3 都要合并 $f_{12}=f_{21}$。"
+            },
+            {
+              "seq": 3,
+              "id": "f-7-2-3",
+              "name": "全微分的定义",
+              "expr": "$$\\Delta z=A\\Delta x+B\\Delta y+o(\\rho)\\iff z\\ \\text{在}\\ P\\ \\text{可微，且}\\ A=z_x,\\ B=z_y;\\qquad \\mathrm dz=z_x\\mathrm dx+z_y\\mathrm dy,\\quad \\rho=\\sqrt{\\Delta x^2+\\Delta y^2}$$",
+              "tags": [
+                "Z03"
+              ],
+              "tip": "一元“可微 ⇔ 可导”，多元“可微 ⇒ 偏导存在”，反之不成立。$\\frac{xy}{\\sqrt{x^2+y^2}}$ 在原点偏导都为 0 但不可微。"
+            },
+            {
+              "seq": 4,
+              "id": "f-7-2-4",
+              "name": "可微性的两步判法",
+              "expr": "$$\\text{第一步：求}\\ A=f_x(P_0),\\ B=f_y(P_0);\\qquad \\text{第二步：验}\\ \\lim_{\\rho\\to0}\\frac{\\Delta z-A\\Delta x-B\\Delta y}{\\rho}=0$$",
+              "tags": [],
+              "tip": "两步缺一不可：先确认偏导存在（否则直接不可微），再验那个极限。极限为 0 才可微。"
+            },
+            {
+              "seq": 5,
+              "id": "f-7-2-5",
+              "name": "偏导连续的三步判法",
+              "expr": "$$\\text{① 求}\\ f_x,f_y\\ \\text{的表达式};\\quad \\text{② 算}\\ \\lim_{(x,y)\\to P_0}f_x,\\ \\lim f_y;\\quad \\text{③ 与}\\ f_x(P_0),\\ f_y(P_0)\\ \\text{比较，相等则连续}$$",
+              "tags": [],
+              "tip": "注意：偏导连续是可微的充分条件，不是必要条件。所以“偏导不连续”推不出“不可微”，别乱下结论。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "7.3 复合函数与隐函数求导",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-7-3-1",
+              "name": "一元复合（全导数）",
+              "expr": "$$z=f(u,v),\\ u=u(t),\\ v=v(t):\\quad \\frac{\\mathrm dz}{\\mathrm dt}=f_1u'(t)+f_2v'(t)$$",
+              "tags": [
+                "Z08"
+              ],
+              "tip": "$f_1$ 表示“对第一个位置求导”，下标是位置不是变量名。写成 $f_u$ 容易在换元后混淆。"
+            },
+            {
+              "seq": 2,
+              "id": "f-7-3-2",
+              "name": "二元复合（链式）",
+              "expr": "$$z=f(u,v),\\ u=u(x,y),\\ v=v(x,y):\\quad \\frac{\\partial z}{\\partial x}=f_1u_x+f_2v_x,\\quad \\frac{\\partial z}{\\partial y}=f_1u_y+f_2v_y$$",
+              "tags": [
+                "Z07",
+                "Z08",
+                "Z09",
+                "Z15",
+                "Z16"
+              ],
+              "tip": "Z07 填空 2 的“配平消元”：把 $z_x,z_y$ 当成线性组合反解出 $f_1,f_2$，再代回。"
+            },
+            {
+              "seq": 3,
+              "id": "f-7-3-3",
+              "name": "二阶复合：结构不变原理",
+              "expr": "$$\\frac{\\partial^2 z}{\\partial x^2}=f_{11}u_x^2+2f_{12}u_xv_x+f_{22}v_x^2+f_1u_{xx}+f_2v_{xx};\\qquad \\text{关键：}z\\ \\text{无论对谁求几阶，}\\ f\\ \\text{的复合结构都不变}$$",
+              "tags": [
+                "Z02",
+                "Z09",
+                "Z12",
+                "Z15",
+                "Z16"
+              ],
+              "tip": "这是全章最值钱的一句：$f_{12}$ 仍然是“先对第一位置、再对第二位置”，自变量换了也不改结构。漏掉 $f_1u_{xx}$ 这类项是最高频错误。"
+            },
+            {
+              "seq": 4,
+              "id": "f-7-3-4",
+              "name": "隐函数定理与求导",
+              "expr": "$$F(x,y)=0,\\ F_y\\neq0:\\quad \\frac{\\mathrm dy}{\\mathrm dx}=-\\frac{F_x}{F_y};\\qquad F(x,y,z)=0,\\ F_z\\neq0:\\quad \\frac{\\partial z}{\\partial x}=-\\frac{F_x}{F_z},\\ \\frac{\\partial z}{\\partial y}=-\\frac{F_y}{F_z}$$",
+              "tags": [
+                "Z03",
+                "Z13",
+                "Z17"
+              ],
+              "tip": "三个负号。$F_z\\neq0$ 是可解出 $z=z(x,y)$ 的前提，竞赛有时让你讨论它不成立时的退化情形（Z13 填空 2）。"
+            },
+            {
+              "seq": 5,
+              "id": "f-7-3-5",
+              "name": "隐函数组与克拉默法则",
+              "expr": "$$\\begin{cases}F(x,y,u,v)=0\\\\G(x,y,u,v)=0\\end{cases}:\\quad \\frac{\\partial u}{\\partial x}=-\\frac{\\partial(F,G)}{\\partial(x,v)}\\Big/\\frac{\\partial(F,G)}{\\partial(u,v)},\\quad \\frac{\\partial v}{\\partial x}=-\\frac{\\partial(F,G)}{\\partial(u,x)}\\Big/\\frac{\\partial(F,G)}{\\partial(u,v)}$$",
+              "tags": [
+                "Z02"
+              ],
+              "tip": "本质是把 $F_x+G_x$ 的线性方程组用克拉默法则解出来，分母是雅可比 $\\frac{\\partial(F,G)}{\\partial(u,v)}\\neq0$。不必背公式，会列方程即可。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "7.4 方向导数与梯度",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-7-4-1",
+              "name": "方向导数",
+              "expr": "$$\\frac{\\partial f}{\\partial l}\\Big|_P=f_x\\cos\\alpha+f_y\\cos\\beta+f_z\\cos\\gamma\\quad\\bigl(\\vec l=(\\cos\\alpha,\\cos\\beta,\\cos\\gamma)\\bigr)$$",
+              "tags": [
+                "Z09"
+              ],
+              "tip": "方向余弦必须单位化（$\\cos^2\\alpha+\\cos^2\\beta+\\cos^2\\gamma=1$）。Z09 第 2 题就是“方向导数 + Hessian 正定”联立。"
+            },
+            {
+              "seq": 2,
+              "id": "f-7-4-2",
+              "name": "梯度",
+              "expr": "$$\\operatorname{grad}f=\\bigl(f_x,f_y,f_z\\bigr);\\qquad \\max_{\\vec l}\\frac{\\partial f}{\\partial l}=|\\operatorname{grad}f|,\\ \\text{方向为}\\ \\operatorname{grad}f\\ \\text{的方向}$$",
+              "tags": [
+                "Z09",
+                "Z03"
+              ],
+              "tip": "梯度是“方向导数最大的方向”，模就是那个最大值。Z03 第 4 题的“向量投影”与它同源。"
+            }
+          ]
+        },
+        {
+          "seq": 5,
+          "title": "7.5 极值与条件极值",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-7-5-1",
+              "name": "无条件极值：必要与充分",
+              "expr": "$$\\text{必要：}f_x(P_0)=f_y(P_0)=0;\\qquad \\text{充分：}A=f_{xx},B=f_{xy},C=f_{yy},\\ AC-B^2&gt;0\\ \\text{时判极值}$$\r\n$$AC-B^2&gt;0\\ \\text{且}\\ A&lt;0\\Rightarrow \\text{极大};\\quad AC-B^2&gt;0\\ \\text{且}\\ A&gt;0\\Rightarrow \\text{极小};\\quad AC-B^2&lt;0\\Rightarrow \\text{非极值（鞍点）};\\quad =0\\Rightarrow \\text{失效，另判}$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "驻点必须同时在定义域内部；边界点没有资格当驻点（这就是“闭域最值要单独查边界”的原因）。$=0$ 时用定义或配方判。"
+            },
+            {
+              "seq": 2,
+              "id": "f-7-5-2",
+              "name": "拉格朗日乘子法",
+              "expr": "$$L=f(x,y,z)+\\lambda\\,\\varphi(x,y,z);\\qquad \\begin{cases}L_x=0\\\\L_y=0\\\\L_z=0\\\\ \\varphi=0\\end{cases}\\ \\Longrightarrow\\ \\text{候选极值点}$$\r\n$$\\text{双约束：}L=f+\\lambda\\varphi+\\mu\\psi$$",
+              "tags": [
+                "Z01",
+                "Z10"
+              ],
+              "tip": "Z01 第 6 题是“面积约束 + 旋转体体积”，把体积写成 $f$、面积写成 $\\varphi$ 即可。求 $z=x^2+y^2$ 型可先设 $F=x^2+y^2+\\lambda\\varphi$，少一个变量。"
+            },
+            {
+              "seq": 3,
+              "id": "f-7-5-3",
+              "name": "有界闭域最值三步法",
+              "expr": "$$\\text{① 内部驻点};\\quad \\text{② 边界上用条件极值（Lagrange 或参数化）};\\quad \\text{③ 全部候选值比较大小}$$",
+              "tags": [
+                "Z11"
+              ],
+              "tip": "三步缺一不可。边界是分段曲线时要逐段参数化，端点也要算进去（端点可能比内部更值）。"
+            },
+            {
+              "seq": 4,
+              "id": "f-7-5-4",
+              "name": "Hessian 正定判极值",
+              "expr": "$$\\text{驻点处}\\ H=\\begin{pmatrix}f_{xx}&amp;f_{xy}\\f_{xy}&amp;f_{yy}\\end{pmatrix}:\\quad H\\ \\text{正定}\\Rightarrow \\text{极小},\\ H\\ \\text{负定}\\Rightarrow \\text{极大},\\ H\\ \\text{不定}\\Rightarrow \\text{非极值}$$",
+              "tags": [
+                "Z09",
+                "Z02"
+              ],
+              "tip": "正定判据：一阶主子式 $&gt;0$ 且二阶主子式 $&gt;0$；负定则一阶 $&lt;0$、二阶 $&gt;0$。这与 $AC-B^2$ 是同一件事，只是写法不同。"
+            }
+          ]
+        },
+        {
+          "seq": 6,
+          "title": "7.6 二元 Taylor 公式",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-7-6-1",
+              "name": "二阶 Taylor（Peano 余项）",
+              "expr": "$$f(x_0+\\Delta x,y_0+\\Delta y)=f_0+f_x\\Delta x+f_y\\Delta y+\\tfrac12\\Bigl[f_{xx}\\Delta x^2+2f_{xy}\\Delta x\\Delta y+f_{yy}\\Delta y^2\\Bigr]+o(\\rho^2)$$",
+              "tags": [
+                "Z07",
+                "Z13"
+              ],
+              "tip": "二次型部分就是 Hessian 的二次型：$\\frac12(\\Delta x,\\Delta y)H(\\Delta x,\\Delta y)^{\\mathrm T}$。正定 ⇒ 极小，这就是 7.5 的来源。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 8,
+      "id": "ch-8",
+      "no": "第八章",
+      "title": "重积分：二重、三重与坐标变换",
+      "freq": "<b>竞赛考频</b>　约 20 处，是计算题的主战场。二重：Z01 填空 1（换元消根式）、Z07 填空 5（极坐标）、Z13 填空 5（轮换对称）、Z14 填空 5（菱形拉矩形）、Z17 填空 5（球面与平面交线 + 置换平摊）。三重：Z04 第 6 题（柱坐标）、Z09 填空 6（锥面定 $\\varphi$、半球定 $\\rho$）、Z10 第 4 题（球壳差）、Z17 第 4 题（链式区域截面法）。讲义只讲了二重，三重整块缺失。",
+      "lead": "重积分的分数几乎全在“定限”和“换元”两步上，被积函数反而简单。定限先画图，换元先算雅可比，对称性放在最后用来砍一半计算量。三重积分三种坐标系各有适用信号，8.3 开头先给判据。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "8.1 二重积分：定限、极坐标与对称性",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-8-1-1",
+              "name": "直角坐标：X 型与 Y 型",
+              "expr": "$$\\text{X 型：}\\iint_D f\\,\\mathrm d\\sigma=\\int_a^{b}\\mathrm dx\\int_{\\varphi_1(x)}^{\\varphi_2(x)}f(x,y)\\,\\mathrm dy;\\qquad \\text{Y 型：}\\iint_D f\\,\\mathrm d\\sigma=\\int_c^{d}\\mathrm dy\\int_{\\psi_1(y)}^{\\psi_2(y)}f(x,y)\\,\\mathrm dx$$",
+              "tags": [
+                "Z09",
+                "Z14"
+              ],
+              "tip": "先画区域再定限：X 型是“竖条”，Y 型是“横条”。选哪个取决于“先积的那个变量好不好积”，不是看图形。"
+            },
+            {
+              "seq": 2,
+              "id": "f-8-1-2",
+              "name": "极坐标",
+              "expr": "$$\\iint_D f(x,y)\\,\\mathrm d\\sigma=\\int_{\\alpha}^{\\beta}\\mathrm d\\theta\\int_{r_1(\\theta)}^{r_2(\\theta)}f(r\\cos\\theta,r\\sin\\theta)\\,r\\,\\mathrm dr\\quad\\bigl(\\mathrm d\\sigma=r\\,\\mathrm dr\\,\\mathrm d\\theta\\bigr)$$",
+              "tags": [
+                "Z07",
+                "Z13",
+                "Z16"
+              ],
+              "tip": "那个 $r$ 是雅可比，绝对不能漏。识别信号：区域是圆/扇形/圆环，或被积函数含 $x^2+y^2$。"
+            },
+            {
+              "seq": 3,
+              "id": "f-8-1-3",
+              "name": "三个标准圆（直接记，不用推）",
+              "expr": "$$r=a:\\ \\text{圆心原点、半径}\\ a;\\qquad r=2a\\cos\\theta:\\ \\text{圆心}(a,0)\\text{、半径}\\ a;\\qquad r=2a\\sin\\theta:\\ \\text{圆心}(0,a)\\text{、半径}\\ a$$",
+              "tags": [
+                "Z16"
+              ],
+              "tip": "后两个是“过原点的圆”。$\\theta$ 的范围：$r=2a\\cos\\theta$ 取 $-\\frac\\pi2\\le\\theta\\le\\frac\\pi2$，$r=2a\\sin\\theta$ 取 $0\\le\\theta\\le\\pi$。"
+            },
+            {
+              "seq": 4,
+              "id": "f-8-1-4",
+              "name": "对称性四类",
+              "expr": "$$\\text{关于}\\ x\\ \\text{轴}:\\ f(x,-y)=-f\\Rightarrow \\iint=0;\\qquad \\text{关于}\\ y\\ \\text{轴}:\\ f(-x,y)=-f\\Rightarrow \\iint=0$$\r\n$$\\text{关于}\\ y=x:\\ f(y,x)=-f\\Rightarrow \\iint=0,\\ f(y,x)=f\\Rightarrow \\iint=2\\iint_{D_1};\\qquad \\text{关于原点}:\\ f(-x,-y)=-f\\Rightarrow \\iint=0$$",
+              "tags": [
+                "Z13",
+                "Z17"
+              ],
+              "tip": "先查对称性再动笔，往往能少算一半。$\\iint_D(x+y)\\,\\mathrm d\\sigma$ 在某一条对称轴上就直接为 0。"
+            },
+            {
+              "seq": 5,
+              "id": "f-8-1-5",
+              "name": "轮换对称性",
+              "expr": "$$D\\ \\text{的边界方程在}\\ x\\leftrightarrow y\\ \\text{下不变}\\ \\Longrightarrow\\ \\iint_D f(x,y)=\\iint_D f(y,x)=\\frac12\\iint_D\\bigl[f(x,y)+f(y,x)\\bigr]$$",
+              "tags": [
+                "Z13",
+                "Z17"
+              ],
+              "tip": "这是“把难积的一半换成好积的一半”。Z17 填空 5 的置换对称平摊就是它：$xy+yz+zx=\\frac{(x+y+z)^2-(x^2+y^2+z^2)}2$ 后整体可算。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "8.2 二重积分换元（雅可比）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-8-2-1",
+              "name": "换元公式",
+              "expr": "$$\\iint_D f(x,y)\\,\\mathrm dx\\,\\mathrm dy=\\iint_{D'}f\\bigl(x(u,v),y(u,v)\\bigr)\\,|J|\\,\\mathrm du\\,\\mathrm dv,\\qquad J=\\frac{\\partial(x,y)}{\\partial(u,v)}=\\begin{vmatrix}x_u&amp;x_v\\\\y_u&amp;y_v\\end{vmatrix}$$",
+              "tags": [
+                "Z01",
+                "Z08",
+                "Z12",
+                "Z14"
+              ],
+              "tip": "三个前提：一一对应、$J\\neq0$、$f$ 连续。画图时，否则定限必错。"
+            },
+            {
+              "seq": 2,
+              "id": "f-8-2-2",
+              "name": "三种常用变换（雅可比直接给）",
+              "expr": "$$\\text{平移}\\ x=u+a,\\ y=v+b:\\ J=1;\\qquad \\text{椭圆化圆}\\ x=au,\\ y=bv:\\ J=ab;\\qquad \\text{广义极坐标}\\ x=ar\\cos\\theta,\\ y=br\\sin\\theta:\\ J=abr$$",
+              "tags": [
+                "Z01",
+                "Z14"
+              ],
+              "tip": "$u=x+y,\\\\ v=x-y$ 是竞赛常客（Z14 填空 5 的菱形拉矩形），此时 $J=\\frac12$，因为 $\\mathrm dx\\mathrm dy=\\frac12\\mathrm du\\mathrm dv$。"
+            },
+            {
+              "seq": 3,
+              "id": "f-8-2-3",
+              "name": "换元的两个典型信号",
+              "expr": "$$\\text{被积式含}\\ \\sqrt{ax^2+by^2}\\Rightarrow \\text{广义极坐标};\\qquad \\text{被积式是}\\ F(x+y)\\ \\text{或}\\ F(x-y)\\Rightarrow u=x+y,\\ v=x-y$$",
+              "tags": [
+                "Z01",
+                "Z12"
+              ],
+              "tip": "Z01 填空 1 就是“换元消根式”：令 $x=ar\\cos\\theta$ 把 $\\sqrt{a^2x^2+b^2y^2}$ 变成 $abr$，根号直接消失。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "8.3 三重积分（讲义缺失，核心补充）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-8-3-1",
+              "name": "三种坐标系的选用判据",
+              "expr": "$$\\text{含}\\ x^2+y^2\\ \\text{但不含}\\ z\\Rightarrow \\text{柱坐标};\\qquad \\text{含}\\ x^2+y^2+z^2\\Rightarrow \\text{球坐标};\\qquad \\text{截面规则（如}\\ 0\\le x\\le y\\le z)\\Rightarrow \\text{截面法（先二后一）}$$",
+              "tags": [],
+              "tip": "先看“区域形状”，再看“被积函数”。两者冲突时以“哪个能把积分化成一次”为准，不要死守口诀。"
+            },
+            {
+              "seq": 2,
+              "id": "f-8-3-2",
+              "name": "柱坐标",
+              "expr": "$$x=r\\cos\\theta,\\ y=r\\sin\\theta,\\ z=z:\\quad \\mathrm dV=r\\,\\mathrm dr\\,\\mathrm d\\theta\\,\\mathrm dz,\\quad \\iiint_\\Omega f\\,\\mathrm dV=\\int_{\\theta_1}^{\\theta_2}\\mathrm d\\theta\\int_{r_1(\\theta)}^{r_2(\\theta)}r\\,\\mathrm dr\\int_{z_1(r,\\theta)}^{z_2(r,\\theta)}f\\,\\mathrm dz$$",
+              "tags": [
+                "Z04"
+              ],
+              "tip": "Z04 第 6 题就是柱坐标 + 变限积分求导。注意 $z$ 的上下限可以依赖 $r,\\theta$，定限顺序别乱。"
+            },
+            {
+              "seq": 3,
+              "id": "f-8-3-3",
+              "name": "球坐标",
+              "expr": "$$x=r\\sin\\varphi\\cos\\theta,\\ y=r\\sin\\varphi\\sin\\theta,\\ z=r\\cos\\varphi:\\quad \\mathrm dV=r^{2}\\sin\\varphi\\,\\mathrm dr\\,\\mathrm d\\varphi\\,\\mathrm d\\theta$$\r\n$$\\text{锥面}\\ z=\\sqrt{x^2+y^2}\\ \\text{定}\\ \\varphi:\\ \\varphi\\in\\Bigl[0,\\frac\\pi4\\Bigr];\\qquad \\text{半球}\\ z=\\sqrt{R^2-x^2-y^2}\\ \\text{定}\\ \\rho:\\ \\rho\\in[0,R]$$",
+              "tags": [
+                "Z09",
+                "Z11",
+                "Z05"
+              ],
+              "tip": "Z09 填空 6 的原话：“锥面定 $\\varphi$、半球定 $\\rho$”。一般圆锥 $z=k\\sqrt{x^2+y^2}$ 的 $\\varphi_0=\\arctan\\frac1k$。$\\sin\\varphi$ 别漏。"
+            },
+            {
+              "seq": 4,
+              "id": "f-8-3-4",
+              "name": "广义球坐标（椭球专用）",
+              "expr": "$$x=ar\\sin\\varphi\\cos\\theta,\\ y=br\\sin\\varphi\\sin\\theta,\\ z=cr\\cos\\varphi:\\quad J=abc\\,r^{2}\\sin\\varphi$$",
+              "tags": [
+                "Z02",
+                "Z05",
+                "Z10"
+              ],
+              "tip": "把椭球 $\\frac{x^2}{a^2}+\\frac{y^2}{b^2}+\\frac{z^2}{c^2}\\le1$ 拉成单位球。Z02 第 5 题（转动惯量）、Z10 第 4 题（球壳差）都用它。"
+            },
+            {
+              "seq": 5,
+              "id": "f-8-3-5",
+              "name": "截面法（先二后一）",
+              "expr": "$$\\iiint_\\Omega f\\,\\mathrm dV=\\int_{c}^{d}\\mathrm dz\\iint_{D_z}f(x,y,z)\\,\\mathrm dx\\,\\mathrm dy;\\qquad \\text{适用：}f\\ \\text{只依赖}\\ z\\ \\text{或截面}\\ D_z\\ \\text{形状规则}$$",
+              "tags": [
+                "Z06",
+                "Z10",
+                "Z15",
+                "Z17"
+              ],
+              "tip": "Z17 第 4 题的“链式区域 $0\\le x\\le y\\le z$”就是典型：被积式不含 $x$，先积 $x$ 最省。Z15 第 3 题的圆锥体积也用它。"
+            },
+            {
+              "seq": 6,
+              "id": "f-8-3-6",
+              "name": "先一后二（投影法）",
+              "expr": "$$\\iiint_\\Omega f\\,\\mathrm dV=\\int_a^{b}\\mathrm dx\\int_{y_1(x)}^{y_2(x)}\\mathrm dy\\int_{z_1(x,y)}^{z_2(x,y)}f\\,\\mathrm dz$$",
+              "tags": [],
+              "tip": "先在地面投影定 $D_{xy}$，再让 $z$ 从“下曲面”穿到“上曲面”。上下曲面谁在上，必须画图确认。"
+            },
+            {
+              "seq": 7,
+              "id": "f-8-3-7",
+              "name": "三重积分的对称性",
+              "expr": "$$\\Omega\\ \\text{关于}\\ xOy\\ \\text{面对称}:\\ f(x,y,-z)=-f\\Rightarrow \\iiint=0;\\qquad \\text{轮换}\\ x,y,z\\ \\text{不变}\\Rightarrow \\iiint f(x,y,z)=\\iiint f(y,z,x)=\\cdots$$",
+              "tags": [
+                "Z10",
+                "Z17"
+              ],
+              "tip": "三重的对称性比二重更强（有三个坐标面 + 三个轮换），先查再算，常常直接得 0。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "8.4 重积分的应用",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-8-4-1",
+              "name": "体积、质心、转动惯量",
+              "expr": "$$V=\\iiint_\\Omega 1\\,\\mathrm dV;\\qquad \\bar z=\\frac{\\iiint_\\Omega z\\,\\mathrm dV}{\\iiint_\\Omega 1\\,\\mathrm dV};\\qquad I_z=\\iiint_\\Omega (x^2+y^2)\\,\\rho\\,\\mathrm dV$$",
+              "tags": [
+                "Z02",
+                "Z16"
+              ],
+              "tip": "半球质心 $\\bar z=\\frac{3R}8$（Z16 第 4 题直接用）。转动惯量 $I_z$ 用“到 $z$ 轴距离的平方”，不是 $z^2$。"
+            },
+            {
+              "seq": 2,
+              "id": "f-8-4-2",
+              "name": "曲面面积（第一类曲面积分的雏形）",
+              "expr": "$$S=\\iint_D\\sqrt{1+z_x^2+z_y^2}\\,\\mathrm dx\\,\\mathrm dy;\\qquad S_{\\text{参数}}=\\iint_{D'}|\\vec r_u\\times\\vec r_v|\\,\\mathrm du\\,\\mathrm dv$$",
+              "tags": [
+                "Z15"
+              ],
+              "tip": "Z15 填空 5 的技巧：把 $z_x,z_y$ 用曲面方程本身化简，能约掉根式；再配合对称性，计算量减半。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 9,
+      "id": "ch-9",
+      "no": "第九章",
+      "title": "曲线积分与曲面积分（讲义缺失，核心补充）",
+      "freq": "<b>竞赛考频</b>　约 12 处，且多为 10–12 分大题。Z01 第 4 题（Green + 区域对称）、Z05 第 5 题（Gauss + 广义球坐标）、Z05 第 6 题（挖洞 Green）、Z09 第 3 题（补线闭合 + Stokes）、Z11 第 4 题（球带面积）、Z13 第 4 题（欧拉齐次 + 高斯）、Z16 填空 5 与第 4 题（奇点与补面）全部在这一章。",
+      "lead": "这一章的分数集中在“三大公式 + 两个补丁”：Green、Gauss、Stokes，加上“奇点挖洞”和“补面/补线闭合”。拿到题先做三件事：查奇点、看是否闭、判方向。三件事定完，方法基本就定了。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "9.1 第一类曲线与曲面积分",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-9-1-1",
+              "name": "第一类曲线积分（对弧长）",
+              "expr": "$$\\int_L f(x,y)\\,\\mathrm ds=\\int_{\\alpha}^{\\beta}f\\bigl(x(t),y(t)\\bigr)\\sqrt{x'^2+y'^2}\\,\\mathrm dt\\quad\\bigl(\\mathrm ds=\\sqrt{x'^2+y'^2}\\,\\mathrm dt\\bigr)$$",
+              "tags": [
+                "Z11"
+              ],
+              "tip": "对弧长的积分与方向无关（$\\int_{AB}=\\int_{BA}$），这是它和第二类的根本区别。极坐标下 $\\mathrm ds=\\sqrt{\\rho^2+\\rho'^2}\\,\\mathrm d\\theta$。"
+            },
+            {
+              "seq": 2,
+              "id": "f-9-1-2",
+              "name": "第一类曲面积分（对面积）",
+              "expr": "$$\\iint_\\Sigma f(x,y,z)\\,\\mathrm dS=\\iint_D f\\bigl(x,y,z(x,y)\\bigr)\\sqrt{1+z_x^2+z_y^2}\\,\\mathrm dx\\,\\mathrm dy\\quad\\bigl(\\mathrm dS=\\sqrt{1+z_x^2+z_y^2}\\,\\mathrm dx\\mathrm dy\\bigr)$$",
+              "tags": [
+                "Z15"
+              ],
+              "tip": "投影到哪个坐标面，取决于曲面“单值”的方向：球面常投影到 $xOy$，但要分上下两片算。"
+            },
+            {
+              "seq": 3,
+              "id": "f-9-1-3",
+              "name": "球带面积（竞赛送分公式）",
+              "expr": "$$\\text{球面}\\ x^2+y^2+z^2=R^2\\ \\text{介于}\\ z=z_1,\\ z=z_2\\ \\text{之间的面积}=2\\pi R\\,(z_2-z_1)$$",
+              "tags": [
+                "Z03",
+                "Z11"
+              ],
+              "tip": "“球带面积 = $2\\pi R\\times$ 高”，与纬度无关。Z03 第 6 题、Z11 第 4 题都是“球面参数化 + 球带面积 + 一维积分”的三连。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "9.2 第二类曲线与曲面积分",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-9-2-1",
+              "name": "第二类曲线积分（对坐标）",
+              "expr": "$$\\int_L P\\,\\mathrm dx+Q\\,\\mathrm dy=\\int_{\\alpha}^{\\beta}\\Bigl[P\\bigl(x(t),y(t)\\bigr)x'(t)+Q\\bigl(x(t),y(t)\\bigr)y'(t)\\Bigr]\\mathrm dt$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "与方向有关：反向变号。它不是“向量场沿曲线的功”之外的另一种东西，$\\vec F=(P,Q)$ 沿 $L$ 的功就是它。"
+            },
+            {
+              "seq": 2,
+              "id": "f-9-2-2",
+              "name": "第二类曲面积分（对坐标）",
+              "expr": "$$\\iint_\\Sigma P\\,\\mathrm dy\\mathrm dz+Q\\,\\mathrm dz\\mathrm dx+R\\,\\mathrm dx\\mathrm dy=\\iint_\\Sigma\\bigl(P\\cos\\alpha+Q\\cos\\beta+R\\cos\\gamma\\bigr)\\mathrm dS$$",
+              "tags": [
+                "Z05",
+                "Z06"
+              ],
+              "tip": "$\\cos\\alpha,\\cos\\beta,\\cos\\gamma$ 是曲面法向量的方向余弦。定号靠“法向量指向哪一侧”，这是第二类最容易错的地方。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "9.3 Green 公式与路径无关",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-9-3-1",
+              "name": "Green 公式",
+              "expr": "$$\\oint_L P\\,\\mathrm dx+Q\\,\\mathrm dy=\\iint_D\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)\\mathrm dx\\,\\mathrm dy\\quad\\bigl(L\\ \\text{取正向}\\bigr)$$",
+              "tags": [
+                "Z01",
+                "Z05",
+                "Z16"
+              ],
+              "tip": "正向 = 逆时针（区域在左侧）。Z01 第 4 题靠“区域对称”让 $\\iint$ 里的一项直接为 0。"
+            },
+            {
+              "seq": 2,
+              "id": "f-9-3-2",
+              "name": "奇点挖洞",
+              "expr": "$$\\text{若}\\ L\\ \\text{内有奇点}\\ P_0:\\quad \\oint_L=\\oint_{L_\\varepsilon}\\ (\\text{取同向}),\\qquad L_\\varepsilon:\\ (x-x_0)^2+(y-y_0)^2=\\varepsilon^2$$",
+              "tags": [
+                "Z05",
+                "Z16"
+              ],
+              "tip": "Z16 填空 5 的口诀：“Green 前查奇点”。$\\frac{x\\mathrm dy-y\\mathrm dx}{x^2+y^2}$ 在原点无定义，必须挖掉；挖完用参数化算小圆上的积分。"
+            },
+            {
+              "seq": 3,
+              "id": "f-9-3-3",
+              "name": "路径无关的四个等价命题",
+              "expr": "$$\\int_L P\\mathrm dx+Q\\mathrm dy\\ \\text{路径无关}\\iff \\oint_L=0\\ (\\text{任意闭路})\\iff P_y=Q_x\\ (\\text{单连通域})\\iff P\\mathrm dx+Q\\mathrm dy=\\mathrm du$$",
+              "tags": [
+                "Z02",
+                "Z04",
+                "Z10"
+              ],
+              "tip": "“单连通”不能省：$\\frac{x\\mathrm dy-y\\mathrm dx}{x^2+y^2}$ 满足 $P_y=Q_x$，但在挖去原点的区域上积分与路径有关（绕原点一圈得 $2\\pi$）。"
+            },
+            {
+              "seq": 4,
+              "id": "f-9-3-4",
+              "name": "全微分对子表（凑 $u$ 用）",
+              "expr": "$$y\\mathrm dx+x\\mathrm dy=\\mathrm d(xy);\\qquad \\frac{x\\mathrm dy-y\\mathrm dx}{x^2}=\\mathrm d\\Bigl(\\frac yx\\Bigr);\\qquad \\frac{y\\mathrm dx-x\\mathrm dy}{y^2}=\\mathrm d\\Bigl(\\frac xy\\Bigr)$$\r\n$$x\\mathrm dx+y\\mathrm dy=\\mathrm d\\Bigl(\\frac{x^2+y^2}2\\Bigr);\\qquad \\frac{x\\mathrm dx+y\\mathrm dy}{x^2+y^2}=\\mathrm d\\Bigl(\\frac12\\ln(x^2+y^2)\\Bigr);\\qquad \\frac{x\\mathrm dy-y\\mathrm dx}{x^2+y^2}=\\mathrm d\\Bigl(\\arctan\\frac yx\\Bigr)$$",
+              "tags": [
+                "Z11",
+                "Z16"
+              ],
+              "tip": "Z11 填空 4 是“凑 $y^2\\mathrm d(x/y)$”，属于第三式的变形。记不住就现场验证：把右端求全微分看是否还原。"
+            },
+            {
+              "seq": 5,
+              "id": "f-9-3-5",
+              "name": "由 $P\\mathrm dx+Q\\mathrm dy$ 反求 $u$ 的三法",
+              "expr": "$$\\text{① 偏积分};\\quad \\text{② 凑全微分};\\quad \\text{③ 路径积分：}u=\\int_{(x_0,y_0)}^{(x,y)}P\\mathrm dx+Q\\mathrm dy\\ (\\text{取折线})$$",
+              "tags": [
+                "Z11"
+              ],
+              "tip": "折线取“先水平后竖直”最省：$u=\\int_{x_0}^{x}P(t,y_0)\\mathrm dt+\\int_{y_0}^{y}Q(x,t)\\mathrm dt$，两项各自一元。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "9.4 Gauss 公式（散度定理）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-9-4-1",
+              "name": "Gauss 公式",
+              "expr": "$$\\iint_{\\Sigma}P\\,\\mathrm dy\\mathrm dz+Q\\,\\mathrm dz\\mathrm dx+R\\,\\mathrm dx\\mathrm dy=\\iiint_\\Omega\\Bigl(\\frac{\\partial P}{\\partial x}+\\frac{\\partial Q}{\\partial y}+\\frac{\\partial R}{\\partial z}\\Bigr)\\mathrm dV\\quad\\bigl(\\Sigma\\ \\text{取外侧}\\bigr)$$",
+              "tags": [
+                "Z05",
+                "Z06",
+                "Z13",
+                "Z16"
+              ],
+              "tip": "右边就是 $\\operatorname{div}\\vec F$ 的体积分。用之前先确认闭曲面且取外侧，否则要补面或改号。"
+            },
+            {
+              "seq": 2,
+              "id": "f-9-4-2",
+              "name": "补面法（不闭合时）",
+              "expr": "$$\\Sigma\\ \\text{不闭}:\\quad \\iint_\\Sigma=\\iiint_\\Omega\\operatorname{div}\\vec F\\,\\mathrm dV-\\iint_{\\Sigma_0},\\ \\text{其中}\\ \\Sigma_0\\ \\text{是补上的面},\\ \\text{且}\\ \\Sigma\\ \\text{与}\\ \\Sigma_0\\ \\text{的方向要合成外侧}$$",
+              "tags": [
+                "Z06",
+                "Z16"
+              ],
+              "tip": "Z06 第 4 题、Z16 第 4 题都是“补面 + 补面那一块积分为 0”。补面常选平面（如 $z=0$ 上的圆盘），因为 $\\mathrm dz=0$ 使某些项消失。"
+            },
+            {
+              "seq": 3,
+              "id": "f-9-4-3",
+              "name": "散度与“被积函数定号”",
+              "expr": "$$\\operatorname{div}\\vec F=P_x+Q_y+R_z;\\qquad \\text{若}\\ \\operatorname{div}\\vec F&gt;0\\ \\text{在}\\ \\Omega\\ \\text{内},\\ \\text{则}\\ \\iint_{\\Sigma}&gt;0$$",
+              "tags": [
+                "Z05",
+                "Z13"
+              ],
+              "tip": "Z05 第 5 题的关键一步就是“先算散度、判定它恒正”，再据此给积分定号，不必算出具体值。"
+            }
+          ]
+        },
+        {
+          "seq": 5,
+          "title": "9.5 Stokes 公式（旋度定理）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-9-5-1",
+              "name": "Stokes 公式",
+              "expr": "$$\\oint_{\\Gamma}P\\,\\mathrm dx+Q\\,\\mathrm dy+R\\,\\mathrm dz=\\iint_{\\Sigma}\\Bigl(\\frac{\\partial R}{\\partial y}-\\frac{\\partial Q}{\\partial z}\\Bigr)\\mathrm dy\\mathrm dz+\\Bigl(\\frac{\\partial P}{\\partial z}-\\frac{\\partial R}{\\partial x}\\Bigr)\\mathrm dz\\mathrm dx+\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)\\mathrm dx\\mathrm dy$$",
+              "tags": [
+                "Z09"
+              ],
+              "tip": "等价写法：$\\oint_\\Gamma\\vec F\\cdot\\mathrm d\\vec r=\\iint_\\Sigma(\\nabla\\times\\vec F)\\cdot\\vec n\\,\\mathrm dS$。$\\Gamma$ 的方向与 $\\Sigma$ 的法向要满足右手法则。"
+            },
+            {
+              "seq": 2,
+              "id": "f-9-5-2",
+              "name": "补线闭合",
+              "expr": "$$\\Gamma\\ \\text{不闭}:\\quad \\int_\\Gamma=\\oint_{\\Gamma+\\Gamma_0}-\\int_{\\Gamma_0},\\qquad \\Gamma_0\\ \\text{是补上的曲线段}$$",
+              "tags": [
+                "Z09"
+              ],
+              "tip": "Z09 第 3 题：补一条直线段把开口封上，用 Stokes，再减掉补线那一段。补线常选坐标轴上的线段，因为那里 $\\mathrm dx$ 或 $\\mathrm dy$ 为 0。"
+            }
+          ]
+        },
+        {
+          "seq": 6,
+          "title": "9.6 场论三算子",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-9-6-1",
+              "name": "梯度、散度、旋度",
+              "expr": "$$\\operatorname{grad}u=(u_x,u_y,u_z);\\qquad \\operatorname{div}\\vec F=P_x+Q_y+R_z;\\qquad \\operatorname{rot}\\vec F=\\begin{vmatrix}\\vec i&amp;\\vec j&amp;\\vec k\\\\ \\frac{\\partial}{\\partial x}&amp;\\frac{\\partial}{\\partial y}&amp;\\frac{\\partial}{\\partial z}\\\\ P&amp;Q&amp;R\\end{vmatrix}$$",
+              "tags": [
+                "Z13"
+              ],
+              "tip": "记忆：grad 升维（数量→向量）、div 降维（向量→数量）、rot 保维。$\\operatorname{div}(\\operatorname{rot}\\vec F)\\equiv0$、$\\operatorname{rot}(\\operatorname{grad}u)\\equiv\\vec0$ 是两条恒等式。"
+            },
+            {
+              "seq": 2,
+              "id": "f-9-6-2",
+              "name": "欧拉齐次定理",
+              "expr": "$$f\\ \\text{为}\\ k\\ \\text{次齐次函数}:\\quad xf_x+yf_y+zf_z=kf$$",
+              "tags": [
+                "Z13"
+              ],
+              "tip": "“齐次”指 $f(tx,ty,tz)=t^kf(x,y,z)$。Z13 第 4 题用它把“球面法向 $(x,y,z)$”与被积函数直接挂钩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "id": "ch-10",
+      "no": "第十章",
+      "title": "常微分方程",
+      "freq": "<b>竞赛考频</b>　约 14 处，常与别的章节“串联”出现：Z01 第 7 题（一阶线性 + 幂级数求和）、Z02 第 3 题（参数二阶导 + 一阶线性 + 相切）、Z06 填空 1（特征方程 + 重根 + 方程还原）、Z08 填空 3（链式 + 可分离）、Z14 填空 4 与 Z17 第 3 题（伯努利 + 积分因子 $\\ln x$）、Z16 第 2 题（先判恰当性）、Z15 第 2 题（令 $u=x^2,v=y^2$ 化齐次）。",
+      "lead": "竞赛考微分方程的特点是“不单独考”：它总是作为最后一步，或者作为“把几何条件翻译成方程”的出口。所以重点不是背通解公式，而是<b>认型</b>——看到什么形状就知道该套哪一型，以及初始条件怎么用。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "10.1 一阶方程五型（认型比求解更重要）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-10-1-1",
+              "name": "可分离变量",
+              "expr": "$$\\frac{\\mathrm dy}{\\mathrm dx}=f(x)g(y)\\ \\Longrightarrow\\ \\int\\frac{\\mathrm dy}{g(y)}=\\int f(x)\\,\\mathrm dx+C\\quad(g(y)\\neq0)$$",
+              "tags": [
+                "Z08"
+              ],
+              "tip": "还要单独检查 $g(y)=0$ 的常数解是否被丢掉。竞赛常在这里扣一分。"
+            },
+            {
+              "seq": 2,
+              "id": "f-10-1-2",
+              "name": "齐次方程",
+              "expr": "$$\\frac{\\mathrm dy}{\\mathrm dx}=\\varphi\\Bigl(\\frac yx\\Bigr)\\ \\Longrightarrow\\ \\text{令}\\ u=\\frac yx,\\ \\text{得}\\ x\\frac{\\mathrm du}{\\mathrm dx}=\\varphi(u)-u$$",
+              "tags": [
+                "Z11",
+                "Z15"
+              ],
+              "tip": "“齐次”指右端只依赖 $y/x$（或 $x/y$）。Z15 第 2 题先把方程整理成 $\\frac{y\\mathrm dy}{x\\mathrm dx}$，再令 $u=x^2,v=y^2$ 才化成齐次——换元可以嵌套。"
+            },
+            {
+              "seq": 3,
+              "id": "f-10-1-3",
+              "name": "一阶线性",
+              "expr": "$$y'+p(x)y=q(x)\\ \\Longrightarrow\\ y=\\mathrm e^{-\\int p(x)\\mathrm dx}\\Bigl[\\int q(x)\\,\\mathrm e^{\\int p(x)\\mathrm dx}\\,\\mathrm dx+C\\Bigr]$$",
+              "tags": [
+                "Z01",
+                "Z04",
+                "Z09"
+              ],
+              "tip": "指数上的 $\\int p$ （常数会被 $C$ 吸收）。写成变限积分形式 $\\mathrm e^{-\\int_{x_0}^x p}$ 更便于代初值。"
+            },
+            {
+              "seq": 4,
+              "id": "f-10-1-4",
+              "name": "伯努利方程",
+              "expr": "$$y'+p(x)y=q(x)y^{\\alpha}\\ (\\alpha\\neq1)\\ \\Longrightarrow\\ \\text{令}\\ z=y^{1-\\alpha},\\ \\text{化为}\\ z'+(1-\\alpha)p(x)z=(1-\\alpha)q(x)$$",
+              "tags": [
+                "Z14",
+                "Z17"
+              ],
+              "tip": "$\\alpha=0$ 时退化为线性，$\\alpha=1$ 时可分离，所以这两点要单独讨论。Z14 填空 4 是“换元 $u=\\cos y$ 后再伯努利”，Z17 第 3 题是“$z=\\cos y$ 消三角 + 伯努利 $n=2$”。"
+            },
+            {
+              "seq": 5,
+              "id": "f-10-1-5",
+              "name": "全微分方程（恰当方程）",
+              "expr": "$$P\\mathrm dx+Q\\mathrm dy=0,\\ \\text{若}\\ P_y=Q_x,\\ \\text{则}\\ u=\\int_{x_0}^{x}P(t,y_0)\\mathrm dt+\\int_{y_0}^{y}Q(x,t)\\mathrm dt,\\ \\text{通解}\\ u(x,y)=C$$",
+              "tags": [
+                "Z11",
+                "Z16"
+              ],
+              "tip": "Z16 第 2 题的顺序是“先判恰当性，不恰当再找积分因子”。$\\frac{P_y-Q_x}{Q}$ 只依赖 $x$ 时可取 $\\mu=\\mathrm e^{\\int\\frac{P_y-Q_x}{Q}\\mathrm dx}$。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "10.2 可降阶的二阶方程",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-10-2-1",
+              "name": "三种可降阶",
+              "expr": "$$y''=f(x):\\ \\text{连积两次};\\qquad y''=f(x,y'):\\ \\text{令}\\ p=y',\\ \\text{得}\\ p'=f(x,p);\\qquad y''=f(y,y'):\\ \\text{令}\\ p=y',\\ \\text{得}\\ p\\frac{\\mathrm dp}{\\mathrm dy}=f(y,p)$$",
+              "tags": [
+                "Z07"
+              ],
+              "tip": "第三种的关键是 $y''=\\frac{\\mathrm dp}{\\mathrm dx}=\\frac{\\mathrm dp}{\\mathrm dy}\\cdot\\frac{\\mathrm dy}{\\mathrm dx}=p\\frac{\\mathrm dp}{\\mathrm dy}$——把 $x$ 从方程里“消掉”，自变量换成 $y$。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "10.3 二阶常系数线性方程",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-10-3-1",
+              "name": "齐次方程：三种特征根",
+              "expr": "$$y''+py'+qy=0,\\ r^2+pr+q=0:\\quad \\text{两不等实根}\\Rightarrow y=C_1\\mathrm e^{r_1x}+C_2\\mathrm e^{r_2x};\\quad \\text{重根}\\Rightarrow y=(C_1+C_2x)\\mathrm e^{rx};\\quad \\text{共轭复根}\\ \\alpha\\pm\\beta\\mathrm i\\Rightarrow y=\\mathrm e^{\\alpha x}(C_1\\cos\\beta x+C_2\\sin\\beta x)$$",
+              "tags": [
+                "Z06",
+                "Z13"
+              ],
+              "tip": "重根要乘 $x$，这一步决定了它是否线性无关（$\\mathrm e^{rx}$ 与 $x\\mathrm e^{rx}$ 之比不是常数）。Z06 填空 1 是反问题：给通解反推方程与重根。"
+            },
+            {
+              "seq": 2,
+              "id": "f-10-3-2",
+              "name": "非齐次：自由项 $P_m(x)\\mathrm e^{rx}$",
+              "expr": "$$y^*=x^{k}Q_m(x)\\mathrm e^{rx},\\qquad k=r\\ \\text{作为特征根的重数}\\ (0,1,2)$$",
+              "tags": [
+                "Z06"
+              ],
+              "tip": "$Q_m$ 是与 $P_m$ 同次的待定多项式（不是 $P_m$ 本身）。$k$ 只由 $r$ 与特征根的关系决定，与 $P_m$ 无关。"
+            },
+            {
+              "seq": 3,
+              "id": "f-10-3-3",
+              "name": "非齐次：自由项 $\\mathrm e^{\\alpha x}[P_l\\cos\\beta x+Q_m\\sin\\beta x]$",
+              "expr": "$$y^*=x^{k}\\mathrm e^{\\alpha x}\\bigl[M_n\\cos\\beta x+N_n\\sin\\beta x\\bigr],\\qquad n=\\max\\{l,m\\},\\qquad k=\\begin{cases}0,&amp;\\alpha\\pm\\beta\\mathrm i\\ \\text{不是特征根}\\\\1,&amp;\\text{是特征根}\\end{cases}$$",
+              "tags": [],
+              "tip": "：右端只有 $\\cos$ 或只有 $\\sin$ 时，$y^*$ 必须同时含 $\\cos$ 与 $\\sin$，否则系数配不平。"
+            },
+            {
+              "seq": 4,
+              "id": "f-10-3-4",
+              "name": "解的结构与叠加",
+              "expr": "$$\\text{非齐通解}=\\text{非齐特解}+\\text{齐次通解};\\qquad \\text{齐次解叠加：}y_1,y_2\\ \\text{是解}\\Rightarrow C_1y_1+C_2y_2\\ \\text{也是解};\\qquad \\text{自由项可拆：}f=f_1+f_2\\Rightarrow y^*=y_1^*+y_2^*$$",
+              "tags": [
+                "Z01"
+              ],
+              "tip": "线性无关的判据：$\\frac{y_1}{y_2}\\neq$ 常数。Z01 第 5 题是“给解的结构 + 特征方程，反求非齐次项”。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "10.4 欧拉方程（讲义缺失）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-10-4-1",
+              "name": "欧拉方程与换元",
+              "expr": "$$x^2y''+pxy'+qy=f(x)\\ \\Longrightarrow\\ \\text{令}\\ x=\\mathrm e^{t}\\ (t=\\ln|x|),\\ \\text{则}\\ xy'=\\frac{\\mathrm dy}{\\mathrm dt},\\ x^2y''=\\frac{\\mathrm d^2y}{\\mathrm dt^2}-\\frac{\\mathrm dy}{\\mathrm dt}$$",
+              "tags": [],
+              "tip": "一般地 $x^ky^{(k)}=D(D-1)\\cdots(D-k+1)y$，其中 $D=\\frac{\\mathrm d}{\\mathrm dt}$。换元后变成常系数方程，按 10.3 解，最后把 $t$ 换回 $\\ln|x|$。"
+            }
+          ]
+        },
+        {
+          "seq": 5,
+          "title": "10.5 应用与几何翻译",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-10-5-1",
+              "name": "几何条件的翻译",
+              "expr": "$$\\text{切线斜率}=y';\\qquad \\text{法线斜率}=-\\frac1{y'};\\qquad \\text{曲边梯形面积}=\\int_a^xf(t)\\,\\mathrm dt$$",
+              "tags": [
+                "Z02",
+                "Z05",
+                "Z10"
+              ],
+              "tip": "竞赛的“解方程”题多半是这三句之一翻译出来的。Z02 第 3 题把“相切”翻译成“函数值相等 + 导数相等”，两个条件定两个常数。"
+            },
+            {
+              "seq": 2,
+              "id": "f-10-5-2",
+              "name": "物理：速度与加速度",
+              "expr": "$$v=\\frac{\\mathrm ds}{\\mathrm dt}=s'(t),\\qquad a=\\frac{\\mathrm d^2s}{\\mathrm dt^2}=s''(t)$$",
+              "tags": [],
+              "tip": "含阻力的运动方程写成 $m\\frac{\\mathrm dv}{\\mathrm dt}=mg-kv$ 这类一阶线性或可分离方程。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "id": "ch-11",
+      "no": "第十一章",
+      "title": "级数：判敛、幂级数、Fourier",
+      "freq": "<b>竞赛考频</b>　约 16 处，是除重积分之外的第二大区。正项判敛：Z05 计算 2（绝对收敛）、Z05 第 3 题（$p$ 级数）、Z07 第 4 题（比值法）；幂级数：Z03 计算 4（先积后导）、Z14 填空 3（乘 $x$ 求导两次）、Z15 填空 4（缺项）。<b>Abel 分部求和是本讲义最大缺口</b>：Z10 第 7 题、Z16 第 6 题、Z17 第 5 题全用它收口。",
+      "lead": "级数题分两类：一类是“判敛”（答收敛或发散），一类是“求和”（算出一个数）。判敛先看必要条件（反对数主导型最容易误判），再按“正项 / 交错 / 任意项”分流；求和靠“先求导后积分”或“先积后导”把系数配成展开式。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "11.1 数项级数判敛总原则",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-11-1-1",
+              "name": "收敛的必要条件",
+              "expr": "$$\\sum u_n\\ \\text{收敛}\\ \\Longrightarrow\\ \\lim_{n\\to\\infty}u_n=0;\\qquad \\text{逆否：}\\lim_{n\\to\\infty}u_n\\neq0\\Rightarrow \\text{发散}$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "$\\lim u_n=0$ 收敛（调和级数就是反例）。判敛的第一步永远先算这个极限，能省很多事。"
+            },
+            {
+              "seq": 2,
+              "id": "f-11-1-2",
+              "name": "正项级数：比较与极限比较",
+              "expr": "$$\\text{比较：}u_n\\le v_n,\\ \\sum v_n\\ \\text{收敛}\\Rightarrow \\sum u_n\\ \\text{收敛};\\qquad \\text{极限比较：}\\lim\\frac{u_n}{v_n}=A:\\quad 0&lt;A&lt;\\infty\\Rightarrow \\text{同敛散},\\ A=0\\Rightarrow \\text{分母收敛则分子收敛},\\ A=\\infty\\Rightarrow \\text{分母发散则分子发散}$$",
+              "tags": [
+                "Z05",
+                "Z07"
+              ],
+              "tip": "比较的“标尺”只有三把：$p$ 级数、几何级数、$\\sum\\frac1{n(\\ln n)^p}$。把待判通项往这三把上凑即可。"
+            },
+            {
+              "seq": 3,
+              "id": "f-11-1-3",
+              "name": "比值法与根值法",
+              "expr": "$$\\lim\\frac{u_{n+1}}{u_n}=\\rho:\\quad \\rho&lt;1\\Rightarrow \\text{收敛},\\ \\rho&gt;1\\Rightarrow \\text{发散},\\ \\rho=1\\Rightarrow \\text{失效}$$\r\n$$\\lim\\sqrt[n]{u_n}=\\rho:\\ \\text{结论同上，}\\rho=1\\ \\text{时失效}$$",
+              "tags": [
+                "Z07"
+              ],
+              "tip": "含 $n!$、$n^n$、$a^n$ 的用比值法；含“整体 $n$ 次方”的用根值法。$\\rho=1$ 时必须退回比较法（$\\sum\\frac1{n^p}$ 就卡在这里）。"
+            },
+            {
+              "seq": 4,
+              "id": "f-11-1-4",
+              "name": "积分判别法",
+              "expr": "$$f\\ \\text{在}\\ [1,+\\infty)\\ \\text{上非负、单调减}:\\quad \\sum_{n=1}^{\\infty}f(n)\\ \\text{与}\\ \\int_1^{+\\infty}f(x)\\,\\mathrm dx\\ \\text{同敛散}$$",
+              "tags": [],
+              "tip": "带 $\\ln n$ 的级数几乎都靠它。$\\sum\\frac1{n(\\ln n)^p}$ 收敛 ⇔ $p&gt;1$，就是积分判别直接得到的。"
+            },
+            {
+              "seq": 5,
+              "id": "f-11-1-5",
+              "name": "交错级数与 Leibniz 判别",
+              "expr": "$$\\sum(-1)^{n-1}u_n\\ (u_n\\downarrow0):\\quad \\text{收敛，且}\\ |r_n|\\le u_{n+1}$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "两个条件：单调不增、趋于 0，缺一不可。$u_n$ 不单调时级数，此时改用 Dirichlet 判别（11.3）。"
+            },
+            {
+              "seq": 6,
+              "id": "f-11-1-6",
+              "name": "绝对收敛与条件收敛",
+              "expr": "$$\\sum|u_n|\\ \\text{收敛}\\Rightarrow \\sum u_n\\ \\text{收敛（绝对收敛）};\\qquad \\text{条件收敛}\\Rightarrow \\text{正项部分与负项部分都发散};\\qquad \\text{绝对}\\times\\text{条件}\\Rightarrow \\text{必收敛}$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "判“条件收敛”要两步：先证 $\\sum u_n$ 收敛，再证 $\\sum|u_n|$ 发散，两步都写才算完整。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "11.2 正项级数的两把标尺",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-11-2-1",
+              "name": "$p$ 级数与广义 $p$ 级数",
+              "expr": "$$\\sum\\frac1{n^{p}}:\\ p&gt;1\\Rightarrow \\text{收敛},\\ p\\le1\\Rightarrow \\text{发散};\\qquad \\sum\\frac1{n(\\ln n)^{p}}:\\ p&gt;1\\Rightarrow \\text{收敛},\\ p\\le1\\Rightarrow \\text{发散}$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "$\\ln$ 的幂不改变 $p$ 的比较地位（$\\ln n$ 增长比任何 $n^\\varepsilon$ 都慢），所以“分母多一个 $\\ln$”只需要把 $p$ 的临界值搬过来。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "11.3 Abel 变换与 Dirichlet 判别（讲义缺失，竞赛必备）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-11-3-1",
+              "name": "Abel 变换（分部求和）",
+              "expr": "$$\\sum_{k=1}^{n}a_kb_k=A_nb_n+\\sum_{k=1}^{n-1}A_k\\bigl(b_k-b_{k+1}\\bigr),\\quad \\text{其中}\\ A_k=\\sum_{i=1}^{k}a_i$$",
+              "tags": [
+                "Z10",
+                "Z16",
+                "Z17"
+              ],
+              "tip": "这是“离散的分部积分”：把 $a_k$ 换成差分 $A_k-A_{k-1}$ 后重整。Z16 第 6 题、Z17 第 5 题都靠它把“部分和”提出来换成一个有界的量。"
+            },
+            {
+              "seq": 2,
+              "id": "f-11-3-2",
+              "name": "Dirichlet 判别法",
+              "expr": "$$\\sum a_k\\ \\text{的部分和}\\ A_n\\ \\text{有界},\\ b_n\\downarrow0\\ \\Longrightarrow\\ \\sum a_kb_k\\ \\text{收敛}$$",
+              "tags": [
+                "Z16",
+                "Z17"
+              ],
+              "tip": "典型用法：$\\sum\\frac{\\sin n}{n}$、$\\sum\\frac{\\cos n}{n}$、$\\sum\\frac{(-1)^n}{\\sqrt n}$。$\\sin n$ 的部分和 $\\le\\frac1{|\\sin(1/2)|}$ 有界，$\\frac1n\\downarrow0$，直接收敛。"
+            },
+            {
+              "seq": 3,
+              "id": "f-11-3-3",
+              "name": "Abel 判别法",
+              "expr": "$$\\sum a_k\\ \\text{收敛},\\ b_n\\ \\text{单调有界}\\ \\Longrightarrow\\ \\sum a_kb_k\\ \\text{收敛}$$",
+              "tags": [],
+              "tip": "与 Dirichlet 的分工：Dirichlet 管“发散但有界振荡”的 $\\sum a_k$，Abel 管“已经收敛”的 $\\sum a_k$，再乘一个单调有界的权。"
+            },
+            {
+              "seq": 4,
+              "id": "f-11-3-4",
+              "name": "$a_n^{3/2}$ 型拆组（Z17 第 5 题的招式）",
+              "expr": "$$|a_n|\\le\\frac{3\\sqrt3}{8}\\ \\text{型估计}\\Rightarrow\\ \\text{把}\\ a_n^{\\frac32}=a_n\\cdot a_n^{\\frac12}\\ \\text{拆成两组，一组用 Abel 求和，一组与}\\ \\Bigl(\\frac34\\Bigr)^{n}\\ \\text{比较}$$",
+              "tags": [
+                "Z17"
+              ],
+              "tip": "核心思路：幂次不是整数时，先拆成“一个能求和的因子 + 一个能控界的因子”，分别处理，不要硬套一个判别法。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "11.4 幂级数：收敛域与求和",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-11-4-1",
+              "name": "Abel 定理与收敛半径",
+              "expr": "$$\\sum a_nx^n:\\quad R=\\frac1{\\rho},\\ \\rho=\\lim\\Bigl|\\frac{a_{n+1}}{a_n}\\Bigr|\\ \\text{或}\\ \\rho=\\lim\\sqrt[n]{|a_n|};\\qquad |x|&lt;R\\Rightarrow \\text{绝对收敛},\\ |x|&gt;R\\Rightarrow \\text{发散},\\ x=\\pm R\\Rightarrow \\text{单独判别}$$",
+              "tags": [
+                "Z03",
+                "Z14",
+                "Z15"
+              ],
+              "tip": "“条件收敛点必为端点”：若在 $x_0$ 条件收敛，则 $|x_0|=R$。求收敛域一定最后单独查两个端点。"
+            },
+            {
+              "seq": 2,
+              "id": "f-11-4-2",
+              "name": "缺项型（只有 $x^{2n}$ 之类）",
+              "expr": "$$\\sum a_nx^{2n}\\ \\text{型}:\\quad \\text{令}\\ t=x^2,\\ \\text{先求}\\ R_t,\\ \\text{再解}\\ x^2&lt;R_t\\ \\text{得}\\ R=\\sqrt{R_t}$$",
+              "tags": [
+                "Z15"
+              ],
+              "tip": "也可以直接用比值法解 $x$：$\\lim\\bigl|\\frac{u_{n+1}(x)}{u_n(x)}\\bigr|&lt;1$，解出的 $x$ 区间就是收敛区间，比套公式稳。"
+            },
+            {
+              "seq": 3,
+              "id": "f-11-4-3",
+              "name": "逐项求导与逐项积分",
+              "expr": "$$\\Bigl(\\sum a_nx^n\\Bigr)'=\\sum na_nx^{n-1};\\qquad \\int_0^x\\sum a_nt^n\\,\\mathrm dt=\\sum\\frac{a_n}{n+1}x^{n+1}$$\r\n$$\\text{求导：}R\\ \\text{不变，收敛域可能缩小};\\qquad \\text{积分：}R\\ \\text{不变，收敛域可能扩大}$$",
+              "tags": [
+                "Z03",
+                "Z14"
+              ],
+              "tip": "“求和”的标准套路：先求导把系数 $n$ 变成 $1$，凑成几何级数求和，再积分回去。Z03 计算 4 是“先积后导”，Z14 填空 3 是“乘 $x$ 求导两次”。"
+            },
+            {
+              "seq": 4,
+              "id": "f-11-4-4",
+              "name": "凑求导（把系数配成 $n+1$、$(n+2)(n+1)$）",
+              "expr": "$$\\sum_{n\\ge0}(n+1)x^n=\\frac1{(1-x)^2};\\qquad \\sum_{n\\ge0}(n+2)(n+1)x^n=\\frac2{(1-x)^3}\\qquad(|x|&lt;1)$$",
+              "tags": [
+                "Z14"
+              ],
+              "tip": "来源：$\\frac1{1-x}=\\sum x^n$ 求导一次得第一式，求导两次得 $\\sum(n+2)(n+1)x^n$。分子是 $n$ 而不是 $n+1$ 时，先拆 $n=(n+1)-1$。"
+            }
+          ]
+        },
+        {
+          "seq": 5,
+          "title": "11.5 必背展开式（八条 + 四条补充）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-11-5-1",
+              "name": "几何型四条",
+              "expr": "$$\\frac1{1-x}=\\sum_{n=0}^{\\infty}x^n;\\quad \\frac1{1+x}=\\sum_{n=0}^{\\infty}(-1)^nx^n;\\quad \\ln(1+x)=\\sum_{n=1}^{\\infty}(-1)^{n-1}\\frac{x^n}{n};\\quad \\ln\\frac1{1-x}=\\sum_{n=1}^{\\infty}\\frac{x^n}{n}\\qquad(|x|&lt;1\\ \\text{前两式；后两式}\\ -1&lt;x\\le1)$$",
+              "tags": [
+                "Z08",
+                "Z14"
+              ],
+              "tip": "四个式子的收敛域不同：$\\ln(1+x)$ 在 $x=1$ 收敛（$\\sum\\frac{(-1)^{n-1}}n$），$\\ln\\frac1{1-x}$ 也在 $x=1$ 发散、$x=-1$ 收敛。端点必须单独查。"
+            },
+            {
+              "seq": 2,
+              "id": "f-11-5-2",
+              "name": "指数与三角",
+              "expr": "$$\\mathrm e^x=\\sum_{n=0}^{\\infty}\\frac{x^n}{n!};\\quad \\sin x=\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n+1}}{(2n+1)!};\\quad \\cos x=\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n}}{(2n)!};\\quad \\arctan x=\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n+1}}{2n+1}$$",
+              "tags": [
+                "Z08"
+              ],
+              "tip": "前三个收敛半径 $\\infty$；$\\arctan$ 的 $R=1$，且在 $x=\\pm1$ 都收敛（$\\pm\\frac\\pi4$），这是它最好用的地方。"
+            },
+            {
+              "seq": 3,
+              "id": "f-11-5-3",
+              "name": "二项式与双曲",
+              "expr": "$$(1+x)^{\\alpha}=1+\\sum_{n=1}^{\\infty}\\frac{\\alpha(\\alpha-1)\\cdots(\\alpha-n+1)}{n!}x^n;\\quad \\cosh x=\\sum_{n=0}^{\\infty}\\frac{x^{2n}}{(2n)!};\\quad \\sinh x=\\sum_{n=0}^{\\infty}\\frac{x^{2n+1}}{(2n+1)!}$$",
+              "tags": [
+                "Z10",
+                "Z11"
+              ],
+              "tip": "$\\alpha=-1$ 时就是 $\\frac1{1+x}$，$\\alpha=\\frac12$ 时给出 $\\sqrt{1+x}$ 的展开，$\\alpha=-\\frac12$ 给出 $\\frac1{\\sqrt{1+x}}$。竞赛求极限最常用的是这三个特例。"
+            }
+          ]
+        },
+        {
+          "seq": 6,
+          "title": "11.6 Fourier 级数与 Dirichlet 收敛定理",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-11-6-1",
+              "name": "Fourier 系数（周期 $2l$）",
+              "expr": "$$f(x)\\sim\\frac{a_0}2+\\sum_{n=1}^{\\infty}\\Bigl(a_n\\cos\\frac{n\\pi x}l+b_n\\sin\\frac{n\\pi x}l\\Bigr),\\quad a_n=\\frac1l\\int_{-l}^{l}f(x)\\cos\\frac{n\\pi x}l\\,\\mathrm dx,\\ b_n=\\frac1l\\int_{-l}^{l}f(x)\\sin\\frac{n\\pi x}l\\,\\mathrm dx$$",
+              "tags": [
+                "Z08"
+              ],
+              "tip": "系数前面的 $\\frac1l$ 不是 $\\frac2{2l}$ 写错，就是对的：$\\frac1l=\\frac2{2l}$。$a_0$ 单独除以 2，是因为公式里写的是 $\\frac{a_0}2$。"
+            },
+            {
+              "seq": 2,
+              "id": "f-11-6-2",
+              "name": "Dirichlet 收敛定理（三情形）",
+              "expr": "$$\\text{连续点：}\\ \\text{和}=f(x);\\qquad \\text{间断点：}\\ \\text{和}=\\frac{f(x^+)+f(x^-)}2;\\qquad \\text{端点}\\ x=\\pm l:\\ \\text{和}=\\frac{f(l^+)+f(l^-)}2$$",
+              "tags": [
+                "Z07"
+              ],
+              "tip": "Z07 填空 4 就是“跳跃点取左右极限平均”。端点处的和等于左端点右极限与右端点左极限的平均——这是周期延拓在端点“接头”的结果。"
+            },
+            {
+              "seq": 3,
+              "id": "f-11-6-3",
+              "name": "奇延拓与偶延拓",
+              "expr": "$$f\\ \\text{奇延拓}\\Rightarrow \\text{只有正弦项}\\ (b_n);\\qquad f\\ \\text{偶延拓}\\Rightarrow \\text{只有余弦项}\\ (a_n,\\ a_0)$$",
+              "tags": [
+                "Z08"
+              ],
+              "tip": "在 $[0,l]$ 上给函数让你展成“正弦级数”就是奇延拓，展成“余弦级数”就是偶延拓。此时系数积分只算 $[0,l]$ 再乘 2。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "id": "ch-12",
+      "no": "第十二章",
+      "title": "速查：必背数值、恒等式与易错清单",
+      "freq": "<b>竞赛考频</b>　本章不新增知识点，只做“考场上要一秒调出”的收口。所列数值与恒等式全部来自前十一章，并在 Z01–Z17 中至少出现过一次；易错清单按“哪一届在哪一步翻车”整理。",
+      "lead": "考前最后一遍只看这一章：左边是“必须条件反射”的数值，中间是“一写出就省三步”的恒等式，右边是“每年都有人在这里丢分”的清单。",
+      "groups": [
+        {
+          "seq": 1,
+          "title": "12.1 必背数值（出现即用，不必再算）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-12-1-1",
+              "name": "Gauss 积分与 $\\Gamma$ 值",
+              "expr": "$$\\int_0^{+\\infty}\\mathrm e^{-x^2}\\mathrm dx=\\frac{\\sqrt\\pi}2;\\qquad \\Gamma\\Bigl(\\frac12\\Bigr)=\\sqrt\\pi;\\qquad \\Gamma(n+1)=n!$$",
+              "tags": [
+                "Z01",
+                "Z02"
+              ],
+              "tip": "$\\int_0^{+\\infty}x^{2n}\\mathrm e^{-x^2}\\mathrm dx=\\frac{(2n-1)!!}{2^{n+1}}\\sqrt\\pi$、$\\int_0^{+\\infty}x^{2n+1}\\mathrm e^{-x^2}\\mathrm dx=\\frac{n!}2$，两个泊松型结果一并记住。"
+            },
+            {
+              "seq": 2,
+              "id": "f-12-1-2",
+              "name": "三角有理积分",
+              "expr": "$$\\int_0^{2\\pi}\\frac{\\mathrm dt}{a^2\\cos^2t+b^2\\sin^2t}=\\frac{2\\pi}{ab};\\qquad \\int_0^{\\pi}xf(\\sin x)\\mathrm dx=\\frac\\pi2\\int_0^{\\pi}f(\\sin x)\\mathrm dx$$",
+              "tags": [
+                "Z16",
+                "Z11"
+              ],
+              "tip": "第一式在 Z16 填空 5 里是“挖洞 Green 之后”收尾用的；第二式是 $\\int_0^\\pi x\\sin x\\,\\mathrm dx$ 这类题的一步到位。"
+            },
+            {
+              "seq": 3,
+              "id": "f-12-1-3",
+              "name": "Wallis 与常用定值",
+              "expr": "$$\\int_0^{\\frac\\pi2}\\sin^nx\\,\\mathrm dx=\\int_0^{\\frac\\pi2}\\cos^nx\\,\\mathrm dx=\\begin{cases}\\dfrac{(n-1)!!}{n!!}\\cdot\\dfrac\\pi2,&amp;n\\ \\text{偶}\\\\[4pt]\\dfrac{(n-1)!!}{n!!},&amp;n\\ \\text{奇}\\end{cases};\\qquad \\sum_{n=1}^{\\infty}\\frac1{n^2}=\\frac{\\pi^2}6$$",
+              "tags": [
+                "Z11"
+              ],
+              "tip": "Wallis 只在 $[0,\\frac\\pi2]$ 上成立，别区间要先求原函数再说。$\\sum\\frac1{n^2}$ 常在 Fourier 题里作为端点值出现（$x=0$ 代入 $\\sum\\frac{\\cos nx}{n^2}$）。"
+            },
+            {
+              "seq": 4,
+              "id": "f-12-1-4",
+              "name": "两个常用极限与阶",
+              "expr": "$$\\lim_{n\\to\\infty}n^{\\frac1n}=1;\\qquad \\ln n!\\sim n\\ln n;\\qquad \\sum_{k=1}^{n}\\frac1k\\sim \\ln n$$",
+              "tags": [
+                "Z02",
+                "Z01"
+              ],
+              "tip": "$n^{1/n}$ 与 $\\ln n!$ 是“等价无穷大”里最常用的两条，配合 $\\sum\\frac1k$ 的阶可以把很多级数拍死。"
+            }
+          ]
+        },
+        {
+          "seq": 2,
+          "title": "12.2 高频恒等式（一写出就省三步）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-12-2-1",
+              "name": "对称平摊",
+              "expr": "$$xy+yz+zx=\\frac{(x+y+z)^2-(x^2+y^2+z^2)}2;\\qquad \\text{在}\\ x^2+y^2+z^2=R^2\\ \\text{上}:\\ x^2+y^2+z^2=R^2$$",
+              "tags": [
+                "Z17",
+                "Z13"
+              ],
+              "tip": "Z17 填空 5 的原话是“球面与平面交线是圆 + 置换对称平摊”：先证 $\\iint xy=\\iint yz=\\iint zx$，再三项相加凑成 $\\frac{(x+y+z)^2-R^2}2$，用平面方程把 $x+y+z$ 变成常数。"
+            },
+            {
+              "seq": 2,
+              "id": "f-12-2-2",
+              "name": "反三角互补",
+              "expr": "$$\\arcsin x+\\arccos x=\\frac\\pi2;\\qquad \\arctan x+\\arctan\\frac1x=\\frac\\pi2\\ (x&gt;0);\\qquad \\arctan\\mathrm e^x+\\arctan\\mathrm e^{-x}=\\frac\\pi2$$",
+              "tags": [
+                "Z05"
+              ],
+              "tip": "第三式令 $t=\\mathrm e^x$ 就是第二式。Z05 第 2 题“反正切互补 + 对称区间”两步合一，直接把积分砍成 $\\frac\\pi2\\int$。"
+            },
+            {
+              "seq": 3,
+              "id": "f-12-2-3",
+              "name": "两项相减的等价无穷小",
+              "expr": "$$x-\\sin x\\sim \\frac{x^3}6;\\qquad x-\\ln(1+x)\\sim \\frac{x^2}2;\\qquad \\tan x-x\\sim \\frac{x^3}3;\\qquad \\mathrm e^x-1-x\\sim \\frac{x^2}2$$",
+              "tags": [
+                "Z12",
+                "Z14"
+              ],
+              "tip": "“两项相减”一定要展到非零的首项，不能各自用一阶等价相消。Z12 填空 1、Z14 填空 1 都在考这个。"
+            }
+          ]
+        },
+        {
+          "seq": 3,
+          "title": "12.3 易错清单（按届整理）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-12-3-1",
+              "name": "定限错：坐标变换的三个前提",
+              "expr": "$$\\text{换元必查：① 一一对应（}J\\neq0\\text{）；② 新区域}\\ D'\\ \\text{要重新画图定限};\\quad \\text{③}\\ \\mathrm d\\sigma=|J|\\,\\mathrm du\\,\\mathrm dv$$",
+              "tags": [
+                "Z01",
+                "Z09",
+                "Z14"
+              ],
+              "tip": "Z01 填空 1、Z14 填空 5、Z09 填空 6 的共同失分点：区域换了但限没换。极坐标/球坐标那个 $r$、$r^2\\sin\\varphi$ 漏掉，答案直接差一个因子。"
+            },
+            {
+              "seq": 2,
+              "id": "f-12-3-2",
+              "name": "方向错：第二类线面积分的正负",
+              "expr": "$$\\text{Green：}L\\ \\text{取正向（逆时针）};\\quad \\text{Gauss：}\\Sigma\\ \\text{取外侧};\\quad \\text{Stokes：}\\Gamma\\ \\text{与}\\ \\Sigma\\ \\text{满足右手法则}$$",
+              "tags": [
+                "Z05",
+                "Z16"
+              ],
+              "tip": "补面/补线之后方向要“合成外侧”或“合成顺时针”，这一步错了整题翻号。Z05 第 5 题、Z16 第 4 题都在这里设坑。"
+            },
+            {
+              "seq": 3,
+              "id": "f-12-3-3",
+              "name": "条件漏：定理的前提",
+              "expr": "$$\\text{路径无关要区域单连通};\\quad \\text{混合偏导相等要二阶偏导连续};\\quad \\text{Leibniz 要}\\ u_n\\downarrow0;\\quad \\text{洛必达要}\\ \\frac00\\ \\text{或}\\ \\frac\\infty\\infty\\ \\text{且导数极限存在}$$",
+              "tags": [
+                "Z02",
+                "Z05"
+              ],
+              "tip": "“单连通”是 $\\frac{x\\mathrm dy-y\\mathrm dx}{x^2+y^2}$ 这类题的命门：区域挖了原点就不再单连通，$P_y=Q_x$ 也救不了路径无关。"
+            },
+            {
+              "seq": 4,
+              "id": "f-12-3-4",
+              "name": "余项错：Taylor 展到几阶",
+              "expr": "$$\\text{展开阶数}=\\text{分母的阶数};\\qquad \\text{分母若为}\\ x^k,\\ \\text{分子至少要展到}\\ x^{k}\\ \\text{项（含）}$$",
+              "tags": [
+                "Z17",
+                "Z14",
+                "Z04"
+              ],
+              "tip": "Z17 填空 1 的原话：“按分母阶数定展开阶”。分母是 $x^2+\\sin^2x\\sim2x^2$ 时展到二阶就够，展多了白算、展少了出错。"
+            },
+            {
+              "seq": 5,
+              "id": "f-12-3-5",
+              "name": "符号错：绝对值与开方",
+              "expr": "$$\\sqrt{x^2}=|x|;\\qquad |x|=\\begin{cases}x,&amp;x\\ge0\\\\-x,&amp;x&lt;0\\end{cases};\\qquad \\text{开方后若}\\ x&lt;0\\ \\text{记得添负号}$$",
+              "tags": [
+                "Z02",
+                "Z13"
+              ],
+              "tip": "$\\sqrt{x^2}=|x|$ 不是 $x$。换元 $x=a\\sin t$ 后开方出 $a|\\cos t|$，$t$ 的范围决定符号，Z13 填空 2 的分类讨论就源于此。"
+            }
+          ]
+        },
+        {
+          "seq": 4,
+          "title": "12.4 按章节回看十七届（哪一章在哪几届出现）",
+          "formulas": [
+            {
+              "seq": 1,
+              "id": "f-12-4-1",
+              "name": "一元部分（第二至五章）",
+              "expr": "极限与等价无穷小：Z01 Z02 Z03 Z05 Z06 Z08 Z09 Z10 Z11 Z12 Z13 Z17；　中值定理与 Taylor：Z03 Z04 Z06 Z08 Z10 Z12 Z13 Z14 Z16 Z17；　一元积分：Z03 Z04 Z05 Z06 Z11 Z12 Z14 Z15 Z16",
+              "tags": [
+                "Z01–Z17"
+              ],
+              "tip": "这三块是“每届都有”的地基，Z01–Z17 全覆盖。复习顺序建议：等价无穷小 → 中值定理 → 定积分技巧，因为它们互相喂题。"
+            },
+            {
+              "seq": 2,
+              "id": "f-12-4-2",
+              "name": "多元与积分（第六至九章）",
+              "expr": "向量与空间解析几何：Z02 Z04 Z07 Z13 Z14 Z16 Z17；　多元微分：Z02 Z04 Z09 Z12 Z15 Z16 Z17；　重积分：Z01 Z04 Z07 Z09 Z10 Z13 Z14 Z17；　线面积分：Z01 Z05 Z06 Z09 Z11 Z13 Z16",
+              "tags": [
+                "Z01–Z17"
+              ],
+              "tip": "线面积分虽然“只有”七届出现，但每次都是 10–12 分大题，单位分数的性价比最高。向量那一条基本是 5 分填空，属于“会就必得”。"
+            },
+            {
+              "seq": 3,
+              "id": "f-12-4-3",
+              "name": "方程与级数（第十、十一章）",
+              "expr": "微分方程：Z01 Z02 Z06 Z07 Z08 Z09 Z11 Z14 Z15 Z16 Z17；　级数：Z03 Z05 Z07 Z08 Z10 Z14 Z15 Z16 Z17",
+              "tags": [
+                "Z01–Z17"
+              ],
+              "tip": "两块的共同特点：很少单独成题，多半作为“最后一步”出现。所以练的时候要连着前一问一起练，别只背通解。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

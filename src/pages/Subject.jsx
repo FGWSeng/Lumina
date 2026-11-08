@@ -201,6 +201,11 @@ export default function Subject() {
             </div>
           </div>
           <div className="row" style={{ gap: 8 }}>
+            {subjectId === 'math' && (
+              <Link to="/formulas" className="btn sm">
+                公式背诵
+              </Link>
+            )}
             <div className="seg">
               <button className={view === 'single' ? 'active' : ''} onClick={() => patch('view', 'single')}>
                 单题
