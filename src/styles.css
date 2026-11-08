@@ -861,3 +861,101 @@ button { font: inherit; color: inherit; }
 @media (max-width: 640px) {
   .chapter-index-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ---------- 公式页两级索引与层级 ---------- */
+.formula-nav-panel { max-height: calc(100vh - 96px); display: flex; flex-direction: column; }
+.formula-nav-panel .panel-body { overflow-y: auto; }
+.nav-chapter { margin-bottom: 6px; }
+.nav-ch-no {
+  flex: none; width: 20px; height: 20px; border-radius: 5px;
+  background: var(--brand-soft); color: var(--brand);
+  font-size: 11px; font-weight: 700; display: grid; place-items: center;
+}
+.nav-ch-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-groups {
+  margin: 2px 0 6px 18px; padding-left: 8px;
+  border-left: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 1px;
+}
+.nav-group {
+  display: flex; align-items: baseline; gap: 7px;
+  border: 0; background: none; text-align: left; cursor: pointer;
+  padding: 4px 6px; border-radius: 6px; color: var(--muted);
+  font-size: 12.5px; width: 100%;
+}
+.nav-group:hover { background: var(--surface-2); color: var(--brand); }
+.nav-g-no { flex: none; font-size: 11px; color: var(--gold); font-variant-numeric: tabular-nums; }
+.nav-g-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.index-group { padding: 2px 0 8px; }
+.index-group + .index-group { border-top: 1px dashed var(--line); }
+.index-group-title {
+  font-size: 12px; font-weight: 700; color: var(--brand);
+  padding: 8px 0 4px; display: flex; gap: 7px; align-items: baseline;
+}
+.index-group-title .gno { color: var(--gold); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.formula-group-title {
+  border-left: 3px solid var(--brand);
+  padding-left: 10px;
+  margin: 18px 0 10px;
+}
+.formula-group-title .gno {
+  color: var(--gold); font-size: 12px; font-weight: 700;
+  font-variant-numeric: tabular-nums; margin-right: 3px;
+}
+.formula-chapter { border-top: 1px solid var(--line); padding-top: 22px; }
+.formula-chapter:first-of-type { border-top: 0; padding-top: 0; }
+
+.formula-main .katex { font-size: 1.02em; }
+.formula-main .katex-display { overflow-x: auto; overflow-y: hidden; }
+.formula-body .katex { font-size: 1em; }
+
+/* ---------- 公式页两级索引与层级 ---------- */
+.formula-nav-panel { max-height: calc(100vh - 96px); display: flex; flex-direction: column; }
+.formula-nav-panel .panel-body { overflow-y: auto; }
+.nav-chapter { margin-bottom: 6px; }
+.nav-ch-no {
+  flex: none; width: 20px; height: 20px; border-radius: 5px;
+  background: var(--brand-soft); color: var(--brand);
+  font-size: 11px; font-weight: 700; display: grid; place-items: center;
+}
+.nav-ch-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-groups {
+  margin: 2px 0 6px 18px; padding-left: 8px;
+  border-left: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 1px;
+}
+.nav-group {
+  display: flex; align-items: baseline; gap: 7px;
+  border: 0; background: none; text-align: left; cursor: pointer;
+  padding: 4px 6px; border-radius: 6px; color: var(--muted);
+  font-size: 12.5px; width: 100%;
+}
+.nav-group:hover { background: var(--surface-2); color: var(--brand); }
+.nav-g-no { flex: none; font-size: 11px; color: var(--gold); font-variant-numeric: tabular-nums; }
+.nav-g-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.index-group { padding: 2px 0 8px; }
+.index-group + .index-group { border-top: 1px dashed var(--line); }
+.index-group-title {
+  font-size: 12px; font-weight: 700; color: var(--brand);
+  padding: 8px 0 4px; display: flex; gap: 7px; align-items: baseline;
+}
+.index-group-title .gno { color: var(--gold); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.formula-group-title {
+  border-left: 3px solid var(--brand);
+  padding-left: 10px;
+  margin: 18px 0 10px;
+}
+.formula-group-title .gno {
+  color: var(--gold); font-size: 12px; font-weight: 700;
+  font-variant-numeric: tabular-nums; margin-right: 3px;
+}
+.formula-chapter { border-top: 1px solid var(--line); padding-top: 22px; }
+.formula-chapter:first-of-type { border-top: 0; padding-top: 0; }
+
+.formula-main .katex { font-size: 1.02em; }
+.formula-main .katex-display { overflow-x: auto; overflow-y: hidden; }
+.formula-body .katex { font-size: 1em; }

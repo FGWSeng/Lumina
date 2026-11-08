@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ChevronDown, ListTree, Search, X } from 'lucide-react'
+import { ChevronDown, Search, X } from 'lucide-react'
 
 export default function Formulas() {
   const [data, setData] = useState(null)
@@ -116,20 +116,29 @@ export default function Formulas() {
   return (
     <div className="shell formula-shell">
       <aside className="sidebar formula-sidebar">
-        <div className="panel">
+        <div className="panel formula-nav-panel">
           <div className="panel-head">
-            <div className="panel-title">章节目录</div>
-            <span className="tiny muted">{data.count} 条</span>
+            <div className="panel-title">章节索引</div>
+            <span className="tiny muted">
+              {data.chapters.length} 章 · {data.count} 条
+            </span>
           </div>
-          <div className="panel-body" ref={navRef}>
-            <div className="tree">
+          <div className="panel-body">
+            <div className="tree formula-nav-tree">
               {data.chapters.map((ch) => (
-                <button key={ch.id} className={`tree-item ${active === ch.id ? 'active' : ''}`} onClick={() => jump(ch.id)}>
-                  <span className="tiny muted" style={{ flex: 'none' }}>
-                    {ch.no.replace('第', '').replace('章', '')}
-                  </span>
-                  <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{ch.title}</span>
-                </button>
+                <div key={ch.id} className="nav-chapter">
+                  <button className={`tree-item ${active === ch.id ? 'active' : ''}`} onClick={() => jump(ch.id)}>
+                    <span className="nav-ch-no">{ch.no.replace('第', '').replace('章', '')}</span>
+                    <span className="nav-ch-title">{ch.title}</span>
+                  </button>
+                  <div className="nav-groups">
+                    {ch.groups.map((g) => (
+                      <button key={g.id} className="nav-group" onClick={() => jump(g.id)}>
+                        <span className="nav-g-title">{g.title}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -201,22 +210,25 @@ export default function Formulas() {
 
             <details className="chapter-index">
               <summary>本章索引 · {ch.groups.reduce((n, g) => n + g.formulas.length, 0)} 条</summary>
-              <div className="chapter-index-grid">
-                {ch.groups.flatMap((g) => g.formulas).map((f) => (
-                  <button key={f.id} onClick={() => jumpToFormula(f.id)}>
-                    {f.name}
-                  </button>
-                ))}
-              </div>
+              {ch.groups.map((g) => (
+                <div key={g.id} className="index-group">
+                  <div className="index-group-title">{g.title}</div>
+                  <div className="chapter-index-grid">
+                    {g.formulas.map((f) => (
+                      <button key={f.id} onClick={() => jumpToFormula(f.id)}>
+                        {f.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </details>
             {ch.freq && <div className="freq" dangerouslySetInnerHTML={{ __html: ch.freq }} />}
             {ch.lead && <p className="lead" dangerouslySetInnerHTML={{ __html: ch.lead }} />}
 
             {ch.groups.map((g) => (
-              <div key={g.id} className="formula-group">
-                <h3 className="formula-group-title">
-                  <ListTree size={14} /> {g.title}
-                </h3>
+              <div key={g.id} id={g.id} className="formula-group">
+                <h3 className="formula-group-title">{g.title}</h3>
                 <div className="formula-list">
                   {g.formulas.map((f) => {
                     const isOpen = open.has(f.id)
@@ -242,18 +254,18 @@ export default function Formulas() {
                               <div className="formula-label">推导思路</div>
                               <ol>
                                 {f.derive.map((s, i) => (
-                                  <li key={i}>{s}</li>
+                                  <li key={i} dangerouslySetInnerHTML={{ __html: s }} />
                                 ))}
                               </ol>
                             </div>
                             <div className="formula-memory">
                               <div className="formula-label">记忆技巧</div>
-                              <p>{f.memory}</p>
+                              <p dangerouslySetInnerHTML={{ __html: f.memory }} />
                             </div>
                             {f.when && (
                               <div className="formula-when">
                                 <div className="formula-label">何时用</div>
-                                <p>{f.when}</p>
+                                <p dangerouslySetInnerHTML={{ __html: f.when }} />
                               </div>
                             )}
                           </div>

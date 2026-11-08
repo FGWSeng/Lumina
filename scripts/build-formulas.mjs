@@ -118,8 +118,8 @@ function buildDerive(chapterTitle, groupTitle, name, tip) {
   }
 
   return {
-    derive: derive.map(latexToText),
-    memory: latexToText(memory),
+    derive: derive.map(renderMath),
+    memory: renderMath(memory),
   }
 }
 
@@ -144,6 +144,8 @@ const chapters = src.chapters.map((ch) => ({
   lead: renderMath(ch.lead),
   groups: ch.groups.map((g) => ({
     id: `${ch.id}-${g.seq}`,
+    seq: g.seq,
+    no: `${ch.seq}.${g.seq}`,
     title: g.title,
     formulas: g.formulas.map((f) => {
       count++
@@ -152,9 +154,9 @@ const chapters = src.chapters.map((ch) => ({
       let when
       let source
       if (f.deriveHtml && f.memoryHtml) {
-        derive = splitSteps(f.deriveHtml).map(latexToText)
-        memory = latexToText(f.memoryHtml)
-        when = latexToText(f.whenHtml || '')
+        derive = splitSteps(f.deriveHtml).map(renderMath)
+        memory = renderMath(f.memoryHtml)
+        when = renderMath(f.whenHtml || '')
         source = 'jingjiang'
         jjCount++
       } else {
