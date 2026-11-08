@@ -1,0 +1,476 @@
+{
+  "year": 2020,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十二届（2020）初赛 非数学专业类",
+  "edition": 12,
+  "source": "第12届（2020）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "乘积因子取极限",
+      "tags": [
+        "乘积因子取极限",
+        "$x-\\sin x$ 三阶"
+      ],
+      "difficulty": 3,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\frac{\\left(x-\\sin x\\right)\\mathrm{e}^{-x^{2}}}{\\sqrt{1-x^{3}}-1}$。",
+      "steps": [
+        {
+          "title": "第一步：判型，先把 $\\mathrm{e}^{-x^{2}}$ 摘出去",
+          "html": "<p>$x\\to0$ 时分子、分母都 $\\to0$，是 $\\frac00$。$\\mathrm{e}^{-x^{2}}$ 是独立的乘积因子、极限为 $1$，可以直接取掉，不参与阶的比较：</p><div class=\"fm\">$$\\lim_{x\\to0}\\frac{x-\\sin x}{\\sqrt{1-x^{3}}-1}.$$</div>"
+        },
+        {
+          "title": "第二步：分母是「根号减 1」，一阶展开",
+          "html": "<div class=\"fm\">$$\\sqrt{1-x^{3}}-1=\\left(1-x^{3}\\right)^{1/2}-1\\sim\\frac12\\left(-x^{3}\\right)=-\\frac{x^{3}}{2}.$$</div><p>提醒：被开方的是 $x^{3}$ 不是 $x^{2}$，所以分母是三阶无穷小；若按 $x^{2}$ 的惯性思维去做，分母阶数就判错。</p>"
+        },
+        {
+          "title": "第三步：分子 $x-\\sin x$ 取到三阶",
+          "html": "<p>$\\sin x=x-\\frac{x^{3}}{6}+o\\left(x^{3}\\right)$，一次项正好抵消：</p><div class=\"fm\">$$x-\\sin x=\\frac{x^{3}}{6}+o\\left(x^{3}\\right)\\sim\\frac{x^{3}}{6}.$$</div>"
+        },
+        {
+          "title": "第四步：同阶相除",
+          "html": "<div class=\"fm\">$$\\lim=\\frac{1/6}{-1/2}=-\\frac13.$$</div><p class=\"concl\"><b>结论</b>极限为 $-\\dfrac13$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（根号减 1 与三阶抵消篇）",
+        "lead": "看到「$x-\\sin x$ 除以 $\\sqrt{1-x^{3}}-1$」，直接按这个顺序出牌：",
+        "items": [
+          "先把极限为 $1$ 的乘积因子（本题 $\\mathrm{e}^{-x^{2}}$）摘掉，别让它干扰阶的判断。",
+          "$\\sqrt{1+u}-1\\sim\\frac u2$，代入 $u=-x^{3}$ 得 $-\\frac{x^{3}}{2}$——阶数看被开方项的次数。",
+          "$x-\\sin x\\sim\\frac{x^{3}}{6}$，一次、二次项都抵消，只有三阶。",
+          "同阶相除：$\\frac{1/6}{-1/2}=-\\frac13$；根号里若换成 $x^{2}$，答案就变成 $0$ 了。"
+        ]
+      },
+      "answerHtml": "$-\\dfrac13$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "莱布尼茨公式",
+      "tags": [
+        "莱布尼茨公式",
+        "因子为零项消失"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设函数 $f(x)=\\left(x+1\\right)^{n}\\mathrm{e}^{-x^{2}}$，则 $f^{(n)}(-1)=$________。",
+      "steps": [
+        {
+          "title": "第一步：判断这是「乘积高阶导数在某点取值」",
+          "html": "<p>$f$ 是两个函数之积，要求的是 $n$ 阶导数在 $x=-1$ 的值——而 $-1$ 恰是 $\\left(x+1\\right)$ 的零点，这个点位信息极关键。</p>"
+        },
+        {
+          "title": "第二步：写莱布尼茨公式，逐项看谁为零",
+          "html": "<p>记 $u=\\left(x+1\\right)^{n}$、$v=\\mathrm e^{-x^{2}}$：</p><div class=\"fm\">$$f^{(n)}(x)=\\sum_{k=0}^{n}C_n^{k}u^{(k)}(x)v^{(n-k)}(x).$$</div><p>$k&lt;n$ 时 $u^{(k)}$ 仍带 $\\left(x+1\\right)$ 因子 ⇒ $u^{(k)}(-1)=0$，只剩 $k=n$ 一项。</p>"
+        },
+        {
+          "title": "第三步：算出唯一非零项",
+          "html": "<p>$u^{(n)}=n!$，$v(-1)=\\mathrm e^{-1}$，故</p><div class=\"fm\">$$f^{(n)}(-1)=C_n^{n}\\cdot n!\\cdot\\mathrm e^{-1}=\\frac{n!}{\\mathrm e}.$$</div><p class=\"concl\"><b>结论</b>$f^{(n)}(-1)=\\dfrac{n!}{\\mathrm e}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（乘积高阶导数某点取值篇）",
+        "lead": "看到「$\\left(x+1\\right)^{n}\\mathrm e^{-x^{2}}$ 求 $f^{(n)}(-1)$」，直接按这个顺序出牌：",
+        "items": [
+          "先找「零点」：$x=-1$ 让 $\\left(x+1\\right)^{n}$ 的各阶导数（除 $n$ 阶）全为零。",
+          "写莱布尼茨 $\\sum C_n^k u^{(k)}v^{(n-k)}$，凡含 $\\left(x+1\\right)$ 因子的项在 $x=-1$ 处直接划掉。",
+          "只剩 $k=n$：$u^{(n)}=n!$、$v=\\mathrm e^{-x^{2}}\\big|_{-1}=\\mathrm e^{-1}$。",
+          "答案 $\\frac{n!}{\\mathrm e}$；这类题永远不要真去算 $v$ 的 $n$ 阶导数。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{n!}{\\mathrm e}$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "隐函数求导",
+      "tags": [
+        "隐函数求导",
+        "点斜式"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $y=f(x)$ 是由方程 $\\arctan\\dfrac{x}{y}=\\ln\\sqrt{x^{2}+y^{2}}-\\dfrac12\\ln2+\\dfrac{\\pi}{4}$ 确定的隐函数，且满足 $f(1)=1$，则曲线 $y=f(x)$ 在点 $\\left(1,1\\right)$ 处的切线方程为________。",
+      "steps": [
+        {
+          "title": "第一步：先验点是否在曲线上",
+          "html": "<p>$x=y=1$：左 $=\\arctan1=\\frac\\pi4$；右 $=\\ln\\sqrt2-\\frac12\\ln2+\\frac\\pi4=0+\\frac\\pi4$ ✓。点确实在曲线上。</p>"
+        },
+        {
+          "title": "第二步：两边对 $x$ 求导，注意 $\\arctan\\frac xy$ 的链式",
+          "html": "<div class=\"fm\">$$\\left(\\arctan\\frac xy\\right)'=\\frac{\\left(\\frac xy\\right)'}{1+\\left(\\frac xy\\right)^{2}}=\\frac{\\frac{y-xy'}{y^{2}}}{1+\\frac{x^{2}}{y^{2}}}=\\frac{y-xy'}{x^{2}+y^{2}}.$$</div><p>右边 $\\ln\\sqrt{x^{2}+y^{2}}=\\frac12\\ln\\left(x^{2}+y^{2}\\right)$，求导得</p><div class=\"fm\">$$\\frac{x+yy'}{x^{2}+y^{2}}.$$</div>"
+        },
+        {
+          "title": "第三步：约去公分母，解出 $y'$",
+          "html": "<div class=\"fm\">$$y-xy'=x+yy'\\;\\Longrightarrow\\;\\left(x+y\\right)y'=y-x.$$</div><p>代 $x=y=1$：$2y'=0$ ⇒ $f'(1)=0$，切线水平。</p>"
+        },
+        {
+          "title": "第四步：写切线",
+          "html": "<div class=\"fm\">$$y=1.$$</div><p class=\"concl\"><b>结论</b>切线为 $y=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\arctan$ 型隐函数切线篇）",
+        "lead": "看到「$\\arctan\\frac xy=\\ln\\sqrt{x^{2}+y^{2}}+\\text{常数}$、求 $\\left(1,1\\right)$ 处切线」，直接按这个顺序出牌：",
+        "items": [
+          "先代入切点验等式，确认点在曲线上（这一步能挡掉一半的错误）。",
+          "$\\arctan\\frac xy$ 求导要通分：$\\left(\\frac xy\\right)'=\\frac{y-xy'}{y^{2}}$，配 $1+\\frac{x^{2}}{y^{2}}$ 后分母统一成 $x^{2}+y^{2}$。",
+          "$\\ln\\sqrt{x^{2}+y^{2}}=\\frac12\\ln\\left(x^{2}+y^{2}\\right)$，导数是 $\\frac{x+yy'}{x^{2}+y^{2}}$，与左边分母相同。",
+          "两边同乘 $x^{2}+y^{2}$ 得 $\\left(x+y\\right)y'=y-x$，代入点即得斜率，写点斜式。"
+        ]
+      },
+      "answerHtml": "$y=1$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "换元 $u=x+y$",
+      "tags": [
+        "换元 $u=x+y$",
+        "$FF'$ 凑微分",
+        "对称性折半"
+      ],
+      "difficulty": 2,
+      "stemHtml": "已知 $\\displaystyle\\int_0^{+\\infty}\\frac{\\sin x}{x}\\,\\mathrm{d}x=\\frac{\\pi}{2}$，则 $\\displaystyle\\int_0^{+\\infty}\\!\\!\\int_0^{+\\infty}\\frac{\\sin x\\sin\\left(x+y\\right)}{x\\left(x+y\\right)}\\,\\mathrm{d}x\\mathrm{d}y=$________。",
+      "steps": [
+        {
+          "title": "第一步：看出 $x$ 与 $x+y$ 成对，作换元 $u=x+y$",
+          "html": "<p>固定 $x$，$y$ 从 $0$ 到 $+\\infty$ 时 $u$ 从 $x$ 到 $+\\infty$，$\\mathrm dy=\\mathrm du$，于是内层变为</p><div class=\"fm\">$$\\frac{\\sin x}{x}\\int_x^{+\\infty}\\frac{\\sin u}{u}\\,\\mathrm du.$$</div><p>为什么这么换：分母 $x\\left(x+y\\right)$ 与分子 $\\sin x\\sin\\left(x+y\\right)$ 结构完全对称，换元后两项分离成同一个函数。</p>"
+        },
+        {
+          "title": "第二步：用已知积分表示，引入 $F(x)$",
+          "html": "<p>记 $F(x)=\\int_0^{x}\\frac{\\sin u}{u}\\mathrm du$，则 $\\int_x^{+\\infty}=\\frac{\\pi}{2}-F(x)$，且 $F'(x)=\\frac{\\sin x}{x}$：</p><div class=\"fm\">$$I=\\int_0^{+\\infty}\\frac{\\sin x}{x}\\left(\\frac{\\pi}{2}-F(x)\\right)\\mathrm dx=\\frac{\\pi}{2}\\cdot\\frac{\\pi}{2}-\\int_0^{+\\infty}F(x)F'(x)\\,\\mathrm dx.$$</div>"
+        },
+        {
+          "title": "第三步：$FF'$ 直接积出",
+          "html": "<div class=\"fm\">$$\\int_0^{+\\infty}F(x)F'(x)\\mathrm dx=\\frac12\\left[F(x)\\right]^{2}\\Big|_0^{+\\infty}=\\frac12\\left(\\frac{\\pi}{2}\\right)^{2}=\\frac{\\pi^{2}}{8},$$</div><div class=\"fm\">$$I=\\frac{\\pi^{2}}{4}-\\frac{\\pi^{2}}{8}=\\frac{\\pi^{2}}{8}.$$</div><p class=\"concl\"><b>结论</b>二重积分为 $\\dfrac{\\pi^{2}}{8}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\frac{\\sin x}{x}$ 二重积分篇）",
+        "lead": "看到「$\\int\\!\\!\\int\\frac{\\sin x\\sin\\left(x+y\\right)}{x\\left(x+y\\right)}$ 且已知 $\\int_0^\\infty\\frac{\\sin x}{x}=\\frac\\pi2$」，直接按这个顺序出牌：",
+        "items": [
+          "令 $u=x+y$，把内层化成 $\\int_x^\\infty\\frac{\\sin u}{u}\\mathrm du$——这是把「成对结构」拆开的固定动作。",
+          "记 $F(x)=\\int_0^x\\frac{\\sin u}{u}\\mathrm du$，则 $\\int_x^\\infty=\\frac\\pi2-F(x)$，同时 $F'=\\frac{\\sin x}{x}$。",
+          "$\\frac{\\sin x}{x}F(x)=F F'$，积出 $\\frac12F^{2}$，上限值 $\\frac12\\left(\\frac\\pi2\\right)^{2}=\\frac{\\pi^{2}}{8}$。",
+          "结果 $\\frac{\\pi^{2}}{4}-\\frac{\\pi^{2}}{8}=\\frac{\\pi^{2}}{8}$（也可由被积函数对称、区域折半直接得）。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{\\pi^{2}}{8}$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "提公因式",
+      "tags": [
+        "提公因式",
+        "$A^{B}-1\\sim B\\ln A$",
+        "$\\ln(1+t)\\sim t$"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $f(x)$、$g(x)$ 在 $x=0$ 的某一邻域 $U$ 内有定义，对任意 $x\\in U$，$f(x)\\neq g(x)$，且 $\\displaystyle\\lim_{x\\to0}f(x)=\\lim_{x\\to0}g(x)=a&gt;0$，则 $\\displaystyle\\lim_{x\\to0}\\frac{\\left[f(x)\\right]^{g(x)}-\\left[g(x)\\right]^{g(x)}}{f(x)-g(x)}=$________。",
+      "steps": [
+        {
+          "title": "第一步：先确认幂有意义",
+          "html": "<p>$f,g\\to a&gt;0$，由保号性，$x$ 充分接近 $0$ 时 $f(x),g(x)&gt;0$，底为正，幂函数有定义。</p>"
+        },
+        {
+          "title": "第二步：提出公共因子 $\\left[g\\right]^{g}$",
+          "html": "<p>两项指数相同（都是 $g$），底不同，所以提 $g$ 的幂：</p><div class=\"fm\">$$\\frac{f^{g}-g^{g}}{f-g}=g^{g}\\cdot\\frac{\\left(\\frac fg\\right)^{g}-1}{f-g}.$$</div><p>前面因子 $\\to a^{a}$，问题全部落在后一个分式上。</p>"
+        },
+        {
+          "title": "第三步：$A^{B}-1\\sim B\\ln A$，再展开 $\\ln$",
+          "html": "<p>$A=\\frac fg\\to1$：</p><div class=\"fm\">$$\\left(\\frac fg\\right)^{g}-1=\\mathrm e^{g\\ln A}-1\\sim g\\ln A,\\qquad\\ln A=\\ln\\left(1+\\frac{f-g}{g}\\right)\\sim\\frac{f-g}{g},$$</div><p>故 $g\\ln A\\sim f-g$，与分母完全相同。</p>"
+        },
+        {
+          "title": "第四步：约分取极限",
+          "html": "<div class=\"fm\">$$\\lim=a^{a}\\cdot\\frac{f-g}{f-g}=a^{a}.$$</div><p class=\"concl\"><b>结论</b>极限为 $a^{a}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$f^{g}-g^{g}$ 型极限篇）",
+        "lead": "看到「$\\frac{\\left[f\\right]^{g}-\\left[g\\right]^{g}}{f-g}$、$f,g\\to a&gt;0$」，直接按这个顺序出牌：",
+        "items": [
+          "提公因式 $\\left[g\\right]^{g}$，把差化成 $\\left(\\frac fg\\right)^{g}-1$，外面的因子极限直接是 $a^{a}$。",
+          "$A^{B}-1=\\mathrm e^{B\\ln A}-1\\sim B\\ln A$，这是所有「变底变指数」极限的总公式。",
+          "$\\ln A=\\ln\\left(1+\\frac{f-g}{g}\\right)\\sim\\frac{f-g}{g}$，于是 $B\\ln A\\sim f-g$，与分母对消。",
+          "答案 $a^{a}$；若指数不同（如 $f^{g}-g^{f}$），要先统一指数再拆，另算一项。"
+        ]
+      },
+      "answerHtml": "$a^{a}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "取倒数化线性递推",
+      "tags": [
+        "取倒数化线性递推",
+        "同除阶乘变差分",
+        "部分和取极限"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设数列 $\\left\\{a_n\\right\\}$ 满足：$a_1=1$，且 $a_{n+1}=\\dfrac{a_n}{\\left(n+1\\right)\\left(a_n+1\\right)}$，$n\\geqslant1$。求极限 $\\displaystyle\\lim_{n\\to\\infty}n!\\,a_n$。",
+      "steps": [
+        {
+          "title": "第一步：先证正性，才能取倒数",
+          "html": "<p>$a_1=1&gt;0$；若 $a_n&gt;0$，则分母 $\\left(n+1\\right)\\left(a_n+1\\right)&gt;0$、分子 $a_n&gt;0$，故 $a_{n+1}&gt;0$。归纳得 $a_n&gt;0$。</p>"
+        },
+        {
+          "title": "第二步：取倒数，把分式递推变成线性递推",
+          "html": "<div class=\"fm\">$$\\frac{1}{a_{n+1}}=\\frac{\\left(n+1\\right)\\left(a_n+1\\right)}{a_n}=\\left(n+1\\right)+\\left(n+1\\right)\\frac{1}{a_n}.$$</div><p>为什么取倒数：$a_n$ 同时出现在分子和分母，直接迭代求通项不可行；取倒数后 $b_n=\\frac{1}{a_n}$ 满足「线性递推 ＋ 常数项」。</p>"
+        },
+        {
+          "title": "第三步：同除 $\\left(n+1\\right)!$，造出差分",
+          "html": "<p>记 $b_n=\\frac{1}{a_n}$，则 $b_{n+1}=\\left(n+1\\right)b_n+\\left(n+1\\right)$。两边除 $\\left(n+1\\right)!$：</p><div class=\"fm\">$$\\frac{b_{n+1}}{\\left(n+1\\right)!}=\\frac{b_n}{n!}+\\frac{1}{n!}.$$</div>"
+        },
+        {
+          "title": "第四步：累加，把 $n!a_n$ 写成部分和的倒数",
+          "html": "<p>令 $c_n=\\frac{b_n}{n!}$，则 $c_{n+1}-c_n=\\frac{1}{n!}$、$c_1=1$：</p><div class=\"fm\">$$c_{n+1}=\\sum_{k=0}^{n}\\frac{1}{k!}\\;\\Longrightarrow\\;a_n=\\frac{1}{n!\\sum_{k=0}^{n-1}\\frac{1}{k!}},$$</div><div class=\"fm\">$$n!a_n=\\frac{1}{\\sum_{k=0}^{n-1}\\frac{1}{k!}}\\longrightarrow\\frac{1}{\\mathrm e}.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\dfrac{1}{\\mathrm e}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（分式递推取倒数篇）",
+        "lead": "看到「$a_{n+1}=\\frac{a_n}{\\left(n+1\\right)\\left(a_n+1\\right)}$、求 $n!a_n$ 的极限」，直接按这个顺序出牌：",
+        "items": [
+          "先归纳证 $a_n&gt;0$（正性），否则取倒数没意义。",
+          "取倒数：$\\frac{1}{a_{n+1}}=\\left(n+1\\right)+\\left(n+1\\right)\\frac{1}{a_n}$，线性递推立刻出现。",
+          "系数是 $\\left(n+1\\right)$ 就同除 $\\left(n+1\\right)!$，把递推变成 $c_{n+1}-c_n=\\frac{1}{n!}$ 这种可直接累加的差分。",
+          "累加后 $n!a_n=\\frac{1}{\\sum_{k=0}^{n-1}1/k!}\\to\\frac1{\\mathrm e}$；遇到 $\\sum\\frac{1}{k!}$ 要立刻想到 $\\mathrm e$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{1}{\\mathrm e}$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "零点定理造桥点",
+      "tags": [
+        "零点定理造桥点",
+        "两段拉格朗日",
+        "差商恒等式"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 在 $\\left[0,1\\right]$ 上连续，在 $\\left(0,1\\right)$ 内可导，且 $f(0)=0$，$f(1)=1$。证明：（1）存在 $x_0\\in\\left(0,1\\right)$，使 $f(x_0)=2-3x_0$；（2）存在 $\\xi,\\eta\\in\\left(0,1\\right)$，$\\xi\\neq\\eta$，使 $\\left[1+f'(\\xi)\\right]\\left[1+f'(\\eta)\\right]=4$。",
+      "steps": [
+        {
+          "title": "第一步：第（1）问移项，变成求零点",
+          "html": "<p>把 $f(x)=2-3x$ 移项：$F(x)=f(x)-2+3x$，要证 $F$ 在 $\\left(0,1\\right)$ 内有零点。$f$ 连续、$3x$ 连续 ⇒ $F$ 连续。</p><div class=\"fm\">$$F(0)=0-2+0=-2&lt;0,\\qquad F(1)=1-2+3=2&gt;0.$$</div>"
+        },
+        {
+          "title": "第二步：零点定理收口",
+          "html": "<p>端点异号 ⇒ 存在 $x_0\\in\\left(0,1\\right)$ 使 $F(x_0)=0$，即 $f(x_0)=2-3x_0$。</p>"
+        },
+        {
+          "title": "第三步：第（2）问要靠 $x_0$ 当桥梁，把区间切两段",
+          "html": "<p>为什么想到切两段：结论要「两个不同点」，而 $f(0)=0$、$f(1)=1$ 各给出一段差商；$x_0$ 正好是中转点。</p><p>在 $\\left[0,x_0\\right]$ 上用拉格朗日：$\\xi\\in\\left(0,x_0\\right)$，</p><div class=\"fm\">$$f'(\\xi)=\\frac{f(x_0)-f(0)}{x_0}=\\frac{2-3x_0}{x_0}.$$</div><p>在 $\\left[x_0,1\\right]$ 上用拉格朗日：$\\eta\\in\\left(x_0,1\\right)$，</p><div class=\"fm\">$$f'(\\eta)=\\frac{f(x_0)-f(1)}{x_0-1}=\\frac{1-3x_0}{x_0-1}.$$</div><p>因 $\\xi&lt;x_0&lt;\\eta$，自然 $\\xi\\neq\\eta$。</p>"
+        },
+        {
+          "title": "第四步：算 $1+f'$ 并相乘，恒等于 4",
+          "html": "<div class=\"fm\">$$1+f'(\\xi)=1+\\frac{2-3x_0}{x_0}=\\frac{2\\left(1-x_0\\right)}{x_0},\\qquad 1+f'(\\eta)=\\frac{2x_0}{1-x_0},$$</div><div class=\"fm\">$$\\left[1+f'(\\xi)\\right]\\left[1+f'(\\eta)\\right]=\\frac{2\\left(1-x_0\\right)}{x_0}\\cdot\\frac{2x_0}{1-x_0}=4.$$</div><p class=\"concl\"><b>结论</b>两问均成立，关键恒等式为 $\\dfrac{2\\left(1-x_0\\right)}{x_0}\\cdot\\dfrac{2x_0}{1-x_0}=4$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（双中值点造桥篇）",
+        "lead": "看到「存在 $x_0$ 使 $f(x_0)=2-3x_0$」＋「两个不同点 $\\xi,\\eta$ 使乘积为 $4$」，直接按这个顺序出牌：",
+        "items": [
+          "第（1）问一律构造函数 $F=f-\\left(\\text{右端}\\right)$，验两端异号，用零点定理。",
+          "$x_0$ 是桥：把 $\\left[0,1\\right]$ 切成 $\\left[0,x_0\\right]$、$\\left[x_0,1\\right]$ 两段，各用一次拉格朗日。",
+          "两个 $f'$ 立刻换成差商，$\\xi&lt;x_0&lt;\\eta$ 保证了两点不同，不必再证。",
+          "把 $1+f'$ 通分，乘积化成 $\\frac{2\\left(1-x_0\\right)}{x_0}\\cdot\\frac{2x_0}{1-x_0}=4$——常数 4 是 $2\\times2$ 反推出来的。"
+        ]
+      },
+      "answerHtml": "两问均成立"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "齐次复合的二阶偏导",
+      "tags": [
+        "齐次复合的二阶偏导",
+        "函数方程 $u o rac1u$ 联立"
+      ],
+      "difficulty": 4,
+      "stemHtml": "已知 $z=xf\\!\\left(\\dfrac yx\\right)+2y\\varphi\\!\\left(\\dfrac xy\\right)$，其中 $f,\\varphi$ 均为二次可微函数。（1）求 $\\dfrac{\\partial z}{\\partial x}$、$\\dfrac{\\partial^{2}z}{\\partial x\\partial y}$；（2）当 $f=\\varphi$，且 $\\left.\\dfrac{\\partial^{2}z}{\\partial x\\partial y}\\right|_{x=a}=-by^{2}$ 时，求 $f(y)$。",
+      "steps": [
+        {
+          "title": "第一步：先备好两个内函数的偏导",
+          "html": "<div class=\"fm\">$$\\left(\\frac yx\\right)_x=-\\frac{y}{x^{2}},\\quad\\left(\\frac xy\\right)_x=\\frac1y,\\quad\\left(\\frac xy\\right)_y=-\\frac{x}{y^{2}}.$$</div><p>先把这张「内函数导数表」写在草稿上，后面全部照表查。</p>"
+        },
+        {
+          "title": "第二步：求 $\\frac{\\partial z}{\\partial x}$",
+          "html": "<div class=\"fm\">$$z_x=f\\!\\left(\\frac yx\\right)+xf'\\!\\left(\\frac yx\\right)\\left(-\\frac{y}{x^{2}}\\right)+2y\\varphi'\\!\\left(\\frac xy\\right)\\cdot\\frac1y,$$</div><div class=\"fm\">$$\\frac{\\partial z}{\\partial x}=f\\!\\left(\\frac yx\\right)-\\frac yx f'\\!\\left(\\frac yx\\right)+2\\varphi'\\!\\left(\\frac xy\\right).$$</div>"
+        },
+        {
+          "title": "第三步：再对 $y$ 求偏导，注意一阶项会抵消",
+          "html": "<p>前两项合起来是 $f(t)-tf'(t)$，$t=\\frac yx$，而 $\\partial_y=\\frac1x\\partial_t$，对 $t$ 求导得 $f'-f'-tf''=-tf''$，乘 $\\frac1x$：</p><div class=\"fm\">$$\\frac{\\partial}{\\partial y}\\left[f\\!\\left(\\frac yx\\right)-\\frac yx f'\\!\\left(\\frac yx\\right)\\right]=-\\frac{y}{x^{2}}f''\\!\\left(\\frac yx\\right);$$</div><p>第三项对 $y$ 求导用 $\\left(\\frac xy\\right)_y=-\\frac{x}{y^{2}}$：</p><div class=\"fm\">$$-\\frac{2x}{y^{2}}\\varphi''\\!\\left(\\frac xy\\right).$$</div><div class=\"fm\">$$z_{xy}=-\\frac{y}{x^{2}}f''\\!\\left(\\frac yx\\right)-\\frac{2x}{y^{2}}\\varphi''\\!\\left(\\frac xy\\right).$$</div>"
+        },
+        {
+          "title": "第四步：第（2）问代 $x=a$、$f=\\varphi$，化成一元函数方程",
+          "html": "<div class=\"fm\">$$\\frac{y}{a^{2}}f''\\!\\left(\\frac ya\\right)+\\frac{2a}{y^{2}}f''\\!\\left(\\frac ay\\right)=by^{2}.$$</div><p>令 $u=\\frac ya$（即 $y=au$），两边乘 $a^{2}u^{2}$：</p><div class=\"fm\">$$u^{3}f''(u)+2f''\\!\\left(\\frac1u\\right)=a^{3}bu^{4}.\\qquad(\\ast)$$</div>"
+        },
+        {
+          "title": "第五步：作 $u\\to\\frac1u$ 得第二式，联立消元",
+          "html": "<p>把 $(\\ast)$ 中 $u$ 换成 $\\frac1u$：</p><div class=\"fm\">$$\\frac{1}{u^{3}}f''\\!\\left(\\frac1u\\right)+2f''(u)=\\frac{a^{3}b}{u^{4}}\\;\\Longrightarrow\\;f''\\!\\left(\\frac1u\\right)=\\frac{a^{3}b}{u}-2u^{3}f''(u).$$</div><p>代回 $(\\ast)$：$u^{3}f''+2\\left(\\frac{a^{3}b}{u}-2u^{3}f''\\right)=a^{3}bu^{4}$，解得</p><div class=\"fm\">$$f''(u)=\\frac{a^{3}b}{3}\\left(\\frac{2}{u^{4}}-u\\right).$$</div>"
+        },
+        {
+          "title": "第六步：两次积分",
+          "html": "<div class=\"fm\">$$f(u)=\\frac{a^{3}b}{3}\\left(\\frac{1}{3u^{2}}-\\frac{u^{3}}{6}\\right)+C_1u+C_2,$$</div><p>改写自变量为 $y$ 即得。</p><p class=\"concl\"><b>结论</b>$f(y)=\\dfrac{a^{3}b}{3}\\left(\\dfrac{1}{3y^{2}}-\\dfrac{y^{3}}{6}\\right)+C_1y+C_2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（齐次复合 ＋ 函数方程篇）",
+        "lead": "看到「$z=xf\\left(\\frac yx\\right)+2y\\varphi\\left(\\frac xy\\right)$」求 $z_{xy}$，再「$f=\\varphi$、$z_{xy}|_{x=a}=-by^{2}$」求 $f$，直接按这个顺序出牌：",
+        "items": [
+          "先列内函数导数表：$\\left(\\frac yx\\right)_x=-\\frac{y}{x^{2}}$、$\\left(\\frac xy\\right)_x=\\frac1y$、$\\left(\\frac xy\\right)_y=-\\frac{x}{y^{2}}$，后面全靠查表。",
+          "$xf\\left(\\frac yx\\right)$ 的 $x$-$y$ 混合偏导只留 $-\\frac{y}{x^{2}}f''$，一阶项必抵消——这是可背的恒等式。",
+          "第（2）问代 $x=a$ 后必出 $f''\\left(\\frac ya\\right)$ 与 $f''\\left(\\frac ay\\right)$ 并存，令 $u=\\frac ya$ 归一。",
+          "再作一次 $u\\to\\frac1u$ 得第二个方程，联立消去 $f''\\left(\\frac1u\\right)$，解得 $f''$ 后连积两次即可。"
+        ]
+      },
+      "answerHtml": "（1）$z_x=f\\!\\left(\\frac yx\\right)-\\frac yx f'\\!\\left(\\frac yx\\right)+2\\varphi'\\!\\left(\\frac xy\\right)$，$z_{xy}=-\\frac{y}{x^{2}}f''\\!\\left(\\frac yx\\right)-\\frac{2x}{y^{2}}\\varphi''\\!\\left(\\frac xy\\right)$；（2）$f(y)=\\frac{a^{3}b}{3}\\left(\\frac{1}{3y^{2}}-\\frac{y^{3}}{6}\\right)+C_1y+C_2$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "消元定交线",
+      "tags": [
+        "消元定交线",
+        "$z$ 为常数使 $\\mathrm dz=0$",
+        "平移周期",
+        "奇偶性"
+      ],
+      "difficulty": 4,
+      "stemHtml": "计算 $I=\\displaystyle\\oint_\\Gamma\\left|\\sqrt3\\,y-x\\right|\\mathrm{d}x-5z\\,\\mathrm{d}z$，其中 $\\Gamma:\\begin{cases}x^{2}+y^{2}+z^{2}=8,\\\\ x^{2}+y^{2}=2z,\\end{cases}$ 从 $z$ 轴正向往原点看去取逆时针方向。",
+      "steps": [
+        {
+          "title": "第一步：联立消元，先把曲线认出来",
+          "html": "<p>把 $x^{2}+y^{2}=2z$ 代入球面：$2z+z^{2}=8$，即 $z^{2}+2z-8=0$，$z=2$ 或 $z=-4$。$z=-4$ 时 $x^{2}+y^{2}=-8$ 无实解，舍去。</p><p>所以 $\\Gamma$ 就是平面 $z=2$ 上的圆 $x^{2}+y^{2}=4$。</p>"
+        },
+        {
+          "title": "第二步：参数化，并立刻发现 $\\mathrm dz=0$",
+          "html": "<div class=\"fm\">$$x=2\\cos\\theta,\\quad y=2\\sin\\theta,\\quad z=2,\\qquad0\\leqslant\\theta\\leqslant2\\pi,$$</div><p>$\\theta$ 增大时从 $z$ 轴正向看去是逆时针，与题给方向一致。沿曲线 $z\\equiv2$ ⇒ $\\mathrm dz=0$，$5z\\,\\mathrm dz$ 整项消失——这是命题人送的分数。</p>"
+        },
+        {
+          "title": "第三步：代入，把绝对值里的式子并成一个",
+          "html": "<p>$\\mathrm dx=-2\\sin\\theta\\,\\mathrm d\\theta$，$\\left|\\sqrt3y-x\\right|=2\\left|\\sqrt3\\sin\\theta-\\cos\\theta\\right|$：</p><div class=\"fm\">$$I=-4\\int_0^{2\\pi}\\left|\\sqrt3\\sin\\theta-\\cos\\theta\\right|\\sin\\theta\\,\\mathrm d\\theta.$$</div><p>辅助角：$\\sqrt3\\sin\\theta-\\cos\\theta=2\\sin\\left(\\theta-\\frac\\pi6\\right)=2\\cos\\left(\\theta+\\frac\\pi3\\right)$（差个符号，绝对值相同）。</p>"
+        },
+        {
+          "title": "第四步：平移成整周期，用奇偶性直接判零",
+          "html": "<p>令 $t=\\theta+\\frac\\pi3$，区间长度仍为 $2\\pi$，可平移为 $\\left[-\\pi,\\pi\\right]$，$\\sin\\theta=\\frac12\\sin t-\\frac{\\sqrt3}{2}\\cos t$：</p><div class=\"fm\">$$I=-8\\int_{-\\pi}^{\\pi}\\left|\\cos t\\right|\\left(\\frac12\\sin t-\\frac{\\sqrt3}{2}\\cos t\\right)\\mathrm dt.$$</div><p>$\\left|\\cos t\\right|\\sin t$ 为奇函数、积分为 $0$；$\\left|\\cos t\\right|\\cos t$ 为偶函数，但</p><div class=\"fm\">$$\\int_0^{\\pi}\\left|\\cos t\\right|\\cos t\\,\\mathrm dt=\\int_0^{\\pi/2}\\cos^{2}t\\,\\mathrm dt-\\int_{\\pi/2}^{\\pi}\\cos^{2}t\\,\\mathrm dt=\\frac\\pi4-\\frac\\pi4=0.$$</div><p class=\"concl\"><b>结论</b>$I=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（空间曲线绝对值线积分篇）",
+        "lead": "看到「球面与抛物面交成的 $\\Gamma$、被积式含 $\\left|\\sqrt3y-x\\right|$、还有 $5z\\,\\mathrm dz$」，直接按这个顺序出牌：",
+        "items": [
+          "第一步永远消元：把 $x^{2}+y^{2}=2z$ 代入球面解 $z$，曲线往往退化成平面上的圆。",
+          "参数化后立刻检查某个坐标是否为常数——本题 $z\\equiv2$ 让 $\\mathrm dz=0$，$5z\\,\\mathrm dz$ 直接归零。",
+          "绝对值用辅助角并成单个三角函数，别急着分段积分。",
+          "把周期平移到对称区间，奇函数项直接为 $0$，偶函数项再用 $\\left[0,\\frac\\pi2\\right]$ 与 $\\left[\\frac\\pi2,\\pi\\right]$ 相减。"
+        ]
+      },
+      "answerHtml": "$0$"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "取整函数分段积分",
+      "tags": [
+        "取整函数分段积分",
+        "余弦和恒等式",
+        "整除判别",
+        "因子分解"
+      ],
+      "difficulty": 4,
+      "stemHtml": "证明 $f(n)=\\displaystyle\\sum_{m=1}^{n}\\int_0^{m}\\cos\\frac{2\\pi n\\left[x+1\\right]}{m}\\,\\mathrm dx$ 等于 $n$ 的所有正因子（包括 $1$ 与 $n$）之和，其中 $\\left[x+1\\right]$ 表示不超过 $x+1$ 的最大整数；并计算 $f(2021)$。",
+      "steps": [
+        {
+          "title": "第一步：按取整函数把内层积分切段",
+          "html": "<p>在 $\\left[k-1,k\\right)$ 上 $x+1\\in\\left[k,k+1\\right)$，故 $\\left[x+1\\right]=k$，$k=1,\\dots,m$：</p><div class=\"fm\">$$\\int_0^{m}\\cos\\frac{2\\pi n\\left[x+1\\right]}{m}\\mathrm dx=\\sum_{k=1}^{m}\\cos\\frac{2\\pi nk}{m}.$$</div><p>为什么敢切：被积函数里只有 $\\left[x+1\\right]$ 在变，其余全是常数，切段后每段是纯余弦。</p>"
+        },
+        {
+          "title": "第二步：认出这是「等分点上的余弦和」，分两种情形",
+          "html": "<p>记 $t=\\frac{2\\pi n}{m}$。若 $m\\mid n$，则 $t$ 是 $2\\pi$ 的整数倍，每项 $\\cos kt=1$，该 $m$ 贡献 $m$。</p><p>若 $m\\nmid n$，用恒等式</p><div class=\"fm\">$$\\sum_{k=1}^{m}\\cos kt=\\cos\\frac{\\left(m+1\\right)t}{2}\\cdot\\frac{\\sin\\frac{mt}{2}}{\\sin\\frac t2},$$</div><p>其中 $\\sin\\frac{mt}{2}=\\sin\\left(\\pi n\\right)=0$，而 $\\sin\\frac t2\\neq0$，故贡献为 $0$。</p>"
+        },
+        {
+          "title": "第三步：累加得因子和",
+          "html": "<div class=\"fm\">$$f(n)=\\sum_{\\substack{1\\leqslant m\\leqslant n\\\\ m\\mid n}}m,$$</div><p>即 $n$ 全体正因子之和——注意是「和」不是「个数」，因为 $m\\mid n$ 时贡献是 $m$ 本身。</p>"
+        },
+        {
+          "title": "第四步：分解 2021 并求和",
+          "html": "<p>$2021=43\\times47$，$43,47$ 均为质数，因子为 $1,43,47,2021$：</p><div class=\"fm\">$$f(2021)=1+43+47+2021=2112.$$</div><p class=\"concl\"><b>结论</b>$f(n)$ 为 $n$ 的正因子之和，$f(2021)=2112$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（余弦和判整除篇）",
+        "lead": "看到「$\\sum_{m=1}^{n}\\int_0^{m}\\cos\\frac{2\\pi n\\left[x+1\\right]}{m}\\mathrm dx$ 等于因子之和」，直接按这个顺序出牌：",
+        "items": [
+          "被积函数含取整函数就先按 $\\left[x+1\\right]=k$ 切段，切完只剩有限余弦和。",
+          "$\\sum_{k=1}^{m}\\cos kt=\\cos\\frac{\\left(m+1\\right)t}{2}\\cdot\\frac{\\sin\\frac{mt}{2}}{\\sin\\frac t2}$，判零全看 $\\sin\\frac{mt}{2}$。",
+          "$t=\\frac{2\\pi n}{m}$ 时 $\\sin\\frac{mt}{2}=\\sin\\left(\\pi n\\right)=0$ 恒成立，真正决定贡献的是 $m\\mid n$ 与否。",
+          "$m\\mid n$ 贡献 $m$、否则贡献 $0$ ⇒ 和式恰为因子之和；$2021=43\\times47$ ⇒ $2112$。"
+        ]
+      },
+      "answerHtml": "$f(n)$ 为 $n$ 全部正因子之和；$f(2021)=2112$"
+    },
+    {
+      "seq": 11,
+      "number": "第 7 题",
+      "type": "solution",
+      "title": "单调有界",
+      "tags": [
+        "单调有界",
+        "$ arepsilon$ 分段",
+        "莱布尼茨",
+        "分部积分造望远镜",
+        "部分分式"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $u_n=\\displaystyle\\int_0^{1}\\frac{\\mathrm dt}{\\left(1+t^{4}\\right)^{n}}$（$n\\geqslant1$）。（1）证明数列 $\\left\\{u_n\\right\\}$ 收敛，并求 $\\displaystyle\\lim_{n\\to\\infty}u_n$；（2）证明级数 $\\sum_{n=1}^{\\infty}\\left(-1\\right)^{n}u_n$ 条件收敛；（3）证明 $p\\geqslant1$ 时 $\\sum_{n=1}^{\\infty}\\frac{u_n}{n^{p}}$ 收敛，并求 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{u_n}{n}$。",
+      "steps": [
+        {
+          "title": "第一步：单调有界，先拿到收敛",
+          "html": "<p>$t\\in\\left(0,1\\right]$ 时 $1+t^{4}&gt;1$，故 $\\frac{1}{\\left(1+t^{4}\\right)^{n+1}}&lt;\\frac{1}{\\left(1+t^{4}\\right)^{n}}$，积分得 $u_{n+1}&lt;u_n$；又 $0&lt;u_n\\leqslant\\int_0^1 1\\,\\mathrm dt=1$。</p><p>单调递减且有下界 ⇒ 收敛，记 $u_n\\to L$。</p>"
+        },
+        {
+          "title": "第二步：不能用「极限搬进积分」，改用 $\\varepsilon$ 分段",
+          "html": "<p>任给 $\\varepsilon&gt;0$，取 $a\\in\\left(0,1\\right)$ 使 $a&lt;\\frac\\varepsilon2$：</p><div class=\"fm\">$$u_n=\\int_0^{a}\\frac{\\mathrm dt}{\\left(1+t^{4}\\right)^{n}}+\\int_a^{1}\\frac{\\mathrm dt}{\\left(1+t^{4}\\right)^{n}}.$$</div><p>第一段 $\\leqslant a&lt;\\frac\\varepsilon2$；第二段因 $1+t^{4}\\geqslant1+a^{4}$，被 $(1+a^{4})^{-n}\\to0$ 压住，充分大后 $&lt;\\frac\\varepsilon2$。故 $L=0$。</p>"
+        },
+        {
+          "title": "第三步：莱布尼茨给收敛，下界估计给「不绝对」",
+          "html": "<p>$u_n$ 单调递减趋于 $0$ ⇒ $\\sum\\left(-1\\right)^{n}u_n$ 收敛。</p><p>不绝对收敛：$t\\in\\left[0,1\\right]$ 时 $1+t^{4}\\leqslant\\left(1+t\\right)^{4}$，故</p><div class=\"fm\">$$u_n\\geqslant\\int_0^1\\frac{\\mathrm dt}{\\left(1+t\\right)^{4n}}=\\frac{1}{4n-1}\\left(1-2^{1-4n}\\right)\\geqslant\\frac{1}{2\\left(4n-1\\right)},$$</div><p>与调和级数同阶发散 ⇒ 条件收敛。</p>"
+        },
+        {
+          "title": "第四步：分部积分造出 $u_n-u_{n+1}$ 的望远镜",
+          "html": "<p>取 $\\mathrm dv=\\mathrm dt$、$v=t$：</p><div class=\"fm\">$$u_n=\\left[\\frac{t}{\\left(1+t^{4}\\right)^{n}}\\right]_0^1+4n\\int_0^1\\frac{t^{4}}{\\left(1+t^{4}\\right)^{n+1}}\\mathrm dt=\\frac{1}{2^{n}}+4n\\left(u_n-u_{n+1}\\right).$$</div><p>移项整理（关键一步，注意是把 $u_n-u_{n+1}$ 提到左边）：</p><div class=\"fm\">$$\\frac{u_n}{n}=4\\left(u_n-u_{n+1}\\right)+\\frac{1}{n2^{n}}.$$</div>"
+        },
+        {
+          "title": "第五步：望远镜求和，再算 $u_1$",
+          "html": "<div class=\"fm\">$$\\sum_{n=1}^{\\infty}\\frac{u_n}{n}=4u_1+\\sum_{n=1}^{\\infty}\\frac{1}{n2^{n}}=4u_1+\\ln2,$$</div><p>其中 $\\sum_{n\\geqslant1}\\frac{x^{n}}{n}=-\\ln\\left(1-x\\right)$ 取 $x=\\frac12$ 得 $\\ln2$。</p><p>再由 $1+t^{4}=\\left(t^{2}+\\sqrt2t+1\\right)\\left(t^{2}-\\sqrt2t+1\\right)$ 作部分分式：</p><div class=\"fm\">$$u_1=\\int_0^1\\frac{\\mathrm dt}{1+t^{4}}=\\frac{\\sqrt2}{8}\\left[\\pi+2\\ln\\left(1+\\sqrt2\\right)\\right].$$</div><p class=\"concl\"><b>结论</b>（1）$u_n\\to0$；（2）条件收敛；（3）$p\\geqslant1$ 收敛，且 $\\sum\\frac{u_n}{n}=\\ln2+\\frac{\\sqrt2}{2}\\left[\\pi+2\\ln\\left(1+\\sqrt2\\right)\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（参数积分求和篇）",
+        "lead": "看到「$u_n=\\int_0^1\\left(1+t^{4}\\right)^{-n}\\mathrm dt$」还要求 $\\sum\\frac{u_n}{n}$ 的和，直接按这个顺序出牌：",
+        "items": [
+          "先单调 ＋ 有界拿收敛，再用 $\\varepsilon$ 分段把「$n\\to\\infty$」和积分拆开，才拿得到极限值 $0$。",
+          "条件收敛＝莱布尼茨（收敛）＋ 下界比较（不绝对）；下界用 $1+t^{4}\\leqslant\\left(1+t\\right)^{4}$ 压成幂函数。",
+          "求「和」必分部积分：$\\mathrm dv=\\mathrm dt$ 得 $u_n=2^{-n}+4n\\left(u_n-u_{n+1}\\right)$，整理成望远镜结构。",
+          "望远镜 ＋ $\\sum\\frac{1}{n2^{n}}=\\ln2$ ＋ $u_1=\\frac{\\sqrt2}{8}\\left[\\pi+2\\ln\\left(1+\\sqrt2\\right)\\right]$，合成 $\\ln2+\\frac{\\sqrt2}{2}\\left[\\pi+2\\ln\\left(1+\\sqrt2\\right)\\right]$。"
+        ]
+      },
+      "answerHtml": "（1）收敛，$\\lim u_n=0$；（2）条件收敛；（3）$p\\geqslant1$ 收敛，$\\displaystyle\\sum_{n=1}^{\\infty}\\frac{u_n}{n}=\\ln2+\\frac{\\sqrt2}{2}\\left[\\pi+2\\ln\\left(1+\\sqrt2\\right)\\right]$"
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+{
+  "year": 2013,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第五届（2013）初赛 非数学专业类",
+  "edition": 5,
+  "source": "第5届（2013）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "计算 1",
+      "type": "solution",
+      "title": "三角诱导",
+      "tags": [
+        "三角诱导",
+        "有理化",
+        "$1^{\\infty}$ 型"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{n\\to\\infty}\\left(1+\\sin\\left(\\pi\\sqrt{1+4n^{2}}\\right)\\right)^{n}$。",
+      "steps": [
+        {
+          "title": "第一步：把根号写成「整数 ＋ 小数」",
+          "html": "<p>$\\sqrt{1+4n^{2}}$ 比 $2n$ 略大一点点，把它拆成 $2n+\\delta$：</p><div class=\"fm\">$$\\sqrt{1+4n^{2}}-2n=\\frac{1}{\\sqrt{1+4n^{2}}+2n}=\\delta&gt;0,\\qquad \\delta\\sim\\frac{1}{4n}.$$</div><p>这样做的目的：$2n\\pi$ 是 $\\sin$ 的周期，乘进去可以直接扔掉，只剩 $\\pi\\delta$ 这个小量。</p>"
+        },
+        {
+          "title": "第二步：用周期性把 $\\sin$ 化成 $\\pi\\delta$",
+          "html": "<div class=\"fm\">$$\\sin\\left(\\pi\\sqrt{1+4n^{2}}\\right)=\\sin\\left(2n\\pi+\\pi\\delta\\right)=\\sin\\left(\\pi\\delta\\right)\\sim\\pi\\delta\\sim\\frac{\\pi}{4n}.$$</div><p>这一步的合法性在于 $\\sin$ 以 $2\\pi$ 为周期；如果写成 $\\sin(\\pi\\sqrt{\\cdot})$ 直接等价，会漏掉「$\\pi$ 倍」这个因子。</p>"
+        },
+        {
+          "title": "第三步：$1^{\\infty}$ 型取极限",
+          "html": "<p>令 $a_n=\\sin\\left(\\pi\\delta\\right)\\to0$，由 $\\left(1+a_n\\right)^{n}=\\mathrm{e}^{n\\ln(1+a_n)}$ 且 $\\ln(1+a_n)\\sim a_n$：</p><div class=\"fm\">$$n\\ln\\left(1+a_n\\right)\\sim n\\cdot\\frac{\\pi}{4n}\\to\\frac{\\pi}{4}.$$</div>"
+        },
+        {
+          "title": "第四步：写成指数形式",
+          "html": "<div class=\"fm\">$$\\lim_{n\\to\\infty}\\left(1+\\sin\\left(\\pi\\sqrt{1+4n^{2}}\\right)\\right)^{n}=\\mathrm{e}^{\\pi/4}.$$</div><p class=\"concl\"><b>结论</b>原极限 $=\\mathrm{e}^{\\pi/4}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\pi\\sqrt{\\cdot}$ 减整篇）",
+        "lead": "看到「$\\sin\\left(\\pi\\sqrt{an^{2}+bn+c}\\right)$、$n\\to\\infty$」，直接按这个顺序出牌：",
+        "items": [
+          "先做「减整」：$\\sqrt{1+4n^{2}}=2n+\\delta$，把 $2n\\pi$ 用周期性扔掉。",
+          "$\\delta=\\sqrt{1+4n^{2}}-2n$ 用有理化算：$\\delta=\\frac{1}{\\sqrt{1+4n^{2}}+2n}\\sim\\frac{1}{4n}$。",
+          "$\\sin(\\pi\\delta)\\sim\\pi\\delta$，千万别漏 $\\pi$；这一步决定最终指数是 $\\pi/4$ 还是 $1/4$。",
+          "末尾是 $1^{\\infty}$ 型：$\\left(1+a_n\\right)^{n}\\to\\mathrm{e}^{\\lim na_n}$，答案 $\\mathrm{e}^{\\pi/4}$。"
+        ]
+      },
+      "answerHtml": "$\\mathrm{e}^{\\pi/4}$"
+    },
+    {
+      "seq": 2,
+      "number": "计算 2",
+      "type": "solution",
+      "title": "绝对收敛性",
+      "tags": [
+        "绝对收敛性",
+        "周期分段",
+        "调和下界"
+      ],
+      "difficulty": 3,
+      "stemHtml": "证明广义积分 $\\displaystyle\\int_0^{+\\infty}\\frac{\\sin x}{x}\\,\\mathrm{d}x$ 不是绝对收敛的。",
+      "steps": [
+        {
+          "title": "第一步：把「非绝对收敛」翻译成「绝对值积分发散」",
+          "html": "<p>绝对收敛指 $\\int_0^{+\\infty}\\left|\\frac{\\sin x}{x}\\right|\\mathrm{d}x&lt;+\\infty$。要否定它，只需证明 $\\int_0^{+\\infty}\\frac{|\\sin x|}{x}\\mathrm{d}x=+\\infty$。</p><p>为什么不能直接说「$\\frac{\\sin x}{x}$ 有正有负所以不绝对收敛」：正负抵消只说明「可能条件收敛」，与绝对值发散是两件事，必须真算绝对值积分。</p>"
+        },
+        {
+          "title": "第二步：按 $\\pi$ 分段，每段提出常数下界",
+          "html": "<p>记</p><div class=\"fm\">$$a_n=\\int_{n\\pi}^{(n+1)\\pi}\\frac{|\\sin x|}{x}\\,\\mathrm{d}x.$$</div><p>在该段上 $x\\leqslant(n+1)\\pi$，故 $\\frac1x\\geqslant\\frac{1}{(n+1)\\pi}$，于是</p><div class=\"fm\">$$a_n\\geqslant\\frac{1}{(n+1)\\pi}\\int_{n\\pi}^{(n+1)\\pi}|\\sin x|\\,\\mathrm{d}x=\\frac{1}{(n+1)\\pi}\\cdot2=\\frac{2}{(n+1)\\pi}.$$</div><p>$\\int_{n\\pi}^{(n+1)\\pi}|\\sin x|\\mathrm{d}x=2$ 是因为 $|\\sin|$ 在任一长度为 $\\pi$ 的区间上积分为 $2$（平移不变）。</p>"
+        },
+        {
+          "title": "第三步：与调和级数比较得发散",
+          "html": "<div class=\"fm\">$$\\int_0^{+\\infty}\\frac{|\\sin x|}{x}\\mathrm{d}x=\\sum_{n=0}^{\\infty}a_n\\geqslant\\frac{2}{\\pi}\\sum_{n=0}^{\\infty}\\frac{1}{n+1}=+\\infty.$$</div><p>故原积分不绝对收敛（但它本身收敛到 $\\frac{\\pi}{2}$，属条件收敛）。</p><p class=\"concl\"><b>结论</b>$\\displaystyle\\int_0^{+\\infty}\\frac{\\sin x}{x}\\mathrm{d}x$ 条件收敛，不绝对收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（非绝对收敛篇）",
+        "lead": "看到「证明 $\\int\\frac{\\sin x}{x}$ 不绝对收敛」，直接按这个顺序出牌：",
+        "items": [
+          "先明确目标：要证 $\\int\\frac{|\\sin x|}{x}\\mathrm{d}x=+\\infty$，而不是讨论原积分的正负抵消。",
+          "按周期 $\\pi$ 分段，记 $a_n$ 为第 $n$ 段积分，把无穷积分转成级数 $\\sum a_n$。",
+          "分母用「段内最大值」放小：$\\frac1x\\geqslant\\frac{1}{(n+1)\\pi}$，再用 $\\int$ 段上 $|\\sin|=2$。",
+          "得到 $a_n\\geqslant\\frac{2}{(n+1)\\pi}$，与调和级数比较即发散——这是最省力的下界构造。"
+        ]
+      },
+      "answerHtml": "$\\displaystyle\\int_0^{+\\infty}\\left|\\frac{\\sin x}{x}\\right|\\mathrm{d}x=+\\infty$，故原积分不绝对收敛"
+    },
+    {
+      "seq": 3,
+      "number": "计算 3",
+      "type": "solution",
+      "title": "隐函数求导",
+      "tags": [
+        "隐函数求导",
+        "驻点",
+        "二阶导判号"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $y=y(x)$ 由方程 $x^{3}+3x^{2}y-2y^{3}=2$ 所确定，求 $y(x)$ 的极值。",
+      "steps": [
+        {
+          "title": "第一步：隐函数求导，写出 $y'$ 的最简形式",
+          "html": "<p>记 $F=x^{3}+3x^{2}y-2y^{3}-2$，则 $F_x=3x^{2}+6xy$、$F_y=3x^{2}-6y^{2}$，于是</p><div class=\"fm\">$$y'=-\\frac{F_x}{F_y}=\\frac{x^{2}+2xy}{2y^{2}-x^{2}}=\\frac{x\\left(x+2y\\right)}{2y^{2}-x^{2}}.$$</div><p>化简这一步很重要：约掉公因子 $3$ 后，驻点方程 $x(x+2y)=0$ 一眼可见。</p>"
+        },
+        {
+          "title": "第二步：解驻点，必须同时满足原方程",
+          "html": "<p>$y'=0$ 给 $x=0$ 或 $x=-2y$，但驻点还必须在曲线上，所以代回 $x^{3}+3x^{2}y-2y^{3}=2$：</p><div class=\"fm\">$$x=0:\\ -2y^{3}=2\\;\\Longrightarrow\\;y=-1;$$</div><div class=\"fm\">$$x=-2y:\\ -8y^{3}+12y^{3}-2y^{3}=2y^{3}=2\\;\\Longrightarrow\\;y=1,\\ x=-2.$$</div><p>得两个驻点 $(0,-1)$ 与 $(-2,1)$。</p>"
+        },
+        {
+          "title": "第三步：在驻点处用 $y'=0$ 化简二阶导",
+          "html": "<p>对 $y'=\\frac{x^{2}+2xy}{2y^{2}-x^{2}}$ 再求导，在 $y'=0$ 的点上只需看分子对 $x$ 的偏导（$y$ 的变化项被 $y'$ 乘掉）：</p><div class=\"fm\">$$y''\\Big|_{\\text{驻点}}=\\frac{\\left(2x+2y\\right)\\left(2y^{2}-x^{2}\\right)-0}{\\left(2y^{2}-x^{2}\\right)^{2}}=\\frac{2\\left(x+y\\right)}{2y^{2}-x^{2}}.$$</div><p>$(0,-1)$：$y''=\\frac{2(-1)}{2-0}=-1&lt;0$ ⇒ 极大值 $y=-1$；$(-2,1)$：$y''=\\frac{2(-1)}{2-4}=1&gt;0$ ⇒ 极小值 $y=1$。</p>"
+        },
+        {
+          "title": "第四步：写出极值结论",
+          "html": "<p class=\"concl\"><b>结论</b>$x=0$ 处取极大值 $y=-1$；$x=-2$ 处取极小值 $y=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（隐函数极值篇）",
+        "lead": "看到「方程定隐函数、求极值」，直接按这个顺序出牌：",
+        "items": [
+          "先求 $y'=-\\frac{F_x}{F_y}$ 并约分，让驻点方程尽量简单（本题化为 $x(x+2y)=0$）。",
+          "驻点必须代回<b>原方程</b>求解，只解 $y'=0$ 会得到无穷多组解，代回才能定出具体点。",
+          "二阶导在驻点处可化简：因 $y'=0$，只需对分子求偏导，分母的 $y'$ 项自动消失。",
+          "判号用 $y''$ 的符号：$y''&lt;0$ 极大、$y''&gt;0$ 极小；别忘了答案要写「极值 $y=$ 多少」而不是 $x$。"
+        ]
+      },
+      "answerHtml": "$x=0$ 处取极大值 $y=-1$；$x=-2$ 处取极小值 $y=1$"
+    },
+    {
+      "seq": 4,
+      "number": "计算 4",
+      "type": "solution",
+      "title": "切线方程",
+      "tags": [
+        "切线方程",
+        "面积拆分",
+        "方程求解"
+      ],
+      "difficulty": 4,
+      "stemHtml": "过曲线 $y=\\sqrt[3]{x}\\ (x\\geqslant0)$ 上的点 $A$ 作切线，使该切线与曲线及 $x$ 轴所围成的平面图形面积为 $\\dfrac34$，求点 $A$ 的坐标。",
+      "steps": [
+        {
+          "title": "第一步：设切点、写切线、求 $x$ 轴截距",
+          "html": "<p>设 $A\\left(x_0,\\sqrt[3]{x_0}\\right)$。$y=x^{1/3}$ 的导数是 $\\frac13x^{-2/3}$，切线：</p><div class=\"fm\">$$y-\\sqrt[3]{x_0}=\\frac{1}{3}x_0^{-\\frac23}\\left(x-x_0\\right).$$</div><p>令 $y=0$：$-\\sqrt[3]{x_0}=\\frac{1}{3}x_0^{-2/3}\\left(x-x_0\\right)$，解得 $x=-2x_0$。</p><p>截距为负是关键信息：切线与 $x$ 轴的交点在原点左侧，围成的图形是一个「三角形挖掉曲边三角形」。</p>"
+        },
+        {
+          "title": "第二步：把面积写成「三角形减曲边梯形」",
+          "html": "<p>三角形顶点 $\\left(-2x_0,0\\right)$、$\\left(x_0,0\\right)$、$\\left(x_0,\\sqrt[3]{x_0}\\right)$，底长 $3x_0$、高 $\\sqrt[3]{x_0}$，面积 $\\frac32x_0^{4/3}$。曲线下方 $0$ 到 $x_0$ 的面积为</p><div class=\"fm\">$$\\int_0^{x_0}x^{1/3}\\mathrm{d}x=\\frac34x_0^{4/3}.$$</div><p>故所求面积</p><div class=\"fm\">$$S=\\frac32x_0^{4/3}-\\frac34x_0^{4/3}=\\frac34x_0^{4/3}.$$</div>"
+        },
+        {
+          "title": "第三步：令面积等于 $\\frac34$ 解出 $x_0$",
+          "html": "<div class=\"fm\">$$\\frac34x_0^{4/3}=\\frac34\\;\\Longrightarrow\\;x_0^{4/3}=1\\;\\Longrightarrow\\;x_0=1.$$</div><p>于是 $A(1,1)$，切线 $y-1=\\frac13\\left(x-1\\right)$，即 $y=\\frac{x+2}{3}$。</p>"
+        },
+        {
+          "title": "第四步：验算",
+          "html": "<p>切线过 $(1,1)$ ✓，与 $x$ 轴交于 $(-2,0)$ ✓；三角形面积 $\\frac12\\cdot3\\cdot1=\\frac32$，曲线下面积 $\\int_0^1x^{1/3}=\\frac34$，差为 $\\frac34$ ✓。</p><p class=\"concl\"><b>结论</b>$A(1,1)$，切线 $y=\\dfrac{x+2}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（切线与轴围面积篇）",
+        "lead": "看到「过曲线上某点作切线、与曲线及坐标轴围成定面积、求切点」，直接按这个顺序出牌：",
+        "items": [
+          "先设切点 $(x_0,f(x_0))$，写切线并用 $y=0$ 求轴截距——截距符号决定面积怎么拆。",
+          "面积一律「大图形减去小图形」：本题是三角形减去曲线下的曲边梯形。",
+          "把面积写成 $x_0$ 的单项式（本题 $\\frac34x_0^{4/3}$），令它等于给定值，解出 $x_0$ 唯一。",
+          "最后代回验算三件事：切线过切点、截距位置、面积数值——三者一致才算对。"
+        ]
+      },
+      "answerHtml": "$A(1,1)$，切线 $y=\\dfrac{x+2}{3}$"
+    },
+    {
+      "seq": 5,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "反正切互补",
+      "tags": [
+        "反正切互补",
+        "对称区间",
+        "积分性质"
+      ],
+      "difficulty": 4,
+      "stemHtml": "计算定积分 $\\displaystyle I=\\int_{-\\pi}^{\\pi}\\frac{x\\sin x\\cdot\\arctan\\mathrm{e}^{x}}{1+\\cos^{2}x}\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "第一步：认出「非奇非偶 ＋ 对称区间」的固定处理",
+          "html": "<p>$\\arctan\\mathrm{e}^{x}$ 既不是奇函数也不是偶函数，但对称区间上有个恒等式可以把它「配对成常数」：</p><div class=\"fm\">$$\\arctan\\mathrm{e}^{x}+\\arctan\\mathrm{e}^{-x}=\\frac{\\pi}{2}\\qquad\\left(\\forall x\\right).$$</div><p>为什么成立：$\\arctan\\mathrm{e}^{-x}=\\frac{\\pi}{2}-\\arctan\\mathrm{e}^{x}$ 等价于 $\\arctan t+\\arctan\\frac1t=\\frac\\pi2\\ (t&gt;0)$，取 $t=\\mathrm{e}^{x}$ 即得。</p><p>于是把 $I$ 拆成 $[-\\pi,0]$ 与 $[0,\\pi]$，在负半段令 $x=-t$，两块就能合并出 $\\frac{\\pi}{2}$。</p>"
+        },
+        {
+          "title": "第二步：合并成 $[0,\\pi]$ 上的积分",
+          "html": "<p>注意 $x\\sin x$ 是偶函数，$1+\\cos^{2}x$ 也是偶函数，变换后：</p><div class=\"fm\">$$I=\\int_0^{\\pi}\\frac{x\\sin x}{1+\\cos^{2}x}\\left(\\arctan\\mathrm{e}^{x}+\\arctan\\mathrm{e}^{-x}\\right)\\mathrm{d}x=\\frac{\\pi}{2}\\int_0^{\\pi}\\frac{x\\sin x}{1+\\cos^{2}x}\\,\\mathrm{d}x.$$</div>"
+        },
+        {
+          "title": "第三步：用「$x$ 与 $\\pi-x$ 配对」把 $x$ 换成 $\\frac\\pi2$",
+          "html": "<p>设 $g(x)=\\frac{\\sin x}{1+\\cos^{2}x}$，它满足 $g(\\pi-x)=g(x)$。对 $J=\\int_0^{\\pi}xg(x)\\mathrm{d}x$ 作 $x\\to\\pi-x$：</p><div class=\"fm\">$$J=\\int_0^{\\pi}\\left(\\pi-x\\right)g(x)\\mathrm{d}x=\\pi\\int_0^{\\pi}g(x)\\mathrm{d}x-J\\;\\Longrightarrow\\;J=\\frac{\\pi}{2}\\int_0^{\\pi}g(x)\\mathrm{d}x.$$</div>"
+        },
+        {
+          "title": "第四步：算出基本积分，收口",
+          "html": "<div class=\"fm\">$$\\int_0^{\\pi}\\frac{\\sin x}{1+\\cos^{2}x}\\mathrm{d}x=\\left[-\\arctan\\left(\\cos x\\right)\\right]_0^{\\pi}=\\frac{\\pi}{4}+\\frac{\\pi}{4}=\\frac{\\pi}{2}.$$</div><p>所以 $I=\\frac{\\pi}{2}\\cdot\\frac{\\pi}{2}\\cdot\\frac{\\pi}{2}=\\frac{\\pi^{3}}{8}$。</p><p class=\"concl\"><b>结论</b>$I=\\dfrac{\\pi^{3}}{8}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（反正切互补篇）",
+        "lead": "看到「对称区间 ＋ $\\arctan\\mathrm{e}^{x}$（或 $\\arctan\\mathrm{e}^{-x}$）」，直接按这个顺序出牌：",
+        "items": [
+          "先写互补恒等式 $\\arctan\\mathrm{e}^{x}+\\arctan\\mathrm{e}^{-x}=\\frac{\\pi}{2}$，把「非奇非偶」变成常数。",
+          "拆 $[-\\pi,0]$、$[0,\\pi]$，在负段令 $x=-t$，合并同型项；奇偶性只用于判断哪些因子不变号。",
+          "若剩下 $\\int_0^{\\pi}xg(x)\\mathrm{d}x$ 且 $g(\\pi-x)=g(x)$，就用 $x\\to\\pi-x$ 配对，得 $\\frac{\\pi}{2}\\int_0^{\\pi}g$.",
+          "最后算 $\\int_0^{\\pi}\\frac{\\sin x}{1+\\cos^{2}x}\\mathrm{d}x=\\frac{\\pi}{2}$（凑 $\\mathrm{d}(\\cos x)$ 得 $\\arctan$），三因子相乘给 $\\frac{\\pi^{3}}{8}$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{\\pi^{3}}{8}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "二阶 Taylor",
+      "tags": [
+        "二阶 Taylor",
+        "归结原理",
+        "$p$-级数"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 在 $x=0$ 处存在二阶导数，且 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}=0$。证明：级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\left|f\\left(\\frac1n\\right)\\right|$ 收敛。",
+      "steps": [
+        {
+          "title": "第一步：从极限条件读出 $f(0)$ 与 $f'(0)$",
+          "html": "<p>$\\frac{f(x)}{x}\\to0$ 且 $x\\to0$，故 $f(x)=x\\cdot\\frac{f(x)}{x}\\to0$，由连续性 $f(0)=0$。</p><p>再由导数定义</p><div class=\"fm\">$$f'(0)=\\lim_{x\\to0}\\frac{f(x)-f(0)}{x}=\\lim_{x\\to0}\\frac{f(x)}{x}=0.$$</div>"
+        },
+        {
+          "title": "第二步：用二阶 Taylor（Peano 余项）写 $f$ 的主项",
+          "html": "<p>$f$ 在 $0$ 存在二阶导数，故</p><div class=\"fm\">$$f(x)=f(0)+f'(0)x+\\frac12f''(0)x^{2}+o\\left(x^{2}\\right)=\\frac12f''(0)x^{2}+o\\left(x^{2}\\right).$$</div><p>为什么不用两次洛必达：题目只保证 $f$ 在 $0$ 点有二阶导数，不保证邻域内二阶可导，洛必达需要更强的条件；用 Peano 余项的 Taylor 只需「在一点二阶可导」，最稳。</p>"
+        },
+        {
+          "title": "第三步：把 $x=\\frac1n$ 代进去，读阶",
+          "html": "<div class=\"fm\">$$\\left|f\\left(\\frac1n\\right)\\right|=\\left|\\frac12f''(0)\\frac{1}{n^{2}}+o\\left(\\frac{1}{n^{2}}\\right)\\right|,$$</div><p>故</p><div class=\"fm\">$$\\lim_{n\\to\\infty}\\frac{\\left|f\\left(\\frac1n\\right)\\right|}{1/n^{2}}=\\frac12\\left|f''(0)\\right|.$$</div><p>即 $\\left|f\\left(\\frac1n\\right)\\right|$ 与 $\\frac{1}{n^{2}}$ 同阶（极限为有限常数）。</p>"
+        },
+        {
+          "title": "第四步：比较判别法收口",
+          "html": "<p>$\\sum\\frac{1}{n^{2}}$ 收敛，由极限形式的比较判别法，$\\sum\\left|f\\left(\\frac1n\\right)\\right|$ 收敛。</p><p class=\"concl\"><b>结论</b>$\\displaystyle\\sum_{n=1}^{\\infty}\\left|f\\left(\\frac1n\\right)\\right|$ 收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$f(1/n)$ 型级数篇）",
+        "lead": "看到「$\\sum\\left|f\\left(\\frac1n\\right)\\right|$、条件只给 $f$ 在 $0$ 点的导数信息」，直接按这个顺序出牌：",
+        "items": [
+          "先由 $\\frac{f(x)}{x}\\to0$ 读出 $f(0)=0$、$f'(0)=0$，这是所有后续展开的前提。",
+          "只在一点有二阶导数时用 Peano 余项：$f(x)=\\frac12f''(0)x^{2}+o(x^{2})$，不要用两次洛必达。",
+          "把 $x=\\frac1n$ 代入，算 $\\frac{|f(1/n)|}{1/n^{2}}$ 的极限，得到有限常数即「同阶」。",
+          "最后与 $\\sum\\frac1{n^{2}}$ 比较（$p=2&gt;1$ 收敛），结论成立；$p$-级数的 $p$ 值要写出来。"
+        ]
+      },
+      "answerHtml": "$\\displaystyle\\sum_{n=1}^{\\infty}\\left|f\\left(\\frac1n\\right)\\right|$ 收敛"
+    },
+    {
+      "seq": 7,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "反函数换元",
+      "tags": [
+        "反函数换元",
+        "斜率下界",
+        "$\\sin$ 积分控制"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $\\left|f(x)\\right|\\leqslant\\pi$，$f'(x)\\geqslant m&gt;0\\ (\\forall x\\in[a,b])$，证明：$\\displaystyle\\left|\\int_a^b\\sin f(x)\\,\\mathrm{d}x\\right|\\leqslant\\frac{2}{m}$。",
+      "steps": [
+        {
+          "title": "第一步：看清「$f'\\geqslant m$」能干什么",
+          "html": "<p>$f'$ 有正的下界意味着 $f$ 严格递增、有反函数，而且「$x$ 走一段，$t=f(x)$ 走得更快」。所以把积分变量从 $x$ 换成 $t=f(x)$，$\\mathrm{d}x=\\frac{\\mathrm{d}t}{f'(x)}\\leqslant\\frac{\\mathrm{d}t}{m}$，积分被压小。</p><div class=\"fm\">$$\\left|\\int_a^b\\sin f(x)\\mathrm{d}x\\right|=\\left|\\int_{f(a)}^{f(b)}\\frac{\\sin t}{f'\\left(f^{-1}(t)\\right)}\\mathrm{d}t\\right|\\leqslant\\frac1m\\left|\\int_{f(a)}^{f(b)}\\sin t\\,\\mathrm{d}t\\right|.$$</div>"
+        },
+        {
+          "title": "第二步：算出 $\\sin$ 在任意子区间上的积分上界",
+          "html": "<p>由 $\\left|f\\right|\\leqslant\\pi$ 得 $-\\pi\\leqslant f(a)&lt;f(b)\\leqslant\\pi$，即积分区间落在 $[-\\pi,\\pi]$ 内。$\\sin t$ 在 $[-\\pi,0]$ 为负、$[0,\\pi]$ 为正，任一子区间上的积分绝对值不超过整段正半周的面积：</p><div class=\"fm\">$$\\left|\\int_{f(a)}^{f(b)}\\sin t\\,\\mathrm{d}t\\right|\\leqslant\\int_0^{\\pi}\\sin t\\,\\mathrm{d}t=2.$$</div><p>为什么是 $2$：$\\sin$ 的一个正半周面积就是 $2$，而任何子区间的「净面积」都不会超过它。</p>"
+        },
+        {
+          "title": "第三步：两界相乘",
+          "html": "<div class=\"fm\">$$\\left|\\int_a^b\\sin f(x)\\mathrm{d}x\\right|\\leqslant\\frac1m\\cdot2=\\frac{2}{m}.$$</div><p class=\"concl\"><b>结论</b>不等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（振荡积分上界篇）",
+        "lead": "看到「$\\left|\\int\\sin f(x)\\mathrm{d}x\\right|$ 要估上界、$f'$ 有正下界」，直接按这个顺序出牌：",
+        "items": [
+          "先换元 $t=f(x)$：$f'\\geqslant m$ 使 $\\mathrm{d}x\\leqslant\\frac{\\mathrm{d}t}{m}$，把「斜率」变成一个可用的常数因子。",
+          "换元要求 $f$ 严格单调，$f'&gt;0$ 保证了反函数存在，这一步要写一句。",
+          "剩下的 $\\left|\\int\\sin t\\,\\mathrm{d}t\\right|$ 用「正半周面积 $=2$」控制，$|f|\\leqslant\\pi$ 保证区间不超出 $[-\\pi,\\pi]$。",
+          "两条界相乘得 $\\frac2m$，量纲上也能自查：$m$ 越大振荡越快、积分越小，答案反比于 $m$ 合理。"
+        ]
+      },
+      "answerHtml": "$\\left|\\displaystyle\\int_a^b\\sin f(x)\\,\\mathrm{d}x\\right|\\leqslant\\dfrac{2}{m}$"
+    },
+    {
+      "seq": 8,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "Gauss 公式",
+      "tags": [
+        "Gauss 公式",
+        "被积函数定号",
+        "广义球坐标"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\Sigma$ 是一个光滑封闭曲面（方向朝外），给定第二型曲面积分 $\\displaystyle I=\\iint_{\\Sigma}\\left(x^{3}-x\\right)\\mathrm{d}y\\mathrm{d}z+\\left(2y^{3}-y\\right)\\mathrm{d}z\\mathrm{d}x+\\left(3z^{3}-z\\right)\\mathrm{d}x\\mathrm{d}y$。试确定曲面 $\\Sigma$，使 $I$ 最小，并求最小值。",
+      "steps": [
+        {
+          "title": "第一步：封闭曲面 ＋ 朝外 ⇒ 直接上 Gauss 公式",
+          "html": "<div class=\"fm\">$$\\operatorname{div}\\vec{F}=\\left(3x^{2}-1\\right)+\\left(6y^{2}-1\\right)+\\left(9z^{2}-1\\right)=3\\left(x^{2}+2y^{2}+3z^{2}-1\\right).$$</div><p>于是</p><div class=\"fm\">$$I=\\iiint_{\\Omega}3\\left(x^{2}+2y^{2}+3z^{2}-1\\right)\\mathrm{d}V.$$</div><p>为什么用 Gauss：封闭、定向、被积函数是三项「各管一个变量」的形式，这是典型的散度结构，硬算三个曲面积分毫无必要。</p>"
+        },
+        {
+          "title": "第二步：看被积函数的正负分界，定出最优区域",
+          "html": "<p>$h=x^{2}+2y^{2}+3z^{2}-1$ 在椭球 $E:x^{2}+2y^{2}+3z^{2}&lt;1$ 内为负，在 $E$ 外为正。要让 $I$ 最小，就要「把负的地方全收进来、把正的地方全剔出去」：</p><div class=\"fm\">$$\\Omega=E:\\ x^{2}+2y^{2}+3z^{2}\\leqslant1.$$</div><p>理由：若 $\\Omega$ 漏掉 $E$ 的一部分，补上会使 $I$ 减小；若 $\\Omega$ 超出 $E$，去掉超出部分（$h&gt;0$）也会使 $I$ 减小。所以最优区域恰是 $E$。</p>"
+        },
+        {
+          "title": "第三步：广义球坐标算三重积分",
+          "html": "<p>令 $u=x$、$v=\\sqrt2y$、$w=\\sqrt3z$，则 $x^{2}+2y^{2}+3z^{2}=\\rho^{2}$，体积元 $\\mathrm{d}V=\\frac{1}{\\sqrt6}\\rho^{2}\\sin\\varphi\\,\\mathrm{d}\\rho\\,\\mathrm{d}\\varphi\\,\\mathrm{d}\\theta$：</p><div class=\"fm\">$$\\begin{aligned}I_{\\min}&amp;=\\frac{3}{\\sqrt6}\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_0^{\\pi}\\sin\\varphi\\,\\mathrm{d}\\varphi\\int_0^{1}\\left(\\rho^{2}-1\\right)\\rho^{2}\\,\\mathrm{d}\\rho\\\\&amp;=\\frac{3}{\\sqrt6}\\cdot2\\pi\\cdot2\\cdot\\left(\\frac15-\\frac13\\right)=-\\frac{4\\sqrt6}{15}\\pi.\\end{aligned}$$</div>"
+        },
+        {
+          "title": "第四步：写出曲面与最小值",
+          "html": "<p class=\"concl\"><b>结论</b>$\\Sigma:x^{2}+2y^{2}+3z^{2}=1$（取外侧）时 $I$ 最小，$I_{\\min}=-\\dfrac{4\\sqrt6}{15}\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（选曲面使积分最小篇）",
+        "lead": "看到「封闭曲面 ＋ 第二型曲面积分 ＋ 问 $I$ 什么时候最小」，直接按这个顺序出牌：",
+        "items": [
+          "先算散度搬成三重积分：$I=\\iiint_{\\Omega}\\operatorname{div}\\vec{F}\\,\\mathrm{d}V$，把「选曲面」变成「选区域」。",
+          "再找被积函数的零集（本题 $x^{2}+2y^{2}+3z^{2}=1$），负区全收、正区全剔，最优 $\\Omega$ 就是负区本身。",
+          "积分区域是椭球时用广义球坐标：$x=u,\\ y=v/\\sqrt2,\\ z=w/\\sqrt3$，Jacobian 为 $\\frac{1}{\\sqrt6}$。",
+          "算完检查量纲与符号：被积函数在区域内为负，结果必为负数（本题 $-\\frac{4\\sqrt6}{15}\\pi$），符号错了说明区域或散度写错。"
+        ]
+      },
+      "answerHtml": "$\\Sigma:x^{2}+2y^{2}+3z^{2}=1$（外侧），$I_{\\min}=-\\dfrac{4\\sqrt6}{15}\\pi$"
+    },
+    {
+      "seq": 9,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "闭形式",
+      "tags": [
+        "闭形式",
+        "挖洞 Green",
+        "极坐标定阶"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\displaystyle I_a(r)=\\oint_C\\frac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{\\left(x^{2}+y^{2}\\right)^{a}}$，其中 $a$ 为常数，$C$ 为椭圆 $x^{2}+xy+y^{2}=r^{2}$（取正向）。求 $\\displaystyle\\lim_{r\\to+\\infty}I_a(r)$。",
+      "steps": [
+        {
+          "title": "第一步：先看 $a=1$ 这个「特殊值」，其余 $a$ 另算",
+          "html": "<p>$\\frac{y\\mathrm{d}x-x\\mathrm{d}y}{x^{2}+y^{2}}$ 是经典的「环绕原点」微分形式，在全平面去掉原点后是闭形式。$a\\neq1$ 时它不是闭的，不能整体用 Green，只能靠参数化。</p><p>所以分两种情形：$a=1$ 用「挖洞 ＋ Green」；$a\\neq1$ 用极坐标把椭圆写出来。</p>"
+        },
+        {
+          "title": "第二步：$a=1$ 时挖小洞，环流与 $r$ 无关",
+          "html": "<p>在 $C$ 内挖去小圆 $C_\\varepsilon:x^{2}+y^{2}=\\varepsilon^{2}$（正向），在环形区域上用 Green：被积形式闭，故</p><div class=\"fm\">$$I_1(r)=\\oint_{C_\\varepsilon}\\frac{y\\mathrm{d}x-x\\mathrm{d}y}{x^{2}+y^{2}}=\\frac{1}{\\varepsilon^{2}}\\int_0^{2\\pi}\\left(-\\varepsilon^{2}\\right)\\mathrm{d}\\theta=-2\\pi.$$</div><p>这里 $x=\\varepsilon\\cos\\theta,\\ y=\\varepsilon\\sin\\theta$ 给 $y\\mathrm{d}x-x\\mathrm{d}y=-\\varepsilon^{2}\\mathrm{d}\\theta$。结果与 $r$ 无关，因为椭圆都绕原点一圈。</p>"
+        },
+        {
+          "title": "第三步：$a\\neq1$ 时用极坐标把椭圆参数化",
+          "html": "<p>令 $x=\\rho\\cos\\theta$、$y=\\rho\\sin\\theta$，椭圆方程给 $\\rho^{2}\\left(1+\\cos\\theta\\sin\\theta\\right)=r^{2}$，即 $\\rho^{2}=\\frac{r^{2}}{1+\\cos\\theta\\sin\\theta}$；同时 $y\\mathrm{d}x-x\\mathrm{d}y=-\\rho^{2}\\mathrm{d}\\theta$。于是</p><div class=\"fm\">$$\\begin{aligned}I_a(r)&amp;=-\\int_0^{2\\pi}\\rho^{2-2a}\\,\\mathrm{d}\\theta=-\\int_0^{2\\pi}\\frac{r^{2-2a}}{\\left(1+\\cos\\theta\\sin\\theta\\right)^{a-1}}\\,\\mathrm{d}\\theta\\\\&amp;=-\\frac{1}{r^{2\\left(a-1\\right)}}\\int_0^{2\\pi}\\left(1+\\cos\\theta\\sin\\theta\\right)^{a-1}\\mathrm{d}\\theta.\\end{aligned}$$</div><p>关键：$1+\\cos\\theta\\sin\\theta=1+\\frac12\\sin2\\theta\\in\\left[\\frac12,\\frac32\\right]$，所以后面那个积分是与 $r$ 无关的<b>正常数</b>。</p>"
+        },
+        {
+          "title": "第四步：按 $a$ 与 $1$ 的大小读极限",
+          "html": "<p>$a&gt;1$：$r^{2(a-1)}\\to+\\infty$，$I_a(r)\\to0$；$a&lt;1$：$r^{2(a-1)}\\to0$，$I_a(r)\\to-\\infty$（积分值为正）。</p><p class=\"concl\"><b>结论</b>$\\lim\\limits_{r\\to+\\infty}I_a(r)=\\begin{cases}0,&amp;a&gt;1,\\\\ -2\\pi,&amp;a=1,\\\\ -\\infty,&amp;a&lt;1.\\end{cases}$</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（含奇点环流篇）",
+        "lead": "看到「绕椭圆的 $\\oint\\frac{y\\mathrm{d}x-x\\mathrm{d}y}{\\left(x^{2}+y^{2}\\right)^{a}}$、问 $r\\to\\infty$」，直接按这个顺序出牌：",
+        "items": [
+          "先单独处理 $a=1$：这是闭形式，环流是拓扑量，与曲线大小无关。",
+          "$a=1$ 用「挖小圆 ＋ Green」：$\\oint_C=\\oint_{C_\\varepsilon}$，算出 $-2\\pi$。",
+          "$a\\neq1$ 用极坐标：$\\rho^{2}=\\frac{r^{2}}{1+\\cos\\theta\\sin\\theta}$，$y\\mathrm{d}x-x\\mathrm{d}y=-\\rho^{2}\\mathrm{d}\\theta$，把 $r$ 提到积分外。",
+          "把 $r$ 的幂次单独看：$r^{2(1-a)}$，$a&gt;1$ 给 $0$、$a&lt;1$ 给 $-\\infty$；积分本身是 $[\\frac12,\\frac32]$ 上的正常数。"
+        ]
+      },
+      "answerHtml": "$a&gt;1$ 时极限为 $0$；$a=1$ 时为 $-2\\pi$；$a&lt;1$ 时为 $-\\infty$"
+    },
+    {
+      "seq": 10,
+      "number": "第 7 题",
+      "type": "solution",
+      "title": "调和数放缩",
+      "tags": [
+        "调和数放缩",
+        "精确拆项",
+        "望远镜求和"
+      ],
+      "difficulty": 4,
+      "stemHtml": "判断级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1+\\frac12+\\cdots+\\frac1n}{(n+1)(n+2)}$ 的敛散性，若收敛，求其和。",
+      "steps": [
+        {
+          "title": "第一步：收敛性——用 $H_n$ 的增长速度压到 $p$-级数",
+          "html": "<p>记 $H_n=1+\\frac12+\\cdots+\\frac1n$。它发散但很慢：$H_n&lt;1+\\ln n&lt;\\sqrt n$（$n$ 充分大）。于是</p><div class=\"fm\">$$0&lt;\\frac{H_n}{(n+1)(n+2)}&lt;\\frac{\\sqrt n}{(n+1)(n+2)}&lt;\\frac{1}{n^{3/2}},$$</div><p>$\\sum\\frac{1}{n^{3/2}}$ 是 $p=\\frac32&gt;1$ 的 $p$-级数，收敛，故原级数收敛。</p><p>为什么想到 $H_n&lt;\\sqrt n$：通项分母是 $n^{2}$ 量级，只要 $H_n$ 的增长低于 $n^{1}$，通项就低于 $n^{-3/2}$ 量级，收敛无疑。</p>"
+        },
+        {
+          "title": "第二步：求和的关键是「精确拆项」",
+          "html": "<p>直接拆 $\\frac{1}{(n+1)(n+2)}=\\frac{1}{n+1}-\\frac{1}{n+2}$ 不行，因为 $H_n$ 会跟着变。正确的恒等式是（用 $H_{k+1}=H_k+\\frac{1}{k+1}$ 可验证）：</p><div class=\"fm\">$$\\frac{H_k}{(k+1)(k+2)}=\\left(\\frac{H_k}{k+1}-\\frac{H_{k+1}}{k+2}\\right)+\\left(\\frac1{k+1}-\\frac1{k+2}\\right).$$</div><p>这个拆法的设计意图：第一组括号是「望远镜」，第二组括号也是「望远镜」，两把望远镜同时收敛。</p>"
+        },
+        {
+          "title": "第三步：写出部分和，两把望远镜各自塌缩",
+          "html": "<div class=\"fm\">$$\\begin{aligned}S_n&amp;=\\sum_{k=1}^{n}\\left(\\frac{H_k}{k+1}-\\frac{H_{k+1}}{k+2}\\right)+\\sum_{k=1}^{n}\\left(\\frac1{k+1}-\\frac1{k+2}\\right)\\\\&amp;=\\left(\\frac{H_1}{2}-\\frac{H_{n+1}}{n+2}\\right)+\\left(\\frac12-\\frac1{n+2}\\right).\\end{aligned}$$</div>"
+        },
+        {
+          "title": "第四步：让 $n\\to\\infty$，算出和",
+          "html": "<p>$H_1=1$，故 $S_n=1-\\frac{H_{n+1}}{n+2}-\\frac{1}{n+2}$；又 $0&lt;\\frac{H_{n+1}}{n+2}&lt;\\frac{\\sqrt{n+1}}{n+2}\\to0$，所以</p><div class=\"fm\">$$\\sum_{n=1}^{\\infty}\\frac{H_n}{(n+1)(n+2)}=1.$$</div><p class=\"concl\"><b>结论</b>级数收敛，和为 $1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（调和数级数求和篇）",
+        "lead": "看到「通项含 $H_n$、分母是 $n^{2}$ 量级」，直接按这个顺序出牌：",
+        "items": [
+          "先判收敛：$H_n&lt;1+\\ln n&lt;\\sqrt n$，把通项压到 $n^{-3/2}$，用 $p=\\frac32$ 的 $p$-级数收口。",
+          "再想求和：$H_n$ 会随 $n$ 变，不能直接用 $\\frac1{(n+1)(n+2)}$ 的部分分式拆。",
+          "用「带 $H$ 的望远镜」：$\\frac{H_k}{(k+1)(k+2)}=\\left(\\frac{H_k}{k+1}-\\frac{H_{k+1}}{k+2}\\right)+\\left(\\frac1{k+1}-\\frac1{k+2}\\right)$，先验证恒等式再求和。",
+          "求和后剩下的尾巴 $\\frac{H_{n+1}}{n+2}$ 要单独说明趋于 $0$（仍用 $H&lt;\\sqrt{\\cdot}$），不能默认它消失。"
+        ]
+      },
+      "answerHtml": "收敛，和为 $1$"
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "year": 2014,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第六届（2014）初赛 非数学专业类",
+  "edition": 6,
+  "source": "第6届（2014）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "特征方程",
+      "tags": [
+        "特征方程",
+        "重根",
+        "方程还原"
+      ],
+      "difficulty": 2,
+      "stemHtml": "已知 $y_1=\\mathrm{e}^{x}$ 和 $y_2=x\\mathrm{e}^{x}$ 是齐次二阶常系数线性微分方程的解，则该方程为________。",
+      "steps": [
+        {
+          "title": "第一步：由「两个解」读出特征根",
+          "html": "<p>$y=\\mathrm{e}^{rx}$ 是解 ⇒ $r$ 是特征根；$y=x\\mathrm{e}^{rx}$ 也是解 ⇒ $r$ 是<b>二重</b>特征根。</p><p>所以特征根为 $r=1$（二重），特征方程为</p><div class=\"fm\">$$\\left(\\lambda-1\\right)^{2}=\\lambda^{2}-2\\lambda+1=0.$$</div>"
+        },
+        {
+          "title": "第二步：把特征方程还原成微分方程",
+          "html": "<p>$\\lambda^{2}\\to y''$、$\\lambda\\to y'$、$1\\to y$，得</p><div class=\"fm\">$$y''-2y'+y=0.$$</div>"
+        },
+        {
+          "title": "第三步：验算两个解",
+          "html": "<p>$y=\\mathrm{e}^{x}$：$\\mathrm{e}^{x}-2\\mathrm{e}^{x}+\\mathrm{e}^{x}=0$ ✓；$y=x\\mathrm{e}^{x}$：$y'=(x+1)\\mathrm{e}^{x}$、$y''=(x+2)\\mathrm{e}^{x}$，代入得 $(x+2)-2(x+1)+x=0$ ✓。</p><p class=\"concl\"><b>结论</b>所求方程为 $y''-2y'+y=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（由解反求方程篇）",
+        "lead": "看到「给出两个解、反求常系数线性方程」，直接按这个顺序出牌：",
+        "items": [
+          "先看解的形状：$\\mathrm{e}^{rx}$ 说明 $r$ 是单根，$x\\mathrm{e}^{rx}$ 说明 $r$ 是重根，$\\mathrm{e}^{ax}\\cos bx$ 说明有共轭复根。",
+          "把根写成特征多项式：二重根 $1$ 给 $(\\lambda-1)^{2}$，共轭复根 $\\alpha\\pm\\mathrm{i}\\beta$ 给 $(\\lambda-\\alpha)^{2}+\\beta^{2}$。",
+          "按 $\\lambda^{k}\\to y^{(k)}$ 还原，系数照抄，别漏常数项。",
+          "最后代回两个解各验一次，十秒就能确认没有符号错误。"
+        ]
+      },
+      "answerHtml": "$y''-2y'+y=0$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "切平面法向量",
+      "tags": [
+        "切平面法向量",
+        "平行条件",
+        "切点代入"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设有曲面 $S:z=x^{2}+2y^{2}$ 和平面 $L:2x+2y+z=0$，则与 $L$ 平行的 $S$ 的切平面是________。",
+      "steps": [
+        {
+          "title": "第一步：写出曲面上任一点的切平面法向量",
+          "html": "<p>令 $F(x,y,z)=x^{2}+2y^{2}-z$，则 $\\nabla F=\\left(2x,4y,-1\\right)$，在 $P_0\\left(x_0,y_0,z_0\\right)$ 处切平面法向量为 $\\left(2x_0,4y_0,-1\\right)$。$L$ 的法向量是 $\\left(2,2,1\\right)$，平行即存在 $k$ 使</p><div class=\"fm\">$$\\left(2x_0,4y_0,-1\\right)=k\\left(2,2,1\\right).$$</div>"
+        },
+        {
+          "title": "第二步：由第三分量定 $k$，再求切点",
+          "html": "<p>$-1=k\\cdot1$ ⇒ $k=-1$，于是 $2x_0=-2$、$4y_0=-2$，得 $x_0=-1$、$y_0=-\\frac12$，</p><div class=\"fm\">$$z_0=x_0^{2}+2y_0^{2}=1+\\frac12=\\frac32.$$</div>"
+        },
+        {
+          "title": "第三步：写切平面并整理成一般式",
+          "html": "<div class=\"fm\">$$\\left(-2\\right)\\left(x+1\\right)+\\left(-2\\right)\\left(y+\\frac12\\right)-\\left(z-\\frac32\\right)=0,$$</div><p>整理：$2x+2y+z+\\frac32=0$。验算：法向量 $(2,2,1)$ 与 $L$ 平行 ✓，切点满足曲面方程 ✓。</p><p class=\"concl\"><b>结论</b>切平面为 $2x+2y+z+\\dfrac32=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（平行切平面篇）",
+        "lead": "看到「求与已知平面平行的切平面」，直接按这个顺序出牌：",
+        "items": [
+          "先写曲面 $F=0$ 的梯度 $\\nabla F$，它就是切平面的法向量。",
+          "平行 ⇒ 法向量成比例，用「已知平面法向量的非零分量」定比例系数（本题第三分量 $-1=k$ 直接定 $k$）。",
+          "把 $k$ 代回求切点坐标，切点必须落在曲面上，这一步是自检点。",
+          "最后写成一般式并整理常数，别把「平行」误当「重合」。"
+        ]
+      },
+      "answerHtml": "$2x+2y+z+\\dfrac32=0$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "变限积分求导",
+      "tags": [
+        "变限积分求导",
+        "隐函数",
+        "初值"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设函数 $y=y(x)$ 由方程 $x=\\displaystyle\\int_1^{y-x}\\sin^{2}\\frac{\\pi t}{4}\\,\\mathrm{d}t$ 所确定，求 $\\left.\\dfrac{\\mathrm{d}y}{\\mathrm{d}x}\\right|_{x=0}=$________。",
+      "steps": [
+        {
+          "title": "第一步：先定 $x=0$ 时的 $y$",
+          "html": "<p>$x=0$ 时右端积分的上下限必须重合，否则积分不为零，故 $y-0=1$，即 $y(0)=1$。</p><p>这一步不能跳过：后面代值要用 $y(0)$，而它只能由方程本身给出。</p>"
+        },
+        {
+          "title": "第二步：两边对 $x$ 求导（上限是 $y-x$，要用链式法则）",
+          "html": "<div class=\"fm\">$$1=\\sin^{2}\\frac{\\pi\\left(y-x\\right)}{4}\\cdot\\left(y'-1\\right).$$</div><p>用的是 $\\frac{\\mathrm{d}}{\\mathrm{d}x}\\int_1^{u(x)}g(t)\\mathrm{d}t=g\\left(u(x)\\right)u'(x)$，其中 $u=y-x$ 的导数是 $y'-1$。</p>"
+        },
+        {
+          "title": "第三步：解出 $y'$ 并代值",
+          "html": "<div class=\"fm\">$$y'=1+\\csc^{2}\\frac{\\pi\\left(y-x\\right)}{4},$$</div><p>代入 $x=0,\\ y=1$：$\\frac{\\pi}{4}$ 处 $\\csc^{2}=2$，故 $y'(0)=1+2=3$。</p><p class=\"concl\"><b>结论</b>$\\left.y'\\right|_{x=0}=3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（变限积分隐函数篇）",
+        "lead": "看到「$x=\\int_{\\text{常数}}^{y-x}g(t)\\mathrm{d}t$、求 $y'(x_0)$」，直接按这个顺序出牌：",
+        "items": [
+          "先令 $x=x_0$ 定出 $y(x_0)$：上下限重合给 $0$，这是隐函数的初值。",
+          "两边对 $x$ 求导，上限 $y-x$ 的导数别忘 $y'-1$（链式法则最容易漏这一项）。",
+          "把 $y'$ 解成显式再代点；$\\csc^{2}\\frac{\\pi}{4}=2$ 这类特殊值要背熟。",
+          "若解出 $y'-1=\\frac{1}{g(u)}$，注意 $g(u)=0$ 的点要单独讨论——本题 $\\sin^{2}\\frac{\\pi}{4}\\neq0$，安全。"
+        ]
+      },
+      "answerHtml": "$3$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "阶乘裂项",
+      "tags": [
+        "阶乘裂项",
+        "望远镜求和"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $\\displaystyle x_n=\\sum_{k=1}^{n}\\frac{k}{(k+1)!}$，则 $\\displaystyle\\lim_{n\\to\\infty}x_n=$________。",
+      "steps": [
+        {
+          "title": "第一步：把分子凑成「分母因子之差」",
+          "html": "<div class=\"fm\">$$\\frac{k}{(k+1)!}=\\frac{(k+1)-1}{(k+1)!}=\\frac{1}{k!}-\\frac{1}{(k+1)!}.$$</div><p>为什么这么凑：$k!$ 与 $(k+1)!$ 只差一个因子，把分子写成 $(k+1)-1$ 就能拆成两项，这是阶乘裂项的标准动作。</p>"
+        },
+        {
+          "title": "第二步：望远镜求和",
+          "html": "<div class=\"fm\">$$x_n=\\sum_{k=1}^{n}\\left(\\frac{1}{k!}-\\frac{1}{(k+1)!}\\right)=1-\\frac{1}{(n+1)!}.$$</div><p>中间项两两抵消，只剩首项 $\\frac{1}{1!}=1$ 与末项 $-\\frac{1}{(n+1)!}$。</p>"
+        },
+        {
+          "title": "第三步：取极限",
+          "html": "<p>$\\frac{1}{(n+1)!}\\to0$，故 $\\lim x_n=1$。</p><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{n\\to\\infty}x_n=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（阶乘裂项篇）",
+        "lead": "看到「$\\sum\\frac{k}{(k+1)!}$ 这种分子带 $k$、分母带阶乘的通项」，直接按这个顺序出牌：",
+        "items": [
+          "把分子写成「分母因子的差」：$k=(k+1)-1$，立刻拆成两项。",
+          "记住两个常用裂项：$\\frac{k}{(k+1)!}=\\frac1{k!}-\\frac1{(k+1)!}$，$\\frac{1}{k(k+1)}=\\frac1k-\\frac1{k+1}$。",
+          "望远镜求和只剩首尾，首项通常为 $1$（因 $0!=1$、$1!=1$）。",
+          "取极限只需看末项是否趋 $0$；本题 $\\frac{1}{(n+1)!}\\to0$，和为 $1$。"
+        ]
+      },
+      "answerHtml": "$1$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "$1^{\\infty}$ 型",
+      "tags": [
+        "$1^{\\infty}$ 型",
+        "取对数",
+        "主项比较"
+      ],
+      "difficulty": 2,
+      "stemHtml": "已知 $\\displaystyle\\lim_{x\\to0}\\left(1+x+\\frac{f(x)}{x}\\right)^{\\frac1x}=\\mathrm{e}^{3}$，则 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x^{2}}=$________。",
+      "steps": [
+        {
+          "title": "第一步：$1^{\\infty}$ 型取对数，把指数搬下来",
+          "html": "<div class=\"fm\">$$\\lim_{x\\to0}\\frac{1}{x}\\ln\\left(1+x+\\frac{f(x)}{x}\\right)=3,$$</div><p>即 $\\ln\\left(1+x+\\frac{f(x)}{x}\\right)=3x+o(x)$。</p>"
+        },
+        {
+          "title": "第二步：把对数还原成原式",
+          "html": "<div class=\"fm\">$$1+x+\\frac{f(x)}{x}=\\mathrm{e}^{3x+o(x)}\\;\\Longrightarrow\\;\\frac{f(x)}{x^{2}}=\\frac{\\mathrm{e}^{3x+o(x)}-1}{x^{2}}-\\frac1x\\cdot\\frac{1}{1}.$$</div><p>更干净的写法：先移项 $\\frac{f(x)}{x}=\\mathrm{e}^{3x+o(x)}-1-x$，再整体除以 $x$。</p>"
+        },
+        {
+          "title": "第三步：用 $\\mathrm{e}^{u}-1\\sim u$ 定值",
+          "html": "<div class=\"fm\">$$\\mathrm{e}^{3x+o(x)}=1+3x+o(x)\\;\\Longrightarrow\\;1+x+\\frac{f(x)}{x}=1+3x+o(x).$$</div><p>两边消去常数 $1$：$\\frac{f(x)}{x}=2x+o(x)$，再除以 $x$：</p><div class=\"fm\">$$\\frac{f(x)}{x^{2}}=2+o(1)\\;\\Longrightarrow\\;\\lim_{x\\to0}\\frac{f(x)}{x^{2}}=2.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x^{2}}=2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$1^{\\infty}$ 反求未知函数篇）",
+        "lead": "看到「$\\left(1+\\cdots\\right)^{1/x}\\to\\mathrm{e}^{k}$、反求 $f(x)/x^{2}$」，直接按这个顺序出牌：",
+        "items": [
+          "$1^{\\infty}$ 型一律取对数：$\\frac1x\\ln(\\cdots)\\to k$，得 $\\ln(\\cdots)=kx+o(x)$。",
+          "把对数还原成原式：括号内 $=\\mathrm{e}^{kx+o(x)}=1+kx+o(x)$。",
+          "与括号里原有的 $1$ 和 $x$ 项对比：常数项抵消，一次项给 $f(x)/x=kx-x$，再除以 $x$ 即得 $k-1$。",
+          "答案几乎总是 $k-1$；若 $k=1$ 则要展开到二阶，此时答案取决于二阶项系数。"
+        ]
+      },
+      "answerHtml": "$2$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "复合求导",
+      "tags": [
+        "复合求导",
+        "换元",
+        "周期积分"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $n$ 为正整数，计算 $\\displaystyle I=\\int_{\\mathrm{e}^{-2n\\pi}}^{1}\\left|\\frac{\\mathrm{d}}{\\mathrm{d}x}\\cos\\left(\\ln\\frac1x\\right)\\right|\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "第一步：先化简被积函数，别被 $\\ln\\frac1x$ 吓住",
+          "html": "<p>$\\cos\\left(\\ln\\frac1x\\right)=\\cos\\left(-\\ln x\\right)=\\cos\\left(\\ln x\\right)$（$\\cos$ 是偶函数），所以</p><div class=\"fm\">$$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\cos\\left(\\ln x\\right)=-\\frac{\\sin\\left(\\ln x\\right)}{x},\\qquad\\left|\\frac{\\mathrm{d}}{\\mathrm{d}x}\\cos\\left(\\ln\\frac1x\\right)\\right|=\\frac{\\left|\\sin\\left(\\ln x\\right)\\right|}{x}.$$</div><p>为什么先化简：$\\ln\\frac1x=-\\ln x$ 只差一个符号，$\\cos$ 吃掉它，导数就变成最熟悉的形式。</p>"
+        },
+        {
+          "title": "第二步：换元 $u=\\ln x$，把 $\\frac1x\\mathrm{d}x$ 吃掉",
+          "html": "<p>$\\mathrm{d}u=\\frac{\\mathrm{d}x}{x}$，上下限：$x=\\mathrm{e}^{-2n\\pi}\\to u=-2n\\pi$，$x=1\\to u=0$：</p><div class=\"fm\">$$I=\\int_{-2n\\pi}^{0}\\left|\\sin u\\right|\\mathrm{d}u=\\int_0^{2n\\pi}\\left|\\sin t\\right|\\mathrm{d}t.$$</div><p>最后一步用了 $|\\sin u|$ 是偶函数。</p>"
+        },
+        {
+          "title": "第三步：用周期性算整段积分",
+          "html": "<p>$|\\sin t|$ 以 $\\pi$ 为周期，每个周期积分为 $\\int_0^{\\pi}\\sin t\\,\\mathrm{d}t=2$，区间长 $2n\\pi$ 含 $2n$ 个周期：</p><div class=\"fm\">$$\\int_0^{2n\\pi}\\left|\\sin t\\right|\\mathrm{d}t=2n\\cdot2=4n.$$</div><p class=\"concl\"><b>结论</b>$I=4n$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（含 $\\ln$ 的变限积分篇）",
+        "lead": "看到「$\\left|\\frac{\\mathrm{d}}{\\mathrm{d}x}\\cos\\left(\\ln\\frac1x\\right)\\right|$ 在 $\\left[\\mathrm{e}^{-2n\\pi},1\\right]$ 上积分」，直接按这个顺序出牌：",
+        "items": [
+          "先把 $\\ln\\frac1x$ 化成 $-\\ln x$，用 $\\cos$ 的偶性消掉负号，被积函数立刻变简单。",
+          "复合求导得 $-\\frac{\\sin(\\ln x)}{x}$，那个 $\\frac1x$ 正是换元 $u=\\ln x$ 的 $\\mathrm{d}u$。",
+          "换元后区间变成 $[-2n\\pi,0]$，用偶性翻成 $[0,2n\\pi]$——区间长度是 $2n\\pi$，含 $2n$ 个 $\\pi$ 周期。",
+          "每周期 $\\int_0^{\\pi}|\\sin|=2$，总数 $2n\\cdot2=4n$；这种「整周期」题答案常是 $4n$ 或 $2n$ 的形式。"
+        ]
+      },
+      "answerHtml": "$4n$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "在一点泰勒",
+      "tags": [
+        "在一点泰勒",
+        "相减消项",
+        "二次函数最值"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $[0,1]$ 上有二阶导数，且存在正常数 $A,B$ 使 $\\left|f(x)\\right|\\leqslant A$，$\\left|f''(x)\\right|\\leqslant B$。证明：对任意 $x\\in[0,1]$，$\\left|f'(x)\\right|\\leqslant2A+\\dfrac{B}{2}$。",
+      "steps": [
+        {
+          "title": "第一步：把 $f(0)$、$f(1)$ 都「在 $x$ 处」展开",
+          "html": "<p>固定 $x\\in(0,1)$，把两个端点值在 $x$ 点泰勒展开（$0&lt;\\xi_1&lt;x&lt;\\xi_2&lt;1$）：</p><div class=\"fm\">$$f(0)=f(x)-xf'(x)+\\frac{f''\\left(\\xi_1\\right)}{2}x^{2},$$</div><div class=\"fm\">$$f(1)=f(x)+\\left(1-x\\right)f'(x)+\\frac{f''\\left(\\xi_2\\right)}{2}\\left(1-x\\right)^{2}.$$</div><p>为什么选这两个端点：展开点选在 $x$，两端各展一次，$f(x)$ 这个「未知量」在两式里系数相同，相减可以消掉，只剩 $f'(x)$。</p>"
+        },
+        {
+          "title": "第二步：两式相减，解出 $f'(x)$",
+          "html": "<div class=\"fm\">$$f(1)-f(0)=f'(x)+\\frac{f''\\left(\\xi_2\\right)}{2}\\left(1-x\\right)^{2}-\\frac{f''\\left(\\xi_1\\right)}{2}x^{2},$$</div><p>即</p><div class=\"fm\">$$f'(x)=f(1)-f(0)-\\frac{f''\\left(\\xi_2\\right)}{2}\\left(1-x\\right)^{2}+\\frac{f''\\left(\\xi_1\\right)}{2}x^{2}.$$</div>"
+        },
+        {
+          "title": "第三步：逐项估绝对值",
+          "html": "<div class=\"fm\">$$\\left|f'(x)\\right|\\leqslant\\left|f(1)\\right|+\\left|f(0)\\right|+\\frac{B}{2}\\left(1-x\\right)^{2}+\\frac{B}{2}x^{2}\\leqslant2A+\\frac{B}{2}\\left[x^{2}+\\left(1-x\\right)^{2}\\right].$$</div>"
+        },
+        {
+          "title": "第四步：用二次函数在 $[0,1]$ 上的最大值收口",
+          "html": "<p>$x^{2}+\\left(1-x\\right)^{2}=2\\left(x-\\frac12\\right)^{2}+\\frac12$ 在 $[0,1]$ 上最大值为 $1$（在端点 $x=0$ 或 $1$ 取到），故</p><div class=\"fm\">$$\\left|f'(x)\\right|\\leqslant2A+\\frac{B}{2}.$$</div><p class=\"concl\"><b>结论</b>不等式成立；端点 $x=0,1$ 由 $f'$ 的连续性（$f$ 有二阶导数）取极限即得。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（导数界估计篇）",
+        "lead": "看到「已知 $\\left|f\\right|$ 与 $\\left|f''\\right|$ 的界、要估 $\\left|f'\\right|$」，直接按这个顺序出牌：",
+        "items": [
+          "固定 $x$，在 $x$ 处把两个端点展开——选端点是因为它们的函数值有界（$A$），而 $f(x)$ 本身未知。",
+          "两式相减消掉 $f(x)$，剩下的 $f'(x)$ 系数是 $(1-x)+x=1$，一次就解出来。",
+          "取绝对值时 $A$ 项各出一个 ⇒ $2A$；$f''$ 项配成 $x^{2}+(1-x)^{2}$，用它在 $[0,1]$ 的最大值 $1$。",
+          "这种「端点展开相减」是导数界估计的标准套路，$2A+\\frac B2$ 里的 $2$ 就是两个端点贡献的。"
+        ]
+      },
+      "answerHtml": "$\\left|f'(x)\\right|\\leqslant2A+\\dfrac{B}{2}$"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "先二后一",
+      "tags": [
+        "先二后一",
+        "球面坐标面积元",
+        "补面用 Gauss"
+      ],
+      "difficulty": 4,
+      "stemHtml": "(1) 设一球缺高为 $h$，所在球半径为 $R$，证明该球缺的体积为 $\\dfrac{\\pi}{3}\\left(3R-h\\right)h^{2}$，球冠的面积为 $2\\pi Rh$。(2) 设球体 $\\left(x-1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-1\\right)^{2}\\leqslant12$ 被平面 $P:x+y+z=6$ 所截的小球缺为 $\\Omega$，记球上缺的球冠为 $\\Sigma$（方向指向球外），求 $I=\\displaystyle\\iint_{\\Sigma}x\\,\\mathrm{d}y\\mathrm{d}z+y\\,\\mathrm{d}z\\mathrm{d}x+z\\,\\mathrm{d}x\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "第一步：(1) 体积——平行截面是圆，用「先二后一」",
+          "html": "<p>球面 $x^{2}+y^{2}+z^{2}=R^{2}$，球缺顶点在 $z=R$、底面在 $z=R-h$。高度 $z$ 处截面是半径 $\\sqrt{R^{2}-z^{2}}$ 的圆，面积 $\\pi\\left(R^{2}-z^{2}\\right)$：</p><div class=\"fm\">$$V=\\int_{R-h}^{R}\\pi\\left(R^{2}-z^{2}\\right)\\mathrm{d}z=\\pi\\left[R^{2}z-\\frac{z^{3}}{3}\\right]_{R-h}^{R}=\\frac{\\pi}{3}\\left(3R-h\\right)h^{2}.$$</div><p>为什么用「先二后一」：截面积只依赖 $z$，一维积分最省；换球坐标反而多一层 Jacobian。</p>"
+        },
+        {
+          "title": "第二步：(1) 面积——球面坐标下 $\\mathrm{d}S=R^{2}\\sin\\varphi\\,\\mathrm{d}\\varphi\\,\\mathrm{d}\\theta$",
+          "html": "<p>球冠对应 $0\\leqslant\\varphi\\leqslant\\varphi_0$，其中 $\\cos\\varphi_0=\\frac{R-h}{R}$：</p><div class=\"fm\">$$S=\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_0^{\\varphi_0}R^{2}\\sin\\varphi\\,\\mathrm{d}\\varphi=2\\pi R^{2}\\left(1-\\cos\\varphi_0\\right)=2\\pi R^{2}\\cdot\\frac{h}{R}=2\\pi Rh.$$</div>"
+        },
+        {
+          "title": "第三步：(2) 先定几何量，再补面用 Gauss",
+          "html": "<p>球心 $(1,1,1)$、半径 $R=2\\sqrt{3}$；球心到 $P$ 的距离 $d=\\frac{\\left|1+1+1-6\\right|}{\\sqrt{3}}=\\sqrt{3}$，故球缺高 $h=R-d=\\sqrt{3}$。</p><p>代 (1)：$|\\Omega|=\\frac{\\pi}{3}\\left(3R-h\\right)h^{2}=\\frac{\\pi}{3}\\left(6\\sqrt{3}-\\sqrt{3}\\right)\\cdot3=5\\sqrt{3}\\pi$；底面圆半径 $\\sqrt{R^{2}-d^{2}}=3$，面积 $\\left|\\Sigma_1\\right|=9\\pi$。</p><p>补上底面圆盘 $\\Sigma_1$（法向朝 $x+y+z$ 增大方向，即 $(1,1,1)/\\sqrt{3}$），$\\Sigma+\\Sigma_1$ 就是 $\\Omega$ 的完整边界且朝外，由 Gauss：</p><div class=\"fm\">$$\\iint_{\\Sigma}+\\iint_{\\Sigma_1}=\\iiint_{\\Omega}3\\,\\mathrm{d}V=3\\left|\\Omega\\right|=15\\sqrt{3}\\pi.$$</div>"
+        },
+        {
+          "title": "第四步：(2) 算补面的通量，相减得 $I$",
+          "html": "<p>在 $\\Sigma_1$ 上 $x+y+z=6$，$\\vec{n}=\\frac{1}{\\sqrt3}\\left(1,1,1\\right)$：</p><div class=\"fm\">$$\\iint_{\\Sigma_1}\\left(x,y,z\\right)\\cdot\\vec{n}\\,\\mathrm{d}S=\\frac{6}{\\sqrt{3}}\\cdot9\\pi=18\\sqrt{3}\\pi.$$</div><p>故</p><div class=\"fm\">$$I=15\\sqrt{3}\\pi-18\\sqrt{3}\\pi=-3\\sqrt{3}\\pi.$$</div><p class=\"concl\"><b>结论</b>(2) $I=-3\\sqrt{3}\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（球缺球冠与补面篇）",
+        "lead": "看到「球被平面截出球缺、求球冠上的第二型曲面积分」，直接按这个顺序出牌：",
+        "items": [
+          "(1) 体积用「先二后一」：截面积 $\\pi\\left(R^{2}-z^{2}\\right)$，从 $R-h$ 积到 $R$，得 $\\frac{\\pi}{3}\\left(3R-h\\right)h^{2}$。",
+          "球冠面积用球面坐标：$\\mathrm{d}S=R^{2}\\sin\\varphi\\,\\mathrm{d}\\varphi\\,\\mathrm{d}\\theta$，$\\cos\\varphi_0=\\frac{R-h}{R}$，结果 $2\\pi Rh$。",
+          "(2) 先算三个几何量：$R$、球心到平面距离 $d$、球缺高 $h=R-d$；底面圆半径 $\\sqrt{R^{2}-d^{2}}$，面积 $\\pi\\left(R^{2}-d^{2}\\right)$。",
+          "补面用 Gauss 时，补面法向必须与球冠一起构成「朝外」：本题朝 $x+y+z$ 增大方向，通量为 $+\\frac{6}{\\sqrt3}\\left|\\Sigma_1\\right|$，最后 $I=3\\left|\\Omega\\right|-\\iint_{\\Sigma_1}$。"
+        ]
+      },
+      "answerHtml": "(1) 见证明；(2) $I=-3\\sqrt{3}\\pi$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "积分单调性",
+      "tags": [
+        "积分单调性",
+        "$f^{n}$ 集中",
+        "线性变换"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f$ 在 $[a,b]$ 上非负连续、严格单增，且对任意 $n\\in\\mathbb{N}$，存在 $x_n\\in[a,b]$ 使 $\\left[f\\left(x_n\\right)\\right]^{n}=\\dfrac{1}{b-a}\\displaystyle\\int_a^b\\left[f(x)\\right]^{n}\\mathrm{d}x$，求 $\\displaystyle\\lim_{n\\to\\infty}x_n$。",
+      "steps": [
+        {
+          "title": "第一步：先把区间搬到 $[0,1]$，问题不变",
+          "html": "<p>作线性变换 $t=\\frac{x-a}{b-a}$，令 $F(t)=f\\left(a+t\\left(b-a\\right)\\right)$，则 $F$ 在 $[0,1]$ 上非负连续严格增，且条件变成</p><div class=\"fm\">$$\\left[F\\left(t_n\\right)\\right]^{n}=\\int_0^{1}\\left[F(t)\\right]^{n}\\mathrm{d}t,\\qquad x_n=a+t_n\\left(b-a\\right).$$</div><p>为什么先搬区间：结论 $x_n\\to b$ 在 $[0,1]$ 上就是 $t_n\\to1$，符号更短；最后再变换回去即可。</p>"
+        },
+        {
+          "title": "第二步：用「$f^{n}$ 的质量集中在最大值附近」压出下界",
+          "html": "<p>对任意 $c\\in(0,1)$，由 $F$ 严格增与非负：</p><div class=\"fm\">$$\\left[F\\left(t_n\\right)\\right]^{n}=\\int_0^{1}F^{n}(t)\\mathrm{d}t\\geqslant\\int_c^{1}F^{n}(t)\\mathrm{d}t\\geqslant F^{n}(c)\\left(1-c\\right).$$</div><p>这就是本题的核心：$n$ 次幂把 $[c,1]$ 上的值放大成 $F^n(c)$ 量级，$[0,c]$ 的贡献相对可忽略。</p>"
+        },
+        {
+          "title": "第三步：令 $c\\to1$，逼出 $t_n\\to1$",
+          "html": "<p>取 $c=1-\\frac{\\varepsilon}{2}$。因 $F$ 严格增，$F\\left(1-\\varepsilon\\right)&lt;F(c)$，故 $\\left(\\frac{F\\left(1-\\varepsilon\\right)}{F(c)}\\right)^{n}\\to0$，于是存在 $N$，当 $n&gt;N$ 时</p><div class=\"fm\">$$F^{n}(c)\\left(1-c\\right)&gt;F^{n}\\left(1-\\varepsilon\\right).$$</div><p>结合第二步得 $F^{n}\\left(t_n\\right)&gt;F^{n}\\left(1-\\varepsilon\\right)$，由 $F$ 严格增得 $t_n&gt;1-\\varepsilon$。又 $t_n\\leqslant1$，故 $t_n\\to1$。</p>"
+        },
+        {
+          "title": "第四步：换回原区间",
+          "html": "<p>$x_n=a+t_n\\left(b-a\\right)\\to a+1\\cdot\\left(b-a\\right)=b$。</p><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{n\\to\\infty}x_n=b$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$f^{n}$ 中值点篇）",
+        "lead": "看到「$\\left[f\\left(x_n\\right)\\right]^{n}=$ 平均积分、求 $\\lim x_n$」，直接按这个顺序出牌：",
+        "items": [
+          "先认清：$n\\to\\infty$ 时 $f^{n}$ 只在最大值点附近有质量，所以 $x_n$ 必趋于最大值点（本题为 $b$）。",
+          "证法固定：取 $c$ 靠近右端点，用 $\\int_c^b f^n\\geqslant f^n(c)\\left(b-c\\right)$ 给出下界。",
+          "再比较 $\\left(\\frac{f(c')}{f(c)}\\right)^{n}\\to0$（$c'&lt;c$），得 $f\\left(x_n\\right)&gt;f\\left(c'\\right)$，由单调性翻成 $x_n&gt;c'$。",
+          "先在线性变换下证 $[0,1]$ 情形再搬回去，可以少写很多 $a,b$；答案就是右端点 $b$。"
+        ]
+      },
+      "answerHtml": "$b$"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "右和误差",
+      "tags": [
+        "右和误差",
+        "Lagrange 中值",
+        "介值定理"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $A_n=\\dfrac{n}{n^{2}+1}+\\dfrac{n}{n^{2}+2^{2}}+\\cdots+\\dfrac{n}{n^{2}+n^{2}}$，求 $\\displaystyle\\lim_{n\\to\\infty}n\\left(\\frac{\\pi}{4}-A_n\\right)$。",
+      "steps": [
+        {
+          "title": "第一步：把 $A_n$ 认成右和",
+          "html": "<div class=\"fm\">$$A_n=\\frac1n\\sum_{i=1}^{n}\\frac{1}{1+\\left(\\frac{i}{n}\\right)^{2}},$$</div><p>即 $f(x)=\\frac{1}{1+x^{2}}$ 在 $[0,1]$ 上取右端点的黎曼和，故 $A_n\\to\\int_0^1\\frac{\\mathrm{d}x}{1+x^{2}}=\\frac{\\pi}{4}$。</p><p>题目问的是误差的<b>主项</b>，所以要算 $\\frac{\\pi}{4}-A_n$ 精确到 $\\frac1n$ 阶。</p>"
+        },
+        {
+          "title": "第二步：把误差写成逐段积分差",
+          "html": "<p>记 $x_i=\\frac in$，$h=\\frac1n$：</p><div class=\"fm\">$$\\frac{\\pi}{4}-A_n=\\sum_{i=1}^{n}\\int_{x_{i-1}}^{x_i}\\left[f(x)-f\\left(x_i\\right)\\right]\\mathrm{d}x.$$</div><p>被积的是「函数值减去右端点值」，每一段都是同一个符号（$f$ 递减 ⇒ $f(x)\\geqslant f(x_i)$），所以误差是 $n$ 个正项之和。</p>"
+        },
+        {
+          "title": "第三步：对每段用 Lagrange 中值，再用介值定理合成一个点",
+          "html": "<p>$f(x)-f\\left(x_i\\right)=f'\\left(\\xi_i\\right)\\left(x-x_i\\right)$，且 $\\int_{x_{i-1}}^{x_i}\\left(x_i-x\\right)\\mathrm{d}x=\\frac{1}{2n^{2}}$。设 $f'$ 在该段的最小、最大值为 $m_i,M_i$，则</p><div class=\"fm\">$$m_i\\leqslant2n^{2}\\int_{x_{i-1}}^{x_i}f'\\left(\\xi_i\\right)\\left(x_i-x\\right)\\mathrm{d}x\\leqslant M_i,$$</div><p>由 $f'$ 连续与介值定理，存在 $\\eta_i\\in\\left(x_{i-1},x_i\\right)$ 使</p><div class=\"fm\">$$\\int_{x_{i-1}}^{x_i}\\left[f(x)-f\\left(x_i\\right)\\right]\\mathrm{d}x=-\\frac{1}{2n^{2}}f'\\left(\\eta_i\\right).$$</div>"
+        },
+        {
+          "title": "第四步：乘以 $n$，求和变成定积分",
+          "html": "<div class=\"fm\">$$\\begin{aligned}n\\left(\\frac{\\pi}{4}-A_n\\right)&amp;=-\\frac{1}{2n}\\sum_{i=1}^{n}f'\\left(\\eta_i\\right)\\\\&amp;\\to-\\frac12\\int_0^1f'(x)\\mathrm{d}x=\\frac{f(0)-f(1)}{2}=\\frac{1-\\frac12}{2}=\\frac14.\\end{aligned}$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{n\\to\\infty}n\\left(\\frac{\\pi}{4}-A_n\\right)=\\frac14$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（黎曼和误差主项篇）",
+        "lead": "看到「$n\\left(\\int f-\\text{右和}\\right)$ 求极限」，直接按这个顺序出牌：",
+        "items": [
+          "先认出 $A_n$ 是右和，极限为 $\\int_0^1f$；题目真正要的是误差的 $1/n$ 阶主项，必须留余项。",
+          "把误差写成 $\\sum\\int_{x_{i-1}}^{x_i}\\left[f(x)-f(x_i)\\right]\\mathrm{d}x$，逐段用 Lagrange 中值。",
+          "$\\int\\left(x_i-x\\right)\\mathrm{d}x=\\frac{1}{2n^{2}}$，它给出 $\\frac{1}{2n}$ 的系数——这就是答案里分母 $2$ 的来源。",
+          "用介值定理把 $\\sum f'(\\eta_i)$ 合成黎曼和，极限 $=\\int f'=f(1)-f(0)$，本题得 $\\frac14$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac14$"
+    }
+  ]
+}

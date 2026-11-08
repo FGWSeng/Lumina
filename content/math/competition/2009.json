@@ -1,0 +1,445 @@
+{
+  "year": 2009,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "首届（2009）初赛 非数学专业类",
+  "edition": 1,
+  "source": "第1届（2009）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "二重积分",
+      "tags": [
+        "二重积分",
+        "换元消根式",
+        "雅可比"
+      ],
+      "difficulty": 3,
+      "stemHtml": "$\\displaystyle\\iint_D\\frac{(x+y)\\ln\\left(1+\\frac{y}{x}\\right)}{\\sqrt{1-x-y}}\\,\\mathrm{d}x\\mathrm{d}y=$ ＿＿＿＿，其中 $D$ 是由直线 $x+y=1$ 与两坐标轴围成的三角形区域。",
+      "steps": [
+        {
+          "title": "第一步：先认清两个「不好积」的东西，一次换干净",
+          "html": "<p>被积式里有两个硬骨头：一个是根式 $\\sqrt{1-x-y}$（根号下一次式，直接积积不动），另一个是 $\\ln\\left(1+\\frac{y}{x}\\right)$（对数里是比值，直角坐标下没法展开）。区域边界又正好是 $x+y=1$，说明 $1-x-y$ 是个天然的换元变量。</p><p>于是同时令</p><div class=\"fm\">$$u=\\sqrt{1-x-y},\\qquad v=1+\\frac{y}{x}.$$</div><p>这里的选法有讲究：$u$ 取根号整体（而不是 $1-x-y$），是为了让根式直接变成一次因子；$v$ 取 $1+\\frac{y}{x}$（而不是 $\\frac{y}{x}$），是为了让对数直接变成 $\\ln v$，少一个平移。</p>"
+        },
+        {
+          "title": "第二步：反解出 $x,y$，再算雅可比",
+          "html": "<p>由 $u^2=1-x-y$ 与 $y=(v-1)x$ 联立，先得 $x+y=vx$，于是</p><div class=\"fm\">$$x=\\frac{1-u^{2}}{v},\\qquad y=\\frac{(1-u^{2})(v-1)}{v}.$$</div><p>雅可比行列式按定义算（$x,y$ 对 $u,v$ 求偏导再取行列式）：</p><div class=\"fm\">$$J=\\left|\\frac{\\partial(x,y)}{\\partial(u,v)}\\right|=\\frac{2u(1-u^{2})}{v^{2}}.$$</div><p>这一步不能省：换元之后 $\\mathrm{d}x\\mathrm{d}y$ 必须换成 $|J|\\,\\mathrm{d}u\\mathrm{d}v$，漏掉 $|J|$ 是最常见的失分点。</p>"
+        },
+        {
+          "title": "第三步：把区域与被积式一起翻译过去",
+          "html": "<p>区域 $x\\geqslant0,\\ y\\geqslant0,\\ x+y\\leqslant1$ 翻译成：$u$ 从 $0$（对应 $x+y=1$）到 $1$（对应原点），$v$ 从 $1$（对应 $y=0$）到 $+\\infty$（对应 $x=0$，此时 $y/x\\to\\infty$）。</p><p>被积式中 $x+y=1-u^{2}$、$\\ln\\left(1+\\frac{y}{x}\\right)=\\ln v$，再乘上 $|J|$，整体化为</p><div class=\"fm\">$$2\\iint_{D'}\\frac{(1-u^{2})^{2}\\ln v}{v^{2}}\\,\\mathrm{d}u\\mathrm{d}v=2\\left(\\int_0^1(1-u^{2})^{2}\\mathrm{d}u\\right)\\left(\\int_1^{+\\infty}\\frac{\\ln v}{v^{2}}\\mathrm{d}v\\right).$$</div><p>能拆成两个一元积分，是因为被积式恰好是「$u$ 的函数 × $v$ 的函数」且区域是矩形——这是换元选得好的回报。</p>"
+        },
+        {
+          "title": "第四步：两个定积分分别算完",
+          "html": "<p>第一个是多项式：</p><div class=\"fm\">$$\\int_0^1(1-u^{2})^{2}\\mathrm{d}u=\\int_0^1\\left(1-2u^{2}+u^{4}\\right)\\mathrm{d}u=1-\\frac23+\\frac15=\\frac{8}{15}.$$</div><p>第二个用分部积分（把 $\\frac{\\mathrm{d}v}{v^{2}}$ 看成 $-\\mathrm{d}\\frac1v$）：</p><div class=\"fm\">$$\\int_1^{+\\infty}\\frac{\\ln v}{v^{2}}\\mathrm{d}v=\\left[-\\frac{\\ln v}{v}\\right]_1^{+\\infty}+\\int_1^{+\\infty}\\frac{\\mathrm{d}v}{v^{2}}=0+1=1.$$</div><p>于是原积分 $=2\\cdot\\frac{8}{15}\\cdot1$。</p><p class=\"concl\"><b>结论</b>原积分 $=\\dfrac{16}{15}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（二重积分换元篇）",
+        "lead": "看到「根号下一次式 ＋ 对数里是比值 ＋ 三角形区域」，直接按这个顺序出牌：",
+        "items": [
+          "根号取整体：$u=\\sqrt{\\text{一次式}}$，让根式变成一次因子；比值取 $1+$ 比值：$v=1+\\frac{y}{x}$，让对数直接变 $\\ln v$。",
+          "换元后必须反解 $x,y$ 并算出 $|J|$，再把 $\\mathrm{d}x\\mathrm{d}y$ 换成 $|J|\\mathrm{d}u\\mathrm{d}v$——漏 $|J|$ 是这类题第一大失分点。",
+          "区域边界逐条翻译：$x+y=1\\Rightarrow u=0$，原点 $\\Rightarrow u=1$，$y=0\\Rightarrow v=1$，$x=0\\Rightarrow v=+\\infty$。",
+          "被积式若能拆成「$u$ 的函数 × $v$ 的函数」且区域是矩形，立刻拆成两个一元积分；$\\int\\frac{\\ln v}{v^{2}}$ 一律分部积分，结果为 $1$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{16}{15}$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "常数设元",
+      "tags": [
+        "常数设元",
+        "积分方程"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(x)$ 是连续函数，满足 $\\displaystyle f(x)=3x^{2}-\\int_0^2 f(x)\\,\\mathrm{d}x-2$，则 $f(x)=$ ＿＿＿＿。",
+      "steps": [
+        {
+          "title": "第一步：认出「定积分是一个数」",
+          "html": "<p>右边那个 $\\int_0^2 f(x)\\mathrm{d}x$ 的积分限是常数、积分变量积分完就消失，所以它不依赖 $x$，是一个<b>待定的常数</b>。这是整道题的关键判断：方程里出现了 $f$ 的定积分，就把这个定积分整体设成一个字母。</p><p>记 $A=\\int_0^2 f(x)\\mathrm{d}x$，原式立刻变成</p><div class=\"fm\">$$f(x)=3x^{2}-A-2.$$</div>"
+        },
+        {
+          "title": "第二步：把解代回定积分，得到关于 $A$ 的方程",
+          "html": "<p>既然 $f$ 的形状已经确定（只差 $A$），就把这个 $f$ 代回 $A$ 的定义式：</p><div class=\"fm\">$$A=\\int_0^2\\left(3x^{2}-A-2\\right)\\mathrm{d}x=\\left[x^{3}-(A+2)x\\right]_0^2=8-2A-4=4-2A.$$</div>"
+        },
+        {
+          "title": "第三步：解出 $A$，回代得 $f$",
+          "html": "<p>由 $A=4-2A$ 得 $3A=4$，即 $A=\\frac43$。回代：</p><div class=\"fm\">$$f(x)=3x^{2}-\\frac43-2=3x^{2}-\\frac{10}{3}.$$</div><p class=\"concl\"><b>结论</b>$f(x)=3x^{2}-\\dfrac{10}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（积分方程篇）",
+        "lead": "看到「$f(x)=$ 含 $f$ 的定积分 ＋ 其它项」，直接按这个顺序出牌：",
+        "items": [
+          "先判断：积分限全是常数、被积函数只含 $f$，这个定积分就是一个数，立刻设 $A$。",
+          "把 $f$ 写成「其它项 ＋ 常数」的形式，再代回 $A$ 的定义式，得到一个只含 $A$ 的一次方程。",
+          "解出 $A$ 后代回，答案必须是完整的 $f(x)$，不能只写 $A$。",
+          "检验：把答案代回原式两边的定积分，数值应相等——这一步 10 秒，能挡住绝大多数符号错误。"
+        ]
+      },
+      "answerHtml": "$f(x)=3x^{2}-\\dfrac{10}{3}$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "隐式曲面法向量",
+      "tags": [
+        "隐式曲面法向量",
+        "切平面平行"
+      ],
+      "difficulty": 2,
+      "stemHtml": "曲面 $z=\\dfrac{x^{2}}{2}+y^{2}-2$ 的平行于平面 $2x+2y-z=0$ 的切平面方程是 ＿＿＿＿。",
+      "steps": [
+        {
+          "title": "第一步：把「平行」翻译成「法向量成比例」",
+          "html": "<p>两张平面平行，等价于法向量平行（成比例）。已知平面的法向量读出为 $\\vec n_0=(2,2,-1)$；曲面的法向量要用隐式方程求。</p><p>把曲面写成 $F(x,y,z)=z-\\frac{x^{2}}{2}-y^{2}+2=0$，则</p><div class=\"fm\">$$\\vec n=(F_x,F_y,F_z)=\\left(-x,\\,-2y,\\,1\\right).$$</div><p>取 $F=z-\\cdots$ 这个形式（$F_z=1$）而不是 $F=\\frac{x^2}{2}+y^2-2-z$（$F_z=-1$），是为了让后面比例的第三分量对上 $+1$，少一次变号。</p>"
+        },
+        {
+          "title": "第二步：用比例式解出切点",
+          "html": "<p>要求 $\\vec n\\parallel\\vec n_0$，即存在 $k$ 使</p><div class=\"fm\">$$(-x,-2y,1)=k(2,2,-1).$$</div><p>由第三分量 $1=-k$ 得 $k=-1$，于是 $-x=-2\\Rightarrow x=2$，$-2y=-2\\Rightarrow y=1$。切点的 $z$ 由曲面方程给出：</p><div class=\"fm\">$$z=\\frac{2^{2}}{2}+1^{2}-2=1.$$</div>"
+        },
+        {
+          "title": "第三步：写切平面并整理成一般式",
+          "html": "<p>切平面过 $(2,1,1)$ 且法向量为 $(2,2,-1)$：</p><div class=\"fm\">$$2(x-2)+2(y-1)-(z-1)=0\\;\\Longrightarrow\\;2x+2y-z-5=0.$$</div><p class=\"concl\"><b>结论</b>切平面方程为 $2x+2y-z-5=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（切平面平行篇）",
+        "lead": "看到「曲面的切平面平行于已知平面」，直接按这个顺序出牌：",
+        "items": [
+          "「平行」= 法向量成比例，不要去找角度，直接列 $\\vec n=k\\vec n_0$。",
+          "曲面的法向量取 $F_z=1$ 的写法（$F=z-f(x,y)$），第三分量恒为 $1$，比例式最好解。",
+          "解出 $k$ 后回代求 $x,y$，切点的 $z$ 一定要用曲面方程现算，不能猜。",
+          "最后把点法式展开成一般式，并把常数项算准；这类填空错在常数项最常见。"
+        ]
+      },
+      "answerHtml": "$2x+2y-z-5=0$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "对数求导",
+      "tags": [
+        "对数求导",
+        "隐函数二阶导"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设函数 $y=y(x)$ 由方程 $x\\,\\mathrm{e}^{f(y)}=\\mathrm{e}^{y}\\ln 29$ 确定，其中 $f$ 具有二阶导数，且 $f'\\neq1$，则 $\\dfrac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=$ ＿＿＿＿。",
+      "steps": [
+        {
+          "title": "第一步：两边取对数，把指数结构压平",
+          "html": "<p>方程左边是 $x$ 乘指数、右边是纯指数，直接隐函数求导会带出一堆 $\\mathrm{e}^{f(y)}$；取对数能把乘除变成加减，一步化简。</p><p>由原式知 $x&gt;0$，两边取自然对数：</p><div class=\"fm\">$$\\ln x+f(y)=y+\\ln\\ln 29.$$</div><p>注意 $\\ln 29$ 是常数，取对数后变成 $\\ln\\ln 29$，它随后求导就消失了，不影响结果。</p>"
+        },
+        {
+          "title": "第二步：对 $x$ 求一阶导，解出 $y'$",
+          "html": "<p>把 $y$ 看成 $x$ 的函数，两边对 $x$ 求导：</p><div class=\"fm\">$$\\frac{1}{x}+f'(y)\\,y'=y'\\;\\Longrightarrow\\;y'=\\frac{1}{x\\left(1-f'(y)\\right)}.$$</div><p>这里能除 $\\left(1-f'\\right)$，正是题目给 $f'\\neq1$ 的用处。</p>"
+        },
+        {
+          "title": "第三步：再对 $x$ 求导，把 $y'$ 代回去",
+          "html": "<p>对 $y'=\\dfrac{1}{x(1-f'(y))}$ 用商法则，注意 $f'(y)$ 对 $x$ 求导要出 $f''(y)y'$：</p><div class=\"fm\">$$y''=-\\frac{\\left(1-f'(y)\\right)-x f''(y)y'}{x^{2}\\left(1-f'(y)\\right)^{2}}.$$</div><p>把 $y'=\\dfrac{1}{x(1-f')}$ 代入分子中的 $xf''(y)y'$：</p><div class=\"fm\">$$x f''(y)y'=\\frac{f''(y)}{1-f'(y)},$$</div><p>于是</p><div class=\"fm\">$$y''=\\frac{f''(y)-\\left(1-f'(y)\\right)^{2}}{x^{2}\\left(1-f'(y)\\right)^{3}}.$$</div><p class=\"concl\"><b>结论</b>$\\dfrac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\dfrac{f''(y)-\\left(1-f'(y)\\right)^{2}}{x^{2}\\left(1-f'(y)\\right)^{3}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（隐函数二阶导篇）",
+        "lead": "看到「指数套函数 ＋ 求二阶导」，直接按这个顺序出牌：",
+        "items": [
+          "先取对数把指数结构压平，能省掉后面一大半的链式法则；取对数前先确认 $x&gt;0$（本题由 $x\\mathrm{e}^{f(y)}&gt;0$ 得）。",
+          "一阶导解成 $y'=\\frac{1}{x(1-f')}$ 这种「显式」形式再往下求导，比在隐式里硬求省力。",
+          "二阶导里出现 $f'(y)$ 对 $x$ 求导，必须写成 $f''(y)y'$，再代回一阶导结果，最后通分成一个分式。",
+          "答案只允许含 $x,y,f',f''$，不允许残留 $y'$；分母的 $(1-f')^{3}$ 与题目条件 $f'\\neq1$ 呼应，可作自检。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{f''(y)-\\left(1-f'(y)\\right)^{2}}{x^{2}\\left(1-f'(y)\\right)^{3}}$"
+    },
+    {
+      "seq": 5,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "$1^{\\infty}$ 型",
+      "tags": [
+        "$1^{\\infty}$ 型",
+        "等价无穷小",
+        "和式"
+      ],
+      "difficulty": 3,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\left(\\frac{\\mathrm{e}^{x}+\\mathrm{e}^{2x}+\\cdots+\\mathrm{e}^{nx}}{n}\\right)^{\\frac{\\mathrm{e}}{x}}$，其中 $n$ 是给定的正整数。",
+      "steps": [
+        {
+          "title": "第一步：定型——底数趋 $1$、指数趋 $\\infty$",
+          "html": "<p>当 $x\\to0$ 时每个 $\\mathrm{e}^{kx}\\to1$，分子是 $n$ 个 $1$ 相加，底数 $\\to\\frac{n}{n}=1$；指数 $\\frac{\\mathrm{e}}{x}\\to\\infty$。所以这是标准 $1^{\\infty}$ 型，固定动作是取对数、把指数搬到前面。</p><div class=\"fm\">$$\\text{原式}=\\exp\\left\\{\\lim_{x\\to0}\\frac{\\mathrm{e}}{x}\\left[\\ln\\left(\\sum_{k=1}^{n}\\mathrm{e}^{kx}\\right)-\\ln n\\right]\\right\\}.$$</div>"
+        },
+        {
+          "title": "第二步：对数里凑「和式减 $n$」",
+          "html": "<p>$\\ln\\left(\\sum\\mathrm{e}^{kx}\\right)-\\ln n=\\ln\\left(1+\\frac{\\sum(\\mathrm{e}^{kx}-1)}{n}\\right)$。这一步是为了让对数里出现「$1+$ 小量」，从而可以用 $\\ln(1+t)\\sim t$。</p><p>于是指数部分的极限变成</p><div class=\"fm\">$$\\lim_{x\\to0}\\frac{\\mathrm{e}}{x}\\ln\\left(1+\\frac{\\sum_{k=1}^{n}\\left(\\mathrm{e}^{kx}-1\\right)}{n}\\right)=\\frac{\\mathrm{e}}{n}\\lim_{x\\to0}\\frac{\\sum_{k=1}^{n}\\left(\\mathrm{e}^{kx}-1\\right)}{x}.$$</div>"
+        },
+        {
+          "title": "第三步：每个 $\\mathrm{e}^{kx}-1$ 用等价无穷小",
+          "html": "<p>$\\mathrm{e}^{kx}-1\\sim kx\\ (x\\to0)$，求和得</p><div class=\"fm\">$$\\lim_{x\\to0}\\frac{\\sum_{k=1}^{n}\\left(\\mathrm{e}^{kx}-1\\right)}{x}=\\sum_{k=1}^{n}k=\\frac{n(n+1)}{2}.$$</div><p>于是指数部分 $=\\frac{\\mathrm{e}}{n}\\cdot\\frac{n(n+1)}{2}=\\frac{\\mathrm{e}(n+1)}{2}$。</p><p class=\"concl\"><b>结论</b>原极限 $=\\mathrm{e}^{\\frac{\\mathrm{e}(n+1)}{2}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$1^{\\infty}$ 型篇）",
+        "lead": "看到「底数 $\\to1$、指数 $\\to\\infty$」，直接按这个顺序出牌：",
+        "items": [
+          "一律写成 $\\exp\\{\\lim(\\text{指数})\\cdot\\ln(\\text{底数})\\}$，把幂指函数降成乘积。",
+          "底数是「平均值」时，先把 $\\ln(\\text{平均})$ 写成 $\\ln\\left(1+\\frac{\\text{和}-\\text{项数}}{\\text{项数}}\\right)$，再用 $\\ln(1+t)\\sim t$。",
+          "求和里每项 $\\mathrm{e}^{kx}-1\\sim kx$，加起来就是 $\\sum k=\\frac{n(n+1)}{2}$，别逐项洛必达。",
+          "最后指数运算别漏：答案是 $\\mathrm{e}$ 的某次幂，指数里那个 $\\mathrm{e}$ 是题目给的常数，不是自然常数漏写。"
+        ]
+      },
+      "answerHtml": "$\\mathrm{e}^{\\frac{\\mathrm{e}(n+1)}{2}}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "换元变上限",
+      "tags": [
+        "换元变上限",
+        "分段求导",
+        "连续性"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 连续，$g(x)=\\displaystyle\\int_0^1 f(xt)\\,\\mathrm{d}t$，且 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}=A$（$A$ 为常数），求 $g'(x)$ 并讨论 $g'(x)$ 在 $x=0$ 处的连续性。",
+      "steps": [
+        {
+          "title": "第一步：积分号里带参数 $x$，先换元把它赶出去",
+          "html": "<p>$g(x)$ 的积分变量是 $t$，而 $x$ 藏在 $f(xt)$ 里，属于「含参积分」，不能直接对 $x$ 求导。固定动作是令 $u=xt$，把参数变成积分上限。</p><p>当 $x\\neq0$ 时 $\\mathrm{d}u=x\\,\\mathrm{d}t$、$t:0\\to1$ 对应 $u:0\\to x$，于是</p><div class=\"fm\">$$g(x)=\\frac{1}{x}\\int_0^{x}f(u)\\,\\mathrm{d}u\\qquad(x\\neq0).$$</div><p>顺便把 $x=0$ 的值定下来：$g(0)=\\int_0^1 f(0)\\mathrm{d}t=f(0)$，而由 $\\lim\\frac{f(x)}{x}=A$ 知 $f(0)=0$，故 $g(0)=0$。</p>"
+        },
+        {
+          "title": "第二步：$x\\neq0$ 用商法则 ＋ 变上限求导",
+          "html": "<p>对 $\\frac{1}{x}\\int_0^x f$ 求导，分子是「上限求导得 $f(x)$」：</p><div class=\"fm\">$$g'(x)=\\frac{xf(x)-\\int_0^{x}f(u)\\,\\mathrm{d}u}{x^{2}}\\qquad(x\\neq0).$$</div>"
+        },
+        {
+          "title": "第三步：$x=0$ 只能回定义，用一次洛必达",
+          "html": "<p>分段点必须用导数定义：</p><div class=\"fm\">$$g'(0)=\\lim_{x\\to0}\\frac{g(x)-g(0)}{x}=\\lim_{x\\to0}\\frac{\\int_0^{x}f(u)\\mathrm{d}u}{x^{2}}.$$</div><p>这是 $\\frac00$ 型，洛必达一次得 $\\lim\\frac{f(x)}{2x}=\\frac{A}{2}$。也可以记成等价式 $\\int_0^x f(u)\\mathrm{d}u\\sim\\frac{A}{2}x^{2}$。</p>"
+        },
+        {
+          "title": "第四步：验证 $g'$ 在 $0$ 处连续",
+          "html": "<p>把 $g'(x)$ 拆成两项再取极限：</p><div class=\"fm\">$$\\lim_{x\\to0}g'(x)=\\lim_{x\\to0}\\frac{f(x)}{x}-\\lim_{x\\to0}\\frac{1}{x^{2}}\\int_0^{x}f(u)\\mathrm{d}u=A-\\frac{A}{2}=\\frac{A}{2}=g'(0).$$</div><p class=\"concl\"><b>结论</b>$g'(0)=\\dfrac{A}{2}$，且 $g'(x)$ 在 $x=0$ 处连续。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（含参积分求导篇）",
+        "lead": "看到「$g(x)=\\int_0^1 f(xt)\\mathrm{d}t$ 求导、还要讨论分段点连续」，直接按这个顺序出牌：",
+        "items": [
+          "第一步永远是换元 $u=xt$，把参数挪到积分上限，变成 $\\frac1x\\int_0^x f$ 的标准形。",
+          "$x\\neq0$ 用商法则 ＋ 变上限求导；$x=0$ 严禁直接代公式，必须写导数定义。",
+          "题目给的 $\\lim\\frac{f(x)}{x}=A$ 有两个用处：定出 $f(0)=0$，以及把 $\\int_0^x f$ 估成 $\\frac A2x^2$。",
+          "连续性就是验证 $\\lim_{x\\to0}g'(x)=g'(0)$，把 $g'$ 拆成 $\\frac{f(x)}{x}-\\frac{1}{x^{2}}\\int_0^xf$ 两项分别取极限最清楚。"
+        ]
+      },
+      "answerHtml": "$g'(0)=\\dfrac{A}{2}$，$g'(x)$ 在 $x=0$ 处连续"
+    },
+    {
+      "seq": 7,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "Green 公式",
+      "tags": [
+        "Green 公式",
+        "区域对称",
+        "指数放缩"
+      ],
+      "difficulty": 4,
+      "stemHtml": "已知平面区域 $D=\\{(x,y)\\mid 0\\leqslant x\\leqslant\\pi,\\ 0\\leqslant y\\leqslant\\pi\\}$，$L$ 为 $D$ 的正向边界。试证：(1) $\\displaystyle\\oint_L x\\mathrm{e}^{\\sin y}\\mathrm{d}y-y\\mathrm{e}^{-\\sin x}\\mathrm{d}x=\\oint_L x\\mathrm{e}^{-\\sin y}\\mathrm{d}y-y\\mathrm{e}^{\\sin x}\\mathrm{d}x$；(2) $\\displaystyle\\oint_L x\\mathrm{e}^{\\sin y}\\mathrm{d}y-y\\mathrm{e}^{-\\sin x}\\mathrm{d}x\\geqslant\\frac52\\pi^{2}$。",
+      "steps": [
+        {
+          "title": "第一步：闭曲线上的第二型积分，一律先上 Green",
+          "html": "<p>边界是封闭的正向曲线、结论是等式与不等式，这两个信号合起来只指向一个动作：Green 公式，把曲线积分换成 $D$ 上的二重积分。</p><p>记 $P=-y\\mathrm{e}^{-\\sin x}$、$Q=x\\mathrm{e}^{\\sin y}$，则 $Q_x=\\mathrm{e}^{\\sin y}$、$P_y=-\\mathrm{e}^{-\\sin x}$，故</p><div class=\"fm\">$$\\oint_L x\\mathrm{e}^{\\sin y}\\mathrm{d}y-y\\mathrm{e}^{-\\sin x}\\mathrm{d}x=\\iint_D\\left(\\mathrm{e}^{\\sin y}+\\mathrm{e}^{-\\sin x}\\right)\\mathrm{d}x\\mathrm{d}y.$$</div><p>右边同理（$P=-y\\mathrm{e}^{\\sin x}$、$Q=x\\mathrm{e}^{-\\sin y}$）化为 $\\iint_D\\left(\\mathrm{e}^{-\\sin y}+\\mathrm{e}^{\\sin x}\\right)\\mathrm{d}x\\mathrm{d}y$。</p>"
+        },
+        {
+          "title": "第二步：用 $D$ 关于 $y=x$ 的对称把两个积分对齐",
+          "html": "<p>$D$ 是正方形，把 $x,y$ 互换后区域不变，所以对任意二元函数 $h$ 有</p><div class=\"fm\">$$\\iint_D h(x,y)\\,\\mathrm{d}x\\mathrm{d}y=\\iint_D h(y,x)\\,\\mathrm{d}x\\mathrm{d}y.$$</div><p>取 $h=\\mathrm{e}^{\\sin y}$ 得 $\\iint_D\\mathrm{e}^{\\sin y}=\\iint_D\\mathrm{e}^{\\sin x}$，于是左边 $=\\iint_D\\left(\\mathrm{e}^{\\sin x}+\\mathrm{e}^{-\\sin x}\\right)$；右边的 $\\iint_D\\mathrm{e}^{-\\sin y}$ 同样换成 $\\mathrm{e}^{-\\sin y}\\to\\mathrm{e}^{-\\sin x}$ 的形式，两个二重积分完全相同，(1) 得证。</p>"
+        },
+        {
+          "title": "第三步：(2) 的关键是把 $\\mathrm{e}^{t}+\\mathrm{e}^{-t}$ 放大成 $2+t^{2}$",
+          "html": "<p>要估下界，就得找一个「比它小、又能积出来」的函数。指数函数没有初等原函数，只能靠展开式放缩：</p><div class=\"fm\">$$\\mathrm{e}^{t}+\\mathrm{e}^{-t}=2\\sum_{n=0}^{\\infty}\\frac{t^{2n}}{(2n)!}\\geqslant2+t^{2}.$$</div><p>这是因为后面的项 $\\frac{t^{4}}{12}+\\cdots\\geqslant0$。取 $t=\\sin x$ 代入：</p><div class=\"fm\">$$\\iint_D\\left(\\mathrm{e}^{\\sin x}+\\mathrm{e}^{-\\sin x}\\right)\\mathrm{d}x\\mathrm{d}y\\geqslant\\iint_D\\left(2+\\sin^{2}x\\right)\\mathrm{d}x\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "第四步：把 $\\iint_D(2+\\sin^{2}x)$ 算出来",
+          "html": "<p>$D$ 是边长 $\\pi$ 的正方形，被积函数只含 $x$，可以分离：</p><div class=\"fm\">$$\\iint_D 2\\,\\mathrm{d}x\\mathrm{d}y=2\\pi^{2},\\qquad \\iint_D\\sin^{2}x\\,\\mathrm{d}x\\mathrm{d}y=\\pi\\int_0^{\\pi}\\sin^{2}x\\,\\mathrm{d}x=\\pi\\cdot\\frac{\\pi}{2}=\\frac{\\pi^{2}}{2}.$$</div><p>两项相加得 $\\frac{5\\pi^{2}}{2}$，由不等式传递即得 (2)。</p><p class=\"concl\"><b>结论</b>(1) 两边都等于 $\\iint_D\\left(\\mathrm{e}^{\\sin x}+\\mathrm{e}^{-\\sin x}\\right)\\mathrm{d}x\\mathrm{d}y$；(2) 原积分 $\\geqslant\\dfrac{5\\pi^{2}}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（Green ＋ 对称 ＋ 放缩篇）",
+        "lead": "看到「闭曲线积分 ＋ 证等式/不等式」，直接按这个顺序出牌：",
+        "items": [
+          "闭曲线第二型积分先 Green，把 $Q_x-P_y$ 算准；符号错了整题都错。",
+          "区域关于 $y=x$ 对称时，$\\iint h(x,y)=\\iint h(y,x)$，把 $\\sin y$ 与 $\\sin x$、$\\mathrm{e}^{-\\sin x}$ 与 $\\mathrm{e}^{-\\sin y}$ 自由互换，等式题立刻对齐。",
+          "要证不等式下界，先找「比被积函数小且可积」的替代：$\\mathrm{e}^{t}+\\mathrm{e}^{-t}\\geqslant2+t^{2}$ 是固定武器，靠展开式取前两项。",
+          "正方形区域上只含一个变量的被积函数可以分离成「边长 × 一元积分」，$\\int_0^{\\pi}\\sin^{2}x=\\frac{\\pi}{2}$ 要背下来。"
+        ]
+      },
+      "answerHtml": "(1) 得证；(2) 原积分 $\\geqslant\\dfrac{5\\pi^{2}}{2}$"
+    },
+    {
+      "seq": 8,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "解的结构",
+      "tags": [
+        "解的结构",
+        "特征方程",
+        "反求非齐次项"
+      ],
+      "difficulty": 3,
+      "stemHtml": "已知 $y_1=x\\mathrm{e}^{x}+\\mathrm{e}^{2x}$，$y_2=x\\mathrm{e}^{x}+\\mathrm{e}^{-x}$，$y_3=x\\mathrm{e}^{x}+\\mathrm{e}^{2x}-\\mathrm{e}^{-x}$ 是某二阶常系数线性非齐次微分方程的三个解，试求此微分方程。",
+      "steps": [
+        {
+          "title": "第一步：三解相减，剥出齐次解",
+          "html": "<p>非齐次方程的通解结构是「齐次通解 ＋ 一个特解」，所以任意两个解之差一定是齐次解——这是本题唯一的突破口。</p><div class=\"fm\">$$y_1-y_3=\\mathrm{e}^{-x},\\qquad y_1-y_2=\\mathrm{e}^{2x}-\\mathrm{e}^{-x}.$$</div><p>两个差都只含 $\\mathrm{e}^{-x}$ 与 $\\mathrm{e}^{2x}$，说明齐次解空间由这两个函数张成。</p>"
+        },
+        {
+          "title": "第二步：由齐次解反推特征方程",
+          "html": "<p>齐次解形如 $\\mathrm{e}^{rx}$ 对应特征根 $r$，所以特征根是 $-1$ 与 $2$，特征方程为</p><div class=\"fm\">$$(r+1)(r-2)=0\\;\\Longrightarrow\\;r^{2}-r-2=0,$$</div><p>齐次方程即 $y''-y'-2y=0$。</p>"
+        },
+        {
+          "title": "第三步：拿公共部分当特解，代入算子得非齐次项",
+          "html": "<p>三个解都含 $x\\mathrm{e}^{x}$，它不是齐次解（$x\\mathrm{e}^{x}$ 对应重根，而 $-1,2$ 都不是 $1$），所以它就是一个特解。把它代入算子：</p><div class=\"fm\">$$y_0=x\\mathrm{e}^{x},\\quad y_0'=(1+x)\\mathrm{e}^{x},\\quad y_0''=(2+x)\\mathrm{e}^{x},$$</div><div class=\"fm\">$$y_0''-y_0'-2y_0=\\left[(2+x)-(1+x)-2x\\right]\\mathrm{e}^{x}=(1-2x)\\mathrm{e}^{x}.$$</div><p class=\"concl\"><b>结论</b>所求方程为 $y''-y'-2y=(1-2x)\\mathrm{e}^{x}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（由解反求方程篇）",
+        "lead": "看到「给了三个解、反求非齐次方程」，直接按这个顺序出牌：",
+        "items": [
+          "先做差：任意两解之差是齐次解，把非齐次项剥离出去，剩下的才是特征根信息。",
+          "由齐次解 $\\mathrm{e}^{rx}$ 反读特征根，写出 $(r-r_1)(r-r_2)=0$，展开即得齐次方程。",
+          "找特解：三个解里「公共的那部分」若不是齐次解，它就是特解，直接代入算子。",
+          "代入时把 $y_0,y_0',y_0''$ 三个式子对齐同乘 $\\mathrm{e}^{x}$ 再合并系数，不要漏项。"
+        ]
+      },
+      "answerHtml": "$y''-y'-2y=(1-2x)\\mathrm{e}^{x}$"
+    },
+    {
+      "seq": 9,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "面积约束",
+      "tags": [
+        "面积约束",
+        "旋转体体积",
+        "Lagrange"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设抛物线 $y=ax^{2}+bx+2\\ln c$ 过原点，当 $0\\leqslant x\\leqslant1$ 时 $y\\geqslant0$。又已知该抛物线与 $x$ 轴及直线 $x=1$ 所围图形的面积为 $\\frac13$。试确定 $a,b,c$，使此图形绕 $x$ 轴旋转一周而成的旋转体体积 $V$ 最小。",
+      "steps": [
+        {
+          "title": "第一步：把三条信息翻译成三个方程/目标",
+          "html": "<p>「过原点」给一个等式；「面积 $\\frac13$」给一个等式；「体积最小」是目标。先把 $c$ 摘出来：过 $(0,0)$ 得 $2\\ln c=0$，即 $c=1$，抛物线化为 $y=ax^{2}+bx$（$c=1$ 也使 $y\\geqslant0$ 在 $[0,1]$ 上可实现）。</p><p>面积条件：</p><div class=\"fm\">$$\\int_0^1\\left(ax^{2}+bx\\right)\\mathrm{d}x=\\frac{a}{3}+\\frac{b}{2}=\\frac13\\;\\Longrightarrow\\;2a+3b=2.$$</div>"
+        },
+        {
+          "title": "第二步：写出体积目标函数",
+          "html": "<p>$y\\geqslant0$ 时绕 $x$ 轴旋转的体积是 $\\pi\\int y^{2}$：</p><div class=\"fm\">$$V=\\pi\\int_0^1\\left(ax^{2}+bx\\right)^{2}\\mathrm{d}x=\\pi\\left(\\frac{a^{2}}{5}+\\frac{ab}{2}+\\frac{b^{2}}{3}\\right).$$</div>"
+        },
+        {
+          "title": "第三步：Lagrange 乘数法解约束极值",
+          "html": "<p>作 $L=\\pi\\left(\\frac{a^{2}}5+\\frac{ab}2+\\frac{b^{2}}3\\right)-\\lambda\\left(2a+3b-2\\right)$，令两个偏导为零：</p><div class=\"fm\">$$\\frac{2a}{5}+\\frac{b}{2}=\\frac{2\\lambda}{\\pi},\\qquad \\frac{a}{2}+\\frac{2b}{3}=\\frac{3\\lambda}{\\pi}.$$</div><p>消去 $\\lambda$（第一式乘 $3$、第二式乘 $2$ 后相减）：</p><div class=\"fm\">$$3\\left(\\frac{2a}{5}+\\frac{b}{2}\\right)=2\\left(\\frac{a}{2}+\\frac{2b}{3}\\right)\\;\\Longrightarrow\\;\\frac{a}{5}+\\frac{b}{6}=0\\;\\Longrightarrow\\;b=-\\frac{6a}{5}.$$</div><p>代入 $2a+3b=2$ 得 $2a-\\frac{18a}{5}=2$，即 $-\\frac{8a}{5}=2$，故 $a=-\\frac54$，$b=\\frac32$。</p>"
+        },
+        {
+          "title": "第四步：确认是最小值",
+          "html": "<p>$V$ 是关于 $(a,b)$ 的正定二次型（$\\frac{a^{2}}5+\\frac{ab}2+\\frac{b^{2}}3$ 的矩阵 $\\begin{pmatrix}\\frac15 &amp; \\frac14\\\\ \\frac14 &amp; \\frac13\\end{pmatrix}$ 正定），约束是直线，故唯一驻点即最小值点。</p><p class=\"concl\"><b>结论</b>$a=-\\dfrac54$，$b=\\dfrac32$，$c=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（约束极值 ＋ 旋转体篇）",
+        "lead": "看到「过定点 ＋ 定面积 ＋ 体积最小」，直接按这个顺序出牌：",
+        "items": [
+          "先把常数项摘掉：过原点直接定 $c$，后面只对 $a,b$ 做二元条件极值。",
+          "面积条件是线性约束 $\\int_0^1 y=\\frac13$；体积是二次目标 $\\pi\\int_0^1y^{2}$，两者次数不同，正好用 Lagrange。",
+          "消 $\\lambda$ 时把两个方程配成同系数再相减，比硬解行列式快，且不容易错符号。",
+          "算出驻点后补一句「目标函数正定 ＋ 约束是直线 ⇒ 唯一驻点即最值」，这一步是过程分。"
+        ]
+      },
+      "answerHtml": "$a=-\\dfrac54$，$b=\\dfrac32$，$c=1$"
+    },
+    {
+      "seq": 10,
+      "number": "第 7 题",
+      "type": "solution",
+      "title": "一阶线性 ODE",
+      "tags": [
+        "一阶线性 ODE",
+        "积分因子",
+        "幂级数求和"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $n$ 为正整数，$u_n(x)$ 满足 $u_n'(x)=u_n(x)+x^{n-1}\\mathrm{e}^{x}$，且 $u_n(1)=\\dfrac{\\mathrm{e}}{n}$，求函数项级数 $\\displaystyle\\sum_{n=1}^{\\infty}u_n(x)$ 之和。",
+      "steps": [
+        {
+          "title": "第一步：先把每个 $u_n$ 解出来，再谈求和",
+          "html": "<p>求和之前必须知道通项。$u_n'-u_n=x^{n-1}\\mathrm{e}^{x}$ 是一阶线性非齐次方程，标准解法是乘积分因子 $\\mathrm{e}^{-x}$：</p><div class=\"fm\">$$\\left(u_n\\mathrm{e}^{-x}\\right)'=x^{n-1}\\;\\Longrightarrow\\;u_n\\mathrm{e}^{-x}=\\frac{x^{n}}{n}+C.$$</div><p>这里右边的积分 $\\int x^{n-1}\\mathrm{d}x=\\frac{x^n}{n}$ 是关键的一步，指数因子恰好被积分因子吃掉。</p>"
+        },
+        {
+          "title": "第二步：用初值定常数",
+          "html": "<p>代入 $x=1$：$u_n(1)\\mathrm{e}^{-1}=\\frac1n+C$，而题给 $u_n(1)=\\frac{\\mathrm{e}}{n}$，故 $\\frac1n+C=\\frac1n$，得 $C=0$。于是</p><div class=\"fm\">$$u_n(x)=\\frac{x^{n}\\mathrm{e}^{x}}{n}.$$</div>"
+        },
+        {
+          "title": "第三步：求和，把 $\\mathrm{e}^{x}$ 提到级数外",
+          "html": "<div class=\"fm\">$$\\sum_{n=1}^{\\infty}u_n(x)=\\mathrm{e}^{x}\\sum_{n=1}^{\\infty}\\frac{x^{n}}{n}=-\\mathrm{e}^{x}\\ln(1-x).$$</div><p>这里调用的是标准展开 $\\ln(1-x)=-\\sum\\frac{x^n}{n}$，收敛区间 $[-1,1)$（$x=-1$ 时为交错调和级数，收敛）。</p><p class=\"concl\"><b>结论</b>和为 $-\\mathrm{e}^{x}\\ln(1-x)$，$x\\in[-1,1)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（先解方程再求和篇）",
+        "lead": "看到「$u_n$ 由微分方程 ＋ 初值定义，再求 $\\sum u_n$」，直接按这个顺序出牌：",
+        "items": [
+          "顺序不能反：先把 $u_n$ 解成显式，再求和；直接对级数求导只会越绕越乱。",
+          "一阶线性方程固定乘积分因子 $\\mathrm{e}^{-x}$，左边立刻凑成 $(u_n\\mathrm{e}^{-x})'$；本题右端 $x^{n-1}\\mathrm{e}^{x}$ 正好被消掉。",
+          "初值代进去定 $C$，本题 $C=0$ 是「设计好的」，说明出题人就是奔着 $u_n=\\frac{x^n\\mathrm{e}^x}{n}$ 去的。",
+          "求和只剩 $\\sum\\frac{x^n}{n}=-\\ln(1-x)$，务必写出收敛域 $[-1,1)$，这是级数题的完整答案。"
+        ]
+      },
+      "answerHtml": "$-\\mathrm{e}^{x}\\ln(1-x)$，$x\\in[-1,1)$"
+    },
+    {
+      "seq": 11,
+      "number": "第 8 题",
+      "type": "solution",
+      "title": "积分比较",
+      "tags": [
+        "积分比较",
+        "Gauss 积分",
+        "等价无穷大"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求当 $x\\to1^{-}$ 时与 $\\displaystyle\\sum_{n=0}^{\\infty}x^{n^{2}}$ 等价的一个无穷大量。",
+      "steps": [
+        {
+          "title": "第一步：先定性——这是「压缩型」级数，求和没有初等闭式",
+          "html": "<p>$x\\to1^{-}$ 时每项 $\\to1$，项数无穷，级数发散到 $+\\infty$，所以题目要的是「等价无穷大量」而不是和。指数是 $n^{2}$（不是 $n$），这种级数叫压缩型，没有闭式，只能夹逼。</p><p>固定动作：把「和」夹在「积分」两侧。</p>"
+        },
+        {
+          "title": "第二步：用单调性把每一项夹进积分区间",
+          "html": "<p>$0&lt;x&lt;1$ 时 $t\\mapsto x^{t^{2}}$ 关于 $t$ 单调递减，于是在 $[n-1,n]$ 上</p><div class=\"fm\">$$x^{n^{2}}&lt;\\int_{n-1}^{n}x^{t^{2}}\\mathrm{d}t&lt;x^{(n-1)^{2}}.$$</div><p>对 $n\\geqslant1$ 求和并加上 $n=0$ 的项 $1$：</p><div class=\"fm\">$$\\int_0^{+\\infty}x^{t^{2}}\\mathrm{d}t\\leqslant\\sum_{n=0}^{\\infty}x^{n^{2}}\\leqslant1+\\int_0^{+\\infty}x^{t^{2}}\\mathrm{d}t.$$</div>"
+        },
+        {
+          "title": "第三步：把积分算成 Gauss 积分",
+          "html": "<p>写成 $\\mathrm{e}^{-t^{2}\\ln\\frac1x}$，令 $u=t\\sqrt{\\ln\\frac1x}$：</p><div class=\"fm\">$$\\int_0^{+\\infty}x^{t^{2}}\\mathrm{d}t=\\frac{1}{\\sqrt{\\ln\\frac1x}}\\int_0^{+\\infty}\\mathrm{e}^{-u^{2}}\\mathrm{d}u=\\frac12\\sqrt{\\frac{\\pi}{\\ln\\frac1x}}.$$</div><p>这里调用 $\\int_0^{+\\infty}\\mathrm{e}^{-u^{2}}\\mathrm{d}u=\\frac{\\sqrt\\pi}{2}$（Gauss 积分），是必须背下来的常数。</p>"
+        },
+        {
+          "title": "第四步：换等价无穷小，夹逼出答案",
+          "html": "<p>$x\\to1^{-}$ 时 $\\ln\\frac1x=-\\ln x\\sim1-x$，故积分 $\\sim\\frac12\\sqrt{\\frac{\\pi}{1-x}}$。夹逼两端之比 $\\to1$，所以</p><div class=\"fm\">$$\\sum_{n=0}^{\\infty}x^{n^{2}}\\sim\\frac{1}{2}\\sqrt{\\frac{\\pi}{1-x}}\\qquad(x\\to1^{-}).$$</div><p class=\"concl\"><b>结论</b>等价无穷大量为 $\\dfrac12\\sqrt{\\dfrac{\\pi}{1-x}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（压缩型级数估阶篇）",
+        "lead": "看到「$\\sum x^{n^{2}}$、$x\\to1^{-}$、求等价无穷大」，直接按这个顺序出牌：",
+        "items": [
+          "先定性：指数是 $n^{2}$ 的级数没有闭式，只能夹逼；指数是 $n$ 的才有 $\\frac{1}{1-x}$ 这种闭式。",
+          "夹逼的模板是 $\\int_0^\\infty x^{t^{2}}\\mathrm{d}t\\leqslant\\sum_{n\\geqslant0}x^{n^{2}}\\leqslant1+\\int_0^\\infty x^{t^{2}}\\mathrm{d}t$，首项那个 $1$ 不能漏。",
+          "积分化成 Gauss 型：$\\int_0^\\infty\\mathrm{e}^{-at^{2}}\\mathrm{d}t=\\frac12\\sqrt{\\frac{\\pi}{a}}$，$a=\\ln\\frac1x$。",
+          "最后一步换等价：$-\\ln x\\sim1-x$，把 $\\sqrt{\\ln\\frac1x}$ 换成 $\\sqrt{1-x}$，答案的量级就出来了。"
+        ]
+      },
+      "answerHtml": "$\\displaystyle\\sum_{n=0}^{\\infty}x^{n^{2}}\\sim\\frac12\\sqrt{\\frac{\\pi}{1-x}}\\quad(x\\to1^{-})$"
+    }
+  ]
+}

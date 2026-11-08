@@ -1,0 +1,412 @@
+{
+  "year": 2022,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十四届（2022）初赛 非数学专业类",
+  "edition": 14,
+  "source": "第14届（2022）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "根号展到二阶",
+      "tags": [
+        "根号展到二阶",
+        "余弦展到二阶",
+        "分母化 $x^{2}+\\sin^{2}x$",
+        "取系数比"
+      ],
+      "difficulty": 2,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\frac{1-\\sqrt{1-x^{2}}\\,\\cos x}{1+x^{2}-\\cos^{2}x}$。",
+      "steps": [
+        {
+          "title": "第一步：先化简分母，把它换成幂函数",
+          "html": "<p>$1-\\cos^{2}x=\\sin^{2}x$：</p><div class=\"fm\">$$1+x^{2}-\\cos^{2}x=x^{2}+\\sin^{2}x\\sim 2x^{2}.$$</div><p>为什么要化简：分母里 $\\cos^{2}x$ 与 $1+x^{2}$ 混在一起，不换成 $x^{2}+\\sin^{2}x$ 就看不出它是 $2$ 阶无穷小。</p>"
+        },
+        {
+          "title": "第二步：分子两个因子各自展到 $x^{2}$",
+          "html": "<div class=\"fm\">$$\\sqrt{1-x^{2}}=1-\\frac{x^{2}}2+o\\left(x^{2}\\right),\\qquad\\cos x=1-\\frac{x^{2}}2+o\\left(x^{2}\\right),$$</div><p>相乘：</p><div class=\"fm\">$$\\sqrt{1-x^{2}}\\cos x=1-x^{2}+o\\left(x^{2}\\right),$$</div><p>故分子 $=x^{2}+o\\left(x^{2}\\right)$。</p>"
+        },
+        {
+          "title": "第三步：同阶取系数比",
+          "html": "<div class=\"fm\">$$\\lim_{x\\to0}\\frac{x^{2}+o\\left(x^{2}\\right)}{2x^{2}+o\\left(x^{2}\\right)}=\\frac12.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$1-$ 两因子相乘篇）",
+        "lead": "看到「$\\frac{1-\\sqrt{1-x^{2}}\\cos x}{1+x^{2}-\\cos^{2}x}$」，直接按这个顺序出牌：",
+        "items": [
+          "分母先用 $1-\\cos^{2}x=\\sin^{2}x$ 换成 $x^{2}+\\sin^{2}x$，立刻看出是 $2x^{2}$。",
+          "分子是「$1-$ 根号乘余弦」，两个因子都用 $1-\\frac{u}{2}+o(u)$ 展到二阶，别只展一个。",
+          "相乘后 $x^{2}$ 项系数 $-\\frac12-\\frac12=-1$，分子 $=x^{2}+o\\left(x^{2}\\right)$。",
+          "上下同阶就取系数比 $\\frac{1}{2}$；求导（洛必达）会带出 $\\frac{x\\cos x}{\\sqrt{1-x^{2}}}$，更麻烦。"
+        ]
+      },
+      "answerHtml": "$\\dfrac12$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "复合函数由内向外",
+      "tags": [
+        "复合函数由内向外",
+        "先定内层取值",
+        "分界点单独取值",
+        "间断点三比较"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(x)=\\begin{cases}1,&amp;x&gt;0,\\\\ 0,&amp;x\\leqslant0,\\end{cases}$，$g(x)=\\begin{cases}x-1,&amp;x\\geqslant1,\\\\ 1-x,&amp;x&lt;1,\\end{cases}$，则复合函数 $f\\left[g(x)\\right]$ 的间断点为 $x=$________。",
+      "steps": [
+        {
+          "title": "第一步：外层只认符号，先定内层 $g(x)$ 的符号",
+          "html": "<p>$x&gt;1$ 时 $g=x-1&gt;0$；$x=1$ 时 $g=0$；$x&lt;1$ 时 $g=1-x&gt;0$。</p><p>注意 $g$ 本身处处连续，但复合后是否连续要看外层在 $g$ 的取值处连不连续。</p>"
+        },
+        {
+          "title": "第二步：写出复合函数的表达式",
+          "html": "<div class=\"fm\">$$f\\left[g(x)\\right]=\\begin{cases}1,&amp;x\\neq1,\\\\ 0,&amp;x=1.\\end{cases}$$</div>"
+        },
+        {
+          "title": "第三步：在 $x=1$ 处比较左右极限与函数值",
+          "html": "<p>$\\lim_{x\\to1^-}f\\left[g(x)\\right]=\\lim_{x\\to1^+}f\\left[g(x)\\right]=1$，而 $f\\left[g(1)\\right]=f(0)=0$。</p><p>左右极限相等但不等于函数值 ⇒ 可去间断点，且是唯一间断点。</p><p class=\"concl\"><b>结论</b>间断点为 $x=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（复合函数断点篇）",
+        "lead": "看到「$f$ 是 $1/0$ 分段、$g$ 是分段一次函数、求 $f\\left[g(x)\\right]$ 的间断点」，直接按这个顺序出牌：",
+        "items": [
+          "复合函数由内向外：先算内层 $g$ 取到哪些值，再看外层 $f$ 在这些值处是否连续。",
+          "$f$ 唯一的断点是 $u=0$，于是只需问「$g(x)$ 何时为 $0$」——本题只有 $x=1$。",
+          "把复合函数写成分段式，再在 $x=1$ 处单独算函数值（分段函数在分界点必须单独取值）。",
+          "比较左右极限与函数值三件事：相等不等值 ⇒ 可去；不相等 ⇒ 跳跃。$g$ 连续不代表复合连续。"
+        ]
+      },
+      "answerHtml": "$x=1$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "几何级数起步",
+      "tags": [
+        "几何级数起步",
+        "乘 $x$ 求导两次",
+        "约掉 $(1-x)^{3}$"
+      ],
+      "difficulty": 2,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to1^-}(1-x)^{3}\\sum_{n=1}^{\\infty}n^{2}x^{n}$。",
+      "steps": [
+        {
+          "title": "第一步：从几何级数出发，两次「乘 $x$ 再求导」",
+          "html": "<p>在 $|x|&lt;1$ 内 $\\sum_{n\\geqslant1}x^{n}=\\frac{x}{1-x}$。求导再乘 $x$：</p><div class=\"fm\">$$\\sum_{n\\geqslant1}nx^{n}=x\\left(\\frac{x}{1-x}\\right)'=\\frac{x}{\\left(1-x\\right)^{2}},$$</div><p>再做一次：</p><div class=\"fm\">$$\\sum_{n\\geqslant1}n^{2}x^{n}=x\\left(\\frac{x}{\\left(1-x\\right)^{2}}\\right)'=\\frac{x\\left(1+x\\right)}{\\left(1-x\\right)^{3}}.$$</div><p>为什么偏偏乘 $x$：因为 $\\left(x^{n}\\right)'=nx^{n-1}$，乘 $x$ 才能把 $nx^{n}$ 补齐。</p>"
+        },
+        {
+          "title": "第二步：约掉极点，再代 $x\\to1^{-}$",
+          "html": "<div class=\"fm\">$$(1-x)^{3}\\sum_{n\\geqslant1}n^{2}x^{n}=x\\left(1+x\\right)\\longrightarrow2.$$</div><p class=\"concl\"><b>结论</b>极限为 $2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\sum n^{k}x^{n}$ 型极限篇）",
+        "lead": "看到「$(1-x)^{3}\\sum n^{2}x^{n}$、$x\\to1^{-}$」，直接按这个顺序出牌：",
+        "items": [
+          "幂级数求和从 $\\sum x^{n}=\\frac{x}{1-x}$ 起步，$n^{2}$ 就做两次「乘 $x$ 再求导」。",
+          "记住阶数规律：$\\sum n^{k}x^{n}$ 的分母是 $\\left(1-x\\right)^{k+1}$，本题 $n^{2}$ 配 $\\left(1-x\\right)^{3}$。",
+          "题给的 $(1-x)^{3}$ 正好把极点约干净，剩下 $x\\left(1+x\\right)$ 是连续函数。",
+          "代 $x\\to1^{-}$ 得 $1\\cdot2=2$；不要忘了 $\\sum n^{k}x^{n}$ 只在 $|x|&lt;1$ 成立，故只能取单侧极限。"
+        ]
+      },
+      "answerHtml": "$2$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "换元 $u=\\cos y$",
+      "tags": [
+        "换元 $u=\\cos y$",
+        "伯努利 $w=1/u$",
+        "积分因子 $\\ln x$"
+      ],
+      "difficulty": 3,
+      "stemHtml": "微分方程 $x\\ln x\\sin y\\,\\dfrac{\\mathrm dy}{\\mathrm dx}+\\cos y\\left(1-x\\cos y\\right)=0$ 的通解为________。",
+      "steps": [
+        {
+          "title": "第一步：看到 $\\sin y\\,\\mathrm dy$ 与 $\\cos y$ 同场，令 $u=\\cos y$",
+          "html": "<p>$\\mathrm du=-\\sin y\\,\\mathrm dy$。原式两边除 $x\\ln x$：</p><div class=\"fm\">$$\\sin y\\,y'+\\frac{\\cos y}{x\\ln x}=\\frac{\\cos^{2}y}{\\ln x}\\;\\Longrightarrow\\;-u'+\\frac{u}{x\\ln x}=\\frac{u^{2}}{\\ln x},$$</div><p>即 $u'=\\frac{u}{x\\ln x}-\\frac{u^{2}}{\\ln x}$，标准的伯努利方程（二次项）。</p>"
+        },
+        {
+          "title": "第二步：$w=\\frac1u$ 把二次项线性化",
+          "html": "<p>$w'=-\\frac{u'}{u^{2}}$，代入整理：</p><div class=\"fm\">$$w'+\\frac{1}{x\\ln x}w=\\frac{1}{\\ln x}.$$</div>"
+        },
+        {
+          "title": "第三步：积分因子 $\\ln x$，解出一阶线性方程",
+          "html": "<div class=\"fm\">$$\\mathrm e^{\\int\\frac{\\mathrm dx}{x\\ln x}}=\\mathrm e^{\\ln\\ln x}=\\ln x,$$</div><div class=\"fm\">$$w=\\frac{1}{\\ln x}\\left(\\int\\ln x\\cdot\\frac{1}{\\ln x}\\,\\mathrm dx+C\\right)=\\frac{x+C}{\\ln x}.$$</div>"
+        },
+        {
+          "title": "第四步：回代 $u=\\frac1w$，写成隐式通解",
+          "html": "<div class=\"fm\">$$\\cos y=\\frac{\\ln x}{x+C}\\;\\Longrightarrow\\;\\left(x+C\\right)\\cos y=\\ln x.$$</div><p class=\"concl\"><b>结论</b>通解为 $\\left(x+C\\right)\\cos y=\\ln x$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（三角＋伯努利两次换元篇）",
+        "lead": "看到「$\\sin y\\,y'$ 与 $\\cos y$ 同时出现、还带 $\\cos^{2}y$」，直接按这个顺序出牌：",
+        "items": [
+          "第一次换元把三角降成代数：$u=\\cos y$，$\\mathrm du=-\\sin y\\,\\mathrm dy$。",
+          "整理成 $u'=P(x)u+Q(x)u^{2}$，认出伯努利，再用 $w=\\frac1u$ 线性化。",
+          "一阶线性的积分因子 $\\mathrm e^{\\int\\frac{\\mathrm dx}{x\\ln x}}=\\ln x$，这一步靠 $\\int\\frac{\\mathrm dx}{x\\ln x}=\\ln\\ln x$。",
+          "解出 $w=\\frac{x+C}{\\ln x}$ 后回代 $u=\\frac1w$，整理成隐式 $\\left(x+C\\right)\\cos y=\\ln x$。"
+        ]
+      },
+      "answerHtml": "$\\left(x+C\\right)\\cos y=\\ln x$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "$u=x+y,v=x-y$ 菱形拉矩形",
+      "tags": [
+        "$u=x+y,v=x-y$ 菱形拉矩形",
+        "$|J|=\\frac12$",
+        "分离变量"
+      ],
+      "difficulty": 2,
+      "stemHtml": "记 $D=\\left\\{\\left(x,y\\right)\\mid 0\\leqslant x+y\\leqslant\\frac{\\pi}{2},\\ 0\\leqslant x-y\\leqslant\\frac{\\pi}{2}\\right\\}$，则 $\\displaystyle\\iint_D y\\sin\\left(x+y\\right)\\mathrm dx\\mathrm dy=$________。",
+      "steps": [
+        {
+          "title": "第一步：边界是 $x\\pm y$ 的常数，直接换元",
+          "html": "<p>令 $u=x+y$、$v=x-y$，则 $x=\\frac{u+v}{2}$、$y=\\frac{u-v}{2}$：</p><div class=\"fm\">$$J=\\frac{\\partial\\left(x,y\\right)}{\\partial\\left(u,v\\right)}=\\begin{vmatrix}\\frac12&amp;\\frac12\\\\[2pt]\\frac12&amp;-\\frac12\\end{vmatrix}=-\\frac12,\\qquad\\left|J\\right|=\\frac12,$$</div><p>$D$ 变成正方形 $D'=\\left\\{0\\leqslant u\\leqslant\\frac{\\pi}{2},\\ 0\\leqslant v\\leqslant\\frac{\\pi}{2}\\right\\}$。</p>"
+        },
+        {
+          "title": "第二步：被积式拆成可分离的两块",
+          "html": "<div class=\"fm\">$$\\iint_D y\\sin\\left(x+y\\right)\\mathrm dx\\mathrm dy=\\frac12\\int_0^{\\frac{\\pi}{2}}\\int_0^{\\frac{\\pi}{2}}\\frac{u-v}{2}\\sin u\\,\\mathrm du\\,\\mathrm dv,$$</div><div class=\"fm\">$$=\\frac14\\left[\\int_0^{\\frac{\\pi}{2}}u\\sin u\\,\\mathrm du\\int_0^{\\frac{\\pi}{2}}\\mathrm dv-\\int_0^{\\frac{\\pi}{2}}v\\,\\mathrm dv\\int_0^{\\frac{\\pi}{2}}\\sin u\\,\\mathrm du\\right].$$</div>"
+        },
+        {
+          "title": "第三步：四个一维积分各算一次",
+          "html": "<p>$\\int_0^{\\frac{\\pi}{2}}u\\sin u\\,\\mathrm du=\\left[-u\\cos u+\\sin u\\right]_0^{\\frac{\\pi}{2}}=1$，$\\int_0^{\\frac{\\pi}{2}}\\sin u\\,\\mathrm du=1$，$\\int_0^{\\frac{\\pi}{2}}\\mathrm dv=\\frac{\\pi}{2}$，$\\int_0^{\\frac{\\pi}{2}}v\\,\\mathrm dv=\\frac{\\pi^{2}}{8}$。</p><div class=\"fm\">$$\\frac14\\left(1\\cdot\\frac{\\pi}{2}-\\frac{\\pi^{2}}{8}\\cdot1\\right)=\\frac{\\pi}{8}-\\frac{\\pi^{2}}{32}.$$</div><p class=\"concl\"><b>结论</b>积分为 $\\dfrac{\\pi}{8}-\\dfrac{\\pi^{2}}{32}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$x\\pm y$ 型区域篇）",
+        "lead": "看到「区域由 $0\\leqslant x+y\\leqslant\\frac{\\pi}{2}$、$0\\leqslant x-y\\leqslant\\frac{\\pi}{2}$ 夹出」，直接按这个顺序出牌：",
+        "items": [
+          "边界写成 $x\\pm y$ 的常数 ⇒ 立刻换元 $u=x+y$、$v=x-y$，菱形拉成正方形。",
+          "雅可比 $\\left|J\\right|=\\frac12$ 不要漏，$x=\\frac{u+v}{2}$、$y=\\frac{u-v}{2}$ 代进去即可。",
+          "被积式化成 $\\frac{u-v}{2}\\sin u$，两个变量分离，各算一个一维积分。",
+          "记住两个常用值 $\\int_0^{\\frac{\\pi}{2}}u\\sin u\\,\\mathrm du=1$、$\\int_0^{\\frac{\\pi}{2}}\\sin u\\,\\mathrm du=1$，答案是 $\\frac{\\pi}{8}-\\frac{\\pi^{2}}{32}$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{\\pi}{8}-\\dfrac{\\pi^{2}}{32}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "向量减法",
+      "tags": [
+        "向量减法",
+        "二次函数顶点",
+        "反解与 $\\cos$ 单调性"
+      ],
+      "difficulty": 4,
+      "stemHtml": "记 $\\overrightarrow{OA}$ 与 $\\overrightarrow{OB}$ 的夹角为 $\\alpha$，$\\left|\\overrightarrow{OA}\\right|=1$，$\\left|\\overrightarrow{OB}\\right|=2$，$\\overrightarrow{OP}=\\left(1-\\lambda\\right)\\overrightarrow{OA}$，$\\overrightarrow{OQ}=\\lambda\\overrightarrow{OB}$，$0\\leqslant\\lambda\\leqslant1$。（1）问 $\\lambda$ 为何值时 $\\left|\\overrightarrow{PQ}\\right|$ 最小；（2）设（1）中的 $\\lambda$ 满足 $0&lt;\\lambda&lt;\\frac15$，求 $\\alpha$ 的取值范围。",
+      "steps": [
+        {
+          "title": "第一步：用 $\\overrightarrow{OA},\\overrightarrow{OB}$ 表示 $\\overrightarrow{PQ}$",
+          "html": "<div class=\"fm\">$$\\overrightarrow{PQ}=\\overrightarrow{OQ}-\\overrightarrow{OP}=\\lambda\\overrightarrow{OB}-\\left(1-\\lambda\\right)\\overrightarrow{OA}.$$</div><p>为什么这样写：$P,Q$ 都在 $\\overrightarrow{OA},\\overrightarrow{OB}$ 上滑动，只有把差向量落到这两个基向量上，才能用夹角信息。</p>"
+        },
+        {
+          "title": "第二步：平方，凑成 $\\lambda$ 的二次函数",
+          "html": "<div class=\"fm\">$$\\left|\\overrightarrow{PQ}\\right|^{2}=\\lambda^{2}\\left|\\overrightarrow{OB}\\right|^{2}+\\left(1-\\lambda\\right)^{2}\\left|\\overrightarrow{OA}\\right|^{2}-2\\lambda\\left(1-\\lambda\\right)\\overrightarrow{OA}\\cdot\\overrightarrow{OB},$$</div><p>代入 $\\left|\\overrightarrow{OA}\\right|=1$、$\\left|\\overrightarrow{OB}\\right|=2$、$\\overrightarrow{OA}\\cdot\\overrightarrow{OB}=2\\cos\\alpha$：</p><div class=\"fm\">$$f\\left(\\lambda\\right)=\\left(5+4\\cos\\alpha\\right)\\lambda^{2}-2\\left(1+2\\cos\\alpha\\right)\\lambda+1.$$</div>"
+        },
+        {
+          "title": "第三步：开口向上，顶点横坐标要检验是否落在 $\\left[0,1\\right]$",
+          "html": "<p>$5+4\\cos\\alpha&gt;0$（因 $\\cos\\alpha\\geqslant-1$），顶点 $\\lambda_0=\\frac{1+2\\cos\\alpha}{5+4\\cos\\alpha}$。</p><p>$\\lambda_0\\leqslant1$ 恒成立（$1+2\\cos\\alpha\\leqslant5+4\\cos\\alpha$ 即 $\\cos\\alpha\\geqslant-2$），所以只需 $\\lambda_0\\geqslant0$，即 $\\cos\\alpha\\geqslant-\\frac12$。</p><p>$\\cos\\alpha\\geqslant-\\frac12$ 时取 $\\lambda=\\lambda_0$，最小值 $f\\left(\\lambda_0\\right)=\\frac{\\sin^{2}\\alpha}{5+4\\cos\\alpha}$；$\\cos\\alpha&lt;-\\frac12$ 时 $\\lambda_0&lt;0$，$f$ 在 $\\left[0,1\\right]$ 递增，最小值在 $\\lambda=0$ 处。</p><p>这一步是本题真正需要讨论的地方：官方解答直接取顶点，严格说来要补端点分支。</p>"
+        },
+        {
+          "title": "第四步：反解 $\\cos\\alpha$，再用 $\\cos$ 单调性翻成 $\\alpha$",
+          "html": "<p>设 $y=\\cos\\alpha$，由 $\\lambda=\\frac{1+2y}{5+4y}$ 解出</p><div class=\"fm\">$$y=\\frac{1-5\\lambda}{4\\lambda-2}.$$</div><p>$\\lambda\\in\\left(0,\\frac15\\right)$ 时 $y$ 从 $-\\frac12$ 单调升到 $0$，即 $-\\frac12&lt;\\cos\\alpha&lt;0$。</p><p>$\\cos$ 在 $\\left[0,\\pi\\right]$ 上严格递减，$\\cos\\frac{\\pi}{2}=0$、$\\cos\\frac{2\\pi}{3}=-\\frac12$：</p><div class=\"fm\">$$\\alpha\\in\\left(\\frac{\\pi}{2},\\frac{2\\pi}{3}\\right).$$</div><p class=\"concl\"><b>结论</b>（1）$\\cos\\alpha\\geqslant-\\frac12$ 时 $\\lambda=\\frac{1+2\\cos\\alpha}{5+4\\cos\\alpha}$，否则 $\\lambda=0$；（2）$\\alpha\\in\\left(\\frac{\\pi}{2},\\frac{2\\pi}{3}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（向量模长二次化篇）",
+        "lead": "看到「$\\overrightarrow{OP},\\overrightarrow{OQ}$ 是 $\\overrightarrow{OA},\\overrightarrow{OB}$ 的倍数、求 $\\left|\\overrightarrow{PQ}\\right|$ 最小」，直接按这个顺序出牌：",
+        "items": [
+          "先写 $\\overrightarrow{PQ}=\\lambda\\overrightarrow{OB}-\\left(1-\\lambda\\right)\\overrightarrow{OA}$，所有几何信息都藏在 $\\overrightarrow{OA}\\cdot\\overrightarrow{OB}=2\\cos\\alpha$ 里。",
+          "平方展开成 $\\lambda$ 的二次函数，系数是 $5+4\\cos\\alpha$ 与 $-2\\left(1+2\\cos\\alpha\\right)$。",
+          "顶点 $\\lambda_0=\\frac{1+2\\cos\\alpha}{5+4\\cos\\alpha}$ 必须检验是否在 $\\left[0,1\\right]$：本题上界自动成立，只需 $\\cos\\alpha\\geqslant-\\frac12$。",
+          "（2）不求三角不等式，而是反解 $\\cos\\alpha=\\frac{1-5\\lambda}{4\\lambda-2}$，再用 $\\cos$ 在 $\\left[0,\\pi\\right]$ 单调递减翻译区间。"
+        ]
+      },
+      "answerHtml": "（1）$\\cos\\alpha\\geqslant-\\frac12$ 时 $\\lambda=\\frac{1+2\\cos\\alpha}{5+4\\cos\\alpha}$，否则 $\\lambda=0$；（2）$\\alpha\\in\\left(\\frac{\\pi}{2},\\frac{2\\pi}{3}\\right)$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "Lagrange 中值",
+      "tags": [
+        "Lagrange 中值",
+        "单调性",
+        "取极限"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $\\left(-1,1\\right)$ 上二阶可导，$f(0)=1$，且当 $x\\geqslant0$ 时 $f(x)\\geqslant0$、$f'(x)\\leqslant0$、$f''(x)\\leqslant f(x)$，证明 $f'(0)\\geqslant-\\sqrt2$。",
+      "steps": [
+        {
+          "title": "第一步：用 Lagrange 中值把 $f'(\\xi)$ 与 $f(x)-f(0)$ 挂上",
+          "html": "<p>任取 $x\\in\\left(0,1\\right)$，存在 $\\xi\\in\\left(0,x\\right)$ 使 $f(x)-1=xf'(\\xi)$。由 $f(x)\\geqslant0$：</p><div class=\"fm\">$$-\\frac1x\\leqslant f'(\\xi)\\leqslant0.$$</div><p>这里为什么要两侧夹：$f'\\leqslant0$ 给上界，$f(x)\\geqslant0$ 给下界，后面两个都要用。</p>"
+        },
+        {
+          "title": "第二步：看懂 $f''\\leqslant f$，构造 $\\left[f'\\right]^{2}-\\left[f\\right]^{2}$",
+          "html": "<p>令 $F=\\left[f'\\right]^{2}-\\left[f\\right]^{2}$，则</p><div class=\"fm\">$$F'=2f'\\left(f''-f\\right)\\geqslant0,$$</div><p>两个非正数相乘。所以 $F$ 在 $\\left[0,1\\right)$ 上单调不减。</p><p>为什么想到这个构造：$f''$ 与 $f$ 并列出现，而 $\\left(\\left[f'\\right]^{2}\\right)'=2f'f''$、$\\left(\\left[f\\right]^{2}\\right)'=2ff'$ 都带 $2f'$，相减正好提出 $f''-f$。</p>"
+        },
+        {
+          "title": "第三步：$F(\\xi)\\geqslant F(0)$，把 $\\left[f'(0)\\right]^{2}$ 解出来",
+          "html": "<div class=\"fm\">$$\\left[f'(\\xi)\\right]^{2}-\\left[f(\\xi)\\right]^{2}\\geqslant\\left[f'(0)\\right]^{2}-1,$$</div><p>用 $\\left[f(\\xi)\\right]^{2}\\geqslant0$ 与 $\\left[f'(\\xi)\\right]^{2}\\leqslant\\frac1{x^{2}}$：</p><div class=\"fm\">$$\\left[f'(0)\\right]^{2}\\leqslant\\frac{1}{x^{2}}+1.$$</div>"
+        },
+        {
+          "title": "第四步：对一切 $x$ 取极限，再用符号定方向",
+          "html": "<p>令 $x\\to1^{-}$ 得 $\\left[f'(0)\\right]^{2}\\leqslant2$，即 $-\\sqrt2\\leqslant f'(0)\\leqslant\\sqrt2$；又 $f'(0)\\leqslant0$：</p><div class=\"fm\">$$f'(0)\\geqslant-\\sqrt2.$$</div><p class=\"concl\"><b>结论</b>得证。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$f''\\leqslant f$ 造 $\\left[f'\\right]^{2}\\pm\\left[f\\right]^{2}$ 篇）",
+        "lead": "看到「$f''(x)\\leqslant f(x)$、要证 $f'(0)\\geqslant-\\sqrt2$」，直接按这个顺序出牌：",
+        "items": [
+          "先用 Lagrange 中值定理把 $f'(\\xi)$ 与 $f(x)-f(0)$ 挂钩，得 $-\\frac1x\\leqslant f'(\\xi)\\leqslant0$。",
+          "见到 $f''$ 与 $f$ 并列，立刻造 $F=\\left[f'\\right]^{2}-\\left[f\\right]^{2}$，$F'=2f'\\left(f''-f\\right)\\geqslant0$。",
+          "由 $F(\\xi)\\geqslant F(0)$ 解出 $\\left[f'(0)\\right]^{2}\\leqslant\\left[f'(\\xi)\\right]^{2}+1\\leqslant\\frac1{x^{2}}+1$。",
+          "对任意 $x\\in\\left(0,1\\right)$ 成立 ⇒ 令 $x\\to1^{-}$ 得 $\\left[f'(0)\\right]^{2}\\leqslant2$，再用 $f'(0)\\leqslant0$ 取负根。"
+        ]
+      },
+      "answerHtml": "$f'(0)\\geqslant-\\sqrt2$"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "分 $\\frac{\\pi}{2n}$ 两段",
+      "tags": [
+        "分 $\\frac{\\pi}{2n}$ 两段"
+      ],
+      "difficulty": 4,
+      "stemHtml": "证明：对任意正整数 $n$，恒有 $\\displaystyle\\int_0^{\\frac{\\pi}{2}}x\\left(\\frac{\\sin nx}{\\sin x}\\right)^{4}\\mathrm dx\\leqslant\\left(\\frac{n^{2}}{4}-\\frac18\\right)\\pi^{2}$。",
+      "steps": [
+        {
+          "title": "第一步：先把 $n$ 倍角压成单角，证 $\\left|\\sin nx\\right|\\leqslant n\\sin x$",
+          "html": "<p>$n=1$ 显然。设 $n=k$ 成立：</p><div class=\"fm\">$$\\left|\\sin\\left(k+1\\right)x\\right|\\leqslant\\left|\\sin kx\\right|+\\left|\\sin x\\right|\\leqslant\\left(k+1\\right)\\sin x,$$</div><p>（$0\\leqslant x\\leqslant\\frac{\\pi}{2}$，用和角公式与 $\\left|\\cos\\right|\\leqslant1$。）归纳完成。</p>"
+        },
+        {
+          "title": "第二步：只看这一个界不够，按 $\\frac{\\pi}{2n}$ 拆两段",
+          "html": "<p>在 $\\left[0,\\frac{\\pi}{2n}\\right]$ 上 $nx\\leqslant\\frac{\\pi}{2}$，$n\\sin x$ 这个界好用；在 $\\left[\\frac{\\pi}{2n},\\frac{\\pi}{2}\\right]$ 上它太大，改用 $\\left|\\sin nx\\right|\\leqslant1$ 与 $\\sin x\\geqslant\\frac{2x}{\\pi}$。</p><div class=\"fm\">$$I_n=\\int_0^{\\frac{\\pi}{2n}}+\\int_{\\frac{\\pi}{2n}}^{\\frac{\\pi}{2}}=I^{(1)}+I^{(2)}.$$</div>"
+        },
+        {
+          "title": "第三步：前段用 $n\\sin x$，后段用 $\\frac{2x}{\\pi}$",
+          "html": "<div class=\"fm\">$$I^{(1)}\\leqslant n^{4}\\int_0^{\\frac{\\pi}{2n}}x\\,\\mathrm dx=n^{4}\\cdot\\frac12\\left(\\frac{\\pi}{2n}\\right)^{2}=\\frac{n^{2}\\pi^{2}}{8},$$</div><div class=\"fm\">$$I^{(2)}\\leqslant\\int_{\\frac{\\pi}{2n}}^{\\frac{\\pi}{2}}x\\left(\\frac{\\pi}{2x}\\right)^{4}\\mathrm dx=\\frac{\\pi^{4}}{16}\\left[-\\frac{1}{2x^{2}}\\right]_{\\frac{\\pi}{2n}}^{\\frac{\\pi}{2}}=\\frac{\\pi^{2}\\left(n^{2}-1\\right)}{8}.$$</div>"
+        },
+        {
+          "title": "第四步：两段相加",
+          "html": "<div class=\"fm\">$$I_n\\leqslant\\frac{n^{2}\\pi^{2}}{8}+\\frac{\\left(n^{2}-1\\right)\\pi^{2}}{8}=\\frac{\\left(2n^{2}-1\\right)\\pi^{2}}{8}=\\left(\\frac{n^{2}}{4}-\\frac18\\right)\\pi^{2}.$$</div><p>$n=1$ 时左边 $=\\int_0^{\\frac{\\pi}{2}}x\\,\\mathrm dx=\\frac{\\pi^{2}}{8}=$ 右边，等号成立。</p><p class=\"concl\"><b>结论</b>不等式得证。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$n$ 倍角积分不等式篇）",
+        "lead": "看到「$\\int_0^{\\frac{\\pi}{2}}x\\left(\\frac{\\sin nx}{\\sin x}\\right)^{4}\\mathrm dx$ 的上界」，直接按这个顺序出牌：",
+        "items": [
+          "先把 $n$ 倍角压成单角：归纳证 $\\left|\\sin nx\\right|\\leqslant n\\sin x$，这是唯一能带出 $n^{4}$ 的工具。",
+          "只用它会在 $x$ 接近 $\\frac{\\pi}{2}$ 时失效，必须分段，分段点取 $\\frac{\\pi}{2n}$（恰是 $nx=\\frac{\\pi}{2}$ 的位置）。",
+          "前段 $\\int_0^{\\frac{\\pi}{2n}}$ 用 $n^{4}\\sin^{4}x$ 得 $\\frac{n^{2}\\pi^{2}}{8}$；后段用 $\\left|\\sin nx\\right|\\leqslant1$ 与 $\\sin x\\geqslant\\frac{2x}{\\pi}$ 得 $\\frac{\\left(n^{2}-1\\right)\\pi^{2}}{8}$。",
+          "两段相加即 $\\left(\\frac{n^{2}}{4}-\\frac18\\right)\\pi^{2}$；顺手用 $n=1$ 验证等号，说明界是紧的。"
+        ]
+      },
+      "answerHtml": "证毕（$n=1$ 时取等号）"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "交换积分次序",
+      "tags": [
+        "交换积分次序",
+        "负向积分变号",
+        "$(1-u)^{\\alpha}$ 展开",
+        "积分中值",
+        "可微展开"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $z=f(x,y)$ 是区域 $D=\\left\\{\\left(x,y\\right)\\mid 0\\leqslant x\\leqslant1,\\ 0\\leqslant y\\leqslant1\\right\\}$ 上的可微函数，$f(0,0)=0$，且 $\\mathrm dz\\big|_{\\left(0,0\\right)}=3\\mathrm dx+2\\mathrm dy$，求 $\\displaystyle\\lim_{x\\to0^{+}}\\frac{\\int_0^{x^{2}}\\mathrm dt\\int_x^{\\sqrt t}f(t,u)\\,\\mathrm du}{1-\\sqrt[4]{1-x^{4}}}$。",
+      "steps": [
+        {
+          "title": "第一步：内层下限含 $x$，先交换积分次序",
+          "html": "<p>$t\\leqslant x^{2}$ ⇒ $\\sqrt t\\leqslant x$，内层是负向积分：</p><div class=\"fm\">$$\\int_0^{x^{2}}\\mathrm dt\\int_x^{\\sqrt t}f\\,\\mathrm du=-\\int_0^{x^{2}}\\mathrm dt\\int_{\\sqrt t}^{x}f\\,\\mathrm du=-\\int_0^{x}\\mathrm du\\int_0^{u^{2}}f(t,u)\\,\\mathrm dt.$$</div><p>为什么必须换序：内层上下限都含 $x$，直接对 $x$ 求导会得到两个含 $x$ 的边界项，理不清；换序后 $x$ 只出现在最外层上限。</p>"
+        },
+        {
+          "title": "第二步：分母用 $(1-u)^{1/4}$ 展到一阶",
+          "html": "<div class=\"fm\">$$1-\\sqrt[4]{1-x^{4}}=\\frac{x^{4}}{4}+o\\left(x^{4}\\right)\\sim\\frac{x^{4}}{4},$$</div><p>与分子（换序后是一个单重积分）的量级正好配成 $0/0$。</p>"
+        },
+        {
+          "title": "第三步：洛必达一次，再用积分中值把 $f$ 提出来",
+          "html": "<p>记 $\\varphi(u)=\\int_0^{u^{2}}f(t,u)\\,\\mathrm dt$，则原极限 $=\\lim_{x\\to0^{+}}\\frac{-\\int_0^{x}\\varphi(u)\\mathrm du}{x^{4}/4}=-\\lim_{x\\to0^{+}}\\frac{\\varphi(x)}{x^{3}}$。</p><p>积分中值：存在 $\\xi\\in\\left(0,x^{2}\\right)$ 使 $\\varphi(x)=f(\\xi,x)\\cdot x^{2}$，于是</p><div class=\"fm\">$$I=-\\lim_{x\\to0^{+}}\\frac{f(\\xi,x)}{x}.$$</div>"
+        },
+        {
+          "title": "第四步：用可微性展开，注意 $\\frac{\\xi}{x}\\to0$",
+          "html": "<p>由全微分条件 $f_x(0,0)=3$、$f_y(0,0)=2$、$f(0,0)=0$：</p><div class=\"fm\">$$f(\\xi,x)=3\\xi+2x+o\\left(\\sqrt{\\xi^{2}+x^{2}}\\right),$$</div><p>而 $0&lt;\\frac{\\xi}{x}&lt;x\\to0$ ⇒ $\\frac{\\xi}{x}\\to0$，且 $\\frac{o\\left(\\sqrt{\\xi^{2}+x^{2}}\\right)}{x}\\to0$：</p><div class=\"fm\">$$I=-\\left(3\\cdot0+2\\right)=-2.$$</div><p class=\"concl\"><b>结论</b>极限为 $-2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（二层变限＋可微展开篇）",
+        "lead": "看到「$\\frac{\\int_0^{x^{2}}\\mathrm dt\\int_x^{\\sqrt t}f(t,u)\\mathrm du}{1-\\sqrt[4]{1-x^{4}}}$、已知 $\\mathrm dz\\big|_{\\left(0,0\\right)}$」，直接按这个顺序出牌：",
+        "items": [
+          "内层下限含 $x$ ⇒ 第一动作是交换积分次序；注意 $\\sqrt t\\leqslant x$ 使原积分是负向，要补一个负号。",
+          "换序后 $x$ 只在外层上限，分母用 $\\left(1-u\\right)^{1/4}=1-\\frac u4+o(u)$ 估成 $\\frac{x^{4}}{4}$。",
+          "洛必达一次，再用积分中值 $\\int_0^{x^{2}}f\\,\\mathrm dt=f(\\xi,x)x^{2}$，把 $f$ 从积分里提出来。",
+          "最后用可微展开 $f(\\xi,x)=3\\xi+2x+o\\left(\\rho\\right)$，并用 $\\xi&lt;x^{2}$ 得 $\\frac{\\xi}{x}\\to0$，答案 $-2$。"
+        ]
+      },
+      "answerHtml": "$-2$"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "收敛级数余项可任意小",
+      "tags": [
+        "收敛级数余项可任意小",
+        "分段放大 $2^{k}$",
+        "几何级数 $2^{k}3^{-k}$ 控总量"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设正项级数 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛，证明：存在收敛的正项级数 $\\displaystyle\\sum_{n=1}^{\\infty}b_n$，使 $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{b_n}=0$。",
+      "steps": [
+        {
+          "title": "第一步：把「收敛」翻译成「尾巴可任意小」",
+          "html": "<p>对每个 $k$，取 $\\varepsilon=\\frac1{3^{k}}$，存在 $n_k$ 使</p><div class=\"fm\">$$\\sum_{i=n_k}^{\\infty}a_i&lt;\\frac1{3^{k}},$$</div><p>并取 $n_1&lt;n_2&lt;\\cdots$（余项趋于 $0$，总能取到足够靠后的下标）。</p><p>为什么要尾巴：想让 $b_n$ 比 $a_n$ 大很多又不让总和发散，只能在「靠后的少数项放大很多倍」上做文章。</p>"
+        },
+        {
+          "title": "第二步：分段定义 $b_n$，放大倍数指数增长",
+          "html": "<div class=\"fm\">$$b_n=\\begin{cases}a_n,&amp;1\\leqslant n&lt;n_1,\\\\ 2^{k}a_n,&amp;n_k\\leqslant n&lt;n_{k+1},\\ k=1,2,\\cdots\\end{cases}$$</div>"
+        },
+        {
+          "title": "第三步：先查 $\\frac{a_n}{b_n}\\to0$",
+          "html": "<p>$n\\to\\infty$ 时所在段号 $k\\to\\infty$，故</p><div class=\"fm\">$$\\frac{a_n}{b_n}=\\frac{1}{2^{k}}\\longrightarrow0.$$</div>"
+        },
+        {
+          "title": "第四步：再查 $\\sum b_n$ 收敛（放大倍数被尾巴收缩压住）",
+          "html": "<div class=\"fm\">$$\\sum_{n\\geqslant1}b_n\\leqslant\\sum_{n&lt;n_1}a_n+\\sum_{k\\geqslant1}2^{k}\\cdot\\frac{1}{3^{k}},$$</div><p>公比 $\\frac23&lt;1$ 的等比级数和为 $2$：</p><div class=\"fm\">$$\\sum_{n\\geqslant1}b_n\\leqslant\\sum_{n&lt;n_1}a_n+2&lt;+\\infty.$$</div><p class=\"concl\"><b>结论</b>构造的 $\\left\\{b_n\\right\\}$ 满足两项要求，得证。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（造更慢收敛级数篇）",
+        "lead": "看到「$\\sum a_n$ 收敛、要造 $\\sum b_n$ 收敛且 $\\frac{a_n}{b_n}\\to0$」，直接按这个顺序出牌：",
+        "items": [
+          "先把收敛翻译成余项：对每个 $k$ 取 $n_k$ 使 $\\sum_{i\\geqslant n_k}a_i&lt;3^{-k}$，并让 $n_k$ 严格递增。",
+          "分段放大：第 $k$ 段令 $b_n=2^{k}a_n$，倍数指数增长，比值为 $2^{-k}\\to0$。",
+          "总量靠「倍数增长慢于尾巴收缩」压住：$\\sum b_n\\leqslant\\sum a_n+\\sum\\left(\\frac23\\right)^{k}&lt;+\\infty$。",
+          "两个要求分开验证：先证比值趋于 $0$，再证 $\\sum b_n$ 收敛；余项趋于 $0$ 是 $n_k$ 可选严格递增的依据。"
+        ]
+      },
+      "answerHtml": "构造完成，证毕"
+    }
+  ]
+}

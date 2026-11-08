@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "id": "math",
+      "name": "数学",
+      "en": "Mathematics",
+      "desc": "全国大学生数学竞赛初赛真题，逐题拆步讲解。",
+      "icon": "sigma",
+      "order": 1,
+      "status": "ready",
+      "groups": [
+        {
+          "id": "competition",
+          "name": "数学竞赛",
+          "desc": "全国大学生数学竞赛（非数学专业类）",
+          "categories": [
+            {
+              "id": "prelim",
+              "name": "初赛",
+              "desc": "第 1–17 届初赛真题，含填空与解答",
+              "dir": "math/competition"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "english",
+      "name": "英语",
+      "en": "English",
+      "desc": "好词好句、长难句阅读、翻译与写作。",
+      "icon": "book",
+      "order": 2,
+      "status": "coming",
+      "groups": [
+        {
+          "id": "reading",
+          "name": "阅读",
+          "desc": "长难句拆解与精读",
+          "categories": [
+            { "id": "long-sentence", "name": "长难句", "desc": "结构拆解与翻译", "dir": "english/reading" }
+          ]
+        },
+        {
+          "id": "writing",
+          "name": "写作",
+          "desc": "好词好句与范文",
+          "categories": [
+            { "id": "phrases", "name": "好词好句", "desc": "可迁移的表达积累", "dir": "english/writing" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "politics",
+      "name": "政治",
+      "en": "Politics",
+      "desc": "选择题考点、易错项与主观题框架。",
+      "icon": "landmark",
+      "order": 3,
+      "status": "coming",
+      "groups": [
+        {
+          "id": "theory",
+          "name": "理论",
+          "desc": "马原、毛中特、史纲、思修",
+          "categories": [
+            { "id": "choice", "name": "选择题", "desc": "考点与易错项", "dir": "politics/theory" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "major",
+      "name": "专业课",
+      "en": "Major",
+      "desc": "按目标院校与科目自由扩展。",
+      "icon": "layers",
+      "order": 4,
+      "status": "coming",
+      "groups": [],
+      "categories": []
+    }
+  ]
+}

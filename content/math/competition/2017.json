@@ -1,0 +1,406 @@
+{
+  "year": 2017,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第九届（2017）初赛 非数学专业类",
+  "edition": 9,
+  "source": "第9届（2017）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "变限积分求导",
+      "tags": [
+        "变限积分求导",
+        "一阶线性方程",
+        "初值"
+      ],
+      "difficulty": 2,
+      "stemHtml": "已知可导函数 $f(x)$ 满足 $f(x)\\cos x+2\\displaystyle\\int_0^{x}f(t)\\sin t\\,\\mathrm{d}t=x+1$，则 $f(x)=$________。",
+      "steps": [
+        {
+          "title": "第一步：两边求导，把积分消掉",
+          "html": "<p>左端求导：$f'\\cos x-f\\sin x+2f\\sin x$；右端得 $1$。合并得</p><div class=\"fm\">$$f'(x)\\cos x+f(x)\\sin x=1\\;\\Longrightarrow\\;f'+f\\tan x=\\sec x.$$</div><p>为什么先求导：方程里既有 $f$ 又有 $f$ 的积分，求导是唯一能把两者统一成微分方程的动作。</p>"
+        },
+        {
+          "title": "第二步：认出一阶线性方程，用积分因子（或凑全微分）",
+          "html": "<p>注意 $\\left(\\frac{f}{\\cos x}\\right)'=\\frac{f'\\cos x+f\\sin x}{\\cos^{2}x}=\\sec^{2}x$，于是无需套公式，</p><div class=\"fm\">$$\\frac{f}{\\cos x}=\\tan x+C\\;\\Longrightarrow\\;f(x)=\\sin x+C\\cos x.$$</div>"
+        },
+        {
+          "title": "第三步：回原方程取 $x=0$ 定 $C$",
+          "html": "<p>$x=0$：$f(0)\\cdot1+0=1$ ⇒ $f(0)=1$。而 $f(0)=C$，故 $C=1$。</p><p class=\"concl\"><b>结论</b>$f(x)=\\sin x+\\cos x$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（变限积分反求函数篇）",
+        "lead": "看到「$f(x)\\cos x+2\\int_0^x f(t)\\sin t\\,\\mathrm dt=x+1$」，直接按这个顺序出牌：",
+        "items": [
+          "两边对 $x$ 求导消掉变限积分，注意 $f(x)\\cos x$ 是乘积、要求导法则。",
+          "整理成 $f'+P(x)f=Q(x)$ 的标准一阶线性方程，观察是否有 $\\left(\\frac{f}{g}\\right)'$ 的全微分结构（本题 $g=\\cos x$）。",
+          "积分后用原方程取特殊点（通常 $x=0$）定常数，因为积分上下限重合会给出一个精确值。",
+          "答案代回原方程验一遍：$\\left(\\sin x+\\cos x\\right)\\cos x+2\\int_0^x\\left(\\sin t+\\cos t\\right)\\sin t\\,\\mathrm dt=x+1$ ✓。"
+        ]
+      },
+      "answerHtml": "$f(x)=\\sin x+\\cos x$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "减整周期",
+      "tags": [
+        "减整周期",
+        "有理化",
+        "$\\sin^{2}$ 的极限"
+      ],
+      "difficulty": 2,
+      "stemHtml": "极限 $\\displaystyle\\lim_{n\\to\\infty}\\sin^{2}\\left(\\pi\\sqrt{n^{2}+n}\\right)=$________。",
+      "steps": [
+        {
+          "title": "第一步：用 $\\sin^{2}$ 的 $\\pi$ 周期性，把 $n\\pi$ 减掉",
+          "html": "<p>$\\sin^{2}$ 以 $\\pi$ 为周期：$\\sin^{2}\\left(n\\pi+\\theta\\right)=\\sin^{2}\\theta$。故</p><div class=\"fm\">$$\\sin^{2}\\left(\\pi\\sqrt{n^{2}+n}\\right)=\\sin^{2}\\left(\\pi\\sqrt{n^{2}+n}-n\\pi\\right).$$</div>"
+        },
+        {
+          "title": "第二步：有理化求剩余部分",
+          "html": "<div class=\"fm\">$$\\pi\\sqrt{n^{2}+n}-n\\pi=\\pi\\cdot\\frac{n}{\\sqrt{n^{2}+n}+n}\\;\\longrightarrow\\;\\pi\\cdot\\frac{1}{1+1}=\\frac{\\pi}{2}.$$</div>"
+        },
+        {
+          "title": "第三步：代回",
+          "html": "<div class=\"fm\">$$\\sin^{2}\\left(\\pi\\sqrt{n^{2}+n}\\right)\\to\\sin^{2}\\frac{\\pi}{2}=1.$$</div><p class=\"concl\"><b>结论</b>极限为 $1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\sin^{2}(\\pi\\sqrt{\\cdots})$ 篇）",
+        "lead": "看到「$\\sin^{2}\\left(\\pi\\sqrt{n^{2}+n}\\right)$ 求极限」，直接按这个顺序出牌：",
+        "items": [
+          "$\\sin^{2}$ 的周期是 $\\pi$，先把整数倍的 $n\\pi$ 减掉，只留 $\\pi\\left(\\sqrt{n^{2}+n}-n\\right)$。",
+          "$\\sqrt{n^{2}+n}-n$ 用有理化：$\\frac{n}{\\sqrt{n^{2}+n}+n}\\to\\frac12$。",
+          "于是剩余部分趋于 $\\frac\\pi2$，$\\sin^{2}\\frac\\pi2=1$。",
+          "若题里是 $\\sin\\left(\\pi\\sqrt{n^{2}+n}\\right)$（一次方），答案是 $\\sin\\frac\\pi2=1$ 的符号而非平方——注意次数。"
+        ]
+      },
+      "answerHtml": "$1$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "一阶链式",
+      "tags": [
+        "一阶链式",
+        "二阶链式",
+        "交叉项配平"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $w=f(u,v)$ 具有二阶连续偏导数，$u=x-cy$，$v=x+cy$，$c$ 为非零常数，则 $w_{xx}-\\dfrac{1}{c^{2}}w_{yy}=$________。",
+      "steps": [
+        {
+          "title": "第一步：一次链式，写出 $w_x$ 与 $w_y$",
+          "html": "<div class=\"fm\">$$w_x=f_1\\cdot1+f_2\\cdot1=f_1+f_2,\\qquad w_y=f_1\\cdot\\left(-c\\right)+f_2\\cdot c=c\\left(f_2-f_1\\right).$$</div><p>之所以会有 $4f_{12}$ 的结果，是因为 $x-cy$ 与 $x+cy$ 这一对变量让 $w_{xx}$ 与 $w_{yy}$ 的交叉项符号相反。</p>"
+        },
+        {
+          "title": "第二步：再链式一次，注意 $f_1,f_2$ 仍是 $u,v$ 的函数",
+          "html": "<div class=\"fm\">$$w_{xx}=f_{11}+2f_{12}+f_{22},\\qquad w_{yy}=c^{2}\\left(f_{11}-2f_{12}+f_{22}\\right).$$</div><p>$w_{yy}$ 里出现 $c^{2}$ 是因为对 $y$ 求导两次，每次链式都乘一个 $c$（对 $u$ 是 $-c$、对 $v$ 是 $+c$，两者平方都是 $c^{2}$）。</p>"
+        },
+        {
+          "title": "第三步：组合相减",
+          "html": "<div class=\"fm\">$$w_{xx}-\\frac{1}{c^{2}}w_{yy}=\\left(f_{11}+2f_{12}+f_{22}\\right)-\\left(f_{11}-2f_{12}+f_{22}\\right)=4f_{12}.$$</div><p class=\"concl\"><b>结论</b>$w_{xx}-\\dfrac{1}{c^{2}}w_{yy}=4f_{12}$（即 $4\\dfrac{\\partial^{2}f}{\\partial u\\partial v}$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（波动方程型组合篇）",
+        "lead": "看到「$u=x-cy$、$v=x+cy$、求 $w_{xx}-\\frac{1}{c^{2}}w_{yy}$」，直接按这个顺序出牌：",
+        "items": [
+          "先算 $w_x,u_x,v_x$ 与 $w_y,u_y,v_y$，把一次链式写全（$u_y=-c$、$v_y=c$ 最容易漏符号）。",
+          "二阶链式把 $f_1,f_2$ 当成 $u,v$ 的函数再链一次，交叉项 $2f_{12}$ 要出现两次。",
+          "注意 $w_{yy}$ 整体带 $c^{2}$ 因子，与 $w_{xx}$ 相减时正好把 $f_{11},f_{22}$ 消掉。",
+          "剩下 $4f_{12}$——这是「$u,v$ 取 $x\\pm cy$」的必然结果，也是波动方程 $w_{xx}-\\frac1{c^{2}}w_{tt}=0$ 通解结构的基础。"
+        ]
+      },
+      "answerHtml": "$4f_{12}$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "Peano 余项",
+      "tags": [
+        "Peano 余项",
+        "等价无穷小",
+        "$f''$ 主项"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(x)$ 有二阶连续导数，$f(0)=f'(0)=0$，$f''(0)=6$，则 $\\displaystyle\\lim_{x\\to0}\\frac{f\\left(\\sin^{2}x\\right)}{x^{4}}=$________。",
+      "steps": [
+        {
+          "title": "第一步：认出「零、零导数、非零二阶」，只剩二次主项",
+          "html": "<p>$f(0)=f'(0)=0$ 把 Taylor 的常数项与一次项全部抹掉，带 Peano 余项：</p><div class=\"fm\">$$f(u)=\\frac{f''(0)}{2}u^{2}+o\\left(u^{2}\\right)=3u^{2}+o\\left(u^{2}\\right).$$</div><p>为什么用 Peano 型：只关心 $u\\to0$ 处的主部，不需要具体余项形式，也避免用错的 Lagrange 点。</p>"
+        },
+        {
+          "title": "第二步：把 $u=\\sin^{2}x$ 代进去，算它的主部",
+          "html": "<p>$\\sin^{2}x\\sim x^{2}$，故 $u^{2}\\sim x^{4}$，$\\frac{f\\left(\\sin^{2}x\\right)}{x^{4}}=\\frac{3\\sin^{4}x+o\\left(x^{4}\\right)}{x^{4}}$。</p>"
+        },
+        {
+          "title": "第三步：取极限",
+          "html": "<p>$\\frac{\\sin^{4}x}{x^{4}}\\to1$，故原极限 $=3$。</p><p class=\"concl\"><b>结论</b>极限为 $3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$f(\\sin^{2}x)$ 的阶数匹配篇）",
+        "lead": "看到「$f(0)=f'(0)=0$、$f''(0)=a$、求 $\\frac{f(\\sin^{2}x)}{x^{4}}$」，直接按这个顺序出牌：",
+        "items": [
+          "先数阶：$f(u)$ 在 $u=0$ 处是二阶零点，主项 $\\frac{f''(0)}{2}u^{2}$。",
+          "再数自变量：$\\sin^{2}x\\sim x^{2}$，所以 $u^{2}\\sim x^{4}$，与分母的 $x^{4}$ 正好同阶。",
+          "两阶相乘，答案 $=\\frac{f''(0)}{2}\\cdot\\left(\\lim\\frac{\\sin^{2}x}{x^{2}}\\right)^{2}=\\frac{f''(0)}{2}$。",
+          "若分母是 $x^{3}$，则阶数不匹配，极限只能是 $0$——分母阶数要等于「$f$ 的零阶 × 自变量展开阶」。"
+        ]
+      },
+      "answerHtml": "$3$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "换元",
+      "tags": [
+        "换元",
+        "组合导数",
+        "$f'g+fg'$ 模式"
+      ],
+      "difficulty": 2,
+      "stemHtml": "不定积分 $I=\\displaystyle\\int\\frac{\\mathrm{e}^{-\\sin x}\\sin2x}{\\left(1-\\sin x\\right)^{2}}\\,\\mathrm{d}x=$________。",
+      "steps": [
+        {
+          "title": "第一步：换元 $v=\\sin x$，把三角结构压成代数结构",
+          "html": "<p>$\\sin2x\\,\\mathrm{d}x=2\\sin x\\cos x\\,\\mathrm{d}x=2v\\,\\mathrm{d}v$，于是</p><div class=\"fm\">$$I=2\\int\\frac{v\\,\\mathrm{e}^{-v}}{\\left(1-v\\right)^{2}}\\,\\mathrm{d}v.$$</div><p>为什么换元：$\\sin2x$ 里那个 $\\cos x$ 正好提供 $\\mathrm{d}v$，换元后只剩 $v$ 的有理 × 指数结构。</p>"
+        },
+        {
+          "title": "第二步：试凑「$\\left(\\frac{\\mathrm{e}^{-v}}{1-v}\\right)'$」",
+          "html": "<div class=\"fm\">$$\\left(\\frac{\\mathrm{e}^{-v}}{1-v}\\right)'=\\frac{-\\mathrm{e}^{-v}\\left(1-v\\right)+\\mathrm{e}^{-v}}{\\left(1-v\\right)^{2}}=\\frac{v\\,\\mathrm{e}^{-v}}{\\left(1-v\\right)^{2}},$$</div><p>被积函数恰好就是它——所以不必分部积分，直接认出组合导数。</p>"
+        },
+        {
+          "title": "第三步：写出结果并换回 $x$",
+          "html": "<div class=\"fm\">$$I=2\\cdot\\frac{\\mathrm{e}^{-v}}{1-v}+C=\\frac{2\\mathrm{e}^{-\\sin x}}{1-\\sin x}+C.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{2\\mathrm{e}^{-\\sin x}}{1-\\sin x}+C$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（凑组合导数篇）",
+        "lead": "看到「$\\frac{\\mathrm e^{-\\sin x}\\sin2x}{\\left(1-\\sin x\\right)^{2}}$ 求不定积分」，直接按这个顺序出牌：",
+        "items": [
+          "先换元 $v=\\sin x$（$\\sin2x\\,\\mathrm{d}x=2v\\,\\mathrm{d}v$），把三角与代数分开。",
+          "分母出现 $\\left(1-v\\right)^{2}$、分子是 $v\\mathrm e^{-v}$，这正是 $\\left(\\frac{\\mathrm e^{-v}}{1-v}\\right)'$ 的形状。",
+          "验证一次求导（关键动作）：分子对得上就直接写答案，对不上再考虑分部积分。",
+          "最后换回原变量并加 $C$；这类「$\\left(\\frac{\\mathrm e^{av}}{a+bv}\\right)'$」的结构在原题里重复出现，值得背下来。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{2\\mathrm{e}^{-\\sin x}}{1-\\sin x}+C$"
+    },
+    {
+      "seq": 6,
+      "number": "填空 6",
+      "type": "fill",
+      "title": "球坐标",
+      "tags": [
+        "球坐标",
+        "锥面定 $ arphi$",
+        "半球定 $ ho$"
+      ],
+      "difficulty": 2,
+      "stemHtml": "记由曲面 $z^{2}=x^{2}+y^{2}$ 和 $z=\\sqrt{4-x^{2}-y^{2}}$ 围成的空间区域为 $V$，则 $\\displaystyle\\iiint_V z\\,\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z=$________。",
+      "steps": [
+        {
+          "title": "第一步：认出两个曲面与它们的交线",
+          "html": "<p>$z^{2}=x^{2}+y^{2}$（$z\\geqslant0$）是顶点在原点、半顶角 $\\frac\\pi4$ 的锥面；$z=\\sqrt{4-x^{2}-y^{2}}$ 是半径 $2$ 的上半球面。</p><p>交线：$r^{2}=4-r^{2}$ ⇒ $r^{2}=2$，$z=\\sqrt2$，所以 $V$ 是「球内、锥内」的那块。</p>"
+        },
+        {
+          "title": "第二步：球坐标写下三个范围",
+          "html": "<p>$0\\leqslant\\theta&lt;2\\pi$，$0\\leqslant\\varphi\\leqslant\\frac{\\pi}{4}$（锥面给 $\\varphi$ 的上限），$0\\leqslant\\rho\\leqslant2$（球面给 $\\rho$ 的上限），$z=\\rho\\cos\\varphi$。</p><p>为什么用球坐标：两个边界面分别是「$\\varphi=$ 常数」与「$\\rho=$ 常数」，球坐标下积分区域是长方体。</p>"
+        },
+        {
+          "title": "第三步：分离变量积分",
+          "html": "<div class=\"fm\">$$\\iiint_V z\\,\\mathrm{d}V=\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_0^{\\frac{\\pi}{4}}\\cos\\varphi\\sin\\varphi\\,\\mathrm{d}\\varphi\\int_0^{2}\\rho^{3}\\,\\mathrm{d}\\rho=2\\pi\\cdot\\frac{1}{2}\\sin^{2}\\varphi\\Big|_0^{\\frac\\pi4}\\cdot\\frac{16}{4}=2\\pi\\cdot\\frac14\\cdot4=2\\pi.$$</div><p class=\"concl\"><b>结论</b>三重积分为 $2\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（锥面 × 球面围区域篇）",
+        "lead": "看到「$z^{2}=x^{2}+y^{2}$ 与 $z=\\sqrt{R^{2}-r^{2}}$ 围成区域、求 $\\iiint z$」，直接按这个顺序出牌：",
+        "items": [
+          "先认面：$z^{2}=r^{2}$ 是半顶角 $\\frac\\pi4$ 的锥面，$\\varphi$ 的上限就是 $\\frac\\pi4$；球面给 $\\rho$ 的上限 $R$。",
+          "球坐标三范围：$\\theta$ 满周、$\\varphi\\in\\left[0,\\frac\\pi4\\right]$、$\\rho\\in\\left[0,R\\right]$，$\\mathrm dV=\\rho^{2}\\sin\\varphi$。",
+          "被积函数 $z=\\rho\\cos\\varphi$，于是 $\\rho$ 给 $\\rho^{3}$、$\\varphi$ 给 $\\sin\\varphi\\cos\\varphi=\\frac12\\sin2\\varphi$。",
+          "$\\int_0^{\\pi/4}\\sin\\varphi\\cos\\varphi\\,\\mathrm{d}\\varphi=\\frac14$，配 $\\frac{R^{4}}{4}$ 与 $2\\pi$，本题 $R=2$ 给 $2\\pi$。"
+        ]
+      },
+      "answerHtml": "$2\\pi$"
+    },
+    {
+      "seq": 7,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "方向导数",
+      "tags": [
+        "方向导数",
+        "Hessian 二次型",
+        "正定判据"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设二元函数 $f(x,y)$ 在平面上有连续二阶偏导数。对任何角度 $\\alpha$，定义 $g_{\\alpha}(t)=f\\left(t\\cos\\alpha,t\\sin\\alpha\\right)$。若对任何 $\\alpha$ 都有 $\\dfrac{\\mathrm{d}g_{\\alpha}(0)}{\\mathrm{d}t}=0$ 且 $\\dfrac{\\mathrm{d}^{2}g_{\\alpha}(0)}{\\mathrm{d}t^{2}}&gt;0$，证明 $f(0,0)$ 是 $f(x,y)$ 的极小值。",
+      "steps": [
+        {
+          "title": "第一步：把 $g_{\\alpha}$ 的一、二阶导数翻译成 $f$ 的偏导",
+          "html": "<p>沿单位方向 $\\vec{u}=\\left(\\cos\\alpha,\\sin\\alpha\\right)$：</p><div class=\"fm\">$$g_{\\alpha}'(0)=\\nabla f(0,0)\\cdot\\vec{u},\\qquad g_{\\alpha}''(0)=\\vec{u}^{\\top}H_f(0,0)\\,\\vec{u},$$</div><p>其中 $H_f=\\begin{pmatrix}f_{xx}&amp;f_{xy}\\\\f_{xy}&amp;f_{yy}\\end{pmatrix}$ 是 Hessian。为什么从 $g$ 入手：$g$ 是「一元切片」，它的导数正是方向导数，条件刚好落在方向导数上。</p>"
+        },
+        {
+          "title": "第二步：一阶条件给驻点",
+          "html": "<p>取 $\\alpha=0$ 得 $f_x(0,0)=0$，取 $\\alpha=\\frac\\pi2$ 得 $f_y(0,0)=0$（其实对一切 $\\alpha$ 都成立，取两个特殊方向就够）。故 $(0,0)$ 是驻点。</p>"
+        },
+        {
+          "title": "第三步：二阶条件给 Hessian 正定",
+          "html": "<p>$g_{\\alpha}''(0)=\\vec{u}^{\\top}H\\vec{u}&gt;0$ 对一切单位向量 $\\vec{u}$ 成立，正是正定二次型的定义，故 $H_f(0,0)$ 正定。</p>"
+        },
+        {
+          "title": "第四步：用二元函数的充分条件收口",
+          "html": "<p>$f$ 有二阶连续偏导、$(0,0)$ 为驻点、$H_f(0,0)$ 正定 ⇒ $f(0,0)$ 是严格极小值（等价判据：$f_{xx}&gt;0$ 且 $f_{xx}f_{yy}-f_{xy}^{2}&gt;0$）。</p><p class=\"concl\"><b>结论</b>$f(0,0)$ 是 $f(x,y)$ 的极小值。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（方向导数与极值篇）",
+        "lead": "看到「一切方向的方向导数为 $0$、二阶方向导数大于 $0$、证极小」，直接按这个顺序出牌：",
+        "items": [
+          "把「沿方向 $\\vec u$ 的切片」写成 $g(t)=f\\left(t\\vec u\\right)$，于是 $g'(0)=\\nabla f\\cdot\\vec u$、$g''(0)=\\vec u^{\\top}H\\vec u$。",
+          "一阶条件取两个特殊方向（$\\alpha=0$ 与 $\\frac\\pi2$）就足以推出 $\\nabla f=0$。",
+          "二阶条件 $\\vec u^{\\top}H\\vec u&gt;0$ 对一切单位向量成立 ⇔ $H$ 正定，别只验两个方向。",
+          "最后接上「驻点 ＋ Hessian 正定 ⇒ 严格极小」这个充分条件，或直接用 $f_{xx}&gt;0$、$f_{xx}f_{yy}-f_{xy}^{2}&gt;0$ 判。"
+        ]
+      },
+      "answerHtml": "$f(0,0)$ 是极小值"
+    },
+    {
+      "seq": 8,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "补线闭合",
+      "tags": [
+        "补线闭合",
+        "Stokes",
+        "投影面积"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设曲线 $\\Gamma$ 为 $\\begin{cases}x^{2}+y^{2}+z^{2}=1,\\ x\\geqslant0,y\\geqslant0,z\\geqslant0\\\\x+z=1\\end{cases}$ 上从点 $A(1,0,0)$ 到点 $B(0,0,1)$ 的一段，求 $I=\\displaystyle\\int_{\\Gamma}y\\,\\mathrm{d}x+z\\,\\mathrm{d}y+x\\,\\mathrm{d}z$。",
+      "steps": [
+        {
+          "title": "第一步：算旋度，判断该用 Stokes",
+          "html": "<p>$F=\\left(y,z,x\\right)$，$\\operatorname{curl}F=\\left(\\frac{\\partial x}{\\partial y}-\\frac{\\partial z}{\\partial z},\\ \\frac{\\partial y}{\\partial z}-\\frac{\\partial x}{\\partial x},\\ \\frac{\\partial z}{\\partial x}-\\frac{\\partial y}{\\partial y}\\right)=\\left(-1,-1,-1\\right)$，是常向量，说明面积分极简。</p><p>但 $\\Gamma$ 不闭合，必须先补一段。</p>"
+        },
+        {
+          "title": "第二步：补线 $\\Gamma_1:B\\to A$，并算出它上面的积分",
+          "html": "<p>$B$ 到 $A$ 走平面 $x+z=1$ 与 $y=0$ 的交线：$x=t$、$y=0$、$z=1-t$，$t:0\\to1$。</p><div class=\"fm\">$$\\int_{\\Gamma_1}y\\,\\mathrm{d}x+z\\,\\mathrm{d}y+x\\,\\mathrm{d}z=\\int_0^{1}t\\,\\mathrm{d}\\left(1-t\\right)=-\\frac12.$$</div>"
+        },
+        {
+          "title": "第三步：Stokes 把环积分转成投影面积",
+          "html": "<p>$\\Gamma+\\Gamma_1$ 围成平面 $x+z=1$ 上的弓形 $\\Sigma$。$F$ 的旋度为 $\\left(-1,-1,-1\\right)$，取平面法向 $\\frac{1}{\\sqrt2}\\left(1,0,1\\right)$，则</p><div class=\"fm\">$$I+\\int_{\\Gamma_1}=-\\iint_{\\Sigma}\\left(\\mathrm{d}y\\mathrm{d}z+\\mathrm{d}z\\mathrm{d}x+\\mathrm{d}x\\mathrm{d}y\\right).$$</div><p>这里 $\\Sigma$ 在 $yOz$、$xOy$ 面的投影各为半椭圆，面积都是 $\\frac{\\pi}{4\\sqrt2}$；在 $zOx$ 面投影为零（$\\Sigma$ 垂直于该面）。</p>"
+        },
+        {
+          "title": "第四步：合并得 $I$",
+          "html": "<div class=\"fm\">$$I-\\frac12=-\\frac{\\pi}{4\\sqrt2}-\\frac{\\pi}{4\\sqrt2}=-\\frac{\\pi}{2\\sqrt2}\\;\\Longrightarrow\\;I=\\frac12-\\frac{\\pi}{2\\sqrt2}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac12-\\dfrac{\\pi}{2\\sqrt2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（非闭空间曲线积分的补线篇）",
+        "lead": "看到「空间曲线上的第二型曲线积分、曲线不闭合」，直接按这个顺序出牌：",
+        "items": [
+          "先算 $\\operatorname{curl}F$；若是常向量（本题 $\\left(-1,-1,-1\\right)$），几乎一定是补线 + Stokes。",
+          "补线段选在两个端点之间、落在同一平面上的那条简单直线，参数化后直接算出它的积分。",
+          "$\\iint\\operatorname{curl}F\\cdot\\mathrm{d}\\vec S$ 用投影写法：$\\iint\\left(-P\\right)\\mathrm{d}y\\mathrm{d}z+\\cdots$，投影面积按 $\\Sigma$ 所在平面与坐标面的夹角换算。",
+          "别忘定向：补线方向要与原曲线首尾相接才能闭合，Stokes 的符号由 $\\Gamma$ 的走向与法向的右手关系决定。"
+        ]
+      },
+      "answerHtml": "$I=\\dfrac12-\\dfrac{\\pi}{2\\sqrt2}$"
+    },
+    {
+      "seq": 9,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "二重积分换序",
+      "tags": [
+        "二重积分换序",
+        "指数核积分",
+        "原条件控尾"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)&gt;0$ 且在实轴上连续，若对任意实数 $t$，$\\displaystyle\\int_{-\\infty}^{+\\infty}\\mathrm{e}^{-\\left|t-x\\right|}f(x)\\,\\mathrm{d}x\\leqslant1$。证明：$\\forall a&lt;b$，有 $\\displaystyle\\int_a^{b}f(x)\\,\\mathrm{d}x\\leqslant\\frac{b-a+2}{2}$。",
+      "steps": [
+        {
+          "title": "第一步：把「对一切 $t$」限制到 $t\\in\\left[a,b\\right]$",
+          "html": "<p>条件对一切实数成立，特别对 $t\\in\\left[a,b\\right]$ 成立（这一步看似浪费，其实是为了后面能对 $t$ 积分）。</p>"
+        },
+        {
+          "title": "第二步：对 $t$ 在 $\\left[a,b\\right]$ 上积分，得 $b-a$ 这边的界",
+          "html": "<div class=\"fm\">$$\\int_a^{b}\\mathrm{d}t\\int_{-\\infty}^{+\\infty}\\mathrm{e}^{-\\left|t-x\\right|}f(x)\\,\\mathrm{d}x\\leqslant b-a.$$</div>"
+        },
+        {
+          "title": "第三步：交换积分次序，算出内层",
+          "html": "<p>内层分 $x$ 在 $t$ 左、右两段：</p><div class=\"fm\">$$\\int_a^{b}\\mathrm{e}^{-\\left|t-x\\right|}\\mathrm{d}t=\\int_a^{x}\\mathrm{e}^{t-x}\\mathrm{d}t+\\int_x^{b}\\mathrm{e}^{x-t}\\mathrm{d}t=2-\\mathrm{e}^{a-x}-\\mathrm{e}^{x-b}.$$</div><p>为什么这样拆：$\\left|t-x\\right|$ 在 $t=x$ 处换号，绝对值积分必须分段。</p>"
+        },
+        {
+          "title": "第四步：用原条件把两个「尾巴」压到 $1$",
+          "html": "<div class=\"fm\">$$\\int_a^{b}f(x)\\left(2-\\mathrm{e}^{a-x}-\\mathrm{e}^{x-b}\\right)\\mathrm{d}x\\leqslant b-a,$$</div><p>即 $2\\int_a^{b}f\\leqslant\\left(b-a\\right)+\\int_a^{b}\\mathrm{e}^{a-x}f+\\int_a^{b}\\mathrm{e}^{x-b}f$。而 $x\\in\\left[a,b\\right]$ 时 $\\mathrm{e}^{a-x}\\leqslant\\mathrm{e}^{-\\left|a-x\\right|}$、$\\mathrm{e}^{x-b}\\leqslant\\mathrm{e}^{-\\left|b-x\\right|}$，故两项各 $\\leqslant1$（把区间扩到全轴，$f&gt;0$ 保证只增不减）：</p><div class=\"fm\">$$2\\int_a^{b}f(x)\\,\\mathrm{d}x\\leqslant\\left(b-a\\right)+1+1.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\int_a^{b}f(x)\\,\\mathrm{d}x\\leqslant\\frac{b-a+2}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（卷积型积分不等式篇）",
+        "lead": "看到「$\\int\\mathrm e^{-\\left|t-x\\right|}f(x)\\mathrm dx\\leqslant1$ 对一切 $t$ 成立、证区间积分上界」，直接按这个顺序出牌：",
+        "items": [
+          "先只保留 $t\\in\\left[a,b\\right]$ 的那部分条件——这一步换来「对 $t$ 积分得 $b-a$」的右侧。",
+          "交换积分次序：$\\int_a^b\\mathrm dt\\int\\mathrm e^{-\\left|t-x\\right|}f\\mathrm dx=\\int f\\cdot\\left(\\int_a^b\\mathrm e^{-\\left|t-x\\right|}\\mathrm dt\\right)\\mathrm dx$。",
+          "内层按 $t&lt;x$ 与 $t&gt;x$ 分段（绝对值换号），得到 $2-\\mathrm e^{a-x}-\\mathrm e^{x-b}$。",
+          "剩下两项用 $t=a$、$t=b$ 处的原始条件各控到 $\\leqslant1$（区间扩到全轴时靠 $f&gt;0$），于是 $2\\int f\\le b-a+2$。"
+        ]
+      },
+      "answerHtml": "$\\displaystyle\\int_a^{b}f(x)\\,\\mathrm{d}x\\leqslant\\frac{b-a+2}{2}$"
+    },
+    {
+      "seq": 10,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "按模 $p$ 分组",
+      "tags": [
+        "按模 $p$ 分组",
+        "裂项",
+        "Cesàro 平均"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\left\\{a_n\\right\\}$ 为一个数列，$p$ 为固定的正整数，且 $\\displaystyle\\lim_{n\\to\\infty}\\left(a_{n+p}-a_n\\right)=\\lambda$（$\\lambda$ 为常数）。证明：$\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{n}=\\frac{\\lambda}{p}$。",
+      "steps": [
+        {
+          "title": "第一步：把数列按模 $p$ 分成 $p$ 个子列",
+          "html": "<p>对每个 $i\\in\\left\\{1,2,\\dots,p\\right\\}$，考虑 $a_i,a_{i+p},a_{i+2p},\\dots$。为什么分：条件只联系「相距 $p$」的两项，分组后每个子列的相邻差才是趋于 $\\lambda$ 的。</p>"
+        },
+        {
+          "title": "第二步：对每个子列裂项求和",
+          "html": "<div class=\"fm\">$$a_{i+kp}-a_i=\\sum_{j=1}^{k}\\left(a_{i+jp}-a_{i+\\left(j-1\\right)p}\\right),$$</div><p>除以 $k$ 后右端是「趋 $\\lambda$ 的序列的算术平均」。</p>"
+        },
+        {
+          "title": "第三步：Cesàro 平均（或 Stolz）给出",
+          "html": "<div class=\"fm\">$$\\frac{a_{i+kp}-a_i}{k}\\to\\lambda\\qquad\\left(k\\to\\infty\\right),$$</div><p>因 $a_i$ 是固定数，$\\frac{a_{i+kp}}{k}\\to\\lambda$；再除以 $p$：</p><div class=\"fm\">$$\\frac{a_{i+kp}}{i+kp}\\to\\frac{\\lambda}{p}.$$</div>"
+        },
+        {
+          "title": "第四步：合并 $p$ 个子列",
+          "html": "<p>任意 $n$ 可写成 $n=i+kp$（$i\\in\\left\\{1,\\dots,p\\right\\}$，$k\\to\\infty$），且 $p$ 固定，故 $\\frac{a_n}{n}\\to\\frac{\\lambda}{p}$ 对一切 $n\\to\\infty$ 成立。</p><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{n}=\\frac{\\lambda}{p}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（差分的差分收敛篇）",
+        "lead": "看到「$a_{n+p}-a_n\\to\\lambda$、证 $\\frac{a_n}{n}\\to\\frac{\\lambda}{p}$」，直接按这个顺序出牌：",
+        "items": [
+          "按模 $p$ 分组，把「相距 $p$ 的差分」变成每个子列的「相邻差分」。",
+          "裂项：$a_{i+kp}-a_i=\\sum_{j=1}^{k}\\left(\\text{差分}\\right)$，把问题转成算术平均。",
+          "用 Cesàro：若 $x_j\\to\\lambda$ 则 $\\frac1k\\sum_{j\\le k}x_j\\to\\lambda$（Stolz 定理的等价说法）。",
+          "最后除以 $p$（因为 $k$ 步对应 $kp$ 项），得 $\\frac\\lambda p$；$p=1$ 时退化为「$a_{n+1}-a_n\\to\\lambda$ ⇒ $\\frac{a_n}{n}\\to\\lambda$」。"
+        ]
+      },
+      "answerHtml": "$\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{n}=\\frac{\\lambda}{p}$"
+    }
+  ]
+}

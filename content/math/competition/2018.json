@@ -1,0 +1,401 @@
+{
+  "year": 2018,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十届（2018）初赛 非数学专业类",
+  "edition": 10,
+  "source": "第10届（2018）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "提公因子",
+      "tags": [
+        "提公因子",
+        "夹逼"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $\\alpha\\in\\left(0,1\\right)$，则 $\\displaystyle\\lim_{n\\to\\infty}\\left[\\left(n+1\\right)^{\\alpha}-n^{\\alpha}\\right]=$________。",
+      "steps": [
+        {
+          "title": "第一步：提出 $n^{\\alpha}$，把差变成「$n^{\\alpha}$ × 一个小量」",
+          "html": "<div class=\"fm\">$$\\left(n+1\\right)^{\\alpha}-n^{\\alpha}=n^{\\alpha}\\left[\\left(1+\\frac{1}{n}\\right)^{\\alpha}-1\\right].$$</div><p>为什么这么提：$\\alpha\\in\\left(0,1\\right)$ 时 $n^{\\alpha}\\to\\infty$，单独看会以为发散；关键在于括号里的量是 $o\\left(1\\right)$ 且阶数为 $\\frac{1}{n}$。</p>"
+        },
+        {
+          "title": "第二步：用「$0<\\alpha<1$ 时 $\\left(1+u\\right)^{\\alpha}<1+u$」压住括号",
+          "html": "<div class=\"fm\">$$\\left(1+\\frac1n\\right)^{\\alpha}&lt;1+\\frac1n\\;\\Longrightarrow\\;0&lt;\\left(n+1\\right)^{\\alpha}-n^{\\alpha}&lt;n^{\\alpha}\\cdot\\frac1n=n^{\\alpha-1}.$$</div><p>这一步的依据是 $\\alpha\\in\\left(0,1\\right)$ 时幂函数 $u^{\\alpha}$ 是凹的、图像在弦 $1+u$ 下方。</p>"
+        },
+        {
+          "title": "第三步：夹逼",
+          "html": "<p>$n^{\\alpha-1}\\to0$（$1-\\alpha&gt;0$），故极限为 $0$。</p><p class=\"concl\"><b>结论</b>极限为 $0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\alpha$ 次幂差篇）",
+        "lead": "看到「$\\left(n+1\\right)^{\\alpha}-n^{\\alpha}$ 且 $\\alpha\\in\\left(0,1\\right)$」，直接按这个顺序出牌：",
+        "items": [
+          "先提 $n^{\\alpha}$，把差化成 $n^{\\alpha}\\left[\\left(1+\\frac1n\\right)^{\\alpha}-1\\right]$。",
+          "$0&lt;\\alpha&lt;1$ 时用 $\\left(1+u\\right)^{\\alpha}&lt;1+u$ 得到上界 $n^{\\alpha-1}$。",
+          "$n^{\\alpha-1}\\to0$ ⇒ 极限 $0$；若 $\\alpha&gt;1$ 则发散到 $+\\infty$，$\\alpha=1$ 时极限为 $1$——三种情况分开记。",
+          "同型题 $\\left(n+1\\right)^{\\alpha}-n^{\\alpha}\\sim\\alpha n^{\\alpha-1}$ 也常考（$\\alpha$ 任意），写答案时可两者互验。"
+        ]
+      },
+      "answerHtml": "$0$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "参数求导",
+      "tags": [
+        "参数求导",
+        "隐函数求导",
+        "切线方程"
+      ],
+      "difficulty": 2,
+      "stemHtml": "若曲线 $y=y(x)$ 由 $\\begin{cases}x=t+\\cos t\\\\ \\mathrm{e}^{y}+ty+\\sin t=1\\end{cases}$ 确定，则此曲线在 $t=0$ 对应点处的切线方程为________。",
+      "steps": [
+        {
+          "title": "第一步：先定 $t=0$ 处的点",
+          "html": "<p>$x=0+\\cos0=1$；第二式在 $t=0$：$\\mathrm{e}^{y}+0+0=1$ ⇒ $y=0$。切点 $\\left(1,0\\right)$。</p>"
+        },
+        {
+          "title": "第二步：分别求 $\\mathrm{d}x/\\mathrm{d}t$ 与 $\\mathrm{d}y/\\mathrm{d}t$",
+          "html": "<div class=\"fm\">$$\\frac{\\mathrm{d}x}{\\mathrm{d}t}=1-\\sin t\\;\\Rightarrow\\;1;\\qquad\\mathrm{e}^{y}\\frac{\\mathrm{d}y}{\\mathrm{d}t}+y+t\\frac{\\mathrm{d}y}{\\mathrm{d}t}+\\cos t=0\\;\\Rightarrow\\;\\frac{\\mathrm{d}y}{\\mathrm{d}t}+1=0\\;\\Rightarrow\\;-1.$$</div><p>为什么隐函数求导要「对 $t$ 求」：$y$ 是 $t$ 的函数，两个方程都是 $t$ 的恒等式，$(0,0)$ 处 $\\mathrm{e}^{0}=1$ 让式子最简。</p>"
+        },
+        {
+          "title": "第三步：算斜率、写切线",
+          "html": "<div class=\"fm\">$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{\\mathrm{d}y/\\mathrm{d}t}{\\mathrm{d}x/\\mathrm{d}t}=-1\\;\\Longrightarrow\\;y=-\\left(x-1\\right)\\;\\Longrightarrow\\;x+y=1.$$</div><p class=\"concl\"><b>结论</b>切线为 $x+y=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（参数＋隐式混定曲线篇）",
+        "lead": "看到「$x=t+\\cos t$、$\\mathrm e^{y}+ty+\\sin t=1$ 定 $y=y\\left(x\\right)$、求 $t=0$ 处切线」，直接按这个顺序出牌：",
+        "items": [
+          "先代 $t=0$ 求切点坐标，顺带把 $\\mathrm e^{0}$、$\\cos0$ 这些值一次算清。",
+          "$\\frac{\\mathrm d x}{\\mathrm dt}$ 直接算；$\\frac{\\mathrm d y}{\\mathrm dt}$ 由隐式方程对 $t$ 求导得到，注意 $ty$ 是乘积项要带 $y+t y'$。",
+          "斜率 $\\frac{\\mathrm dy}{\\mathrm dx}=\\frac{\\mathrm dy/\\mathrm dt}{\\mathrm dx/\\mathrm dt}$，别把两者写反。",
+          "最后用点斜式整理成 $Ax+By=C$，代回切点验算。"
+        ]
+      },
+      "answerHtml": "$x+y=1$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "凑微分",
+      "tags": [
+        "凑微分",
+        "分部积分",
+        "$\\mathrm{arsinh}$ 求导"
+      ],
+      "difficulty": 2,
+      "stemHtml": "积分 $\\displaystyle\\int\\frac{\\ln\\left(x+\\sqrt{1+x^{2}}\\right)}{\\left(1+x^{2}\\right)^{3/2}}\\,\\mathrm{d}x=$________。",
+      "steps": [
+        {
+          "title": "第一步：把 $\\frac{\\mathrm dx}{\\left(1+x^{2}\\right)^{3/2}}$ 认出是某个函数的微分",
+          "html": "<div class=\"fm\">$$\\mathrm{d}\\left(\\frac{x}{\\sqrt{1+x^{2}}}\\right)=\\frac{\\sqrt{1+x^{2}}-x\\cdot\\frac{x}{\\sqrt{1+x^{2}}}}{1+x^{2}}\\,\\mathrm{d}x=\\frac{\\mathrm{d}x}{\\left(1+x^{2}\\right)^{3/2}}.$$</div><p>为什么走这条：分母是 $\\left(1+x^{2}\\right)^{3/2}$，而 $\\frac{x}{\\sqrt{1+x^{2}}}$ 的导数恰好给它，比换元 $x=\\tan t$ 更快。</p>"
+        },
+        {
+          "title": "第二步：分部积分，把 $\\ln$ 的导数找出来",
+          "html": "<div class=\"fm\">$$\\left[\\ln\\left(x+\\sqrt{1+x^{2}}\\right)\\right]'=\\frac{1}{\\sqrt{1+x^{2}}},$$</div><p>于是</p><div class=\"fm\">$$I=\\frac{x}{\\sqrt{1+x^{2}}}\\ln\\left(x+\\sqrt{1+x^{2}}\\right)-\\int\\frac{x}{1+x^{2}}\\,\\mathrm{d}x.$$</div>"
+        },
+        {
+          "title": "第三步：算余项并写出答案",
+          "html": "<p>$\\int\\frac{x\\,\\mathrm dx}{1+x^{2}}=\\frac12\\ln\\left(1+x^{2}\\right)$，故</p><div class=\"fm\">$$I=\\frac{x}{\\sqrt{1+x^{2}}}\\ln\\left(x+\\sqrt{1+x^{2}}\\right)-\\frac12\\ln\\left(1+x^{2}\\right)+C.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{x}{\\sqrt{1+x^{2}}}\\ln\\left(x+\\sqrt{1+x^{2}}\\right)-\\dfrac12\\ln\\left(1+x^{2}\\right)+C$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\ln$ 配代数分母的分部篇）",
+        "lead": "看到「$\\ln\\left(x+\\sqrt{1+x^{2}}\\right)$ 乘 $\\left(1+x^{2}\\right)^{-3/2}$」，直接按这个顺序出牌：",
+        "items": [
+          "先把代数部分凑成微分：$\\mathrm{d}\\left(\\frac{x}{\\sqrt{1+x^{2}}}\\right)=\\frac{\\mathrm dx}{\\left(1+x^{2}\\right)^{3/2}}$。",
+          "分部积分的 $u$ 取 $\\ln$、$\\mathrm dv$ 取代数微分，这样 $\\ln$ 变成 $\\frac{1}{\\sqrt{1+x^{2}}}$ 更好处理。",
+          "余项 $\\int\\frac{x}{1+x^{2}}\\mathrm dx=\\frac12\\ln\\left(1+x^{2}\\right)$，带负号。",
+          "记住 $\\ln\\left(x+\\sqrt{1+x^{2}}\\right)$ 是 $\\mathrm{arsinh}\\,x$，它的导数是 $\\frac1{\\sqrt{1+x^{2}}}$——这条在积分题里出现频率很高。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{x}{\\sqrt{1+x^{2}}}\\ln\\left(x+\\sqrt{1+x^{2}}\\right)-\\dfrac12\\ln\\left(1+x^{2}\\right)+C$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "拆项",
+      "tags": [
+        "拆项",
+        "$1-\\cos$ 主部",
+        "根式一阶展开"
+      ],
+      "difficulty": 2,
+      "stemHtml": "极限 $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x\\sqrt{\\cos2x}\\sqrt[3]{\\cos3x}}{x^{2}}=$________。",
+      "steps": [
+        {
+          "title": "第一步：把乘积拆成三段差",
+          "html": "<p>记 $a=\\cos x$、$b=\\sqrt{\\cos2x}$、$c=\\sqrt[3]{\\cos3x}$，三者都 $\\to1$。用</p><div class=\"fm\">$$1-abc=\\left(1-a\\right)+a\\left(1-b\\right)+ab\\left(1-c\\right),$$</div><p>为什么能拆：$a,b,c\\to1$，每一项都是 $o\\left(1\\right)$，而 $a$、$ab$ 的极限为 $1$，不影响主部。</p>"
+        },
+        {
+          "title": "第二步：三段各算阶",
+          "html": "<div class=\"fm\">$$1-\\cos x\\sim\\frac{x^{2}}{2};\\quad1-\\sqrt{\\cos2x}\\sim\\frac{1-\\cos2x}{2}\\sim\\frac{2x^{2}}{2}=x^{2};\\quad1-\\sqrt[3]{\\cos3x}\\sim\\frac{1-\\cos3x}{3}\\sim\\frac{9x^{2}/2}{3}=\\frac{3x^{2}}{2}.$$</div><p>依据：$1-\\sqrt{1+u}\\sim-\\frac u2$、$1-\\sqrt[3]{1+u}\\sim-\\frac u3$，而 $\\cos kx-1\\sim-\\frac{k^{2}x^{2}}{2}$。</p>"
+        },
+        {
+          "title": "第三步：相加",
+          "html": "<div class=\"fm\">$$\\lim=\\frac12+1+\\frac32=3.$$</div><p class=\"concl\"><b>结论</b>极限为 $3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$1-\\prod\\cos$ 型极限篇）",
+        "lead": "看到「$1-\\cos x\\sqrt{\\cos2x}\\sqrt[3]{\\cos3x}$ 除以 $x^{2}$」，直接按这个顺序出牌：",
+        "items": [
+          "用 $1-abc=\\left(1-a\\right)+a\\left(1-b\\right)+ab\\left(1-c\\right)$ 拆开，因为 $a,b,c\\to1$ 时交叉因子极限为 $1$。",
+          "每段套 $1-\\left(1+u\\right)^{1/m}\\sim-\\frac um$ 与 $\\cos kx-1\\sim-\\frac{k^{2}x^{2}}{2}$。",
+          "本题三段分别是 $\\frac12$、$1$、$\\frac32$，和为 $3$。",
+          "若根指数是 $m$，则对应 $1-\\cos kx$ 除以 $m$ 后再除以 $2$，可写成通式 $\\frac{k^{2}}{2m}$。"
+        ]
+      },
+      "answerHtml": "$3$"
+    },
+    {
+      "seq": 5,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "路径无关条件",
+      "tags": [
+        "路径无关条件",
+        "偏导相等",
+        "一阶方程"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设函数 $f(t)$ 在 $t\\neq0$ 时一阶连续可导，且 $f(1)=0$。求函数 $f\\left(x^{2}-y^{2}\\right)$，使得曲线积分 $\\displaystyle\\int_L y\\left[2-f\\left(x^{2}-y^{2}\\right)\\right]\\mathrm{d}x+xf\\left(x^{2}-y^{2}\\right)\\mathrm{d}y$ 与路径无关，其中 $L$ 为任一不与直线 $y=\\pm x$ 相交的分段光滑闭曲线。",
+      "steps": [
+        {
+          "title": "第一步：写 $P,Q$，把路径无关翻译成偏导相等",
+          "html": "<p>$P=y\\left[2-f(u)\\right]$、$Q=xf(u)$，$u=x^{2}-y^{2}$。在单连通区域内与路径无关 ⇔ $Q_x=P_y$。</p><p>为什么区域要避开 $y=\\pm x$：那里 $u=0$，而 $f(t)$ 只在 $t\\neq0$ 有定义。</p>"
+        },
+        {
+          "title": "第二步：链式求导，得到关于 $f$ 的方程",
+          "html": "<div class=\"fm\">$$Q_x=f(u)+2x^{2}f'(u),\\qquad P_y=2-f(u)+2y^{2}f'(u),$$</div><p>令两者相等并整理：</p><div class=\"fm\">$$2f(u)+2\\left(x^{2}-y^{2}\\right)f'(u)=2\\;\\Longrightarrow\\;f(u)+uf'(u)=1\\;\\Longrightarrow\\;\\left[uf(u)\\right]'=1.$$</div>"
+        },
+        {
+          "title": "第三步：积分并用初值定常数",
+          "html": "<p>$uf(u)=u+C$，即 $f(u)=1+\\frac Cu$；$f(1)=0$ ⇒ $C=-1$，故 $f(u)=1-\\frac1u$：</p><div class=\"fm\">$$f\\left(x^{2}-y^{2}\\right)=1-\\frac{1}{x^{2}-y^{2}}.$$</div><p class=\"concl\"><b>结论</b>$f\\left(x^{2}-y^{2}\\right)=1-\\dfrac{1}{x^{2}-y^{2}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（路径无关反求被积函数篇）",
+        "lead": "看到「$\\int_L P\\mathrm dx+Q\\mathrm dy$ 与路径无关、$P,Q$ 含未知 $f\\left(x^{2}-y^{2}\\right)$」，直接按这个顺序出牌：",
+        "items": [
+          "先写 $Q_x=P_y$，$u=x^{2}-y^{2}$ 时 $u_x=2x$、$u_y=-2y$，链式时两端各带一个因子。",
+          "整理时把 $2x^{2}f'$ 与 $2y^{2}f'$ 合并成 $\\left(x^{2}-y^{2}\\right)f'=uf'$，这正是「$\\left[uf(u)\\right]'$」的记号。",
+          "积分得 $uf(u)=u+C$ ⇒ $f(u)=1+\\frac Cu$，一个初值就能定 $C$。",
+          "答案代回验一次 $Q_x=P_y$；本题 $f=1-\\frac1u$ 让 $f+uf'=1$ ✓。"
+        ]
+      },
+      "answerHtml": "$f\\left(x^{2}-y^{2}\\right)=1-\\dfrac{1}{x^{2}-y^{2}}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "Cauchy 不等式",
+      "tags": [
+        "Cauchy 不等式",
+        "$(f-1)(f-3)\\leqslant0$",
+        "AM-GM"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $f(x)$ 在 $\\left[0,1\\right]$ 上连续，且 $1\\leqslant f(x)\\leqslant3$。证明：$1\\leqslant\\displaystyle\\int_0^{1}f(x)\\,\\mathrm{d}x\\int_0^{1}\\frac{1}{f(x)}\\,\\mathrm{d}x\\leqslant\\frac{4}{3}$。",
+      "steps": [
+        {
+          "title": "第一步：下界用 Cauchy 不等式",
+          "html": "<div class=\"fm\">$$\\int_0^{1}f\\,\\mathrm{d}x\\cdot\\int_0^{1}\\frac{1}{f}\\,\\mathrm{d}x\\geqslant\\left(\\int_0^{1}\\sqrt{f}\\cdot\\frac{1}{\\sqrt{f}}\\,\\mathrm{d}x\\right)^{2}=1.$$</div><p>为什么这么配：Cauchy 的 $\\left(\\int gh\\right)^{2}\\leqslant\\int g^{2}\\int h^{2}$，取 $g=\\sqrt f$、$h=\\frac{1}{\\sqrt f}$ 恰好让 $gh=1$。</p>"
+        },
+        {
+          "title": "第二步：把 $f\\in\\left[1,3\\right]$ 写成二次不等式",
+          "html": "<p>$\\left(f-1\\right)\\left(f-3\\right)\\leqslant0$ ⇒ $f^{2}-4f+3\\leqslant0$，除以 $f&gt;0$：</p><div class=\"fm\">$$f+\\frac{3}{f}\\leqslant4.$$</div>"
+        },
+        {
+          "title": "第三步：对 $A=\\int f$、$B=\\int\\frac1f$ 用 AM-GM 收口",
+          "html": "<p>$A+3B=\\int\\left(f+\\frac3f\\right)\\leqslant4$；又 $A\\cdot3B\\leqslant\\left(\\frac{A+3B}{2}\\right)^{2}$，故</p><div class=\"fm\">$$AB\\leqslant\\frac{1}{3}\\left(\\frac{A+3B}{2}\\right)^{2}\\leqslant\\frac{1}{3}\\cdot\\frac{16}{4}=\\frac43.$$</div><p class=\"concl\"><b>结论</b>$1\\leqslant\\displaystyle\\int_0^{1}f\\cdot\\int_0^{1}\\frac1f\\leqslant\\frac43$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\int f\\cdot\\int\\frac1f$ 上下界篇）",
+        "lead": "看到「$f$ 有上下界、证 $\\int f\\int\\frac1f$ 的界」，直接按这个顺序出牌：",
+        "items": [
+          "下界永远是 Cauchy：$\\int f\\cdot\\int\\frac1f\\ge\\left(\\int\\sqrt f\\cdot\\frac1{\\sqrt f}\\right)^2=1$。",
+          "上界的关键是把 $f$ 的范围译成「$f+\\frac{c}{f}\\le$ 常数」：由 $\\left(f-1\\right)\\left(f-3\\right)\\le0$ 得 $c=3$、常数 $4$。",
+          "记 $A=\\int f$、$B=\\int\\frac1f$，则 $A+3B\\le4$，再用 $A\\cdot3B\\le\\left(\\frac{A+3B}{2}\\right)^2$。",
+          "合成 $AB\\le\\frac{4}{3}$；检验等号可取：$f$ 只取 $1$ 与 $3$（各占一半）时两端都取到界。"
+        ]
+      },
+      "answerHtml": "$1\\leqslant\\displaystyle\\int_0^{1}f\\,\\mathrm{d}x\\displaystyle\\int_0^{1}\\frac1f\\,\\mathrm{d}x\\leqslant\\dfrac43$"
+    },
+    {
+      "seq": 7,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "球壳差",
+      "tags": [
+        "球壳差",
+        "广义球坐标",
+        "先二后一"
+      ],
+      "difficulty": 4,
+      "stemHtml": "计算三重积分 $\\displaystyle\\iiint_V\\left(x^{2}+y^{2}\\right)\\mathrm{d}V$，其中 $V$ 是由 $x^{2}+y^{2}+\\left(z-2\\right)^{2}\\geqslant4$，$x^{2}+y^{2}+\\left(z-1\\right)^{2}\\leqslant9$，$z\\geqslant0$ 所围成的空心立体。",
+      "steps": [
+        {
+          "title": "第一步：把 $V$ 拆成「大球 − 小球 − 下半块」",
+          "html": "<p>大球 $V_1:x^{2}+y^{2}+\\left(z-1\\right)^{2}\\leqslant9$（球心 $\\left(0,0,1\\right)$、半径 $3$）；小球 $V_2:x^{2}+y^{2}+\\left(z-2\\right)^{2}\\leqslant4$（球心 $\\left(0,0,2\\right)$、半径 $2$）；大球在 $z&lt;0$ 的部分记为 $V_3$。</p><p>$V=V_1-V_2-V_3$。为什么这样拆：$V_3$ 的两个曲面不是同心球，硬凑球坐标会很乱；分开算最省事。</p>"
+        },
+        {
+          "title": "第二步：大球 $V_1$ 用广义球坐标（球心在 $z$ 轴上不影响）",
+          "html": "<p>$x^{2}+y^{2}=r^{2}\\sin^{2}\\varphi$（$r$ 是到球心的距离），</p><div class=\"fm\">$$I_1=\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_0^{\\pi}\\mathrm{d}\\varphi\\int_0^{3}r^{2}\\sin^{2}\\varphi\\cdot r^{2}\\sin\\varphi\\,\\mathrm{d}r=2\\pi\\cdot\\frac{4}{3}\\cdot\\frac{243}{5}=\\frac{648\\pi}{5}.$$</div><p>注意 $\\int_0^{\\pi}\\sin^{3}\\varphi\\,\\mathrm{d}\\varphi=\\frac43$，$\\int_0^{3}r^{4}\\mathrm{d}r=\\frac{243}{5}$。</p>"
+        },
+        {
+          "title": "第三步：小球 $V_2$ 同法（半径换成 $2$）",
+          "html": "<div class=\"fm\">$$I_2=2\\pi\\cdot\\frac43\\cdot\\frac{32}{5}=\\frac{256\\pi}{15}.$$</div>"
+        },
+        {
+          "title": "第四步：$V_3$ 用「先二后一」，$z\\in\\left[-2,0\\right]$",
+          "html": "<p>截面圆半径满足 $x^{2}+y^{2}\\leqslant9-\\left(z-1\\right)^{2}$，而 $\\iint_{x^{2}+y^{2}\\leqslant R^{2}}\\left(x^{2}+y^{2}\\right)\\mathrm{d}\\sigma=\\frac{\\pi}{2}R^{4}$：</p><div class=\"fm\">$$I_3=\\int_{-2}^{0}\\frac{\\pi}{2}\\left[9-\\left(z-1\\right)^{2}\\right]^{2}\\mathrm{d}z=\\frac{136\\pi}{5}.$$</div>"
+        },
+        {
+          "title": "第五步：合成",
+          "html": "<div class=\"fm\">$$I=I_1-I_2-I_3=\\left(\\frac{648}{5}-\\frac{256}{15}-\\frac{136}{5}\\right)\\pi=\\frac{512\\pi}{5}-\\frac{256\\pi}{15}=\\frac{256\\pi}{3}.$$</div><p class=\"concl\"><b>结论</b>三重积分为 $\\dfrac{256\\pi}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（球壳差与截块篇）",
+        "lead": "看到「两个球面不等式 + 一个 $z\\geqslant0$ 围出的空心立体」，直接按这个顺序出牌：",
+        "items": [
+          "先认球心与半径：$\\left(0,0,1\\right)$ 半径 $3$ 是大球，$\\left(0,0,2\\right)$ 半径 $2$ 是小球，$V$ 写在两球之间且 $z\\ge0$。",
+          "把 $V$ 写成「大球 − 小球 − 被 $z=0$ 切下的块」，三块独立算再相减。",
+          "整个球（或整个球壳）用球坐标，$\\iiint\\left(x^{2}+y^{2}\\right)=\\frac23\\iiint r^{2}=\\frac23\\cdot\\frac{4\\pi R^{5}}{5}$；被平面切出的块用先二后一。",
+          "截面圆上 $\\iint\\left(x^{2}+y^{2}\\right)\\mathrm d\\sigma=\\frac{\\pi}{2}R^{4}$，把 $R^{2}=9-\\left(z-1\\right)^{2}$ 代进去积 $z$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{256\\pi}{3}$"
+    },
+    {
+      "seq": 8,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "一元化辅助函数",
+      "tags": [
+        "一元化辅助函数",
+        "Lagrange",
+        "Cauchy 不等式"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $f(x,y)$ 在区域 $D$ 内可微，$\\sqrt{\\left(\\dfrac{\\partial f}{\\partial x}\\right)^{2}+\\left(\\dfrac{\\partial f}{\\partial y}\\right)^{2}}\\leqslant M$，$A\\left(x_1,y_1\\right)$、$B\\left(x_2,y_2\\right)$ 是 $D$ 内两点，线段 $AB\\subset D$。证明：$\\left|f\\left(x_2,y_2\\right)-f\\left(x_1,y_1\\right)\\right|\\leqslant M\\left|AB\\right|$。",
+      "steps": [
+        {
+          "title": "第一步：沿线段把二元函数压成一元函数",
+          "html": "<div class=\"fm\">$$\\varphi(t)=f\\left(x_1+t\\left(x_2-x_1\\right),\\ y_1+t\\left(y_2-y_1\\right)\\right),\\qquad t\\in\\left[0,1\\right].$$</div><p>为什么这么做：$AB\\subset D$ 保证 $\\varphi$ 在 $\\left[0,1\\right]$ 上有定义且可微，二元问题就变成一元中值定理问题。</p>"
+        },
+        {
+          "title": "第二步：对 $\\varphi$ 用 Lagrange 中值",
+          "html": "<div class=\"fm\">$$\\varphi(1)-\\varphi(0)=\\varphi'(c),\\qquad c\\in\\left(0,1\\right),$$</div><p>即 $f(B)-f(A)=f_x\\left(P_c\\right)\\left(x_2-x_1\\right)+f_y\\left(P_c\\right)\\left(y_2-y_1\\right)$，其中 $P_c$ 是线段上对应 $t=c$ 的点。</p>"
+        },
+        {
+          "title": "第三步：Cauchy 不等式估上界",
+          "html": "<div class=\"fm\">$$\\left|f(B)-f(A)\\right|\\leqslant\\sqrt{f_x^{2}+f_y^{2}}\\Big|_{P_c}\\cdot\\sqrt{\\left(x_2-x_1\\right)^{2}+\\left(y_2-y_1\\right)^{2}}\\leqslant M\\left|AB\\right|.$$</div><p class=\"concl\"><b>结论</b>$\\left|f\\left(x_2,y_2\\right)-f\\left(x_1,y_1\\right)\\right|\\leqslant M\\left|AB\\right|$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（梯度有界 ⇒ Lipschitz 篇）",
+        "lead": "看到「$\\left\\|\\nabla f\\right\\|\\leqslant M$、证两点函数差不超过 $M$ 乘距离」，直接按这个顺序出牌：",
+        "items": [
+          "令 $\\varphi(t)=f\\left(A+t\\left(B-A\\right)\\right)$，$t\\in\\left[0,1\\right]$，把二元差变成一元差。",
+          "对 $\\varphi$ 用 Lagrange：$\\varphi(1)-\\varphi(0)=\\varphi'(c)$，$\\varphi'=\\nabla f\\cdot\\left(B-A\\right)$。",
+          "$\\left|\\nabla f\\cdot\\left(B-A\\right)\\right|\\le\\left\\|\\nabla f\\right\\|\\left\\|B-A\\right\\|\\le M\\left|AB\\right|$，Cauchy 不等式一步到位。",
+          "这就是「梯度有界 ⇒ Lipschitz」的一般结论；一维版是 $\\left|f'\\right|\\le M$ ⇒ $\\left|f(b)-f(a)\\right|\\le M\\left|b-a\\right|$。"
+        ]
+      },
+      "answerHtml": "$\\left|f\\left(x_2,y_2\\right)-f\\left(x_1,y_1\\right)\\right|\\leqslant M\\left|AB\\right|$"
+    },
+    {
+      "seq": 9,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "AM-GM",
+      "tags": [
+        "AM-GM",
+        "$\\ln$ 单调",
+        "黎曼和取极限"
+      ],
+      "difficulty": 3,
+      "stemHtml": "证明：对于连续函数 $f(x)&gt;0$，有 $\\displaystyle\\ln\\int_0^{1}f(x)\\,\\mathrm{d}x\\geqslant\\int_0^{1}\\ln f(x)\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "第一步：先证有限版（离散 AM-GM）",
+          "html": "<p>对任意 $n$ 个正数 $f\\left(x_1\\right),\\dots,f\\left(x_n\\right)$，AM-GM：</p><div class=\"fm\">$$\\sqrt[n]{f\\left(x_1\\right)\\cdots f\\left(x_n\\right)}\\leqslant\\frac{1}{n}\\sum_{k=1}^{n}f\\left(x_k\\right).$$</div>"
+        },
+        {
+          "title": "第二步：取对数，把乘积变求和",
+          "html": "<p>$\\ln$ 单调递增，故</p><div class=\"fm\">$$\\frac{1}{n}\\sum_{k=1}^{n}\\ln f\\left(x_k\\right)\\leqslant\\ln\\left(\\frac{1}{n}\\sum_{k=1}^{n}f\\left(x_k\\right)\\right).$$</div><p>为什么取对数：左边正是 $\\int\\ln f$ 的黎曼和，右边正是 $\\ln\\int f$ 的黎曼和。</p>"
+        },
+        {
+          "title": "第三步：令 $n\\to\\infty$，用连续性交换极限与 $\\ln$",
+          "html": "<p>取 $x_k=\\frac kn$：$\\frac1n\\sum\\ln f\\left(x_k\\right)\\to\\int_0^1\\ln f$；$\\frac1n\\sum f\\left(x_k\\right)\\to\\int_0^1f$，$\\ln$ 连续故 $\\ln\\left(\\frac1n\\sum f\\right)\\to\\ln\\int_0^1f$。于是</p><div class=\"fm\">$$\\int_0^{1}\\ln f(x)\\,\\mathrm{d}x\\leqslant\\ln\\int_0^{1}f(x)\\,\\mathrm{d}x.$$</div><p class=\"concl\"><b>结论</b>$\\ln\\displaystyle\\int_0^{1}f\\geqslant\\displaystyle\\int_0^{1}\\ln f$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（Jensen 型积分不等式篇）",
+        "lead": "看到「证 $\\ln\\int f\\geqslant\\int\\ln f$、$f&gt;0$ 连续」，直接按这个顺序出牌：",
+        "items": [
+          "先做离散版：AM-GM（或 Jensen）给出 $\\left(\\prod f\\right)^{1/n}\\le\\frac1n\\sum f$。",
+          "两边取 $\\ln$（单调，方向不变），左端变成 $\\frac1n\\sum\\ln f$、右端变成 $\\ln\\left(\\frac1n\\sum f\\right)$。",
+          "取黎曼和极限：$f$ 连续保证两端都收敛，$\\ln$ 连续保证可以交换。",
+          "抽象记法：$\\varphi\\left(\\avg f\\right)\\le\\avg\\varphi(f)$ 对凸 $\\varphi$ 反向；$\\ln$ 是凹的，所以这里给的是 $\\ln\\int f\\ge\\int\\ln f$。"
+        ]
+      },
+      "answerHtml": "$\\ln\\displaystyle\\int_0^{1}f\\,\\mathrm{d}x\\geqslant\\displaystyle\\int_0^{1}\\ln f\\,\\mathrm{d}x$"
+    },
+    {
+      "seq": 10,
+      "number": "第 7 题",
+      "type": "solution",
+      "title": "Abel 变换",
+      "tags": [
+        "Abel 变换",
+        "差分下界促收敛",
+        "AM-GM 控通项"
+      ],
+      "difficulty": 4,
+      "stemHtml": "已知 $\\left\\{a_k\\right\\}$、$\\left\\{b_k\\right\\}$ 是正项数列，且 $b_{k+1}-b_k\\geqslant\\delta&gt;0\\ (k=1,2,\\cdots)$，$\\delta$ 为常数。证明：若级数 $\\displaystyle\\sum_{k=1}^{\\infty}a_k$ 收敛，则级数 $\\displaystyle\\sum_{k=1}^{\\infty}\\frac{k\\sqrt[k]{\\left(a_1a_2\\cdots a_k\\right)\\left(b_1b_2\\cdots b_k\\right)}}{b_{k+1}b_k}$ 收敛。",
+      "steps": [
+        {
+          "title": "第一步：看清新级数的通项，先想「怎么被 $a_k$ 控住」",
+          "html": "<p>分子是 $k$ 次根的几何平均乘 $k$，分母是 $b_{k}b_{k+1}$。直觉：$k$ 次根可以由 AM-GM 换成算术平均，$b$ 的增速则由差分的下界 $\\delta$ 保证。</p>"
+        },
+        {
+          "title": "第二步：设 $S_k=\\sum_{i\\le k}a_ib_i$，做 Abel 变换",
+          "html": "<p>$a_k=\\frac{S_k-S_{k-1}}{b_k}$（$S_0=0$），则</p><div class=\"fm\">$$\\sum_{k=1}^{N}a_k=\\sum_{k=1}^{N}\\frac{S_k-S_{k-1}}{b_k}=\\sum_{k=1}^{N-1}S_k\\left(\\frac{1}{b_k}-\\frac{1}{b_{k+1}}\\right)+\\frac{S_N}{b_N}\\geqslant\\delta\\sum_{k=1}^{N-1}\\frac{S_k}{b_kb_{k+1}},$$</div><p>最后一步用的是 $S_k\\left(\\frac{1}{b_k}-\\frac{1}{b_{k+1}}\\right)=\\frac{S_k\\left(b_{k+1}-b_k\\right)}{b_kb_{k+1}}\\geqslant\\frac{\\delta S_k}{b_kb_{k+1}}$。</p>"
+        },
+        {
+          "title": "第三步：左边有界 ⇒ 辅助级数收敛",
+          "html": "<p>$\\sum_{k=1}^{N}a_k\\le\\sum_{k=1}^{\\infty}a_k&lt;+\\infty$，故 $\\sum_{k=1}^{\\infty}\\frac{S_k}{b_kb_{k+1}}$ 的部分和有界、通项为正，收敛。</p>"
+        },
+        {
+          "title": "第四步：AM-GM 把目标通项压到辅助通项",
+          "html": "<div class=\"fm\">$$\\sqrt[k]{\\left(a_1\\cdots a_k\\right)\\left(b_1\\cdots b_k\\right)}\\leqslant\\frac{a_1b_1+\\cdots+a_kb_k}{k}=\\frac{S_k}{k},$$</div><p>于是目标级数通项 $\\leqslant\\frac{S_k}{b_kb_{k+1}}$：</p><div class=\"fm\">$$\\sum_{k=1}^{\\infty}\\frac{k\\sqrt[k]{\\left(a_1\\cdots a_k\\right)\\left(b_1\\cdots b_k\\right)}}{b_{k+1}b_k}\\leqslant\\sum_{k=1}^{\\infty}\\frac{S_k}{b_{k+1}b_k}&lt;+\\infty.$$</div><p class=\"concl\"><b>结论</b>所给级数收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（复合级数的「两步控」篇）",
+        "lead": "看到「$\\sum a_k$ 收敛、$b_{k+1}-b_k\\ge\\delta$、证带 $k$ 次根的级数收敛」，直接按这个顺序出牌：",
+        "items": [
+          "先造 $S_k=\\sum a_ib_i$，因为 $k$ 次根里的乘积正好就是 $S_k$ 的组成部分。",
+          "用 Abel 变换把 $\\sum a_k$ 写成 $\\sum S_k\\left(\\frac1{b_k}-\\frac1{b_{k+1}}\\right)+\\frac{S_N}{b_N}$，差分下界 $\\delta$ 给出 $\\sum\\frac{S_k}{b_kb_{k+1}}$ 收敛。",
+          "AM-GM 把 $k$ 次根换成算术平均 $\\frac{S_k}{k}$，分子上的 $k$ 正好被约掉，通项变成 $\\frac{S_k}{b_kb_{k+1}}$。",
+          "比较判别法收口：正项级数、逐项被收敛级数控制 ⇒ 收敛。"
+        ]
+      },
+      "answerHtml": "所给级数收敛"
+    }
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "year": 2025,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十七届（2025）初赛 非数学 A 类",
+  "edition": 17,
+  "source": "第17届（2025）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "按分母阶数定展开阶",
+      "tags": [
+        "按分母阶数定展开阶",
+        "$x\\sin x$ 只展到二阶"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(x)=x-\\ln\\left(1+x\\right)-\\frac12x\\sin x$，$g(x)=ax^{3}$，且 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{g(x)}=1$，求 $a$。",
+      "steps": [
+        {
+          "title": "第一步：看分母是 $ax^{3}$，就把分子展到 $x^{3}$",
+          "html": "<div class=\"fm\">$$\\ln\\left(1+x\\right)=x-\\frac{x^{2}}{2}+\\frac{x^{3}}{3}+o\\left(x^{3}\\right),\\qquad\\sin x=x-\\frac{x^{3}}{6}+o\\left(x^{3}\\right).$$</div><p>为什么展到三阶：分母只有三次，分子低于三次则比值发散、高于三次则白算。</p>"
+        },
+        {
+          "title": "第二步：分别算两项，注意 $x\\sin x$ 只需展到二阶",
+          "html": "<div class=\"fm\">$$x-\\ln\\left(1+x\\right)=\\frac{x^{2}}{2}-\\frac{x^{3}}{3}+o\\left(x^{3}\\right),$$</div><div class=\"fm\">$$\\frac12x\\sin x=\\frac12x\\left(x+o\\left(x^{2}\\right)\\right)=\\frac{x^{2}}{2}+o\\left(x^{3}\\right).$$</div><p>为什么 $x\\sin x$ 少展一阶：前面乘了 $x$，$\\sin x$ 的三阶项乘上 $x$ 已是四阶。</p>"
+        },
+        {
+          "title": "第三步：相减抵消 $x^{2}$，只剩三阶项",
+          "html": "<div class=\"fm\">$$f(x)=\\left(\\frac{x^{2}}{2}-\\frac{x^{3}}{3}\\right)-\\frac{x^{2}}{2}+o\\left(x^{3}\\right)=-\\frac13x^{3}+o\\left(x^{3}\\right).$$</div><div class=\"fm\">$$1=\\lim_{x\\to0}\\frac{f(x)}{ax^{3}}=\\frac{-1/3}{a}\\;\\Longrightarrow\\;a=-\\frac13.$$</div><p class=\"concl\"><b>结论</b>$a=-\\dfrac13$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（按分母定阶篇）",
+        "lead": "看到「$\\frac{f(x)}{ax^{3}}\\to1$、$f$ 由 $\\ln$ 与 $\\sin$ 拼成」，直接按这个顺序出牌：",
+        "items": [
+          "先看分母的阶（这里是三次），分子的 Tylor 展开就展到三次为止，多展少展都错。",
+          "$\\ln\\left(1+x\\right)$ 的三阶系数是 $+\\frac13$、$\\sin x$ 的是 $-\\frac16$，符号相反，这是后面能抵消的根源。",
+          "带系数 $x$ 的项只展到「目标阶减一」：$x\\sin x$ 只需 $\\sin x$ 到 $x^{2}$。",
+          "$x^{2}$ 项抵消后剩 $-\\frac13x^{3}$，系数比 $\\frac{-1/3}{a}=1$ 得 $a=-\\frac13$。"
+        ]
+      },
+      "answerHtml": "$a=-\\dfrac13$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "过原点定无常数项",
+      "tags": [
+        "过原点定无常数项",
+        "两平面垂直 ⇒ 一方法向量是另一方的面内方向",
+        "叉乘"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设平面过原点与点 $\\left(6,-3,2\\right)$，且与平面 $4x-y+2z-8=0$ 垂直，求此平面方程。",
+      "steps": [
+        {
+          "title": "第一步：过原点 ⇒ 没有常数项，只需定法向量",
+          "html": "<p>平面过 $O$ 与 $P\\left(6,-3,2\\right)$，故 $\\overrightarrow{OP}=\\left(6,-3,2\\right)$ 是所求平面的<b>面内方向</b>。</p>"
+        },
+        {
+          "title": "第二步：把「垂直」翻译成第二个面内方向",
+          "html": "<p>与 $4x-y+2z-8=0$ 垂直 ⇒ 所求平面含有该平面的法向量 $\\left(4,-1,2\\right)$ 作为面内方向。</p><p>为什么不是「法向量相等」：两平面垂直是法向量互相垂直，即一方的法向量平行于另一方所在平面。</p>"
+        },
+        {
+          "title": "第三步：两个面内向量叉乘得法向量",
+          "html": "<div class=\"fm\">$$\\vec n=\\left(6,-3,2\\right)\\times\\left(4,-1,2\\right)=\\left(-4,-4,6\\right)\\parallel\\left(2,2,-3\\right),$$</div><div class=\"fm\">$$2x+2y-3z=0.$$</div><p class=\"concl\"><b>结论</b>所求平面为 $2x+2y-3z=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（两平面垂直篇）",
+        "lead": "看到「过原点与某点、又与某平面垂直、求平面方程」，直接按这个顺序出牌：",
+        "items": [
+          "过原点 ⇒ 方程形如 $Ax+By+Cz=0$，只差法向量。",
+          "「平面垂直」= 一方的<b>法向量</b>落在另一方的<b>面内</b>，直接拿来当第二个面内向量。",
+          "两个面内向量叉乘得 $\\vec n$；本题 $\\left(6,-3,2\\right)\\times\\left(4,-1,2\\right)=\\left(-4,-4,6\\right)$，第二分量带负号别丢。",
+          "验算三件事：点 $\\left(6,-3,2\\right)$ 代入为 $0$、原点为 $0$、两法向量点积 $8-2-6=0$。"
+        ]
+      },
+      "answerHtml": "$2x+2y-3z=0$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "分母两个等价因子配平到四阶",
+      "tags": [
+        "分母两个等价因子配平到四阶",
+        "上限平方再平方"
+      ],
+      "difficulty": 2,
+      "stemHtml": "求 $\\displaystyle\\lim_{x\\to0}\\frac{\\displaystyle\\int_0^{\\sin^{2}x}\\ln\\left(1+t\\right)\\mathrm dt}{\\left(\\sqrt[3]{1+x^{3}}-1\\right)\\sin x}$。",
+      "steps": [
+        {
+          "title": "第一步：先把分母化成幂函数，读出阶数",
+          "html": "<div class=\"fm\">$$\\sqrt[3]{1+x^{3}}-1\\sim\\frac13x^{3},\\qquad\\sin x\\sim x\\;\\Longrightarrow\\;\\text{分母}\\sim\\frac{x^{4}}{3}.$$</div><p>为什么先做分母：分母是两个因子相乘，阶数相加；配平目标一旦确定，分子的阶就有了标准。</p>"
+        },
+        {
+          "title": "第二步：分子用 $\\ln\\left(1+t\\right)\\sim t$，注意上限是 $\\sin^{2}x$",
+          "html": "<div class=\"fm\">$$\\int_0^{\\sin^{2}x}\\ln\\left(1+t\\right)\\mathrm dt=\\frac{\\left(\\sin^{2}x\\right)^{2}}{2}+o\\left(x^{4}\\right)=\\frac{x^{4}}{2}+o\\left(x^{4}\\right).$$</div><p>这里最容易估错：上限 $u=\\sin^{2}x\\sim x^{2}$，积出来是 $\\frac{u^{2}}{2}$，阶是上限阶的<b>两倍</b>，即 $x^{4}$。</p>"
+        },
+        {
+          "title": "第三步：同阶取系数比",
+          "html": "<div class=\"fm\">$$\\lim_{x\\to0}\\frac{x^{4}/2+o\\left(x^{4}\\right)}{x^{4}/3+o\\left(x^{4}\\right)}=\\frac32.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\dfrac32$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（变限积分估阶篇）",
+        "lead": "看到「变限积分 ÷ 两个等价因子之积、$x\\to0$」，直接按这个顺序出牌：",
+        "items": [
+          "分母两个因子各自等价：$\\sqrt[3]{1+x^{3}}-1\\sim\\frac{x^{3}}{3}$、$\\sin x\\sim x$，阶数相加得 $x^{4}$。",
+          "分子先用 $\\ln\\left(1+t\\right)\\sim t$ 把被积函数换掉，再积出 $\\frac{u^{2}}{2}$。",
+          "记住阶数规则：$\\int_0^{\\sigma(x)}$ 的阶 = 上限阶 × 2（当被积式等价于 $t^{1}$）；本题 $u\\sim x^{2}$ 直接给 $x^{4}$。",
+          "同阶比系数得 $\\frac32$；也可洛必达验证，两条路线结果必须一致。"
+        ]
+      },
+      "answerHtml": "$\\dfrac32$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "隐函数先代点定 $z$",
+      "tags": [
+        "隐函数先代点定 $z$",
+        "两边对 $x$ 求导",
+        "$y=0$ 使 $f_v'$ 项消失"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(u,v)$ 有一阶连续偏导，$f\\left(2,0\\right)=3$、$f_u'\\left(2,0\\right)=5$，$z=z(x,y)$ 由 $xz=f\\left(2x-y,xyz\\right)$ 确定，求 $\\left.\\frac{\\partial z}{\\partial x}\\right|_{\\left(x,y\\right)=\\left(1,0\\right)}$。",
+      "steps": [
+        {
+          "title": "第一步：先代点把 $z$ 定下来",
+          "html": "<p>令 $x=1$、$y=0$，方程退化为 $z=f\\left(2,0\\right)=3$，即 $z\\left(1,0\\right)=3$。</p><p>为什么必须先定值：求导后的式子里会出现 $z$ 本身，不定值就算不下去。</p>"
+        },
+        {
+          "title": "第二步：两边对 $x$ 求导，两个中间变量都要链式",
+          "html": "<div class=\"fm\">$$z+xz_x=2f_u'+f_v'\\left(yz+xyz_x\\right).$$</div><p>左端是乘积求导，$xz$ 给 $z+xz_x$；右端第一变量 $2x-y$ 的导数是 $2$，第二变量 $xyz$ 的导数是 $yz+xyz_x$。</p>"
+        },
+        {
+          "title": "第三步：代 $\\left(1,0,3\\right)$ 时 $f_v'$ 项整块归零",
+          "html": "<p>$yz=0$、$xy=0$ ⇒ 第二变量的导数 $=0$，于是</p><div class=\"fm\">$$3+z_x=2\\cdot5+0=10\\;\\Longrightarrow\\;z_x=7.$$</div><p>题目故意不给 $f_v'$ 的值，正是因为它在 $y=0$ 处用不上。</p><p class=\"concl\"><b>结论</b>$\\left.\\frac{\\partial z}{\\partial x}\\right|_{\\left(1,0\\right)}=7$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（隐函数三步篇）",
+        "lead": "看到「$xz=f\\left(2x-y,xyz\\right)$ 定隐函数、求某点偏导」，直接按这个顺序出牌：",
+        "items": [
+          "第一步代点定 $z$：把 $x,y$ 的数值代入原方程解出 $z$，本题 $z=3$。",
+          "第二步两边对 $x$ 求偏导，两个中间变量分别链式，别漏乘积项 $z+xz_x$。",
+          "第三步代值：先看哪些系数为零——$y=0$ 让 $yz+xyz_x=0$，$f_v'$ 项自动消失。",
+          "最后解一元方程：$3+z_x=10$ 得 $z_x=7$；顺序颠倒（先求导后代点）会把自己绕进未知量。"
+        ]
+      },
+      "answerHtml": "$7$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "球面与平面交线是圆",
+      "tags": [
+        "球面与平面交线是圆",
+        "置换对称平摊"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设曲线 $L$ 为球面 $x^{2}+y^{2}+z^{2}=4$ 与平面 $x+y+z=3$ 的交线，求 $\\displaystyle\\int_L\\left(x^{2}+2xy\\right)\\mathrm ds$。",
+      "steps": [
+        {
+          "title": "第一步：认出 $L$ 是圆，弧长可直接算",
+          "html": "<p>球心到平面距离 $d=\\frac{3}{\\sqrt3}=\\sqrt3$，半径 $r=\\sqrt{4-3}=1$，弧长 $s_L=2\\pi$。</p>"
+        },
+        {
+          "title": "第二步：$L$ 在 $x,y,z$ 置换下不变 ⇒ 平方项平摊",
+          "html": "<div class=\"fm\">$$\\int_Lx^{2}\\mathrm ds=\\frac13\\int_L\\left(x^{2}+y^{2}+z^{2}\\right)\\mathrm ds=\\frac13\\cdot4\\cdot2\\pi=\\frac{8\\pi}{3}.$$</div><p>为什么能平摊：球面对称、平面 $x+y+z=3$ 也对 $x,y,z$ 全对称，三者地位相同。</p>"
+        },
+        {
+          "title": "第三步：交叉项同样平摊，再用对称式换元",
+          "html": "<div class=\"fm\">$$\\int_Lxy\\,\\mathrm ds=\\frac13\\int_L\\left(xy+yz+zx\\right)\\mathrm ds,$$</div><div class=\"fm\">$$xy+yz+zx=\\frac{\\left(x+y+z\\right)^{2}-\\left(x^{2}+y^{2}+z^{2}\\right)}{2}=\\frac{9-4}{2}=\\frac52,$$</div><div class=\"fm\">$$\\int_Lxy\\,\\mathrm ds=\\frac13\\cdot\\frac52\\cdot2\\pi=\\frac{5\\pi}{3}.$$</div>"
+        },
+        {
+          "title": "第四步：合并",
+          "html": "<div class=\"fm\">$$\\int_L\\left(x^{2}+2xy\\right)\\mathrm ds=\\frac{8\\pi}{3}+2\\cdot\\frac{5\\pi}{3}=6\\pi.$$</div><p>校验：$6\\pi=\\frac13\\int_L\\left(x+y+z\\right)^{2}\\mathrm ds=\\frac13\\cdot9\\cdot2\\pi$ ✓。</p><p class=\"concl\"><b>结论</b>积分为 $6\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（置换对称平摊篇）",
+        "lead": "看到「球面与平面的交线上积二次齐次式、不让参数化」，直接按这个顺序出牌：",
+        "items": [
+          "先算圆的半径与弧长：$d=\\frac{3}{\\sqrt3}=\\sqrt3$、$r=1$、$s_L=2\\pi$，后面全靠它。",
+          "确认对称：$x,y,z$ 互换时球面与 $x+y+z=3$ 都不变 ⇒ $\\int x^{2}=\\int y^{2}=\\int z^{2}=\\frac13\\int\\left(x^{2}+y^{2}+z^{2}\\right)$。",
+          "交叉项同理 $\\int xy=\\frac13\\int\\left(xy+yz+zx\\right)$，再用 $\\left(x+y+z\\right)^{2}-4$ 一次算完 $\\frac52$。",
+          "$\\int x^{2}=\\frac{8\\pi}{3}$、$\\int xy=\\frac{5\\pi}{3}$，合并得 $6\\pi$；用 $\\frac13\\int\\left(x+y+z\\right)^{2}$ 可秒验。"
+        ]
+      },
+      "answerHtml": "$6\\pi$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "极限与积分都是常数",
+      "tags": [
+        "极限与积分都是常数",
+        "$f\\left(0\\right)=0$",
+        "线性方程组"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f$ 在 $\\left(-\\infty,+\\infty\\right)$ 上连续、在 $x=0$ 处可导，且 $f(x)=x^{3}+x^{2}\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}-x\\int_0^1f(x)\\mathrm dx$。求 $f(x)$。",
+      "steps": [
+        {
+          "title": "第一步：把两处「与 $x$ 无关」的量记成常数",
+          "html": "<p>设 $a=\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}$、$b=\\displaystyle\\int_0^1f(x)\\mathrm dx$，则方程立刻降成</p><div class=\"fm\">$$f(x)=x^{3}+ax^{2}-bx.\\qquad\\left(\\ast\\right)$$</div><p>为什么必须这样做：极限与定积分写在同一式子里时，它们只是两个数，先命名再解方程。</p>"
+        },
+        {
+          "title": "第二步：$f\\left(0\\right)$ 由连续性定出，$a$ 由可导性认成 $f'\\left(0\\right)$",
+          "html": "<p>在 $\\left(\\ast\\right)$ 令 $x=0$ 得 $f\\left(0\\right)=0$；于是</p><div class=\"fm\">$$a=\\lim_{x\\to0}\\frac{f(x)-f(0)}{x-0}=f'\\left(0\\right).$$</div><p>这一点用上了题设「在 $x=0$ 处可导」，否则 $a$ 只是个空记号。</p>"
+        },
+        {
+          "title": "第三步：把 $\\left(\\ast\\right)$ 代回 $a$ 的定义，得到 $a=-b$",
+          "html": "<div class=\"fm\">$$a=\\lim_{x\\to0}\\left(x^{2}+ax-b\\right)=-b.$$</div>"
+        },
+        {
+          "title": "第四步：把 $\\left(\\ast\\right)$ 在 $\\left[0,1\\right]$ 上积分，与 $a=-b$ 联立",
+          "html": "<div class=\"fm\">$$b=\\frac14+\\frac a3-\\frac b2,\\qquad a=-b\\;\\Longrightarrow\\;b=\\frac14-\\frac b3-\\frac b2=\\frac14-\\frac56b,$$</div><div class=\"fm\">$$\\frac{11}{6}b=\\frac14\\;\\Longrightarrow\\;b=\\frac{3}{22},\\quad a=-\\frac{3}{22}.$$</div><div class=\"fm\">$$f(x)=x^{3}-\\frac{3}{22}x^{2}-\\frac{3}{22}x.$$</div><p class=\"concl\"><b>结论</b>$f(x)=x^{3}-\\dfrac{3}{22}x^{2}-\\dfrac{3}{22}x$，$x\\in\\left(-\\infty,+\\infty\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（极限积分皆常数篇）",
+        "lead": "看到「$f(x)=x^{3}+x^{2}\\lim\\frac{f}{x}-x\\int_0^1f$」这种含极限与积分的方程，直接按这个顺序出牌：",
+        "items": [
+          "先把 $\\lim\\frac{f(x)}{x}$ 与 $\\int_0^1f$ 各自记成常数 $a,b$，方程立刻变成多项式 $f=x^{3}+ax^{2}-bx$。",
+          "令 $x=0$ 用连续性得 $f\\left(0\\right)=0$，这是把 $a$ 认成 $f'\\left(0\\right)$ 的前提。",
+          "把多项式代回 $a$ 的定义得 $a=-b$；再在 $\\left[0,1\\right]$ 上积分得 $b=\\frac14+\\frac a3-\\frac b2$。",
+          "联立解出 $b=\\frac{3}{22}$、$a=-\\frac{3}{22}$，回头验三条：$f\\left(0\\right)=0$、$\\lim\\frac fx=-\\frac{3}{22}$、$\\int_0^1f=\\frac{3}{22}$。"
+        ]
+      },
+      "answerHtml": "$f(x)=x^{3}-\\dfrac{3}{22}x^{2}-\\dfrac{3}{22}x$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "$z=\\cos y$ 消三角非线性",
+      "tags": [
+        "$z=\\cos y$ 消三角非线性",
+        "伯努利 $n=2$",
+        "$u=z^{-1}$ 线性化",
+        "积分因子 $\\ln x$"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求微分方程 $y'x\\ln x\\sin y+\\left(1-x\\cos y\\right)\\cos y=0$ 的通解。",
+      "steps": [
+        {
+          "title": "第一步：整理成标准形，看清非线性来自 $\\cos^{2}y$",
+          "html": "<p>两边除以 $x\\ln x$（$x&gt;0$，$x\\neq1$）：</p><div class=\"fm\">$$y'\\sin y+\\frac{\\cos y}{x\\ln x}=\\frac{\\cos^{2}y}{\\ln x}.$$</div><p>左端线性部分是 $\\cos y$、右端是 $\\cos^{2}y$ ⇒ 非线性恰好差一次幂，指向伯努利。</p>"
+        },
+        {
+          "title": "第二步：令 $z=\\cos y$，把三角非线性换成幂非线性",
+          "html": "<p>$z'=-\\sin y\\cdot y'$ ⇒</p><div class=\"fm\">$$z'-\\frac{1}{x\\ln x}z=-\\frac{1}{\\ln x}z^{2},$$</div><p>这是 $n=2$ 的伯努利方程。为什么先换 $z$ 再线性化：$\\cos^{2}y$ 必须先变成 $z^{2}$，否则 $u=z^{-1}$ 无从谈起。</p>"
+        },
+        {
+          "title": "第三步：令 $u=z^{-1}$ 线性化，乘积分因子 $\\ln x$",
+          "html": "<div class=\"fm\">$$u'+\\frac{1}{x\\ln x}u=\\frac{1}{\\ln x},\\qquad\\mu=\\mathrm e^{\\int\\frac{\\mathrm dx}{x\\ln x}}=\\ln x,$$</div><div class=\"fm\">$$\\left(u\\ln x\\right)'=1\\;\\Longrightarrow\\;u\\ln x=x+C.$$</div><p>注意 $\\int\\frac{\\mathrm dx}{x\\ln x}=\\ln\\ln x$，故 $\\mu=\\ln x$，不是 $\\left|\\ln x\\right|$。</p>"
+        },
+        {
+          "title": "第四步：回代得隐式通解",
+          "html": "<div class=\"fm\">$$u=\\frac{1}{\\cos y}=\\frac{x+C}{\\ln x}\\;\\Longrightarrow\\;\\ln x=\\left(x+C\\right)\\cos y.$$</div><p class=\"concl\"><b>结论</b>通解为 $\\ln x=\\left(x+C\\right)\\cos y$，即 $\\cos y=\\dfrac{\\ln x}{x+C}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（三角＋伯努利篇）",
+        "lead": "看到「$y'\\sin y$ 与 $\\cos y$、$\\cos^{2}y$ 同时出现」，直接按这个顺序出牌：",
+        "items": [
+          "先除以 $x\\ln x$ 整理成 $y'\\sin y+\\frac{\\cos y}{x\\ln x}=\\frac{\\cos^{2}y}{\\ln x}$，看清「上前一次」的结构。",
+          "令 $z=\\cos y$（$z'=-\\sin y\\,y'$），方程成 $z'-\\frac{z}{x\\ln x}=-\\frac{z^{2}}{\\ln x}$，正是 $n=2$ 伯努利。",
+          "再令 $u=z^{-1}$ 得线性方程，积分因子 $\\mu=\\mathrm e^{\\int\\frac{\\mathrm dx}{x\\ln x}}=\\ln x$，于是 $\\left(u\\ln x\\right)'=1$。",
+          "回代 $u=\\frac{1}{\\cos y}$ 得 $\\ln x=\\left(x+C\\right)\\cos y$；换元顺序不能反，先 $z$ 后 $u$。"
+        ]
+      },
+      "answerHtml": "$\\ln x=\\left(x+C\\right)\\cos y$"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "被积式不含 $x$ 先积 $x$",
+      "tags": [
+        "被积式不含 $x$ 先积 $x$"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\Omega$ 由平面 $x=0$、$x=y$、$y=z$、$z=1$、$z=2$ 围成，求 $\\displaystyle\\iiint_\\Omega\\frac{\\mathrm dx\\mathrm dy\\mathrm dz}{\\sqrt{y^{2}+z^{2}}}$。",
+      "steps": [
+        {
+          "title": "第一步：把五张平面读成一条链",
+          "html": "<p>$x=0$ 与 $x=y$ 夹出 $0\\leqslant x\\leqslant y$；$y=z$ 给出 $y\\leqslant z$；$z=1,2$ 给出 $1\\leqslant z\\leqslant 2$：</p><div class=\"fm\">$$\\Omega:\\ 0\\leqslant x\\leqslant y\\leqslant z,\\qquad1\\leqslant z\\leqslant2.$$</div><p>为什么写成链式：链式条件下三个变量的上下限一目了然，不必画图也不会搞错。</p>"
+        },
+        {
+          "title": "第二步：被积式不含 $x$，先积 $x$（内层最便宜）",
+          "html": "<div class=\"fm\">$$\\iiint_\\Omega\\frac{\\mathrm dx\\mathrm dy\\mathrm dz}{\\sqrt{y^{2}+z^{2}}}=\\int_1^2\\mathrm dz\\int_0^z\\mathrm dy\\int_0^y\\frac{\\mathrm dx}{\\sqrt{y^{2}+z^{2}}},$$</div><div class=\"fm\">$$\\int_0^y\\frac{\\mathrm dx}{\\sqrt{y^{2}+z^{2}}}=\\frac{y}{\\sqrt{y^{2}+z^{2}}},$$</div><p>把 $y,z$ 当常数看，内层就是「常数 × 区间长度」。</p>"
+        },
+        {
+          "title": "第三步：中层是标准形，积出 $\\sqrt{y^{2}+z^{2}}$",
+          "html": "<div class=\"fm\">$$\\int_0^z\\frac{y\\,\\mathrm dy}{\\sqrt{y^{2}+z^{2}}}=\\left[\\sqrt{y^{2}+z^{2}}\\right]_0^z=\\left(\\sqrt2-1\\right)z,$$</div><p>对应标准式 $\\int\\frac{u\\,\\mathrm du}{\\sqrt{u^{2}+a^{2}}}=\\sqrt{u^{2}+a^{2}}$，这里 $a=z$。</p>"
+        },
+        {
+          "title": "第四步：外层对 $z$ 一次积完",
+          "html": "<div class=\"fm\">$$\\int_1^2\\left(\\sqrt2-1\\right)z\\,\\mathrm dz=\\left(\\sqrt2-1\\right)\\cdot\\frac{4-1}{2}=\\frac{3\\left(\\sqrt2-1\\right)}{2}.$$</div><p class=\"concl\"><b>结论</b>三重积分为 $\\dfrac{3\\left(\\sqrt2-1\\right)}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（链式区域截面法篇）",
+        "lead": "看到「五个平面围成区域、被积式只含两个变量」，直接按这个顺序出牌：",
+        "items": [
+          "先把平面读成链式：本题 $0\\leqslant x\\leqslant y\\leqslant z$、$1\\leqslant z\\leqslant2$，比画图可靠。",
+          "积分顺序由「哪个变量不在被积函数里」决定：$x$ 缺席就先积 $x$，内层直接给常数因子 $y$。",
+          "中层用标准形 $\\int\\frac{u\\mathrm du}{\\sqrt{u^{2}+a^{2}}}=\\sqrt{u^{2}+a^{2}}$（$a=z$ 当常数），得 $\\left(\\sqrt2-1\\right)z$。",
+          "外层只剩 $\\int_1^2z\\,\\mathrm dz=\\frac32$；结果 $\\frac32\\left(\\sqrt2-1\\right)\\approx0.621$，与体积 $\\frac16$ 的量级相符。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{3\\left(\\sqrt2-1\\right)}{2}$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "构造 $\\sin^{2}t\\sin2t$",
+      "tags": [
+        "构造 $\\sin^{2}t\\sin2t$",
+        "$a_n^{\\frac32}$ 拆组"
+      ],
+      "difficulty": 4,
+      "stemHtml": "判断级数 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 的收敛性，其中 $a_n=\\sin^{2}x\\sin^{2}2x\\cdots\\sin^{2}2^{n}x$，$x\\in\\left(-\\infty,+\\infty\\right)$。",
+      "steps": [
+        {
+          "title": "第一步：单个 $\\sin^{2}$ 可以接近 $1$，只能找「相邻两因子」的统一上界",
+          "html": "<p>令 $f(t)=\\sin^{2}t\\sin2t$，它周期为 $\\pi$，且</p><div class=\"fm\">$$f'(t)=2\\sin^{2}t\\left(3-4\\sin^{2}t\\right)\\;\\Longrightarrow\\;\\left|f(t)\\right|\\leqslant\\frac{3\\sqrt3}{8},$$</div><p>等号在 $\\sin^{2}t=\\frac34$ 处取到。为什么是这一对：$\\sin^{2}t$ 与 $\\sin2t=2\\sin t\\cos t$ 不能同时接近 $1$，$f$ 的上界就是这件事的定量版。</p>"
+        },
+        {
+          "title": "第二步：把 $a_n^{\\frac32}$ 重组成 $n$ 个 $\\left|f\\right|$ 相乘",
+          "html": "<p>把每个 $\\left|\\sin\\left(2^{k}x\\right)\\right|^{3}$ 拆成「两次给 $2^{k}x$、一次给 $2^{k+1}x$」，再逐位配对，得恒等式</p><div class=\"fm\">$$a_n^{\\frac32}=\\left|\\sin x\\right|\\cdot\\prod_{k=0}^{n-1}\\left|\\sin^{2}\\left(2^{k}x\\right)\\sin\\left(2^{k+1}x\\right)\\right|\\cdot\\sin^{2}\\left(2^{n}x\\right).$$</div><p>核对幂次：$\\sin\\left(2^{0}x\\right)$ 得 $1+2=3$ 次、中间的 $\\sin\\left(2^{k}x\\right)$ 各得 $2+1=3$ 次、$\\sin\\left(2^{n}x\\right)$ 得 $1+2=3$ 次。</p>"
+        },
+        {
+          "title": "第三步：连乘每一项就是 $\\left|f\\left(2^{k}x\\right)\\right|$，用上界压住",
+          "html": "<div class=\"fm\">$$a_n^{\\frac32}\\leqslant1\\cdot\\left(\\frac{3\\sqrt3}{8}\\right)^{n}\\cdot1,$$</div>"
+        },
+        {
+          "title": "第四步：开 $\\frac23$ 次幂回到 $a_n$，与等比级数比较",
+          "html": "<div class=\"fm\">$$a_n\\leqslant\\left[\\left(\\frac{3\\sqrt3}{8}\\right)^{2}\\right]^{\\frac n3}=\\left(\\frac34\\right)^{n},$$</div><p>因 $\\left(\\frac{3\\sqrt3}{8}\\right)^{2}=\\frac{27}{64}$，其立方根恰为 $\\frac34$。由 $\\sum\\left(\\frac34\\right)^{n}$ 收敛 ⇒ $\\sum a_n$ 收敛（且对一切 $x$ 一致）。</p><p class=\"concl\"><b>结论</b>级数收敛，且有统一估计 $a_n\\leqslant\\left(\\frac34\\right)^{n}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（连乘三角级数篇）",
+        "lead": "看到「$a_n=\\prod_{k=0}^{n}\\sin^{2}\\left(2^{k}x\\right)$、$x$ 任意、判断收敛」，直接按这个顺序出牌：",
+        "items": [
+          "单个因子能到 $1$，所以别指望「某项变小」，要找相邻两个因子的联合上界：$f(t)=\\sin^{2}t\\sin2t$。",
+          "求 $\\left|f\\right|$ 的最大值：$f'=2\\sin^{2}t\\left(3-4\\sin^{2}t\\right)$ ⇒ $\\left|f\\right|\\leqslant\\frac{3\\sqrt3}{8}$。",
+          "把 $a_n^{\\frac32}$ 按「每角两次＋下一角一次」重组，$n+1$ 个平方因子就变成 $n$ 组 $\\left|f\\left(2^{k}x\\right)\\right|$。",
+          "开 $\\frac23$ 次幂：$\\left(\\frac{3\\sqrt3}{8}\\right)^{\\frac23}=\\frac34$，于是 $a_n\\leqslant\\left(\\frac34\\right)^{n}$，比较判别法收口。"
+        ]
+      },
+      "answerHtml": "$\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛（且 $a_n\\leqslant\\left(\\tfrac34\\right)^{n}$）"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "分部积分",
+      "tags": [
+        "分部积分",
+        "零积分条件消边界",
+        "对称化",
+        "$\\frac fg$ 单调",
+        "矩形 $D_2$ 分离变量相抵"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f,g$ 在 $\\left[a,b\\right]$ 上连续可导，满足 (i) $\\displaystyle\\int_a^bf=\\int_a^bg=0$；(ii) $f'g-fg'&gt;0$，$x\\in\\left[a,b\\right]$；(iii) $g$ 在 $\\left(a,b\\right)$ 上有唯一零点 $\\xi$。证明：(1) $\\displaystyle\\int_a^bf(x)\\left(\\int_a^xg(s)\\mathrm ds\\right)\\mathrm dx=-\\int_a^bg(x)\\left(\\int_a^xf(s)\\mathrm ds\\right)\\mathrm dx$；(2) $\\displaystyle\\int_a^bf(x)\\left(\\int_a^xg(s)\\mathrm ds\\right)\\mathrm dx&gt;0$。",
+      "steps": [
+        {
+          "title": "第一步：记两个原函数，分部积分把边界项消掉",
+          "html": "<p>令 $F(x)=\\int_a^xf$、$G(x)=\\int_a^xg$，则 $F(a)=G(a)=0$，由 (i) 又有 $F(b)=G(b)=0$：</p><div class=\"fm\">$$\\int_a^bfG\\,\\mathrm dx=\\left[FG\\right]_a^b-\\int_a^bFg\\,\\mathrm dx=-\\int_a^bg(x)\\left(\\int_a^xf(s)\\mathrm ds\\right)\\mathrm dx.$$</div><p>为什么边界项一定为零：$F,G$ 在两端都是 $0$，这正是条件 (i) 的唯一用途。结论即 (1)。</p>"
+        },
+        {
+          "title": "第二步：把 (1) 的左端写成 $D$ 上的二重积分，再用 (1) 做「对称化」",
+          "html": "<p>设 $D=\\left\\{\\left(x,s\\right):a\\leqslant s\\leqslant x\\leqslant b\\right\\}$，则</p><div class=\"fm\">$$\\int_a^bf(x)G(x)\\mathrm dx=\\iint_Df(x)g(s)\\mathrm ds\\,\\mathrm dx,\\qquad\\int_a^bg(x)F(x)\\mathrm dx=\\iint_Dg(x)f(s)\\mathrm ds\\,\\mathrm dx.$$</div><p>由 (1) 后者等于前者的相反数，两式相加除以 $2$：</p><div class=\"fm\">$$I:=\\int_a^bfG\\,\\mathrm dx=\\frac12\\iint_D\\left[f(x)g(s)-f(s)g(x)\\right]\\mathrm ds\\,\\mathrm dx.$$</div><p>为什么这一步是破局点：单个积分看不出正负，变成「同区域、同变量的一对相减」后正负立现。</p>"
+        },
+        {
+          "title": "第三步：按 $\\xi$ 把 $D$ 切三块，同侧的两块被积恒正",
+          "html": "<p>先说明 $g$ 在 $\\left(a,\\xi\\right)$ 与 $\\left(\\xi,b\\right)$ 上各自不变号、两侧异号：$g$ 只有零点 $\\xi$ 且 $g'(\\xi)\\neq0$（否则 (ii) 在 $\\xi$ 处给 $0&gt;0$，矛盾）。</p><div class=\"fm\">$$D_1=\\left\\{a\\leqslant s\\leqslant x\\leqslant\\xi\\right\\},\\quad D_2=\\left\\{a\\leqslant s\\leqslant\\xi\\leqslant x\\leqslant b\\right\\},\\quad D_3=\\left\\{\\xi\\leqslant s\\leqslant x\\leqslant b\\right\\}.$$</div><p>在 $D_1\\cup D_3$ 上 $s,x$ 同侧 ⇒ $g(s)g(x)&gt;0$，且</p><div class=\"fm\">$$f(x)g(s)-f(s)g(x)=g(x)g(s)\\left[\\frac{f(x)}{g(x)}-\\frac{f(s)}{g(s)}\\right].$$</div><p>由 (ii) 得 $\\left(\\frac fg\\right)'=\\frac{f'g-fg'}{g^{2}}&gt;0$，即 $\\frac fg$ 严格增；又 $x&gt;s$，方括号 $&gt;0$，故被积 $&gt;0$：</p><div class=\"fm\">$$\\iint_{D_1\\cup D_3}\\left(\\cdot\\right)&gt;0.$$</div>"
+        },
+        {
+          "title": "第四步：$D_2$ 是矩形，分离变量后两块正好相抵",
+          "html": "<div class=\"fm\">$$\\iint_{D_2}f(x)g(s)=\\left(\\int_\\xi^bf\\right)\\left(\\int_a^\\xi g\\right),\\qquad\\iint_{D_2}f(s)g(x)=\\left(\\int_a^\\xi f\\right)\\left(\\int_\\xi^bg\\right),$$</div><p>由 (i)：$\\int_\\xi^bf=-\\int_a^\\xi f$、$\\int_\\xi^bg=-\\int_a^\\xi g$，故两块同为 $-\\left(\\int_a^\\xi f\\right)\\left(\\int_a^\\xi g\\right)$，差为 $0$：</p><div class=\"fm\">$$\\iint_{D_2}\\left[f(x)g(s)-f(s)g(x)\\right]\\mathrm ds\\,\\mathrm dx=0.$$</div>"
+        },
+        {
+          "title": "第五步：合并，得严格正",
+          "html": "<div class=\"fm\">$$I=\\frac12\\left[\\iint_{D_1\\cup D_3}\\left(\\cdot\\right)+\\iint_{D_2}\\left(\\cdot\\right)\\right]=\\frac12\\left(\\text{正}+0\\right)&gt;0.$$</div><p class=\"concl\"><b>结论</b>(1)(2) 均证毕，且 (2) 中 $D_2$ 那块恰为零。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（分部积分对称化篇）",
+        "lead": "看到「两个积分都为零、$f'g-fg'&gt;0$、$g$ 在 $\\left(a,b\\right)$ 上唯一零点、要证某个积分 $&gt;0$」，直接按这个顺序出牌：",
+        "items": [
+          "(1) 就是分部积分：$F,G$ 在两端都为零（条件 (i) 保证 $F(b)=G(b)=0$），边界项自动消失。",
+          "(2) 把左端写成 $D$ 上的二重积分，用 (1) 让「自己 + 自己的相反数」除以 $2$，得到同区域的对称化。",
+          "$f'g-fg'&gt;0$ ⇒ $\\left(\\frac fg\\right)'&gt;0$ ⇒ $\\frac fg$ 严格增；这是判断同侧块被积为正的全部依据。",
+          "按唯一零点 $\\xi$ 切成三块：同侧两块严格正，跨 $\\xi$ 的矩形块因「两个因子各反号」恰相抵，合并得 $&gt;0$。"
+        ]
+      },
+      "answerHtml": "两问均证毕；(2) 中 $\\frac12\\iint_{D_1\\cup D_3}&gt;0$、$\\frac12\\iint_{D_2}=0$"
+    }
+  ]
+}

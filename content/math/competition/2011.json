@@ -1,0 +1,374 @@
+{
+  "year": 2011,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第三届（2011）初赛 非数学专业类",
+  "edition": 3,
+  "source": "第3届（2011）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "计算 1",
+      "type": "solution",
+      "title": "$1^{\\infty}$ 型",
+      "tags": [
+        "$1^{\\infty}$ 型",
+        "提公因子",
+        "等价无穷小"
+      ],
+      "difficulty": 3,
+      "stemHtml": "求 $\\displaystyle\\lim_{x\\to0}\\frac{(1+x)^{\\frac{2}{x}}-\\mathrm{e}^{2}\\left(1-\\ln(1+x)\\right)}{x}$。",
+      "steps": [
+        {
+          "title": "第一步：先把幂指部分写成 $\\mathrm{e}^{2}\\cdot\\mathrm{e}^{(\\cdot)}$",
+          "html": "<p>$(1+x)^{2/x}$ 是 $1^{\\infty}$ 型，标准动作是写成 $\\mathrm{e}^{\\frac{2}{x}\\ln(1+x)}$。但直接展开会得到一个「$\\mathrm{e}^{2}$ 乘一堆」的结构，而题目外面正好减了 $\\mathrm{e}^{2}(1-\\ln(1+x))$——说明出题人希望你<b>把 $\\mathrm{e}^{2}$ 提出来</b>。</p><div class=\"fm\">$$\\frac{2}{x}\\ln(1+x)=\\frac{2}{x}\\left(x-\\frac{x^{2}}{2}+o(x^{2})\\right)=2-x+o(x),$$</div><p>于是 $(1+x)^{2/x}=\\mathrm{e}^{2}\\mathrm{e}^{-x+o(x)}=\\mathrm{e}^{2}\\left(1-x+o(x)\\right)$。</p>"
+        },
+        {
+          "title": "第二步：提 $\\mathrm{e}^{2}$，分子变成两个小量之差",
+          "html": "<p>把 $\\mathrm{e}^{2}$ 提出来：</p><div class=\"fm\">$$\\text{原式}=\\mathrm{e}^{2}\\cdot\\frac{\\mathrm{e}^{-x+o(x)}-\\left(1-\\ln(1+x)\\right)}{x}.$$</div><p>分母是一次，分子必须展到一次项。$\\mathrm{e}^{-x+o(x)}=1-x+o(x)$，$\\ln(1+x)=x+o(x)$，所以</p><div class=\"fm\">$$\\text{分子}=\\left(1-x\\right)-\\left(1-x\\right)+o(x)=o(x).$$</div><p>也就是两项的一次项<b>恰好抵消</b>，这就是答案为什么是 $0$ 而不是某个非零常数的原因。</p>"
+        },
+        {
+          "title": "第三步：写出极限",
+          "html": "<div class=\"fm\">$$\\lim_{x\\to0}\\frac{o(x)}{x}=0\\;\\Longrightarrow\\;\\text{原式}=0.$$</div><p>也可以拆成两段验证：$\\mathrm{e}^{2}\\frac{\\mathrm{e}^{2\\frac{\\ln(1+x)-x}{x}}-1}{x}\\to-\\mathrm{e}^{2}$，$\\mathrm{e}^{2}\\frac{\\ln(1+x)}{x}\\to\\mathrm{e}^{2}$，两段相加为 $0$。</p><p class=\"concl\"><b>结论</b>原极限 $=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（提公因子判阶篇）",
+        "lead": "看到「$(1+x)^{2/x}$ 与 $\\mathrm{e}^{2}$ 同时出现、分母是一次」，直接按这个顺序出牌：",
+        "items": [
+          "先把幂指函数写成 $\\mathrm{e}^{2}\\mathrm{e}^{u}$，其中 $u=\\frac{2}{x}\\ln(1+x)-2$，让 $\\mathrm{e}^{2}$ 显形。",
+          "展开 $u$ 到一次项：$u=-x+o(x)$，于是 $\\mathrm{e}^{u}=1-x+o(x)$——这一步决定后面能不能抵消。",
+          "把减号后面的 $\\mathrm{e}^{2}(1-\\ln(1+x))$ 也展到一次：$1-x+o(x)$，两项一次项相同即抵消，分子只剩 $o(x)$。",
+          "凡是「分子看起来两项相等」的极限，答案往往是 $0$；若一次项抵消后剩二次项，就要看分母阶数再定值。"
+        ]
+      },
+      "answerHtml": "$0$"
+    },
+    {
+      "seq": 2,
+      "number": "计算 2",
+      "type": "solution",
+      "title": "余弦连乘",
+      "tags": [
+        "余弦连乘",
+        "倍角公式",
+        "重要极限"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $a_n=\\cos\\dfrac{\\theta}{2}\\cdot\\cos\\dfrac{\\theta}{2^{2}}\\cdots\\cos\\dfrac{\\theta}{2^{n}}$，求 $\\displaystyle\\lim_{n\\to\\infty}a_n$。",
+      "steps": [
+        {
+          "title": "第一步：认出「角度减半的余弦连乘」",
+          "html": "<p>角度是 $\\theta/2,\\theta/4,\\dots,\\theta/2^{n}$，每次减半——这正是倍角公式 $2\\sin t\\cos t=\\sin2t$ 反复使用的结构。</p><p>乘上 $\\sin\\frac{\\theta}{2^{n}}$ 并把倍角公式从最内层往外用，就能把整串余弦压成一个正弦比。</p>"
+        },
+        {
+          "title": "第二步：用倍角公式迭代，得到闭式",
+          "html": "<p>反复使用 $2\\sin\\frac{\\theta}{2^{k}}\\cos\\frac{\\theta}{2^{k}}=\\sin\\frac{\\theta}{2^{k-1}}$：</p><div class=\"fm\">$$a_n=\\frac{\\sin\\theta}{2^{n}\\sin\\frac{\\theta}{2^{n}}}.$$</div><p>验证 $n=1$：$\\frac{\\sin\\theta}{2\\sin(\\theta/2)}=\\frac{2\\sin(\\theta/2)\\cos(\\theta/2)}{2\\sin(\\theta/2)}=\\cos\\frac{\\theta}{2}$ ✓。</p>"
+        },
+        {
+          "title": "第三步：化成 $\\frac{\\sin u}{u}$ 型取极限",
+          "html": "<p>把式子拆成</p><div class=\"fm\">$$a_n=\\frac{\\sin\\theta}{\\theta}\\cdot\\frac{\\theta/2^{n}}{\\sin\\left(\\theta/2^{n}\\right)}.$$</div><p>当 $\\theta\\neq0$ 时 $\\theta/2^{n}\\to0$，第二个因子 $\\to1$，故极限为 $\\frac{\\sin\\theta}{\\theta}$。</p><p>$\\theta=0$ 时每项 $\\cos0=1$，$a_n\\equiv1$，极限为 $1$（恰好也是 $\\frac{\\sin\\theta}{\\theta}$ 在 $\\theta=0$ 的连续延拓值）。</p><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{n\\to\\infty}a_n=\\begin{cases}\\dfrac{\\sin\\theta}{\\theta},&amp;\\theta\\neq0\\\\ 1,&amp;\\theta=0\\end{cases}$</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（余弦连乘篇）",
+        "lead": "看到「$\\cos\\frac{\\theta}{2}\\cos\\frac{\\theta}{2^{2}}\\cdots\\cos\\frac{\\theta}{2^{n}}$」，直接按这个顺序出牌：",
+        "items": [
+          "连乘余弦一律补 $\\sin\\frac{\\theta}{2^{n}}$，用 $2\\sin t\\cos t=\\sin2t$ 从内向外迭代。",
+          "迭代结果固定为 $\\frac{\\sin\\theta}{2^{n}\\sin(\\theta/2^{n})}$，分子是 $\\sin\\theta$、分母带 $2^{n}$，别把 $2^{n}$ 写丢。",
+          "化成 $\\frac{\\sin\\theta}{\\theta}\\cdot\\frac{\\theta/2^{n}}{\\sin(\\theta/2^{n})}$，第二个因子用 $\\frac{\\sin u}{u}\\to1$。",
+          "$\\theta=0$ 要单独说明（此时每项为 $1$），但结论与 $\\frac{\\sin\\theta}{\\theta}$ 的极限值一致，可合并写。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{\\sin\\theta}{\\theta}$（$\\theta\\neq0$）；$\\theta=0$ 时为 $1$"
+    },
+    {
+      "seq": 3,
+      "number": "计算 3",
+      "type": "solution",
+      "title": "符号函数",
+      "tags": [
+        "符号函数",
+        "分块积分",
+        "面积计算"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求 $\\displaystyle\\iint_D\\operatorname{sgn}(xy-1)\\,\\mathrm{d}x\\mathrm{d}y$，其中 $D=\\{(x,y)\\mid 0\\leqslant x\\leqslant2,\\ 0\\leqslant y\\leqslant2\\}$。",
+      "steps": [
+        {
+          "title": "第一步：读懂 $\\operatorname{sgn}$——它只让区域分块",
+          "html": "<p>$\\operatorname{sgn}(xy-1)$ 只取 $+1$（当 $xy&gt;1$）或 $-1$（当 $xy&lt;1$），所以积分就是「两块面积之差」：</p><div class=\"fm\">$$\\iint_D\\operatorname{sgn}(xy-1)\\,\\mathrm{d}x\\mathrm{d}y=S_{\\{xy&gt;1\\}}-S_{\\{xy&lt;1\\}}.$$</div><p>把二重积分降成面积，是符号函数、绝对值函数、示性函数这类「分段常值」被积函数的通用处理。</p>"
+        },
+        {
+          "title": "第二步：在正方形里定出 $xy>1$ 的那块",
+          "html": "<p>$D$ 是 $[0,2]\\times[0,2]$，双曲线 $xy=1$ 与它的交点：$x=\\frac12$ 时 $y=2$，$x=2$ 时 $y=\\frac12$。所以 $xy&gt;1$ 的部分是右上角、由 $x$ 从 $\\frac12$ 到 $2$、$y$ 从 $\\frac1x$ 到 $2$ 围成的曲边梯形：</p><div class=\"fm\">$$S_{\\{xy&gt;1\\}}=\\int_{\\frac12}^{2}\\left(2-\\frac1x\\right)\\mathrm{d}x=3-2\\ln2.$$</div>"
+        },
+        {
+          "title": "第三步：剩下的面积用总面积减出来",
+          "html": "<p>正方形总面积 $4$，故</p><div class=\"fm\">$$S_{\\{xy&lt;1\\}}=4-\\left(3-2\\ln2\\right)=1+2\\ln2.$$</div><p>（与直接算 $\\int_0^{1/2}2\\,\\mathrm{d}x+\\int_{1/2}^{2}\\frac1x\\mathrm{d}x=1+2\\ln2$ 一致，可作验算。）</p>"
+        },
+        {
+          "title": "第四步：两块相减",
+          "html": "<div class=\"fm\">$$\\iint_D\\operatorname{sgn}(xy-1)\\mathrm{d}x\\mathrm{d}y=\\left(3-2\\ln2\\right)-\\left(1+2\\ln2\\right)=2-4\\ln2.$$</div><p class=\"concl\"><b>结论</b>积分值 $=2-4\\ln2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（符号函数积分篇）",
+        "lead": "看到「$\\operatorname{sgn}(\\cdot)$ 或 $|\\cdot|$ 在矩形上积分」，直接按这个顺序出牌：",
+        "items": [
+          "先把被积函数的分界线（这里是 $xy=1$）画出来，把区域切成「取 $+1$」与「取 $-1$」两半。",
+          "二重积分立刻降成面积计算：$\\iint_{D_+}1=S_+$、$\\iint_{D_-}1=S_-$，答案就是 $S_+-S_-$。",
+          "曲边那块用 $\\int(2-\\frac1x)\\mathrm{d}x$ 型算，另一块用「总面积减去」最省事，还能互相验算。",
+          "分界点要算准：$xy=1$ 与 $x=2$ 交于 $y=\\frac12$，与 $y=2$ 交于 $x=\\frac12$——这两个数是分块积分的上下限。"
+        ]
+      },
+      "answerHtml": "$2-4\\ln2$"
+    },
+    {
+      "seq": 4,
+      "number": "计算 4",
+      "type": "solution",
+      "title": "幂级数先积后导",
+      "tags": [
+        "幂级数先积后导",
+        "等比求和",
+        "代值"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2n-1}{2^{n}}x^{2n-2}$ 的和函数，并求级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2n-1}{2^{2n-1}}$ 的和。",
+      "steps": [
+        {
+          "title": "第一步：看清系数 $(2n-1)$ 与幂次 $x^{2n-2}$ 的搭配",
+          "html": "<p>系数是一次式 $2n-1$、幂次是 $x^{2n-2}$，两者差「一次积分」：积分一次后 $x^{2n-2}$ 变 $x^{2n-1}$、$\\frac{2n-1}{2n-1}=1$，系数恰好被消掉。这就是「先积后导」的信号。</p><p>先写收敛域：$\\left|\\frac{x^{2}}{2}\\right|&lt;1$，即 $|x|&lt;\\sqrt2$（端点 $x=\\pm\\sqrt2$ 时通项不趋于 $0$，发散）。</p>"
+        },
+        {
+          "title": "第二步：逐项积分，化成等比级数",
+          "html": "<div class=\"fm\">$$\\int_0^{x}S(t)\\,\\mathrm{d}t=\\sum_{n=1}^{\\infty}\\frac{x^{2n-1}}{2^{n}}=\\frac{x}{2}\\sum_{n=1}^{\\infty}\\left(\\frac{x^{2}}{2}\\right)^{n-1}=\\frac{x}{2}\\cdot\\frac{1}{1-\\frac{x^{2}}{2}}=\\frac{x}{2-x^{2}}.$$</div><p>这一步里 $n=1$ 时 $\\frac{x^{2n-1}}{2^{n}}=\\frac{x}{2}$，与等比首项对得上。</p>"
+        },
+        {
+          "title": "第三步：求导还原",
+          "html": "<div class=\"fm\">$$S(x)=\\frac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\frac{x}{2-x^{2}}\\right)=\\frac{\\left(2-x^{2}\\right)+2x^{2}}{\\left(2-x^{2}\\right)^{2}}=\\frac{2+x^{2}}{\\left(2-x^{2}\\right)^{2}},\\qquad |x|&lt;\\sqrt2.$$</div>"
+        },
+        {
+          "title": "第四步：代 $x=\\frac{1}{\\sqrt2}$ 收割数值级数",
+          "html": "<p>要出现 $\\frac{1}{2^{2n-1}}=2\\cdot\\frac{1}{2^{2n}}=2\\left(\\frac14\\right)^{n}$，注意 $\\frac{2n-1}{2^{2n-1}}=\\frac{2n-1}{2^{n}}\\cdot\\frac{1}{2^{n-1}}$，正好是 $S(x)$ 中 $x^{2n-2}=\\left(\\frac12\\right)^{n-1}$ 的形式。所以取 $x=\\frac{1}{\\sqrt2}$：</p><div class=\"fm\">$$S\\left(\\frac{1}{\\sqrt2}\\right)=\\frac{2+\\frac12}{\\left(2-\\frac12\\right)^{2}}=\\frac{\\frac52}{\\frac94}=\\frac{10}{9}.$$</div><p class=\"concl\"><b>结论</b>和函数 $S(x)=\\dfrac{2+x^{2}}{\\left(2-x^{2}\\right)^{2}}$（$|x|&lt;\\sqrt2$）；数值级数和 $=\\dfrac{10}{9}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（幂级数先积后导篇）",
+        "lead": "看到「系数是一次式、幂次差一次、还要求数值级数和」，直接按这个顺序出牌：",
+        "items": [
+          "先判收敛半径：$x^{2}/2$ 的结构给 $|x|&lt;\\sqrt2$，端点要单独说发散。",
+          "系数 $2n-1$ 与 $x^{2n-2}$ 配「积分一次」，积分后系数变 $1$，剩标准等比 $\\sum\\left(\\frac{x^{2}}{2}\\right)^{n-1}$。",
+          "和函数由 $\\frac{x}{2-x^{2}}$ 求导还原，化简成 $\\frac{2+x^{2}}{(2-x^{2})^{2}}$，别忘定义域。",
+          "数值级数靠「凑 $x$」：把 $\\frac{1}{2^{2n-1}}$ 写成 $\\frac{1}{2^{n}}\\cdot\\frac{1}{2^{n-1}}$，对应 $x=\\frac{1}{\\sqrt2}$，代进去即得。"
+        ]
+      },
+      "answerHtml": "和函数 $S(x)=\\dfrac{2+x^{2}}{\\left(2-x^{2}\\right)^{2}}$（$|x|&lt;\\sqrt2$）；$\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2n-1}{2^{2n-1}}=\\frac{10}{9}$"
+    },
+    {
+      "seq": 5,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "算术平均定理",
+      "tags": [
+        "算术平均定理",
+        "$ arepsilon$-$N$",
+        "Stolz"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\{a_n\\}_{n=0}^{\\infty}$ 为数列，$a,\\lambda$ 为有限数，求证：(1) 如果 $\\displaystyle\\lim_{n\\to\\infty}a_n=a$，则 $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_1+a_2+\\cdots+a_n}{n}=a$；(2) 如果存在正整数 $p$，使得 $\\displaystyle\\lim_{n\\to\\infty}\\left(a_{n+p}-a_n\\right)=\\lambda$，则 $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{n}=\\frac{\\lambda}{p}$。",
+      "steps": [
+        {
+          "title": "第一步：(1) 用 $\\varepsilon$-$N$，把「前有限项」与「后面无穷项」分开",
+          "html": "<p>要证平均值趋于 $a$，就把差拆成两段：</p><div class=\"fm\">$$\\left|\\frac{a_1+\\cdots+a_n}{n}-a\\right|\\leqslant\\frac{\\left|a_1-a\\right|+\\cdots+\\left|a_N-a\\right|}{n}+\\frac{(n-N)}{n}\\max_{k&gt;N}\\left|a_k-a\\right|.$$</div><p>第一段分子是定数、分母 $n\\to\\infty$，可以压到任意小；第二段每项都 $&lt;\\varepsilon$。这就是「有限项分摊、无限项用极限」的标准写法。</p>"
+        },
+        {
+          "title": "第二步：把两段都压到 $\\varepsilon$",
+          "html": "<p>取 $N$ 使 $k&gt;N$ 时 $|a_k-a|&lt;\\varepsilon$；再取 $n$ 足够大使 $\\frac{1}{n}\\sum_{k=1}^{N}|a_k-a|&lt;\\varepsilon$。于是整体 $&lt;2\\varepsilon$，由 $\\varepsilon$ 任意得极限为 $a$，(1) 成立。</p>"
+        },
+        {
+          "title": "第三步：(2) 按 $n\\bmod p$ 拆成 $p$ 个子列",
+          "html": "<p>记 $A_n^{(i)}=a_{(n-1)p+i}$（$i=1,\\dots,p$），则每个子列相邻两项之差就是原数列隔 $p$ 项的差：</p><div class=\"fm\">$$A_{n+1}^{(i)}-A_n^{(i)}=a_{np+i}-a_{(n-1)p+i}\\to\\lambda.$$</div><p>这一步为什么这么拆：$\\frac{a_n}{n}$ 里的 $n$ 与 $a_n$ 的下标绑在一起，只有按模 $p$ 分成 $p$ 条「等差间隔」的子列，才能用 Stolz。</p>"
+        },
+        {
+          "title": "第四步：对每个子列用 Stolz，再合并",
+          "html": "<p>由 Stolz 定理（$\\frac{A_n}{n}$ 型，分母严格增且趋于 $\\infty$）：</p><div class=\"fm\">$$\\lim_{n\\to\\infty}\\frac{A_n^{(i)}}{n}=\\lim_{n\\to\\infty}\\frac{A_{n+1}^{(i)}-A_n^{(i)}}{(n+1)-n}=\\lambda.$$</div><p>而 $\\frac{a_{(n-1)p+i}}{(n-1)p+i}=\\frac{A_n^{(i)}}{n}\\cdot\\frac{n}{(n-1)p+i}\\to\\lambda\\cdot\\frac1p=\\frac{\\lambda}{p}$。$p$ 个子列覆盖全体 $n$ 且极限相同，故 $\\lim\\frac{a_n}{n}=\\frac{\\lambda}{p}$。</p><p class=\"concl\"><b>结论</b>(1)(2) 均成立，其中 (2) 的极限为 $\\dfrac{\\lambda}{p}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（数列平均极限篇）",
+        "lead": "看到「算术平均求极限 / 隔 $p$ 项增量求极限」，直接按这个顺序出牌：",
+        "items": [
+          "算术平均用 $\\varepsilon$-$N$：拆成「前 $N$ 项定数 $\\div n$」与「尾部每项 $&lt;\\varepsilon$」两块，各自压小。",
+          "隔 $p$ 项增量题，先把数列按 $n\\bmod p$ 拆成 $p$ 个子列，每个子列的相邻差正好是题给增量。",
+          "子列用 Stolz：$\\lim\\frac{A_n}{n}=\\lim\\frac{A_{n+1}-A_n}{1}=\\lambda$，再乘回 $\\frac{1}{p}$。",
+          "最后要写「$p$ 个子列覆盖全体且极限相同 ⇒ 原数列极限存在」，缺这句证明不算完整。"
+        ]
+      },
+      "answerHtml": "(1) $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_1+\\cdots+a_n}{n}=a$；(2) $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_n}{n}=\\frac{\\lambda}{p}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "带 Lagrange 余项的 Taylor",
+      "tags": [
+        "带 Lagrange 余项的 Taylor",
+        "介值定理"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 在闭区间 $[-1,1]$ 上具有连续的三阶导数，且 $f(-1)=0$，$f(1)=1$，$f'(0)=0$。求证：在开区间 $(-1,1)$ 内至少存在一点 $x_0$，使得 $f'''(x_0)=3$。",
+      "steps": [
+        {
+          "title": "第一步：看条件形态，判断该在 $0$ 点做泰勒展开",
+          "html": "<p>题目给的是两个端点值与中点的导数值 $f'(0)=0$，要证的又是三阶导数的某个具体值——这是典型的「在 $0$ 点双向展开、再相减消项」结构。</p><p>为什么选 $0$ 点：因为 $f'(\\pm1)$ 无从知道，而 $f'(0)$ 已知为 $0$，展开时的 $(x-0)$ 项正好被消掉，条件用得最干净。</p>"
+        },
+        {
+          "title": "第二步：写出两个三阶泰勒展开",
+          "html": "<p>存在 $\\xi_1\\in(-1,0)$、$\\xi_2\\in(0,1)$，使</p><div class=\"fm\">$$0=f(-1)=f(0)-f'(0)+\\frac12f''(0)-\\frac16f'''(\\xi_1)=f(0)+\\frac12f''(0)-\\frac16f'''(\\xi_1),$$</div><div class=\"fm\">$$1=f(1)=f(0)+f'(0)+\\frac12f''(0)+\\frac16f'''(\\xi_2)=f(0)+\\frac12f''(0)+\\frac16f'''(\\xi_2).$$</div><p>两式里 $f(0)+\\frac12f''(0)$ 完全相同，这是相减的前提，也说明「两端展开」是专门为消项设计的。</p>"
+        },
+        {
+          "title": "第三步：相减得到两个三阶导值的和",
+          "html": "<p>用 $1$ 式减 $0$ 式：</p><div class=\"fm\">$$\\frac16\\left(f'''(\\xi_1)+f'''(\\xi_2)\\right)=1\\;\\Longrightarrow\\;f'''(\\xi_1)+f'''(\\xi_2)=6.$$</div>"
+        },
+        {
+          "title": "第四步：两值之和为 $6$，必有一个「上」一个「下」，用介值定理收口",
+          "html": "<p>若两者都小于 $3$ 则和小于 $6$；都大于 $3$ 则和大于 $6$。故必有一个 $\\geqslant3$、一个 $\\leqslant3$。又 $f'''$ 连续，在 $\\xi_1,\\xi_2$ 之间用介值定理：存在 $x_0$ 使 $f'''(x_0)=3$。</p><p class=\"concl\"><b>结论</b>存在 $x_0\\in(-1,1)$，使 $f'''(x_0)=3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（高阶导介值篇）",
+        "lead": "看到「给两端点值与中点导数、要证某点三阶导等于具体常数」，直接按这个顺序出牌：",
+        "items": [
+          "选展开中心：哪个点的导数信息最多就围绕它展（本题 $f'(0)=0$，故选 $0$ 点）。",
+          "展开阶数由「要证的是几阶导」决定，本题要三阶导，就展到三阶并带 Lagrange 余项。",
+          "两式相减消掉同项，剩下的余项之和给出目标值（本题 $f'''(\\xi_1)+f'''(\\xi_2)=6$）。",
+          "「两数之和为定值 ⇒ 一上一下 ⇒ 连续函数取遍中间值」，这是介值定理最常用的组合拳。"
+        ]
+      },
+      "answerHtml": "存在 $x_0\\in(-1,1)$，使 $f'''(x_0)=3$"
+    },
+    {
+      "seq": 7,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "引力微元",
+      "tags": [
+        "引力微元",
+        "向量投影",
+        "反常积分"
+      ],
+      "difficulty": 4,
+      "stemHtml": "在 $xOy$ 平面上，有一条从点 $(a,0)$ 向右的射线，线密度为 $\\rho$。在点 $(0,h)$ 处（其中 $h&gt;0$）有一质量为 $m$ 的质点。求射线对该质点的引力。",
+      "steps": [
+        {
+          "title": "第一步：取微元，写出「大小 ＋ 方向」",
+          "html": "<p>在射线上取微元 $[x,x+\\mathrm{d}x]$（$x\\geqslant a$），其质量 $\\mathrm{d}M=\\rho\\,\\mathrm{d}x$。它到质点的距离是 $\\sqrt{x^{2}+h^{2}}$，由万有引力定律，引力大小</p><div class=\"fm\">$$\\mathrm{d}F=\\frac{Gm\\rho\\,\\mathrm{d}x}{x^{2}+h^{2}},$$</div><p>方向由质点 $(0,h)$ 指向微元 $(x,0)$，单位向量 $\\frac{(x,-h)}{\\sqrt{x^{2}+h^{2}}}$。</p><p>注意这里 $y$ 分量是<b>负</b>的：质点在上、射线在下，引力把质点往 $x$ 轴拉。</p>"
+        },
+        {
+          "title": "第二步：把 $\\mathrm{d}F$ 投影到两个坐标轴",
+          "html": "<div class=\"fm\">$$\\mathrm{d}F_x=\\frac{Gm\\rho\\,x\\,\\mathrm{d}x}{\\left(x^{2}+h^{2}\\right)^{3/2}},\\qquad \\mathrm{d}F_y=-\\frac{Gm\\rho\\,h\\,\\mathrm{d}x}{\\left(x^{2}+h^{2}\\right)^{3/2}}.$$</div><p>分母升到 $\\frac32$ 次是投影时又除了一个距离 $\\sqrt{x^{2}+h^{2}}$——这一步分数很容易漏掉。</p>"
+        },
+        {
+          "title": "第三步：分别积分到 $+\\infty$",
+          "html": "<p>$x$ 方向用凑微分 $\\frac{x\\,\\mathrm{d}x}{(x^{2}+h^{2})^{3/2}}=-\\mathrm{d}\\frac{1}{\\sqrt{x^{2}+h^{2}}}$：</p><div class=\"fm\">$$F_x=\\left[-\\frac{Gm\\rho}{\\sqrt{x^{2}+h^{2}}}\\right]_a^{+\\infty}=\\frac{Gm\\rho}{\\sqrt{a^{2}+h^{2}}}.$$</div><p>$y$ 方向用 $\\int\\frac{\\mathrm{d}x}{(x^{2}+h^{2})^{3/2}}=\\frac{x}{h^{2}\\sqrt{x^{2}+h^{2}}}$：</p><div class=\"fm\">$$F_y=-Gm\\rho h\\left[\\frac{x}{h^{2}\\sqrt{x^{2}+h^{2}}}\\right]_a^{+\\infty}=-\\frac{Gm\\rho}{h}\\left(1-\\frac{a}{\\sqrt{a^{2}+h^{2}}}\\right).$$</div>"
+        },
+        {
+          "title": "第四步：合成向量并说明分量含义",
+          "html": "<div class=\"fm\">$$\\vec F=\\left(\\frac{Gm\\rho}{\\sqrt{a^{2}+h^{2}}},\\ -\\frac{Gm\\rho}{h}\\left(1-\\frac{a}{\\sqrt{a^{2}+h^{2}}}\\right)\\right).$$</div><p>可以检验两个极限：$a\\to0$（射线从原点出发）时 $F_x\\to\\frac{Gm\\rho}{h}$、$F_y\\to-\\frac{Gm\\rho}{h}$；$a\\to+\\infty$ 时两者都 $\\to0$（射线太远，引力消失）。</p><p class=\"concl\"><b>结论</b>引力向量如上，方向指向射线所在直线，$y$ 分量为负。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（连续体引力篇）",
+        "lead": "看到「线密度／面密度求对质点的引力」，直接按这个顺序出牌：",
+        "items": [
+          "先取微元：$\\mathrm{d}M=\\rho\\,\\mathrm{d}x$，引力大小 $\\frac{Gm\\,\\mathrm{d}M}{r^{2}}$，这一步只算标量。",
+          "再定方向：单位向量 =（微元坐标 − 质点坐标）／距离，符号由几何位置决定，别一律写正。",
+          "投影时距离多除一次，分母变 $r^{3}$（三维变 $r^{3}$、二维同样 $r^{3}$），这是最常见的失分点。",
+          "积分用两张表：$\\int\\frac{x\\mathrm{d}x}{(x^{2}+h^{2})^{3/2}}=-\\frac{1}{\\sqrt{x^{2}+h^{2}}}$、$\\int\\frac{\\mathrm{d}x}{(x^{2}+h^{2})^{3/2}}=\\frac{x}{h^{2}\\sqrt{x^{2}+h^{2}}}$。"
+        ]
+      },
+      "answerHtml": "$\\vec F=\\left(\\dfrac{Gm\\rho}{\\sqrt{a^{2}+h^{2}}},\\ -\\dfrac{Gm\\rho}{h}\\left(1-\\dfrac{a}{\\sqrt{a^{2}+h^{2}}}\\right)\\right)$"
+    },
+    {
+      "seq": 8,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "隐函数全微分",
+      "tags": [
+        "隐函数全微分",
+        "已证等式再求导"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $z=z(x,y)$ 是由方程 $F\\left(z+\\dfrac1x,\\ z-\\dfrac1y\\right)=0$ 确定的隐函数，且具有连续的二阶偏导数。求证：$x^{2}\\dfrac{\\partial z}{\\partial x}-y^{2}\\dfrac{\\partial z}{\\partial y}=1$，且 $x^{3}\\dfrac{\\partial^{2}z}{\\partial x^{2}}+xy(x-y)\\dfrac{\\partial^{2}z}{\\partial x\\partial y}-y^{3}\\dfrac{\\partial^{2}z}{\\partial y^{2}}=-2$。",
+      "steps": [
+        {
+          "title": "第一步：用全微分而不是解方程组",
+          "html": "<p>记 $u=z+\\frac1x$、$v=z-\\frac1y$，$F_1,F_2$ 为对第一、第二变元求偏导。对方程两边取全微分：</p><div class=\"fm\">$$F_1\\left(\\mathrm{d}z-\\frac{\\mathrm{d}x}{x^{2}}\\right)+F_2\\left(\\mathrm{d}z+\\frac{\\mathrm{d}y}{y^{2}}\\right)=0.$$</div><p>把 $\\mathrm{d}z$ 收集起来：</p><div class=\"fm\">$$\\mathrm{d}z=\\frac{F_1}{x^{2}\\left(F_1+F_2\\right)}\\mathrm{d}x-\\frac{F_2}{y^{2}\\left(F_1+F_2\\right)}\\mathrm{d}y.$$</div><p>这样两个偏导一次全拿到，比列 $2\\times2$ 方程组再解快得多。</p>"
+        },
+        {
+          "title": "第二步：读出偏导，验证第一个恒等式",
+          "html": "<div class=\"fm\">$$\\frac{\\partial z}{\\partial x}=\\frac{1}{x^{2}}\\frac{F_1}{F_1+F_2},\\qquad \\frac{\\partial z}{\\partial y}=-\\frac{1}{y^{2}}\\frac{F_2}{F_1+F_2}.$$</div><p>于是 $x^{2}z_x-y^{2}z_y=\\frac{F_1}{F_1+F_2}+\\frac{F_2}{F_1+F_2}=1$，第一个恒等式成立。</p><p>这个结果的美感在于：$F$ 的具体形式完全没用到，只用了「$F_1+F_2$ 作分母」，说明它是结构性的恒等式。</p>"
+        },
+        {
+          "title": "第三步：把已证等式当成新方程，两边继续求偏导",
+          "html": "<p>对 $x^{2}z_x-y^{2}z_y=1$ 分别关于 $x$、关于 $y$ 求偏导：</p><div class=\"fm\">$$2xz_x+x^{2}z_{xx}-y^{2}z_{xy}=0,\\qquad x^{2}z_{xy}-2yz_y-y^{2}z_{yy}=0.$$</div><p>第二次求导时 $y$ 被视为常数、$x$ 被视为常数，两种求法各得一条，正是为凑出 $z_{xx},z_{xy},z_{yy}$ 三项。</p>"
+        },
+        {
+          "title": "第四步：加权相加，用一次式回代",
+          "html": "<p>第一式乘 $x$、第二式乘 $y$ 相加：</p><div class=\"fm\">$$x^{3}z_{xx}+xy(x-y)z_{xy}-y^{3}z_{yy}+2\\left(x^{2}z_x-y^{2}z_y\\right)=0.$$</div><p>括号里正是 $1$，故目标式 $=-2$。</p><p class=\"concl\"><b>结论</b>两个恒等式均成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（隐函数恒等式篇）",
+        "lead": "看到「$F\\left(z+\\frac1x,z-\\frac1y\\right)=0$ 要证含一、二阶偏导的恒等式」，直接按这个顺序出牌：",
+        "items": [
+          "一律用全微分：$F_1(\\mathrm{d}u)+F_2(\\mathrm{d}v)=0$，把 $\\mathrm{d}z$ 收集起来直接读出 $z_x,z_y$。",
+          "先证一阶恒等式（本题 $x^{2}z_x-y^{2}z_y=1$），它的价值是把 $F$ 消掉，只留 $z$ 与 $x,y$。",
+          "再对「已证的一阶恒等式」分别关于 $x$、$y$ 求偏导，得两条含二阶偏导的式子。",
+          "按目标式的系数配权重相加（本题乘 $x$ 与 $y$），最后用一阶恒等式回代常数，一步收口。"
+        ]
+      },
+      "answerHtml": "两个恒等式 $x^{2}z_x-y^{2}z_y=1$ 与 $x^{3}z_{xx}+xy(x-y)z_{xy}-y^{3}z_{yy}=-2$ 均成立"
+    },
+    {
+      "seq": 9,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "球带面积",
+      "tags": [
+        "球带面积",
+        "方向投影",
+        "单变量化"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设函数 $f(x)$ 连续，$a,b,c$ 为常数，$\\Sigma$ 是单位球面 $x^{2}+y^{2}+z^{2}=1$。求证：$\\displaystyle\\iint_{\\Sigma}f(ax+by+cz)\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}f\\left(\\sqrt{a^{2}+b^{2}+c^{2}}\\,u\\right)\\mathrm{d}u$。",
+      "steps": [
+        {
+          "title": "第一步：看出被积函数只依赖「沿某方向的分量」",
+          "html": "<p>$ax+by+cz$ 是向量 $(x,y,z)$ 与固定向量 $\\vec n=(a,b,c)$ 的内积，也就是点在 $\\vec n$ 方向上的投影乘以 $|\\vec n|$。所以被积函数在整个球面上只随「到某个平面的距离」变化，与绕该方向的转角无关——这提示按「平行平面族」切球。</p><p>令 $k=\\sqrt{a^{2}+b^{2}+c^{2}}$（$k=0$ 时左边是 $f(0)\\cdot4\\pi$、右边也是 $2\\pi\\cdot2f(0)$，等式显然成立，以下设 $k&gt;0$）。</p>"
+        },
+        {
+          "title": "第二步：用平面族切片，把曲面积分降成单变量",
+          "html": "<p>对 $u\\in[-1,1]$，平面 $P_u:\\ \\frac{ax+by+cz}{k}=u$ 到原点的距离为 $|u|$，它与单位球面交出一个半径 $\\sqrt{1-u^{2}}$ 的圆。$P_u$ 与 $P_{u+\\mathrm{d}u}$ 之间截出的球面窄带，其面积有一个漂亮的性质：</p><div class=\"fm\">$$\\mathrm{d}S=2\\pi\\,\\mathrm{d}u,$$</div><p>与 $u$ 无关！这是球面几何的固定结论（球带面积 $=2\\pi R\\cdot$ 高，$R=1$ 时只等于 $2\\pi$ 乘两平面的间距）。</p><p>这一步是整题的关键：正因为面积元与 $u$ 无关，积分才可能变成一个干净的 $\\int f\\,\\mathrm{d}u$。</p>"
+        },
+        {
+          "title": "第三步：带上取常值，写成定积分",
+          "html": "<p>在窄带上 $ax+by+cz=ku$ 近似为常数，故</p><div class=\"fm\">$$\\iint_{\\Sigma}f(ax+by+cz)\\,\\mathrm{d}S=\\int_{-1}^{1}f(ku)\\cdot2\\pi\\,\\mathrm{d}u=2\\pi\\int_{-1}^{1}f\\left(\\sqrt{a^{2}+b^{2}+c^{2}}\\,u\\right)\\mathrm{d}u.$$</div><p class=\"concl\"><b>结论</b>等式成立，核心是「球带面积恒为 $2\\pi\\,\\mathrm{d}u$」。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（球面方向积分篇）",
+        "lead": "看到「球面上积分 $f(ax+by+cz)$、$a,b,c$ 任意」，直接按这个顺序出牌：",
+        "items": [
+          "先认结构：$ax+by+cz$ 是固定方向 $\\vec n$ 上的投影乘 $|\\vec n|$，被积函数只依赖一个变量。",
+          "用垂直 $\\vec n$ 的平行平面族切球，参数 $u=\\frac{ax+by+cz}{k}$，范围 $[-1,1]$。",
+          "背下球带面积：单位球上介于 $u$ 与 $u+\\mathrm{d}u$ 的带面积 $=2\\pi\\,\\mathrm{d}u$，与 $u$ 无关。",
+          "于是 $\\iint f\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}f(ku)\\mathrm{d}u$；特例 $f\\equiv1$ 给 $4\\pi$（球面积），可用来验算。"
+        ]
+      },
+      "answerHtml": "等式成立，即 $\\displaystyle\\iint_{\\Sigma}f(ax+by+cz)\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}f\\left(\\sqrt{a^{2}+b^{2}+c^{2}}\\,u\\right)\\mathrm{d}u$"
+    }
+  ]
+}

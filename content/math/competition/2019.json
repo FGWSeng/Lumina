@@ -1,0 +1,411 @@
+{
+  "year": 2019,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十一届（2019）初赛 非数学专业类",
+  "edition": 11,
+  "source": "第11届（2019）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "对数提公因式",
+      "tags": [
+        "对数提公因式",
+        "$\\ln(1+u)\\sim u$"
+      ],
+      "difficulty": 2,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to0}\\frac{\\ln\\left(\\mathrm{e}^{\\sin x}+\\sqrt[3]{1-\\cos x}\\right)-\\sin x}{\\arctan\\left(4\\sqrt[3]{1-\\cos x}\\right)}$。",
+      "steps": [
+        {
+          "title": "第一步：先确认是 $0/0$，再想「为什么分子要减 $\\sin x$」",
+          "html": "<p>$x=0$ 时分子 $\\ln1-0=0$、分母 $\\arctan0=0$。分子里减掉的 $\\sin x$ 不是多余的，它等于 $\\ln\\mathrm{e}^{\\sin x}$，正是为了把对数写成 $\\ln\\left(1+u\\right)$：</p><div class=\"fm\">$$\\ln\\left(\\mathrm{e}^{\\sin x}+\\sqrt[3]{1-\\cos x}\\right)-\\sin x=\\ln\\left(1+\\frac{\\sqrt[3]{1-\\cos x}}{\\mathrm{e}^{\\sin x}}\\right).$$</div>"
+        },
+        {
+          "title": "第二步：$\\ln(1+u)\\sim u$，把根号原样留下",
+          "html": "<p>$u=\\frac{\\sqrt[3]{1-\\cos x}}{\\mathrm{e}^{\\sin x}}\\to0$，故分子 $\\sim\\frac{\\sqrt[3]{1-\\cos x}}{\\mathrm{e}^{\\sin x}}\\sim\\sqrt[3]{1-\\cos x}$（$\\mathrm{e}^{\\sin x}\\to1$ 可直接取极限）。</p>"
+        },
+        {
+          "title": "第三步：$1-\\cos x\\sim\\frac{x^{2}}{2}$，两边同阶相消",
+          "html": "<div class=\"fm\">$$\\sqrt[3]{1-\\cos x}\\sim\\left(\\frac{x^{2}}{2}\\right)^{1/3},\\qquad\\arctan\\left(4\\sqrt[3]{1-\\cos x}\\right)\\sim4\\left(\\frac{x^{2}}{2}\\right)^{1/3},$$</div><p>相除即 $\\frac14$。</p><p class=\"concl\"><b>结论</b>极限为 $\\dfrac14$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（对数套指数的 $0/0$ 篇）",
+        "lead": "看到「$\\ln\\left(\\mathrm e^{\\sin x}+\\text{小量}\\right)-\\sin x$」，直接按这个顺序出牌：",
+        "items": [
+          "把 $-\\sin x$ 认成 $-\\ln\\mathrm e^{\\sin x}$，合并成 $\\ln\\left(1+\\frac{\\text{小量}}{\\mathrm e^{\\sin x}}\\right)$。",
+          "$\\ln(1+u)\\sim u$，再用 $\\mathrm e^{\\sin x}\\to1$ 把分母因子直接取掉。",
+          "根号里 $1-\\cos x\\sim\\frac{x^{2}}{2}$，于是整体是 $\\left(\\frac{x^{2}}{2}\\right)^{1/3}$，阶数为 $\\frac23$。",
+          "分母 $\\arctan v\\sim v$ 保持同一阶，比值就是系数的比；本题 $1:4$ 给 $\\frac14$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac14$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "齐次代换",
+      "tags": [
+        "齐次代换",
+        "参数化求 $\\mathrm dx$",
+        "有理积分"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设隐函数 $y=y(x)$ 由方程 $y^{2}\\left(x-y\\right)=x^{2}$ 所确定，则 $\\displaystyle\\int\\frac{\\mathrm{d}x}{y^{2}}=$________。",
+      "steps": [
+        {
+          "title": "第一步：认出方程是齐次的，令 $y=tx$",
+          "html": "<p>$y^{2}\\left(x-y\\right)=x^{2}$ 两边次数不同，但同除 $x^{2}$ 后只含 $\\frac yx$，说明 $y$ 与 $x$ 同阶。令 $y=tx$：</p><div class=\"fm\">$$t^{2}x^{2}\\cdot x\\left(1-t\\right)=x^{2}\\;\\Longrightarrow\\;t^{2}x\\left(1-t\\right)=1\\;\\Longrightarrow\\;x=\\frac{1}{t^{2}\\left(1-t\\right)},\\quad y=\\frac{1}{t\\left(1-t\\right)}.$$</div><p>为什么这么换：被积式里只有 $y$、没有显式的 $x$，直接积无从下手；换成 $t$ 后 $x$、$y$ 都是 $t$ 的有理式。</p>"
+        },
+        {
+          "title": "第二步：算 $\\mathrm dx$ 与 $y^{2}$",
+          "html": "<div class=\"fm\">$$\\frac{\\mathrm{d}x}{\\mathrm{d}t}=-\\frac{2}{t^{3}\\left(1-t\\right)}+\\frac{1}{t^{2}\\left(1-t\\right)^{2}}=\\frac{3t-2}{t^{3}\\left(1-t\\right)^{2}},\\qquad y^{2}=\\frac{1}{t^{2}\\left(1-t\\right)^{2}}.$$</div><p>提醒：$\\mathrm dx$ 的通分容易算反号，可用 $t=2$ 试值核对（此时 $\\frac{\\mathrm dx}{\\mathrm dt}&gt;0$，与 $3t-2&gt;0$ 同号）。</p>"
+        },
+        {
+          "title": "第三步：相除变成简单有理式并积分",
+          "html": "<div class=\"fm\">$$\\frac{\\mathrm dx}{y^{2}}=\\frac{3t-2}{t}\\,\\mathrm dt=\\left(3-\\frac{2}{t}\\right)\\mathrm dt\\;\\Longrightarrow\\;\\int\\frac{\\mathrm dx}{y^{2}}=3t-2\\ln\\left|t\\right|+C.$$</div>"
+        },
+        {
+          "title": "第四步：回代 $t=\\frac yx$",
+          "html": "<div class=\"fm\">$$\\int\\frac{\\mathrm dx}{y^{2}}=\\frac{3y}{x}-2\\ln\\left|\\frac{y}{x}\\right|+C.$$</div><p class=\"concl\"><b>结论</b>积分为 $\\dfrac{3y}{x}-2\\ln\\left|\\dfrac{y}{x}\\right|+C$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（隐函数求积分的齐次代换篇）",
+        "lead": "看到「$y^{2}\\left(x-y\\right)=x^{2}$ 且要积 $\\frac{\\mathrm dx}{y^{2}}$」，直接按这个顺序出牌：",
+        "items": [
+          "先判齐次：方程只含 $\\frac yx$ 的组合 ⇒ 令 $y=tx$，把 $x$ 解成 $t$ 的显式。",
+          "算出 $\\frac{\\mathrm dx}{\\mathrm dt}$ 与 $y^{2}$（都是 $t$ 的有理式），相除后 $t$ 的高次会大面积约掉。",
+          "剩下的是 $\\frac{at-b}{t}$ 型，直接拆成常数项 ＋ $\\frac{1}{t}$ 项积分。",
+          "回代 $t=\\frac yx$ 得答案；这类题的另一条路是把 $x$ 看成 $y$ 的函数，但通常更繁。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{3y}{x}-2\\ln\\left|\\dfrac{y}{x}\\right|+C$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "半角化简",
+      "tags": [
+        "半角化简",
+        "定积分求值"
+      ],
+      "difficulty": 2,
+      "stemHtml": "定积分 $\\displaystyle\\int_0^{\\frac{\\pi}{2}}\\frac{\\mathrm{e}^{x}\\left(1+\\sin x\\right)}{1+\\cos x}\\,\\mathrm{d}x=$________。",
+      "steps": [
+        {
+          "title": "第一步：看到 $\\mathrm e^{x}$ 乘三角分式，先想「$\\mathrm e^{x}\\left(f+f'\\right)$」",
+          "html": "<p>因为 $\\left(\\mathrm e^{x}f\\right)'=\\mathrm e^{x}\\left(f+f'\\right)$，若能把三角分式拆成 $f+f'$，积分一步就出。</p>"
+        },
+        {
+          "title": "第二步：半角公式把分式化简",
+          "html": "<div class=\"fm\">$$1+\\cos x=2\\cos^{2}\\frac x2,\\qquad1+\\sin x=\\left(\\sin\\frac x2+\\cos\\frac x2\\right)^{2},$$</div><div class=\"fm\">$$\\frac{1+\\sin x}{1+\\cos x}=\\frac{\\left(\\sin\\frac x2+\\cos\\frac x2\\right)^{2}}{2\\cos^{2}\\frac x2}=\\frac12\\left(1+\\tan\\frac x2\\right)^{2}=\\frac12\\left(\\sec^{2}\\frac x2+2\\tan\\frac x2\\right).$$</div>"
+        },
+        {
+          "title": "第三步：凑出 $f=\\tan\\frac x2$",
+          "html": "<p>$\\left(\\tan\\frac x2\\right)'=\\frac12\\sec^{2}\\frac x2$，故上式 $=\\tan\\frac x2+\\left(\\tan\\frac x2\\right)'$，于是</p><div class=\"fm\">$$\\int_0^{\\frac{\\pi}{2}}\\mathrm e^{x}\\left[\\tan\\frac x2+\\left(\\tan\\frac x2\\right)'\\right]\\mathrm dx=\\left[\\mathrm e^{x}\\tan\\frac x2\\right]_0^{\\frac{\\pi}{2}}=\\mathrm e^{\\frac{\\pi}{2}}\\cdot1-1\\cdot0=\\mathrm e^{\\frac{\\pi}{2}}.$$</div><p class=\"concl\"><b>结论</b>定积分为 $\\mathrm e^{\\frac{\\pi}{2}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\mathrm e^{x}(f+f')$ 凑微分篇）",
+        "lead": "看到「$\\mathrm e^{x}$ 乘一个三角分式」，直接按这个顺序出牌：",
+        "items": [
+          "先问：这个三角分式能不能写成 $f+f'$？能，就整段变成 $\\left(\\mathrm e^{x}f\\right)'$。",
+          "半角公式是化简 $1\\pm\\cos x$、$1+\\sin x$ 的首选：$1+\\cos x=2\\cos^{2}\\frac x2$。",
+          "化简目标是把分式写成 $\\sec^{2}$ 与 $\\tan$ 的组合，因为 $\\tan'=\\sec^{2}$ 正好配对。",
+          "定积分直接代上下限：$\\tan\\frac\\pi4=1$、$\\tan0=0$，答案 $\\mathrm e^{\\pi/2}$。"
+        ]
+      },
+      "answerHtml": "$\\mathrm{e}^{\\frac{\\pi}{2}}$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "凑 $y^{2}\\mathrm d(x/y)$",
+      "tags": [
+        "凑 $y^{2}\\mathrm d(x/y)$",
+        "二次式配方"
+      ],
+      "difficulty": 3,
+      "stemHtml": "已知 $\\mathrm{d}u(x,y)=\\dfrac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{3x^{2}-2xy+3y^{2}}$，则 $u(x,y)=$________。",
+      "steps": [
+        {
+          "title": "第一步：认出分子是 $y^{2}\\mathrm d\\left(\\frac xy\\right)$",
+          "html": "<div class=\"fm\">$$\\mathrm d\\left(\\frac xy\\right)=\\frac{y\\,\\mathrm dx-x\\,\\mathrm dy}{y^{2}}\\;\\Longrightarrow\\;y\\,\\mathrm dx-x\\,\\mathrm dy=y^{2}\\mathrm d\\left(\\frac xy\\right).$$</div><p>为什么先看分子：$y\\,\\mathrm dx-x\\,\\mathrm dy$ 是商的微分的标准形状，属于「一眼认」的固定结构。</p>"
+        },
+        {
+          "title": "第二步：分母同提 $y^{2}$，令 $t=\\frac xy$",
+          "html": "<div class=\"fm\">$$3x^{2}-2xy+3y^{2}=y^{2}\\left(3t^{2}-2t+3\\right),\\qquad \\mathrm du=\\frac{\\mathrm dt}{3t^{2}-2t+3}.$$</div>"
+        },
+        {
+          "title": "第三步：配方后积分",
+          "html": "<div class=\"fm\">$$3t^{2}-2t+3=3\\left(t-\\frac13\\right)^{2}+\\frac83,\\qquad\\int\\frac{\\mathrm dt}{3t^{2}-2t+3}=\\frac{1}{2\\sqrt2}\\arctan\\frac{3\\left(t-\\frac13\\right)}{2\\sqrt2}+C.$$</div>"
+        },
+        {
+          "title": "第四步：回代并写出 $u$",
+          "html": "<div class=\"fm\">$$u(x,y)=\\frac{1}{2\\sqrt2}\\arctan\\left[\\frac{3}{2\\sqrt2}\\left(\\frac xy-\\frac13\\right)\\right]+C.$$</div><p>验算：求导后 $1+w^{2}=\\frac38\\left(3t^{2}-2t+3\\right)$，与系数合成 $\\frac{1}{3t^{2}-2t+3}\\mathrm dt$ ✓。</p><p class=\"concl\"><b>结论</b>$u=\\dfrac{1}{2\\sqrt2}\\arctan\\left[\\dfrac{3}{2\\sqrt2}\\left(\\dfrac xy-\\dfrac13\\right)\\right]+C$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（全微分反求原函数篇）",
+        "lead": "看到「$\\mathrm du=\\frac{y\\mathrm dx-x\\mathrm dy}{3x^{2}-2xy+3y^{2}}$」，直接按这个顺序出牌：",
+        "items": [
+          "分子见 $y\\mathrm dx-x\\mathrm dy$ ⇒ 立刻写成 $y^{2}\\mathrm d\\left(\\frac xy\\right)$。",
+          "分母是二次齐次式 ⇒ 提 $y^{2}$，令 $t=\\frac xy$，$y^{2}$ 与分子的 $y^{2}$ 对消。",
+          "剩下 $\\frac{\\mathrm dt}{at^{2}+bt+c}$ 型，配方成 $\\left(t-t_0\\right)^{2}+a^{2}$ 套 $\\arctan$。",
+          "回代前先验一次导数（$\\arctan$ 的链式系数最容易漏 $a$），本题系数正是 $\\frac{1}{2\\sqrt2}$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{1}{2\\sqrt2}\\arctan\\left[\\dfrac{3}{2\\sqrt2}\\left(\\dfrac xy-\\dfrac13\\right)\\right]+C$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "曲面相切 ＝ 法向量平行",
+      "tags": [
+        "曲面相切 ＝ 法向量平行",
+        "乘坐标相加",
+        "回代"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $a,b,c,\\mu&gt;0$，曲面 $xyz=\\mu$ 与曲面 $\\dfrac{x^{2}}{a^{2}}+\\dfrac{y^{2}}{b^{2}}+\\dfrac{z^{2}}{c^{2}}=1$ 相切，则 $\\mu=$________。",
+      "steps": [
+        {
+          "title": "第一步：把「相切」翻译成「法向量平行」",
+          "html": "<p>切点处两曲面的梯度成比例：</p><div class=\"fm\">$$\\left(yz,\\ xz,\\ xy\\right)=\\lambda\\left(\\frac{2x}{a^{2}},\\ \\frac{2y}{b^{2}},\\ \\frac{2z}{c^{2}}\\right),$$</div><p>即 $yz=\\frac{2\\lambda x}{a^{2}}$、$xz=\\frac{2\\lambda y}{b^{2}}$、$xy=\\frac{2\\lambda z}{c^{2}}$。</p>"
+        },
+        {
+          "title": "第二步：三式分别乘 $x,y,z$ 再相加",
+          "html": "<div class=\"fm\">$$3xyz=2\\lambda\\left(\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}+\\frac{z^{2}}{c^{2}}\\right)=2\\lambda,$$</div><p>最后一步用了切点在椭球面上。为什么乘坐标：这样左端统一成 $xyz$、右端统一成椭球的二次型，$\\lambda$ 一次就定出 $\\lambda=\\frac{3xyz}{2}$。</p>"
+        },
+        {
+          "title": "第三步：回代第一式求 $x^{2}$，再求 $\\mu$",
+          "html": "<div class=\"fm\">$$yz=\\frac{3xyz}{2}\\cdot\\frac{2x}{a^{2}}=\\frac{3x^{2}yz}{a^{2}}\\;\\Longrightarrow\\;x^{2}=\\frac{a^{2}}{3},$$</div><p>同理 $y^{2}=\\frac{b^{2}}{3}$、$z^{2}=\\frac{c^{2}}{3}$。由 $a,b,c,\\mu&gt;0$ 取正根：</p><div class=\"fm\">$$\\mu=xyz=\\frac{a}{\\sqrt3}\\cdot\\frac{b}{\\sqrt3}\\cdot\\frac{c}{\\sqrt3}=\\frac{abc}{3\\sqrt3}.$$</div><p class=\"concl\"><b>结论</b>$\\mu=\\dfrac{abc}{3\\sqrt3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（两曲面相切求参数篇）",
+        "lead": "看到「$xyz=\\mu$ 与椭球面相切、求 $\\mu$」，直接按这个顺序出牌：",
+        "items": [
+          "相切 ⇔ 切点处 $\\nabla F=\\lambda\\nabla G$，把两个梯度都写出来逐分量对齐。",
+          "三个分量方程分别乘 $x,y,z$ 再相加——这是把「乘积型约束」与「二次型约束」对接的固定手法。",
+          "用切点在椭球面上把右边的二次型换成 $1$，立刻得 $\\lambda$。",
+          "回代解出 $x^{2}=\\frac{a^{2}}{3}$ 这类结果，三个坐标相乘即 $\\mu=\\frac{abc}{3\\sqrt3}$（符号由 $a,b,c,\\mu&gt;0$ 定）。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{abc}{3\\sqrt3}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "球坐标解边界",
+      "tags": [
+        "球坐标解边界",
+        "约分",
+        "幂函数积分"
+      ],
+      "difficulty": 4,
+      "stemHtml": "计算三重积分 $\\displaystyle\\iiint_{\\Omega}\\frac{xyz}{x^{2}+y^{2}}\\,\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z$，其中 $\\Omega$ 是由曲面 $\\left(x^{2}+y^{2}+z^{2}\\right)^{2}=2xy$ 围成的区域在第一卦限部分。",
+      "steps": [
+        {
+          "title": "第一步：把曲面代成球坐标，解出 $r$ 的上限",
+          "html": "<p>$x=r\\sin\\theta\\cos\\varphi$、$y=r\\sin\\theta\\sin\\varphi$、$z=r\\cos\\theta$，左边 $=r^{4}$，右边 $=2r^{2}\\sin^{2}\\theta\\sin\\varphi\\cos\\varphi$，约去 $r^{2}$：</p><div class=\"fm\">$$r^{2}=\\sin^{2}\\theta\\sin2\\varphi\\;\\Longrightarrow\\;r=\\sin\\theta\\sqrt{\\sin2\\varphi}.$$</div><p>为什么选球坐标：曲面方程是齐次的（左 4 次、右 2 次），只有球坐标能把边界化成 $r$ 的显式。</p>"
+        },
+        {
+          "title": "第二步：定三个角度的范围，并化简被积函数",
+          "html": "<p>第一卦限 ⇒ $x,y,z\\ge0$ ⇒ $\\theta\\in\\left[0,\\frac\\pi2\\right]$、$\\varphi\\in\\left[0,\\frac\\pi2\\right]$（此时 $\\sin2\\varphi\\ge0$）。</p><div class=\"fm\">$$\\frac{xyz}{x^{2}+y^{2}}=\\frac{r^{3}\\sin^{2}\\theta\\cos\\theta\\sin\\varphi\\cos\\varphi}{r^{2}\\sin^{2}\\theta}=r\\sin\\theta\\cos\\theta\\sin\\varphi\\cos\\varphi.$$</div>"
+        },
+        {
+          "title": "第三步：把三重积分写成可分离的乘积",
+          "html": "<div class=\"fm\">$$\\iiint=r^{3}\\sin\\theta\\cos\\theta\\sin\\varphi\\cos\\varphi\\cdot r^{2}\\sin\\theta\\,\\mathrm dr\\,\\mathrm d\\theta\\,\\mathrm d\\varphi,$$</div><p>对 $r$ 积到上限 $R=\\sin\\theta\\sqrt{\\sin2\\varphi}$：$\\int_0^{R}r^{3}\\mathrm dr=\\frac{R^{4}}{4}=\\sin^{4}\\theta\\sin^{2}\\varphi\\cos^{2}\\varphi$，于是</p><div class=\"fm\">$$I=\\int_0^{\\frac\\pi2}\\sin^{6}\\theta\\cos\\theta\\,\\mathrm d\\theta\\cdot\\int_0^{\\frac\\pi2}\\sin^{3}\\varphi\\cos^{3}\\varphi\\,\\mathrm d\\varphi.$$</div>"
+        },
+        {
+          "title": "第四步：两个单变量积分",
+          "html": "<div class=\"fm\">$$\\int_0^{\\frac\\pi2}\\sin^{6}\\theta\\cos\\theta\\,\\mathrm d\\theta=\\frac{\\sin^{7}\\theta}{7}\\Big|_0^{\\frac\\pi2}=\\frac17,\\qquad\\int_0^{\\frac\\pi2}\\sin^{3}\\varphi\\cos^{3}\\varphi\\,\\mathrm d\\varphi=\\frac{1}{2}B\\left(2,2\\right)=\\frac{1}{12},$$</div><div class=\"fm\">$$I=\\frac17\\cdot\\frac1{12}=\\frac{1}{84}.$$</div><p class=\"concl\"><b>结论</b>三重积分为 $\\dfrac{1}{84}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（齐次球面围区域篇）",
+        "lead": "看到「$\\left(x^{2}+y^{2}+z^{2}\\right)^{2}=2xy$ 围成区域、被积函数带 $x^{2}+y^{2}$」，直接按这个顺序出牌：",
+        "items": [
+          "先代球坐标，把曲面方程约成 $r^{2}=F\\left(\\theta,\\varphi\\right)$，得到 $r$ 的积分上限。",
+          "被积函数也用球坐标写，凡带 $x^{2}+y^{2}$ 的项必定与体积元的 $\\sin^{2}\\theta$ 部分约掉。",
+          "整理后一定拆成 $\\theta$ 与 $\\varphi$ 两部分乘积（本题 $r$ 的积分只贡献 $\\frac{R^{4}}{4}$）。",
+          "$\\int_0^{\\pi/2}\\sin^{m}\\cos^{n}=\\frac12B\\left(\\frac{m+1}{2},\\frac{n+1}{2}\\right)$；本题 $\\frac17\\cdot\\frac1{12}=\\frac1{84}$，别把 $\\sin^{6}$ 的指数记成 $5$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{1}{84}$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "最值点",
+      "tags": [
+        "最值点",
+        "中值定理",
+        "区间接力归纳"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $f(x)$ 在 $\\left[0,+\\infty\\right)$ 上可微，$f(0)=0$，且存在常数 $A&gt;0$，使得 $\\left|f'(x)\\right|\\leqslant A\\left|f(x)\\right|$ 在 $\\left[0,+\\infty\\right)$ 上成立。证明：在 $\\left(0,+\\infty\\right)$ 上有 $f(x)\\equiv0$。",
+      "steps": [
+        {
+          "title": "第一步：想清楚「$A$ 该用在哪儿」",
+          "html": "<p>条件把 $f'$ 用 $f$ 本身控住，这种结构只能靠「取一段区间上 $\\left|f\\right|$ 的最大值，再用中值定理把 $f'$ 换成 $f$」来制造 $\\left|f\\right|\\le\\frac12\\left|f\\right|$ 型矛盾。区间的长度必须让 $A\\cdot L\\le\\frac12$，所以取 $L=\\frac{1}{2A}$。</p>"
+        },
+        {
+          "title": "第二步：在第一段上用最大值点",
+          "html": "<p>$\\left|f\\right|$ 在 $\\left[0,\\frac{1}{2A}\\right]$ 上连续，取到最大值点 $x_0$。在 $\\left[0,x_0\\right]$ 上用 Lagrange（$f(0)=0$）：存在 $\\xi$，</p><div class=\"fm\">$$\\left|f(x_0)\\right|=\\left|f(x_0)-f(0)\\right|=\\left|f'(\\xi)\\right|x_0\\leqslant A\\left|f(\\xi)\\right|\\cdot\\frac{1}{2A}=\\frac{\\left|f(\\xi)\\right|}{2}\\leqslant\\frac{\\left|f(x_0)\\right|}{2}.$$</div><p>故 $\\left|f(x_0)\\right|=0$，即 $f\\equiv0$ 于 $\\left[0,\\frac{1}{2A}\\right]$。</p>"
+        },
+        {
+          "title": "第三步：以左端点为新的零点，逐段右推",
+          "html": "<p>设已证 $f\\left(\\frac{k}{2A}\\right)=0$。在 $I_k=\\left[\\frac{k}{2A},\\frac{k+1}{2A}\\right]$ 上同样取 $\\left|f\\right|$ 的最大值点 $x_k$：</p><div class=\"fm\">$$\\left|f(x_k)\\right|=\\left|f(x_k)-f\\left(\\tfrac{k}{2A}\\right)\\right|\\leqslant A\\left|f(\\eta)\\right|\\cdot\\frac{1}{2A}\\leqslant\\frac{\\left|f(x_k)\\right|}{2}\\;\\Longrightarrow\\;\\left|f(x_k)\\right|=0,$$</div><p>于是 $f\\equiv0$ 于 $I_k$。归纳得 $f\\equiv0$ 于 $\\left[0,+\\infty\\right)$。</p><p class=\"concl\"><b>结论</b>$f(x)\\equiv0$（$x\\geqslant0$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（导数被函数控制的唯一性篇）",
+        "lead": "看到「$f(0)=0$、$\\left|f'\\right|\\le A\\left|f\\right|$、证 $f\\equiv0$」，直接按这个顺序出牌：",
+        "items": [
+          "取长度 $L=\\frac{1}{2A}$ 的短区间，让 $A\\cdot L=\\frac12$ 恰好产生「减半」矛盾。",
+          "在短区间上取 $\\left|f\\right|$ 的最大值点 $x_0$，用 Lagrange 把 $f(x_0)-f(0)$ 换成 $f'(\\xi)x_0$。",
+          "$\\left|f(x_0)\\right|\\le\\frac12\\left|f(x_0)\\right|$ ⇒ 最大值只能是 $0$ ⇒ 整段为零。",
+          "把「左端为零」当新起点，逐段接力（每段长 $\\frac{1}{2A}$）推到整个 $\\left[0,+\\infty\\right)$。"
+        ]
+      },
+      "answerHtml": "$f(x)\\equiv0$（$x\\geqslant0$）"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "球面参数化",
+      "tags": [
+        "球面参数化",
+        "球带面积",
+        "一维积分"
+      ],
+      "difficulty": 4,
+      "stemHtml": "计算积分 $I=\\displaystyle\\int_0^{2\\pi}\\mathrm{d}\\varphi\\int_0^{\\pi}\\mathrm{e}^{\\sin\\theta\\left(\\cos\\varphi-\\sin\\varphi\\right)}\\sin\\theta\\,\\mathrm{d}\\theta$。",
+      "steps": [
+        {
+          "title": "第一步：把累次积分认成球面上的第一型曲面积分",
+          "html": "<p>$\\sin\\theta\\,\\mathrm d\\theta\\mathrm d\\varphi$ 正是单位球面面积元 $\\mathrm dS$，而 $\\sin\\theta\\cos\\varphi=x$、$\\sin\\theta\\sin\\varphi=y$，故</p><div class=\"fm\">$$I=\\iint_{\\Sigma}\\mathrm{e}^{x-y}\\,\\mathrm dS,\\qquad\\Sigma:x^{2}+y^{2}+z^{2}=1.$$</div><p>为什么这样转：被积函数只依赖 $x-y$，在球面上沿「$x-y=$ 常数」的圆是常数，天然适合切片。</p>"
+        },
+        {
+          "title": "第二步：用平面族 $x-y=\\sqrt2t$ 切片",
+          "html": "<p>$\\left|x-y\\right|\\le\\sqrt2\\left\\|\\left(x,y\\right)\\right\\|\\le\\sqrt2$，故 $t\\in\\left[-1,1\\right]$；平面到原点距离为 $\\left|t\\right|$，截得圆半径 $r_t=\\sqrt{1-t^{2}}$。</p>"
+        },
+        {
+          "title": "第三步：算球带面积（阿基米德定理）",
+          "html": "<p>$\\left[t,t+\\mathrm dt\\right]$ 之间的球带，斜高 $\\mathrm dh=\\frac{\\mathrm dt}{\\sqrt{1-t^{2}}}$，于是</p><div class=\"fm\">$$\\mathrm dS=2\\pi r_t\\,\\mathrm dh=2\\pi\\sqrt{1-t^{2}}\\cdot\\frac{\\mathrm dt}{\\sqrt{1-t^{2}}}=2\\pi\\,\\mathrm dt.$$</div><p>关键：球带面积只与两平面间距有关（等于外接圆柱侧面积），与离原点的远近无关。</p>"
+        },
+        {
+          "title": "第四步：降为一维积分",
+          "html": "<div class=\"fm\">$$I=\\int_{-1}^{1}\\mathrm{e}^{\\sqrt2t}\\cdot2\\pi\\,\\mathrm dt=\\frac{2\\pi}{\\sqrt2}\\left[\\mathrm{e}^{\\sqrt2t}\\right]_{-1}^{1}=\\sqrt2\\pi\\left(\\mathrm{e}^{\\sqrt2}-\\mathrm{e}^{-\\sqrt2}\\right).$$</div><p class=\"concl\"><b>结论</b>$I=\\sqrt2\\pi\\left(\\mathrm{e}^{\\sqrt2}-\\mathrm{e}^{-\\sqrt2}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（球面 ＋ 平行平面切片篇）",
+        "lead": "看到「$\\int_0^{2\\pi}\\mathrm d\\varphi\\int_0^{\\pi}\\mathrm e^{a\\sin\\theta\\cos\\varphi+b\\sin\\theta\\sin\\varphi}\\sin\\theta\\,\\mathrm d\\theta$」，直接按这个顺序出牌：",
+        "items": [
+          "先认出 $\\sin\\theta\\,\\mathrm d\\theta\\mathrm d\\varphi$ 是单位球面积元，把积分改写成 $\\iint_\\Sigma\\mathrm e^{ax+by}\\mathrm dS$。",
+          "被积函数只依赖 $ax+by$ ⇒ 用平面族 $ax+by=\\sqrt{a^{2}+b^{2}}\\,t$ 切片，$t\\in\\left[-1,1\\right]$。",
+          "球带面积 $=2\\pi R\\,\\mathrm dt$（$R=1$ 时就是 $2\\pi\\mathrm dt$），与 $t$ 无关——这是能把二重降成一重的唯一理由。",
+          "剩下 $\\int_{-1}^{1}\\mathrm e^{\\sqrt{a^{2}+b^{2}}t}2\\pi\\mathrm dt$，本题 $a=1,b=-1$ 给 $\\sqrt2\\pi\\left(\\mathrm e^{\\sqrt2}-\\mathrm e^{-\\sqrt2}\\right)$。"
+        ]
+      },
+      "answerHtml": "$\\sqrt2\\pi\\left(\\mathrm{e}^{\\sqrt2}-\\mathrm{e}^{-\\sqrt2}\\right)$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "根分解",
+      "tags": [
+        "根分解",
+        "对数求导",
+        "几何展开比较系数",
+        "主项分析"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 是仅有正实根的多项式函数，满足 $\\dfrac{f'(x)}{f(x)}=-\\displaystyle\\sum_{n=0}^{\\infty}c_nx^{n}$。试证：$c_n&gt;0\\ (n\\geqslant0)$，极限 $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{\\sqrt[n]{c_n}}$ 存在，且等于 $f(x)$ 的最小根。",
+      "steps": [
+        {
+          "title": "第一步：把 $f$ 按根分解，再对数求导",
+          "html": "<p>设最小根为 $a_1$（重数 $r_1$），其余根 $a_2&lt;\\cdots&lt;a_k$（重数 $r_2,\\cdots,r_k$），则</p><div class=\"fm\">$$f(x)=A\\prod_{i=1}^{k}\\left(x-a_i\\right)^{r_i},\\qquad \\frac{f'}{f}=\\sum_{i=1}^{k}\\frac{r_i}{x-a_i}=-\\sum_{i=1}^{k}\\frac{r_i}{a_i-x}.$$</div><p>为什么取对数求导：$f'/f$ 是「对数导数」，对乘积形式逐因子求导最省事。</p>"
+        },
+        {
+          "title": "第二步：几何展开，比较系数得 $c_n$",
+          "html": "<p>$\\left|x\\right|&lt;a_1$ 时 $\\left|\\frac{x}{a_i}\\right|&lt;1$，故</p><div class=\"fm\">$$\\frac{r_i}{a_i-x}=\\frac{r_i}{a_i}\\sum_{n=0}^{\\infty}\\left(\\frac{x}{a_i}\\right)^{n}=\\sum_{n=0}^{\\infty}\\frac{r_i}{a_i^{n+1}}x^{n},$$</div><div class=\"fm\">$$c_n=\\sum_{i=1}^{k}\\frac{r_i}{a_i^{n+1}}&gt;0\\qquad\\left(n\\geqslant0\\right).$$</div><p>「$c_n&gt;0$」就是这样一步到位的：每一项都正，和自然正。</p>"
+        },
+        {
+          "title": "第三步：提出最小根的主项，算比值",
+          "html": "<div class=\"fm\">$$c_n=\\frac{1}{a_1^{n+1}}\\left[r_1+\\sum_{i\\ge2}r_i\\left(\\frac{a_1}{a_i}\\right)^{n+1}\\right],$$</div><p>括号内趋于 $r_1$（因 $\\frac{a_1}{a_i}&lt;1$），故</p><div class=\"fm\">$$\\frac{c_n}{c_{n+1}}\\longrightarrow a_1.$$</div>"
+        },
+        {
+          "title": "第四步：比值极限换成根值极限",
+          "html": "<p>记 $b_n=\\frac{1}{c_n}$，则 $\\frac{b_{n+1}}{b_n}=\\frac{c_n}{c_{n+1}}\\to a_1$，由「比值极限 ⇒ 根值极限」：</p><div class=\"fm\">$$\\lim_{n\\to\\infty}\\sqrt[n]{b_n}=a_1,\\qquad\\lim_{n\\to\\infty}\\frac{1}{\\sqrt[n]{c_n}}=a_1.$$</div><p>$a_1$ 正是最小根，命题得证。</p><p class=\"concl\"><b>结论</b>$c_n&gt;0$，且 $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{\\sqrt[n]{c_n}}=a_1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（幂级数系数与最小根篇）",
+        "lead": "看到「$f$ 仅有正实根、$\\frac{f'}{f}=-\\sum c_nx^{n}$」，直接按这个顺序出牌：",
+        "items": [
+          "先把 $f$ 写成 $\\prod\\left(x-a_i\\right)^{r_i}$，则 $\\frac{f'}{f}=\\sum\\frac{r_i}{x-a_i}$——分母是 $x-a_i$ 好展开。",
+          "把 $\\frac{1}{a-x}$ 展开成 $\\frac1a\\sum\\left(\\frac xa\\right)^n$，系数 $c_n=\\sum\\frac{r_i}{a_i^{n+1}}$ 立刻可读。",
+          "根全正 ⇒ 每项正 ⇒ $c_n&gt;0$；这条结论只是「正根」的直接推论，不需要额外论证。",
+          "求极限时提最小根的 $a_1^{-\\left(n+1\\right)}$，其余项以 $\\left(\\frac{a_1}{a_i}\\right)^{n+1}$ 衰减 ⇒ $c_n/c_{n+1}\\to a_1$ ⇒ $\\sqrt[n]{c_n}\\to a_1$。"
+        ]
+      },
+      "answerHtml": "$c_n&gt;0$，且 $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{\\sqrt[n]{c_n}}$ 等于 $f$ 的最小正根"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "分离变量",
+      "tags": [
+        "分离变量",
+        "极限与初值矛盾"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $\\left[0,+\\infty\\right)$ 上具有连续导数，满足 $3\\left[3+f^{2}(x)\\right]f'(x)=2\\left[1+f^{2}(x)\\right]^{2}\\mathrm{e}^{-x^{2}}$，且 $f(0)\\leqslant1$。证明：存在常数 $M&gt;0$，使得 $x\\in\\left[0,+\\infty\\right)$ 时，恒有 $\\left|f(x)\\right|\\leqslant M$。",
+      "steps": [
+        {
+          "title": "第一步：分离变量，认清左边是某个 $g(y)$ 的导数",
+          "html": "<div class=\"fm\">$$\\frac{3+y^{2}}{\\left(1+y^{2}\\right)^{2}}\\,\\mathrm dy=\\frac23\\mathrm e^{-x^{2}}\\,\\mathrm dx,\\qquad\\frac{3+y^{2}}{\\left(1+y^{2}\\right)^{2}}=\\frac{2}{\\left(1+y^{2}\\right)^{2}}+\\frac{1}{1+y^{2}},$$</div><p>于是 $g(y)=2\\arctan y+\\frac{y}{1+y^{2}}$，且 $g'(y)=\\frac{3+y^{2}}{\\left(1+y^{2}\\right)^{2}}&gt;0$（$g$ 严格增）。</p><p>从 $0$ 到 $x$ 积分：</p><div class=\"fm\">$$g\\left(f(x)\\right)=C+\\frac23\\int_0^{x}\\mathrm e^{-t^{2}}\\,\\mathrm dt,\\qquad C=g\\left(f(0)\\right).$$</div>"
+        },
+        {
+          "title": "第二步：由 $f'>0$ 得单调，故极限 $L$ 存在",
+          "html": "<div class=\"fm\">$$f'(x)=\\frac{2\\left(1+f^{2}\\right)^{2}\\mathrm e^{-x^{2}}}{3\\left(3+f^{2}\\right)}&gt;0,$$</div><p>所以 $f$ 严格递增，$L=\\lim_{x\\to+\\infty}f(x)$ 存在（有限或 $+\\infty$）。</p>"
+        },
+        {
+          "title": "第三步：反设 $L=+\\infty$，取极限定出 $C$",
+          "html": "<p>令 $x\\to+\\infty$：左边 $g\\left(f(x)\\right)\\to2\\cdot\\frac\\pi2+0=\\pi$（因 $\\frac{y}{1+y^{2}}\\to0$）；右边用 $\\int_0^{+\\infty}\\mathrm e^{-t^{2}}\\mathrm dt=\\frac{\\sqrt\\pi}{2}$：</p><div class=\"fm\">$$\\pi=C+\\frac{\\sqrt\\pi}{3}\\;\\Longrightarrow\\;C=\\pi-\\frac{\\sqrt\\pi}{3}\\approx2.551.$$</div>"
+        },
+        {
+          "title": "第四步：用 $f(0)\\leqslant1$ 造矛盾",
+          "html": "<p>$g$ 严格增且 $f(0)\\leqslant1$ ⇒ $C=g\\left(f(0)\\right)\\leqslant g(1)=2\\arctan1+\\frac12\\approx2.071$。</p><p>$2.551&gt;2.071$，矛盾。故 $L$ 有限，$M=\\max\\left\\{\\left|f(0)\\right|,\\left|L\\right|\\right\\}$ 即可。</p><p class=\"concl\"><b>结论</b>存在 $M&gt;0$ 使 $\\left|f(x)\\right|\\leqslant M$ 对一切 $x\\geqslant0$ 成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（可分离变量 ＋ 无界反证篇）",
+        "lead": "看到「$\\left(3+f^{2}\\right)f'=\\left(1+f^{2}\\right)^{2}\\mathrm e^{-x^{2}}$、$f(0)\\le1$、证有界」，直接按这个顺序出牌：",
+        "items": [
+          "先把含 $f$ 的因子移到 $\\mathrm dy$ 一侧、含 $x$ 的移到 $\\mathrm dx$ 一侧，凑出 $g'(y)\\mathrm dy=\\varphi(x)\\mathrm dx$。",
+          "$\\int\\frac{3+y^{2}}{\\left(1+y^{2}\\right)^{2}}\\mathrm dy=2\\arctan y+\\frac{y}{1+y^{2}}$，这是本题唯一需要记的积分。",
+          "$f'&gt;0$ ⇒ $f$ 单调 ⇒ 极限存在；若 $f\\to+\\infty$，对积分等式取极限会把 $C$ 钉成 $\\pi-\\frac{\\sqrt\\pi}{3}$。",
+          "用 $f(0)\\le1$ 给出 $C\\le g(1)\\approx2.07$，与 $2.55$ 矛盾 ⇒ $f$ 有界；$f(0)\\le1$ 是精确门槛，放宽到 $2$ 就失效。"
+        ]
+      },
+      "answerHtml": "存在 $M&gt;0$ 使 $\\left|f(x)\\right|\\leqslant M$（$x\\geqslant0$）"
+    }
+  ]
+}

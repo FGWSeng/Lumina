@@ -1,0 +1,464 @@
+{
+  "year": 2012,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第四届（2012）初赛 非数学专业类",
+  "edition": 4,
+  "source": "第4届（2012）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "计算 1",
+      "type": "solution",
+      "title": "对数化",
+      "tags": [
+        "对数化",
+        "逐项放缩",
+        "Cauchy 命题"
+      ],
+      "difficulty": 3,
+      "stemHtml": "求 $\\displaystyle\\lim_{n\\to\\infty}(n!)^{\\frac{1}{n^{2}}}$。",
+      "steps": [
+        {
+          "title": "第一步：把 $1/n^{2}$ 次幂搬进对数",
+          "html": "<p>幂指结构一律先取对数：$(n!)^{\\frac{1}{n^{2}}}=\\mathrm{e}^{\\frac{\\ln(n!)}{n^{2}}}$。问题变成求 $\\frac{\\ln(n!)}{n^{2}}$ 的极限。</p><p>为什么这题不能用 Stirling：$n!\\sim\\sqrt{2\\pi n}\\left(\\frac{n}{\\mathrm{e}}\\right)^{n}$ 会给 $\\frac{\\ln n!}{n^{2}}\\sim\\frac{n\\ln n}{n^{2}}=\\frac{\\ln n}{n}\\to0$，也对，但要走「$\\frac{\\ln n}{n}\\to0$」这一步；用放缩更直接、更适合写卷面。</p>"
+        },
+        {
+          "title": "第二步：用 $\\frac{1}{n^{2}}\\leqslant\\frac{1}{nk}$ 把和式压成算术平均",
+          "html": "<p>当 $k\\leqslant n$ 时 $\\frac{1}{n^{2}}\\leqslant\\frac{1}{nk}$，逐项放大：</p><div class=\"fm\">$$\\frac{\\ln(n!)}{n^{2}}=\\sum_{k=1}^{n}\\frac{\\ln k}{n^{2}}\\leqslant\\sum_{k=1}^{n}\\frac{\\ln k}{nk}=\\frac1n\\sum_{k=1}^{n}\\frac{\\ln k}{k}.$$</div>"
+        },
+        {
+          "title": "第三步：Cauchy 命题收口",
+          "html": "<p>$\\left\\{\\frac{\\ln k}{k}\\right\\}$ 趋于 $\\lim_{k\\to\\infty}\\frac{\\ln k}{k}=0$，由「若 $x_n\\to L$ 则其算术平均也 $\\to L$」，得 $\\frac1n\\sum\\frac{\\ln k}{k}\\to0$。</p><p>又 $\\frac{\\ln(n!)}{n^{2}}\\geqslant0$，夹逼得 $\\frac{\\ln(n!)}{n^{2}}\\to0$，故原极限 $=\\mathrm{e}^{0}=1$。</p><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{n\\to\\infty}(n!)^{\\frac{1}{n^{2}}}=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（阶乘开高次方篇）",
+        "lead": "看到「$(n!)^{\\frac{1}{f(n)}}$、$f(n)$ 比 $n$ 大一个量级」，直接按这个顺序出牌：",
+        "items": [
+          "先取对数：$(n!)^{\\alpha}=\\mathrm{e}^{\\alpha\\ln(n!)}$，把幂变成乘积。",
+          "$\\ln(n!)=\\sum\\ln k$，用 $\\frac{1}{n^{2}}\\leqslant\\frac{1}{nk}$ 把它压成算术平均 $\\frac1n\\sum\\frac{\\ln k}{k}$。",
+          "算术平均的极限等于通项极限：$\\lim\\frac{\\ln k}{k}=0$，故整体 $\\to0$，答案 $\\mathrm{e}^{0}=1$。",
+          "对照结论：$\\frac{1}{n}$ 次方给几何平均 $\\to$ 有限值；$\\frac{1}{n^{2}}$、$\\frac{1}{n\\ln n}$ 这类「更高次」一律给 $1$。"
+        ]
+      },
+      "answerHtml": "$1$"
+    },
+    {
+      "seq": 2,
+      "number": "计算 2",
+      "type": "solution",
+      "title": "平面束",
+      "tags": [
+        "平面束",
+        "点代入",
+        "法向量垂直"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求通过直线 $L:\\begin{cases}2x+y-3z+2=0,\\\\ 5x+5y-4z+3=0\\end{cases}$ 的两个互相垂直的平面 $\\pi_1,\\pi_2$，使其中一个平面过点 $(4,-3,1)$。",
+      "steps": [
+        {
+          "title": "第一步：把「过一条直线的所有平面」写成一个参数族",
+          "html": "<p>直线是两平面交线，所以任何过它的平面都可以写成两平面方程的线性组合（平面束）：</p><div class=\"fm\">$$\\lambda\\left(2x+y-3z+2\\right)+\\mu\\left(5x+5y-4z+3\\right)=0.$$</div><p>合并同类项：</p><div class=\"fm\">$$\\left(2\\lambda+5\\mu\\right)x+\\left(\\lambda+5\\mu\\right)y-\\left(3\\lambda+4\\mu\\right)z+\\left(2\\lambda+3\\mu\\right)=0.$$</div><p>这一步的价值：把「求两个平面」变成「求两组 $(\\lambda,\\mu)$」，两个条件各定一组，问题立刻线性化。</p>"
+        },
+        {
+          "title": "第二步：用「过点」定第一个平面",
+          "html": "<p>代入 $(4,-3,1)$：</p><div class=\"fm\">$$4\\left(2\\lambda+5\\mu\\right)-3\\left(\\lambda+5\\mu\\right)-\\left(3\\lambda+4\\mu\\right)+\\left(2\\lambda+3\\mu\\right)=0\\;\\Longrightarrow\\;4\\lambda+4\\mu=0,$$</div><p>即 $\\mu=-\\lambda$。取 $\\lambda=1,\\mu=-1$，得</p><div class=\"fm\">$$\\pi_1:\\ -3x-4y+z-1=0,\\quad\\text{即}\\quad 3x+4y-z+1=0.$$</div><p>代回验算：$12-12-1+1=0$ ✓。</p>"
+        },
+        {
+          "title": "第三步：用「两平面垂直」定第二个",
+          "html": "<p>$\\pi_2\\perp\\pi_1$ 等价于两法向量内积为零：</p><div class=\"fm\">$$(3,4,-1)\\cdot\\left(2\\lambda+5\\mu,\\ \\lambda+5\\mu,\\ -\\left(3\\lambda+4\\mu\\right)\\right)=0.$$</div><p>展开：$6\\lambda+15\\mu+4\\lambda+20\\mu+3\\lambda+4\\mu=13\\lambda+39\\mu=0$，即 $\\lambda=-3\\mu$。取 $\\lambda=3,\\mu=-1$：</p><div class=\"fm\">$$\\pi_2:\\ (6-5)x+\\ (3-5)y-\\left(9-4\\right)z+\\left(6-3\\right)=x-2y-5z+3=0.$$</div>"
+        },
+        {
+          "title": "第四步：验算两件事",
+          "html": "<p>$\\pi_2$ 过直线 $L$（构造上保证）；$(3,4,-1)\\cdot(1,-2,-5)=3-8+5=0$ ✓ 垂直。</p><p class=\"concl\"><b>结论</b>$\\pi_1:3x+4y-z+1=0$，$\\pi_2:x-2y-5z+3=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（平面束篇）",
+        "lead": "看到「过一条直线作平面、还要满足垂直或过点」，直接按这个顺序出牌：",
+        "items": [
+          "先写平面束 $\\lambda P_1+\\mu P_2=0$，把「求平面」降成「求两个参数」。",
+          "「过点」条件代入后一般给出 $\\lambda,\\mu$ 的一次关系（本题 $\\lambda+\\mu=0$），定出第一个平面。",
+          "「垂直」条件用两法向量内积为零，代入平面束法向量得另一组参数。",
+          "最后必须验算：点是否在面上、两法向量内积是否为零，两个都写一句能保住步骤分。"
+        ]
+      },
+      "answerHtml": "$\\pi_1:3x+4y-z+1=0$，$\\pi_2:x-2y-5z+3=0$"
+    },
+    {
+      "seq": 3,
+      "number": "计算 3",
+      "type": "solution",
+      "title": "指数因子代换",
+      "tags": [
+        "指数因子代换",
+        "混合偏导",
+        "系数比较"
+      ],
+      "difficulty": 3,
+      "stemHtml": "已知函数 $z=u(x,y)\\mathrm{e}^{ax+by}$，且 $\\dfrac{\\partial^{2}u}{\\partial x\\partial y}=0$，确定常数 $a,b$，使 $z$ 满足方程 $\\dfrac{\\partial^{2}z}{\\partial x\\partial y}-\\dfrac{\\partial z}{\\partial x}-\\dfrac{\\partial z}{\\partial y}+z=0$。",
+      "steps": [
+        {
+          "title": "第一步：把 $z$ 的一、二阶偏导全部算出来",
+          "html": "<p>$z=\\mathrm{e}^{ax+by}u$，指数因子在求导时会掉出常数 $a,b$：</p><div class=\"fm\">$$z_x=\\mathrm{e}^{ax+by}\\left(u_x+au\\right),\\qquad z_y=\\mathrm{e}^{ax+by}\\left(u_y+bu\\right).$$</div><p>再对 $z_y$ 关于 $x$ 求导（注意 $u_{xy}=0$ 这个条件在这里用上）：</p><div class=\"fm\">$$z_{xy}=\\mathrm{e}^{ax+by}\\left(u_{xy}+bu_x+au_y+abu\\right)=\\mathrm{e}^{ax+by}\\left(bu_x+au_y+abu\\right).$$</div>"
+        },
+        {
+          "title": "第二步：整体代入方程，提出公因子",
+          "html": "<div class=\"fm\">$$\\mathrm{e}^{ax+by}\\Big[u_{xy}+\\left(b-1\\right)u_x+\\left(a-1\\right)u_y+\\left(ab-a-b+1\\right)u\\Big]=0.$$</div><p>由于 $u_{xy}=0$ 且 $\\mathrm{e}^{ax+by}\\neq0$，条件变成</p><div class=\"fm\">$$\\left(b-1\\right)u_x+\\left(a-1\\right)u_y+\\left(ab-a-b+1\\right)u=0\\quad\\text{对任意 }u\\text{ 成立}.$$</div>"
+        },
+        {
+          "title": "第三步：让三个系数同时为零",
+          "html": "<p>$u$、$u_x$、$u_y$ 可以独立取（题目没说 $u$ 固定），所以只能要求每个系数都为零：</p><div class=\"fm\">$$b-1=0,\\qquad a-1=0,\\qquad ab-a-b+1=0.$$</div><p>前两式给 $a=b=1$，代入第三式 $1-1-1+1=0$ ✓ 自动满足。</p><p class=\"concl\"><b>结论</b>$a=b=1$（此时方程化为 $u_{xy}=0$，即 $z=\\mathrm{e}^{x+y}u(x,y)$，$u$ 形如 $f(x)+g(y)$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（指数因子代换篇）",
+        "lead": "看到「$z=\\mathrm{e}^{ax+by}u$ 代入二阶 PDE、反求常数」，直接按这个顺序出牌：",
+        "items": [
+          "先算 $z_x,z_y,z_{xy}$，指数因子每次求导都掉出 $a$ 或 $b$，把 $u$ 的项留在括号里。",
+          "把整个式子除以 $\\mathrm{e}^{ax+by}$，让方程退化成「$u,u_x,u_y,u_{xy}$ 的线性组合等于零」。",
+          "若要「对任意 $u$ 成立」，就让各阶偏导的系数全为零，解出的 $a,b$ 就是答案。",
+          "这类题的本质是「消去一阶项」：$a,b$ 应等于 $\\mathrm{e}^{ax+by}$ 中对应方向的指数，本题 $a=b=1$。"
+        ]
+      },
+      "answerHtml": "$a=b=1$"
+    },
+    {
+      "seq": 4,
+      "number": "计算 4",
+      "type": "solution",
+      "title": "路径无关",
+      "tags": [
+        "路径无关",
+        "一阶线性 ODE",
+        "初值"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $u=u(x)$ 连续可微，$u(2)=1$，且 $\\displaystyle\\int_L\\left[(x+2y)u\\,\\mathrm{d}x+\\left(x+u^{3}\\right)u\\,\\mathrm{d}y\\right]$ 在右半平面上与路径无关，求 $u(x)$。",
+      "steps": [
+        {
+          "title": "第一步：写出路径无关条件",
+          "html": "<p>记 $P=(x+2y)u$、$Q=(x+u^{3})u$，路径无关等价于 $\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$。注意 $u$ 只是 $x$ 的函数：</p><div class=\"fm\">$$\\frac{\\partial P}{\\partial y}=2u,$$</div><div class=\"fm\">$$\\frac{\\partial Q}{\\partial x}=\\left(1+3u^{2}u'\\right)u+\\left(x+u^{3}\\right)u'=u+xu'+4u^{3}u'.$$</div><p>第二式的算法是「$Q$ 是两个含 $u$ 的因子相乘」，要用乘积法则并把 $u'$ 提出来。</p>"
+        },
+        {
+          "title": "第二步：整理成关于 $x(u)$ 的方程",
+          "html": "<p>令两式相等：$2u=u+xu'+4u^{3}u'$，即</p><div class=\"fm\">$$u=\\left(x+4u^{3}\\right)\\frac{\\mathrm{d}u}{\\mathrm{d}x}\\;\\Longrightarrow\\;\\frac{\\mathrm{d}x}{\\mathrm{d}u}=\\frac{x}{u}+4u^{2}.$$</div><p>这里把 $x$ 看成 $u$ 的函数（反函数求导），方程就变成标准的一阶线性形式：$\\frac{\\mathrm{d}x}{\\mathrm{d}u}-\\frac1u x=4u^{2}$。</p>"
+        },
+        {
+          "title": "第三步：解一阶线性方程",
+          "html": "<p>积分因子 $\\mathrm{e}^{-\\int\\frac{\\mathrm{d}u}{u}}=\\frac1u$，于是 $\\left(\\frac{x}{u}\\right)'=4u$，积分得</p><div class=\"fm\">$$\\frac{x}{u}=2u^{2}+C\\;\\Longrightarrow\\;x=2u^{3}+Cu.$$</div>"
+        },
+        {
+          "title": "第四步：代初值定常数",
+          "html": "<p>$u(2)=1$ 意味着 $x=2$ 时 $u=1$：$2=2+C$，故 $C=0$，即 $x=2u^{3}$，</p><div class=\"fm\">$$u(x)=\\sqrt[3]{\\frac{x}{2}}.$$</div><p class=\"concl\"><b>结论</b>$u(x)=\\sqrt[3]{\\dfrac{x}{2}}$（在右半平面 $x&gt;0$ 上有意义，与题设一致）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（路径无关转 ODE 篇）",
+        "lead": "看到「曲线积分与路径无关 ＋ 求未知函数」，直接按这个顺序出牌：",
+        "items": [
+          "先写 $P,Q$，再用 $P_y=Q_x$ 建立方程——这是路径无关的唯一入口。",
+          "若未知函数只依赖一个变量，求导时会出现 $u'$，把 $u'$ 聚起来就能整理成 ODE。",
+          "形如 $u=(x+4u^{3})u'$ 时，把 $x$ 当未知函数、$u$ 当自变量，得线性方程 $\\frac{\\mathrm{d}x}{\\mathrm{d}u}-\\frac{x}{u}=4u^{2}$。",
+          "初值要与答案对齐：$u(2)=1$ 指「$x=2$ 时 $u=1$」，写成 $x=2u^{3}$ 代 $(2,1)$ 才能定出 $C=0$。"
+        ]
+      },
+      "answerHtml": "$u(x)=\\sqrt[3]{\\dfrac{x}{2}}$"
+    },
+    {
+      "seq": 5,
+      "number": "计算 5",
+      "type": "solution",
+      "title": "积分夹逼",
+      "tags": [
+        "积分夹逼",
+        "分母放缩",
+        "有理化"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求 $\\displaystyle\\lim_{x\\to+\\infty}\\sqrt[3]{x}\\int_x^{x+1}\\frac{\\sin t}{\\sqrt{t+\\cos t}}\\,\\mathrm{d}t$。",
+      "steps": [
+        {
+          "title": "第一步：判结构——区间长度为 $1$、被积函数有界",
+          "html": "<p>$\\sqrt[3]{x}$ 在 $x\\to+\\infty$ 时发散，要压住它，积分必须趋于 $0$。区间长度只有 $1$，被积函数里 $|\\sin t|\\leqslant1$、分母 $\\sqrt{t+\\cos t}$ 又随 $t$ 增大，所以积分确实会变小——但 $\\sin t$ 会变号，不能用「两边同号」放大，必须先取绝对值。</p><div class=\"fm\">$$\\left|\\int_x^{x+1}\\frac{\\sin t}{\\sqrt{t+\\cos t}}\\mathrm{d}t\\right|\\leqslant\\int_x^{x+1}\\frac{\\mathrm{d}t}{\\sqrt{t+\\cos t}}.$$</div>"
+        },
+        {
+          "title": "第二步：把分母放到最小，换成可积的形式",
+          "html": "<p>$\\cos t\\geqslant-1$，故 $t+\\cos t\\geqslant t-1$，于是</p><div class=\"fm\">$$\\int_x^{x+1}\\frac{\\mathrm{d}t}{\\sqrt{t+\\cos t}}\\leqslant\\int_x^{x+1}\\frac{\\mathrm{d}t}{\\sqrt{t-1}}=2\\left(\\sqrt{x}-\\sqrt{x-1}\\right).$$</div><p>这里 $x&gt;1$ 保证根号内有意义；选 $t-1$ 而不是 $t$，是因为要一个能积分出闭式的下界。</p>"
+        },
+        {
+          "title": "第三步：有理化后看阶",
+          "html": "<div class=\"fm\">$$\\sqrt{x}-\\sqrt{x-1}=\\frac{1}{\\sqrt{x}+\\sqrt{x-1}}\\sim\\frac{1}{2\\sqrt{x}},$$</div><p>所以整个放大式 $\\sim 2\\sqrt[3]{x}\\cdot\\frac{1}{2\\sqrt{x}}=x^{-\\frac16}\\to0$。</p><div class=\"fm\">$$\\left|\\sqrt[3]{x}\\int_x^{x+1}\\frac{\\sin t}{\\sqrt{t+\\cos t}}\\mathrm{d}t\\right|\\leqslant\\frac{2\\sqrt[3]{x}}{\\sqrt{x}+\\sqrt{x-1}}\\to0.$$</div>"
+        },
+        {
+          "title": "第四步：夹逼收口",
+          "html": "<p>非负性与上界同时成立，故原极限 $=0$。</p><p class=\"concl\"><b>结论</b>原极限 $=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（振荡积分夹逼篇）",
+        "lead": "看到「$\\sqrt[k]{x}$ 乘一个长度固定的积分、被积函数带 $\\sin$」，直接按这个顺序出牌：",
+        "items": [
+          "先取绝对值，把振荡变成可控的「面积估计」：$|\\int f|\\leqslant\\int|f|$。",
+          "分母用 $\\cos t\\geqslant-1$ 放到 $t-1$，把不可积的 $\\sqrt{t+\\cos t}$ 变成可积的 $\\sqrt{t-1}$。",
+          "积分算出 $2(\\sqrt{x}-\\sqrt{x-1})$，再用有理化读出它 $\\sim x^{-1/2}$。",
+          "最后比阶：$\\sqrt[3]{x}\\cdot x^{-1/2}=x^{-1/6}\\to0$，指数为负就收敛到 $0$——这一步决定答案。"
+        ]
+      },
+      "answerHtml": "$0$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "周期分段",
+      "tags": [
+        "周期分段",
+        "提公因子",
+        "等比求和"
+      ],
+      "difficulty": 4,
+      "stemHtml": "计算 $\\displaystyle\\int_0^{+\\infty}\\mathrm{e}^{-2x}|\\sin x|\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "第一步：认出「周期 × 衰减」的分段结构",
+          "html": "<p>$|\\sin x|$ 以 $\\pi$ 为最小正周期，而 $\\mathrm{e}^{-2x}$ 每过一个周期就乘一个 $\\mathrm{e}^{-2\\pi}$。所以把积分按 $\\pi$ 分段，各段之间只差一个常数因子——这是等比级数的长相。</p><p>为什么不能直接把 $|\\sin x|$ 拆成正负两段从 $0$ 积到 $\\infty$：因为 $\\mathrm{e}^{-2x}\\sin x$ 的原函数含 $\\sin$ 与 $\\cos$，直接积也对，但分段的做法能把无穷积分变成「一段 ＋ 等比因子」，更稳。</p>"
+        },
+        {
+          "title": "第二步：算出一段的「母版积分」",
+          "html": "<div class=\"fm\">$$\\int_0^{\\pi}\\mathrm{e}^{-2t}\\sin t\\,\\mathrm{d}t=\\left[\\frac{\\mathrm{e}^{-2t}\\left(-2\\sin t-\\cos t\\right)}{5}\\right]_0^{\\pi}=\\frac{1+\\mathrm{e}^{-2\\pi}}{5}.$$</div><p>这个 $\\frac{1+\\mathrm{e}^{-2\\pi}}{5}$ 就是每一段的「母版」，后面所有段都是它乘 $\\mathrm{e}^{-2(k-1)\\pi}$。</p>"
+        },
+        {
+          "title": "第三步：写出第 $k$ 段并求和",
+          "html": "<p>在第 $k$ 段令 $x=(k-1)\\pi+t$，$|\\sin x|=\\sin t$（$t\\in[0,\\pi]$）：</p><div class=\"fm\">$$\\int_{(k-1)\\pi}^{k\\pi}\\mathrm{e}^{-2x}|\\sin x|\\mathrm{d}x=\\mathrm{e}^{-2(k-1)\\pi}\\cdot\\frac{1+\\mathrm{e}^{-2\\pi}}{5}.$$</div><p>求和：</p><div class=\"fm\">$$\\sum_{k=1}^{\\infty}\\mathrm{e}^{-2(k-1)\\pi}\\cdot\\frac{1+\\mathrm{e}^{-2\\pi}}{5}=\\frac{1+\\mathrm{e}^{-2\\pi}}{5}\\cdot\\frac{1}{1-\\mathrm{e}^{-2\\pi}}=\\frac{1}{5}\\cdot\\frac{\\mathrm{e}^{2\\pi}+1}{\\mathrm{e}^{2\\pi}-1}.$$</div>"
+        },
+        {
+          "title": "第四步：说明「部分和 → 整个反常积分」",
+          "html": "<p>被积函数非负，取 $n\\pi&lt;M&lt;(n+1)\\pi$，则 $\\int_0^{n\\pi}&lt;\\int_0^{M}&lt;\\int_0^{(n+1)\\pi}$；两端都趋于同一值，故 $M\\to+\\infty$ 时积分收敛到该值。</p><p class=\"concl\"><b>结论</b>积分值 $=\\dfrac{1}{5}\\cdot\\dfrac{\\mathrm{e}^{2\\pi}+1}{\\mathrm{e}^{2\\pi}-1}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（周期衰减积分篇）",
+        "lead": "看到「$|\\sin x|$ 或 $\\{\\sin x\\}$ 这类周期函数乘 $\\mathrm{e}^{-kx}$ 在 $(0,\\infty)$ 上积分」，直接按这个顺序出牌：",
+        "items": [
+          "先算一个周期上的「母版积分」，本题 $\\int_0^{\\pi}\\mathrm{e}^{-2t}\\sin t\\,\\mathrm{d}t=\\frac{1+\\mathrm{e}^{-2\\pi}}{5}$。",
+          "第 $k$ 段 = 母版 × $\\mathrm{e}^{-2(k-1)\\pi}$，指数是「$k-1$」而不是「$k$」，差一个周期会全盘错。",
+          "求和是等比：$\\sum q^{k-1}=\\frac1{1-q}$，公比 $q=\\mathrm{e}^{-2\\pi}$。",
+          "最后用「非负函数的部分和夹逼」把级数结论搬回反常积分，这一步是严谨性得分点。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{1}{5}\\cdot\\dfrac{\\mathrm{e}^{2\\pi}+1}{\\mathrm{e}^{2\\pi}-1}$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "泰勒展开",
+      "tags": [
+        "泰勒展开",
+        "余项估计",
+        "定量精度"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求方程 $x^{2}\\sin\\dfrac{1}{x}=2x-501$ 的近似解，精确到 $0.001$，其中 $x$ 取充分大的正数。",
+      "steps": [
+        {
+          "title": "第一步：看清「$x$ 很大」意味着 $\\frac1x$ 很小，可以展开",
+          "html": "<p>$x^{2}\\sin\\frac1x$ 若把 $\\sin$ 展开，主项是 $x^{2}\\cdot\\frac1x=x$，与右边的 $2x$ 一比，$x$ 的量级就被钉在 $501$ 附近。</p><div class=\"fm\">$$x^{2}\\sin\\frac1x=x^{2}\\left(\\frac1x-\\frac{1}{6x^{3}}\\cos\\xi\\right)=x-\\frac{\\cos\\xi}{6x},\\qquad \\xi\\in\\left(0,\\frac1x\\right).$$</div><p>这里用的是带 Lagrange 余项的三阶展开 $\\sin t=t-\\frac{t^{3}}{6}\\cos\\xi$，比「$\\sin t\\approx t$」多留了一个可估计的尾巴。</p>"
+        },
+        {
+          "title": "第二步：代回方程，解出 $x$ 的表达式",
+          "html": "<div class=\"fm\">$$x-\\frac{\\cos\\xi}{6x}=2x-501\\;\\Longrightarrow\\;x=501-\\frac{\\cos\\xi}{6x}.$$</div><p>这一步说明解 $x$ 与 $501$ 的差就是那个余项 $\\frac{\\cos\\xi}{6x}$，而它与 $x$ 同量级在 $500$ 附近，所以非常小。</p>"
+        },
+        {
+          "title": "第三步：估计误差，检验是否满足 $0.001$",
+          "html": "<div class=\"fm\">$$\\left|x-501\\right|=\\frac{\\left|\\cos\\xi\\right|}{6x}\\leqslant\\frac{1}{6\\cdot500}\\approx0.00033&lt;0.001.$$</div><p>注意这里用 $x&gt;500$（因为 $|x-501|$ 远小于 $1$，故 $x&gt;500$），分母取小值才能得到保守的上界。</p>"
+        },
+        {
+          "title": "第四步：给出近似解并说明精度含义",
+          "html": "<p>故 $x\\approx501$，误差不超过 $0.00033$，满足「精确到 $0.001$」。</p><p class=\"concl\"><b>结论</b>近似解 $x\\approx501$（误差 $&lt;0.001$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（近似解与误差估计篇）",
+        "lead": "看到「方程里含 $\\sin\\frac1x$、$x$ 充分大、要求精确到小数点后几位」，直接按这个顺序出牌：",
+        "items": [
+          "先看量级：$x^{2}\\sin\\frac1x$ 的主项是 $x$，所以 $x$ 被方程右侧的常数钉住（本题 $501$）。",
+          "展开要带余项：$\\sin t=t-\\frac{t^{3}}{6}\\cos\\xi$，一阶近似只给方程，余项才给误差。",
+          "把余项解出来当作 $|x-x_0|$ 的表达式，再用 $|\\cos\\xi|\\leqslant1$ 与 $x$ 的下界估上界。",
+          "最后一定要写「误差 $&lt;0.001$，故精确到 $0.001$ 成立」——这是本题的给分点，不能只写 $x\\approx501$。"
+        ]
+      },
+      "answerHtml": "$x\\approx501$（误差小于 $0.001$）"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "切线截距",
+      "tags": [
+        "切线截距",
+        "泰勒主项",
+        "等价无穷小"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $y=f(x)$ 二阶可导，且 $f''(x)&gt;0$，$f(0)=0$，$f'(0)=0$。求 $\\displaystyle\\lim_{x\\to0}\\frac{x^{3}f(u)}{f(x)\\sin^{3}u}$，其中 $u$ 是曲线 $y=f(x)$ 上点 $P(x,f(x))$ 处的切线在 $x$ 轴上的截距。",
+      "steps": [
+        {
+          "title": "第一步：写出切线方程并解出截距 $u$",
+          "html": "<p>在 $(x,f(x))$ 处的切线：$Y-f(x)=f'(x)\\left(X-x\\right)$。令 $Y=0$ 解 $X$：</p><div class=\"fm\">$$u=x-\\frac{f(x)}{f'(x)}.$$</div><p>这个式子是整题的枢纽：它把 $u$ 表示成 $x$ 与 $f$ 的比值，后面的极限全靠它翻译。</p>"
+        },
+        {
+          "title": "第二步：用 $f(0)=f'(0)=0$ 读出 $f$ 与 $f'$ 的主项",
+          "html": "<p>$f(x)=\\frac12f''(0)x^{2}+o(x^{2})$，$f'(x)=f''(0)x+o(x)$（后者由 $f'(0)=0$ 与 $f''(0)$ 存在得到）。于是</p><div class=\"fm\">$$\\frac{u}{x}=1-\\frac{f(x)}{x f'(x)}=1-\\frac{\\frac12f''(0)x^{2}+o(x^{2})}{x\\left(f''(0)x+o(x)\\right)}\\to1-\\frac{\\frac12f''(0)}{f''(0)}=\\frac12.$$</div><p>注意这里必须用 $f$ 与 $f'$ 的<b>主项</b>相除，不能只留 $f(x)\\sim\\frac12f''(0)x^{2}$ 就替换——分母 $f'$ 也有主项，两个主项一起才能定出 $1/2$。</p>"
+        },
+        {
+          "title": "第三步：把分子分母都换成 $u,x$ 的主项",
+          "html": "<p>由 $u\\sim\\frac x2\\to0$，有 $\\sin u\\sim u$；再由 $f(u)\\sim\\frac12f''(0)u^{2}$、$f(x)\\sim\\frac12f''(0)x^{2}$：</p><div class=\"fm\">$$\\frac{x^{3}f(u)}{f(x)\\sin^{3}u}\\sim\\frac{x^{3}\\cdot\\frac12f''(0)u^{2}}{\\frac12f''(0)x^{2}\\cdot u^{3}}=\\frac{x}{u}.$$</div>"
+        },
+        {
+          "title": "第四步：用第二步的结论收口",
+          "html": "<div class=\"fm\">$$\\lim_{x\\to0}\\frac{x}{u}=\\frac{1}{\\lim\\frac ux}=2.$$</div><p class=\"concl\"><b>结论</b>极限 $=2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（切线截距型极限篇）",
+        "lead": "看到「$u$ 是切线截距、要求含 $f(u)$ 的极限」，直接按这个顺序出牌：",
+        "items": [
+          "先写截距公式 $u=x-\\frac{f(x)}{f'(x)}$，它是唯一能把 $u$ 与 $x$ 连起来的桥梁。",
+          "$f(0)=f'(0)=0$ 时，$f$ 与 $f'$ 的主项分别是 $\\frac12f''(0)x^{2}$ 与 $f''(0)x$，两者相除给 $\\frac12$。",
+          "求 $u/x$ 的极限要「主项对主项」，别只替换分子；得到 $\\frac12$ 后再用 $u\\sim\\frac x2$ 传递到整个式子。",
+          "第二问往往只剩一个 $\\frac{x}{u}$ 因子，答案就是第一问的倒数（本题 $2$）——两问联动的题都这么设计。"
+        ]
+      },
+      "answerHtml": "$2$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "积分换元",
+      "tags": [
+        "积分换元",
+        "放缩定上界",
+        "极值列逼近"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求最小实数 $C$，使得满足 $\\displaystyle\\int_0^{1}|f(x)|\\,\\mathrm{d}x=1$ 的连续函数 $f(x)$ 都有 $\\displaystyle\\int_0^{1}f\\left(\\sqrt{x}\\right)\\mathrm{d}x\\leqslant C$。",
+      "steps": [
+        {
+          "title": "第一步：先把目标积分换元成与条件同型的积分",
+          "html": "<p>令 $t=\\sqrt{x}$，则 $x=t^{2}$、$\\mathrm{d}x=2t\\,\\mathrm{d}t$，$x:0\\to1$ 对应 $t:0\\to1$：</p><div class=\"fm\">$$\\int_0^{1}f\\left(\\sqrt{x}\\right)\\mathrm{d}x=2\\int_0^{1}t f(t)\\,\\mathrm{d}t.$$</div><p>换元后出现权因子 $t$——这正是能放缩的关键：$t\\leqslant1$。</p>"
+        },
+        {
+          "title": "第二步：放缩得到上界 $2$",
+          "html": "<div class=\"fm\">$$2\\int_0^{1}t f(t)\\,\\mathrm{d}t\\leqslant2\\int_0^{1}t\\left|f(t)\\right|\\mathrm{d}t\\leqslant2\\int_0^{1}\\left|f(t)\\right|\\mathrm{d}t=2.$$</div><p>所以 $C=2$ 一定可行，即最小常数 $C\\leqslant2$。</p>"
+        },
+        {
+          "title": "第三步：构造一串函数逼近这个上界",
+          "html": "<p>要让 $\\int_0^1 f(\\sqrt x)\\mathrm{d}x$ 尽量接近 $2$，就得让 $f$ 的质量集中在 $t=1$ 附近（那里权因子 $t\\approx1$）。取</p><div class=\"fm\">$$f_n(x)=(n+1)x^{n},\\qquad \\int_0^{1}\\left|f_n\\right|\\mathrm{d}x=1.$$</div><p>目标积分：</p><div class=\"fm\">$$\\int_0^{1}f_n\\left(\\sqrt x\\right)\\mathrm{d}x=2\\int_0^{1}(n+1)t^{n+1}\\mathrm{d}t=\\frac{2(n+1)}{n+2}\\to2.$$</div>"
+        },
+        {
+          "title": "第四步：由逼近序列否定所有 $C<2$",
+          "html": "<p>若 $C&lt;2$，取 $n$ 足够大使 $\\frac{2(n+1)}{n+2}&gt;C$，则 $f_n$ 破坏不等式，故 $C&lt;2$ 不行。结合第二步，$C=2$ 就是最小常数。</p><p class=\"concl\"><b>结论</b>最小实数 $C=2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（最小常数篇）",
+        "lead": "看到「求最小 $C$ 使某不等式恒成立」，直接按这个顺序出牌：",
+        "items": [
+          "第一步永远是「证明 $C_0$ 可行」：换元把目标积分化成与条件同型，再用权因子放缩（本题 $t\\leqslant1$ 给 $2$）。",
+          "第二步是「证明更小的都不行」：构造一列满足约束的函数，让目标积分趋于 $C_0$。",
+          "构造的诀窍是「把质量往权因子最大的地方赶」，本题取 $f_n=(n+1)x^{n}$ 集中在 $x=1$。",
+          "两步一夹才算证完：只证上界只能说明「$C$ 可取」，不能说明「最小」。"
+        ]
+      },
+      "answerHtml": "$C=2$"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "柱面坐标",
+      "tags": [
+        "柱面坐标",
+        "变限积分求导",
+        "边界重合消项"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 为连续函数，$t&gt;0$。区域 $\\Omega$ 由抛物面 $z=x^{2}+y^{2}$ 和球面 $x^{2}+y^{2}+z^{2}=t^{2}$ 所围成。定义三重积分 $F(t)=\\displaystyle\\iiint_{\\Omega}f\\left(x^{2}+y^{2}+z^{2}\\right)\\mathrm{d}v$，求 $F(t)$ 的导数 $F'(t)$。",
+      "steps": [
+        {
+          "title": "第一步：用柱面坐标把区域写成「$r$ 与 $z$ 的夹层」",
+          "html": "<p>抛物面 $z=x^{2}+y^{2}=r^{2}$ 在下、球面 $z=\\sqrt{t^{2}-r^{2}}$ 在上，故</p><div class=\"fm\">$$\\Omega:\\ r^{2}\\leqslant z\\leqslant\\sqrt{t^{2}-r^{2}},\\quad 0\\leqslant r\\leqslant r_0,\\quad 0\\leqslant\\theta\\leqslant2\\pi,$$</div><p>其中 $r_0$ 是两曲面的交线：$r_0^{2}=\\sqrt{t^{2}-r_0^{2}}$，即 $r_0^{4}+r_0^{2}-t^{2}=0$，解得</p><div class=\"fm\">$$r_0^{2}=\\frac{\\sqrt{1+4t^{2}}-1}{2}.$$</div><p>注意下界是 $r^{2}$ 而不是 $r$——这是抛物面与锥面的区别，写错整题作废。</p>"
+        },
+        {
+          "title": "第二步：写出含参积分",
+          "html": "<div class=\"fm\">$$\\begin{aligned}F(t)&amp;=\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_0^{r_0}r\\,\\mathrm{d}r\\int_{r^{2}}^{\\sqrt{t^{2}-r^{2}}}f\\left(r^{2}+z^{2}\\right)\\mathrm{d}z\\\\&amp;=2\\pi\\int_0^{r_0}r\\int_{r^{2}}^{\\sqrt{t^{2}-r^{2}}}f\\left(r^{2}+z^{2}\\right)\\mathrm{d}z\\,\\mathrm{d}r.\\end{aligned}$$</div><p>这里 $f$ 的自变量 $x^{2}+y^{2}+z^{2}=r^{2}+z^{2}$，所以内层积分只依赖 $r$ 与 $z$，与 $\\theta$ 无关，$\\theta$ 的积分直接给 $2\\pi$。</p>"
+        },
+        {
+          "title": "第三步：对 $t$ 求导，先判断哪些项会活下来",
+          "html": "<p>现在 $t$ 出现在两个地方：$r_0$ 与内层上限 $\\sqrt{t^{2}-r^{2}}$。</p><p>关于 $r_0$：在 $r=r_0$ 处内层上下限相等（$r_0^{2}=\\sqrt{t^{2}-r_0^{2}}$），所以 $\\frac{\\mathrm{d}r_0}{\\mathrm{d}t}$ 乘的那一项被「零长度区间」吃掉，等于 $0$。</p><p>只留下内层上限的贡献：</p><div class=\"fm\">$$F'(t)=2\\pi\\int_0^{r_0}r\\cdot f\\left(t^{2}\\right)\\cdot\\frac{t}{\\sqrt{t^{2}-r^{2}}}\\,\\mathrm{d}r.$$</div><p>这里 $f\\left(r^{2}+z^{2}\\right)$ 在上限 $z=\\sqrt{t^{2}-r^{2}}$ 处取值正好是 $f(t^{2})$，这是设计好的「消变量」点。</p>"
+        },
+        {
+          "title": "第四步：算掉 $r$ 的积分，化简成 $t$ 的函数",
+          "html": "<div class=\"fm\">$$\\int_0^{r_0}\\frac{r\\,\\mathrm{d}r}{\\sqrt{t^{2}-r^{2}}}=\\left[-\\sqrt{t^{2}-r^{2}}\\right]_0^{r_0}=t-r_0^{2},$$</div><p>代入：</p><div class=\"fm\">$$F'(t)=2\\pi t f\\left(t^{2}\\right)\\left(t-r_0^{2}\\right)=\\pi t f\\left(t^{2}\\right)\\left(2t+1-\\sqrt{1+4t^{2}}\\right).$$</div><p class=\"concl\"><b>结论</b>$F'(t)=\\pi t f\\left(t^{2}\\right)\\left(2t+1-\\sqrt{1+4t^{2}}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（含参三重积分求导篇）",
+        "lead": "看到「区域随 $t$ 变、$F(t)$ 是含参三重积分、求 $F'(t)$」，直接按这个顺序出牌：",
+        "items": [
+          "先建坐标系：柱面坐标把「抛物面在下、球面在上」写成 $r^{2}\\leqslant z\\leqslant\\sqrt{t^{2}-r^{2}}$，$r$ 的上限由交线定。",
+          "交线方程 $r_0^{4}+r_0^{2}=t^{2}$ 要解准，$r_0^{2}=\\frac{\\sqrt{1+4t^{2}}-1}{2}$。",
+          "对 $t$ 求导时，凡「上下限在该点重合」的边界，其贡献必为零——这是省掉一大项的关键判断。",
+          "剩下的内层上限求导给 $f(t^{2})$，再对 $r$ 积分得 $t-r_0^{2}$，最后用 $r_0^{2}$ 的表达式收成 $2t+1-\\sqrt{1+4t^{2}}$。"
+        ]
+      },
+      "answerHtml": "$F'(t)=\\pi t f\\left(t^{2}\\right)\\left(2t+1-\\sqrt{1+4t^{2}}\\right)$"
+    },
+    {
+      "seq": 11,
+      "number": "第 7 题",
+      "type": "solution",
+      "title": "差分改写",
+      "tags": [
+        "差分改写",
+        "望远镜",
+        "递推比较"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 与 $\\displaystyle\\sum_{n=1}^{\\infty}b_n$ 为正项级数。(1) 若 $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac{a_n}{a_{n+1}b_n}-\\frac{1}{b_{n+1}}\\right)&gt;0$，则 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛；(2) 若 $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac{a_n}{a_{n+1}b_n}-\\frac{1}{b_{n+1}}\\right)&lt;0$，且 $\\displaystyle\\sum_{n=1}^{\\infty}b_n$ 发散，则 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 发散。",
+      "steps": [
+        {
+          "title": "第一步：把判别式改写成 $\\frac{a_n}{b_n}-\\frac{a_{n+1}}{b_{n+1}}$ 的形式",
+          "html": "<p>判别式看着别扭，通分一下：</p><div class=\"fm\">$$\\frac{a_n}{a_{n+1}b_n}-\\frac{1}{b_{n+1}}=\\frac{a_nb_{n+1}-a_{n+1}b_n}{a_{n+1}b_nb_{n+1}}=\\frac{1}{a_{n+1}}\\left(\\frac{a_n}{b_n}-\\frac{a_{n+1}}{b_{n+1}}\\right).$$</div><p>这一步是整题的钥匙：右端出现了 $\\frac{a_n}{b_n}$ 的<b>差分</b>，差值求和就是望远镜。</p>"
+        },
+        {
+          "title": "第二步：(1) 用正极限得到差分下界",
+          "html": "<p>极限为正，存在 $\\delta&gt;0$ 与 $N$，使 $n\\geqslant N$ 时</p><div class=\"fm\">$$\\frac{1}{a_{n+1}}\\left(\\frac{a_n}{b_n}-\\frac{a_{n+1}}{b_{n+1}}\\right)&gt;\\delta\\;\\Longrightarrow\\;\\frac{a_n}{b_n}-\\frac{a_{n+1}}{b_{n+1}}&gt;\\delta\\,a_{n+1}.$$</div><p>也就是</p><div class=\"fm\">$$a_{n+1}&lt;\\frac{1}{\\delta}\\left(\\frac{a_n}{b_n}-\\frac{a_{n+1}}{b_{n+1}}\\right).$$</div>"
+        },
+        {
+          "title": "第三步：(1) 望远镜求和，部分和有界",
+          "html": "<p>对 $n=N,\\dots,p-1$ 求和：</p><div class=\"fm\">$$\\sum_{n=N}^{p-1}a_{n+1}&lt;\\frac{1}{\\delta}\\left(\\frac{a_N}{b_N}-\\frac{a_p}{b_p}\\right)&lt;\\frac{a_N}{\\delta b_N}.$$</div><p>右端与 $p$ 无关，故部分和有界；正项级数部分和单调递增且有界，收敛。(1) 得证。</p>"
+        },
+        {
+          "title": "第四步：(2) 负极限给递推不等式，与 $\\sum b_n$ 比较",
+          "html": "<p>极限为负，$n\\geqslant N$ 后判别式 $&lt;0$，即 $\\frac{a_n}{b_n}&lt;\\frac{a_{n+1}}{b_{n+1}}$，等价于</p><div class=\"fm\">$$a_{n+1}&gt;\\frac{b_{n+1}}{b_n}a_n.$$</div><p>递推下去：</p><div class=\"fm\">$$a_n&gt;\\frac{b_n}{b_{n-1}}a_{n-1}&gt;\\cdots&gt;\\frac{a_N}{b_N}b_n.$$</div><p>而 $\\sum b_n$ 发散，由比较判别法（正项、$a_n\\geqslant$ 常数乘 $b_n$）得 $\\sum a_n$ 发散。</p><p class=\"concl\"><b>结论</b>判别式极限为正 ⇒ 收敛；为负且 $\\sum b_n$ 发散 ⇒ 发散。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（Dini 判别法篇）",
+        "lead": "看到「形如 $\\frac{a_n}{a_{n+1}b_n}-\\frac{1}{b_{n+1}}$ 的判别式」，直接按这个顺序出牌：",
+        "items": [
+          "先通分改写：判别式 $=\\frac{1}{a_{n+1}}\\left(\\frac{a_n}{b_n}-\\frac{a_{n+1}}{b_{n+1}}\\right)$，露出差分的真面目。",
+          "判别式为正 ⇒ 差分大于 $\\delta a_{n+1}$ ⇒ $a_{n+1}$ 被差分控制 ⇒ 望远镜求和后部分和有界 ⇒ 收敛。",
+          "判别式为负 ⇒ $\\frac{a_n}{b_n}$ 单调递增 ⇒ $a_{n+1}&gt;\\frac{b_{n+1}}{b_n}a_n$ ⇒ 递推成 $a_n&gt;\\frac{a_N}{b_N}b_n$。",
+          "最后一步必须点明「$\\sum b_n$ 发散 ＋ 逐项大于常数倍 ⇒ $\\sum a_n$ 发散」，比较判别法的方向别写反。"
+        ]
+      },
+      "answerHtml": "(1) 判别式极限为正时 $\\sum a_n$ 收敛；(2) 判别式极限为负且 $\\sum b_n$ 发散时 $\\sum a_n$ 发散"
+    }
+  ]
+}

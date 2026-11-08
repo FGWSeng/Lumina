@@ -1,0 +1,414 @@
+{
+  "year": 2023,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十五届（2023）初赛 非数学 A 类",
+  "edition": 15,
+  "source": "第15届（2023）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "双有理化",
+      "tags": [
+        "双有理化",
+        "平方差出 $x^{3}-27$",
+        "约分补负号"
+      ],
+      "difficulty": 2,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to3}\\frac{\\sqrt{x^{3}+9}-6}{2-\\sqrt{x^{3}-23}}$。",
+      "steps": [
+        {
+          "title": "第一步：先验型，确认是 $\\frac00$",
+          "html": "<p>$x=3$ 时 $\\sqrt{27+9}-6=0$、$2-\\sqrt{27-23}=0$。分子分母都是「根号减常数」，且被开方式只差一个常数。</p><p>判断依据：这种结构有理化最稳，求导会让根号留在分母、越算越长。</p>"
+        },
+        {
+          "title": "第二步：分子分母同乘两个共轭因子",
+          "html": "<div class=\"fm\">$$\\frac{\\sqrt{x^{3}+9}-6}{2-\\sqrt{x^{3}-23}}=\\frac{\\left[\\left(x^{3}+9\\right)-36\\right]\\left(2+\\sqrt{x^{3}-23}\\right)}{\\left[4-\\left(x^{3}-23\\right)\\right]\\left(\\sqrt{x^{3}+9}+6\\right)},$$</div><p>即</p><div class=\"fm\">$$\\frac{\\left(x^{3}-27\\right)\\left(2+\\sqrt{x^{3}-23}\\right)}{\\left(27-x^{3}\\right)\\left(\\sqrt{x^{3}+9}+6\\right)}.$$</div><p>注意分母的平方差给的是 $4-\\left(x^{3}-23\\right)=27-x^{3}$，<b>这里是负号来源</b>。</p>"
+        },
+        {
+          "title": "第三步：约掉 $x^{3}-27$，代 $x=3$",
+          "html": "<p>$x\\neq3$ 时 $x^{3}-27\\neq0$，约分得</p><div class=\"fm\">$$-\\frac{2+\\sqrt{x^{3}-23}}{\\sqrt{x^{3}+9}+6}\\longrightarrow-\\frac{2+2}{6+6}=-\\frac13.$$</div><p class=\"concl\"><b>结论</b>极限为 $-\\dfrac13$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（双有理化篇）",
+        "lead": "看到「$\\frac{\\sqrt{x^{3}+9}-6}{2-\\sqrt{x^{3}-23}}$、两头都是根号减常数」，直接按这个顺序出牌：",
+        "items": [
+          "先验 $x\\to3$ 是 $\\frac00$，且被开方式只差常数 ⇒ 一律双有理化，别上洛必达。",
+          "分子乘 $\\sqrt{x^{3}+9}+6$、分母乘 $2+\\sqrt{x^{3}-23}$，一次乘完两个共轭。",
+          "平方差后分子给 $x^{3}-27$、分母给 $27-x^{3}$，两者差一个负号，约分时务必带上。",
+          "约完只剩 $-\\frac{2+\\sqrt{x^{3}-23}}{\\sqrt{x^{3}+9}+6}$，代 $x=3$ 得 $-\\frac13$；漏负号就错成 $+\\frac13$。"
+        ]
+      },
+      "answerHtml": "$-\\dfrac13$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "链式一阶",
+      "tags": [
+        "链式一阶",
+        "$f_1,f_2$ 再链式",
+        "合并 $f_{12}=f_{21}$"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $z=f\\left(x^{2}-y^{2},xy\\right)$，且 $f(u,v)$ 有连续的二阶偏导数，则 $\\dfrac{\\partial^{2}z}{\\partial x\\partial y}=$________。",
+      "steps": [
+        {
+          "title": "第一步：写一阶，两个中间变量各带系数",
+          "html": "<p>记 $u=x^{2}-y^{2}$、$v=xy$，则 $u_x=2x$、$v_x=y$：</p><div class=\"fm\">$$z_x=2xf_1+yf_2.$$</div>"
+        },
+        {
+          "title": "第二步：对 $y$ 求导时，$f_1,f_2$ 自身还要再链式一次",
+          "html": "<p>$u_y=-2y$、$v_y=x$：</p><div class=\"fm\">$$\\frac{\\partial}{\\partial y}\\left(2xf_1\\right)=2x\\left[-2yf_{11}+xf_{12}\\right]=-4xyf_{11}+2x^{2}f_{12},$$</div><div class=\"fm\">$$\\frac{\\partial}{\\partial y}\\left(yf_2\\right)=f_2+y\\left[-2yf_{21}+xf_{22}\\right]=f_2-2y^{2}f_{21}+xyf_{22}.$$</div><p>最容易漏的就是这一步：$f_1$ 不是常数，它对 $y$ 的导数要通过 $u,v$ 走链式。</p>"
+        },
+        {
+          "title": "第三步：合并 $f_{12}$ 与 $f_{21}$",
+          "html": "<p>由二阶连续 $f_{12}=f_{21}$：</p><div class=\"fm\">$$\\frac{\\partial^{2}z}{\\partial x\\partial y}=f_2-4xyf_{11}+2\\left(x^{2}-y^{2}\\right)f_{12}+xyf_{22}.$$</div><p class=\"concl\"><b>结论</b>所求如上。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（二元复合二阶偏导篇）",
+        "lead": "看到「$z=f\\left(x^{2}-y^{2},xy\\right)$ 求 $z_{xy}$」，直接按这个顺序出牌：",
+        "items": [
+          "先写 $z_x=f_1u_x+f_2v_x=2xf_1+yf_2$，把系数 $2x$、$y$ 记清楚。",
+          "对 $y$ 求导时要分两块：乘积法则一块，$f_1,f_2$ 再走一次链式（$u_y=-2y$、$v_y=x$）另一块。",
+          "$f_1$ 对 $y$ 求导写成 $f_{11}u_y+f_{12}v_y$，位置不能颠倒；$f_2$ 同理。",
+          "最后用 $f_{12}=f_{21}$ 把两项并成 $2\\left(x^{2}-y^{2}\\right)f_{12}$，少并一项就少一项。"
+        ]
+      },
+      "answerHtml": "$f_2-4xyf_{11}+2\\left(x^{2}-y^{2}\\right)f_{12}+xyf_{22}$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "部分分式",
+      "tags": [
+        "部分分式",
+        "符号整理"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(x)=\\dfrac{1}{x^{2}-3x+2}$，则 $f^{\\left(n\\right)}(0)=$________。",
+      "steps": [
+        {
+          "title": "第一步：分母分解，拆成两个一次式之和",
+          "html": "<p>$x^{2}-3x+2=\\left(x-1\\right)\\left(x-2\\right)$，且</p><div class=\"fm\">$$\\frac{1}{\\left(x-1\\right)\\left(x-2\\right)}=-\\frac{1}{x-1}+\\frac{1}{x-2}.$$</div><p>为什么拆：对原式硬求 $n$ 次导要用莱布尼茨，越算越乱；拆开后只剩两个标准公式。</p>"
+        },
+        {
+          "title": "第二步：两项各套 $n$ 阶导公式",
+          "html": "<div class=\"fm\">$$\\left(\\frac{1}{x-a}\\right)^{\\left(n\\right)}=\\left(-1\\right)^{n}n!\\left(x-a\\right)^{-\\left(n+1\\right)},$$</div><div class=\"fm\">$$f^{\\left(n\\right)}(x)=\\left(-1\\right)^{n}n!\\left[-\\frac{1}{\\left(x-1\\right)^{n+1}}+\\frac{1}{\\left(x-2\\right)^{n+1}}\\right].$$</div>"
+        },
+        {
+          "title": "第三步：代 $x=0$，符号是唯一易错点",
+          "html": "<p>$\\left(0-1\\right)^{n+1}=\\left(-1\\right)^{n+1}$、$\\left(0-2\\right)^{n+1}=\\left(-1\\right)^{n+1}2^{n+1}$，故</p><div class=\"fm\">$$f^{\\left(n\\right)}(0)=\\left(-1\\right)^{n}n!\\left(-1\\right)^{n+1}\\left[-1+\\frac{1}{2^{n+1}}\\right]=n!\\left(1-\\frac{1}{2^{n+1}}\\right).$$</div><p class=\"concl\"><b>结论</b>$f^{\\left(n\\right)}(0)=n!\\left(1-\\dfrac{1}{2^{n+1}}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（有理式 $n$ 阶导篇）",
+        "lead": "看到「$f=\\frac{1}{x^{2}-3x+2}$ 求 $f^{\\left(n\\right)}(0)$」，直接按这个顺序出牌：",
+        "items": [
+          "分母能分解成两个一次式 ⇒ 先拆部分分式，拆成 $-\\frac{1}{x-1}+\\frac{1}{x-2}$。",
+          "两项都用 $\\left(\\frac{1}{x-a}\\right)^{\\left(n\\right)}=\\left(-1\\right)^{n}n!\\left(x-a\\right)^{-\\left(n+1\\right)}$，不要对原式硬求导。",
+          "代 $x=0$ 时 $\\left(-1\\right)^{n}\\cdot\\left(-1\\right)^{n+1}=-1$，这个 $-1$ 把 $-1+\\frac{1}{2^{n+1}}$ 翻成 $1-\\frac{1}{2^{n+1}}$。",
+          "用 $n=0$ 验算：$1-\\frac12=\\frac12=f(0)$ ✓，符号一错就通不过这个验算。"
+        ]
+      },
+      "answerHtml": "$n!\\left(1-\\dfrac{1}{2^{n+1}}\\right)$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "缺项级数换元 $t=x^{2}$",
+      "tags": [
+        "缺项级数换元 $t=x^{2}$",
+        "根值法求 $R_t$",
+        "端点单独检验"
+      ],
+      "difficulty": 2,
+      "stemHtml": "幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{\\left(-1\\right)^{n-1}x^{2n}}{n\\left(2n-1\\right)}$ 的收敛域为________。",
+      "steps": [
+        {
+          "title": "第一步：认出是缺项级数，先换元",
+          "html": "<p>只有 $x^{2n}$ 的偶次项，没有奇次项。直接对 $x$ 用比值法会算出含 $x$ 的式子，容易误判。</p><p>令 $t=x^{2}$，级数变为 $\\sum a_nt^{n}$，$a_n=\\frac{\\left(-1\\right)^{n-1}}{n\\left(2n-1\\right)}\\sim\\frac{1}{2n^{2}}$。</p>"
+        },
+        {
+          "title": "第二步：求 $t$ 的收敛半径，再开方回 $x$",
+          "html": "<div class=\"fm\">$$\\sqrt[n]{\\left|a_n\\right|}=\\sqrt[n]{\\frac{1}{n\\left(2n-1\\right)}}\\longrightarrow1,$$</div><p>故 $R_t=1$，即 $x^{2}&lt;1$，$\\left|x\\right|&lt;1$。</p>"
+        },
+        {
+          "title": "第三步：端点 $x=\\pm1$ 单独代入检验",
+          "html": "<p>$t=1$ 时级数为 $\\sum\\frac{\\left(-1\\right)^{n-1}}{n\\left(2n-1\\right)}$，其绝对值与 $\\sum\\frac{1}{2n^{2}}$ 同阶 ⇒ 绝对收敛。</p><p>两端都收敛，故收敛域为 $\\left[-1,1\\right]$。</p><p class=\"concl\"><b>结论</b>收敛域 $\\left[-1,1\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（缺项幂级数收敛域篇）",
+        "lead": "看到「$\\sum\\frac{\\left(-1\\right)^{n-1}x^{2n}}{n\\left(2n-1\\right)}$ 求收敛域」，直接按这个顺序出牌：",
+        "items": [
+          "只有偶次幂 ⇒ 缺项级数，先令 $t=x^{2}$ 变成标准 $\\sum a_nt^{n}$，绝不能直接对 $x$ 用比值法。",
+          "系数 $\\sim\\frac{1}{2n^{2}}$ ⇒ 根值法得 $R_t=1$，回代 $x^{2}&lt;1$ 得 $\\left|x\\right|&lt;1$。",
+          "「收敛域」必须单独验端点：$x=\\pm1$ 时化成 $\\sum\\frac{\\left(-1\\right)^{n-1}}{n\\left(2n-1\\right)}$，绝对收敛。",
+          "端点收敛就写闭区间 $\\left[-1,1\\right]$；只有端点发散才写开区间，这一步不能省。"
+        ]
+      },
+      "answerHtml": "$\\left[-1,1\\right]$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "平面参数化",
+      "tags": [
+        "平面参数化",
+        "用曲面方程化简",
+        "对称性"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设曲面 $\\Sigma$ 是平面 $y+z=5$ 被柱面 $x^{2}+y^{2}=25$ 所截得的部分，则 $\\displaystyle\\iint_\\Sigma\\left(x+y+z\\right)\\mathrm dS=$________。",
+      "steps": [
+        {
+          "title": "第一步：把平面写成 $z=5-y$，算 $\\mathrm dS$",
+          "html": "<div class=\"fm\">$$\\mathrm dS=\\sqrt{1+z_x^{2}+z_y^{2}}\\,\\mathrm dx\\mathrm dy=\\sqrt{1+0+1}\\,\\mathrm dx\\mathrm dy=\\sqrt2\\,\\mathrm dx\\mathrm dy,$$</div><p>投影区域 $D_{xy}:x^{2}+y^{2}\\leqslant25$。</p>"
+        },
+        {
+          "title": "第二步：先用曲面方程把被积式化简",
+          "html": "<p>$z=5-y$ ⇒ $x+y+z=x+y+\\left(5-y\\right)=x+5$。</p><p>为什么先化简：$y$ 与 $-y$ 当场抵消，被积式从三项降到两项，这是平面截柱面题的标准收益。</p>"
+        },
+        {
+          "title": "第三步：奇函数项归零，只剩面积",
+          "html": "<p>$D_{xy}$ 关于 $y$ 轴对称，$x$ 为奇 ⇒ $\\iint_{D_{xy}}x\\,\\mathrm dx\\mathrm dy=0$：</p><div class=\"fm\">$$\\sqrt2\\iint_{D_{xy}}\\left(x+5\\right)\\mathrm dx\\mathrm dy=5\\sqrt2\\cdot25\\pi=125\\sqrt2\\pi.$$</div><p class=\"concl\"><b>结论</b>积分为 $125\\sqrt{2}\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（平面截柱面曲面积分篇）",
+        "lead": "看到「平面 $y+z=5$ 被柱面 $x^{2}+y^{2}=25$ 截出的部分、积 $x+y+z$」，直接按这个顺序出牌：",
+        "items": [
+          "三步走：写曲面方程 $z=5-y$、算 $\\mathrm dS=\\sqrt2\\mathrm dx\\mathrm dy$、投影到 $D_{xy}$。",
+          "先将曲面方程代入被积式，$y$ 与 $-y$ 抵消只剩 $x+5$，这一步比任何技巧都省力。",
+          "再看对称性：圆盘关于 $y$ 轴对称，$x$ 项积分为 $0$。",
+          "最后 $5\\sqrt2\\cdot25\\pi=125\\sqrt2\\pi$；漏掉 $\\sqrt2$ 就错成 $125\\pi$。"
+        ]
+      },
+      "answerHtml": "$125\\sqrt{2}\\pi$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "令 $u=x^{2},v=y^{2}$",
+      "tags": [
+        "令 $u=x^{2},v=y^{2}$",
+        "交点平移化齐次",
+        "$W=V/U$",
+        "部分分式"
+      ],
+      "difficulty": 4,
+      "stemHtml": "解方程 $\\left(x^{2}+y^{2}+3\\right)\\dfrac{\\mathrm dy}{\\mathrm dx}=2x\\left(2y-\\dfrac{x^{2}}{y}\\right)$。",
+      "steps": [
+        {
+          "title": "第一步：两边乘 $y$、除以 $x$，整理出 $\\frac{y\\mathrm dy}{x\\mathrm dx}$",
+          "html": "<div class=\"fm\">$$\\frac{y\\,\\mathrm dy}{x\\,\\mathrm dx}=\\frac{2\\left(2y^{2}-x^{2}\\right)}{x^{2}+y^{2}+3}.$$</div><p>为什么要凑这个比：一旦 $u=x^{2}$、$v=y^{2}$，就有 $\\frac{\\mathrm dv}{\\mathrm du}=\\frac{y\\mathrm dy}{x\\mathrm dx}$，左边自动变成一个新的一阶导数。</p>"
+        },
+        {
+          "title": "第二步：换元 $u=x^{2}$、$v=y^{2}$，见一次分式就想交点",
+          "html": "<div class=\"fm\">$$\\frac{\\mathrm dv}{\\mathrm du}=\\frac{2\\left(2v-u\\right)}{u+v+3}.$$</div><p>分子分母都是 $u,v$ 的一次式 ⇒ 解 $2v-u=0$、$u+v+3=0$ 得 $u=-2$、$v=-1$，令 $U=u+2$、$V=v+1$：</p><div class=\"fm\">$$\\frac{\\mathrm dV}{\\mathrm dU}=\\frac{2\\left(2V-U\\right)}{U+V}.$$</div>"
+        },
+        {
+          "title": "第三步：齐次方程令 $W=\\frac VU$，分离变量",
+          "html": "<p>$V=WU$ ⇒ $\\frac{\\mathrm dV}{\\mathrm dU}=W+U\\frac{\\mathrm dW}{\\mathrm dU}$，代入化简：</p><div class=\"fm\">$$U\\frac{\\mathrm dW}{\\mathrm dU}=\\frac{4W-2-W-W^{2}}{1+W}=-\\frac{W^{2}-3W+2}{W+1};\\qquad\\frac{W+1}{\\left(W-1\\right)\\left(W-2\\right)}\\mathrm dW=-\\frac{\\mathrm dU}{U}.$$</div>"
+        },
+        {
+          "title": "第四步：部分分式积分",
+          "html": "<div class=\"fm\">$$\\frac{W+1}{\\left(W-1\\right)\\left(W-2\\right)}=\\frac{-2}{W-1}+\\frac{3}{W-2},$$</div><div class=\"fm\">$$-2\\ln\\left|W-1\\right|+3\\ln\\left|W-2\\right|=-\\ln\\left|U\\right|+C_1\\;\\Longrightarrow\\;U\\left(W-2\\right)^{3}=C\\left(W-1\\right)^{2}.$$</div>"
+        },
+        {
+          "title": "第五步：回代 $W=\\frac{y^{2}+1}{x^{2}+2}$，写成隐式通解",
+          "html": "<div class=\"fm\">$$W-2=\\frac{y^{2}-2x^{2}-3}{x^{2}+2},\\qquad W-1=\\frac{y^{2}-x^{2}-1}{x^{2}+2},$$</div><p>两边乘 $\\left(x^{2}+2\\right)^{2}$：</p><div class=\"fm\">$$\\left(y^{2}-2x^{2}-3\\right)^{3}=C\\left(y^{2}-x^{2}-1\\right)^{2}.$$</div><p class=\"concl\"><b>结论</b>通解如上（隐式即可）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（换元降维＋平移化齐次篇）",
+        "lead": "看到「$\\left(x^{2}+y^{2}+3\\right)y'=2x\\left(2y-\\frac{x^{2}}{y}\\right)$」，直接按这个顺序出牌：",
+        "items": [
+          "先凑出 $\\frac{y\\mathrm dy}{x\\mathrm dx}$：两边乘 $y$、除 $x$，这个比是换元 $u=x^{2},v=y^{2}$ 的入口。",
+          "换元后若分子分母都是 $u,v$ 的一次式，就去解两条直线的交点（本题 $(-2,-1)$），平移后必成齐次。",
+          "齐次方程一律令 $W=\\frac VU$，化成可分离；再拆部分分式 $\\frac{-2}{W-1}+\\frac{3}{W-2}$ 逐项积分。",
+          "回代时先算 $W-2$、$W-1$ 再两边乘 $\\left(x^{2}+2\\right)^{2}$，得到 $\\left(y^{2}-2x^{2}-3\\right)^{3}=C\\left(y^{2}-x^{2}-1\\right)^{2}$。"
+        ]
+      },
+      "answerHtml": "$\\left(y^{2}-2x^{2}-3\\right)^{3}=C\\left(y^{2}-x^{2}-1\\right)^{2}$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "旋转体压回二维",
+      "tags": [
+        "旋转体压回二维",
+        "切点联立（在椭圆上",
+        "切线过顶点）",
+        "圆锥体积",
+        "截面法"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\Sigma_1$ 是以 $\\left(0,4,0\\right)$ 为顶点且与曲面 $\\Sigma_2:\\frac{x^{2}}{3}+\\frac{y^{2}}{4}+\\frac{z^{2}}{3}=1\\ \\left(y&gt;0\\right)$ 相切的圆锥面，求 $\\Sigma_1$ 与 $\\Sigma_2$ 所围成区域的体积。",
+      "steps": [
+        {
+          "title": "第一步：认清 $\\Sigma_2$ 是绕 $y$ 轴的旋转椭球，把问题压到 $xOy$ 平面",
+          "html": "<p>$x$ 与 $z$ 的系数都是 $\\frac13$ ⇒ 旋转对称，轴为 $y$ 轴；截线是椭圆</p><div class=\"fm\">$$\\frac{x^{2}}{3}+\\frac{y^{2}}{4}=1.$$</div><p>为什么能压：圆锥也以 $y$ 轴为轴，整个立体是旋转体，二维算完再旋转即可。</p>"
+        },
+        {
+          "title": "第二步：用「切点在椭圆上 ＋ 切线过顶点」联立求切点",
+          "html": "<p>设切点 $\\left(x_0,y_0\\right)$，椭圆在切点的斜率由隐函数求导得 $-\\frac{4x_0}{3y_0}$，而切线过 $\\left(0,4\\right)$，斜率又是 $\\frac{y_0-4}{x_0}$：</p><div class=\"fm\">$$\\frac{x_0^{2}}{3}+\\frac{y_0^{2}}{4}=1,\\qquad\\frac{y_0-4}{x_0}=-\\frac{4x_0}{3y_0}.$$</div><p>第二式给 $4x_0^{2}=-3y_0^{2}+12y_0$，代入第一式（乘 12）得 $y_0=1$，再得 $x_0^{2}=\\frac94$，$x_0=\\frac32$。</p>"
+        },
+        {
+          "title": "第三步：算圆锥体积",
+          "html": "<p>交线在平面 $y=1$ 上，是半径 $\\frac32$ 的圆；高 $h=4-1=3$：</p><div class=\"fm\">$$V_1=\\frac13\\pi\\left(\\frac32\\right)^{2}\\cdot3=\\frac{9\\pi}{4}.$$</div>"
+        },
+        {
+          "title": "第四步：截面法算椭球帽，再相减",
+          "html": "<p>$y$ 处截面 $x^{2}+z^{2}\\leqslant3\\left(1-\\frac{y^{2}}{4}\\right)$，面积 $3\\pi\\left(1-\\frac{y^{2}}{4}\\right)$：</p><div class=\"fm\">$$V_2=\\pi\\int_1^{2}3\\left(1-\\frac{y^{2}}{4}\\right)\\mathrm dy=3\\pi\\left[y-\\frac{y^{3}}{12}\\right]_1^{2}=\\frac{5\\pi}{4},$$</div><div class=\"fm\">$$V=V_1-V_2=\\frac{9\\pi}{4}-\\frac{5\\pi}{4}=\\pi.$$</div><p class=\"concl\"><b>结论</b>体积为 $\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（圆锥切椭球求体积篇）",
+        "lead": "看到「顶点 $\\left(0,4,0\\right)$ 的圆锥与旋转椭球相切、求围成体积」，直接按这个顺序出牌：",
+        "items": [
+          "先验证 $\\Sigma_2$ 的 $x,z$ 系数相同 ⇒ 旋转椭球 ⇒ 压到 $xOy$ 平面，用椭圆 $\\frac{x^{2}}{3}+\\frac{y^{2}}{4}=1$ 说话。",
+          "切点用两个条件联立：在椭圆上 ＋ 切线斜率 $\\frac{y_0-4}{x_0}$ 等于隐函数导数 $-\\frac{4x_0}{3y_0}$，比设 $y=kx+4$ 令判别式为 $0$ 快。",
+          "交线在 $y=y_0=1$ 上，圆锥半径 $\\frac32$、高 $3$ ⇒ $V_1=\\frac{9\\pi}{4}$。",
+          "椭球帽用截面法 $V_2=3\\pi\\int_1^2\\left(1-\\frac{y^{2}}{4}\\right)\\mathrm dy=\\frac{5\\pi}{4}$，所求 $V_1-V_2=\\pi$。"
+        ]
+      },
+      "answerHtml": "$V=\\pi$"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "分部积分",
+      "tags": [
+        "分部积分"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $I_n=n\\displaystyle\\int_1^{a}\\frac{\\mathrm dx}{1+x^{n}}$，$a&gt;1$，求 $\\displaystyle\\lim_{n\\to\\infty}I_n$。",
+      "steps": [
+        {
+          "title": "第一步：判断贡献来自 $x$ 靠近 $1$ 的一段",
+          "html": "<p>$n\\to\\infty$ 时 $\\frac{1}{1+x^{n}}$ 在 $x&gt;1$ 上迅速趋 $0$，但外面乘 $n$、区间长度固定，所以极限应是有限常数，主贡献在 $x\\approx1$。</p>"
+        },
+        {
+          "title": "第二步：令 $x=\\frac1t$，把 $x>1$ 拉到 $t<1$",
+          "html": "<p>$b=\\frac1a\\in\\left(0,1\\right)$，$\\mathrm dx=-\\frac{\\mathrm dt}{t^{2}}$：</p><div class=\"fm\">$$I_n=n\\int_b^{1}\\frac{t^{n-2}}{1+t^{n}}\\,\\mathrm dt.$$</div><p>为什么换向：$t&lt;1$ 时 $t^{n}\\to0$，$\\ln\\left(1+t^{n}\\right)$ 可直接用等价量控制；留在 $x&gt;1$ 一侧则 $x^{n}$ 爆炸，估不动。</p>"
+        },
+        {
+          "title": "第三步：凑成 $\\frac1t\\mathrm d\\ln\\left(1+t^{n}\\right)$，分部积分",
+          "html": "<div class=\"fm\">$$\\frac{\\mathrm d}{\\mathrm dt}\\ln\\left(1+t^{n}\\right)=\\frac{nt^{n-1}}{1+t^{n}},$$</div><div class=\"fm\">$$I_n=\\left[\\frac{\\ln\\left(1+t^{n}\\right)}{t}\\right]_b^{1}+\\int_b^{1}\\frac{\\ln\\left(1+t^{n}\\right)}{t^{2}}\\,\\mathrm dt=\\ln2-\\frac{\\ln\\left(1+b^{n}\\right)}{b}+\\int_b^{1}\\frac{\\ln\\left(1+t^{n}\\right)}{t^{2}}\\,\\mathrm dt.$$</div>"
+        },
+        {
+          "title": "第四步：两个余项都夹到 $0$",
+          "html": "<p>$\\frac{\\ln\\left(1+b^{n}\\right)}{b}\\sim\\frac{b^{n}}{b}=b^{n-1}\\to0$；又 $\\ln\\left(1+t^{n}\\right)\\leqslant t^{n}$：</p><div class=\"fm\">$$0\\leqslant\\int_b^{1}\\frac{\\ln\\left(1+t^{n}\\right)}{t^{2}}\\mathrm dt\\leqslant\\int_b^{1}t^{n-2}\\mathrm dt=\\frac{1-b^{n-1}}{n-1}\\longrightarrow0.$$</div><div class=\"fm\">$$\\lim_{n\\to\\infty}I_n=\\ln2.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\ln2$，与 $a$ 无关。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$n\\int_1^a\\frac{\\mathrm dx}{1+x^{n}}$ 型篇）",
+        "lead": "看到「$I_n=n\\int_1^a\\frac{\\mathrm dx}{1+x^{n}}$、$n\\to\\infty$」，直接按这个顺序出牌：",
+        "items": [
+          "先看清主贡献在 $x\\approx1$（$x&gt;1$ 时 $x^{n}$ 爆炸，直接估不动）。",
+          "换向：令 $x=\\frac1t$，$x:1\\to a$ 变 $t:1\\to b=\\frac1a$，$t&lt;1$ 后 $t^{n}\\to0$ 就好控制。",
+          "凑微分：$n\\frac{t^{n-2}}{1+t^{n}}\\mathrm dt=\\frac1t\\mathrm d\\ln\\left(1+t^{n}\\right)$，分部积分把 $n$ 挪进 $\\ln$ 里。",
+          "主项 $\\ln2$，余项用 $\\ln\\left(1+s\\right)\\leqslant s$ 夹到 $0$；答案 $\\ln2$，与 $a$ 无关是本题的反直觉点。"
+        ]
+      },
+      "answerHtml": "$\\ln2$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "分部积分取原函数 $x-1$",
+      "tags": [
+        "分部积分取原函数 $x-1$",
+        "Cauchy 积分不等式",
+        "等号解 ODE $(1-x)f'=cf$"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 在 $\\left[0,1\\right]$ 上有连续导数，$f(0)=0$。求证 $\\displaystyle\\int_0^{1}f^{2}(x)\\,\\mathrm dx\\leqslant4\\int_0^{1}\\left(1-x\\right)^{2}\\left|f'(x)\\right|^{2}\\mathrm dx$，并求使等号成立的 $f$。",
+      "steps": [
+        {
+          "title": "第一步：选 $(x-1)$ 作原函数做分部积分",
+          "html": "<div class=\"fm\">$$\\int_0^{1}f^{2}\\mathrm dx=\\left[\\left(x-1\\right)f^{2}\\right]_0^{1}-2\\int_0^{1}\\left(x-1\\right)ff'\\mathrm dx.$$</div><p>为什么选 $x-1$ 而不是 $x$：$x=1$ 处有因子 $\\left(1-1\\right)=0$、$x=0$ 处有 $f(0)=0$，边界项自动归零；选 $x$ 则留下 $f^{2}(1)$，未知。</p>"
+        },
+        {
+          "title": "第二步：把 $f^{2}$ 换成 $ff'$，右侧配成两项之积",
+          "html": "<div class=\"fm\">$$\\int_0^{1}f^{2}\\mathrm dx=2\\int_0^{1}\\left(1-x\\right)f'(x)f(x)\\mathrm dx.$$</div>"
+        },
+        {
+          "title": "第三步：Cauchy 积分不等式",
+          "html": "<div class=\"fm\">$$\\left|\\int_0^{1}\\left(1-x\\right)f'f\\,\\mathrm dx\\right|\\leqslant\\left(\\int_0^{1}\\left(1-x\\right)^{2}\\left|f'\\right|^{2}\\mathrm dx\\right)^{\\frac12}\\left(\\int_0^{1}f^{2}\\mathrm dx\\right)^{\\frac12}.$$</div><p>记 $A=\\int f^{2}$、$B=\\int\\left(1-x\\right)^{2}\\left|f'\\right|^{2}$，得 $A\\leqslant2\\sqrt{AB}$ ⇒ $\\sqrt A\\leqslant2\\sqrt B$ ⇒ $A\\leqslant4B$。</p>"
+        },
+        {
+          "title": "第四步：等号条件解出 $f$",
+          "html": "<p>Cauchy 取等 ⇒ $\\left(1-x\\right)f'=cf$。构造积分因子：</p><div class=\"fm\">$$\\left[\\left(1-x\\right)^{c}f(x)\\right]'=\\left(1-x\\right)^{c-1}\\left[\\left(1-x\\right)f'-cf\\right]=0,$$</div><p>故 $\\left(1-x\\right)^{c}f\\equiv d$，即 $f=d\\left(1-x\\right)^{-c}$；由 $f(0)=0$ 得 $d=0$，$f\\equiv0$。</p><p class=\"concl\"><b>结论</b>不等式得证，等号当且仅当 $f\\equiv0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（分部积分＋Cauchy 配对篇）",
+        "lead": "看到「$\\int f^{2}\\leqslant4\\int\\left(1-x\\right)^{2}\\left|f'\\right|^{2}$、$f(0)=0$」，直接按这个顺序出牌：",
+        "items": [
+          "识别「$f^{2}$ 与 $\\left|f'\\right|^{2}$ 配对」⇒ 分部积分把 $f^{2}$ 换成 $ff'$，原函数取 $x-1$（不是 $x$）。",
+          "选 $x-1$ 的理由只有一个：边界项 $\\left(x-1\\right)f^{2}$ 在 $x=1$ 被因子打死、在 $x=0$ 被 $f(0)=0$ 打死。",
+          "Cauchy 积分不等式 $A\\leqslant2\\sqrt{AB}$，约掉 $\\sqrt A$ 后平方即得 $A\\leqslant4B$。",
+          "等号是「成比例」⇒ $\\left(1-x\\right)f'=cf$ ⇒ 构造 $\\left[\\left(1-x\\right)^{c}f\\right]'=0$ ⇒ $f=d\\left(1-x\\right)^{-c}$，再由 $f(0)=0$ 得 $f\\equiv0$。"
+        ]
+      },
+      "answerHtml": "证毕；等号当且仅当 $f(x)\\equiv0$"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "正性",
+      "tags": [
+        "正性",
+        "单调有界",
+        "望远镜恒等式"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设数列 $\\left\\{x_n\\right\\}$ 满足 $x_0=\\frac13$、$x_{n+1}=\\frac{x_n^{2}}{1-x_n+x_n^{2}}$（$n\\geqslant0$）。证明 $\\displaystyle\\sum_{n=0}^{\\infty}x_n$ 收敛并求和。",
+      "steps": [
+        {
+          "title": "第一步：分母恒正 ⇒ $x_n>0$，再作差看单调",
+          "html": "<p>$1-x+x^{2}=\\left(x-\\frac12\\right)^{2}+\\frac34&gt;0$，由 $x_0&gt;0$ 归纳得 $x_n&gt;0$。又</p><div class=\"fm\">$$x_{n+1}-x_n=x_n\\left[\\frac{x_n}{1-x_n+x_n^{2}}-1\\right]=-\\frac{x_n\\left(1-x_n\\right)^{2}}{1-x_n+x_n^{2}}\\leqslant0.$$</div><p>所以 $\\left\\{x_n\\right\\}$ 单调递减、有下界 $0$ ⇒ 收敛。</p>"
+        },
+        {
+          "title": "第二步：极限满足 $L\\left(L-1\\right)^{2}=0$，故 $L=0$",
+          "html": "<div class=\"fm\">$$L=\\frac{L^{2}}{1-L+L^{2}}\\;\\Longrightarrow\\;L\\left(1-L+L^{2}\\right)=L^{2}\\;\\Longrightarrow\\;L\\left(L-1\\right)^{2}=0,$$</div><p>由 $0\\leqslant L\\leqslant\\frac13$ 得 $L=0$。</p>"
+        },
+        {
+          "title": "第三步：造望远镜恒等式",
+          "html": "<p>先算 $\\frac{x_{n+1}}{1-x_{n+1}}$：由</p><div class=\"fm\">$$1-x_{n+1}=\\frac{1-x_n}{1-x_n+x_n^{2}},$$</div><div class=\"fm\">$$\\frac{x_{n+1}}{1-x_{n+1}}=\\frac{x_n^{2}}{1-x_n}.$$</div><p>于是</p><div class=\"fm\">$$\\frac{x_n}{1-x_n}-\\frac{x_{n+1}}{1-x_{n+1}}=\\frac{x_n\\left(1-x_n\\right)}{1-x_n}=x_n.$$</div><p>为什么这样凑：递推式的分母 $1-x+x^{2}$ 让人联想到 $\\frac{x}{1-x}$ 的差分，先算 $\\frac{x_{n+1}}{1-x_{n+1}}$ 就能验证。</p>"
+        },
+        {
+          "title": "第四步：累加取极限",
+          "html": "<div class=\"fm\">$$\\sum_{i=0}^{n}x_i=\\frac{x_0}{1-x_0}-\\frac{x_{n+1}}{1-x_{n+1}}\\longrightarrow\\frac{1/3}{2/3}=\\frac12.$$</div><p class=\"concl\"><b>结论</b>级数收敛，和为 $\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\frac{x^{2}}{1-x+x^{2}}$ 递推求和篇）",
+        "lead": "看到「$x_{n+1}=\\frac{x_n^{2}}{1-x_n+x_n^{2}}$、既证收敛又求和」，直接按这个顺序出牌：",
+        "items": [
+          "先做两件事：证 $x_n&gt;0$（分母判别式小于零恒正），再作差 $x_{n+1}-x_n=-\\frac{x_n\\left(1-x_n\\right)^{2}}{1-x_n+x_n^{2}}\\leqslant0$。",
+          "单调递减有下界 ⇒ 收敛；代极限解得 $L\\left(L-1\\right)^{2}=0$，结合 $L\\leqslant\\frac13$ 得 $L=0$。",
+          "求和靠望远镜恒等式：先算 $\\frac{x_{n+1}}{1-x_{n+1}}=\\frac{x_n^{2}}{1-x_n}$，再作差即得 $x_n$。",
+          "累加得 $S_n=\\frac{x_0}{1-x_0}-\\frac{x_{n+1}}{1-x_{n+1}}$，取极限 $\\frac{1/3}{2/3}=\\frac12$。"
+        ]
+      },
+      "answerHtml": "收敛，$\\displaystyle\\sum_{n=0}^{\\infty}x_n=\\frac12$"
+    }
+  ]
+}

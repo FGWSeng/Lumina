@@ -1,0 +1,412 @@
+{
+  "year": 2024,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十六届（2024）初赛 非数学 A 类",
+  "edition": 16,
+  "source": "第16届（2024）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "单个对数分部积分",
+      "tags": [
+        "单个对数分部积分",
+        "$\\arctan$ 收尾"
+      ],
+      "difficulty": 2,
+      "stemHtml": "求 $\\displaystyle\\int_0^1\\ln\\left(1+x^{2}\\right)\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "第一步：被积式只有一个对数，直接分部积分",
+          "html": "<p>取 $u=\\ln\\left(1+x^{2}\\right)$、$\\mathrm dv=\\mathrm dx$，则 $\\mathrm du=\\frac{2x}{1+x^{2}}\\mathrm dx$、$v=x$：</p><div class=\"fm\">$$\\int_0^1\\ln\\left(1+x^{2}\\right)\\mathrm dx=\\left[x\\ln\\left(1+x^{2}\\right)\\right]_0^1-2\\int_0^1\\frac{x^{2}}{1+x^{2}}\\mathrm dx=\\ln2-2\\int_0^1\\frac{x^{2}}{1+x^{2}}\\mathrm dx.$$</div><p>为什么必须分部：对数是唯一「求导后变有理式」的因子，不分部就无从下手。</p>"
+        },
+        {
+          "title": "第二步：分子分母同次，拆成 $1$ 减一个标准式",
+          "html": "<div class=\"fm\">$$\\frac{x^{2}}{1+x^{2}}=1-\\frac{1}{1+x^{2}}\\;\\Longrightarrow\\;\\int_0^1\\frac{x^{2}}{1+x^{2}}\\mathrm dx=1-\\frac{\\pi}{4}.$$</div>"
+        },
+        {
+          "title": "第三步：回代合并",
+          "html": "<div class=\"fm\">$$\\int_0^1\\ln\\left(1+x^{2}\\right)\\mathrm dx=\\ln2-2\\left(1-\\frac{\\pi}{4}\\right)=\\ln2-2+\\frac{\\pi}{2}.$$</div><p class=\"concl\"><b>结论</b>积分为 $\\ln2-2+\\dfrac{\\pi}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（单个对数型积分篇）",
+        "lead": "看到「$\\int_0^1\\ln\\left(1+x^{2}\\right)\\mathrm dx$ 这种「单独一个对数」」，直接按这个顺序出牌：",
+        "items": [
+          "把 $\\mathrm dx$ 当 $\\mathrm dv$、取 $v=x$ 做分部积分，这是唯一自然的起手式。",
+          "分部后必然出现 $\\int\\frac{x^{2}}{1+x^{2}}$，分子分母同次就拆项：$1-\\frac{1}{1+x^{2}}$。",
+          "$\\int_0^1\\frac{\\mathrm dx}{1+x^{2}}=\\frac\\pi4$ 背下来，剩下就是四则运算。",
+          "答案 $\\ln2-2+\\frac\\pi2\\approx0.264$，可用「$\\ln\\left(1+x^{2}\\right)$ 在 $\\left[0,1\\right]$ 上平均约 $0.26$」量级校验。"
+        ]
+      },
+      "answerHtml": "$\\ln2-2+\\dfrac{\\pi}{2}$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "圆盘极坐标",
+      "tags": [
+        "圆盘极坐标",
+        "阶数配平"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $D:x^{2}+y^{2}\\leqslant r^{2}$（$r&gt;0$），求 $\\displaystyle\\lim_{r\\to0^{+}}\\frac{\\iint_D\\left(\\mathrm e^{x^{2}+y^{2}}-1\\right)\\mathrm dx\\mathrm dy}{r^{4}}$。",
+      "steps": [
+        {
+          "title": "第一步：圆盘 ＋ $\\rho$ 的函数 ⇒ 上极坐标",
+          "html": "<div class=\"fm\">$$\\iint_D\\left(\\mathrm e^{x^{2}+y^{2}}-1\\right)\\mathrm dx\\mathrm dy=2\\pi\\int_0^r\\left(\\mathrm e^{\\rho^{2}}-1\\right)\\rho\\,\\mathrm d\\rho,$$</div><p>角向直接给 $2\\pi$，剩下一个一维积分。为什么必须换极坐标：直角坐标下这个区域无法分离变量。</p>"
+        },
+        {
+          "title": "第二步：看 $\\mathrm e^{\\rho^{2}}-1$ 是几阶零点",
+          "html": "<div class=\"fm\">$$\\mathrm e^{\\rho^{2}}-1=\\rho^{2}+o\\left(\\rho^{2}\\right)\\;\\Longrightarrow\\;\\left(\\mathrm e^{\\rho^{2}}-1\\right)\\rho=\\rho^{3}+o\\left(\\rho^{3}\\right),$$</div><p>所以 $\\int_0^r\\left(\\mathrm e^{\\rho^{2}}-1\\right)\\rho\\,\\mathrm d\\rho=\\frac{r^{4}}{4}+o\\left(r^{4}\\right)$，与分母 $r^{4}$ 恰好同阶。</p>"
+        },
+        {
+          "title": "第三步：同阶取系数比",
+          "html": "<div class=\"fm\">$$\\lim_{r\\to0^{+}}\\frac{2\\pi\\left(\\frac{r^{4}}{4}+o\\left(r^{4}\\right)\\right)}{r^{4}}=\\frac{\\pi}{2}.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\dfrac\\pi2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（圆盘＋二阶小量篇）",
+        "lead": "看到「圆盘 $D$ 上积 $\\mathrm e^{x^{2}+y^{2}}-1$、除以 $r^{4}$」，直接按这个顺序出牌：",
+        "items": [
+          "区域是圆盘且被积式只依赖 $\\rho$ ⇒ 极坐标，$\\mathrm dx\\mathrm dy=\\rho\\mathrm d\\rho\\mathrm d\\theta$。",
+          "先算阶数：$\\mathrm e^{\\rho^{2}}-1$ 在 $\\rho=0$ 是<b>二阶</b>零点，乘 $\\rho$ 成三阶，积一次升到四阶。",
+          "分母 $r^{4}$ 与分子同阶 ⇒ 极限是非零常数 $\\frac{\\pi}{2}$，不是 $0$ 也不是 $\\infty$。",
+          "若被积式不减 $1$，在 $\\rho\\to0$ 处一阶，积分 $\\sim\\frac{r^{2}}{2}$，比值发散——减 $1$ 就是为配平阶数。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{\\pi}{2}$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "两层复合",
+      "tags": [
+        "两层复合",
+        "乘积法则",
+        "$f_1,f_2$ 再链式",
+        "$f_{12}=f_{21}$"
+      ],
+      "difficulty": 2,
+      "stemHtml": "已知 $z=f\\left(xy,\\mathrm e^{x+y}\\right)$，$f$ 具有二阶连续偏导数，求 $\\dfrac{\\partial^{2}z}{\\partial x\\partial y}$。",
+      "steps": [
+        {
+          "title": "第一步：先写一阶，中间变量取 $u=xy$、$v=\\mathrm e^{x+y}$",
+          "html": "<div class=\"fm\">$$z_x=f_1\\cdot y+f_2\\cdot\\mathrm e^{x+y}.$$</div>"
+        },
+        {
+          "title": "第二步：对 $y$ 求导，裸项与链式项分开算",
+          "html": "<div class=\"fm\">$$\\frac{\\partial}{\\partial y}\\left(f_1y\\right)=f_1+y\\left(xf_{11}+\\mathrm e^{x+y}f_{12}\\right),$$</div><div class=\"fm\">$$\\frac{\\partial}{\\partial y}\\left(f_2\\mathrm e^{x+y}\\right)=\\mathrm e^{x+y}\\left(xf_{21}+\\mathrm e^{x+y}f_{22}\\right)+f_2\\mathrm e^{x+y}.$$</div><p>为什么会冒出裸项 $f_1$、$f_2\\mathrm e^{x+y}$：乘积法则对系数 $y$、$\\mathrm e^{x+y}$ 求导的那一半。</p>"
+        },
+        {
+          "title": "第三步：合并同类项",
+          "html": "<div class=\"fm\">$$z_{xy}=f_1+\\mathrm e^{x+y}f_2+xyf_{11}+\\left(x+y\\right)\\mathrm e^{x+y}f_{12}+\\mathrm e^{2\\left(x+y\\right)}f_{22}.$$</div><p class=\"concl\"><b>结论</b>所求如上（$f_i,f_{ij}$ 均在 $\\left(xy,\\mathrm e^{x+y}\\right)$ 处取值）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（指数型复合二阶偏导篇）",
+        "lead": "看到「$z=f\\left(xy,\\mathrm e^{x+y}\\right)$ 求 $z_{xy}$」，直接按这个顺序出牌：",
+        "items": [
+          "先写 $z_x=f_1y+f_2\\mathrm e^{x+y}$，把两个系数 $y$、$\\mathrm e^{x+y}$ 圈出来。",
+          "对 $y$ 求导分两半：乘积法则的裸项（$f_1$、$f_2\\mathrm e^{x+y}$）＋ 链式的二次项。",
+          "系数按「$u_xu_y$、$u_xv_y+v_xu_y$、$v_xv_y$」成套写：$xy$、$\\left(x+y\\right)\\mathrm e^{x+y}$、$\\mathrm e^{2\\left(x+y\\right)}$，一次到位。",
+          "最易错：$\\mathrm e^{x+y}$ 的幂次要乘起来变 $\\mathrm e^{2\\left(x+y\\right)}$，别写成 $\\mathrm e^{x+y}$。"
+        ]
+      },
+      "answerHtml": "$f_1+\\mathrm e^{x+y}f_2+xyf_{11}+\\left(x+y\\right)\\mathrm e^{x+y}f_{12}+\\mathrm e^{2\\left(x+y\\right)}f_{22}$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "投影＝减去法向分量",
+      "tags": [
+        "投影＝减去法向分量",
+        "单位化"
+      ],
+      "difficulty": 2,
+      "stemHtml": "直线 $L:\\frac{x-1}{1}=\\frac{y}{1}=\\frac{z-1}{-1}$ 在平面 $\\pi:x-y+2z-1=0$ 上的投影直线 $L_0$ 的单位方向向量为________。",
+      "steps": [
+        {
+          "title": "第一步：读出两个向量",
+          "html": "<p>$L$ 的方向 $s=\\left(1,1,-1\\right)$，$\\pi$ 的法向 $n=\\left(1,-1,2\\right)$。</p><p>题目只要方向、不要方程，所以完全不必求交点。</p>"
+        },
+        {
+          "title": "第二步：把 $s$ 沿 $n$ 的分量减掉",
+          "html": "<div class=\"fm\">$$s\\cdot n=1-1-2=-2,\\qquad\\left|n\\right|^{2}=6,$$</div><div class=\"fm\">$$s_0=s-\\frac{s\\cdot n}{\\left|n\\right|^{2}}n=\\left(1,1,-1\\right)+\\frac13\\left(1,-1,2\\right)=\\left(\\frac43,\\frac23,-\\frac13\\right)\\parallel\\left(4,2,-1\\right).$$</div><p>几何含义：投影只抹掉法向分量，保留平面内那部分方向。</p>"
+        },
+        {
+          "title": "第三步：单位化",
+          "html": "<p>$\\left|\\left(4,2,-1\\right)\\right|=\\sqrt{21}$，故单位方向为</p><div class=\"fm\">$$\\pm\\frac{\\left(4,2,-1\\right)}{\\sqrt{21}}.$$</div><p class=\"concl\"><b>结论</b>单位方向向量为 $\\pm\\frac{\\left(4,2,-1\\right)}{\\sqrt{21}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（投影方向篇）",
+        "lead": "看到「直线在平面上的投影直线、求单位方向向量」，直接按这个顺序出牌：",
+        "items": [
+          "只求方向就不必求交点：$s_0=s-\\frac{s\\cdot n}{\\left|n\\right|^{2}}n$ 一步到位。",
+          "先算两个数：$s\\cdot n$ 与 $\\left|n\\right|^{2}$；本题 $-2$ 与 $6$，系数 $\\frac13$ 由此而来。",
+          "投影方向落在平面内，务必验 $s_0\\cdot n=0$：$\\frac43-\\frac23-\\frac23=0$ ✓。",
+          "最后单位化 $\\frac{\\left(4,2,-1\\right)}{\\sqrt{21}}$；方向可反号，写 $\\pm$ 或任取一支都算对。"
+        ]
+      },
+      "answerHtml": "$\\pm\\dfrac{\\left(4,2,-1\\right)}{\\sqrt{21}}$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "Green 前查奇点",
+      "tags": [
+        "Green 前查奇点",
+        "参数化"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $L$ 为圆周 $x^{2}+y^{2}=9$，取逆时针方向，求 $\\displaystyle\\oint_L\\frac{-y}{4x^{2}+y^{2}}\\mathrm dx+\\frac{x}{4x^{2}+y^{2}}\\mathrm dy$。",
+      "steps": [
+        {
+          "title": "第一步：先查奇点，再决定能不能用 Green",
+          "html": "<p>在 $L$ 上 $4x^{2}+y^{2}=4x^{2}+\\left(9-x^{2}\\right)=3x^{2}+9\\in\\left[9,36\\right]$，分母不为零；但圆盘内部<b>含原点</b>，而原点恰好使分母为零。</p><p>所以 $\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}$ 在 $D$ 上不连续，Green 公式不能直接用。为什么要先查：形式上看它像某个 $\\arctan$ 的全微分，很容易误用 Green 得到一个发散的二重积分。</p>"
+        },
+        {
+          "title": "第二步：参数化，把第二型转成一元积分",
+          "html": "<p>$x=3\\cos t$、$y=3\\sin t$（$t:0\\to2\\pi$，逆时针）：</p><div class=\"fm\">$$\\mathrm dx=-3\\sin t\\,\\mathrm dt,\\quad\\mathrm dy=3\\cos t\\,\\mathrm dt,\\quad4x^{2}+y^{2}=9\\left(4\\cos^{2}t+\\sin^{2}t\\right),$$</div><div class=\"fm\">$$\\oint_L\\left(\\cdot\\right)=\\int_0^{2\\pi}\\frac{9\\sin^{2}t+9\\cos^{2}t}{9\\left(4\\cos^{2}t+\\sin^{2}t\\right)}\\mathrm dt=\\int_0^{2\\pi}\\frac{\\mathrm dt}{4\\cos^{2}t+\\sin^{2}t}.$$</div>"
+        },
+        {
+          "title": "第三步：用标准公式收口",
+          "html": "<p>由 $t\\mapsto t+\\frac{\\pi}{2}$ 的对称性，$\\int_0^{2\\pi}=4\\int_0^{\\frac{\\pi}{2}}$；再令 $u=\\tan t$：</p><div class=\"fm\">$$4\\int_0^{\\frac{\\pi}{2}}\\frac{\\mathrm dt}{4\\cos^{2}t+\\sin^{2}t}=4\\int_0^{+\\infty}\\frac{\\mathrm du}{4+u^{2}}=4\\cdot\\frac{\\pi}{2\\cdot2}=\\pi.$$</div><p>即 $\\int_0^{2\\pi}\\frac{\\mathrm dt}{a^{2}\\cos^{2}t+b^{2}\\sin^{2}t}=\\frac{2\\pi}{ab}$，本题 $a=2$、$b=1$，得 $\\pi$。</p><p class=\"concl\"><b>结论</b>积分为 $\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（Green 前查奇点篇）",
+        "lead": "看到「$\\oint_L\\frac{-y\\mathrm dx+x\\mathrm dy}{4x^{2}+y^{2}}$、$L$ 是圆周」，直接按这个顺序出牌：",
+        "items": [
+          "第一动作不是套 Green，而是查奇点：$L$ 上分母 $\\in\\left[9,36\\right]$ 无奇点，圆盘内部却有原点 ⇒ Green 失效。",
+          "奇点在区域内部时两条合法路线：参数化直算，或「挖洞」后用 Green 再相加。",
+          "参数化代入时先用 $x^{2}+y^{2}=9$ 把分母化成 $3x^{2}+9$，再代三角式，系数不容易错。",
+          "收口用 $\\int_0^{2\\pi}\\frac{\\mathrm dt}{a^{2}\\cos^{2}t+b^{2}\\sin^{2}t}=\\frac{2\\pi}{ab}$，$a=2,b=1$ 得 $\\pi$。"
+        ]
+      },
+      "answerHtml": "$\\pi$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "先判恰当性",
+      "tags": [
+        "先判恰当性",
+        "$y=ux$ 代入后仍可分离",
+        "回代得隐式通解"
+      ],
+      "difficulty": 4,
+      "stemHtml": "求微分方程 $\\left(x^{3}-y^{2}\\right)\\mathrm dx+\\left(x^{2}y+xy\\right)\\mathrm dy=0$ 的通解。",
+      "steps": [
+        {
+          "title": "第一步：两个判据依次排除，再动手换元",
+          "html": "<p>$\\frac{\\partial P}{\\partial y}=-2y$、$\\frac{\\partial Q}{\\partial x}=2xy+y$，不相等 ⇒ 不是全微分方程。</p><p>$x^{3}$ 是三次、$y^{2}$ 是二次，次数不齐 ⇒ 表面上不像齐次方程。</p><p>但 $Q=xy\\left(x+1\\right)$ 自带因子 $x+1$，代入 $y=ux$ 后 $x$ 的同次幂会相互抵消，所以仍按 $y=ux$ 试。</p>"
+        },
+        {
+          "title": "第二步：代入 $y=ux$ 并整理",
+          "html": "<p>$\\mathrm dy=u\\,\\mathrm dx+x\\,\\mathrm du$，且</p><div class=\"fm\">$$P=x^{3}-u^{2}x^{2}=x^{2}\\left(x-u^{2}\\right),\\qquad Q=ux^{3}+ux^{2}=ux^{2}\\left(x+1\\right).$$</div><p>约去 $x^{2}$，并把 $\\mathrm dx$ 的系数合并：</p><div class=\"fm\">$$\\left(x-u^{2}\\right)+u^{2}\\left(x+1\\right)=x+u^{2}x=x\\left(1+u^{2}\\right),$$</div><div class=\"fm\">$$x\\left(1+u^{2}\\right)\\mathrm dx+ux\\left(x+1\\right)\\mathrm du=0.$$</div>"
+        },
+        {
+          "title": "第三步：分离变量后积分",
+          "html": "<div class=\"fm\">$$\\frac{\\mathrm dx}{x+1}=-\\frac{u\\,\\mathrm du}{1+u^{2}}\\;\\Longrightarrow\\;\\ln\\left|x+1\\right|=-\\frac12\\ln\\left(1+u^{2}\\right)+C_1,$$</div><div class=\"fm\">$$\\left(x+1\\right)^{2}\\left(1+u^{2}\\right)=C.$$</div>"
+        },
+        {
+          "title": "第四步：回代 $u=\\frac yx$",
+          "html": "<div class=\"fm\">$$\\left(x+1\\right)^{2}\\left(1+\\frac{y^{2}}{x^{2}}\\right)=C\\;\\Longrightarrow\\;\\left(x+1\\right)^{2}\\left(x^{2}+y^{2}\\right)=Cx^{2}.$$</div><p class=\"concl\"><b>结论</b>通解为 $\\left(x+1\\right)^{2}\\left(x^{2}+y^{2}\\right)=Cx^{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（次数不齐也能 $y=ux$ 篇）",
+        "lead": "看到「$\\left(x^{3}-y^{2}\\right)\\mathrm dx+\\left(x^{2}y+xy\\right)\\mathrm dy=0$」，直接按这个顺序出牌：",
+        "items": [
+          "先验恰当性 $\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$，不等就直接排除全微分路线。",
+          "别被「次数不齐」劝退：看 $Q$ 是否带公共因子（本题 $x+1$），代入 $y=ux$ 后若能分离就继续。",
+          "合并 $\\mathrm dx$ 系数时会出现 $x-u^{2}+u^{2}\\left(x+1\\right)=x\\left(1+u^{2}\\right)$ 这种抵消，这一步是本题的戏眼。",
+          "分离后积分得 $\\left(x+1\\right)^{2}\\left(1+u^{2}\\right)=C$，回代乘 $x^{2}$ 整理成 $\\left(x+1\\right)^{2}\\left(x^{2}+y^{2}\\right)=Cx^{2}$。"
+        ]
+      },
+      "answerHtml": "$\\left(x+1\\right)^{2}\\left(x^{2}+y^{2}\\right)=Cx^{2}$（$C$ 为任意常数）"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "连续化求 $k$",
+      "tags": [
+        "连续化求 $k$",
+        "两个 Taylor 首项",
+        "造 $\\varphi$ 二阶定号",
+        "端点取最值"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)=\\begin{cases}\\frac{1}{\\ln\\left(1+x\\right)}-\\frac1x,&amp;0&lt;x\\leqslant1,\\\\[4pt] k,&amp;x=0.\\end{cases}$（1）求 $k$ 使 $f$ 在 $\\left[0,1\\right]$ 上连续；（2）对该 $k$ 求 $f$ 的最小值 $\\lambda$ 与最大值 $\\mu$。",
+      "steps": [
+        {
+          "title": "第一步：连续化就是求右极限，通分后用两个 Taylor 首项",
+          "html": "<div class=\"fm\">$$k=\\lim_{x\\to0^{+}}\\frac{x-\\ln\\left(1+x\\right)}{x\\ln\\left(1+x\\right)},$$</div><p>$x-\\ln\\left(1+x\\right)=\\frac{x^{2}}{2}+o\\left(x^{2}\\right)$，$x\\ln\\left(1+x\\right)=x^{2}+o\\left(x^{2}\\right)$，故 $k=\\frac12$。</p><p>为什么只取首项就够：分子分母都是二阶，比值就是系数比 $\\frac{1/2}{1}$。</p>"
+        },
+        {
+          "title": "第二步：求最值先看 $f'$ 的符号",
+          "html": "<div class=\"fm\">$$f'(x)=\\frac{1}{x^{2}}-\\frac{1}{\\left(1+x\\right)\\ln^{2}\\left(1+x\\right)}.$$</div><p>符号由 $x^{2}$ 与 $\\left(1+x\\right)\\ln^{2}\\left(1+x\\right)$ 的大小决定，直接看不出来，造辅助函数。</p>"
+        },
+        {
+          "title": "第三步：造 $\\varphi=x^{2}-\\left(1+x\\right)\\ln^{2}\\left(1+x\\right)$，二阶导定号",
+          "html": "<div class=\"fm\">$$\\varphi'(x)=2x-\\ln^{2}\\left(1+x\\right)-2\\ln\\left(1+x\\right),\\qquad\\varphi''(x)=\\frac{2\\left[x-\\ln\\left(1+x\\right)\\right]}{1+x}&gt;0.$$</div><p>于是 $\\varphi'$ 严格增，$\\varphi'(0)=0$ ⇒ $\\varphi'&gt;0$；$\\varphi$ 严格增，$\\varphi(0)=0$ ⇒ $\\varphi&gt;0$，即 $f'(x)&lt;0$。</p><p>为什么这一步不能跳：只说「看着 $x^{2}$ 更大」是直觉，不是证明；$\\varphi''&gt;0$ 才把它坐实。</p>"
+        },
+        {
+          "title": "第四步：递减 ⇒ 最大值在左端点，最小值在右端点",
+          "html": "<p>$f$ 在 $\\left(0,1\\right]$ 严格递减，结合 $f(0)=\\frac12$：</p><div class=\"fm\">$$\\mu=f(0)=\\frac12,\\qquad\\lambda=f(1)=\\frac{1}{\\ln2}-1.$$</div><p class=\"concl\"><b>结论</b>$k=\\frac12$；$\\lambda=\\frac{1}{\\ln2}-1$，$\\mu=\\frac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（定常数＋单调性求最值篇）",
+        "lead": "看到「分段函数在 $x=0$ 处给待定 $k$、再求最值」，直接按这个顺序出牌：",
+        "items": [
+          "（1）连续性：$k$ 就是右极限，通分后用 $x-\\ln\\left(1+x\\right)\\sim\\frac{x^{2}}{2}$ 与 $x\\ln\\left(1+x\\right)\\sim x^{2}$，得 $\\frac12$。",
+          "（2）最值先定单调性，$f'$ 的符号化成一个多项式不等式：$x^{2}$ 与 $\\left(1+x\\right)\\ln^{2}\\left(1+x\\right)$ 比大小。",
+          "造 $\\varphi$ 后连算两阶：$\\varphi''=\\frac{2\\left[x-\\ln\\left(1+x\\right)\\right]}{1+x}&gt;0$ ⇒ $\\varphi'&gt;0$ ⇒ $\\varphi&gt;0$ ⇒ $f'&lt;0$。",
+          "$f$ 递减对齐的是「最大值在左端点、最小值在右端点」，$\\mu=\\frac12$、$\\lambda=\\frac{1}{\\ln2}-1\\approx0.443$。"
+        ]
+      },
+      "answerHtml": "$k=\\dfrac12$；$\\lambda=\\dfrac{1}{\\ln2}-1$，$\\mu=\\dfrac12$"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "补面 Gauss",
+      "tags": [
+        "补面 Gauss",
+        "半球对称性",
+        "补面被积为零"
+      ],
+      "difficulty": 4,
+      "stemHtml": "计算 $I=\\displaystyle\\iint_S\\left(x^{2}-z\\right)\\mathrm dy\\mathrm dz+\\left(y^{2}-y\\right)\\mathrm dz\\mathrm dx+\\left(z^{2}-z\\right)\\mathrm dx\\mathrm dy$，其中 $S$ 为上半球面 $x^{2}+y^{2}+z^{2}=R^{2}$（$z\\geqslant0$）的上侧。",
+      "steps": [
+        {
+          "title": "第一步：$S$ 不封闭，补圆盘封成半球体",
+          "html": "<p>补 $D:z=0$、$x^{2}+y^{2}\\leqslant R^{2}$，取<b>下侧</b>（法向 $\\left(0,0,-1\\right)$），则 $S\\cup D$ 是半球体 $V$ 的边界<b>外侧</b>。</p><p>为什么必须取下侧：$S$ 是上侧，只有外法向朝 $-z$ 的 $D$ 才能和它拼成「指向外部」的闭合曲面。</p>"
+        },
+        {
+          "title": "第二步：Gauss 公式，先算散度",
+          "html": "<div class=\"fm\">$$P=x^{2}-z,\\quad Q=y^{2}-y,\\quad R_3=z^{2}-z\\;\\Longrightarrow\\;\\nabla\\cdot\\vec F=2x+\\left(2y-1\\right)+\\left(2z-1\\right)=2x+2y+2z-2.$$</div>"
+        },
+        {
+          "title": "第三步：对称性抹掉 $x,y$，只算 $z$ 与常数项",
+          "html": "<p>$V$ 关于 $x=0$、$y=0$ 对称 ⇒ $\\iiint_Vx=\\iiint_Vy=0$；$V=\\frac23\\pi R^{3}$，而半球质心高 $\\bar z=\\frac{3R}{8}$：</p><div class=\"fm\">$$\\iiint_Vz\\,\\mathrm dV=V\\cdot\\frac{3R}{8}=\\frac{\\pi R^{4}}{4},$$</div><div class=\"fm\">$$\\iiint_V\\left(\\cdot\\right)\\mathrm dV=2\\cdot\\frac{\\pi R^{4}}{4}-2\\cdot\\frac23\\pi R^{3}=\\frac{\\pi R^{4}}{2}-\\frac{4\\pi R^{3}}{3}.$$</div>"
+        },
+        {
+          "title": "第四步：补面上的积分为零，答案即 Gauss 结果",
+          "html": "<p>$D$ 上 $z=0$ ⇒ 前两块 $\\mathrm dy\\mathrm dz=\\mathrm dz\\mathrm dx=0$，第三块被积 $z^{2}-z=0$，故 $\\iint_D=0$：</p><div class=\"fm\">$$I=\\frac{\\pi R^{4}}{2}-\\frac{4\\pi R^{3}}{3}.$$</div><p class=\"concl\"><b>结论</b>$I=\\frac{\\pi R^{4}}{2}-\\frac{4\\pi R^{3}}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（补面 Gauss＋半球质心篇）",
+        "lead": "看到「上半球面上侧、按 $\\mathrm dy\\mathrm dz,\\mathrm dz\\mathrm dx,\\mathrm dx\\mathrm dy$ 分块给被积式」，直接按这个顺序出牌：",
+        "items": [
+          "非闭曲面先补面：$S$ 取上侧 ⇒ 补 $D:z=0$ 取<b>下侧</b>，两者才拼成外侧。",
+          "Gauss 只算散度 $2x+2y+2z-2$，再用对称性把 $x,y$ 项打成 $0$。",
+          "半球体的 $\\iiint z\\,\\mathrm dV=V\\bar z=\\frac23\\pi R^{3}\\cdot\\frac{3R}{8}=\\frac{\\pi R^{4}}{4}$，这个质心值要背。",
+          "补面为零不是因为它小，而是 $z=0$ 使第三块被积 $z^{2}-z=0$、另两块面积元为零；答案 $\\frac{\\pi R^{4}}{2}-\\frac{4\\pi R^{3}}{3}$。"
+        ]
+      },
+      "answerHtml": "$I=\\dfrac{\\pi R^{4}}{2}-\\dfrac{4\\pi R^{3}}{3}$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "Lipschitz 只取单侧",
+      "tags": [
+        "Lipschitz 只取单侧",
+        "往 $f'$ 变小的方向积分",
+        "用 $f\\geqslant0$ 收尾"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f$ 在 $\\left(-\\infty,+\\infty\\right)$ 上有连续导数、$f\\geqslant0$，且存在 $M&gt;0$ 使 $\\left|f'(x)-f'(y)\\right|\\leqslant M\\left|x-y\\right|$。证明：对任意实数 $x$，$\\left(f'(x)\\right)^{2}\\leqslant2Mf(x)$。",
+      "steps": [
+        {
+          "title": "第一步：把条件翻译成「$f'$ 是 $M$-Lipschitz」，只取对我有利的一侧",
+          "html": "<p>取定 $x_0$、记 $a=f'\\left(x_0\\right)$。由 Lipschitz：</p><div class=\"fm\">$$f'\\left(x_0-t\\right)\\geqslant a-Mt\\quad\\left(0\\leqslant t\\leqslant h\\right),$$</div><p>为什么只取一侧：绝对值不等式给出双向界，但证不等式只需对我不利的那一侧（这里要 $f'$ 变大）。</p>"
+        },
+        {
+          "title": "第二步：$a>0$ 时向左积分，把 $f$ 抬起来",
+          "html": "<div class=\"fm\">$$f\\left(x_0\\right)-f\\left(x_0-h\\right)=\\int_0^{h}f'\\left(x_0-t\\right)\\mathrm dt\\geqslant\\int_0^{h}\\left(a-Mt\\right)\\mathrm dt=ah-\\frac{Mh^{2}}{2}.$$</div>"
+        },
+        {
+          "title": "第三步：选最优步长，让下界最大",
+          "html": "<p>$ah-\\frac{Mh^{2}}{2}$ 是开口向下、顶点在 $h=\\frac{a}{M}$ 的抛物线，取 $h=\\frac{a}{M}$：</p><div class=\"fm\">$$f\\left(x_0\\right)-f\\left(x_0-h\\right)\\geqslant\\frac{a^{2}}{M}-\\frac{M}{2}\\cdot\\frac{a^{2}}{M^{2}}=\\frac{a^{2}}{2M}.$$</div><p>由 $f\\left(x_0-h\\right)\\geqslant0$ 得 $f\\left(x_0\\right)\\geqslant\\frac{a^{2}}{2M}$。</p>"
+        },
+        {
+          "title": "第四步：$a<0$ 时向右积分，$a=0$ 平凡",
+          "html": "<div class=\"fm\">$$f\\left(x_0+h\\right)-f\\left(x_0\\right)=\\int_0^{h}f'\\left(x_0+t\\right)\\mathrm dt\\leqslant\\int_0^{h}\\left(a+Mt\\right)\\mathrm dt=ah+\\frac{Mh^{2}}{2},$$</div><p>取 $h=-\\frac{a}{M}&gt;0$ 得右端 $=-\\frac{a^{2}}{2M}$，故 $f\\left(x_0\\right)\\geqslant f\\left(x_0+h\\right)+\\frac{a^{2}}{2M}\\geqslant\\frac{a^{2}}{2M}$。</p><p>三种情形合并即 $\\left(f'\\right)^{2}\\leqslant2Mf$。</p><p class=\"concl\"><b>结论</b>不等式得证。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（Lipschitz 单侧化＋最优步长篇）",
+        "lead": "看到「$f\\geqslant0$、$\\left|f'-f'\\right|\\leqslant M\\left|x-y\\right|$、要证 $\\left(f'\\right)^{2}\\leqslant2Mf$」，直接按这个顺序出牌：",
+        "items": [
+          "把 Lipschitz 拆成单侧不等式：$f'\\left(x_0-t\\right)\\geqslant a-Mt$（$a&gt;0$）或 $f'\\left(x_0+t\\right)\\leqslant a+Mt$（$a&lt;0$）。",
+          "往 $f'$ 变小的方向积：$a&gt;0$ 向左、$a&lt;0$ 向右，这样 $f$ 在另一端的值越小越好。",
+          "步长取 $\\left|a\\right|/M$——这正是 $ah-\\frac{Mh^{2}}{2}$ 的顶点，使下界最大化成 $\\frac{a^{2}}{2M}$。",
+          "最后一步必须用 $f\\geqslant0$：它把「另一端的值非负」转成「$f\\left(x_0\\right)$ 有下界」，否则两头接不上。"
+        ]
+      },
+      "answerHtml": "证毕：$\\left(f'(x)\\right)^{2}\\leqslant2Mf(x)$ 对一切实数 $x$ 成立"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "内层绝对收敛先算掉",
+      "tags": [
+        "内层绝对收敛先算掉",
+        "Abel 分部求和",
+        "非绝对收敛"
+      ],
+      "difficulty": 4,
+      "stemHtml": "证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\sum_{k=1}^{\\infty}\\frac{\\left(-1\\right)^{\\left[\\sqrt n\\right]}}{n^{2}+k^{2}}$ 收敛，其中 $\\left[x\\right]$ 表示不超过 $x$ 的最大整数。",
+      "steps": [
+        {
+          "title": "第一步：内层绝对收敛，先把 $k$ 求和算掉",
+          "html": "<p>$\\frac{1}{n^{2}+k^{2}}\\leqslant\\frac{1}{k^{2}}$ ⇒ 内层绝对收敛。记</p><div class=\"fm\">$$\\lambda_n=\\sum_{k=1}^{\\infty}\\frac{1}{n^{2}+k^{2}},$$</div><p>则原式 $=\\sum_n\\left(-1\\right)^{\\left[\\sqrt n\\right]}\\lambda_n$。为什么能先算内层：绝对收敛才允许交换求和次序。</p>"
+        },
+        {
+          "title": "第二步：给 $\\lambda_n$ 估阶，两条都要用",
+          "html": "<p>对 $k\\geqslant1$ 有 $\\frac{1}{n^{2}+k^{2}}\\leqslant\\int_{k-1}^{k}\\frac{\\mathrm dx}{n^{2}+x^{2}}$，故</p><div class=\"fm\">$$\\lambda_n\\leqslant\\int_0^{\\infty}\\frac{\\mathrm dx}{n^{2}+x^{2}}=\\frac{\\pi}{2n};$$</div><p>再看相邻差：</p><div class=\"fm\">$$\\lambda_n-\\lambda_{n+1}=\\sum_k\\frac{2n+1}{\\left(n^{2}+k^{2}\\right)\\left(\\left(n+1\\right)^{2}+k^{2}\\right)}\\leqslant\\frac{2n+1}{n^{2}}\\lambda_n\\leqslant\\frac{3\\pi}{2n^{2}}.$$</div>"
+        },
+        {
+          "title": "第三步：符号在每块内不变，估出块起点部分和是 $O\\left(\\sqrt n\\right)$",
+          "html": "<p>令 $a_n=\\left(-1\\right)^{\\left[\\sqrt n\\right]}$，$A_N=\\sum_{n\\leqslant N}a_n$。当 $m^{2}\\leqslant n\\leqslant\\left(m+1\\right)^{2}-1$ 时 $a_n=\\left(-1\\right)^{m}$，块长 $2m+1$。</p><p>前 $m-1$ 块贡献 $\\sum_{j=1}^{m-1}\\left(-1\\right)^{j}\\left(2j+1\\right)$，奇偶配对后绝对值不超过 $m+1$；块内余项不超过 $2m+1$：</p><div class=\"fm\">$$\\left|A_N\\right|\\leqslant3m+3\\leqslant C\\sqrt N.$$</div>"
+        },
+        {
+          "title": "第四步：Abel 分部求和（分部求和公式），两块分别收敛与趋零",
+          "html": "<div class=\"fm\">$$\\sum_{n=1}^{N}a_n\\lambda_n=A_N\\lambda_N-\\sum_{n=1}^{N-1}A_n\\left(\\lambda_n-\\lambda_{n+1}\\right).$$</div><p>第一块 $\\left|A_N\\lambda_N\\right|\\leqslant C\\sqrt N\\cdot\\frac{\\pi}{2N}\\to0$；第二块被</p><div class=\"fm\">$$\\sum_nC\\sqrt n\\cdot\\frac{3\\pi}{2n^{2}}\\leqslant C'\\sum_n n^{-\\frac32}&lt;+\\infty$$</div><p>控制，绝对收敛。故部分和收敛，即原级数收敛。</p>"
+        },
+        {
+          "title": "第五步：说明它不是绝对收敛",
+          "html": "<p>$\\lambda_n\\geqslant\\frac{\\pi}{2n}-\\frac{1}{n^{2}}$ ⇒ $\\sum_n\\lambda_n$ 与 $\\sum\\frac1n$ 同发散，故原级数条件收敛。</p><p class=\"concl\"><b>结论</b>级数收敛，且为条件收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（二重级数分部求和篇）",
+        "lead": "看到「$\\sum_n\\sum_k\\frac{\\left(-1\\right)^{\\left[\\sqrt n\\right]}}{n^{2}+k^{2}}$、符号只依赖 $n$」，直接按这个顺序出牌：",
+        "items": [
+          "内层先算掉：$\\frac{1}{n^{2}+k^{2}}\\leqslant\\frac{1}{k^{2}}$ 保证绝对收敛，于是原式 $=\\sum\\left(-1\\right)^{\\left[\\sqrt n\\right]}\\lambda_n$。",
+          "$\\lambda_n$ 两个估计：$\\lambda_n\\leqslant\\frac{\\pi}{2n}$（积分比较）与 $\\lambda_n-\\lambda_{n+1}\\leqslant\\frac{3\\pi}{2n^{2}}$（相邻差）。",
+          "符号块长 $2m+1$，块起点部分和奇偶配对后 $\\left|A_N\\right|\\leqslant C\\sqrt N$，这是 Abel 变换能用的关键。",
+          "分部求和后一块 $\\to0$、一块被 $\\sum n^{-\\frac32}$ 控制；最后补一句 $\\sum\\lambda_n$ 发散，说明是条件收敛而非绝对收敛。"
+        ]
+      },
+      "answerHtml": "级数收敛（且为条件收敛）"
+    }
+  ]
+}

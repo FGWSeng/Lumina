@@ -1,0 +1,412 @@
+{
+  "year": 2010,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第二届（2010）初赛 非数学专业类",
+  "edition": 2,
+  "source": "第2届（2010）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "计算 1",
+      "type": "solution",
+      "title": "平方差连乘",
+      "tags": [
+        "平方差连乘",
+        "连锁相消"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $x_n=(1+a)(1+a^{2})\\cdots(1+a^{2^{n}})$，其中 $|a|&lt;1$，求 $\\displaystyle\\lim_{n\\to\\infty}x_n$。",
+      "steps": [
+        {
+          "title": "第一步：认出这是「平方差机器」的标准长相",
+          "html": "<p>因式的指数是 $1,2,4,\\dots,2^{n}$，每一步翻倍——这正是 $(1-t)(1+t)(1+t^{2})\\cdots$ 的结构。只要补一个 $(1-a)$ 上去，相邻两项就能连锁消掉。</p><p>这一步的判断依据是：$(1-a)(1+a)=1-a^{2}$，而 $1-a^{2}$ 又正好和下一个因子 $(1+a^{2})$ 配成 $1-a^{4}$。指数翻倍与平方差是天生一对。</p>"
+        },
+        {
+          "title": "第二步：上下同乘 $(1-a)$，把连乘压成一个分式",
+          "html": "<div class=\"fm\">$$\\begin{aligned}x_n&amp;=\\frac{(1-a)(1+a)(1+a^{2})\\cdots(1+a^{2^{n}})}{1-a}\\\\&amp;=\\frac{(1-a^{2})(1+a^{2})\\cdots(1+a^{2^{n}})}{1-a}=\\frac{1-a^{2^{n+1}}}{1-a}.\\end{aligned}$$</div><p>最后一步要看清：一共 $n+1$ 个因子，每消一次指数翻倍，最终剩 $1-a^{2^{n+1}}$。</p>"
+        },
+        {
+          "title": "第三步：用 $|a|<1$ 取极限",
+          "html": "<p>因为 $|a|&lt;1$，所以 $a^{2^{n+1}}\\to0$，于是</p><div class=\"fm\">$$\\lim_{n\\to\\infty}x_n=\\frac{1}{1-a}.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\lim_{n\\to\\infty}x_n=\\frac{1}{1-a}$（$|a|&lt;1$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（平方差连乘篇）",
+        "lead": "看到「$(1+a)(1+a^{2})(1+a^{4})\\cdots$ 这种指数翻倍的连乘」，直接按这个顺序出牌：",
+        "items": [
+          "先补 $(1-a)$：上下同乘，分子立刻变成平方差的连锁相消，这是唯一入口。",
+          "数清因子个数：从 $a^{1}$ 到 $a^{2^{n}}$ 共 $n+1$ 个，消完剩下 $1-a^{2^{n+1}}$，指数别写错。",
+          "取极限只用一条：$|a|&lt;1\\Rightarrow a^{2^{n+1}}\\to0$；$|a|&gt;1$ 时结论会变，题目条件要看。",
+          "同类变式：$\\prod(1+a^{2^{k}})=\\frac{1-a^{2^{n+1}}}{1-a}$，$\\prod\\cos\\frac{x}{2^{k}}=\\frac{\\sin x}{2^{n}\\sin(x/2^{n})}$，都是「补一个因子凑连锁」。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{1}{1-a}$"
+    },
+    {
+      "seq": 2,
+      "number": "计算 2",
+      "type": "solution",
+      "title": "$1^{\\infty}$ 型",
+      "tags": [
+        "$1^{\\infty}$ 型",
+        "泰勒展开",
+        "指数抵消"
+      ],
+      "difficulty": 3,
+      "stemHtml": "求 $\\displaystyle\\lim_{x\\to+\\infty}\\mathrm{e}^{-x}\\left(1+\\frac{1}{x}\\right)^{x^{2}}$。",
+      "steps": [
+        {
+          "title": "第一步：把幂写成指数，让 $x^{2}$ 与 $\\ln$ 相乘",
+          "html": "<p>$\\left(1+\\frac1x\\right)^{x^{2}}=\\mathrm{e}^{x^{2}\\ln(1+\\frac1x)}$，整个式子变成 $\\mathrm{e}^{-x+x^{2}\\ln(1+\\frac1x)}$。指数上是「$-\\infty$ 与 $+\\infty$ 相碰」，必须展开到足够阶才能定值。</p><p>这一步为什么必须展开而不是直接等价替换：因为 $x^{2}\\ln(1+\\frac1x)$ 的主项是 $x$，会与 $-\\ x$ 抵消，只看主项会得到 $\\mathrm{e}^{0}$ 的错误结论。</p>"
+        },
+        {
+          "title": "第二步：把 $\\ln(1+\\frac{1}{x})$ 展到二阶",
+          "html": "<div class=\"fm\">$$\\ln\\left(1+\\frac1x\\right)=\\frac1x-\\frac{1}{2x^{2}}+o\\left(\\frac{1}{x^{2}}\\right),$$</div><p>乘 $x^{2}$：</p><div class=\"fm\">$$x^{2}\\ln\\left(1+\\frac1x\\right)=x-\\frac12+o(1).$$</div><p>展开到二阶是刚够的：一阶项负责抵消 $-x$，二阶项给出真正的极限值，三阶项趋于 $0$ 可以丢。</p>"
+        },
+        {
+          "title": "第三步：合并指数取极限",
+          "html": "<div class=\"fm\">$$\\mathrm{e}^{-x}\\left(1+\\frac1x\\right)^{x^{2}}=\\mathrm{e}^{-x+x-\\frac12+o(1)}\\to\\mathrm{e}^{-\\frac12}.$$</div><p class=\"concl\"><b>结论</b>原极限 $=\\mathrm{e}^{-1/2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（幂指函数抵消篇）",
+        "lead": "看到「$\\mathrm{e}^{-x}\\left(1+\\frac1x\\right)^{x^{2}}$、$x\\to+\\infty$」，直接按这个顺序出牌：",
+        "items": [
+          "幂指函数一律先写成 $\\mathrm{e}^{(\\cdot)}$，把问题降成指数上的加减。",
+          "先判阶：$x^{2}\\ln(1+\\frac1x)$ 的主项是 $x$，与 $-\\ x$ 同阶，必须展到二阶才能定值。",
+          "$\\ln(1+t)$ 的展开背到二阶：$t-\\frac{t^{2}}2+o(t^{2})$，本题 $t=\\frac1x$。",
+          "指数相加后只剩常数项，直接写成 $\\mathrm{e}^{\\text{常数}}$；若还剩 $o(1)$，说明阶数不够，回去再展一项。"
+        ]
+      },
+      "answerHtml": "$\\mathrm{e}^{-\\frac12}$"
+    },
+    {
+      "seq": 3,
+      "number": "计算 3",
+      "type": "solution",
+      "title": "含参反常积分",
+      "tags": [
+        "含参反常积分",
+        "分部递推",
+        "阶乘公式"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $s&gt;0$，求 $\\displaystyle I=\\int_0^{+\\infty}\\mathrm{e}^{-sx}x^{n}\\,\\mathrm{d}x\\ (n=1,2,\\cdots)$。",
+      "steps": [
+        {
+          "title": "第一步：先确认收敛，再动手算",
+          "html": "<p>$x\\to+\\infty$ 时 $\\mathrm{e}^{-sx}$ 压得比任何多项式都狠，$x^{n}\\mathrm{e}^{-sx}\\to0$，所以积分收敛。这一步在解答题里要写成「由洛必达 $\\lim_{x\\to+\\infty}x^{n}\\mathrm{e}^{-sx}=0$ 知收敛」，是过程分。</p>"
+        },
+        {
+          "title": "第二步：分部积分建立递推",
+          "html": "<p>把 $\\mathrm{e}^{-sx}\\mathrm{d}x$ 凑成 $-\\frac1s\\mathrm{d}\\mathrm{e}^{-sx}$：</p><div class=\"fm\">$$I_n=-\\frac1s\\int_0^{+\\infty}x^{n}\\,\\mathrm{d}\\left(\\mathrm{e}^{-sx}\\right)=\\frac{n}{s}\\int_0^{+\\infty}\\mathrm{e}^{-sx}x^{n-1}\\,\\mathrm{d}x=\\frac{n}{s}I_{n-1}.$$</div><p>边界项 $\\left[-\\frac1s x^{n}\\mathrm{e}^{-sx}\\right]_0^{+\\infty}=0$，正是第一步确认过的结论。</p>"
+        },
+        {
+          "title": "第三步：算底再归纳",
+          "html": "<div class=\"fm\">$$I_1=\\int_0^{+\\infty}x\\mathrm{e}^{-sx}\\mathrm{d}x=\\frac{1}{s^{2}},$$</div><p>于是 $I_n=\\frac{n}{s}\\cdot\\frac{n-1}{s}\\cdots\\frac1s\\cdot\\frac{1}{s^{2}}=\\frac{n!}{s^{n+1}}$。</p><p class=\"concl\"><b>结论</b>$I_n=\\dfrac{n!}{s^{n+1}}$（$s&gt;0$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（含参反常积分篇）",
+        "lead": "看到「$\\int_0^\\infty x^{n}\\mathrm{e}^{-sx}\\mathrm{d}x$、$s&gt;0$、$n$ 任意」，直接按这个顺序出牌：",
+        "items": [
+          "先写一句收敛性：$\\lim_{x\\to\\infty}x^{n}\\mathrm{e}^{-sx}=0$，指数衰减压过多项式。",
+          "分部积分时把 $\\mathrm{e}^{-sx}$ 收进微分，每分部一次降一阶 $n$、多一个 $\\frac1s$。",
+          "建立递推 $I_n=\\frac ns I_{n-1}$，再算底 $I_1=\\frac1{s^{2}}$，归纳出 $I_n=\\frac{n!}{s^{n+1}}$。",
+          "这是 Gamma 函数的特例：$\\int_0^\\infty x^{n}\\mathrm{e}^{-sx}\\mathrm{d}x=\\frac{\\Gamma(n+1)}{s^{n+1}}$，考试可直接引用并注明。"
+        ]
+      },
+      "answerHtml": "$I_n=\\dfrac{n!}{s^{n+1}}$"
+    },
+    {
+      "seq": 4,
+      "number": "计算 4",
+      "type": "solution",
+      "title": "复合函数二阶偏导",
+      "tags": [
+        "复合函数二阶偏导",
+        "对称性"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(t)$ 有二阶连续导数，$r=\\sqrt{x^{2}+y^{2}}$，$g(x,y)=f\\left(\\dfrac1r\\right)$，求 $\\dfrac{\\partial^{2}g}{\\partial x^{2}}+\\dfrac{\\partial^{2}g}{\\partial y^{2}}$。",
+      "steps": [
+        {
+          "title": "第一步：先把内层的两个偏导备好",
+          "html": "<p>$g$ 是「$f$ 套 $\\frac1r$、$\\frac1r$ 又套 $r$」的两层复合，链式法则要一层层剥。先把最内层算出来：</p><div class=\"fm\">$$\\frac{\\partial r}{\\partial x}=\\frac{x}{r},\\qquad \\frac{\\partial}{\\partial x}\\left(\\frac1r\\right)=-\\frac{x}{r^{3}}.$$</div><p>这两个式子是整题的地基，先写好再求导，能避免中途符号混乱。</p>"
+        },
+        {
+          "title": "第二步：求 $\\frac{\\partial g}{\\partial x}$ 与 $\\frac{\\partial^{2}g}{\\partial x^{2}}$",
+          "html": "<div class=\"fm\">$$\\frac{\\partial g}{\\partial x}=f'\\left(\\frac1r\\right)\\cdot\\left(-\\frac{x}{r^{3}}\\right)=-\\frac{x}{r^{3}}f'\\left(\\frac1r\\right).$$</div><p>再对 $x$ 求一次导，用乘积法则（$f'$ 里还有 $\\frac1r$ 要再求导）：</p><div class=\"fm\">$$\\frac{\\partial^{2}g}{\\partial x^{2}}=\\frac{x^{2}}{r^{6}}f''\\left(\\frac1r\\right)+\\frac{2x^{2}-y^{2}}{r^{5}}f'\\left(\\frac1r\\right).$$</div><p>这里第二项来自 $-\\frac{x}{r^{3}}$ 自身的导数：$\\left(-\\frac{x}{r^{3}}\\right)_x=-\\frac{1}{r^{3}}+\\frac{3x^{2}}{r^{5}}=\\frac{2x^{2}-y^{2}}{r^{5}}$（用了 $r^{2}=x^{2}+y^{2}$）。</p>"
+        },
+        {
+          "title": "第三步：用 $x,y$ 对称性直接抄出 $y$ 分量",
+          "html": "<p>$g$ 关于 $x,y$ 完全对称（$r$ 对称、$f$ 与哪个变量无关），所以把上式里的 $x$ 换成 $y$、$y$ 换成 $x$ 就得到 $\\frac{\\partial^{2}g}{\\partial y^{2}}$：</p><div class=\"fm\">$$\\frac{\\partial^{2}g}{\\partial y^{2}}=\\frac{y^{2}}{r^{6}}f''\\left(\\frac1r\\right)+\\frac{2y^{2}-x^{2}}{r^{5}}f'\\left(\\frac1r\\right).$$</div>"
+        },
+        {
+          "title": "第四步：相加，'非对称'的项自动抵消",
+          "html": "<p>两项相加，$f'$ 的系数是 $\\frac{(2x^{2}-y^{2})+(2y^{2}-x^{2})}{r^{5}}=\\frac{x^{2}+y^{2}}{r^{5}}=\\frac{1}{r^{3}}$；$f''$ 的系数是 $\\frac{x^{2}+y^{2}}{r^{6}}=\\frac{1}{r^{4}}$。于是</p><div class=\"fm\">$$\\frac{\\partial^{2}g}{\\partial x^{2}}+\\frac{\\partial^{2}g}{\\partial y^{2}}=\\frac{1}{r^{4}}f''\\left(\\frac1r\\right)+\\frac{1}{r^{3}}f'\\left(\\frac1r\\right).$$</div><p class=\"concl\"><b>结论</b>$\\Delta g=\\dfrac{1}{r^{4}}f''\\left(\\dfrac1r\\right)+\\dfrac{1}{r^{3}}f'\\left(\\dfrac1r\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（拉普拉斯算子篇）",
+        "lead": "看到「$g=f\\left(\\frac1r\\right)$、$r=\\sqrt{x^{2}+y^{2}}$、求二阶偏导之和」，直接按这个顺序出牌：",
+        "items": [
+          "先算内层：$\\frac{\\partial r}{\\partial x}=\\frac xr$、$\\left(\\frac1r\\right)_x=-\\frac{x}{r^{3}}$，把地基写清楚再动外层。",
+          "只算 $\\frac{\\partial^{2}g}{\\partial x^{2}}$，另一个分量用 $x\\leftrightarrow y$ 对称抄写，省一半工作量且不易错。",
+          "合并时用 $r^{2}=x^{2}+y^{2}$ 把分子收成 $r^{2}$，这是能化简的关键一步。",
+          "记住结论：径向函数 $f(1/r)$ 的二维拉普拉斯为 $\\frac{1}{r^{4}}f''+\\frac{1}{r^{3}}f'$；三维下 $\\Delta\\frac1r=0$，二维下 $\\Delta\\frac1r=\\frac1{r^{3}}$，别混。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{1}{r^{4}}f''\\left(\\dfrac1r\\right)+\\dfrac{1}{r^{3}}f'\\left(\\dfrac1r\\right)$"
+    },
+    {
+      "seq": 5,
+      "number": "计算 5",
+      "type": "solution",
+      "title": "异面直线距离",
+      "tags": [
+        "异面直线距离",
+        "混合积",
+        "叉积"
+      ],
+      "difficulty": 3,
+      "stemHtml": "求直线 $\\ell_1:\\begin{cases}x-y=0,\\\\ z=0\\end{cases}$ 与直线 $\\ell_2:\\dfrac{x-2}{4}=\\dfrac{y-1}{-2}=\\dfrac{z-3}{-1}$ 的距离。",
+      "steps": [
+        {
+          "title": "第一步：先把两直线的「一点 ＋ 一方向」读出来",
+          "html": "<p>$\\ell_1$ 是两个平面交线，方向取两法向量叉积：$(1,-1,0)\\times(0,0,1)=(1,1,0)$；它过原点（令 $x=y=z=0$ 满足两方程）。</p><p>$\\ell_2$ 是对称式，方向 $(4,-2,-1)$、过点 $(2,1,3)$。</p><div class=\"fm\">$$\\ell_1:\\ P_1(0,0,0),\\ \\vec l_1=(1,1,0);\\qquad \\ell_2:\\ P_2(2,1,3),\\ \\vec l_2=(4,-2,-1).$$</div>"
+        },
+        {
+          "title": "第二步：算公垂方向（叉积）",
+          "html": "<p>两直线的公垂方向就是 $\\vec l_1\\times\\vec l_2$：</p><div class=\"fm\">$$\\vec n=\\vec l_1\\times\\vec l_2=(1,1,0)\\times(4,-2,-1)=(-1,1,-6),\\qquad |\\vec n|=\\sqrt{38}.$$</div>"
+        },
+        {
+          "title": "第三步：把两点连线投影到公垂方向",
+          "html": "<p>距离 = 连线在公垂方向上的投影长度，即混合积除以 $|\\vec n|$：</p><div class=\"fm\">$$d=\\frac{\\left|\\overrightarrow{P_1P_2}\\cdot\\vec n\\right|}{|\\vec n|}=\\frac{\\left|(2,1,3)\\cdot(-1,1,-6)\\right|}{\\sqrt{38}}=\\frac{19}{\\sqrt{38}}=\\frac{\\sqrt{38}}{2}.$$</div><p class=\"concl\"><b>结论</b>两直线距离 $d=\\dfrac{\\sqrt{38}}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（异面直线距离篇）",
+        "lead": "看到「两条直线求距离」，直接按这个顺序出牌：",
+        "items": [
+          "先把每条直线读成「一点 ＋ 一方向」：对称式直接读，交面式用两法向量叉积得方向。",
+          "公垂方向 = 两方向向量的叉积，模长 $|\\vec n|$ 就是分母，别算错。",
+          "分子是两点连线与 $\\vec n$ 的混合积（取绝对值），分母是 $|\\vec n|$——这个公式对平行、相交、异面都成立（相交得 0）。",
+          "若两条直线平行，$\\vec n=0$ 公式失效，改用「点到直线距离」$\\frac{|\\vec a\\times\\vec l|}{|\\vec l|}$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{\\sqrt{38}}{2}$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "凸函数",
+      "tags": [
+        "凸函数",
+        "介值定理",
+        "Rolle 反证"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $(-\\infty,+\\infty)$ 上具有二阶导数，并且 $f''(x)&gt;0$，$\\displaystyle\\lim_{x\\to+\\infty}f'(x)=\\alpha&gt;0$，$\\displaystyle\\lim_{x\\to-\\infty}f'(x)=\\beta&lt;0$，且存在一点 $x_0$ 使得 $f(x_0)&lt;0$。证明：方程 $f(x)=0$ 在 $(-\\infty,+\\infty)$ 内恰有两个实根。",
+      "steps": [
+        {
+          "title": "第一步：把三个条件翻译成「碗形」",
+          "html": "<p>$f''&gt;0$ 说明 $f$ 是严格凸函数，图像像开口向上的碗；$f'$ 严格递增，所以 $f'$ 至多一个零点。又 $f'(-\\infty)=\\beta&lt;0$、$f'(+\\infty)=\\alpha&gt;0$，由介值定理 $f'$ 恰有一个零点 $x^{*}$，且 $f$ 在 $x^{*}$ 处取到全局最小值。</p><p>这三条合起来说明：$f$ 先减后增、只有一个谷底——图形上「最多碰 $x$ 轴两次」已经是显然的，剩下的任务是把这句话写成严格证明。</p>"
+        },
+        {
+          "title": "第二步：用 Taylor 保号证「两侧都能升到正」",
+          "html": "<p>先做右边。由 $f'(+\\infty)=\\alpha&gt;0$，存在 $x_1&gt;x_0$ 使 $f'(x_1)&gt;0$。对 $x&gt;x_1$ 用带 Lagrange 余项的 Taylor 公式，并注意 $f''(\\xi)&gt;0$：</p><div class=\"fm\">$$f(x)=f(x_1)+f'(x_1)(x-x_1)+\\frac12f''(\\xi)(x-x_1)^{2}&gt;f(x_1)+f'(x_1)(x-x_1).$$</div><p>右端是一次函数且斜率 $f'(x_1)&gt;0$，所以取 $x$ 足够大（具体可取 $x&gt;a=x_1-\\frac{f(x_1)}{f'(x_1)}$）就有 $f(x)&gt;0$。</p><p>左边同理：由 $f'(-\\infty)=\\beta&lt;0$，存在 $x_2&lt;x_0$ 使 $f'(x_2)&lt;0$，同样展开可得 $x$ 足够小（$x&lt;b$）时 $f(x)&gt;0$。</p>"
+        },
+        {
+          "title": "第三步：介值定理给出「至少两根」",
+          "html": "<p>现在有了三个点：$f(b)&gt;0$、$f(x_0)&lt;0$、$f(a)&gt;0$，且 $b&lt;x_0&lt;a$。在 $[b,x_0]$ 与 $[x_0,a]$ 上分别用零点定理，各得一个根：</p><div class=\"fm\">$$\\exists\\,\\xi_1\\in(b,x_0),\\ \\xi_2\\in(x_0,a),\\quad f(\\xi_1)=f(\\xi_2)=0.$$</div>"
+        },
+        {
+          "title": "第四步：Rolle 反证「至多两根」",
+          "html": "<p>反设有三个根 $\\eta_1&lt;\\eta_2&lt;\\eta_3$。对 $f$ 在 $[\\eta_1,\\eta_2]$、$[\\eta_2,\\eta_3]$ 上用 Rolle：存在 $\\rho_1&lt;\\rho_2$ 使 $f'(\\rho_1)=f'(\\rho_2)=0$。再对 $f'$ 在 $[\\rho_1,\\rho_2]$ 上用 Rolle：存在 $\\theta$ 使 $f''(\\theta)=0$，与 $f''&gt;0$ 矛盾。故最多两根。</p><p class=\"concl\"><b>结论</b>结合「至少两根」与「至多两根」，$f(x)=0$ 在 $(-\\infty,+\\infty)$ 内恰有两个实根。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（恰有 $n$ 个根证明篇）",
+        "lead": "看到「$f''&gt;0$ ＋ 两端导数异号 ＋ 存在点函数值为负，证恰有两根」，直接按这个顺序出牌：",
+        "items": [
+          "先读形状：$f''&gt;0$ 是碗形，$f'$ 严格增故只有一个谷底，这一步定性让后面的构造有方向。",
+          "「两端升到正」用 Taylor 保号：$f(x)&gt;f(x_1)+f'(x_1)(x-x_1)$，只要斜率不为零，一次函数迟早为正。",
+          "「至少两根」靠介值定理，一定要写出 $b&lt;x_0&lt;a$ 三个点的符号，缺一个都不算证完。",
+          "「至多两根」靠 Rolle 反证：$n$ 个根 ⇒ $f'$ 有 $n-1$ 个零点 ⇒ $f''$ 有 $n-2$ 个零点，与 $f''$ 恒正矛盾。"
+        ]
+      },
+      "answerHtml": "$f(x)=0$ 在 $(-\\infty,+\\infty)$ 内恰有两个实根"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "参数式二阶导",
+      "tags": [
+        "参数式二阶导",
+        "一阶线性 ODE",
+        "相切条件"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $y=f(x)$ 由参数方程 $\\begin{cases}x=2t+t^{2},\\\\ y=\\psi(t)\\end{cases}\\ (t&gt;-1)$ 所确定，其中 $\\psi(t)$ 具有二阶导数，且 $\\dfrac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\dfrac{3}{4(1+t)}$。若曲线 $y=\\psi(t)$ 与 $y=\\displaystyle\\int_1^{t^{2}}\\mathrm{e}^{-u^{2}}\\,\\mathrm{d}u+\\frac{3}{2\\mathrm{e}}$ 在 $t=1$ 处相切，求函数 $\\psi(t)$。",
+      "steps": [
+        {
+          "title": "第一步：用参数式二阶导公式，把已知条件翻译成 $\\psi$ 的方程",
+          "html": "<p>参数方程求二阶导的固定公式是 $\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\frac{\\mathrm{d}}{\\mathrm{d}t}\\left(\\frac{y'}{x'}\\right)\\Big/x'$，这里 $x'=2(1+t)$：</p><div class=\"fm\">$$\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\frac{\\mathrm{d}}{\\mathrm{d}t}\\left(\\frac{\\psi'}{2(1+t)}\\right)\\cdot\\frac{1}{2(1+t)}=\\frac{(1+t)\\psi''-\\psi'}{4(1+t)^{3}}.$$</div><p>令它等于 $\\frac{3}{4(1+t)}$，化简得</p><div class=\"fm\">$$\\psi''-\\frac{1}{1+t}\\psi'=3(1+t).$$</div><p>这是关于 $\\psi'$ 的一阶线性方程，题目给的二阶导条件就是靠这一步「翻译」成可解的方程。</p>"
+        },
+        {
+          "title": "第二步：解一阶线性方程（把 $\\psi'$ 当未知函数）",
+          "html": "<p>积分因子 $\\mathrm{e}^{-\\int\\frac{\\mathrm{d}t}{1+t}}=\\frac{1}{1+t}$，于是 $\\left(\\frac{\\psi'}{1+t}\\right)'=3$，积分得 $\\psi'=(1+t)(3t+C)$。</p><div class=\"fm\">$$\\psi'(t)=(1+t)(3t+C).$$</div>"
+        },
+        {
+          "title": "第三步：再积一次，得含两个常数的 $\\psi$",
+          "html": "<div class=\"fm\">$$\\psi(t)=\\int(1+t)(3t+C)\\,\\mathrm{d}t=t^{3}+\\frac{3+C}{2}t^{2}+Ct+C_1.$$</div>"
+        },
+        {
+          "title": "第四步：用「在 $t=1$ 处相切」定两个常数",
+          "html": "<p>相切 ＝ 函数值相等 ＋ 导数值相等。曲线 $y=\\int_1^{t^{2}}\\mathrm{e}^{-u^{2}}\\mathrm{d}u+\\frac{3}{2\\mathrm{e}}$ 在 $t=1$ 处的值为 $\\frac{3}{2\\mathrm{e}}$，导数为 $\\left(2t\\mathrm{e}^{-t^{2}}\\right)\\big|_{t=1}=\\frac{2}{\\mathrm{e}}$。于是</p><div class=\"fm\">$$\\psi(1)=\\frac{3}{2\\mathrm{e}},\\qquad \\psi'(1)=2(3+C)=\\frac{2}{\\mathrm{e}}\\;\\Longrightarrow\\;C=\\frac1{\\mathrm{e}}-3.$$</div><p>把 $C$ 代回 $\\psi(1)$：$\\psi(1)=1+\\frac{3+C}{2}+C+C_1=\\frac{3}{2\\mathrm{e}}$，解得 $C_1=2$。</p><p class=\"concl\"><b>结论</b>$\\psi(t)=t^{3}+\\dfrac{1}{2\\mathrm{e}}t^{2}+\\left(\\dfrac1{\\mathrm{e}}-3\\right)t+2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（参数式二阶导篇）",
+        "lead": "看到「参数方程给出 $\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}$ 的表达式、还要求原函数」，直接按这个顺序出牌：",
+        "items": [
+          "先套参数式二阶导公式 $\\frac{1}{x'}\\frac{\\mathrm{d}}{\\mathrm{d}t}\\left(\\frac{y'}{x'}\\right)$，别用 $\\frac{y''}{x''}$ 这种错式。",
+          "把已知的 $\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}$ 代进去，整理成关于 $\\psi'$ 的一阶线性方程 $\\psi''-\\frac{\\psi'}{1+t}=3(1+t)$。",
+          "积分因子 $\\frac1{1+t}$ 让左边成 $\\left(\\frac{\\psi'}{1+t}\\right)'$，解出 $\\psi'$ 后再积一次。",
+          "相切条件要用两条：$\\psi(t_0)=$ 对方函数值、$\\psi'(t_0)=$ 对方导数值；变上限积分求导别忘链式因子 $2t$。"
+        ]
+      },
+      "answerHtml": "$\\psi(t)=t^{3}+\\dfrac{1}{2\\mathrm{e}}t^{2}+\\left(\\dfrac1{\\mathrm{e}}-3\\right)t+2$"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "中值定理放缩",
+      "tags": [
+        "中值定理放缩",
+        "望远镜求和",
+        "Cauchy 准则"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $a_n&gt;0$，$S_n=\\displaystyle\\sum_{k=1}^{n}a_k$，证明：(1) 当 $\\alpha&gt;1$ 时，级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{a_n}{S_n^{\\alpha}}$ 收敛；(2) 当 $\\alpha\\leqslant1$ 且 $S_n\\to\\infty\\ (n\\to\\infty)$ 时，该级数发散。",
+      "steps": [
+        {
+          "title": "第一步：认出 $a_n=S_n-S_{n-1}$，把「项」变成「差」",
+          "html": "<p>分母是部分和 $S_n$，而分子 $a_n$ 恰好是 $S_n-S_{n-1}$——这是望远镜结构的信号：只要能把 $\\frac{S_n-S_{n-1}}{S_n^{\\alpha}}$ 写成「某个函数的差」，求和就能整体消掉。</p><p>要找的函数应该是 $x^{1-\\alpha}$，因为它的导数会给出分母 $S_n^{\\alpha}$。</p>"
+        },
+        {
+          "title": "第二步：中值定理把项夹成差分（$\\alpha>1$）",
+          "html": "<p>对 $f(x)=x^{1-\\alpha}$ 在 $[S_{n-1},S_n]$ 上用 Lagrange 中值定理：存在 $\\xi\\in(S_{n-1},S_n)$ 使</p><div class=\"fm\">$$\\frac{S_{n-1}^{1-\\alpha}-S_n^{1-\\alpha}}{S_n-S_{n-1}}=(\\alpha-1)\\xi^{-\\alpha}.$$</div><p>因为 $\\xi&lt;S_n$ 且 $\\alpha&gt;1$，故 $\\xi^{-\\alpha}&lt;S_n^{-\\alpha}$，于是</p><div class=\"fm\">$$\\frac{a_n}{S_n^{\\alpha}}&lt;\\frac{1}{\\alpha-1}\\left(S_{n-1}^{1-\\alpha}-S_n^{1-\\alpha}\\right).$$</div>"
+        },
+        {
+          "title": "第三步：望远镜求和，得到与 $n$ 无关的上界",
+          "html": "<p>对 $n\\geqslant2$ 求和：</p><div class=\"fm\">$$\\sum_{n=2}^{N}\\frac{a_n}{S_n^{\\alpha}}&lt;\\frac{1}{\\alpha-1}\\left(S_1^{1-\\alpha}-S_N^{1-\\alpha}\\right)\\leqslant\\frac{S_1^{1-\\alpha}}{\\alpha-1}.$$</div><p>右端与 $N$ 无关（$S_N^{1-\\alpha}\\geqslant0$），部分和单调递增且有上界，故级数收敛，(1) 得证。</p>"
+        },
+        {
+          "title": "第四步：$\\alpha\\leqslant1$ 时抓「尾巴不趋于零」",
+          "html": "<p>$S_n\\to+\\infty$，故可取足够大的 $n$ 使 $S_n&gt;1$，此时 $S_{n+k}^{\\alpha}\\leqslant S_{n+k}$（$\\alpha\\leqslant1$）。再取 $m$ 使 $S_{n+m}&gt;2S_n$：</p><div class=\"fm\">$$\\sum_{k=1}^{m}\\frac{a_{n+k}}{S_{n+k}^{\\alpha}}\\geqslant\\sum_{k=1}^{m}\\frac{a_{n+k}}{S_{n+m}^{\\alpha}}\\geqslant\\sum_{k=1}^{m}\\frac{a_{n+k}}{S_{n+m}}=\\frac{S_{n+m}-S_n}{S_{n+m}}&gt;1-\\frac{S_n}{S_{n+m}}&gt;\\frac12.$$</div><p>即无论 $n$ 多大，后面总有一段长度 $m$ 的「尾巴」其和超过 $\\frac12$，不满足 Cauchy 收敛准则（要求尾巴任意小），故级数发散。</p><p class=\"concl\"><b>结论</b>$\\alpha&gt;1$ 收敛；$\\alpha\\leqslant1$ 且 $S_n\\to\\infty$ 时发散。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\sum a_n/S_n^{\\alpha}$ 篇）",
+        "lead": "看到「分母是部分和 $S_n$、分子是 $a_n$」，直接按这个顺序出牌：",
+        "items": [
+          "先换元：$a_n=S_n-S_{n-1}$，把「和式」变成「差式」，望远镜结构就露出来了。",
+          "收敛用中值定理：$\\frac{S_n-S_{n-1}}{S_n^{\\alpha}}&lt;\\frac{1}{\\alpha-1}\\left(S_{n-1}^{1-\\alpha}-S_n^{1-\\alpha}\\right)$，注意 $\\alpha&gt;1$ 时不等号方向。",
+          "求和后右端只剩首项 $S_1^{1-\\alpha}$，与 $N$ 无关 ⇒ 部分和有界 ⇒ 收敛。",
+          "发散用 Cauchy 准则：取 $S_{n+m}&gt;2S_n$，证尾巴和 $&gt;\\frac12$，比找具体通项简单得多。"
+        ]
+      },
+      "answerHtml": "(1) $\\alpha&gt;1$ 时收敛；(2) $\\alpha\\leqslant1$ 且 $S_n\\to\\infty$ 时发散"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "转动惯量",
+      "tags": [
+        "转动惯量",
+        "广义球坐标",
+        "二次型最值"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\ell$ 是过原点、方向向量为 $(\\alpha,\\beta,\\gamma)$ 的直线（其中 $\\alpha^{2}+\\beta^{2}+\\gamma^{2}=1$）。质量分布均匀的椭球体 $\\dfrac{x^{2}}{a^{2}}+\\dfrac{y^{2}}{b^{2}}+\\dfrac{z^{2}}{c^{2}}\\leqslant1$（其中 $0&lt;c&lt;b&lt;a$，密度为 $1$）绕 $\\ell$ 旋转。(1) 求其转动惯量；(2) 求其转动惯量关于方向 $(\\alpha,\\beta,\\gamma)$ 的最大值和最小值。",
+      "steps": [
+        {
+          "title": "第一步：写出「到轴距离的平方」",
+          "html": "<p>点 $(x,y,z)$ 到过原点、单位方向 $(\\alpha,\\beta,\\gamma)$ 的直线的距离平方，等于 $r^{2}$ 减去它在轴上的投影平方：</p><div class=\"fm\">$$d^{2}=x^{2}+y^{2}+z^{2}-\\left(\\alpha x+\\beta y+\\gamma z\\right)^{2}.$$</div><p>展开后：</p><div class=\"fm\">$$d^{2}=\\left(\\beta^{2}+\\gamma^{2}\\right)x^{2}+\\left(\\alpha^{2}+\\gamma^{2}\\right)y^{2}+\\left(\\alpha^{2}+\\beta^{2}\\right)z^{2}-2\\alpha\\beta xy-2\\beta\\gamma yz-2\\alpha\\gamma xz.$$</div><p>这个展开式的系数规律是「自己分量的平方被 1 减掉」，可以直接记。</p>"
+        },
+        {
+          "title": "第二步：换广义球坐标，把椭球拉成单位球",
+          "html": "<p>椭球区域用 $x=a\\rho\\cos\\theta\\sin\\varphi$、$y=b\\rho\\sin\\theta\\sin\\varphi$、$z=c\\rho\\cos\\varphi$，$\\rho\\in[0,1]$，雅可比 $abc\\rho^{2}\\sin\\varphi$。这一步的目的是让区域变成「$\\rho$ 从 0 到 1」，积分立刻可算。</p><p>交叉项 $xy,yz,zx$ 在 $\\theta$ 的一个周期上积分为 $0$（$\\int_0^{2\\pi}\\cos\\theta\\sin\\theta=0$），这就是为什么可以用对称性直接丢掉它们。</p>"
+        },
+        {
+          "title": "第三步：三个积分算完，得到转动惯量",
+          "html": "<p>用 $\\int_0^{2\\pi}\\cos^{2}\\theta=\\int_0^{2\\pi}\\sin^{2}\\theta=\\pi$、$\\int_0^{\\pi}\\sin^{3}\\varphi=\\frac43$、$\\int_0^{\\pi}\\cos^{2}\\varphi\\sin\\varphi=\\frac23$、$\\int_0^1\\rho^{4}\\mathrm{d}\\rho=\\frac15$：</p><div class=\"fm\">$$J=\\frac{4\\pi abc}{15}\\left[\\left(b^{2}+c^{2}\\right)\\alpha^{2}+\\left(c^{2}+a^{2}\\right)\\beta^{2}+\\left(a^{2}+b^{2}\\right)\\gamma^{2}\\right].$$</div><p>检查一下：绕 $z$ 轴（$\\gamma=1$）时应得「$I_z=\\frac{4\\pi abc}{15}(a^{2}+b^{2})$」，与常见结论一致。</p>"
+        },
+        {
+          "title": "第四步：在 $\\alpha^{2}+\\beta^{2}+\\gamma^{2}=1$ 上取最值",
+          "html": "<p>这是二次型在单位球面上的最值，等价于比较三个系数。由 $0&lt;c&lt;b&lt;a$ 得</p><div class=\"fm\">$$a^{2}+b^{2}&gt;a^{2}+c^{2}&gt;b^{2}+c^{2},$$</div><p>故最大值在 $\\gamma=1$（绕 $z$ 轴）、最小值在 $\\alpha=1$（绕 $x$ 轴）：</p><div class=\"fm\">$$J_{\\max}=\\frac{4\\pi abc}{15}\\left(a^{2}+b^{2}\\right),\\qquad J_{\\min}=\\frac{4\\pi abc}{15}\\left(b^{2}+c^{2}\\right).$$</div><p class=\"concl\"><b>结论</b>见上式，(2) 中 $\\gamma=1$ 取最大、$\\alpha=1$ 取最小。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（转动惯量篇）",
+        "lead": "看到「椭球绕任意方向转、求转动惯量与方向最值」，直接按这个顺序出牌：",
+        "items": [
+          "转动惯量的被积函数永远是 $d^{2}=r^{2}-(\\text{投影})^{2}$，先展开成二次型再积分。",
+          "椭球一律用广义球坐标 $x=a\\rho\\cos\\theta\\sin\\varphi$ 等，雅可比 $abc\\rho^{2}\\sin\\varphi$，$\\rho$ 的积分是现成的 $\\frac15$。",
+          "交叉项靠 $\\theta$ 周期的对称性清零，不用真算——这一步要在卷面上写明理由。",
+          "方向最值就是二次型在单位球面上的最值：比较三个系数，最大者对应「最短那根轴」的方向。"
+        ]
+      },
+      "answerHtml": "$J=\\dfrac{4\\pi abc}{15}\\left[\\left(b^{2}+c^{2}\\right)\\alpha^{2}+\\left(c^{2}+a^{2}\\right)\\beta^{2}+\\left(a^{2}+b^{2}\\right)\\gamma^{2}\\right]$；$J_{\\max}=\\dfrac{4\\pi abc}{15}\\left(a^{2}+b^{2}\\right)$（$\\gamma=1$），$J_{\\min}=\\dfrac{4\\pi abc}{15}\\left(b^{2}+c^{2}\\right)$（$\\alpha=1$）"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "路径无关",
+      "tags": [
+        "路径无关",
+        "偏导相等",
+        "Green 公式"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $\\varphi(x)$ 具有连续的导数，在围绕原点的任意光滑的简单闭曲线 $C$ 上，曲线积分 $\\displaystyle\\oint_C\\frac{2xy\\,\\mathrm{d}x+\\varphi(x)\\,\\mathrm{d}y}{x^{4}+y^{2}}$ 的值为常数。(1) 设 $L$ 为正向闭曲线 $(x-2)^{2}+y^{2}=1$，证明 $\\displaystyle\\oint_L\\frac{2xy\\,\\mathrm{d}x+\\varphi(x)\\,\\mathrm{d}y}{x^{4}+y^{2}}=0$；(2) 求函数 $\\varphi(x)$；(3) 设 $C$ 是围绕原点的光滑简单正向闭曲线，求此积分值。",
+      "steps": [
+        {
+          "title": "第一步：读懂「绕原点的闭曲线积分恒为常数」这句话",
+          "html": "<p>它的意思是：只要曲线把原点圈在里面，积分值就都一样，记作 $I$。而 $L:(x-2)^{2}+y^{2}=1$ 恰好<b>不</b>围原点（圆心 $(2,0)$、半径 $1$），所以 (1) 要证的是「不围原点时积分为 $0$」。</p><p>证明思路：取一个大圆 $C_0$ 把原点和 $L$ 都圈住，它与 $L$ 交于 $A,B$ 两点；$C_0$ 被分成两段弧 $C_0^{1},C_0^{2}$，$L$ 被分成 $L^{1},L^{2}$。则 $C_0^{1}+L^{1}$ 与 $C_0^{1}+L^{2}$ 都是绕原点的闭曲线，积分都等于 $I$，相减即得 $\\oint_L=0$。</p>"
+        },
+        {
+          "title": "第二步：由「积分与路径无关」建立偏导等式",
+          "html": "<p>在不含原点的单连通区域上，闭曲线积分恒为 $0$ 等价于 $\\frac{\\partial Q}{\\partial x}=\\frac{\\partial P}{\\partial y}$，其中</p><div class=\"fm\">$$P=\\frac{2xy}{x^{4}+y^{2}},\\qquad Q=\\frac{\\varphi(x)}{x^{4}+y^{2}}.$$</div><p>分别求偏导：</p><div class=\"fm\">$$\\frac{\\partial P}{\\partial y}=\\frac{2x^{5}-2xy^{2}}{\\left(x^{4}+y^{2}\\right)^{2}},\\qquad \\frac{\\partial Q}{\\partial x}=\\frac{\\varphi'(x)\\left(x^{4}+y^{2}\\right)-4x^{3}\\varphi(x)}{\\left(x^{4}+y^{2}\\right)^{2}}.$$</div>"
+        },
+        {
+          "title": "第三步：比较 $y$ 的幂次，解出 $\\varphi$",
+          "html": "<p>令两式相等并整理，按 $y^{0}$ 与 $y^{2}$ 分组：</p><div class=\"fm\">$$x^{3}\\left(2x^{2}+4\\varphi(x)-x\\varphi'(x)\\right)=\\left(2x+\\varphi'(x)\\right)y^{2}.$$</div><p>左端只含 $x$、右端只含 $x$ 但乘了 $y^{2}$，两边要对一切 $y$ 相等，只能各自为 $0$：</p><div class=\"fm\">$$2x+\\varphi'(x)=0\\;\\Longrightarrow\\;\\varphi'(x)=-2x\\;\\Longrightarrow\\;\\varphi(x)=-x^{2}+C,$$</div><p>代回另一式：$2x^{2}+4\\left(-x^{2}+C\\right)-x\\left(-2x\\right)=4C=0$，故 $C=0$，即 $\\varphi(x)=-x^{2}$。</p>"
+        },
+        {
+          "title": "第四步：把积分换到方便计算的曲线上",
+          "html": "<p>既然绕原点的闭曲线积分都相等，就取最简单的 $C_1:x^{4}+y^{2}=1$。代入 $\\varphi=-x^{2}$，被积式变成 $2xy\\,\\mathrm{d}x-x^{2}\\,\\mathrm{d}y$，用 Green 公式：</p><div class=\"fm\">$$\\oint_{C_1}\\left(2xy\\,\\mathrm{d}x-x^{2}\\,\\mathrm{d}y\\right)=\\iint_{x^{4}+y^{2}\\leqslant1}\\left(-2x-2x\\right)\\mathrm{d}x\\mathrm{d}y=-4\\iint_{D}x\\,\\mathrm{d}x\\mathrm{d}y=0,$$</div><p>最后一步用 $D$ 关于 $y$ 轴对称、被积函数 $x$ 为奇函数。</p><p class=\"concl\"><b>结论</b>(1) 得证；(2) $\\varphi(x)=-x^{2}$；(3) 积分值 $=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（奇点绕行 ＋ 路径无关篇）",
+        "lead": "看到「绕某点的闭曲线积分恒为常数、还要反求函数」，直接按这个顺序出牌：",
+        "items": [
+          "先分清「绕奇点」与「不绕奇点」：绕奇点积分是常数，不绕奇点（单连通）则为 $0$，这是 (1) 的全部内容。",
+          "证明「不绕」为 $0$ 的通用手法：取大圈与目标曲线相交，拼出两条都绕奇点的闭曲线，两值相减。",
+          "求未知函数用路径无关条件 $Q_x=P_y$，把等式按 $y$ 的幂次拆成两个方程，比硬解微分方程快。",
+          "求具体积分值就换到最简单的同伦曲线（本题 $x^{4}+y^{2}=1$），再用 Green ＋ 对称性，一步得 $0$。"
+        ]
+      },
+      "answerHtml": "(1) 得证；(2) $\\varphi(x)=-x^{2}$；(3) 积分值 $=0$"
+    }
+  ]
+}

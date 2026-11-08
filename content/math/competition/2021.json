@@ -1,0 +1,438 @@
+{
+  "year": 2021,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第十三届（2021）初赛 非数学专业类",
+  "edition": 13,
+  "source": "第13届（2021）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "根号提公因式",
+      "tags": [
+        "根号提公因式",
+        "$\\ln$ 里提 $\\mathrm e^{x}$",
+        "$\\ln(1+u)\\sim u$"
+      ],
+      "difficulty": 2,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{x\\to+\\infty}\\sqrt{x^{2}+x+1}\\;\\frac{x-\\ln\\left(\\mathrm e^{x}+x\\right)}{x}$。",
+      "steps": [
+        {
+          "title": "第一步：把 $\\sqrt{x^{2}+x+1}$ 和分母的 $x$ 配成一对",
+          "html": "<p>$x&gt;0$ 时</p><div class=\"fm\">$$\\sqrt{x^{2}+x+1}=x\\sqrt{1+\\frac1x+\\frac1{x^{2}}}.$$</div><p>它只比 $x$ 大一点点，$\\to1$ 的因子；与分母的 $x$ 一约，就只剩这个根式。</p>"
+        },
+        {
+          "title": "第二步：$\\ln\\left(\\mathrm e^{x}+x\\right)$ 提出 $\\mathrm e^{x}$",
+          "html": "<div class=\"fm\">$$\\ln\\left(\\mathrm e^{x}+x\\right)=x+\\ln\\left(1+\\frac{x}{\\mathrm e^{x}}\\right),$$</div><p>于是 $x-\\ln\\left(\\mathrm e^{x}+x\\right)=-\\ln\\left(1+\\frac{x}{\\mathrm e^{x}}\\right)$。这一步是本题的命门：不提出 $\\mathrm e^x$，后面无从下手。</p>"
+        },
+        {
+          "title": "第三步：$\\ln(1+u)\\sim u$，而 $u\\to0$ 极快",
+          "html": "<div class=\"fm\">$$\\text{原式}=-\\lim_{x\\to+\\infty}\\sqrt{1+\\frac1x+\\frac1{x^{2}}}\\cdot\\ln\\left(1+\\frac{x}{\\mathrm e^{x}}\\right),$$</div><p>$\\frac{x}{\\mathrm e^{x}}\\to0$ ⇒ $\\ln\\left(1+\\frac{x}{\\mathrm e^{x}}\\right)\\sim\\frac{x}{\\mathrm e^{x}}\\to0$，另一因子 $\\to1$。</p><p class=\"concl\"><b>结论</b>极限为 $0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$x\\to+\\infty$ 对数提 $\\mathrm e^{x}$ 篇）",
+        "lead": "看到「$\\sqrt{x^{2}+x+1}\\cdot\\frac{x-\\ln\\left(\\mathrm e^{x}+x\\right)}{x}$」，直接按这个顺序出牌：",
+        "items": [
+          "根号一律提 $x$：$\\sqrt{x^{2}+x+1}=x\\sqrt{1+\\frac1x+\\frac1{x^{2}}}$，与分母 $x$ 正好对消。",
+          "$\\ln\\left(\\mathrm e^{x}+x\\right)$ 提出主项 $\\mathrm e^{x}$，写成 $x+\\ln\\left(1+\\frac{x}{\\mathrm e^x}\\right)$。",
+          "于是 $x-\\ln(\\cdots)=-\\ln\\left(1+\\frac{x}{\\mathrm e^{x}}\\right)$，再用 $\\ln(1+u)\\sim u$。",
+          "$\\frac{x}{\\mathrm e^{x}}\\to0$ 是指数级衰减 ⇒ 整个极限 $0$；此处用洛必达只会越算越乱。"
+        ]
+      },
+      "answerHtml": "$0$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "整体换元 $u=x+2y-3z$",
+      "tags": [
+        "整体换元 $u=x+2y-3z$",
+        "隐函数求导",
+        "分类讨论退化情形"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设 $z=z(x,y)$ 是由方程 $2\\sin\\left(x+2y-3z\\right)=x+2y-3z$ 所确定的二元隐函数，则 $\\dfrac{\\partial z}{\\partial x}+\\dfrac{\\partial z}{\\partial y}=$________。",
+      "steps": [
+        {
+          "title": "第一步：认出方程只依赖一个组合量",
+          "html": "<p>令 $u=x+2y-3z$，方程化成一元关系 $2\\sin u=u$。$x,y$ 只能通过 $u$ 影响 $z$，这是本题全部结构的来源。</p>"
+        },
+        {
+          "title": "第二步：对 $x$ 求偏导，提公因式",
+          "html": "<p>$u_x=1-3z_x$：</p><div class=\"fm\">$$2\\cos u\\cdot\\left(1-3z_x\\right)=1-3z_x\\;\\Longrightarrow\\;\\left(1-3z_x\\right)\\left(2\\cos u-1\\right)=0.$$</div>"
+        },
+        {
+          "title": "第三步：两种情形都给出 $z_x=\\frac13$",
+          "html": "<p>若 $2\\cos u\\neq1$，则 $1-3z_x=0$；若 $2\\cos u=1$，则 $u$ 被 $2\\sin u=u$ 与 $\\cos u=\\frac12$ 同时钉成常数，仍有 $u_x=0$、$z_x=\\frac13$。</p><p>（退化情形必须讨论，否则逻辑上有洞。）</p>"
+        },
+        {
+          "title": "第四步：对 $y$ 同理，相加",
+          "html": "<p>$u_y=2-3z_y$ 得 $z_y=\\frac23$：</p><div class=\"fm\">$$\\frac{\\partial z}{\\partial x}+\\frac{\\partial z}{\\partial y}=\\frac13+\\frac23=1.$$</div><p class=\"concl\"><b>结论</b>所求为 $1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（组合量隐函数篇）",
+        "lead": "看到「$2\\sin\\left(x+2y-3z\\right)=x+2y-3z$ 求 $z_x+z_y$」，直接按这个顺序出牌：",
+        "items": [
+          "把 $x+2y-3z$ 整体记成 $u$，二元隐函数立刻降成一元方程，$z$ 只通过 $u$ 依赖 $x,y$。",
+          "对 $x$ 求导得 $\\left(1-3z_x\\right)\\left(2\\cos u-1\\right)=0$，对 $y$ 得 $\\left(2-3z_y\\right)\\left(2\\cos u-1\\right)=0$。",
+          "无论 $2\\cos u-1$ 是否为零，都有 $u_x=u_y=0$，故 $z_x=\\frac13$、$z_y=\\frac23$。",
+          "相加得 $1$——这个值只由系数 $1,2,-3$ 决定，与原方程的具体解无关。"
+        ]
+      },
+      "answerHtml": "$1$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "分母换元",
+      "tags": [
+        "分母换元",
+        "分子拆项",
+        "洛必达",
+        "等价量 $f(0)x$"
+      ],
+      "difficulty": 3,
+      "stemHtml": "设函数 $f(x)$ 连续，且 $f(0)\\neq0$，则 $\\displaystyle\\lim_{x\\to0}\\frac{2\\displaystyle\\int_0^{x}\\left(x-t\\right)f(t)\\,\\mathrm dt}{x\\displaystyle\\int_0^{x}f\\left(x-t\\right)\\mathrm dt}=$________。",
+      "steps": [
+        {
+          "title": "第一步：分母换元，把 $f(x-t)$ 变成 $f(u)$",
+          "html": "<p>令 $u=x-t$，$t:0\\to x$ 对应 $u:x\\to0$：</p><div class=\"fm\">$$\\int_0^{x}f\\left(x-t\\right)\\mathrm dt=\\int_0^{x}f(u)\\,\\mathrm du,$$</div><p>分母即 $x\\int_0^xf(u)\\mathrm du$。</p>"
+        },
+        {
+          "title": "第二步：分子拆成「$x\\int f-\\int tf$」",
+          "html": "<div class=\"fm\">$$2\\int_0^{x}\\left(x-t\\right)f(t)\\mathrm dt=2x\\int_0^{x}f(t)\\mathrm dt-2\\int_0^{x}tf(t)\\mathrm dt.$$</div><p>为什么拆：$x$ 既在积分上限里、又在被积函数里，拆开后每个积分都只对上限求导。</p>"
+        },
+        {
+          "title": "第三步：洛必达一次，$2xf(x)$ 恰好抵消",
+          "html": "<p>分子分母都 $\\to0$：</p><div class=\"fm\">$$\\text{原式}=\\lim_{x\\to0}\\frac{2\\int_0^{x}f(t)\\mathrm dt+2xf(x)-2xf(x)}{\\int_0^{x}f(u)\\mathrm du+xf(x)}=\\lim_{x\\to0}\\frac{2\\int_0^{x}f(t)\\mathrm dt}{\\int_0^{x}f(u)\\mathrm du+xf(x)}.$$</div>"
+        },
+        {
+          "title": "第四步：用等价量 $f(0)x$ 收尾",
+          "html": "<p>$\\int_0^xf=f(0)x+o(x)$（连续即可，不必可导）：分子 $\\sim2f(0)x$，分母 $\\sim f(0)x+xf(0)=2f(0)x$：</p><div class=\"fm\">$$\\text{原式}=\\frac{2f(0)}{2f(0)}=1.$$</div><p class=\"concl\"><b>结论</b>极限为 $1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（含参积分比式极限篇）",
+        "lead": "看到「$\\frac{2\\int_0^x\\left(x-t\\right)f(t)\\mathrm dt}{x\\int_0^xf\\left(x-t\\right)\\mathrm dt}$、$f(0)\\neq0$」，直接按这个顺序出牌：",
+        "items": [
+          "分母先换元 $u=x-t$，把 $f(x-t)$ 拉直成 $f(u)$，分母变 $x\\int_0^xf$。",
+          "分子固定拆成 $x\\int_0^xf-2\\int_0^xtf$ 的形式，避免「$x$ 在积分里」带来的求导混乱。",
+          "洛必达一次，$2xf(x)$ 与 $-2xf(x)$ 自动抵消，剩两个一阶量之比。",
+          "用 $\\int_0^xf=f(0)x+o(x)$（只需连续）得 $\\frac{2f(0)}{2f(0)}=1$；$f(0)\\neq0$ 保证主部不为零。"
+        ]
+      },
+      "answerHtml": "$1$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "三线平行判共柱",
+      "tags": [
+        "三线平行判共柱",
+        "垂直平面截三点定圆",
+        "点到直线距离"
+      ],
+      "difficulty": 2,
+      "stemHtml": "过三条直线 $L_1:\\begin{cases}x=0,\\\\ y-z=2,\\end{cases}$ $L_2:\\begin{cases}x=0,\\\\ x+y-z+2=0,\\end{cases}$ $L_3:\\begin{cases}x=\\sqrt2,\\\\ y-z=0,\\end{cases}$ 的圆柱面方程为________。",
+      "steps": [
+        {
+          "title": "第一步：化成对称式，确认三线平行",
+          "html": "<div class=\"fm\">$$L_1:\\frac{x}{0}=\\frac{y-1}{1}=\\frac{z+1}{1},\\quad L_2:\\frac{x}{0}=\\frac{y}{1}=\\frac{z-2}{1},\\quad L_3:\\frac{x-\\sqrt2}{0}=\\frac{y-1}{1}=\\frac{z-1}{1},$$</div><p>方向向量都是 $\\vec s=\\left(0,1,1\\right)$ ⇒ 三线平行，圆柱面的母线方向即 $\\vec s$，轴线也平行于 $\\vec s$。</p>"
+        },
+        {
+          "title": "第二步：用一个垂直平面截三线，三点定圆",
+          "html": "<p>取 $L_1$ 上的点 $P_1\\left(0,1,-1\\right)$，过它作垂直于 $\\vec s$ 的平面 $y+z=0$。与 $L_2$ 交于 $P_2\\left(0,-1,1\\right)$，与 $L_3$ 交于 $P_3\\left(\\sqrt2,0,0\\right)$。</p><p>三点到原点距离均为 $\\sqrt2$ ⇒ 圆心 $O\\left(0,0,0\\right)$、半径 $\\sqrt2$、轴线过原点方向 $\\left(0,1,1\\right)$。</p>"
+        },
+        {
+          "title": "第三步：用点到直线距离写方程",
+          "html": "<p>柱面上任一点 $Q\\left(x,y,z\\right)$ 到轴线的距离等于 $\\sqrt2$：</p><div class=\"fm\">$$\\frac{\\left|\\left(x,y,z\\right)\\times\\left(0,1,1\\right)\\right|}{\\sqrt2}=\\sqrt2,\\qquad \\left(x,y,z\\right)\\times\\left(0,1,1\\right)=\\left(y-z,-x,x\\right),$$</div><div class=\"fm\">$$\\frac{\\sqrt{\\left(y-z\\right)^{2}+2x^{2}}}{\\sqrt2}=\\sqrt2\\;\\Longrightarrow\\;2x^{2}+y^{2}+z^{2}-2yz=4.$$</div><p class=\"concl\"><b>结论</b>圆柱面为 $2x^{2}+y^{2}+z^{2}-2yz=4$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（三线共柱篇）",
+        "lead": "看到「过三条直线作圆柱面」，直接按这个顺序出牌：",
+        "items": [
+          "先化对称式，确认三线方向向量相同——方向不同就不是圆柱面问题。",
+          "过一条线上的点作垂直于母线方向的平面，截三线得三点，三点必共圆。",
+          "三点到某点距离相等即定圆心与半径（本题是原点、$r=\\sqrt2$）。",
+          "写方程用「点到轴线距离＝半径」：$\\frac{\\left|\\vec{OQ}\\times\\vec s\\right|}{\\left|\\vec s\\right|}=r$，平方展开即得二次曲面。"
+        ]
+      },
+      "answerHtml": "$2x^{2}+y^{2}+z^{2}-2yz=4$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "奇函数归零",
+      "tags": [
+        "奇函数归零",
+        "轮换对称取平均",
+        "极坐标"
+      ],
+      "difficulty": 2,
+      "stemHtml": "记 $D=\\left\\{\\left(x,y\\right)\\mid x^{2}+y^{2}\\leqslant\\pi\\right\\}$，则 $\\displaystyle\\iint_D\\left(\\sin x^{2}\\cos y^{2}+y\\sqrt{x^{2}+y^{2}}\\right)\\mathrm dx\\mathrm dy=$________。",
+      "steps": [
+        {
+          "title": "第一步：先扫奇偶，$y\\sqrt{x^{2}+y^{2}}$ 直接归零",
+          "html": "<p>$D$ 关于 $x$ 轴对称，而被积函数关于 $y$ 是奇函数：</p><div class=\"fm\">$$\\iint_D y\\sqrt{x^{2}+y^{2}}\\,\\mathrm dx\\mathrm dy=0.$$</div>"
+        },
+        {
+          "title": "第二步：剩下的用 $x\\leftrightarrow y$ 轮换对称配成一对",
+          "html": "<p>记 $I=\\iint_D\\sin x^{2}\\cos y^{2}$。$D$ 在 $x\\leftrightarrow y$ 下不变，故 $I=\\iint_D\\sin y^{2}\\cos x^{2}$，两式相加除 2：</p><div class=\"fm\">$$I=\\frac12\\iint_D\\left(\\sin x^{2}\\cos y^{2}+\\cos x^{2}\\sin y^{2}\\right)\\mathrm dx\\mathrm dy=\\frac12\\iint_D\\sin\\left(x^{2}+y^{2}\\right)\\mathrm dx\\mathrm dy.$$</div>"
+        },
+        {
+          "title": "第三步：极坐标，内层凑 $\\mathrm d\\left(r^{2}\\right)$",
+          "html": "<div class=\"fm\">$$I=\\frac12\\int_0^{2\\pi}\\mathrm d\\theta\\int_0^{\\sqrt\\pi}\\sin\\left(r^{2}\\right)r\\,\\mathrm dr=\\frac12\\cdot2\\pi\\cdot\\frac12\\int_0^{\\pi}\\sin u\\,\\mathrm du,$$</div><p>$\\int_0^{\\pi}\\sin u\\,\\mathrm du=2$，故 $I=\\frac12\\cdot2\\pi\\cdot1=\\pi$。</p><p class=\"concl\"><b>结论</b>积分为 $\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（圆盘对称清理篇）",
+        "lead": "看到「圆盘 $x^{2}+y^{2}\\leqslant\\pi$ 上积 $\\sin x^{2}\\cos y^{2}+y\\sqrt{x^{2}+y^{2}}$」，直接按这个顺序出牌：",
+        "items": [
+          "第一步永远查奇偶：$y\\sqrt{x^{2}+y^{2}}$ 关于 $y$ 为奇，圆盘对称 ⇒ 整项为 $0$。",
+          "不对称的部分用 $x\\leftrightarrow y$ 轮换：$I$ 与 $\\iint\\sin y^{2}\\cos x^{2}$ 相等，取平均。",
+          "平均后恰是 $\\sin\\left(x^{2}+y^{2}\\right)$，这是圆盘对称给的「免费配对」。",
+          "极坐标算 $\\int_0^{\\sqrt\\pi}\\sin\\left(r^{2}\\right)r\\mathrm dr$：凑 $\\frac12\\mathrm d\\left(r^{2}\\right)$，得 $1$，再乘 $2\\pi\\cdot\\frac12$ 得 $\\pi$。"
+        ]
+      },
+      "answerHtml": "$\\pi$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "解出 $x_{n+1}$",
+      "tags": [
+        "解出 $x_{n+1}$",
+        "平移 $y=x+1$",
+        "均值不等式",
+        "单调有界"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $x_1=2021$，$x_n^{2}-2\\left(x_n+1\\right)x_{n+1}+2021=0$（$n\\geqslant1$），证明数列 $\\left\\{x_n\\right\\}$ 收敛，并求 $\\displaystyle\\lim_{n\\to\\infty}x_n$。",
+      "steps": [
+        {
+          "title": "第一步：先把 $x_{n+1}$ 解出来",
+          "html": "<p>$x_{n+1}=\\frac{x_n^{2}+2021}{2\\left(x_n+1\\right)}$。为什么敢除：$x_1=2021&gt;0$，若 $x_n&gt;0$ 则分母 $2\\left(x_n+1\\right)&gt;0$、分子 $&gt;0$，归纳得 $x_n&gt;0$。</p>"
+        },
+        {
+          "title": "第二步：作平移 $y_n=x_n+1$，把式子洗成 $x+\\frac ax$ 型",
+          "html": "<p>代 $x_n=y_n-1$：</p><div class=\"fm\">$$x_{n+1}=\\frac{\\left(y_n-1\\right)^{2}+2021}{2y_n}=\\frac{y_n}{2}-1+\\frac{1011}{y_n},$$</div><div class=\"fm\">$$y_{n+1}=x_{n+1}+1=\\frac{y_n}{2}+\\frac{1011}{y_n}.$$</div><p>为什么平移：分子的 $2021$ 与分母的 $x_n+1$ 量纲不齐；一平移，常数 1011 与 $y/2$ 就配上均值不等式的标准形式。</p>"
+        },
+        {
+          "title": "第三步：均值不等式给下界 $y_n\\geqslant\\sqrt{2022}$",
+          "html": "<p>对 $y&gt;0$：$\\frac y2+\\frac{1011}{y}\\geqslant2\\sqrt{\\frac y2\\cdot\\frac{1011}{y}}=\\sqrt{2022}$。</p><p>$y_1=2022&gt;\\sqrt{2022}$ ⇒ 从第 2 项起 $y_n\\geqslant\\sqrt{2022}$。</p>"
+        },
+        {
+          "title": "第四步：在同一区间上 $y_{n+1}\\leqslant y_n$",
+          "html": "<p>当 $y\\geqslant\\sqrt{2022}$ 时 $y^{2}\\geqslant2022\\geqslant2\\cdot1011$，即 $\\frac y2\\geqslant\\frac{1011}{y}$，故</p><div class=\"fm\">$$y_{n+1}=\\frac{y_n}{2}+\\frac{1011}{y_n}\\leqslant y_n.$$</div><p>单调递减 ＋ 有下界 ⇒ 收敛，记 $y_n\\to A$。</p>"
+        },
+        {
+          "title": "第五步：对递推取极限，解出 $A$",
+          "html": "<p>$A=\\frac A2+\\frac{1011}{A}$ ⇒ $A^{2}=2022$ ⇒ $A=\\sqrt{2022}$（正根），</p><div class=\"fm\">$$x_n=y_n-1\\longrightarrow\\sqrt{2022}-1.$$</div><p class=\"concl\"><b>结论</b>数列收敛，$\\lim x_n=\\sqrt{2022}-1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$x+\\frac ax$ 型递推篇）",
+        "lead": "看到「$x_n^{2}-2\\left(x_n+1\\right)x_{n+1}+2021=0$、$x_1=2021$」，直接按这个顺序出牌：",
+        "items": [
+          "先解出 $x_{n+1}$，并归纳证 $x_n&gt;0$（正性），保证分母不为零。",
+          "常数与分母不齐时作平移：$y=x+1$ 把式子洗成 $y_{n+1}=\\frac{y_n}{2}+\\frac{1011}{y_n}$。",
+          "均值不等式给下界 $\\sqrt{2\\cdot1011}=\\sqrt{2022}$，再用 $\\frac y2\\geqslant\\frac{1011}{y}$ 给单调递减。",
+          "单调有界 ⇒ 收敛，再对递推取极限解 $A^{2}=2022$，最后还原 $x=A-1$。"
+        ]
+      },
+      "answerHtml": "收敛，$\\lim x_n=\\sqrt{2022}-1$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "特征根",
+      "tags": [
+        "特征根",
+        "$14=1+13$ 拆两个一阶",
+        "通解公式",
+        "$|f|\\leqslant M$ 放缩"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 在 $\\left[0,+\\infty\\right)$ 上是有界连续函数，证明：方程 $y''+14y'+13y=f(x)$ 的每一个解在 $\\left[0,+\\infty\\right)$ 上都是有界函数。",
+      "steps": [
+        {
+          "title": "第一步：齐次部分先看特征根",
+          "html": "<p>$\\lambda^{2}+14\\lambda+13=\\left(\\lambda+1\\right)\\left(\\lambda+13\\right)=0$ ⇒ 根 $-1,-13$，都负，齐次解 $C_1\\mathrm e^{-x}+C_2\\mathrm e^{-13x}$ 在 $\\left[0,+\\infty\\right)$ 上有界。</p><p>所以只剩特解需要估计。</p>"
+        },
+        {
+          "title": "第二步：抓住 $14=1+13$，把二阶拆成两个一阶",
+          "html": "<div class=\"fm\">$$y''+14y'+13y=\\left(y'+y\\right)'+13\\left(y'+y\\right)=f(x),$$</div><p>记 $y_1=y'+y$，则 $y_1'+13y_1=f$；同理记 $y_2=y'+13y$，则 $y_2'+y_2=f$。</p><p>为什么这么拆：$f$ 没有具体表达式，待定系数法失效；拆成一阶后可直接用通解公式造特解。</p>"
+        },
+        {
+          "title": "第三步：两个一阶方程各解一次，相减得特解",
+          "html": "<div class=\"fm\">$$y_1=\\mathrm e^{-13x}\\int_0^{x}f(t)\\mathrm e^{13t}\\mathrm dt,\\qquad y_2=\\mathrm e^{-x}\\int_0^{x}f(t)\\mathrm e^{t}\\mathrm dt,$$</div><p>（取积分下限为 $0$、常数为零的一个特解即可。）由 $y_2-y_1=12y$：</p><div class=\"fm\">$$y^{*}=\\frac1{12}\\mathrm e^{-x}\\int_0^{x}f(t)\\mathrm e^{t}\\mathrm dt-\\frac1{12}\\mathrm e^{-13x}\\int_0^{x}f(t)\\mathrm e^{13t}\\mathrm dt.$$</div>"
+        },
+        {
+          "title": "第四步：逐项放缩，得到与 $x$ 无关的上界",
+          "html": "<p>设 $\\left|f\\right|\\leqslant M$。$x\\geqslant0$ 时</p><div class=\"fm\">$$\\left|\\mathrm e^{-x}\\int_0^{x}f(t)\\mathrm e^{t}\\mathrm dt\\right|\\leqslant M\\mathrm e^{-x}\\left(\\mathrm e^{x}-1\\right)\\leqslant M,\\qquad\\left|\\mathrm e^{-13x}\\int_0^{x}f(t)\\mathrm e^{13t}\\mathrm dt\\right|\\leqslant\\frac{M}{13}.$$</div><p>（指数因子把积分里的增长完全吃掉，这是关键。）于是</p><div class=\"fm\">$$\\left|y\\right|\\leqslant\\left|C_1\\right|+\\left|C_2\\right|+\\frac{M}{12}+\\frac{M}{12\\cdot13}=\\left|C_1\\right|+\\left|C_2\\right|+\\frac{7M}{78}.$$</div><p class=\"concl\"><b>结论</b>每个解在 $\\left[0,+\\infty\\right)$ 上有界，上界为 $\\left|C_1\\right|+\\left|C_2\\right|+\\dfrac{7M}{78}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（有界输入有界输出篇）",
+        "lead": "看到「$y''+14y'+13y=f$、$f$ 只知有界连续、证解有界」，直接按这个顺序出牌：",
+        "items": [
+          "先算特征根 $(\\lambda+1)(\\lambda+13)=0$：两根都负 ⇒ 齐次解自动有界。",
+          "系数 $14=1+13$ 是提示：把方程拆成 $\\left(y'+y\\right)'+13\\left(y'+y\\right)=f$ 与 $\\left(y'+13y\\right)'+\\left(y'+13y\\right)=f$。",
+          "两个一阶方程用通解公式各造一个特解，相减（$y_2-y_1=12y$）即得 $y^{*}$。",
+          "放缩只用两件事：$\\left|f\\right|\\leqslant M$ 与 $\\mathrm e^{-x},\\mathrm e^{-13x}$ 抵消积分增长，得 $\\frac{7M}{78}$。"
+        ]
+      },
+      "answerHtml": "每个解满足 $\\left|y(x)\\right|\\leqslant\\left|C_1\\right|+\\left|C_2\\right|+\\dfrac{7M}{78}$，故有界"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "欧拉齐次定理",
+      "tags": [
+        "欧拉齐次定理",
+        "高斯公式",
+        "球对称"
+      ],
+      "difficulty": 4,
+      "stemHtml": "对于 4 次齐次函数 $f\\left(x,y,z\\right)=a_1x^{4}+a_2y^{4}+a_3z^{4}+3a_4x^{2}y^{2}+3a_5y^{2}z^{2}+3a_6x^{2}z^{2}$，计算曲面积分 $\\displaystyle\\oiint_{\\Sigma}f\\left(x,y,z\\right)\\mathrm dS$，其中 $\\Sigma:x^{2}+y^{2}+z^{2}=1$。",
+      "steps": [
+        {
+          "title": "第一步：欧拉定理把 $f$ 换成偏导组合",
+          "html": "<p>$f$ 是 4 次齐次：</p><div class=\"fm\">$$xf_x+yf_y+zf_z=4f.$$</div><p>为什么要降次：$\\oiint f\\,\\mathrm dS$ 直接算要参数化球面；换成偏导后能接高斯公式。</p>"
+        },
+        {
+          "title": "第二步：单位球面的外法向就是位置向量",
+          "html": "<p>$\\vec n=\\left(x,y,z\\right)$，即 $\\cos\\alpha=x$、$\\cos\\beta=y$、$\\cos\\gamma=z$：</p><div class=\"fm\">$$\\oiint_\\Sigma f\\,\\mathrm dS=\\frac14\\oiint_\\Sigma\\left(f_x\\cos\\alpha+f_y\\cos\\beta+f_z\\cos\\gamma\\right)\\mathrm dS=\\frac14\\oiint_\\Sigma f_x\\,\\mathrm dy\\mathrm dz+f_y\\,\\mathrm dz\\mathrm dx+f_z\\,\\mathrm dx\\mathrm dy.$$</div>"
+        },
+        {
+          "title": "第三步：高斯公式转成三重积分",
+          "html": "<div class=\"fm\">$$\\oiint_\\Sigma f\\,\\mathrm dS=\\frac14\\iiint_{x^{2}+y^{2}+z^{2}\\leqslant1}\\left(f_{xx}+f_{yy}+f_{zz}\\right)\\mathrm dV.$$</div>"
+        },
+        {
+          "title": "第四步：算拉普拉斯，并利用球对称",
+          "html": "<div class=\"fm\">$$f_{xx}+f_{yy}+f_{zz}=6\\left[\\left(2a_1+a_4+a_6\\right)x^{2}+\\left(2a_2+a_4+a_5\\right)y^{2}+\\left(2a_3+a_5+a_6\\right)z^{2}\\right],$$</div><p>球内 $\\iiint x^{2}=\\frac13\\iiint r^{2}=\\frac13\\cdot4\\pi\\int_0^1r^{4}\\mathrm dr=\\frac{4\\pi}{15}$，三个方向相同。</p>"
+        },
+        {
+          "title": "第五步：合并，每个 $a_i$ 的系数都归到 $\\frac{4\\pi}{5}$",
+          "html": "<div class=\"fm\">$$\\oiint_\\Sigma f\\,\\mathrm dS=\\frac14\\cdot6\\cdot\\frac{4\\pi}{15}\\cdot2\\sum_{i=1}^{6}a_i=\\frac{4\\pi}{5}\\sum_{i=1}^{6}a_i.$$</div><p class=\"concl\"><b>结论</b>积分为 $\\dfrac{4\\pi}{5}\\displaystyle\\sum_{i=1}^{6}a_i$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（齐次＋球面对称篇）",
+        "lead": "看到「4 次齐次函数在单位球面上积分」，直接按这个顺序出牌：",
+        "items": [
+          "题面写「齐次」就是让你用欧拉定理：$xf_x+yf_y+zf_z=4f$，把 $f$ 降成偏导组合。",
+          "单位球面外法向 $\\vec n=\\left(x,y,z\\right)$，于是 $xf_x=f_x\\cos\\alpha$，第一类积分可写成第二类。",
+          "闭曲面接高斯公式，$\\oiint f\\,\\mathrm dS=\\frac14\\iiint\\left(f_{xx}+f_{yy}+f_{zz}\\right)\\mathrm dV$。",
+          "球内 $\\iiint x^{2}=\\iiint y^{2}=\\iiint z^{2}=\\frac{4\\pi}{15}$，交叉项系数对称 ⇒ 每个 $a_i$ 都得 $\\frac{4\\pi}{5}$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{4\\pi}{5}\\displaystyle\\sum_{i=1}^{6}a_i$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "中点误差分段",
+      "tags": [
+        "中点误差分段",
+        "二阶泰勒",
+        "夹逼"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 在闭区间 $\\left[a,b\\right]$ 上有连续的二阶导数，证明 $\\displaystyle\\lim_{n\\to\\infty}n^{2}\\left[\\int_a^bf(x)\\mathrm dx-\\frac{b-a}{n}\\sum_{k=1}^{n}f\\left(a+\\frac{2k-1}{2n}\\left(b-a\\right)\\right)\\right]=\\frac{\\left(b-a\\right)^{2}}{24}\\left[f'(b)-f'(a)\\right]$。",
+      "steps": [
+        {
+          "title": "第一步：把方括号认成「中点法则的误差」，按段拆开",
+          "html": "<p>记 $h=\\frac{b-a}{n}$、$x_k=a+kh$、$\\xi_k=a+\\frac{2k-1}{2}h$：</p><div class=\"fm\">$$B_n=\\sum_{k=1}^{n}\\int_{x_{k-1}}^{x_k}\\left[f(x)-f\\left(\\xi_k\\right)\\right]\\mathrm dx.$$</div><p>识别出这是「精确值减中点近似」，就知道量级必是 $O\\left(h^{2}\\right)$，所以题里乘 $n^{2}$ 才收敛到常数。</p>"
+        },
+        {
+          "title": "第二步：在 $\\xi_k$ 处作二阶泰勒，一次项积零",
+          "html": "<div class=\"fm\">$$f(x)=f\\left(\\xi_k\\right)+f'\\left(\\xi_k\\right)\\left(x-\\xi_k\\right)+\\frac12f''\\left(\\eta_k\\right)\\left(x-\\xi_k\\right)^{2}.$$</div><p>$\\xi_k$ 是区间中点，$x-\\xi_k$ 关于它反对称，$\\int_{x_{k-1}}^{x_k}\\left(x-\\xi_k\\right)\\mathrm dx=0$——这是中点法则精度高的根本原因。</p>"
+        },
+        {
+          "title": "第三步：二次项积分恰好是 $\\frac{h^{3}}{12}$",
+          "html": "<div class=\"fm\">$$\\int_{x_{k-1}}^{x_k}\\left(x-\\xi_k\\right)^{2}\\mathrm dx=2\\int_0^{h/2}u^{2}\\mathrm du=\\frac{h^{3}}{12},$$</div><div class=\"fm\">$$B_n=\\frac12\\sum_{k=1}^{n}\\int_{x_{k-1}}^{x_k}f''\\left(\\eta_k\\right)\\left(x-\\xi_k\\right)^{2}\\mathrm dx.$$</div>"
+        },
+        {
+          "title": "第四步：用 $f''$ 的上下确界夹住，再乘 $n^{2}$",
+          "html": "<p>设 $m_k\\leqslant f''\\leqslant M_k$（在 $\\left[x_{k-1},x_k\\right]$ 上），则</p><div class=\"fm\">$$\\frac{h^{3}}{24}\\sum_{k=1}^{n}m_k\\leqslant B_n\\leqslant\\frac{h^{3}}{24}\\sum_{k=1}^{n}M_k,$$</div><p>乘以 $n^{2}$，用 $h=\\frac{b-a}{n}$ 得 $n^{2}\\cdot\\frac{h^{3}}{24}=\\frac{\\left(b-a\\right)^{2}}{24}\\cdot\\frac{b-a}{n}$，于是</p><div class=\"fm\">$$\\frac{\\left(b-a\\right)^{2}}{24}\\sum_{k=1}^{n}m_k\\frac{b-a}{n}\\leqslant n^{2}B_n\\leqslant\\frac{\\left(b-a\\right)^{2}}{24}\\sum_{k=1}^{n}M_k\\frac{b-a}{n}.$$</div>"
+        },
+        {
+          "title": "第五步：两端都是 $f''$ 的黎曼和，夹逼收口",
+          "html": "<p>$f''$ 连续 ⇒ 可积，两端的黎曼和都趋于 $\\int_a^bf''=f'(b)-f'(a)$：</p><div class=\"fm\">$$\\lim_{n\\to\\infty}n^{2}B_n=\\frac{\\left(b-a\\right)^{2}}{24}\\left[f'(b)-f'(a)\\right].$$</div><p class=\"concl\"><b>结论</b>极限为 $\\dfrac{\\left(b-a\\right)^{2}}{24}\\left[f'(b)-f'(a)\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（中点误差主项篇）",
+        "lead": "看到「$n^{2}\\left[\\int_a^bf-\\frac{b-a}{n}\\sum f\\left(\\text{中点}\\right)\\right]$」，直接按这个顺序出牌：",
+        "items": [
+          "先认出这是中点法则误差 $B_n$，量级 $O\\left(h^{2}\\right)$，乘 $n^{2}$ 后应变常数。",
+          "按段做二阶泰勒，一次项因中点对称积为零——这是全题的转折点。",
+          "二次项积分 $\\int\\left(x-\\xi\\right)^{2}=\\frac{h^{3}}{12}$，配上外层 $\\frac12$ 得 $\\frac{h^{3}}{24}$。",
+          "用 $f''$ 的 $m_k,M_k$ 夹住，乘 $n^{2}$ 后两端都化成 $\\frac{\\left(b-a\\right)^{2}}{24}\\times$ 黎曼和，取极限得 $f'(b)-f'(a)$。"
+        ]
+      },
+      "answerHtml": "$\\dfrac{\\left(b-a\\right)^{2}}{24}\\left[f'(b)-f'(a)\\right]$"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "反解 $a_n$",
+      "tags": [
+        "反解 $a_n$",
+        "连乘相约",
+        "有界放缩",
+        "差分望远镜"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $\\left\\{a_n\\right\\}$ 与 $\\left\\{b_n\\right\\}$ 均为正实数列，$a_1=b_1=1$，且 $b_n=a_nb_{n-1}-2$（$n=2,3,\\cdots$）。又设 $\\left\\{b_n\\right\\}$ 有界，证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{a_1a_2\\cdots a_n}$ 收敛，并求其和。",
+      "steps": [
+        {
+          "title": "第一步：反解出 $a_n$，把连乘积化成 $b$ 的形式",
+          "html": "<p>$b_n=a_nb_{n-1}-2$ ⇒ $a_n=\\frac{b_n+2}{b_{n-1}}$（$b_{n-1}&gt;0$，可除）。记 $P_n=a_1a_2\\cdots a_n$，$P_1=1$：</p><div class=\"fm\">$$P_n=\\prod_{k=2}^{n}\\frac{b_k+2}{b_{k-1}}=\\left(1+\\frac{2}{b_2}\\right)\\cdots\\left(1+\\frac{2}{b_n}\\right)b_n.$$</div>"
+        },
+        {
+          "title": "第二步：由 $b_n$ 有界，证 $\\frac{b_n}{P_n}\\to0$",
+          "html": "<p>$0&lt;b_n\\leqslant M$ ⇒ $1+\\frac{2}{b_k}\\geqslant1+\\frac{2}{M}$：</p><div class=\"fm\">$$0&lt;\\frac{b_n}{P_n}=\\prod_{k=2}^{n}\\left(1+\\frac{2}{b_k}\\right)^{-1}\\leqslant\\left(1+\\frac{2}{M}\\right)^{-(n-1)}\\longrightarrow0.$$</div><p>这一步是为最后取极限准备的，必须单独拿到。</p>"
+        },
+        {
+          "title": "第三步：把 $\\frac{1}{P_k}$ 改写成差分（望远镜）",
+          "html": "<p>由 $a_kb_{k-1}-b_k=2$（$k\\geqslant2$），两边除 $2P_k$（用 $P_k=a_kP_{k-1}$）：</p><div class=\"fm\">$$\\frac{1}{P_k}=\\frac{a_kb_{k-1}-b_k}{2P_k}=\\frac12\\left(\\frac{b_{k-1}}{P_{k-1}}-\\frac{b_k}{P_k}\\right).$$</div>"
+        },
+        {
+          "title": "第四步：累加，中间项全消",
+          "html": "<div class=\"fm\">$$S_n=\\sum_{k=1}^{n}\\frac{1}{P_k}=\\frac{1}{P_1}+\\frac12\\left(\\frac{b_1}{P_1}-\\frac{b_n}{P_n}\\right)=1+\\frac12\\left(1-\\frac{b_n}{P_n}\\right)=\\frac32-\\frac{b_n}{2P_n}.$$</div>"
+        },
+        {
+          "title": "第五步：取极限，并用单调有界确认收敛",
+          "html": "<p>$S_n\\to\\frac32$；又各项为正，$\\left\\{S_n\\right\\}$ 单调递增且有上界 $\\frac32$ ⇒ 级数收敛：</p><div class=\"fm\">$$\\sum_{n=1}^{\\infty}\\frac{1}{a_1a_2\\cdots a_n}=\\frac32.$$</div><p class=\"concl\"><b>结论</b>级数收敛，和为 $\\dfrac32$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（连乘相约＋望远镜篇）",
+        "lead": "看到「$b_n=a_nb_{n-1}-2$、$\\left\\{b_n\\right\\}$ 有界、求 $\\sum\\frac{1}{a_1\\cdots a_n}$」，直接按这个顺序出牌：",
+        "items": [
+          "先反解 $a_n=\\frac{b_n+2}{b_{n-1}}$，连乘积 $P_n$ 立刻化成 $\\prod\\left(1+\\frac{2}{b_k}\\right)\\cdot b_n$。",
+          "用有界性 $b_k\\leqslant M$ 得 $\\frac{b_n}{P_n}\\leqslant\\left(1+\\frac{2}{M}\\right)^{-(n-1)}\\to0$。",
+          "把常数 2 写成 $a_kb_{k-1}-b_k$，两边除 $2P_k$，得到 $\\frac{1}{P_k}=\\frac12\\left(\\frac{b_{k-1}}{P_{k-1}}-\\frac{b_k}{P_k}\\right)$。",
+          "望远镜求和得 $S_n=\\frac32-\\frac{b_n}{2P_n}\\to\\frac32$；正项单调有界再补一句即证收敛。"
+        ]
+      },
+      "answerHtml": "收敛，$\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{a_1a_2\\cdots a_n}=\\frac32$"
+    }
+  ]
+}

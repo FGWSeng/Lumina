@@ -1,0 +1,414 @@
+{
+  "year": 2016,
+  "stage": "prelim",
+  "stageName": "初赛",
+  "paper": "第八届（2016）初赛 非数学专业类",
+  "edition": 8,
+  "source": "第8届（2016）初赛",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "填空 1",
+      "type": "fill",
+      "title": "一阶 Taylor",
+      "tags": [
+        "一阶 Taylor",
+        "$1^{\\infty}$",
+        "导数定义"
+      ],
+      "difficulty": 2,
+      "stemHtml": "若 $f(x)$ 在点 $x=a$ 处可导且 $f(a)\\neq0$，则 $\\displaystyle\\lim_{n\\to\\infty}\\left(\\frac{f\\left(a+\\frac1n\\right)}{f(a)}\\right)^{n}=$________。",
+      "steps": [
+        {
+          "title": "第一步：认出 $1^{\\infty}$ 型，先把底数拆成 $1+u_n$",
+          "html": "<p>$f$ 在 $a$ 处可导 ⇒ $f\\left(a+\\frac1n\\right)=f(a)+\\frac{f'(a)}{n}+o\\left(\\frac1n\\right)$，于是</p><div class=\"fm\">$$\\frac{f\\left(a+\\frac1n\\right)}{f(a)}=1+\\frac{f'(a)}{f(a)}\\cdot\\frac1n+o\\left(\\frac1n\\right).$$</div><p>底数 $\\to1$、指数 $\\to\\infty$，这就是 $1^{\\infty}$ 型；$f(a)\\neq0$ 正是为了能除。</p>"
+        },
+        {
+          "title": "第二步：用 $1^{\\infty}$ 的等价形式，把指数搬成乘积",
+          "html": "<div class=\"fm\">$$\\left(1+u_n\\right)^{n}\\to\\mathrm{e}^{\\lim nu_n}\\qquad\\left(u_n\\to0\\right),$$</div><p>本题 $nu_n=n\\cdot\\frac{f'(a)}{f(a)}\\cdot\\frac1n+o(1)\\to\\frac{f'(a)}{f(a)}$。</p>"
+        },
+        {
+          "title": "第三步：写出指数",
+          "html": "<div class=\"fm\">$$\\lim_{n\\to\\infty}\\left(\\frac{f\\left(a+\\frac1n\\right)}{f(a)}\\right)^{n}=\\mathrm{e}^{\\frac{f'(a)}{f(a)}}.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\mathrm{e}^{f'(a)/f(a)}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（函数比值的 $1^{\\infty}$ 篇）",
+        "lead": "看到「$\\left(\\frac{f(a+1/n)}{f(a)}\\right)^{n}$」这类函数比的幂，直接按这个顺序出牌：",
+        "items": [
+          "先把 $f\\left(a+\\frac1n\\right)$ 在 $a$ 处一阶展开：$f(a)+\\frac{f'(a)}{n}+o\\left(\\frac1n\\right)$。",
+          "除以 $f(a)$ 化成 $1+u_n$，读数 $u_n=\\frac{f'(a)}{f(a)}\\cdot\\frac1n+o\\left(\\frac1n\\right)$。",
+          "$1^{\\infty}$ 型直接用 $\\left(1+u_n\\right)^n\\to\\mathrm e^{\\lim nu_n}$，指数就是 $n u_n$ 的极限。",
+          "答案形如 $\\mathrm e^{f'(a)/f(a)}$；若 $f(a)=0$ 则底数发散，题目必须给 $f(a)\\neq0$。"
+        ]
+      },
+      "answerHtml": "$\\mathrm{e}^{f'(a)/f(a)}$"
+    },
+    {
+      "seq": 2,
+      "number": "填空 2",
+      "type": "fill",
+      "title": "等价无穷小",
+      "tags": [
+        "等价无穷小",
+        "导数定义",
+        "三角主部"
+      ],
+      "difficulty": 3,
+      "stemHtml": "若 $f(1)=0$，$f'(1)$ 存在，则 $\\displaystyle\\lim_{x\\to0}\\frac{f\\left(\\sin^{2}x+\\cos x\\right)\\tan3x}{\\left(\\mathrm{e}^{x^{2}}-1\\right)\\sin x}=$________。",
+      "steps": [
+        {
+          "title": "第一步：先把分母的等价无穷小换掉",
+          "html": "<p>$\\mathrm{e}^{x^{2}}-1\\sim x^{2}$，$\\sin x\\sim x$，$\\tan3x\\sim3x$，故分母 $\\sim x^{3}$，分子里的 $\\tan3x$ 换成 $3x$：</p><div class=\"fm\">$$\\text{原式}=3\\lim_{x\\to0}\\frac{f\\left(\\sin^{2}x+\\cos x\\right)}{x^{2}}.$$</div>"
+        },
+        {
+          "title": "第二步：把 $f$ 的变量凑成 $1$",
+          "html": "<p>$\\sin^{2}x+\\cos x-1=\\sin^{2}x-\\left(1-\\cos x\\right)\\sim x^{2}-\\frac{x^{2}}{2}=\\frac{x^{2}}{2}$。</p><p>这一步是本题的关键：$f$ 的自变量趋于 $1$，而 $f(1)=0$，所以要用<b>导数定义</b>而不是直接代入。</p>"
+        },
+        {
+          "title": "第三步：用导数定义拆成两段",
+          "html": "<div class=\"fm\">$$\\frac{f\\left(\\sin^{2}x+\\cos x\\right)}{x^{2}}=\\frac{f\\left(\\sin^{2}x+\\cos x\\right)-f(1)}{\\left(\\sin^{2}x+\\cos x\\right)-1}\\cdot\\frac{\\left(\\sin^{2}x+\\cos x\\right)-1}{x^{2}}\\to f'(1)\\cdot\\frac12.$$</div><p>第一个因子是 $f$ 在 $1$ 处的差商，趋于 $f'(1)$；第二个因子趋于 $\\frac12$。</p>"
+        },
+        {
+          "title": "第四步：合并系数",
+          "html": "<div class=\"fm\">$$\\text{原式}=3\\cdot f'(1)\\cdot\\frac12=\\frac32f'(1).$$</div><p class=\"concl\"><b>结论</b>原极限 $=\\dfrac32f'(1)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$f(\\text{趋于 }1)$ 的差商篇）",
+        "lead": "看到「$f\\left(\\sin^{2}x+\\cos x\\right)$ 且 $f(1)=0$」，直接按这个顺序出牌：",
+        "items": [
+          "先把分母换成等价无穷小，把 $\\tan3x$、$\\sin x$、$\\mathrm e^{x^{2}}-1$ 一律换成主部。",
+          "认出自变量 $\\sin^{2}x+\\cos x\\to1$，用 $f(1)=0$ 把它写成差商 $\\frac{f(u)-f(1)}{u-1}$。",
+          "算 $u-1$ 的主部：$\\sin^{2}x-\\left(1-\\cos x\\right)\\sim\\frac{x^{2}}{2}$，注意 $1-\\cos x$ 是 $-x^{2}/2$，符号别丢。",
+          "最后乘起来：$3\\cdot f'(1)\\cdot\\frac12=\\frac32f'(1)$，这类题答案几乎总是「常数 × $f'(1)$」。"
+        ]
+      },
+      "answerHtml": "$\\dfrac32f'(1)$"
+    },
+    {
+      "seq": 3,
+      "number": "填空 3",
+      "type": "fill",
+      "title": "链式法则",
+      "tags": [
+        "链式法则",
+        "可分离变量",
+        "初值"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(x)$ 有连续导数且 $f(1)=2$，记 $z=f\\left(\\mathrm{e}^{x}y^{2}\\right)$。若 $\\dfrac{\\partial z}{\\partial x}=z$，则当 $x&gt;0$ 时，$f(x)=$________。",
+      "steps": [
+        {
+          "title": "第一步：链式法则写出 $\\partial z/\\partial x$，注意两者同变量",
+          "html": "<p>令 $u=\\mathrm{e}^{x}y^{2}$，则 $\\frac{\\partial z}{\\partial x}=f'(u)\\cdot\\mathrm{e}^{x}y^{2}=f'(u)u$。又 $z=f(u)$，条件 $z_x=z$ 变成</p><div class=\"fm\">$$u f'(u)=f(u).$$</div><p>为什么能把 $x,y$ 甩掉：$u$ 与 $z$ 都只是 $u$ 的函数，等式对一切 $u&gt;0$ 成立，于是变成 $f$ 的一元方程。</p>"
+        },
+        {
+          "title": "第二步：分离变量，两边积分",
+          "html": "<div class=\"fm\">$$\\frac{f'(u)}{f(u)}=\\frac1u\\;\\Longrightarrow\\;\\left(\\ln f(u)\\right)'=\\left(\\ln u\\right)'.$$</div><p>积分得 $\\ln\\left|f(u)\\right|=\\ln u+C$，即 $f(u)=Cu$（$u&gt;0$ 时符号可并入 $C$）。</p>"
+        },
+        {
+          "title": "第三步：代初值定常数",
+          "html": "<p>$f(1)=2$ ⇒ $C=2$，故 $f(x)=2x$（$x&gt;0$）。</p><p class=\"concl\"><b>结论</b>$f(x)=2x$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（偏导条件反求函数篇）",
+        "lead": "看到「$z=f\\left(\\mathrm e^{x}y^{2}\\right)$、$\\partial z/\\partial x=z$、反求 $f$」，直接按这个顺序出牌：",
+        "items": [
+          "设中间变量 $u=\\mathrm e^{x}y^{2}$，先算 $u_x$——本题 $u_x=u$，这是条件能化成常微分方程的原因。",
+          "把 $\\partial z/\\partial x=z$ 写成 $uf'(u)=f(u)$，一元的可分离变量方程。",
+          "分离得 $\\frac{f'}{f}=\\frac1u$，积分给 $f=Cu$（对数求导是最快路径）。",
+          "代初值 $f(1)=2$ 定 $C$，答案 $f(x)=2x$；若给的是 $f(2)=4$ 等同型条件，同样是 $f=Cu$。"
+        ]
+      },
+      "answerHtml": "$f(x)=2x$"
+    },
+    {
+      "seq": 4,
+      "number": "填空 4",
+      "type": "fill",
+      "title": "麦克劳林展开",
+      "tags": [
+        "麦克劳林展开",
+        "系数定理",
+        "乘积取项"
+      ],
+      "difficulty": 2,
+      "stemHtml": "设 $f(x)=\\mathrm{e}^{x}\\sin2x$，则 $f^{(4)}(0)=$________。",
+      "steps": [
+        {
+          "title": "第一步：为什么用展开而不是硬求四阶导",
+          "html": "<p>$\\mathrm{e}^{x}\\sin2x$ 每求一次导都会「增生」项数（乘积求导法则），求四次会得到一堆项且容易错。而 $f^{(4)}(0)=4!\\cdot\\left[x^{4}\\right]f(x)$——只要乘积展开到 $x^{4}$ 项，一次就对。</p><div class=\"fm\">$$\\mathrm{e}^{x}=1+x+\\frac{x^{2}}{2!}+\\frac{x^{3}}{3!}+\\frac{x^{4}}{4!}+\\cdots,\\qquad\\sin2x=2x-\\frac{\\left(2x\\right)^{3}}{3!}+\\cdots$$</div>"
+        },
+        {
+          "title": "第二步：挑出乘积中所有 $x^{4}$ 项",
+          "html": "<p>$\\sin2x$ 只含奇次项（$2x$ 与 $-\\frac{8x^{3}}{6}$），要凑 $x^{4}$ 只有两种配法：</p><div class=\"fm\">$$x\\cdot\\left(-\\frac{8}{6}x^{3}\\right)+\\frac{x^{3}}{6}\\cdot2x=-\\frac43x^{4}+\\frac13x^{4}=-x^{4}.$$</div>"
+        },
+        {
+          "title": "第三步：乘 $4!$",
+          "html": "<div class=\"fm\">$$f^{(4)}(0)=4!\\cdot\\left(-1\\right)=-24.$$</div><p class=\"concl\"><b>结论</b>$f^{(4)}(0)=-24$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（乘积函数高阶导在 $0$ 点篇）",
+        "lead": "看到「$f=\\mathrm e^{x}\\sin2x$ 求 $f^{(n)}(0)$」，直接按这个顺序出牌：",
+        "items": [
+          "在 $0$ 点求导数值 ⇒ 一律用麦克劳林展开，$f^{(n)}(0)=n!\\cdot\\left[x^{n}\\right]f$。",
+          "$\\sin$ 只给奇次项、$\\cos$ 只给偶次项，$\\mathrm e^{x}$ 给全部次项，配对时按次数的奇偶筛。",
+          "把能凑成目标次数的每一种配法都列出来（本题两种），系数相加再乘 $n!$。",
+          "$\\sin2x$ 的 $x^{3}$ 系数是 $-\\frac{8}{6}$，别忘了 $2^{3}$；本题结果 $-24$ 也能用复数法 $\\frac{(1+2\\mathrm i)^{4}-(1-2\\mathrm i)^{4}}{2\\mathrm i}$ 核对。"
+        ]
+      },
+      "answerHtml": "$-24$"
+    },
+    {
+      "seq": 5,
+      "number": "填空 5",
+      "type": "fill",
+      "title": "切平面法向量",
+      "tags": [
+        "切平面法向量",
+        "平行条件",
+        "切点"
+      ],
+      "difficulty": 2,
+      "stemHtml": "曲面 $z=\\dfrac{x^{2}}{2}+y^{2}$ 平行于平面 $2x+2y-z=0$ 的切平面方程为________。",
+      "steps": [
+        {
+          "title": "第一步：写出切平面法向量与平行条件",
+          "html": "<p>$F=\\frac{x^{2}}{2}+y^{2}-z$，$\\nabla F=\\left(x,2y,-1\\right)$；平面 $2x+2y-z=0$ 的法向量为 $\\left(2,2,-1\\right)$。平行 ⇒</p><div class=\"fm\">$$\\frac{x_0}{2}=\\frac{2y_0}{2}=\\frac{-1}{-1}=1.$$</div>"
+        },
+        {
+          "title": "第二步：定切点",
+          "html": "<p>$x_0=2$、$y_0=1$，$z_0=\\frac{4}{2}+1=3$，切点 $M(2,1,3)$。</p>"
+        },
+        {
+          "title": "第三步：写切平面并整理",
+          "html": "<div class=\"fm\">$$2\\left(x-2\\right)+2\\left(y-1\\right)-\\left(z-3\\right)=0\\;\\Longrightarrow\\;2x+2y-z=3.$$</div><p>验算：法向量 $\\left(2,2,-1\\right)$ 与已知平面平行 ✓，$M$ 在曲面上 ✓。</p><p class=\"concl\"><b>结论</b>切平面为 $2x+2y-z=3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（平行切平面速算篇）",
+        "lead": "看到「求与给定平面平行的切平面」，直接按这个顺序出牌：",
+        "items": [
+          "写出 $\\nabla F=\\left(F_x,F_y,-1\\right)$，与已知平面法向量逐分量成比例。",
+          "第三分量总是 $-1$，所以比例系数由它定：$\\frac{-1}{c}=-1$ 之类比分一次定住。",
+          "回代求切点，再写点法式并整理成一般式。",
+          "检验：切平面与已知平面的常数项不同才叫「平行不重合」，本题 $2x+2y-z=3$ 与原平面 $=0$ 平行 ✓。"
+        ]
+      },
+      "answerHtml": "$2x+2y-z=3$"
+    },
+    {
+      "seq": 6,
+      "number": "第 2 题",
+      "type": "solution",
+      "title": "辅助函数",
+      "tags": [
+        "辅助函数",
+        "逐层求导",
+        "单调性传导"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 在 $[0,1]$ 上可导，$f(0)=0$，且当 $x\\in(0,1)$ 时 $0&lt;f'(x)&lt;1$。试证：当 $a\\in(0,1)$ 时，$\\left(\\displaystyle\\int_0^{a}f(x)\\,\\mathrm{d}x\\right)^{2}&gt;\\displaystyle\\int_0^{a}f^{3}(x)\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "第一步：把「两个积分比大小」变成「一个函数比零点」",
+          "html": "<p>令</p><div class=\"fm\">$$F(x)=\\left(\\int_0^{x}f(t)\\mathrm{d}t\\right)^{2}-\\int_0^{x}f^{3}(t)\\mathrm{d}t,$$</div><p>则 $F(0)=0$，要证的正是 $F(a)&gt;0$。为什么这么做：积分上限函数可导，比较积分就变成判断导数符号。</p>"
+        },
+        {
+          "title": "第二步：求 $F'$，把公因子 $f$ 提出来",
+          "html": "<div class=\"fm\">$$F'(x)=2\\left(\\int_0^{x}f\\right)f(x)-f^{3}(x)=f(x)\\left[2\\int_0^{x}f(t)\\mathrm{d}t-f^{2}(x)\\right].$$</div>"
+        },
+        {
+          "title": "第三步：再设一层辅助函数 $g$，看它的导数",
+          "html": "<p>令 $g(x)=2\\int_0^{x}f-f^{2}(x)$，则 $g(0)=0$，且</p><div class=\"fm\">$$g'(x)=2f(x)-2f(x)f'(x)=2f(x)\\left[1-f'(x)\\right].$$</div><p>由 $f(0)=0$ 与 $f'&gt;0$ 得 $f(x)&gt;0$（$x&gt;0$）；由 $f'&lt;1$ 得 $1-f'(x)&gt;0$，故 $g'(x)&gt;0$。</p>"
+        },
+        {
+          "title": "第四步：链式传导回 $F$",
+          "html": "<p>$g(0)=0$ 且 $g'&gt;0$ ⇒ $g(x)&gt;0$（$x&gt;0$）；又 $f(x)&gt;0$ ⇒ $F'(x)=f g&gt;0$；再由 $F(0)=0$ 得 $F(a)&gt;0$。</p><p class=\"concl\"><b>结论</b>$\\left(\\displaystyle\\int_0^{a}f\\right)^{2}&gt;\\displaystyle\\int_0^{a}f^{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（积分不等式之辅助函数篇）",
+        "lead": "看到「$\\left(\\int_0^a f\\right)^2$ 与 $\\int_0^a f^3$ 比大小、且给了 $f(0)$ 与 $f'$ 的范围」，直接按这个顺序出牌：",
+        "items": [
+          "把上限 $a$ 换成 $x$，构造 $F(x)=$ 左式 − 右式，问题化为证 $F&gt;0$。",
+          "求 $F'$ 后一定提公因子 $f(x)$——因为 $f&gt;0$ 可由 $f(0)=0,f'&gt;0$ 保证，符号判断就转移到括号里。",
+          "括号里若是 $2\\int f-f^{2}$ 这种形状，再设 $g$ 求 $g'$，用 $f'&lt;1$ 定符号（这是「二阶辅助函数」的典型）。",
+          "最后按 $g(0)=0\\to g&gt;0\\to F'&gt;0\\to F(0)=0\\to F&gt;0$ 的链条一路传上去，每一步都只用一个条件。"
+        ]
+      },
+      "answerHtml": "$\\left(\\displaystyle\\int_0^{a}f\\right)^{2}&gt;\\displaystyle\\int_0^{a}f^{3}$"
+    },
+    {
+      "seq": 7,
+      "number": "第 3 题",
+      "type": "solution",
+      "title": "配方",
+      "tags": [
+        "配方",
+        "线性变换",
+        "对称性消一次项"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设某物体所在空间区域为 $\\Omega:x^{2}+y^{2}+2z^{2}\\leqslant x+y+2z$，密度函数为 $x^{2}+y^{2}+z^{2}$，求该物体的质量 $M=\\displaystyle\\iiint_{\\Omega}\\left(x^{2}+y^{2}+z^{2}\\right)\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z$。",
+      "steps": [
+        {
+          "title": "第一步：配方，看清 $\\Omega$ 是什么",
+          "html": "<p>$x^{2}-x=\\left(x-\\frac12\\right)^{2}-\\frac14$，$y^{2}-y=\\left(y-\\frac12\\right)^{2}-\\frac14$，$2z^{2}-2z=2\\left(z-\\frac12\\right)^{2}-\\frac12$，右端常数合计 $\\frac14+\\frac14+\\frac12=1$：</p><div class=\"fm\">$$\\Omega:\\left(x-\\frac12\\right)^{2}+\\left(y-\\frac12\\right)^{2}+2\\left(z-\\frac12\\right)^{2}\\leqslant1,$$</div><p>是中心 $\\left(\\frac12,\\frac12,\\frac12\\right)$、半轴 $1,1,\\frac{1}{\\sqrt2}$ 的椭球。</p>"
+        },
+        {
+          "title": "第二步：线性变换到单位球，写出密度的展开式",
+          "html": "<p>令 $u=x-\\frac12$、$v=y-\\frac12$、$w=\\sqrt2\\left(z-\\frac12\\right)$，则 $\\Sigma:u^{2}+v^{2}+w^{2}\\leqslant1$，且 $\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z=\\frac{1}{\\sqrt2}\\mathrm{d}u\\mathrm{d}v\\mathrm{d}w$：</p><div class=\"fm\">$$\\begin{aligned}M=\\frac{1}{\\sqrt2}\\iiint_{\\Sigma}\\Big[&amp;\\left(u+\\tfrac12\\right)^{2}+\\left(v+\\tfrac12\\right)^{2}+\\left(\\tfrac{w}{\\sqrt2}+\\tfrac12\\right)^{2}\\Big]\\mathrm{d}u\\mathrm{d}v\\mathrm{d}w\\\\=\\frac{1}{\\sqrt2}\\iiint_{\\Sigma}\\Big[&amp;\\left(u^{2}+v^{2}+\\tfrac{w^{2}}{2}\\right)+\\left(u+v+\\tfrac{w}{\\sqrt2}\\right)+\\tfrac34\\Big]\\mathrm{d}u\\mathrm{d}v\\mathrm{d}w.\\end{aligned}$$</div>"
+        },
+        {
+          "title": "第三步：用球对称性算每一块",
+          "html": "<p>一次项 $\\iiint_{\\Sigma}u=\\iiint_{\\Sigma}v=\\iiint_{\\Sigma}w=0$（单位球关于各坐标面对称）；常数项 $\\iiint_{\\Sigma}\\frac34=\\frac34\\cdot\\frac{4\\pi}{3}=\\pi$。</p><p>二次项用 $\\iiint_{\\Sigma}\\left(u^{2}+v^{2}+w^{2}\\right)=\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_0^{\\pi}\\sin\\varphi\\,\\mathrm{d}\\varphi\\int_0^{1}\\rho^{4}\\mathrm{d}\\rho=\\frac{4\\pi}{5}$，且三个变量各占三分之一，</p><div class=\"fm\">$$\\iiint_{\\Sigma}\\left(u^{2}+v^{2}+\\frac{w^{2}}{2}\\right)=\\frac{4\\pi}{15}+\\frac{4\\pi}{15}+\\frac{2\\pi}{15}=\\frac{2\\pi}{3}.$$</div>"
+        },
+        {
+          "title": "第四步：合并系数",
+          "html": "<div class=\"fm\">$$M=\\frac{1}{\\sqrt2}\\left(\\frac{2\\pi}{3}+\\pi\\right)=\\frac{5\\pi}{3\\sqrt2}=\\frac{5\\sqrt2}{6}\\pi.$$</div><p>核对：用「平均密度 × 体积」粗算，$\\Omega$ 体积 $\\frac{2\\sqrt2\\pi}{3}$，中心密度 $\\frac34$，二阶矩平均 $\\frac15+\\frac15+\\frac1{10}=\\frac12$，得 $\\frac{5}{4}\\cdot\\frac{2\\sqrt2\\pi}{3}=\\frac{5\\sqrt2}{6}\\pi$ ✓。</p><p class=\"concl\"><b>结论</b>$M=\\dfrac{5\\sqrt2}{6}\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（偏心椭球的三重积分篇）",
+        "lead": "看到「椭球区域带一次项、密度是 $x^{2}+y^{2}+z^{2}$」，直接按这个顺序出牌：",
+        "items": [
+          "先配方：把 $\\Omega$ 写成 $\\frac{(x-x_0)^{2}}{a^{2}}+\\cdots\\leqslant1$，读出中心与三个半轴。",
+          "作伸缩变换把椭球拉成单位球，Jacobian 是 $\\frac{1}{a_1a_2a_3}$ 这类常数，别漏乘。",
+          "密度也换成新变量展开：一次项在单位球上积分为 $0$，只剩二次项和常数项。",
+          "二次项用 $\\iiint u^{2}=\\frac13\\cdot\\frac{4\\pi}{5}$（单位球），常数项用球体积 $\\frac{4\\pi}{3}$，最后合成。"
+        ]
+      },
+      "answerHtml": "$M=\\dfrac{5\\sqrt2}{6}\\pi$"
+    },
+    {
+      "seq": 8,
+      "number": "第 4 题",
+      "type": "solution",
+      "title": "右和误差拆分",
+      "tags": [
+        "右和误差拆分",
+        "二重积分换序",
+        "一致连续"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $[0,1]$ 上具有连续导数，$f(0)=0$、$f(1)=1$。证明：$\\displaystyle\\lim_{n\\to\\infty}n\\left(\\int_0^{1}f(x)\\,\\mathrm{d}x-\\frac1n\\sum_{k=1}^{n}f\\left(\\frac{k}{n}\\right)\\right)=-\\frac12$。",
+      "steps": [
+        {
+          "title": "第一步：把总和拆成逐段的积分差",
+          "html": "<p>记 $x_k=\\frac kn$，则</p><div class=\"fm\">$$\\int_0^{1}f(x)\\mathrm{d}x-\\frac1n\\sum_{k=1}^{n}f\\left(x_k\\right)=\\sum_{k=1}^{n}\\int_{x_{k-1}}^{x_k}\\left[f(x)-f\\left(x_k\\right)\\right]\\mathrm{d}x.$$</div><p>为什么这样拆：每一段里 $f(x)$ 与 $f(x_k)$ 只差一个「局部小量」，可以逐段用 $f'$ 控制，比整体估计精细。</p>"
+        },
+        {
+          "title": "第二步：把 $f(x)-f\\left(x_k\\right)$ 写成 $f'$ 的积分，并换序",
+          "html": "<p>由 Newton-Leibniz，$f(x)-f\\left(x_k\\right)=-\\int_{x}^{x_k}f'(t)\\mathrm{d}t$，于是</p><div class=\"fm\">$$\\int_{x_{k-1}}^{x_k}\\left[f(x)-f\\left(x_k\\right)\\right]\\mathrm{d}x=-\\int_{x_{k-1}}^{x_k}f'(t)\\int_{x_{k-1}}^{t}\\mathrm{d}x\\,\\mathrm{d}t=-\\int_{x_{k-1}}^{x_k}\\left(t-x_{k-1}\\right)f'(t)\\mathrm{d}t.$$</div><p>为什么换序：内层对 $x$ 积分给出权重 $\\left(t-x_{k-1}\\right)$，它非负且有界 $\\frac1n$，正好可以把 $f'$ 的振幅压住。</p>"
+        },
+        {
+          "title": "第三步：乘 $n$，用 $u=n\\left(t-x_{k-1}\\right)$ 归一化",
+          "html": "<div class=\"fm\">$$n\\left(\\int_0^{1}f-\\frac1n\\sum f\\left(x_k\\right)\\right)=-\\sum_{k=1}^{n}\\int_{x_{k-1}}^{x_k}n\\left(t-x_{k-1}\\right)f'(t)\\mathrm{d}t=-\\sum_{k=1}^{n}\\int_0^{1}u\\,f'\\left(x_{k-1}+\\frac un\\right)\\mathrm{d}u.$$</div>"
+        },
+        {
+          "title": "第四步：一致连续 ＋ 黎曼和",
+          "html": "<p>$f'$ 在 $[0,1]$ 连续故一致连续，$\\left|f'\\left(x_{k-1}+\\frac un\\right)-f'\\left(x_{k-1}\\right)\\right|\\to0$ 对 $u\\in[0,1]$ 一致成立，于是</p><div class=\"fm\">$$-\\sum_{k=1}^{n}\\int_0^{1}u\\,f'\\left(x_{k-1}+\\frac un\\right)\\mathrm{d}u=-\\frac12\\sum_{k=1}^{n}\\frac1n f'\\left(x_{k-1}\\right)+o(1)\\longrightarrow-\\frac12\\int_0^{1}f'(x)\\mathrm{d}x=-\\frac12\\left[f(1)-f(0)\\right]=-\\frac12.$$</div><p class=\"concl\"><b>结论</b>极限为 $-\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（右和误差主项篇）",
+        "lead": "看到「$n\\left(\\int_0^1 f-\\text{右和}\\right)$」，直接按这个顺序出牌：",
+        "items": [
+          "先把误差写成 $\\sum\\int_{x_{k-1}}^{x_k}\\left[f(x)-f(x_k)\\right]\\mathrm{d}x$，逐段处理。",
+          "用 $f(x)-f(x_k)=-\\int_x^{x_k}f'(t)\\mathrm{d}t$，再交换积分次序，把权重 $\\left(t-x_{k-1}\\right)\\in\\left[0,\\frac1n\\right]$ 暴露出来。",
+          "乘 $n$ 后令 $u=n\\left(t-x_{k-1}\\right)$，权重变 $\\left(1-u\\right)$ 型，$\\int_0^1u\\,\\mathrm{d}u=\\frac12$ 就是答案的分母 $2$。",
+          "$\\sum\\frac1n f'\\left(x_{k-1}\\right)\\to\\int f'=f(1)-f(0)$，本题 $=1$，加负号得 $-\\frac12$。"
+        ]
+      },
+      "answerHtml": "$-\\dfrac12$"
+    },
+    {
+      "seq": 9,
+      "number": "第 5 题",
+      "type": "solution",
+      "title": "规范积分构造函数",
+      "tags": [
+        "规范积分构造函数",
+        "介值定理",
+        "两段 Lagrange"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $[0,1]$ 上连续，且 $I=\\displaystyle\\int_0^{1}f(x)\\,\\mathrm{d}x\\neq0$。证明在 $(0,1)$ 内存在不同的两点 $x_1,x_2$，使得 $\\dfrac{1}{f\\left(x_1\\right)}+\\dfrac{1}{f\\left(x_2\\right)}=\\dfrac{2}{I}$。",
+      "steps": [
+        {
+          "title": "第一步：把 $I$ 吸收进函数，构造「从 $0$ 到 $1$」的规范积分",
+          "html": "<p>令</p><div class=\"fm\">$$F(x)=\\frac{1}{I}\\int_0^{x}f(t)\\mathrm{d}t,$$</div><p>则 $F(0)=0$、$F(1)=1$、$F'(x)=\\frac{f(x)}{I}$。为什么这么造：右端 $\\frac2I$ 说明答案只依赖 $F$ 的增幅，与 $f$ 的绝对大小无关。</p>"
+        },
+        {
+          "title": "第二步：用介值定理找中点",
+          "html": "<p>$F$ 在 $[0,1]$ 上连续（$f$ 连续），$F(0)=0&lt;1=F(1)$，故存在 $\\xi\\in(0,1)$ 使</p><div class=\"fm\">$$F(\\xi)=\\frac12.$$</div>"
+        },
+        {
+          "title": "第三步：在 $(0,\\xi)$ 与 $(\\xi,1)$ 上分别用 Lagrange 中值",
+          "html": "<p>存在 $x_1\\in(0,\\xi)$、$x_2\\in(\\xi,1)$（自动 $x_1\\neq x_2$）使</p><div class=\"fm\">$$\\frac{f\\left(x_1\\right)}{I}=F'(x_1)=\\frac{F(\\xi)-F(0)}{\\xi}=\\frac{1}{2\\xi},\\qquad\\frac{f\\left(x_2\\right)}{I}=F'(x_2)=\\frac{F(1)-F(\\xi)}{1-\\xi}=\\frac{1}{2\\left(1-\\xi\\right)}.$$</div>"
+        },
+        {
+          "title": "第四步：取倒数相加",
+          "html": "<div class=\"fm\">$$\\frac{1}{f\\left(x_1\\right)}+\\frac{1}{f\\left(x_2\\right)}=\\frac1I\\left[2\\xi+2\\left(1-\\xi\\right)\\right]=\\frac{2}{I}.$$</div><p>顺带说明：由上式知 $f\\left(x_1\\right),f\\left(x_2\\right)\\neq0$，取倒数合法。</p><p class=\"concl\"><b>结论</b>存在不同的 $x_1,x_2\\in(0,1)$ 满足等式。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（$\\frac{1}{f(x_1)}+\\frac{1}{f(x_2)}$ 型存在性篇）",
+        "lead": "看到「证存在两点使 $\\frac{1}{f(x_1)}+\\frac{1}{f(x_2)}=\\frac{2}{I}$」，直接按这个顺序出牌：",
+        "items": [
+          "先把 $\\frac{1}{I}\\int_0^x f$ 记成 $F(x)$，使 $F(0)=0,F(1)=1$——把「积分值」变成一个标准区间。",
+          "介值定理找 $F(\\xi)=\\frac12$：这是唯一自然的「中点」，因为它把 $1$ 均分成两半。",
+          "两段各用 Lagrange：$F'(\\xi_1)=\\frac{1}{2\\xi}$、$F'(\\xi_2)=\\frac{1}{2(1-\\xi)}$，自变量自然落在 $(0,\\xi)$ 与 $(\\xi,1)$，不等性自动满足。",
+          "取倒数后 $2\\xi+2(1-\\xi)=2$ 恰好消掉 $\\xi$，得 $\\frac2I$；这类题的答案总是「中点的两个倒数之和」。"
+        ]
+      },
+      "answerHtml": "存在不同的 $x_1,x_2\\in(0,1)$ 使等式成立"
+    },
+    {
+      "seq": 10,
+      "number": "第 6 题",
+      "type": "solution",
+      "title": "周期 Fourier",
+      "tags": [
+        "周期 Fourier",
+        "平移换元",
+        "齐次方程组"
+      ],
+      "difficulty": 4,
+      "stemHtml": "设 $f(x)$ 在 $(-\\infty,+\\infty)$ 上可导，且满足 $f(x)=f(x+2)=f(x+\\sqrt3)$，用 Fourier 级数理论证明 $f(x)$ 为常数。",
+      "steps": [
+        {
+          "title": "第一步：定周期、写系数、说明级数收敛到 $f$",
+          "html": "<p>$f(x)=f(x+2)$ ⇒ $f$ 以 $2$ 为周期，故</p><div class=\"fm\">$$a_n=\\int_{-1}^{1}f(x)\\cos n\\pi x\\,\\mathrm{d}x,\\qquad b_n=\\int_{-1}^{1}f(x)\\sin n\\pi x\\,\\mathrm{d}x\\quad\\left(n=1,2,\\dots\\right).$$</div><p>$f$ 可导 ⇒ 连续且分段光滑 ⇒ Fourier 级数处处收敛于 $f$ 本身，所以「$a_n=b_n=0$ ⇒ $f$ 为常数」是合法的。</p>"
+        },
+        {
+          "title": "第二步：用 $f(x)=f\\left(x+\\sqrt3\\right)$ 做平移换元",
+          "html": "<p>把 $a_n$ 的被积函数写成 $f\\left(t+\\sqrt3\\right)$ 并利用 $2$-周期性把区间平移回来：</p><div class=\"fm\">$$a_n=\\int_{-1}^{1}f\\left(t+\\sqrt3\\right)\\cos n\\pi t\\,\\mathrm{d}t=\\int_{-1}^{1}f(t)\\cos n\\pi\\left(t-\\sqrt3\\right)\\mathrm{d}t.$$</div><p>为什么能平移：$2$-周期函数在任意长度为 $2$ 的区间上积分相同。</p>"
+        },
+        {
+          "title": "第三步：展开余弦，得到关于 $a_n,b_n$ 的齐次方程组",
+          "html": "<div class=\"fm\">$$\\cos n\\pi\\left(t-\\sqrt3\\right)=\\cos\\sqrt3n\\pi\\cos n\\pi t+\\sin\\sqrt3n\\pi\\sin n\\pi t,$$</div><p>代回并对比系数（$b_n$ 同理用正弦换元）：</p><div class=\"fm\">$$\\left(1-\\cos\\sqrt3n\\pi\\right)a_n-\\sin\\sqrt3n\\pi\\,b_n=0,\\qquad\\sin\\sqrt3n\\pi\\,a_n+\\left(1-\\cos\\sqrt3n\\pi\\right)b_n=0.$$</div>"
+        },
+        {
+          "title": "第四步：行列式非零，得 $a_n=b_n=0$",
+          "html": "<p>$\\sqrt3$ 无理 ⇒ $\\sqrt3n\\pi$ 不是 $\\pi$ 的整数倍 ⇒ $\\sin\\sqrt3n\\pi\\neq0$。系数行列式</p><div class=\"fm\">$$\\left(1-\\cos\\sqrt3n\\pi\\right)^{2}+\\sin^{2}\\sqrt3n\\pi=2\\left(1-\\cos\\sqrt3n\\pi\\right)\\neq0,$$</div><p>（若 $1-\\cos\\sqrt3n\\pi=0$ 则 $\\sin\\sqrt3n\\pi=0$，矛盾）。故 $a_n=b_n=0$，于是</p><div class=\"fm\">$$f(x)=\\frac{a_0}{2}+\\sum_{n=1}^{\\infty}\\left(a_n\\cos n\\pi x+b_n\\sin n\\pi x\\right)=\\frac{a_0}{2},$$</div><p>即 $f$ 为常数。</p><p class=\"concl\"><b>结论</b>$f(x)$ 恒等于常数。</p>"
+        }
+      ],
+      "moral": {
+        "title": "学霸心法总结（Fourier 系数反推常数篇）",
+        "lead": "看到「$f$ 有两个不可公度的周期、证 $f$ 为常数」，直接按这个顺序出牌：",
+        "items": [
+          "取其中较短的那个周期（本题 $2$）写 Fourier 系数，并说明可导保证级数收敛到 $f$。",
+          "用另一个周期 $T$（本题 $\\sqrt3$）做平移换元，把 $f\\left(x+T\\right)=f(x)$ 塞进系数积分。",
+          "展开 $\\cos n\\pi\\left(t-T\\right)$ 或 $\\sin$，得到 $a_n,b_n$ 的齐次线性方程组。",
+          "关键判定：$\\sqrt3$ 与 $2$ 不可公度 ⇒ $\\sin\\sqrt3n\\pi\\neq0$ ⇒ 方程组行列式非零 ⇒ 全部系数为 $0$ ⇒ $f$ 常数。"
+        ]
+      },
+      "answerHtml": "$f(x)$ 为常数"
+    }
+  ]
+}
