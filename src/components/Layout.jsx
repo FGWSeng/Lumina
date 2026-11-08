@@ -26,9 +26,9 @@ export default function Layout() {
       <header className="topbar">
         <div className="topbar-inner">
           <Link to="/" className="brand">
-            <span className="brand-mark">题</span>
+            <span className="brand-mark">L</span>
             <span>
-              <span style={{ display: 'block', lineHeight: 1.15 }}>题库</span>
+              <span style={{ display: 'block', lineHeight: 1.15 }}>Lumina</span>
               <span className="brand-sub">点点积累</span>
             </span>
           </Link>
@@ -67,7 +67,7 @@ export default function Layout() {
 
       <footer style={{ borderTop: '1px solid var(--line)', marginTop: 40 }}>
         <div style={{ maxWidth: 1240, margin: '0 auto', padding: '22px 20px 34px', display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'space-between', color: 'var(--muted)', fontSize: 12.5 }}>
-          <span>题库 · 点点积累，照亮备考长路</span>
+          <span>Lumina · 点点积累，照亮备考长路</span>
           <span>静态站点 · Cloudflare Pages · 数据本地存储</span>
         </div>
       </footer>

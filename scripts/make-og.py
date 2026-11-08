@@ -21,8 +21,8 @@ mid = ImageFont.truetype("C:/Windows/Fonts/msyh.ttc", 31)
 small = ImageFont.truetype("C:/Windows/Fonts/msyh.ttc", 23)
 tag = ImageFont.truetype("C:/Windows/Fonts/msyhbd.ttc", 21)
 
-d.text((84, 88), "Q U E S T I O N   B A N K", font=tag, fill=GOLD)
-d.text((80, 140), "题库 · 点点积累", font=bold, fill=BRAND)
+d.text((84, 88), "L U M I N A", font=tag, fill=GOLD)
+d.text((80, 140), "Lumina · 点点积累", font=bold, fill=BRAND)
 d.text((84, 268), "数学竞赛 17 届 · 172 题", font=mid, fill=INK)
 d.text((84, 318), "分类浏览 · 关键词检索 · 分步解析 · 学霸心法", font=mid, fill=MUTED)
 

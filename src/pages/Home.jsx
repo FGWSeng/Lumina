@@ -19,7 +19,7 @@ export default function Home() {
     <div className="shell" style={{ gridTemplateColumns: 'minmax(0, 1fr)' }}>
       <main className="main" style={{ maxWidth: 1040, margin: '0 auto', width: '100%' }}>
         <section className="hero">
-          <div className="eyebrow">Question bank · 点点积累</div>
+          <div className="eyebrow">Lumina · 点点积累</div>
           <h1>
             把每一道题，
             <br />

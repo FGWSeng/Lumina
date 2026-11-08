@@ -1,4 +1,4 @@
-# 题库 · 点点积累
+# Lumina · 点点积累
 
 一个可扩展的多科目题库网站。纯静态、无后端，构建时预渲染公式，部署在 Cloudflare Pages。
 
@@ -27,7 +27,7 @@ npm run check      # 校验内容源
 ## 目录结构
 
 ```
-question-bank/
+Lumina/
 ├── content/                     # 内容源（唯一需要编辑的地方）
 │   ├── subjects.json            # 科目 / 题库 / 分类注册表
 │   └── math/competition/        # 数学竞赛初赛

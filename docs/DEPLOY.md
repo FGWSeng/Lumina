@@ -15,12 +15,12 @@
 ### 1. 推送仓库
 
 ```bash
-cd E:/Project/question-bank
+cd E:/Project/Lumina
 git init
 git add .
 git commit -m "init question bank"
 git branch -M main
-git remote add origin https://github.com/<你的用户名>/question-bank.git
+git remote add origin https://github.com/<你的用户名>/Lumina.git
 git push -u origin main
 ```
 
@@ -29,7 +29,7 @@ git push -u origin main
 ### 2. 创建 Pages 项目
 
 1. 登录 Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**。
-2. 授权并选择 `question-bank` 仓库。
+2. 授权并选择 `Lumina` 仓库。
 3. 构建配置：
 
 | 配置项 | 值 |
@@ -53,7 +53,7 @@ git push -u origin main
 部署成功后会得到：
 
 ```
-https://question-bank-xxx.pages.dev
+https://lumina-xxx.pages.dev
 ```
 
 这个地址可以直接发到微信/飞书/QQ，手机浏览器打开即用，**无需备案**。
@@ -65,7 +65,7 @@ https://question-bank-xxx.pages.dev
 ```bash
 npm i -D wrangler
 npm run build
-npx wrangler pages deploy dist --project-name question-bank
+npx wrangler pages deploy dist --project-name lumina
 ```
 
 首次会打开浏览器登录 Cloudflare；之后每次更新只要重新 `build` + `deploy`。
@@ -184,7 +184,7 @@ Git 集成会自动重新构建并部署，1–2 分钟后线上生效。
 `index.html` 已加入：
 
 ```html
-<meta property="og:title" content="题库 · 点点积累" />
+<meta property="og:title" content="Lumina · 点点积累" />
 <meta property="og:description" content="数学竞赛 17 届 · 172 题 · 分类浏览、检索、分步解析与心法" />
 <meta property="og:image" content="/og.png" />
 ```
