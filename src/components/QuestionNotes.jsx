@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ChevronDown, FileText, ImagePlus, Maximize2, Pencil, Trash2, X } from 'lucide-react'
+import { ChevronDown, FileText, GripVertical, ImagePlus, ListOrdered, Maximize2, Pencil, Trash2, X } from 'lucide-react'
 import ImageViewer from './ImageViewer'
 import NoteUploader from './NoteUploader'
 import { useUser } from '../lib/auth'
@@ -18,7 +18,14 @@ export default function QuestionNotes({ questionId }) {
   const [titleDraft, setTitleDraft] = useState('')
   const [contentDraft, setContentDraft] = useState('')
   const [saving, setSaving] = useState(false)
+  const [sorting, setSorting] = useState(false)
+  const [order, setOrder] = useState([])
+  const [dragId, setDragId] = useState('')
+  const [toast, setToast] = useState('')
   const inputRef = useRef(null)
+  const holdRef = useRef(null)
+  const startRef = useRef({ x: 0, y: 0 })
+  const orderRef = useRef([])
 
   async function load() {
     if (!user) {
@@ -39,6 +46,152 @@ export default function QuestionNotes({ questionId }) {
   useEffect(() => {
     load()
   }, [questionId, user?.id])
+
+  useEffect(() => {
+    setOrder(notes)
+    orderRef.current = notes
+  }, [notes])
+
+  useEffect(() => {
+    document.body.classList.toggle('note-dragging', !!dragId)
+    return () => document.body.classList.remove('note-dragging')
+  }, [dragId])
+
+  function onDown(e, id) {
+    if (!sorting) return
+    startRef.current = { x: e.clientX, y: e.clientY }
+    clearTimeout(holdRef.current)
+    holdRef.current = setTimeout(() => {
+      setDragId(id)
+      if (navigator.vibrate) navigator.vibrate(12)
+    }, 380)
+  }
+
+  function onMove(e) {
+    if (!sorting) return
+    if (holdRef.current) {
+      const d = Math.hypot(e.clientX - startRef.current.x, e.clientY - startRef.current.y)
+      if (d > 8) {
+        clearTimeout(holdRef.current)
+        holdRef.current = null
+      }
+    }
+    if (!dragId) return
+    const cards = [...document.querySelectorAll('[data-note-id]')]
+    let target = cards.length - 1
+    for (let i = 0; i < cards.length; i++) {
+      const r = cards[i].getBoundingClientRect()
+      if (e.clientY < r.top + r.height / 2) {
+        target = i
+        break
+      }
+    }
+    setOrder((prev) => {
+      const from = prev.findIndex((x) => x.id === dragId)
+      if (from === -1 || from === target) return prev
+      const next = [...prev]
+      const [item] = next.splice(from, 1)
+      next.splice(target, 0, item)
+      orderRef.current = next
+      return next
+    })
+  }
+
+  async function onUp() {
+    if (holdRef.current) {
+      clearTimeout(holdRef.current)
+      holdRef.current = null
+    }
+    if (!dragId) return
+    setDragId('')
+    const ids = orderRef.current.map((n) => n.id)
+    try {
+      const r = await fetch('/api/notes/reorder', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ ids }),
+      })
+      if (!r.ok) throw new Error('保存顺序失败')
+      setToast('顺序已保存')
+      setTimeout(() => setToast(''), 1600)
+    } catch (e) {
+      setError(e.message)
+    }
+  }
+
+  useEffect(() => {
+    setOrder(notes)
+    orderRef.current = notes
+  }, [notes])
+
+  useEffect(() => {
+    document.body.classList.toggle('note-dragging', !!dragId)
+    return () => document.body.classList.remove('note-dragging')
+  }, [dragId])
+
+  function onDown(e, id) {
+    if (!sorting) return
+    startRef.current = { x: e.clientX, y: e.clientY }
+    clearTimeout(holdRef.current)
+    holdRef.current = setTimeout(() => {
+      setDragId(id)
+      if (navigator.vibrate) navigator.vibrate(12)
+    }, 380)
+  }
+
+  function onMove(e) {
+    if (!sorting) return
+    if (holdRef.current) {
+      const d = Math.hypot(e.clientX - startRef.current.x, e.clientY - startRef.current.y)
+      if (d > 8) {
+        clearTimeout(holdRef.current)
+        holdRef.current = null
+      }
+    }
+    if (!dragId) return
+    const cards = [...document.querySelectorAll('[data-note-id]')]
+    let target = cards.length - 1
+    for (let i = 0; i < cards.length; i++) {
+      const r = cards[i].getBoundingClientRect()
+      if (e.clientY < r.top + r.height / 2) {
+        target = i
+        break
+      }
+    }
+    setOrder((prev) => {
+      const from = prev.findIndex((x) => x.id === dragId)
+      if (from === -1 || from === target) return prev
+      const next = [...prev]
+      const [item] = next.splice(from, 1)
+      next.splice(target, 0, item)
+      orderRef.current = next
+      return next
+    })
+  }
+
+  async function onUp() {
+    if (holdRef.current) {
+      clearTimeout(holdRef.current)
+      holdRef.current = null
+    }
+    if (!dragId) return
+    setDragId('')
+    const ids = orderRef.current.map((n) => n.id)
+    try {
+      const r = await fetch('/api/notes/reorder', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ ids }),
+      })
+      if (!r.ok) throw new Error('保存顺序失败')
+      setToast('顺序已保存')
+      setTimeout(() => setToast(''), 1600)
+    } catch (e) {
+      setError(e.message)
+    }
+  }
 
   function onPick(e) {
     const files = [...(e.target.files || [])].filter((f) => /^image\//.test(f.type))
@@ -126,6 +279,11 @@ export default function QuestionNotes({ questionId }) {
             <button className="btn sm" onClick={openNew}>
               <FileText size={14} /> 文字
             </button>
+            {notes.length > 1 && (
+              <button className={`btn sm ${sorting ? 'on' : ''}`} onClick={() => setSorting((v) => !v)}>
+                <ListOrdered size={14} /> {sorting ? '完成' : '排序'}
+              </button>
+            )}
           </div>
         )}
         <input ref={inputRef} type="file" accept="image/*" multiple hidden onChange={onPick} />
@@ -139,12 +297,28 @@ export default function QuestionNotes({ questionId }) {
         <div className="small muted">还没有笔记。可以上传截图，或粘贴一段带公式的文字。</div>
       )}
 
+      {toast && <div className="notes-toast">{toast}</div>}
+
       {user && notes.length > 0 && (
-        <div className="notes-stack">
-          {notes.map((n) =>
-            n.kind === 'text' ? (
+        <div className={`notes-stack ${sorting ? 'sorting' : ''}`}>
+          {(sorting ? order : notes).map((n) => (
+            <div
+              key={n.id}
+              data-note-id={n.id}
+              className={`note-row ${sorting ? 'sortable' : ''} ${dragId === n.id ? 'dragging' : ''}`}
+              onPointerDown={(e) => onDown(e, n.id)}
+              onPointerMove={onMove}
+              onPointerUp={onUp}
+              onPointerCancel={onUp}
+            >
+              {sorting && (
+                <span className="note-grip" aria-hidden>
+                  <GripVertical size={16} />
+                </span>
+              )}
+              {n.kind === 'text' ? (
               <div className={`note-text-card ${collapsed.has(n.id) ? 'collapsed' : 'open'}`} key={n.id}>
-                <div className="note-text-head" onClick={() => toggle(n.id)} role="button" tabIndex={0}>
+                <div className="note-text-head" onClick={() => !sorting && toggle(n.id)} role="button" tabIndex={0}>
                   <span className="note-text-title">{n.title || '未命名笔记'}</span>
                   <ChevronDown size={15} className="note-text-arrow" />
                   <div className="note-text-actions" onClick={(e) => e.stopPropagation()}>
@@ -172,8 +346,9 @@ export default function QuestionNotes({ questionId }) {
                   <Trash2 size={13} />
                 </button>
               </div>
-            ),
-          )}
+              )}
+            </div>
+          ))}
         </div>
       )}
 

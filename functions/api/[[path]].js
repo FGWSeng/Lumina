@@ -322,7 +322,7 @@ export async function onRequest(context) {
     const qid = url.searchParams.get('questionId') || ''
     if (!qid) return json({ notes: [] })
     const rows = await env.DB.prepare(
-      'SELECT id, question_id, mime, kind, content, title, created_at FROM notes WHERE user_id = ? AND question_id = ? ORDER BY created_at ASC',
+      'SELECT id, question_id, mime, kind, content, title, created_at FROM notes WHERE user_id = ? AND question_id = ? ORDER BY sort_order ASC, created_at ASC',
     )
       .bind(user.id, qid)
       .all()
@@ -371,6 +371,23 @@ export async function onRequest(context) {
       .bind(id, user.id, qid, mime, data, Date.now(), 'image', '')
       .run()
     return json({ id, url: `/api/files/${id}`, size: bytes })
+  }
+
+  if (path === '/notes/reorder' && method === 'PATCH') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const body = await request.json().catch(() => ({}))
+    const ids = Array.isArray(body.ids) ? body.ids.slice(0, 500) : []
+    if (!ids.length) return json({ error: '缺少顺序' }, 400)
+    const stmts = ids.map((id, i) =>
+      env.DB.prepare('UPDATE notes SET sort_order = ? WHERE id = ? AND user_id = ?').bind(
+        i + 1,
+        String(id),
+        user.id,
+      ),
+    )
+    await env.DB.batch(stmts)
+    return json({ ok: true, count: stmts.length })
   }
 
   if (path.startsWith('/notes/') && method === 'PATCH') {
