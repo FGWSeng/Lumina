@@ -8,12 +8,12 @@ function tex(src, display = false) {
   try {
     return katex.renderToString(src, {
       displayMode: display,
-      throwOnError: false,
+      throwOnError: true,
       strict: false,
       output: 'html',
     })
   } catch {
-    return `<code>${escapeHtml(src)}</code>`
+    return `<code class="rt-tex-fallback">${escapeHtml(src)}</code>`
   }
 }
 
@@ -25,9 +25,29 @@ function wrapBareTex(text) {
   let m
   while ((m = re.exec(text))) {
     let a = m.index
-    let b = m.index + m[0].length
-    while (a > 0 && MATH_CHAR.test(text[a - 1]) && b - a < 140) a--
-    while (b < text.length && MATH_CHAR.test(text[b]) && b - a < 140) b++
+    while (a > 0 && MATH_CHAR.test(text[a - 1]) && m.index - a < 60) a--
+    let b = m.index
+    let depth = 0
+    while (b < text.length && b - a < 300) {
+      const ch = text[b]
+      if (ch === '\\') {
+        b++
+        while (b < text.length && /[a-zA-Z]/.test(text[b])) b++
+        continue
+      }
+      if (ch === '{') {
+        depth++
+        b++
+        continue
+      }
+      if (ch === '}') {
+        depth = Math.max(0, depth - 1)
+        b++
+        continue
+      }
+      if (depth === 0 && !MATH_CHAR.test(ch)) break
+      b++
+    }
     while (a < b && /\s/.test(text[a])) a++
     while (b > a && /\s/.test(text[b - 1])) b--
     if (b - a >= 3) ranges.push([a, b])
@@ -99,7 +119,7 @@ export function renderRichText(text) {
       out.push(`<h4 class="rt-h">${inline(line)}</h4>`)
       continue
     }
-    if (/^\\[a-zA-Z]/.test(line) && !/[\u4e00-\u9fa5]/.test(line)) {
+    if (/^\\[a-zA-Z]/.test(line) && !/[\u4e00-\u9fa5]/.test(line.replace(/\\[a-zA-Z]+\{[^{}]*\}/g, ''))) {
       flush()
       out.push(`<div class="rt-formula">${tex(line, true)}</div>`)
       continue
