@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
+  ChevronDown,
   ChevronRight,
   FileText,
   Folder,
@@ -432,12 +433,11 @@ export default function Accumulate() {
                       </button>
                     </div>
                   ) : (
-                    <div key={it.id} className="acc-item text">
-                      <div className="acc-text rt" dangerouslySetInnerHTML={{ __html: renderRichText(it.text) }} />
-                      <button className="acc-del" onClick={() => setDialog({ type: 'itemDelete', id: it.id })} aria-label="删除">
-                        <Trash2 size={13} />
-                      </button>
-                    </div>
+                    <AccTextItem
+                      key={it.id}
+                      item={it}
+                      onDelete={() => setDialog({ type: 'itemDelete', id: it.id })}
+                    />
                   ),
                 )}
               </div>
@@ -551,6 +551,36 @@ export default function Accumulate() {
           </div>
         )}
       </main>
+    </div>
+  )
+}
+
+function AccTextItem({ item, onDelete }) {
+  const [open, setOpen] = useState(true)
+  const title = useMemo(() => {
+    const line = String(item.text || '')
+      .split('\n')
+      .map((x) => x.trim())
+      .find(Boolean)
+    return (line || '文字笔记').replace(/^[-#*\s]+/, '').slice(0, 40)
+  }, [item.text])
+  return (
+    <div className={`acc-item text ${open ? 'open' : 'collapsed'}`}>
+      <div className="acc-text-head" onClick={() => setOpen((v) => !v)} role="button" tabIndex={0}>
+        <span className="acc-text-title">{title}</span>
+        <ChevronDown size={14} className={`acc-text-arrow ${open ? 'rot' : ''}`} />
+        <button
+          className="acc-del"
+          onClick={(e) => {
+            e.stopPropagation()
+            onDelete()
+          }}
+          aria-label="删除"
+        >
+          <Trash2 size={13} />
+        </button>
+      </div>
+      {open && <div className="acc-text rt" dangerouslySetInnerHTML={{ __html: renderRichText(item.text) }} />}
     </div>
   )
 }

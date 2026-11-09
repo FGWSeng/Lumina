@@ -2101,3 +2101,23 @@ body.note-dragging * { user-select: none !important; }
 .acc-item.text { grid-column: 1 / -1; }
 .acc-item.text .rt { font-size: 13px; line-height: 1.85; }
 .acc-item.text .rt-formula .katex { font-size: 1.15em; }
+
+/* 积累文字条目折叠 */
+.acc-item.text { padding: 0; }
+.acc-text-head { display: flex; align-items: center; gap: 8px; padding: 11px 12px 11px 14px; cursor: pointer; border-bottom: 1px solid var(--line); }
+.acc-item.text.collapsed .acc-text-head { border-bottom-color: transparent; }
+.acc-text-title { flex: 1; font-size: 13px; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acc-text-arrow { color: var(--muted); transition: transform .15s; flex: none; }
+.acc-text-arrow.rot { transform: rotate(180deg); }
+.acc-text-head .acc-del { position: static; opacity: 1; width: 24px; height: 24px; flex: none; }
+.acc-item.text .acc-text { padding: 12px 14px; }
+
+/* 积累文字条目折叠 */
+.acc-item.text { padding: 0; }
+.acc-text-head { display: flex; align-items: center; gap: 8px; padding: 11px 12px 11px 14px; cursor: pointer; border-bottom: 1px solid var(--line); }
+.acc-item.text.collapsed .acc-text-head { border-bottom-color: transparent; }
+.acc-text-title { flex: 1; font-size: 13px; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acc-text-arrow { color: var(--muted); transition: transform .15s; flex: none; }
+.acc-text-arrow.rot { transform: rotate(180deg); }
+.acc-text-head .acc-del { position: static; opacity: 1; width: 24px; height: 24px; flex: none; }
+.acc-item.text .acc-text { padding: 12px 14px; }

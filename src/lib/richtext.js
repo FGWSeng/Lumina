@@ -71,6 +71,8 @@ function wrapBareTex(text) {
 
 function inline(text) {
   let s = escapeHtml(text)
+  s = s.replace(/\\\(([\s\S]+?)\\\)/g, (m, t) => `$${t}$`)
+  s = s.replace(/\\\[([\s\S]+?)\\\]/g, (m, t) => `$$${t}$$`)
   const stash = []
   s = s.replace(/\$\$([\s\S]+?)\$\$/g, (m, t) => {
     stash.push(tex(t, true))
@@ -122,6 +124,16 @@ export function renderRichText(text) {
     if (/^\\[a-zA-Z]/.test(line) && !/[\u4e00-\u9fa5]/.test(line.replace(/\\[a-zA-Z]+\{[^{}]*\}/g, ''))) {
       flush()
       out.push(`<div class="rt-formula">${tex(line, true)}</div>`)
+      continue
+    }
+    if (/^\\\[/.test(line) && /\\\]$/.test(line)) {
+      flush()
+      out.push(`<div class="rt-formula">${tex(line.replace(/^\\\[/, '').replace(/\\\]$/, ''), true)}</div>`)
+      continue
+    }
+    if (/^\\[/.test(line) && /\\]$/.test(line)) {
+      flush()
+      out.push(`<div class="rt-formula">${tex(line.replace(/^\\[/, '').replace(/\\]$/, ''), true)}</div>`)
       continue
     }
     const onlyTex = line.match(/^\$\$([\s\S]+?)\$\$$/)
