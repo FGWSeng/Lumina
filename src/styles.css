@@ -1639,3 +1639,15 @@ button { font: inherit; color: inherit; }
   color: var(--muted); display: grid; place-items: center; cursor: pointer;
 }
 .pick-remove:hover { color: #b42318; border-color: #b42318; }
+
+/* 移动端专属图标入口 */
+.mobile-only { display: none; }
+@media (max-width: 980px) {
+  .mobile-only { display: inline-flex; }
+}
+
+/* 移动端专属图标入口 */
+.mobile-only { display: none; }
+@media (max-width: 980px) {
+  .mobile-only { display: inline-flex; }
+}

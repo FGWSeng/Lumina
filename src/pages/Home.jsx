@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, BookOpen, Landmark, Layers, Sigma } from 'lucide-react'
+import { ArrowRight, BookOpen, Landmark, Layers, Sigma, Star } from 'lucide-react'
 import { getLibrary } from '../lib/data'
 
 const ICONS = { sigma: Sigma, book: BookOpen, landmark: Landmark, layers: Layers }
@@ -31,6 +31,9 @@ export default function Home() {
           <div className="row wrap" style={{ marginTop: 18 }}>
             <Link to="/s/math" className="btn primary">
               开始刷题 <ArrowRight size={16} />
+            </Link>
+            <Link to="/picks" className="btn">
+              <Star size={15} /> 今日好题
             </Link>
             <Link to="/about" className="btn">
               了解收录范围
