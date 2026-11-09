@@ -1857,3 +1857,66 @@ button { font: inherit; color: inherit; }
 /* 同类题空状态 */
 .similar-block.adjacent { padding: 0 14px; }
 .similar-empty { padding: 13px 0 14px; font-size: 12.5px; color: var(--muted); }
+
+/* 文字笔记 */
+.notes-tools { display: flex; gap: 6px; }
+.notes-stack { display: flex; flex-direction: column; gap: 10px; }
+.note-img-card { position: relative; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); max-height: 340px; }
+.note-img-card img { width: 100%; max-height: 340px; object-fit: contain; display: block; cursor: zoom-in; background: var(--surface-2); }
+.note-text-card { position: relative; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px 12px; background: var(--surface); }
+.note-text-dialog { width: min(680px, 100%); }
+.note-textarea { min-height: 220px; font-size: 13px; line-height: 1.75; resize: vertical; }
+.rt { font-size: 13.5px; line-height: 1.95; color: var(--ink-2); }
+.rt-p { margin: 0 0 10px; }
+.rt-p:last-child { margin-bottom: 0; }
+.rt-h { font-size: 13.8px; font-weight: 700; color: var(--ink); margin: 16px 0 8px; line-height: 1.6; }
+.rt-h:first-child { margin-top: 0; }
+.rt-list { margin: 0 0 10px; padding-left: 20px; }
+.rt-list li { margin: 4px 0; }
+.rt-hr { border: 0; border-top: 1px solid var(--line); margin: 16px 0; }
+.rt .katex { font-size: 1.03em; }
+.note-text-card .note-del { opacity: 0; }
+.note-text-card:hover .note-del { opacity: 1; }
+
+/* 文字笔记 */
+.notes-tools { display: flex; gap: 6px; }
+.notes-stack { display: flex; flex-direction: column; gap: 10px; }
+.note-img-card { position: relative; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); max-height: 340px; }
+.note-img-card img { width: 100%; max-height: 340px; object-fit: contain; display: block; cursor: zoom-in; background: var(--surface-2); }
+.note-text-card { position: relative; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px 12px; background: var(--surface); }
+.note-text-dialog { width: min(680px, 100%); }
+.note-textarea { min-height: 220px; font-size: 13px; line-height: 1.75; resize: vertical; }
+.rt { font-size: 13.5px; line-height: 1.95; color: var(--ink-2); }
+.rt-p { margin: 0 0 10px; }
+.rt-p:last-child { margin-bottom: 0; }
+.rt-h { font-size: 13.8px; font-weight: 700; color: var(--ink); margin: 16px 0 8px; line-height: 1.6; }
+.rt-h:first-child { margin-top: 0; }
+.rt-list { margin: 0 0 10px; padding-left: 20px; }
+.rt-list li { margin: 4px 0; }
+.rt-hr { border: 0; border-top: 1px solid var(--line); margin: 16px 0; }
+.rt .katex { font-size: 1.03em; }
+.note-text-card .note-del { opacity: 0; }
+.note-text-card:hover .note-del { opacity: 1; }
+
+/* 文字笔记排版细化 */
+ol.rt-list { list-style: decimal; padding-left: 22px; }
+ul.rt-list { list-style: disc; padding-left: 20px; }
+.rt-list li::marker { color: var(--brand); font-weight: 600; }
+.rt-h { border-left: 3px solid var(--brand); padding-left: 9px; }
+.rt .katex { font-size: 1.12em; }
+
+/* 文字笔记排版细化 */
+ol.rt-list { list-style: decimal; padding-left: 22px; }
+ul.rt-list { list-style: disc; padding-left: 20px; }
+.rt-list li::marker { color: var(--brand); font-weight: 600; }
+.rt-h { border-left: 3px solid var(--brand); padding-left: 9px; }
+.rt .katex { font-size: 1.12em; }
+
+.rt-formula { margin: 12px 0; text-align: center; overflow-x: auto; }
+.rt-formula .katex-display { margin: 0; }
+
+.rt-formula { margin: 12px 0; text-align: center; overflow-x: auto; }
+.rt-formula .katex-display { margin: 0; }
+
+.rt { font-size: 14px; }
+.rt-formula .katex { font-size: 1.3em; }

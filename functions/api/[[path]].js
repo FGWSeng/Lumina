@@ -322,15 +322,17 @@ export async function onRequest(context) {
     const qid = url.searchParams.get('questionId') || ''
     if (!qid) return json({ notes: [] })
     const rows = await env.DB.prepare(
-      'SELECT id, question_id, mime, created_at FROM notes WHERE user_id = ? AND question_id = ? ORDER BY created_at ASC',
+      'SELECT id, question_id, mime, kind, content, created_at FROM notes WHERE user_id = ? AND question_id = ? ORDER BY created_at ASC',
     )
       .bind(user.id, qid)
       .all()
     const notes = (rows.results || []).map((r) => ({
       id: r.id,
       questionId: r.question_id,
+      kind: r.kind || 'image',
+      content: r.content || '',
       createdAt: r.created_at,
-      url: `/api/files/${r.id}`,
+      url: (r.kind || 'image') === 'image' ? `/api/files/${r.id}` : '',
     }))
     return json({ notes })
   }
@@ -340,6 +342,20 @@ export async function onRequest(context) {
     if (!user) return json({ error: '未登录' }, 401)
     const body = await request.json().catch(() => ({}))
     const qid = String(body.questionId || '')
+    const kind = String(body.kind || 'image')
+
+    if (kind === 'text') {
+      const content = String(body.content || '').trim().slice(0, 20000)
+      if (!qid || !content) return json({ error: '内容不能为空' }, 400)
+      const id = crypto.randomUUID()
+      await env.DB.prepare(
+        'INSERT INTO notes (id, user_id, question_id, mime, data, created_at, kind, content) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      )
+        .bind(id, user.id, qid, '', '', Date.now(), 'text', content)
+        .run()
+      return json({ id, kind: 'text', content })
+    }
+
     const mime = String(body.mime || 'image/jpeg')
     const data = String(body.data || '').replace(/^data:[^;]+;base64,/, '')
     if (!qid || !data) return json({ error: '参数不完整' }, 400)
@@ -348,9 +364,9 @@ export async function onRequest(context) {
     if (bytes > MAX_BYTES) return json({ error: '图片超过 800KB，请压缩后再传' }, 413)
     const id = crypto.randomUUID()
     await env.DB.prepare(
-      'INSERT INTO notes (id, user_id, question_id, mime, data, created_at) VALUES (?, ?, ?, ?, ?, ?)',
+      'INSERT INTO notes (id, user_id, question_id, mime, data, created_at, kind, content) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
     )
-      .bind(id, user.id, qid, mime, data, Date.now())
+      .bind(id, user.id, qid, mime, data, Date.now(), 'image', '')
       .run()
     return json({ id, url: `/api/files/${id}`, size: bytes })
   }
