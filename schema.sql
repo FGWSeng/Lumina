@@ -29,3 +29,14 @@ CREATE TABLE IF NOT EXISTS favorites (
 );
 
 CREATE INDEX IF NOT EXISTS idx_fav_user ON favorites(user_id);
+
+CREATE TABLE IF NOT EXISTS daily_picks (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  question_id TEXT NOT NULL,
+  pick_date TEXT NOT NULL,
+  created_at INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_picks_uniq ON daily_picks(user_id, question_id, pick_date);
+CREATE INDEX IF NOT EXISTS idx_picks_date ON daily_picks(user_id, pick_date);

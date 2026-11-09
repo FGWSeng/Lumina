@@ -1551,3 +1551,91 @@ button { font: inherit; color: inherit; }
   font-size: 12px; font-weight: 700; color: var(--brand);
   padding: 6px 10px 2px; letter-spacing: .04em;
 }
+
+/* 今日好题 */
+.pick-wrap { position: relative; display: inline-flex; }
+.pick-tip {
+  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: #fff; font-size: 11.5px; padding: 4px 9px;
+  border-radius: 6px; white-space: nowrap; pointer-events: none; z-index: 5;
+}
+
+.picks-shell { grid-template-columns: minmax(0, 1fr); }
+.picks-main { max-width: 860px; margin: 0 auto; }
+.picks-hero { padding: 26px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.picks-hero h1 { font-size: clamp(22px, 4vw, 30px); margin: 8px 0 6px; }
+.picks-dates {
+  display: flex; gap: 6px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 12px;
+  scrollbar-width: none;
+}
+.picks-dates::-webkit-scrollbar { display: none; }
+.pick-date {
+  flex: none; display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 9px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink-2); font-size: 12.5px; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.pick-date:hover { border-color: var(--line-2); }
+.pick-date.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+.pick-date em { font-style: normal; font-size: 11px; opacity: .75; }
+.picks-list { display: flex; flex-direction: column; gap: 10px; }
+.pick-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 16px;
+}
+.pick-link { flex: 1; min-width: 0; text-decoration: none; color: inherit; }
+.pick-meta { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+.pick-title { display: block; font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.pick-stem { display: block; font-size: 13.5px; line-height: 1.8; color: var(--ink-2); }
+.pick-remove {
+  flex: none; width: 34px; height: 34px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--muted); display: grid; place-items: center; cursor: pointer;
+}
+.pick-remove:hover { color: #b42318; border-color: #b42318; }
+
+/* 今日好题 */
+.pick-wrap { position: relative; display: inline-flex; }
+.pick-tip {
+  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: var(--ink); color: #fff; font-size: 11.5px; padding: 4px 9px;
+  border-radius: 6px; white-space: nowrap; pointer-events: none; z-index: 5;
+}
+
+.picks-shell { grid-template-columns: minmax(0, 1fr); }
+.picks-main { max-width: 860px; margin: 0 auto; }
+.picks-hero { padding: 26px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.picks-hero h1 { font-size: clamp(22px, 4vw, 30px); margin: 8px 0 6px; }
+.picks-dates {
+  display: flex; gap: 6px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 12px;
+  scrollbar-width: none;
+}
+.picks-dates::-webkit-scrollbar { display: none; }
+.pick-date {
+  flex: none; display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 9px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink-2); font-size: 12.5px; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.pick-date:hover { border-color: var(--line-2); }
+.pick-date.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+.pick-date em { font-style: normal; font-size: 11px; opacity: .75; }
+.picks-list { display: flex; flex-direction: column; gap: 10px; }
+.pick-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 16px;
+}
+.pick-link { flex: 1; min-width: 0; text-decoration: none; color: inherit; }
+.pick-meta { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+.pick-title { display: block; font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.pick-stem { display: block; font-size: 13.5px; line-height: 1.8; color: var(--ink-2); }
+.pick-remove {
+  flex: none; width: 34px; height: 34px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--muted); display: grid; place-items: center; cursor: pointer;
+}
+.pick-remove:hover { color: #b42318; border-color: #b42318; }

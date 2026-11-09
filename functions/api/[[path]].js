@@ -56,6 +56,65 @@ export async function onRequest(context) {
     })
   }
 
+  if (path === '/picks/dates' && method === 'GET') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const rows = await env.DB.prepare(
+      'SELECT pick_date, COUNT(*) AS n FROM daily_picks WHERE user_id = ? GROUP BY pick_date ORDER BY pick_date DESC LIMIT 180',
+    )
+      .bind(user.id)
+      .all()
+    return json({ dates: (rows.results || []).map((r) => ({ date: r.pick_date, count: r.n })) })
+  }
+
+  if (path === '/picks' && method === 'GET') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const date = url.searchParams.get('date') || ''
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return json({ error: '日期格式应为 YYYY-MM-DD' }, 400)
+    const rows = await env.DB.prepare(
+      'SELECT id, question_id, pick_date, created_at FROM daily_picks WHERE user_id = ? AND pick_date = ? ORDER BY created_at ASC',
+    )
+      .bind(user.id, date)
+      .all()
+    return json({
+      picks: (rows.results || []).map((r) => ({
+        id: r.id,
+        questionId: r.question_id,
+        date: r.pick_date,
+        createdAt: r.created_at,
+      })),
+    })
+  }
+
+  if (path === '/picks' && method === 'POST') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const body = await request.json().catch(() => ({}))
+    const qid = String(body.questionId || '')
+    const date = String(body.date || '')
+    if (!qid || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return json({ error: '参数不完整' }, 400)
+    await env.DB.prepare(
+      'INSERT OR IGNORE INTO daily_picks (id, user_id, question_id, pick_date, created_at) VALUES (?, ?, ?, ?, ?)',
+    )
+      .bind(crypto.randomUUID(), user.id, qid, date, Date.now())
+      .run()
+    const row = await env.DB.prepare(
+      'SELECT id FROM daily_picks WHERE user_id = ? AND question_id = ? AND pick_date = ?',
+    )
+      .bind(user.id, qid, date)
+      .first()
+    return json({ id: row?.id || '', date })
+  }
+
+  if (path.startsWith('/picks/') && method === 'DELETE') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const id = path.slice('/picks/'.length)
+    await env.DB.prepare('DELETE FROM daily_picks WHERE id = ? AND user_id = ?').bind(id, user.id).run()
+    return json({ ok: true })
+  }
+
   if (path === '/favorites' && method === 'GET') {
     const user = await currentUser(request, env)
     if (!user) return json({ error: '未登录' }, 401)

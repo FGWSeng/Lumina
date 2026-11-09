@@ -5,6 +5,7 @@ import { Difficulty, Hint } from './ui'
 import { MASTERY, getMastery, isFavorite, setMastery, toggleFavorite, useStore } from '../lib/store'
 import QuestionNotes from './QuestionNotes'
 import SimilarQuestions from './SimilarQuestions'
+import PickButton from './PickButton'
 
 export default function SingleQuestion({ list, currentId, onSelect }) {
   useStore()
@@ -112,6 +113,7 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
             <StickyNote size={15} /> 笔记
           </button>
           <span className="spacer" />
+          <PickButton questionId={q.id} />
           <button className={`btn ${fav ? 'on' : ''}`} onClick={() => toggleFavorite(q.id)}>
             {fav ? <BookmarkCheck size={15} /> : <Bookmark size={15} />} {fav ? '已收藏' : '收藏'}
           </button>
