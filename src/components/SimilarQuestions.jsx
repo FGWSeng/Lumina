@@ -3,11 +3,39 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, Layers } from 'lucide-react'
 import { getLibrary } from '../lib/data'
 
-function overlap(a, b) {
-  const sa = new Set(a.tags || [])
-  const sb = new Set(b.tags || [])
+function tagsOverlap(a, b) {
+  const sa = new Set((a.tags || []).map((t) => t.trim()))
   let n = 0
-  for (const t of sa) if (sb.has(t)) n++
+  for (const t of b.tags || []) if (sa.has(t.trim())) n++
+  return n
+}
+
+function cleanTag(t) {
+  return String(t || '').replace(/[^\u4e00-\u9fa5A-Za-z0-9^∞]/g, '')
+}
+
+function titleHitsTags(title, tags) {
+  const text = String(title || '')
+  let n = 0
+  for (const tag of tags || []) {
+    const c = cleanTag(tag)
+    if (c.length >= 2 && text.includes(c)) n++
+  }
+  return n
+}
+
+function bigrams(s) {
+  const t = String(s || '')
+  const set = new Set()
+  for (let i = 0; i < t.length - 1; i++) set.add(t.slice(i, i + 2))
+  return set
+}
+
+function titleSimilarity(a, b) {
+  const ga = bigrams(a)
+  const gb = bigrams(b)
+  let n = 0
+  for (const g of ga) if (gb.has(g)) n++
   return n
 }
 
@@ -35,48 +63,91 @@ export default function SimilarQuestions({ question, limit = 8 }) {
     getLibrary().then(setLib).catch(() => {})
   }, [])
 
-  const { main, cross, title, crossTitle } = useMemo(() => {
-    if (!lib || !question) return { main: [], cross: [], title: '', crossTitle: '' }
-    const isTraining = question.category === 'training'
+  const { main, secondary, cross } = useMemo(() => {
+    if (!lib || !question) return { main: [], secondary: [], cross: [] }
+    const isTraining = question?.category === 'training'
+    const qs = lib.questions
 
-    const mainPool = isTraining
-      ? lib.questions.filter(
-          (q) => q.id !== question.id && q.category === 'training' && q.chapter === question.chapter,
-        )
-      : lib.questions.filter((q) => q.id !== question.id && q.category === 'prelim' && q.type === question.type)
+    let main = []
+    let secondary = []
+    let cross = []
 
-    const chapters = question.trainingChapters || (isTraining ? [question.chapter] : [])
-    const crossPool = isTraining
-      ? lib.questions.filter((q) => q.category === 'prelim' && (q.trainingChapters || []).includes(question.chapter))
-      : lib.questions.filter((q) => q.category === 'training' && chapters.includes(q.chapter))
+    if (isTraining) {
+      const sameChapter = qs.filter(
+        (q) => q.id !== question.id && q.category === 'training' && q.chapter === question.chapter,
+      )
+      const scored = sameChapter
+        .map((q) => ({ q, s: titleSimilarity(question.title, q.title) }))
+        .sort((a, b) => b.s - a.s || a.q.id.localeCompare(b.q.id))
 
-    const rank = (list, n) =>
-      list
-        .map((q) => ({ q, score: overlap(question, q) }))
-        .sort(
-          (a, b) =>
-            b.score - a.score || (b.q.year || 0) - (a.q.year || 0) || a.q.id.localeCompare(b.q.id),
-        )
-        .slice(0, n)
+      main = scored.filter((x) => x.s >= 2).slice(0, limit).map((x) => x.q)
+      const mainIds = new Set(main.map((q) => q.id))
+      secondary = scored
+        .filter((x) => !mainIds.has(x.q.id))
+        .slice(0, 4)
         .map((x) => x.q)
 
-    return {
-      main: rank(mainPool, limit),
-      cross: rank(crossPool, 4),
-      title: isTraining ? '同章训练' : '真题同类',
-      crossTitle: isTraining ? '相关真题' : '能力拓展（同章）',
+      cross = qs
+        .filter((q) => q.category === 'prelim')
+        .map((q) => ({ q, s: titleSimilarity(question.title, (q.tags || []).join(' ')) }))
+        .filter((x) => x.s >= 2)
+        .sort((a, b) => b.s - a.s || b.q.year - a.q.year)
+        .slice(0, 4)
+        .map((x) => x.q)
+    } else {
+      main = qs
+        .filter((q) => q.id !== question.id && q.category === 'prelim')
+        .map((q) => ({ q, s: tagsOverlap(question, q) }))
+        .filter((x) => x.s >= 1)
+        .sort((a, b) => b.s - a.s || b.q.year - a.q.year)
+        .slice(0, limit)
+        .map((x) => x.q)
+
+      const mainIds = new Set(main.map((q) => q.id))
+      const chapters = question.trainingChapters || []
+      secondary = qs
+        .filter(
+          (q) =>
+            q.id !== question.id &&
+            q.category === 'prelim' &&
+            !mainIds.has(q.id) &&
+            chapters.length > 0 &&
+            (q.trainingChapters || []).some((c) => chapters.includes(c)),
+        )
+        .map((q) => ({ q, hit: (q.trainingChapters || []).filter((c) => chapters.includes(c)).length }))
+        .sort((a, b) => b.hit - a.hit || b.q.year - a.q.year)
+        .slice(0, 4)
+        .map((x) => x.q)
+
+      cross = qs
+        .filter((q) => q.category === 'training')
+        .map((q) => ({ q, s: titleHitsTags(q.title, question.tags) }))
+        .filter((x) => x.s >= 1)
+        .sort((a, b) => b.s - a.s || a.q.chapter - b.q.chapter)
+        .slice(0, 4)
+        .map((x) => x.q)
     }
+
+    return { main, secondary, cross }
   }, [lib, question, limit])
 
-  if (!main.length && !cross.length) return null
+  const isTraining = question?.category === 'training'
+
+  if (!main.length && !secondary.length && !cross.length) {
+    return (
+      <div className="similar-block adjacent">
+        <div className="similar-empty">按当前题库，没有考点重合的同类题。</div>
+      </div>
+    )
+  }
 
   return (
     <details className="similar-block">
       <summary>
         <Layers size={15} />
         <span>
-          同类题 · {main.length + cross.length} 道
-          {cross.length ? `（含${crossTitle} ${cross.length} 道）` : ''}
+          同类题 · {main.length + secondary.length + cross.length} 道
+          {cross.length ? `（相关${isTraining ? '真题' : '训练'} ${cross.length} 道）` : ''}
         </span>
         <ChevronDown size={15} className="similar-arrow" />
       </summary>
@@ -84,7 +155,7 @@ export default function SimilarQuestions({ question, limit = 8 }) {
       {main.length > 0 && (
         <div className="similar-group">
           <div className="similar-group-title">
-            {title} · {main.length}
+            {isTraining ? '同章同思路' : '考点重合'} · {main.length}
           </div>
           <ul className="similar-list">
             {main.map((q) => (
@@ -94,10 +165,23 @@ export default function SimilarQuestions({ question, limit = 8 }) {
         </div>
       )}
 
+      {secondary.length > 0 && (
+        <div className="similar-group">
+          <div className="similar-group-title">
+            {isTraining ? '同章其他' : '同章相关'} · {secondary.length}
+          </div>
+          <ul className="similar-list">
+            {secondary.map((q) => (
+              <Item key={q.id} q={q} />
+            ))}
+          </ul>
+        </div>
+      )}
+
       {cross.length > 0 && (
         <div className="similar-group">
           <div className="similar-group-title">
-            {crossTitle} · {cross.length}
+            {isTraining ? '相关真题' : '能力拓展（相关）'} · {cross.length}
           </div>
           <ul className="similar-list">
             {cross.map((q) => (
@@ -108,7 +192,9 @@ export default function SimilarQuestions({ question, limit = 8 }) {
       )}
 
       <div className="similar-hint">
-        同分类同题型优先，共享考点越多越靠前；能力拓展题按对应章节关联，新题入库后自动生效
+        {isTraining
+          ? '同章内按手法标题相似度取题；相关真题按考点标签与标题重合度匹配'
+          : '只保留考点标签有交集的题，交集越多越靠前；不再用同题型凑数'}
       </div>
     </details>
   )

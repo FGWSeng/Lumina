@@ -1849,3 +1849,11 @@ button { font: inherit; color: inherit; }
 .pos-link { border: 0; background: none; cursor: pointer; font-size: 13px; color: var(--muted); padding: 4px 8px; border-radius: 6px; font-variant-numeric: tabular-nums; }
 .pos-link:hover { color: var(--brand); background: var(--brand-soft); }
 @media (max-width: 860px) { .outline-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+/* 同类题空状态 */
+.similar-block.adjacent { padding: 0 14px; }
+.similar-empty { padding: 13px 0 14px; font-size: 12.5px; color: var(--muted); }
+
+/* 同类题空状态 */
+.similar-block.adjacent { padding: 0 14px; }
+.similar-empty { padding: 13px 0 14px; font-size: 12.5px; color: var(--muted); }
