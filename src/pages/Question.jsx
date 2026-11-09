@@ -5,6 +5,7 @@ import { findQuestion, getLibrary, getQuestion, questionNeighbors } from '../lib
 import { Difficulty, Tags } from '../components/ui'
 import { MASTERY, getMastery, isFavorite, setMastery, toggleFavorite, useStore } from '../lib/store'
 import QuestionNotes from '../components/QuestionNotes'
+import SimilarQuestions from '../components/SimilarQuestions'
 
 export default function Question() {
   const { questionId } = useParams()
@@ -190,6 +191,7 @@ export default function Question() {
               )}
             </>
           )}
+          <SimilarQuestions question={q} />
         </article>
 
         <div className="pager">

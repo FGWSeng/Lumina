@@ -56,6 +56,39 @@ export async function onRequest(context) {
     })
   }
 
+  if (path === '/favorites' && method === 'GET') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const rows = await env.DB.prepare(
+      'SELECT question_id, created_at FROM favorites WHERE user_id = ? ORDER BY created_at DESC',
+    )
+      .bind(user.id)
+      .all()
+    return json({
+      favorites: (rows.results || []).map((r) => ({ questionId: r.question_id, createdAt: r.created_at })),
+    })
+  }
+
+  if (path === '/favorites' && method === 'POST') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const body = await request.json().catch(() => ({}))
+    const qid = String(body.questionId || '')
+    if (!qid) return json({ error: '缺少 questionId' }, 400)
+    await env.DB.prepare('INSERT OR IGNORE INTO favorites (user_id, question_id, created_at) VALUES (?, ?, ?)')
+      .bind(user.id, qid, Date.now())
+      .run()
+    return json({ ok: true })
+  }
+
+  if (path.startsWith('/favorites/') && method === 'DELETE') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const qid = decodeURIComponent(path.slice('/favorites/'.length))
+    await env.DB.prepare('DELETE FROM favorites WHERE user_id = ? AND question_id = ?').bind(user.id, qid).run()
+    return json({ ok: true })
+  }
+
   if (path === '/notes' && method === 'GET') {
     const user = await currentUser(request, env)
     if (!user) return json({ error: '未登录' }, 401)

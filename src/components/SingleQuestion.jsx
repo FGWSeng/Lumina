@@ -4,6 +4,7 @@ import { getQuestion } from '../lib/data'
 import { Difficulty, Tags } from './ui'
 import { MASTERY, getMastery, isFavorite, setMastery, toggleFavorite, useStore } from '../lib/store'
 import QuestionNotes from './QuestionNotes'
+import SimilarQuestions from './SimilarQuestions'
 
 export default function SingleQuestion({ list, currentId, onSelect }) {
   useStore()
@@ -184,6 +185,7 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
             )}
           </>
         )}
+        <SimilarQuestions question={q} />
       </article>
 
       <div className="pager">

@@ -1409,3 +1409,53 @@ button { font: inherit; color: inherit; }
   .uploader-btn { flex: 1 1 calc(50% - 4px); height: 48px; }
   .uploader-btn.primary { flex: 1 1 100%; }
 }
+
+/* 同类题 */
+.similar-block {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--surface);
+  padding: 0 14px;
+}
+.similar-block summary {
+  display: flex; align-items: center; gap: 7px;
+  padding: 12px 0; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: var(--brand);
+  list-style: none;
+}
+.similar-block summary::-webkit-details-marker { display: none; }
+.similar-arrow { margin-left: auto; transition: transform .15s; color: var(--muted); }
+.similar-block[open] .similar-arrow { transform: rotate(180deg); }
+.similar-list { margin: 0 0 6px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.similar-list a { display: block; padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit; }
+.similar-list a:hover { background: var(--surface-2); }
+.similar-meta { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 3px; }
+.similar-stem { display: block; font-size: 13.5px; line-height: 1.75; color: var(--ink-2); }
+.similar-tags { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+.similar-hint { font-size: 11.5px; color: var(--muted); padding: 4px 0 12px; }
+
+/* 同类题 */
+.similar-block {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--surface);
+  padding: 0 14px;
+}
+.similar-block summary {
+  display: flex; align-items: center; gap: 7px;
+  padding: 12px 0; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: var(--brand);
+  list-style: none;
+}
+.similar-block summary::-webkit-details-marker { display: none; }
+.similar-arrow { margin-left: auto; transition: transform .15s; color: var(--muted); }
+.similar-block[open] .similar-arrow { transform: rotate(180deg); }
+.similar-list { margin: 0 0 6px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.similar-list a { display: block; padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit; }
+.similar-list a:hover { background: var(--surface-2); }
+.similar-meta { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 3px; }
+.similar-stem { display: block; font-size: 13.5px; line-height: 1.75; color: var(--ink-2); }
+.similar-tags { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+.similar-hint { font-size: 11.5px; color: var(--muted); padding: 4px 0 12px; }

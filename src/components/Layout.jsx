@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BookOpen, Moon, Sun } from 'lucide-react'
 import { getLibrary } from '../lib/data'
-import { setTheme, useStore } from '../lib/store'
+import { setTheme, syncFavoritesFromCloud, useStore } from '../lib/store'
 import UserSwitcher from './UserSwitcher'
+import { useUser } from '../lib/auth'
 
 export default function Layout() {
   const { theme } = useStore()
+  const user = useUser()
   const [subjects, setSubjects] = useState([])
   const location = useLocation()
 
@@ -17,6 +19,10 @@ export default function Layout() {
   useEffect(() => {
     document.documentElement.dataset.theme = theme
   }, [theme])
+
+  useEffect(() => {
+    if (user?.id) syncFavoritesFromCloud(user.id)
+  }, [user?.id])
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
