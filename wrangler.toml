@@ -1,0 +1,8 @@
+name = "lumina"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "./dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lumina-db"
+database_id = "5b20227b-0f64-446c-a83c-1e905fbc217a"

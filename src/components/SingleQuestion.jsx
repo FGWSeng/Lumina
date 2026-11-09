@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowLeft, ArrowRight, Bookmark, BookmarkCheck, Eye, Lightbulb, ListChecks, Sigma } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bookmark, BookmarkCheck, Eye, Lightbulb, ListChecks, Sigma, StickyNote } from 'lucide-react'
 import { getQuestion } from '../lib/data'
 import { Difficulty, Tags } from './ui'
 import { MASTERY, getMastery, isFavorite, setMastery, toggleFavorite, useStore } from '../lib/store'
+import QuestionNotes from './QuestionNotes'
 
 export default function SingleQuestion({ list, currentId, onSelect }) {
   useStore()
@@ -12,6 +13,7 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
   const [showAnswer, setShowAnswer] = useState(false)
   const [showExplain, setShowExplain] = useState(false)
   const [showFormulas, setShowFormulas] = useState(false)
+  const [showNotes, setShowNotes] = useState(false)
   const answerRef = useRef(null)
   const explainRef = useRef(null)
 
@@ -26,6 +28,7 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
     setShowAnswer(false)
     setShowExplain(false)
     setShowFormulas(false)
+    setShowNotes(false)
     getQuestion(q.id)
       .then((d) => alive && setDetail(d))
       .catch(() => {})
@@ -106,6 +109,9 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
           <button className={`btn ${showFormulas ? 'on' : ''} half`} onClick={() => setShowFormulas((v) => !v)}>
             <Sigma size={15} /> 公式
           </button>
+          <button className={`btn ${showNotes ? 'on' : ''} half`} onClick={() => setShowNotes((v) => !v)}>
+            <StickyNote size={15} /> 笔记
+          </button>
           <span className="spacer" />
           <button className={`btn ${fav ? 'on' : ''}`} onClick={() => toggleFavorite(q.id)}>
             {fav ? <BookmarkCheck size={15} /> : <Bookmark size={15} />} {fav ? '已收藏' : '收藏'}
@@ -141,6 +147,8 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
             </ol>
           </div>
         )}
+
+        {showNotes && <QuestionNotes questionId={q.id} />}
 
         {showExplain && detail && (
           <>

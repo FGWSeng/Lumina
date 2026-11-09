@@ -269,9 +269,10 @@ for (const subject of registry.subjects) {
 
 questions.sort((a, b) => a.year - b.year || a.id.localeCompare(b.id))
 
+const generatedAt = new Date().toISOString()
 const library = {
-  version: 1,
-  generatedAt: new Date().toISOString(),
+  version: generatedAt.slice(0, 16).replace(/\D/g, ''),
+  generatedAt,
   subjects: index,
   totals: {
     subjects: index.filter((s) => s.status === 'ready').length,

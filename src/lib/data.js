@@ -15,10 +15,15 @@ export function getQuestion(id) {
   if (!detailCache.has(id)) {
     detailCache.set(
       id,
-      fetch(`${import.meta.env.BASE_URL}data/questions/${id}.json`).then((r) => {
-        if (!r.ok) throw new Error('题目加载失败')
-        return r.json()
-      }),
+      getLibrary()
+        .then((lib) => {
+          const v = lib?.version || ''
+          return fetch(`${import.meta.env.BASE_URL}data/questions/${id}.json?v=${encodeURIComponent(v)}`)
+        })
+        .then((r) => {
+          if (!r.ok) throw new Error('题目加载失败')
+          return r.json()
+        }),
     )
   }
   return detailCache.get(id)

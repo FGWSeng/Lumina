@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BookOpen, Moon, Sun } from 'lucide-react'
 import { getLibrary } from '../lib/data'
 import { setTheme, useStore } from '../lib/store'
+import UserSwitcher from './UserSwitcher'
 
 export default function Layout() {
   const { theme } = useStore()
@@ -51,6 +52,7 @@ export default function Layout() {
           </nav>
 
           <div className="top-actions">
+            <UserSwitcher />
             <Link to="/s/math" className="icon-btn" title="开始刷题" aria-label="开始刷题">
               <BookOpen size={17} />
             </Link>
@@ -71,7 +73,7 @@ export default function Layout() {
       <footer style={{ borderTop: '1px solid var(--line)', marginTop: 40 }}>
         <div style={{ maxWidth: 1240, margin: '0 auto', padding: '22px 20px 34px', display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'space-between', color: 'var(--muted)', fontSize: 12.5 }}>
           <span>Lumina · 点点积累，照亮备考长路</span>
-          <span>静态站点 · Cloudflare Pages · 数据本地存储</span>
+          <span>Cloudflare Pages · 云端笔记按账号隔离</span>
         </div>
       </footer>
     </>
