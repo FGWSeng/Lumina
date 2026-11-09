@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ImagePlus, Maximize2, Trash2 } from 'lucide-react'
 import ImageViewer from './ImageViewer'
+import NoteUploader from './NoteUploader'
 import { useUser } from '../lib/auth'
 
 async function compress(file, maxW = 1200, quality = 0.72) {
@@ -30,6 +31,7 @@ export default function QuestionNotes({ questionId }) {
   const [preview, setPreview] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  const [pending, setPending] = useState(null)
   const inputRef = useRef(null)
 
   async function load() {
@@ -52,31 +54,11 @@ export default function QuestionNotes({ questionId }) {
     load()
   }, [questionId, user?.id])
 
-  async function onPick(e) {
-    const files = [...(e.target.files || [])]
+  function onPick(e) {
+    const files = [...(e.target.files || [])].filter((f) => /^image\//.test(f.type))
     e.target.value = ''
     if (!files.length || !user) return
-    setBusy(true)
-    setError('')
-    for (const f of files) {
-      if (!/^image\//.test(f.type)) continue
-      try {
-        const blob = await compress(f)
-        const base64 = await blobToBase64(blob)
-        const r = await fetch('/api/notes', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          credentials: 'same-origin',
-          body: JSON.stringify({ questionId, mime: 'image/jpeg', data: base64 }),
-        })
-        const d = await r.json().catch(() => ({}))
-        if (!r.ok) throw new Error(d.error || '上传失败')
-      } catch (err) {
-        setError(err.message)
-      }
-    }
-    await load()
-    setBusy(false)
+    setPending(files)
   }
 
   async function remove(id) {
@@ -122,6 +104,18 @@ export default function QuestionNotes({ questionId }) {
             </div>
           ))}
         </div>
+      )}
+
+      {pending && (
+        <NoteUploader
+          files={pending}
+          questionId={questionId}
+          onDone={() => {
+            setPending(null)
+            load()
+          }}
+          onCancel={() => setPending(null)}
+        />
       )}
 
       {preview && <ImageViewer src={preview} onClose={() => setPreview('')} />}
