@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { ChevronDown, FileText, GripVertical, ImagePlus, ListOrdered, Maximize2, Pencil, Trash2, X } from 'lucide-react'
+import { ChevronDown, FileText, FolderPlus, GripVertical, ImagePlus, ListOrdered, Maximize2, Pencil, Trash2, X } from 'lucide-react'
 import ImageViewer from './ImageViewer'
 import NoteUploader from './NoteUploader'
 import { useUser } from '../lib/auth'
 import { renderRichText } from '../lib/richtext'
+import SaveToFolder from './SaveToFolder'
 
 export default function QuestionNotes({ questionId }) {
   const user = useUser()
@@ -22,6 +23,7 @@ export default function QuestionNotes({ questionId }) {
   const [order, setOrder] = useState([])
   const [dragId, setDragId] = useState('')
   const [toast, setToast] = useState('')
+  const [saveNote, setSaveNote] = useState(null)
   const inputRef = useRef(null)
   const holdRef = useRef(null)
   const startRef = useRef({ x: 0, y: 0 })
@@ -322,6 +324,9 @@ export default function QuestionNotes({ questionId }) {
                   <span className="note-text-title">{n.title || '未命名笔记'}</span>
                   <ChevronDown size={15} className="note-text-arrow" />
                   <div className="note-text-actions" onClick={(e) => e.stopPropagation()}>
+                    <button className="note-icon-btn" onClick={() => setSaveNote(n)} title="保存到积累" aria-label="保存到积累">
+                      <FolderPlus size={14} />
+                    </button>
                     <button className="note-icon-btn" onClick={() => openEdit(n)} title="编辑" aria-label="编辑">
                       <Pencil size={14} />
                     </button>
@@ -342,6 +347,9 @@ export default function QuestionNotes({ questionId }) {
                 <span className="note-zoom" onClick={() => setPreview(n.url)} aria-hidden>
                   <Maximize2 size={12} />
                 </span>
+                <button className="note-save" onClick={() => setSaveNote(n)} title="保存到积累" aria-label="保存到积累">
+                  <FolderPlus size={13} />
+                </button>
                 <button className="note-del" onClick={() => setConfirmId(n.id)} aria-label="删除">
                   <Trash2 size={13} />
                 </button>
@@ -430,6 +438,17 @@ export default function QuestionNotes({ questionId }) {
             load()
           }}
           onCancel={() => setPending(null)}
+        />
+      )}
+
+      {saveNote && (
+        <SaveToFolder
+          note={saveNote}
+          onClose={() => setSaveNote(null)}
+          onSaved={() => {
+            setToast('已保存到积累')
+            setTimeout(() => setToast(''), 1800)
+          }}
         />
       )}
 

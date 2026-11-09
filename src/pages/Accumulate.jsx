@@ -11,6 +11,7 @@ import {
   X,
 } from 'lucide-react'
 import { useUser } from '../lib/auth'
+import { renderRichText } from '../lib/richtext'
 
 async function compressImage(file, maxW = 1200, quality = 0.72) {
   const bitmap = await createImageBitmap(file)
@@ -432,7 +433,7 @@ export default function Accumulate() {
                     </div>
                   ) : (
                     <div key={it.id} className="acc-item text">
-                      <div className="acc-text">{it.text}</div>
+                      <div className="acc-text rt" dangerouslySetInnerHTML={{ __html: renderRichText(it.text) }} />
                       <button className="acc-del" onClick={() => setDialog({ type: 'itemDelete', id: it.id })} aria-label="删除">
                         <Trash2 size={13} />
                       </button>
