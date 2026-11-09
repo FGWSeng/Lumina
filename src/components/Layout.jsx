@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { BookOpen, Moon, Star, Sun } from 'lucide-react'
+import { BookOpen, FolderOpen, Moon, Star, Sun } from 'lucide-react'
 import { getLibrary } from '../lib/data'
 import { setTheme, syncFavoritesFromCloud, useStore } from '../lib/store'
 import UserSwitcher from './UserSwitcher'
@@ -55,6 +55,9 @@ export default function Layout() {
             <NavLink to="/picks" className={({ isActive }) => (isActive ? 'active' : '')}>
               好题
             </NavLink>
+            <NavLink to="/accumulate" className={({ isActive }) => (isActive ? 'active' : '')}>
+              积累
+            </NavLink>
             <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>
               说明
             </NavLink>
@@ -64,6 +67,9 @@ export default function Layout() {
             <UserSwitcher />
             <Link to="/picks" className="icon-btn mobile-only" title="今日好题" aria-label="今日好题">
               <Star size={17} />
+            </Link>
+            <Link to="/accumulate" className="icon-btn mobile-only" title="积累" aria-label="积累">
+              <FolderOpen size={17} />
             </Link>
             <Link to="/s/math" className="icon-btn" title="开始刷题" aria-label="开始刷题">
               <BookOpen size={17} />
@@ -85,7 +91,7 @@ export default function Layout() {
       <footer style={{ borderTop: '1px solid var(--line)', marginTop: 40 }}>
         <div style={{ maxWidth: 1240, margin: '0 auto', padding: '22px 20px 34px', display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'space-between', color: 'var(--muted)', fontSize: 12.5 }}>
           <span>Lumina · 点点积累，照亮备考长路</span>
-          <span>Cloudflare Pages · 云端笔记按账号隔离</span>
+          <span>Cloudflare Pages · 云端内容按账号隔离</span>
         </div>
       </footer>
     </>

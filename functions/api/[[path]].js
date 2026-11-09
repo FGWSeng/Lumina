@@ -56,6 +56,174 @@ export async function onRequest(context) {
     })
   }
 
+  if (path === '/folders' && method === 'GET') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const folders = await env.DB.prepare(
+      'SELECT id, parent_id, name, created_at FROM folders WHERE user_id = ? ORDER BY name ASC',
+    )
+      .bind(user.id)
+      .all()
+    const counts = await env.DB.prepare(
+      'SELECT folder_id, COUNT(*) AS n FROM folder_items WHERE user_id = ? GROUP BY folder_id',
+    )
+      .bind(user.id)
+      .all()
+    const map = {}
+    for (const c of counts.results || []) map[c.folder_id] = c.n
+    return json({
+      folders: (folders.results || []).map((f) => ({
+        id: f.id,
+        parentId: f.parent_id,
+        name: f.name,
+        createdAt: f.created_at,
+        count: map[f.id] || 0,
+      })),
+    })
+  }
+
+  if (path === '/folders' && method === 'POST') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const body = await request.json().catch(() => ({}))
+    const name = String(body.name || '').trim().slice(0, 40)
+    const parentId = body.parentId ? String(body.parentId) : null
+    if (!name) return json({ error: '文件夹名不能为空' }, 400)
+    if (parentId) {
+      const parent = await env.DB.prepare('SELECT id FROM folders WHERE id = ? AND user_id = ?')
+        .bind(parentId, user.id)
+        .first()
+      if (!parent) return json({ error: '上级文件夹不存在' }, 404)
+    }
+    const id = crypto.randomUUID()
+    await env.DB.prepare('INSERT INTO folders (id, user_id, parent_id, name, created_at) VALUES (?, ?, ?, ?, ?)')
+      .bind(id, user.id, parentId, name, Date.now())
+      .run()
+    return json({ id, name, parentId })
+  }
+
+  const folderItems = path.match(/^\/folders\/([^/]+)\/items$/)
+  if (folderItems && method === 'GET') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const fid = folderItems[1]
+    const rows = await env.DB.prepare(
+      'SELECT id, kind, text_content, mime, created_at FROM folder_items WHERE user_id = ? AND folder_id = ? ORDER BY created_at ASC',
+    )
+      .bind(user.id, fid)
+      .all()
+    return json({
+      items: (rows.results || []).map((r) => ({
+        id: r.id,
+        kind: r.kind,
+        text: r.text_content || '',
+        mime: r.mime || '',
+        createdAt: r.created_at,
+        url: r.kind === 'image' ? `/api/items/${r.id}/file` : '',
+      })),
+    })
+  }
+
+  if (folderItems && method === 'POST') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const fid = folderItems[1]
+    const folder = await env.DB.prepare('SELECT id FROM folders WHERE id = ? AND user_id = ?')
+      .bind(fid, user.id)
+      .first()
+    if (!folder) return json({ error: '文件夹不存在' }, 404)
+    const body = await request.json().catch(() => ({}))
+    const kind = String(body.kind || '')
+    if (kind === 'text') {
+      const text = String(body.text || '').trim().slice(0, 5000)
+      if (!text) return json({ error: '内容不能为空' }, 400)
+      const id = crypto.randomUUID()
+      await env.DB.prepare(
+        'INSERT INTO folder_items (id, user_id, folder_id, kind, text_content, mime, data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      )
+        .bind(id, user.id, fid, 'text', text, '', '', Date.now())
+        .run()
+      return json({ id, kind: 'text', text })
+    }
+    if (kind === 'image') {
+      const mime = String(body.mime || 'image/jpeg')
+      const data = String(body.data || '').replace(/^data:[^;]+;base64,/, '')
+      if (!/^image\/(jpeg|png|webp)$/.test(mime)) return json({ error: '只支持 JPG / PNG / WebP' }, 400)
+      if (!data) return json({ error: '图片为空' }, 400)
+      const bytes = Math.floor((data.length * 3) / 4)
+      if (bytes > MAX_BYTES) return json({ error: '图片超过 800KB，请压缩后再传' }, 413)
+      const id = crypto.randomUUID()
+      await env.DB.prepare(
+        'INSERT INTO folder_items (id, user_id, folder_id, kind, text_content, mime, data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      )
+        .bind(id, user.id, fid, 'image', '', mime, data, Date.now())
+        .run()
+      return json({ id, kind: 'image', url: `/api/items/${id}/file` })
+    }
+    return json({ error: '未知类型' }, 400)
+  }
+
+  const folderOne = path.match(/^\/folders\/([^/]+)$/)
+  if (folderOne && method === 'PATCH') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const body = await request.json().catch(() => ({}))
+    const name = String(body.name || '').trim().slice(0, 40)
+    if (!name) return json({ error: '文件夹名不能为空' }, 400)
+    await env.DB.prepare('UPDATE folders SET name = ? WHERE id = ? AND user_id = ?')
+      .bind(name, folderOne[1], user.id)
+      .run()
+    return json({ ok: true, name })
+  }
+
+  if (folderOne && method === 'DELETE') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const root = folderOne[1]
+    const subs = await env.DB.prepare(
+      'WITH RECURSIVE sub(id) AS (SELECT id FROM folders WHERE id = ? AND user_id = ? UNION ALL SELECT f.id FROM folders f JOIN sub ON f.parent_id = sub.id WHERE f.user_id = ?) SELECT id FROM sub',
+    )
+      .bind(root, user.id, user.id)
+      .all()
+    const ids = (subs.results || []).map((r) => r.id)
+    if (ids.length) {
+      const ph = ids.map(() => '?').join(',')
+      await env.DB.prepare(`DELETE FROM folder_items WHERE user_id = ? AND folder_id IN (${ph})`)
+        .bind(user.id, ...ids)
+        .run()
+      await env.DB.prepare(`DELETE FROM folders WHERE user_id = ? AND id IN (${ph})`)
+        .bind(user.id, ...ids)
+        .run()
+    }
+    return json({ ok: true, removed: ids.length })
+  }
+
+  const itemOne = path.match(/^\/items\/([^/]+)$/)
+  if (itemOne && method === 'DELETE') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    await env.DB.prepare('DELETE FROM folder_items WHERE id = ? AND user_id = ?').bind(itemOne[1], user.id).run()
+    return json({ ok: true })
+  }
+
+  const itemFile = path.match(/^\/items\/([^/]+)\/file$/)
+  if (itemFile && method === 'GET') {
+    const user = await currentUser(request, env)
+    if (!user) return new Response('unauthorized', { status: 401 })
+    const row = await env.DB.prepare('SELECT mime, data FROM folder_items WHERE id = ? AND user_id = ? AND kind = ?')
+      .bind(itemFile[1], user.id, 'image')
+      .first()
+    if (!row) return new Response('not found', { status: 404 })
+    const binary = Uint8Array.from(atob(row.data), (c) => c.charCodeAt(0))
+    return new Response(binary, {
+      headers: {
+        'Content-Type': row.mime,
+        'Cache-Control': 'private, max-age=86400',
+        'X-Content-Type-Options': 'nosniff',
+      },
+    })
+  }
+
   if (path === '/picks/dates' && method === 'GET') {
     const user = await currentUser(request, env)
     if (!user) return json({ error: '未登录' }, 401)

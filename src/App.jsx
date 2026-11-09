@@ -6,6 +6,7 @@ import Question from './pages/Question'
 import About from './pages/About'
 import Formulas from './pages/Formulas'
 import Picks from './pages/Picks'
+import Accumulate from './pages/Accumulate'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="q/:questionId" element={<Question />} />
         <Route path="formulas" element={<Formulas />} />
         <Route path="picks" element={<Picks />} />
+        <Route path="accumulate" element={<Accumulate />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<Home />} />
       </Route>

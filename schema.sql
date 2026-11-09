@@ -40,3 +40,26 @@ CREATE TABLE IF NOT EXISTS daily_picks (
 
 CREATE UNIQUE INDEX IF NOT EXISTS idx_picks_uniq ON daily_picks(user_id, question_id, pick_date);
 CREATE INDEX IF NOT EXISTS idx_picks_date ON daily_picks(user_id, pick_date);
+
+CREATE TABLE IF NOT EXISTS folders (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  parent_id TEXT,
+  name TEXT NOT NULL,
+  created_at INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_folders_user ON folders(user_id, parent_id);
+
+CREATE TABLE IF NOT EXISTS folder_items (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  folder_id TEXT NOT NULL,
+  kind TEXT NOT NULL,
+  text_content TEXT,
+  mime TEXT,
+  data TEXT,
+  created_at INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_items_folder ON folder_items(user_id, folder_id);
