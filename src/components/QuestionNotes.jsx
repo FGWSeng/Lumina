@@ -32,6 +32,7 @@ export default function QuestionNotes({ questionId }) {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [pending, setPending] = useState(null)
+  const [confirmId, setConfirmId] = useState('')
   const inputRef = useRef(null)
 
   async function load() {
@@ -98,11 +99,35 @@ export default function QuestionNotes({ questionId }) {
               <span className="note-zoom" onClick={() => setPreview(n.url)} aria-hidden>
                 <Maximize2 size={12} />
               </span>
-              <button className="note-del" onClick={() => remove(n.id)} aria-label="删除">
+              <button className="note-del" onClick={() => setConfirmId(n.id)} aria-label="删除">
                 <Trash2 size={13} />
               </button>
             </div>
           ))}
+        </div>
+      )}
+
+      {confirmId && (
+        <div className="confirm-mask" onClick={() => setConfirmId('')}>
+          <div className="confirm-box" onClick={(e) => e.stopPropagation()}>
+            <div className="confirm-title">删除这张截图？</div>
+            <div className="confirm-text">删除后无法恢复，云端记录也会同步移除。</div>
+            <div className="confirm-actions">
+              <button className="btn sm" onClick={() => setConfirmId('')}>
+                取消
+              </button>
+              <button
+                className="btn sm danger"
+                onClick={async () => {
+                  const id = confirmId
+                  setConfirmId('')
+                  await remove(id)
+                }}
+              >
+                删除
+              </button>
+            </div>
+          </div>
         </div>
       )}
 

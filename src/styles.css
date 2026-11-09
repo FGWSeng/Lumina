@@ -1459,3 +1459,51 @@ button { font: inherit; color: inherit; }
 .similar-stem { display: block; font-size: 13.5px; line-height: 1.75; color: var(--ink-2); }
 .similar-tags { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
 .similar-hint { font-size: 11.5px; color: var(--muted); padding: 4px 0 12px; }
+
+/* 删除确认 */
+.confirm-mask {
+  position: fixed; inset: 0; z-index: 160;
+  background: rgba(12, 14, 18, .52);
+  display: grid; place-items: center; padding: 20px;
+}
+.confirm-box {
+  width: min(360px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+}
+.confirm-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.confirm-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.confirm-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
+.btn.danger { background: #b42318; border-color: #b42318; color: #fff; }
+.btn.danger:hover { background: #991b1b; }
+
+/* 同类题完整题干 */
+.similar-stem { display: block; font-size: 13.5px; line-height: 1.95; color: var(--ink-2); }
+.similar-stem .katex { font-size: 1em; }
+
+/* 删除确认 */
+.confirm-mask {
+  position: fixed; inset: 0; z-index: 160;
+  background: rgba(12, 14, 18, .52);
+  display: grid; place-items: center; padding: 20px;
+}
+.confirm-box {
+  width: min(360px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+}
+.confirm-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.confirm-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.confirm-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
+.btn.danger { background: #b42318; border-color: #b42318; color: #fff; }
+.btn.danger:hover { background: #991b1b; }
+
+/* 同类题完整题干 */
+.similar-stem { display: block; font-size: 13.5px; line-height: 1.95; color: var(--ink-2); }
+.similar-stem .katex { font-size: 1em; }

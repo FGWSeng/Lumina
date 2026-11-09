@@ -237,6 +237,8 @@ for (const subject of registry.subjects) {
             difficulty: q.difficulty || 3,
             source: `${paper.source || paper.paper} · ${q.number}`,
             stem: stemText.slice(0, 110),
+            stemHtml: renderMathLite(q.stemHtml),
+            stemHtml: renderMathLite(q.stemHtml),
             preview: previewHtml,
             search,
             steps: (q.steps || []).length,
