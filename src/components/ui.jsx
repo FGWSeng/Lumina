@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ChevronDown, Lightbulb } from 'lucide-react'
 
 export function Difficulty({ value = 3 }) {
   return (
@@ -22,6 +24,25 @@ export function Tags({ items = [], max = 3, tone = '' }) {
   )
 }
 
+export function Hint({ tags = [] }) {
+  const [open, setOpen] = useState(false)
+  if (!tags.length) return null
+  return (
+    <div className={`hint ${open ? 'open' : ''}`}>
+      <button className="hint-toggle" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
+        <Lightbulb size={14} />
+        <span>提示</span>
+        <ChevronDown size={14} className="hint-arrow" />
+      </button>
+      {open && (
+        <div className="hint-body">
+          <Tags items={tags} max={8} tone="gold" />
+        </div>
+      )}
+    </div>
+  )
+}
+
 export function QuestionListItem({ q }) {
   return (
     <Link to={`/q/${q.id}`} className="list-item">
@@ -41,7 +62,6 @@ export function QuestionListItem({ q }) {
       </div>
       <div className="list-meta">
         <span className="chip brand">{q.typeName}</span>
-        <Tags items={q.tags} max={3} />
         {q.hasMoral && <span className="chip gold">心法</span>}
       </div>
     </Link>

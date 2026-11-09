@@ -1507,3 +1507,33 @@ button { font: inherit; color: inherit; }
 /* 同类题完整题干 */
 .similar-stem { display: block; font-size: 13.5px; line-height: 1.95; color: var(--ink-2); }
 .similar-stem .katex { font-size: 1em; }
+
+/* 提示（考点折叠） */
+.hint { margin-bottom: 14px; }
+.hint-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px; border-radius: 8px;
+  border: 1px dashed var(--line-2);
+  background: transparent;
+  color: var(--muted); font-size: 12.5px; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.hint-toggle:hover { color: var(--brand); border-color: var(--brand); }
+.hint-arrow { transition: transform .15s; }
+.hint.open .hint-arrow { transform: rotate(180deg); }
+.hint-body { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* 提示（考点折叠） */
+.hint { margin-bottom: 14px; }
+.hint-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px; border-radius: 8px;
+  border: 1px dashed var(--line-2);
+  background: transparent;
+  color: var(--muted); font-size: 12.5px; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.hint-toggle:hover { color: var(--brand); border-color: var(--brand); }
+.hint-arrow { transition: transform .15s; }
+.hint.open .hint-arrow { transform: rotate(180deg); }
+.hint-body { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }

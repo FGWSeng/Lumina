@@ -45,13 +45,6 @@ export default function SimilarQuestions({ question, limit = 8 }) {
                 {q.year} · {q.number} · {q.typeName}
               </span>
               <span className="similar-stem" dangerouslySetInnerHTML={{ __html: q.stemHtml || q.stem }} />
-              <span className="similar-tags">
-                {q.tags.slice(0, 3).map((t) => (
-                  <span key={t} className="chip">
-                    {t}
-                  </span>
-                ))}
-              </span>
             </Link>
           </li>
         ))}

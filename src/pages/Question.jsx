@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Bookmark, BookmarkCheck, Eye, Lightbulb, ListChecks, Sigma, StickyNote } from 'lucide-react'
 import { findQuestion, getLibrary, getQuestion, questionNeighbors } from '../lib/data'
-import { Difficulty, Tags } from '../components/ui'
+import { Difficulty, Hint } from '../components/ui'
 import { MASTERY, getMastery, isFavorite, setMastery, toggleFavorite, useStore } from '../lib/store'
 import QuestionNotes from '../components/QuestionNotes'
 import SimilarQuestions from '../components/SimilarQuestions'
@@ -94,7 +94,7 @@ export default function Question() {
 
           {q && (
             <div className="row wrap" style={{ marginBottom: 12 }}>
-              <Tags items={q.tags} max={6} tone="gold" />
+              <Hint tags={q.tags} />
             </div>
           )}
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, Bookmark, BookmarkCheck, Eye, Lightbulb, ListChecks, Sigma, StickyNote } from 'lucide-react'
 import { getQuestion } from '../lib/data'
-import { Difficulty, Tags } from './ui'
+import { Difficulty, Hint } from './ui'
 import { MASTERY, getMastery, isFavorite, setMastery, toggleFavorite, useStore } from '../lib/store'
 import QuestionNotes from './QuestionNotes'
 import SimilarQuestions from './SimilarQuestions'
@@ -87,7 +87,7 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
         </h1>
 
         <div className="row wrap" style={{ marginBottom: 14 }}>
-          <Tags items={q.tags} max={6} tone="gold" />
+          <Hint tags={q.tags} />
         </div>
 
         {detail ? (
