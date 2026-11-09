@@ -82,12 +82,10 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
           </span>
         </div>
 
-        <h1 className="q-title" style={{ fontSize: 20, margin: '0 0 10px', lineHeight: 1.5 }}>
-          {q.title}
-        </h1>
+        <h1 className="q-title" style={{ fontSize: 20, margin: '0 0 10px', lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: q.titleHtml || q.title }} />
 
         <div className="row wrap" style={{ marginBottom: 14 }}>
-          <Hint tags={q.tags} />
+          <Hint tags={q.tagsHtml || q.tags} />
         </div>
 
         {detail ? (

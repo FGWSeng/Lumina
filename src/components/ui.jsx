@@ -36,7 +36,9 @@ export function Hint({ tags = [] }) {
       </button>
       {open && (
         <div className="hint-body">
-          <Tags items={tags} max={8} tone="gold" />
+          {tags.map((t, i) => (
+            <span key={i} className="chip gold" dangerouslySetInnerHTML={{ __html: t }} />
+          ))}
         </div>
       )}
     </div>

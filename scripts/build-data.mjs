@@ -201,6 +201,9 @@ for (const subject of registry.subjects) {
                 .filter((t) => t.length >= 2 && t.length <= 18),
             ),
           ]
+          const tagsHtml = (q.tags || [])
+            .filter((t) => t && String(t).trim().length >= 2 && String(t).trim().length <= 40)
+            .map((t) => renderMathLite(t))
           const steps = (q.steps || []).map((s) => ({ title: renderMathLite(s.title || ''), html: renderMath(s.html) }))
           const moral = q.moral
             ? {
@@ -233,7 +236,10 @@ for (const subject of registry.subjects) {
             type: q.type,
             typeName,
             title: latexToText(q.title || ''),
+            titleHtml: renderMathLite(q.title || ''),
+            titleHtml: renderMathLite(q.title || ''),
             tags,
+            tagsHtml,
             difficulty: q.difficulty || 3,
             source: `${paper.source || paper.paper} · ${q.number}`,
             stem: stemText.slice(0, 110),

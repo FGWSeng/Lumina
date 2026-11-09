@@ -171,6 +171,7 @@ const chapters = src.chapters.map((ch) => ({
         name: f.name,
         expr: renderMath(f.expr),
         tags: f.tags,
+        tagsHtml: f.tags.map((t) => renderMath(t)),
         derive,
         memory,
         when,

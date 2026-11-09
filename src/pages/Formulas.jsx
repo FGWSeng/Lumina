@@ -279,10 +279,8 @@ export default function Formulas() {
                         <button className="formula-head" onClick={() => toggle(f.id)} aria-expanded={isOpen}>
                           <span className="formula-name">{f.name}</span>
                           <span className="formula-tags">
-                            {f.tags.slice(0, 3).map((t) => (
-                              <span key={t} className="chip">
-                                {t}
-                              </span>
+                            {(f.tagsHtml || f.tags).slice(0, 3).map((t, i) => (
+                              <span key={i} className="chip" dangerouslySetInnerHTML={{ __html: t }} />
                             ))}
                           </span>
                           <ChevronDown size={16} className={`formula-arrow ${isOpen ? 'rot' : ''}`} />

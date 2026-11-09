@@ -89,12 +89,12 @@ export default function Question() {
           </div>
 
           <h1 className="q-title" style={{ fontSize: 20, margin: '0 0 10px', lineHeight: 1.5 }}>
-            {q?.title || '正在加载题目…'}
+            {q?.titleHtml ? <span dangerouslySetInnerHTML={{ __html: q.titleHtml }} /> : q?.title || '正在加载题目…'}
           </h1>
 
           {q && (
             <div className="row wrap" style={{ marginBottom: 12 }}>
-              <Hint tags={q.tags} />
+              <Hint tags={q.tagsHtml || q.tags} />
             </div>
           )}
 
