@@ -95,6 +95,10 @@ export default function Accumulate() {
   }, [folders])
 
   const current = folders.find((f) => f.id === currentId) || null
+  const children = useMemo(
+    () => (current ? folders.filter((f) => f.parentId === current.id) : []),
+    [folders, current],
+  )
 
   const path = useMemo(() => {
     const list = []
@@ -394,21 +398,21 @@ export default function Accumulate() {
         {current && (
           <>
             <div className="acc-section-title">子文件夹</div>
-            <div className="acc-grid">
-              {folders
-                .filter((f) => f.parentId === current.id)
-                .map((f) => (
+            {children.length > 0 ? (
+              <div className="acc-grid">
+                {children.map((f) => (
                   <button key={f.id} className="acc-folder" onClick={() => selectFolder(f.id)}>
                     <Folder size={20} />
                     <span>{f.name}</span>
                     <em>{f.count} 项</em>
                   </button>
                 ))}
-              <button className="acc-folder dashed" onClick={() => setDialog({ type: 'new', parentId: current.id })}>
-                <FolderPlus size={20} />
-                <span>新建子文件夹</span>
-              </button>
-            </div>
+              </div>
+            ) : (
+              <div className="tiny muted" style={{ marginTop: 4 }}>
+                还没有子文件夹，点上方「新建」可以在这里创建。
+              </div>
+            )}
 
             <div className="acc-section-title">内容 · {items.length} 项</div>
             {items.length === 0 ? (

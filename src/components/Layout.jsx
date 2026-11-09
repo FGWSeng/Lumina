@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { BookOpen, FolderOpen, Moon, Star, Sun } from 'lucide-react'
+import { FolderOpen, Moon, Star, Sun } from 'lucide-react'
 import { getLibrary } from '../lib/data'
 import { setTheme, syncFavoritesFromCloud, useStore } from '../lib/store'
 import UserSwitcher from './UserSwitcher'
@@ -70,9 +70,6 @@ export default function Layout() {
             </Link>
             <Link to="/accumulate" className="icon-btn mobile-only" title="积累" aria-label="积累">
               <FolderOpen size={17} />
-            </Link>
-            <Link to="/s/math" className="icon-btn" title="开始刷题" aria-label="开始刷题">
-              <BookOpen size={17} />
             </Link>
             <button
               className="icon-btn"
