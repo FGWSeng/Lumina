@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { FileText, ImagePlus, Maximize2, Trash2, X } from 'lucide-react'
+import { ChevronDown, FileText, ImagePlus, Maximize2, Pencil, Trash2, X } from 'lucide-react'
 import ImageViewer from './ImageViewer'
 import NoteUploader from './NoteUploader'
 import { useUser } from '../lib/auth'
@@ -13,8 +13,10 @@ export default function QuestionNotes({ questionId }) {
   const [error, setError] = useState('')
   const [pending, setPending] = useState(null)
   const [confirmId, setConfirmId] = useState('')
-  const [textOpen, setTextOpen] = useState(false)
-  const [draft, setDraft] = useState('')
+  const [collapsed, setCollapsed] = useState(() => new Set())
+  const [dialog, setDialog] = useState(null)
+  const [titleDraft, setTitleDraft] = useState('')
+  const [contentDraft, setContentDraft] = useState('')
   const [saving, setSaving] = useState(false)
   const inputRef = useRef(null)
 
@@ -45,22 +47,54 @@ export default function QuestionNotes({ questionId }) {
     setPending(files)
   }
 
-  async function saveText() {
-    const content = draft.trim()
+  function openNew() {
+    setDialog({ mode: 'new' })
+    setTitleDraft('')
+    setContentDraft('')
+  }
+
+  function openEdit(n) {
+    setDialog({ mode: 'edit', note: n })
+    setTitleDraft(n.title || '')
+    setContentDraft(n.content || '')
+  }
+
+  function toggle(id) {
+    setCollapsed((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
+
+  async function saveDialog() {
+    if (!dialog) return
+    const content = contentDraft.trim()
+    const title = titleDraft.trim()
     if (!content) return
     setSaving(true)
     setError('')
     try {
-      const r = await fetch('/api/notes', {
-        method: 'POST',
+      const isEdit = dialog.mode === 'edit'
+      const url = isEdit ? `/api/notes/${dialog.note.id}` : '/api/notes'
+      const payload = isEdit ? { title, content } : { kind: 'text', questionId, title, content }
+      const r = await fetch(url, {
+        method: isEdit ? 'PATCH' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'same-origin',
-        body: JSON.stringify({ kind: 'text', questionId, content }),
+        body: JSON.stringify(payload),
       })
       const d = await r.json().catch(() => ({}))
       if (!r.ok) throw new Error(d.error || '保存失败')
-      setTextOpen(false)
-      setDraft('')
+      if (!isEdit && d.id) {
+        setCollapsed((prev) => {
+          const next = new Set(prev)
+          next.delete(d.id)
+          return next
+        })
+      }
+      setDialog(null)
       await load()
     } catch (e) {
       setError(e.message)
@@ -89,7 +123,7 @@ export default function QuestionNotes({ questionId }) {
             <button className="btn sm" onClick={() => inputRef.current?.click()} disabled={busy}>
               <ImagePlus size={14} /> 截图
             </button>
-            <button className="btn sm" onClick={() => setTextOpen(true)}>
+            <button className="btn sm" onClick={openNew}>
               <FileText size={14} /> 文字
             </button>
           </div>
@@ -109,11 +143,24 @@ export default function QuestionNotes({ questionId }) {
         <div className="notes-stack">
           {notes.map((n) =>
             n.kind === 'text' ? (
-              <div className="note-text-card" key={n.id}>
-                <div className="rt" dangerouslySetInnerHTML={{ __html: renderRichText(n.content) }} />
-                <button className="note-del" onClick={() => setConfirmId(n.id)} aria-label="删除">
-                  <Trash2 size={13} />
-                </button>
+              <div className={`note-text-card ${collapsed.has(n.id) ? 'collapsed' : 'open'}`} key={n.id}>
+                <div className="note-text-head" onClick={() => toggle(n.id)} role="button" tabIndex={0}>
+                  <span className="note-text-title">{n.title || '未命名笔记'}</span>
+                  <ChevronDown size={15} className="note-text-arrow" />
+                  <div className="note-text-actions" onClick={(e) => e.stopPropagation()}>
+                    <button className="note-icon-btn" onClick={() => openEdit(n)} title="编辑" aria-label="编辑">
+                      <Pencil size={14} />
+                    </button>
+                    <button className="note-icon-btn" onClick={() => setConfirmId(n.id)} title="删除" aria-label="删除">
+                      <Trash2 size={14} />
+                    </button>
+                  </div>
+                </div>
+                {!collapsed.has(n.id) && (
+                  <div className="note-text-body">
+                    <div className="rt" dangerouslySetInnerHTML={{ __html: renderRichText(n.content) }} />
+                  </div>
+                )}
               </div>
             ) : (
               <div className="note-img-card" key={n.id}>
@@ -130,32 +177,44 @@ export default function QuestionNotes({ questionId }) {
         </div>
       )}
 
-      {textOpen && (
-        <div className="confirm-mask" onClick={() => setTextOpen(false)}>
+      {dialog && (
+        <div className="confirm-mask" onClick={() => setDialog(null)}>
           <div className="confirm-box note-text-dialog" onClick={(e) => e.stopPropagation()}>
             <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
               <div className="confirm-title" style={{ margin: 0 }}>
-                添加文字笔记
+                {dialog.mode === 'edit' ? '编辑笔记' : '添加文字笔记'}
               </div>
-              <button className="btn ghost sm" onClick={() => setTextOpen(false)} aria-label="关闭" style={{ width: 28, height: 28, padding: 0 }}>
+              <button
+                className="btn ghost sm"
+                onClick={() => setDialog(null)}
+                aria-label="关闭"
+                style={{ width: 28, height: 28, padding: 0 }}
+              >
                 <X size={15} />
               </button>
             </div>
-            <div className="small muted" style={{ margin: '6px 0 4px' }}>
-              直接粘贴即可：分段、编号、<code>$...$</code> 和 <code>\frac</code> 这类裸公式都会自动渲染成 KaTeX。
+            <div className="small muted" style={{ margin: '6px 0 2px' }}>
+              支持直接粘贴，<code>$...$</code> 和 <code>\frac</code> 这类裸公式都会自动渲染。
             </div>
+            <input
+              className="input"
+              placeholder="笔记名称（可选，显示为标题）"
+              value={titleDraft}
+              maxLength={60}
+              onChange={(e) => setTitleDraft(e.target.value)}
+            />
             <textarea
               className="input note-textarea"
               rows={12}
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
+              value={contentDraft}
+              onChange={(e) => setContentDraft(e.target.value)}
               placeholder={'例：\n第一步：确认 P、Q\n\\frac{\\partial u}{\\partial x}=P\n2. 对 x 偏积分，补 \\phi(y)'}
             />
             <div className="confirm-actions">
-              <button className="btn sm" onClick={() => setTextOpen(false)}>
+              <button className="btn sm" onClick={() => setDialog(null)}>
                 取消
               </button>
-              <button className="btn sm primary" onClick={saveText} disabled={saving || !draft.trim()}>
+              <button className="btn sm primary" onClick={saveDialog} disabled={saving || !contentDraft.trim()}>
                 {saving ? '保存中…' : '保存'}
               </button>
             </div>

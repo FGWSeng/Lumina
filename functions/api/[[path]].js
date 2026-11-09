@@ -322,7 +322,7 @@ export async function onRequest(context) {
     const qid = url.searchParams.get('questionId') || ''
     if (!qid) return json({ notes: [] })
     const rows = await env.DB.prepare(
-      'SELECT id, question_id, mime, kind, content, created_at FROM notes WHERE user_id = ? AND question_id = ? ORDER BY created_at ASC',
+      'SELECT id, question_id, mime, kind, content, title, created_at FROM notes WHERE user_id = ? AND question_id = ? ORDER BY created_at ASC',
     )
       .bind(user.id, qid)
       .all()
@@ -331,6 +331,7 @@ export async function onRequest(context) {
       questionId: r.question_id,
       kind: r.kind || 'image',
       content: r.content || '',
+      title: r.title || '',
       createdAt: r.created_at,
       url: (r.kind || 'image') === 'image' ? `/api/files/${r.id}` : '',
     }))
@@ -346,14 +347,15 @@ export async function onRequest(context) {
 
     if (kind === 'text') {
       const content = String(body.content || '').trim().slice(0, 20000)
+      const title = String(body.title || '').trim().slice(0, 60)
       if (!qid || !content) return json({ error: '内容不能为空' }, 400)
       const id = crypto.randomUUID()
       await env.DB.prepare(
-        'INSERT INTO notes (id, user_id, question_id, mime, data, created_at, kind, content) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO notes (id, user_id, question_id, mime, data, created_at, kind, content, title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
       )
-        .bind(id, user.id, qid, '', '', Date.now(), 'text', content)
+        .bind(id, user.id, qid, '', '', Date.now(), 'text', content, title)
         .run()
-      return json({ id, kind: 'text', content })
+      return json({ id, kind: 'text', content, title })
     }
 
     const mime = String(body.mime || 'image/jpeg')
@@ -369,6 +371,23 @@ export async function onRequest(context) {
       .bind(id, user.id, qid, mime, data, Date.now(), 'image', '')
       .run()
     return json({ id, url: `/api/files/${id}`, size: bytes })
+  }
+
+  if (path.startsWith('/notes/') && method === 'PATCH') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const id = path.slice('/notes/'.length)
+    const body = await request.json().catch(() => ({}))
+    const title = String(body.title || '').trim().slice(0, 60)
+    const content = String(body.content || '').trim().slice(0, 20000)
+    if (!content) return json({ error: '内容不能为空' }, 400)
+    const row = await env.DB.prepare('SELECT kind FROM notes WHERE id = ? AND user_id = ?').bind(id, user.id).first()
+    if (!row) return json({ error: '笔记不存在' }, 404)
+    if ((row.kind || 'image') !== 'text') return json({ error: '只有文字笔记可编辑' }, 400)
+    await env.DB.prepare('UPDATE notes SET title = ?, content = ? WHERE id = ? AND user_id = ?')
+      .bind(title, content, id, user.id)
+      .run()
+    return json({ ok: true, title, content })
   }
 
   if (path.startsWith('/notes/') && method === 'DELETE') {

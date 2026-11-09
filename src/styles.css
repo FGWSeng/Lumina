@@ -1923,3 +1923,59 @@ ul.rt-list { list-style: disc; padding-left: 20px; }
 
 .rt { font-size: 14px; }
 .rt-formula .katex { font-size: 1.3em; }
+
+/* 文字笔记：标题吸顶 + 折叠 */
+.note-text-card { padding: 0; overflow: visible; }
+.note-text-head {
+  position: sticky; top: 56px; z-index: 8;
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 12px 11px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.note-text-card.collapsed .note-text-head { border-radius: 10px; border-bottom-color: transparent; }
+.note-text-title { flex: 1; font-size: 13.5px; font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.note-text-arrow { flex: none; color: var(--muted); transition: transform .15s; }
+.note-text-card:not(.collapsed) .note-text-arrow { transform: rotate(180deg); }
+.note-text-actions { display: flex; gap: 4px; flex: none; }
+.note-icon-btn {
+  width: 28px; height: 28px; border-radius: 7px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--muted); display: grid; place-items: center; cursor: pointer;
+}
+.note-icon-btn:hover { color: var(--brand); border-color: var(--brand); }
+.note-text-body { padding: 12px 16px 14px; }
+@media (max-width: 980px) {
+  .note-text-head { top: 54px; }
+}
+
+/* 文字笔记：标题吸顶 + 折叠 */
+.note-text-card { padding: 0; overflow: visible; }
+.note-text-head {
+  position: sticky; top: 56px; z-index: 8;
+  display: flex; align-items: center; gap: 8px;
+  padding: 11px 12px 11px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.note-text-card.collapsed .note-text-head { border-radius: 10px; border-bottom-color: transparent; }
+.note-text-title { flex: 1; font-size: 13.5px; font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.note-text-arrow { flex: none; color: var(--muted); transition: transform .15s; }
+.note-text-card:not(.collapsed) .note-text-arrow { transform: rotate(180deg); }
+.note-text-actions { display: flex; gap: 4px; flex: none; }
+.note-icon-btn {
+  width: 28px; height: 28px; border-radius: 7px;
+  border: 1px solid var(--line); background: var(--surface);
+  color: var(--muted); display: grid; place-items: center; cursor: pointer;
+}
+.note-icon-btn:hover { color: var(--brand); border-color: var(--brand); }
+.note-text-body { padding: 12px 16px 14px; }
+@media (max-width: 980px) {
+  .note-text-head { top: 54px; }
+}
