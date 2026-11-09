@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { ImagePlus, Trash2, X } from 'lucide-react'
+import { ImagePlus, Maximize2, Trash2 } from 'lucide-react'
+import ImageViewer from './ImageViewer'
 import { useUser } from '../lib/auth'
 
 async function compress(file, maxW = 1200, quality = 0.72) {
@@ -112,6 +113,9 @@ export default function QuestionNotes({ questionId }) {
           {notes.map((n) => (
             <div className="note-item" key={n.id}>
               <img src={n.url} alt="笔记截图" loading="lazy" onClick={() => setPreview(n.url)} />
+              <span className="note-zoom" onClick={() => setPreview(n.url)} aria-hidden>
+                <Maximize2 size={12} />
+              </span>
               <button className="note-del" onClick={() => remove(n.id)} aria-label="删除">
                 <Trash2 size={13} />
               </button>
@@ -120,14 +124,7 @@ export default function QuestionNotes({ questionId }) {
         </div>
       )}
 
-      {preview && (
-        <div className="note-preview" onClick={() => setPreview('')}>
-          <img src={preview} alt="预览" />
-          <button className="note-close" onClick={() => setPreview('')} aria-label="关闭">
-            <X size={18} />
-          </button>
-        </div>
-      )}
+      {preview && <ImageViewer src={preview} onClose={() => setPreview('')} />}
     </div>
   )
 }
