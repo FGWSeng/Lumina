@@ -15,6 +15,30 @@ const OUT_Q = path.join(OUT, 'questions')
 
 const TYPE_NAMES = { fill: '填空题', choice: '选择题', solution: '解答题' }
 
+const CHAPTER_KEYWORDS = {
+  1: ['极限', '等价无穷小', '泰勒', '中值', '连续', '洛必达', '阶', '数列', '递推'],
+  2: ['导数', '微分', '极值', '单调', '拐点', '中值定理', '莱布尼茨', '高阶导'],
+  3: ['积分', '原函数', '换元', '分部', '反常', '面积', '体积', 'Wallis', 'Γ'],
+  4: ['微分方程', 'ODE', '通解', '积分因子', '常系数', '齐次', '特征根'],
+  5: ['向量', '叉积', '点积', '平面', '直线', '曲面', '空间', '混合积'],
+  6: ['偏导', '全微分', '多元', '隐函数', '梯度', '方向导数', '极值'],
+  7: ['二重积分', '三重积分', '曲线积分', '曲面积分', 'Green', 'Gauss', 'Stokes', '雅可比', '极坐标'],
+  8: ['级数', '收敛', '幂级数', 'Fourier', 'Abel', 'Dirichlet', 'Leibniz'],
+}
+
+function chaptersFor(tags, text = '') {
+  const hs = new Set()
+  for (const [no, words] of Object.entries(CHAPTER_KEYWORDS)) {
+    const hit =
+      tags.some((t) => words.some((w) => t.includes(w))) ||
+      (text && words.some((w) => text.includes(w)))
+    if (hit) hs.add(Number(no))
+  }
+  return [...hs].sort((a, b) => a - b)
+}
+
+
+
 function decodeEntities(s) {
   return String(s)
     .replace(/&lt;/g, '<')
@@ -181,16 +205,20 @@ for (const subject of registry.subjects) {
         continue
       }
 
-      const files = fs.readdirSync(dir).filter((f) => /^\d{4}\.json$/.test(f)).sort()
+      const files = fs
+        .readdirSync(dir)
+        .filter((f) => /^(\d{4}|ch\d+)\.json$/.test(f))
+        .sort((a, b) => Number(a.replace(/\D/g, '')) - Number(b.replace(/\D/g, '')))
       const papers = files.map((f) => readJSON(path.join(dir, f)))
-      const yearMap = new Map()
+      const periodMap = new Map()
       const typeMap = new Map()
       const tagMap = new Map()
 
       for (const paper of papers) {
         let yearCount = 0
         for (const q of paper.questions || []) {
-          const id = `${subject.id}-${group.id}-${cat.id}-${paper.year}-${String(q.seq).padStart(2, '0')}`
+          const key = paper.year || `ch${paper.chapter}`
+          const id = `${subject.id}-${group.id}-${cat.id}-${key}-${String(q.seq).padStart(2, '0')}`
           const stemText = plain(q.stemHtml)
           const stemHtml = renderMath(q.stemHtml)
           const previewHtml = renderMathLite(previewSource(q.stemHtml))
@@ -217,33 +245,36 @@ for (const subject of registry.subjects) {
             name: f.name,
             expr: renderMath(f.latex),
           }))
-          const typeName = TYPE_NAMES[q.type] || '解答题'
+          const typeName = q.type ? TYPE_NAMES[q.type] || '解答题' : '训练题'
 
           const detail = { id, stem: stemHtml, steps, moral, answer: answerHtml, formulas: formulasUsed }
           fs.writeFileSync(path.join(OUT_Q, `${id}.json`), JSON.stringify(detail), 'utf8')
 
-          const search = [String(paper.year), q.number, typeName, ...(q.tags || []), stemText].join(' ')
+          const search = [paper.year || '', paper.chapterName || '', q.number, typeName, ...(q.tags || []), stemText].join(' ')
 
           questions.push({
             id,
             subject: subject.id,
             group: group.id,
             category: cat.id,
-            year: paper.year,
-            edition: paper.edition,
-            paper: paper.paper,
+            year: paper.year || 0,
+            chapter: paper.chapter || null,
+            chapterName: paper.chapterName || '',
+            trainingChapters: cat.id === 'training' ? [paper.chapter] : chaptersFor(tags, stemText),
+            edition: paper.edition || '',
+            paper: paper.paper || paper.chapterName || '',
             number: q.number,
             type: q.type,
             typeName,
             title: latexToText(q.title || ''),
             titleHtml: renderMathLite(q.title || ''),
-            titleHtml: renderMathLite(q.title || ''),
             tags,
             tagsHtml,
             difficulty: q.difficulty || 3,
-            source: `${paper.source || paper.paper} · ${q.number}`,
+            source: paper.year
+              ? `${paper.source || paper.paper} · ${q.number}`
+              : `第 ${paper.chapter} 章 · ${paper.chapterName || ''}`,
             stem: stemText.slice(0, 110),
-            stemHtml: renderMathLite(q.stemHtml),
             stemHtml: renderMathLite(q.stemHtml),
             preview: previewHtml,
             search,
@@ -257,13 +288,23 @@ for (const subject of registry.subjects) {
           typeMap.set(q.type, (typeMap.get(q.type) || 0) + 1)
           for (const t of tags) tagMap.set(t, (tagMap.get(t) || 0) + 1)
         }
-        yearMap.set(paper.year, { year: paper.year, paper: paper.paper, count: yearCount })
+        periodMap.set(paper.year || `ch${paper.chapter}`, {
+          year: paper.year || 0,
+          chapter: paper.chapter || null,
+          name: paper.chapterName || paper.paper || '',
+          paper: paper.paper || paper.chapterName || '',
+          count: yearCount,
+        })
       }
 
       categories.push({
         ...cat,
         count: papers.reduce((n, p) => n + (p.questions || []).length, 0),
-        years: [...yearMap.values()].sort((a, b) => b.year - a.year),
+        years: [...periodMap.values()].sort((a, b) => {
+          if (a.year && b.year) return b.year - a.year
+          if (!a.year && !b.year) return (a.chapter || 0) - (b.chapter || 0)
+          return a.year ? -1 : 1
+        }),
         types: [...typeMap.entries()].map(([id, count]) => ({ id, name: TYPE_NAMES[id] || id, count })).sort((a, b) => b.count - a.count),
         tags: [...tagMap.entries()].map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count).slice(0, 40),
       })
@@ -275,7 +316,7 @@ for (const subject of registry.subjects) {
   index.push({ ...subject, count: subjectCount, groups })
 }
 
-questions.sort((a, b) => a.year - b.year || a.id.localeCompare(b.id))
+questions.sort((a, b) => a.year - b.year || (a.chapter || 0) - (b.chapter || 0) || a.id.localeCompare(b.id))
 
 const generatedAt = new Date().toISOString()
 const library = {

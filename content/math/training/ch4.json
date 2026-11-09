@@ -1,0 +1,1977 @@
+{
+  "subject": "math",
+  "group": "competition",
+  "category": "training",
+  "chapter": 4,
+  "chapterName": "常微分方程",
+  "title": "第 4 章 常微分方程4.4 能力拓展与训练 39 题全解",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "题 1",
+      "title": "十个一阶方程 · 六种解法的一次总检",
+      "chapter": 4,
+      "stemHtml": "求下列微分方程的通解：<br>(1) $\\dfrac{\\mathrm dy}{\\mathrm dx}=\\cos(x-y)$；(2) $\\dfrac{\\mathrm dy}{\\mathrm dx}=\\dfrac{3x^{2}+y^{2}-6x+3}{2xy-2y}$；(3) $\\mathrm e^{y}\\mathrm dx+\\left(x\\mathrm e^{y}-2y\\right)\\mathrm dy=0$；<br>(4) $\\dfrac{\\mathrm dy}{\\mathrm dx}=\\dfrac{\\sec y}{x+2\\sin y}$；(5) $\\left(x^{2}-1\\right)y'-\\cos x+2xy=0$；(6) $xy'-y\\ln y=x^{2}y$；<br>(7) $y\\mathrm dx+\\left(2x^{2}y-x\\right)\\mathrm dy=0$；(8) $\\left(x-y^{2}\\right)\\mathrm dx+2xy\\mathrm dy=0$；(9) $x\\dfrac{\\mathrm dy}{\\mathrm dx}-y=x^{2}+y^{2}$；(10) $\\left(\\mathrm e^{x}+3y^{2}\\right)\\mathrm dx+2xy\\mathrm dy=0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先给十个方程分类，再动手</h3>\r\n  <p><strong>【可分离 $\\to$ 直接分；形如 $\\frac{\\mathrm dy}{\\mathrm dx}=f\\left(\\frac yx\\right)$ $\\to$ 令 $y=ux$；形如 $\\frac{\\mathrm dy}{\\mathrm dx}=P(x)y+Q(x)$ $\\to$ 通解公式；出现 $y^{n}$ $\\to$ Bernoulli；$x$ 难解而 $y$ 好解 $\\to$ 把 $x$ 当未知函数；两边是同一个函数的全微分 $\\to$ 直接凑】</strong>。</p>\r\n  <p>分类结果：(1) 换元 $u=x-y$（可分离）；(2) 齐次（先令 $u=x-1$）；(3)(4)(7)(8) 都是\"把 $x$ 当未知函数\"的一阶线性或 Bernoulli；(5) 直接凑 $\\left[(x^{2}-1)y\\right]'$；(6) 令 $u=\\ln y$ 后线性；(9) 齐次型（$y/x$）；(10) 乘 $x^{2}$ 后是恰当方程。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(1)(2)：换元化成可分离 / 齐次</h3>\r\n  <p>(1) 令 $u=x-y$，则 $\\dfrac{\\mathrm dy}{\\mathrm dx}=1-\\dfrac{\\mathrm du}{\\mathrm dx}$，方程变为 $\\dfrac{\\mathrm du}{\\mathrm dx}=1-\\cos u$，即 $\\dfrac{\\mathrm du}{1-\\cos u}=\\mathrm dx$。由 $1-\\cos u=2\\sin^{2}\\dfrac u2$ 得</p>\r\n  <div class=\"fm\">$$-\\cot\\frac{u}{2}=x+C\\ \\Longrightarrow\\ x+\\cot\\frac{x-y}{2}=C.$$</div>\r\n  <p>(2) 分子 $3x^{2}-6x+3+y^{2}=3(x-1)^{2}+y^{2}$，分母 $2y(x-1)$——令 $u=x-1$ 后是齐次方程 $\\dfrac{\\mathrm dy}{\\mathrm du}=\\dfrac{3u^{2}+y^{2}}{2uy}$。令 $y=vu$：</p>\r\n  <div class=\"fm\">$$v+u\\frac{\\mathrm dv}{\\mathrm du}=\\frac{3+v^{2}}{2v}\\ \\Longrightarrow\\ \\frac{2v\\,\\mathrm dv}{3-v^{2}}=\\frac{\\mathrm du}{u}\\ \\Longrightarrow\\ 3u^{2}-y^{2}=Cu,$$</div>\r\n  <p>回代 $u=x-1$ 得 $y^{2}=3(x-1)^{2}+C(x-1)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(3)(4)(7)(8)：把 $x$ 当未知函数</h3>\r\n  <p>(3) 视 $x=x(y)$：$\\dfrac{\\mathrm dx}{\\mathrm dy}+x=2y\\mathrm e^{-y}$，线性，$P=1$、$Q=2y\\mathrm e^{-y}$，积分因子 $\\mathrm e^{y}$，于是 $\\left(x\\mathrm e^{y}\\right)'=2y$，得 $x\\mathrm e^{y}=y^{2}+C$。</p>\r\n  <p>(4) 取倒数：$\\dfrac{\\mathrm dx}{\\mathrm dy}=\\left(x+2\\sin y\\right)\\cos y$，即 $\\dfrac{\\mathrm dx}{\\mathrm dy}-x\\cos y=\\sin 2y$，$P=-\\cos y$，积分因子 $\\mathrm e^{-\\sin y}$，$\\left(x\\mathrm e^{-\\sin y}\\right)'=\\sin 2y\\,\\mathrm e^{-\\sin y}$。右边积分用 $w=\\sin y$：$2\\displaystyle\\int w\\mathrm e^{-w}\\mathrm dw=-2(w+1)\\mathrm e^{-w}$，故 $x=\\mathrm e^{\\sin y}\\left(C-2\\sin y-2\\right)$，即 $x=C\\mathrm e^{\\sin y}-2\\sin y-2$。</p>\r\n  <p>(7) 视 $x=x(y)$：$y\\dfrac{\\mathrm dx}{\\mathrm dy}-x=-2x^{2}y$，即 $\\dfrac{\\mathrm dx}{\\mathrm dy}-\\dfrac xy=-2x^{2}$（Bernoulli，$n=2$）。令 $v=\\dfrac1x$：$v'+\\dfrac vy=2$，积分因子 $y$，$(yv)'=2y$，得 $yv=y^{2}+C$，即 $y=x\\left(y^{2}+C\\right)$，整理成 $y(1-xy)=Cx$。</p>\r\n  <p>(8) 令 $z=y^{2}$，则 $2y\\dfrac{\\mathrm dy}{\\mathrm dx}=z'$，原方程乘 $1$ 后化为 $z'-\\dfrac{z}{x}=-1$（线性），积分因子 $\\dfrac1x$：$\\left(\\dfrac zx\\right)'=-\\dfrac1x$，得 $z=Cx-x\\ln x$，即 $y^{2}+x\\ln x=Cx$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(5)(6)(9)(10)：凑全微分、换元、齐次、积分因子</h3>\r\n  <p>(5) 左边恰是 $\\left[\\left(x^{2}-1\\right)y\\right]'=\\left(x^{2}-1\\right)y'+2xy$，故直接积分得 $\\left(x^{2}-1\\right)y=\\sin x+C$。</p>\r\n  <p>(6) 两边除以 $y$：$x\\dfrac{y'}{y}-\\ln y=x^{2}$。令 $u=\\ln y$，则 $u'-\\dfrac ux=x$，积分因子 $\\dfrac1x$：$\\left(\\dfrac ux\\right)'=1$，得 $u=x^{2}+Cx$，即 $\\ln y=x(x+C)$。</p>\r\n  <p>(9) 除以 $x$ 得 $y'-\\dfrac yx=\\dfrac{y^{2}}{x}+x$，令 $y=ux$（齐次），$u+xu'=u+u^{2}x+x$，即 $\\dfrac{\\mathrm du}{1+u^{2}}=\\mathrm dx$，$\\arctan u=x+C$，故 $y=x\\tan(x+C)$。</p>\r\n  <p>(10) 不是恰当方程（$M_{y}=6y\\neq N_{x}=2y$），但乘 $x^{2}$ 后：$\\left(x^{2}\\mathrm e^{x}+3x^{2}y^{2}\\right)\\mathrm dx+2x^{3}y\\,\\mathrm dy=0$ 的左端恰为 $\\mathrm d\\left[\\displaystyle\\int x^{2}\\mathrm e^{x}\\mathrm dx+x^{3}y^{2}\\right]$，而 $\\int x^{2}\\mathrm e^{x}\\mathrm dx=\\left(x^{2}-2x+2\\right)\\mathrm e^{x}$，故通解为</p>\r\n  <div class=\"fm\">$$\\left(x^{2}-2x+2\\right)\\mathrm e^{x}+x^{3}y^{2}=C.$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "拿到一阶方程，按下面六格依次试，命中即停——不要一上来就硬凑全微分。",
+        "items": [
+          "<b>可分离</b>：能写成 $g(y)\\mathrm dy=f(x)\\mathrm dx$ 就直接分，别绕。",
+          "<b>齐次</b>：右端只含 $\\frac yx$ 的函数（含 $\\frac{3u^{2}+y^{2}}{2uy}$ 这种\"次数相同\"的分式）一律令 $y=ux$；若分子分母的次数被常数项打断（如题 (2)），先平移把常数项消掉。",
+          "<b>一阶线性</b>：$y'+P(x)y=Q(x)$，通解 $y=\\mathrm e^{-\\int P}\\left(\\int Q\\mathrm e^{\\int P}\\mathrm dx+C\\right)$；若 $y$ 解起来别扭（出现 $\\sec y$、$\\mathrm dy$ 在分母），立刻把 $x$ 当未知函数，公式照用。",
+          "<b>Bernoulli</b>：$y'+Py=Qy^{n}$，令 $v=y^{1-n}$ 化为线性；本题 (7)(8)(9) 都是它的变形。",
+          "<b>凑全微分</b>：先肉眼找 $\\left[(x^{2}-1)y\\right]'$、$\\left(x\\mathrm e^{y}\\right)'$ 这类\"整块导数\"，能找到就一行写完。",
+          "<b>积分因子</b>：$M\\mathrm dx+N\\mathrm dy=0$ 不恰当时，看 $\\frac{M_{y}-N_{x}}{N}$ 是否只含 $x$、$\\frac{N_{x}-M_{y}}{M}$ 是否只含 $y$；本题 (10) 用 $x^{2}$ 最省事。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $x+\\cot\\dfrac{x-y}{2}=C$；(2) $y^{2}=3(x-1)^{2}+C(x-1)$；(3) $x\\mathrm e^{y}-y^{2}=C$；(4) $x=C\\mathrm e^{\\sin y}-2-2\\sin y$；(5) $\\left(x^{2}-1\\right)y=\\sin x+C$；(6) $\\ln y=x(x+C)$；(7) $y(1-xy)=Cx$；(8) $y^{2}+x\\ln x=Cx$；(9) $y=x\\tan(x+C)$；(10) $\\left(x^{2}-2x+2\\right)\\mathrm e^{x}+x^{3}y^{2}=C$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "可分离 / 换元",
+          "latex": "$$u=x-y\\ \\Longrightarrow\\ \\frac{\\mathrm{d}u}{\\mathrm{d}x}=1-\\cos u$$"
+        },
+        {
+          "name": "齐次方程",
+          "latex": "$$y=ux\\ \\Longrightarrow\\ \\frac{\\mathrm{d}y}{\\mathrm{d}x}=u+x\\frac{\\mathrm{d}u}{\\mathrm{d}x}$$"
+        },
+        {
+          "name": "把 $x$ 当未知函数",
+          "latex": "$$\\frac{\\mathrm{d}x}{\\mathrm{d}y}+P(y)\\,x=Q(y)$$"
+        },
+        {
+          "name": "一阶线性通解公式",
+          "latex": "$$y=\\mathrm{e}^{-\\int P}\\left[\\int Q\\,\\mathrm{e}^{\\int P}\\mathrm{d}x+C\\right]$$"
+        },
+        {
+          "name": "恰当方程判定",
+          "latex": "$$P\\,\\mathrm{d}x+Q\\,\\mathrm{d}y=0\\ \\text{恰当}\\iff P_y=Q_x$$"
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "number": "题 2",
+      "title": "由积分关系反求 $f$ · 三个小题三种套路",
+      "chapter": 4,
+      "stemHtml": "求解下列问题：<br>(1) 设 $f(x)$ 为连续函数，且 $f(x)=\\displaystyle\\int_0^{x}\\mathrm e^{-f(t)}\\mathrm dt$，求 $f(x)$；<br>(2) 已知 $\\dfrac{\\mathrm df(\\cos x)}{\\mathrm d\\cos x}=1+\\sin^{2}x$，求 $f(x)$；<br>(3) 已知 $\\displaystyle\\int_0^{1}f(xt)\\mathrm dt=\\dfrac12f(x)+1$，求 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【看见 $f$ 出现在积分号里（或上限是 $x$）$\\to$ 先求导把它变成微分方程；看见\"对 $\\cos x$ 求导\"$\\to$ 把 $\\cos x$ 整体换成 $u$ 再积分；看见 $\\int_0^1f(xt)\\mathrm dt$ 这种\"参数在上限里\"的 $\\to$ 先换元 $u=xt$ 把 $x$ 从核里挪到上下限，再求导】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(1) 求导 + 初值</h3>\r\n  <p>由 $f(x)=\\displaystyle\\int_0^x\\mathrm e^{-f(t)}\\mathrm dt$ 得 $f(0)=0$，且</p>\r\n  <div class=\"fm\">$$f'(x)=\\mathrm e^{-f(x)}\\ \\Longrightarrow\\ \\mathrm e^{f}f'=1\\ \\Longrightarrow\\ \\mathrm e^{f(x)}=x+C.$$</div>\r\n  <p>代入 $f(0)=0$ 得 $C=1$，故 $f(x)=\\ln(x+1)$。（$x>-1$。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(2) 把 $\\cos x$ 换成 $u$</h3>\r\n  <p>令 $u=\\cos x$，则 $\\sin^{2}x=1-u^{2}$，条件读作 $\\dfrac{\\mathrm df(u)}{\\mathrm du}=1+\\left(1-u^{2}\\right)=2-u^{2}$，故</p>\r\n  <div class=\"fm\">$$f(u)=2u-\\frac{u^{3}}{3}+C,\\qquad\\text{即}\\quad f(x)=2x-\\frac{x^{3}}{3}+C.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(3) 换元把 $x$ 提出来</h3>\r\n  <p>令 $u=xt$（$t$ 为积分变量，$x$ 当常数），则 $\\mathrm dt=\\dfrac{\\mathrm du}{x}$，$t:0\\to1$ 对应 $u:0\\to x$：</p>\r\n  <div class=\"fm\">$$\\int_0^{1}f(xt)\\mathrm dt=\\frac1x\\int_0^{x}f(u)\\mathrm du.$$</div>\r\n  <p>于是原式为 $\\displaystyle\\int_0^{x}f(u)\\mathrm du=\\frac{x}{2}f(x)+x$。两边求导：</p>\r\n  <div class=\"fm\">$$f(x)=\\frac12f(x)+\\frac x2f'(x)+1\\ \\Longrightarrow\\ f'(x)-\\frac1xf(x)=-\\frac2x.$$</div>\r\n  <p>一阶线性，积分因子 $\\dfrac1x$：$\\left(\\dfrac fx\\right)'=-\\dfrac{2}{x^{2}}$，得 $\\dfrac fx=\\dfrac2x+C$，即 $f(x)=2+Cx$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "所有\"$f$ 藏在积分里\"的题，动作都一样：先求导消掉积分号，再补上初始条件定常数。",
+        "items": [
+          "求导之前先<b>记下初始条件</b>：把上限代成下限（如 $x=0$）往往直接给出 $f(0)$，这一步不做，后面常数定不出来；",
+          "求导后若出现 $f'=g(f)$ 型，立刻分离变量 $\\frac{\\mathrm df}{g(f)}=\\mathrm dx$，别去硬凑线性；",
+          "自变量被\"复合\"掉时（$\\mathrm df(\\cos x)/\\mathrm d\\cos x$），先把复合量整体设为新变量，条件就还原成普通的 $f'(u)=\\cdots$；",
+          "$\\int_0^1f(xt)\\mathrm dt$ 这类\"核里带参数\"的积分，换元 $u=xt$ 之后一定变成 $\\frac1x\\int_0^xf$，求导时记得对 $\\frac1x$ 也用乘积法则。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $f(x)=\\ln(x+1)$；(2) $f(x)=2x-\\dfrac{x^{3}}{3}+C$；(3) $f(x)=2+Cx$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "求导把积分变成方程",
+          "latex": "$$f'(x)=\\mathrm{e}^{-f(x)},\\qquad f(0)=0\\ \\Longrightarrow\\ \\mathrm{e}^{f}=1+x$$"
+        },
+        {
+          "name": "把 $\\cos x$ 换成 $u$",
+          "latex": "$$\\frac{\\mathrm{d}f(u)}{\\mathrm{d}u}=1+\\sin^{2}x=2-u^{2}$$"
+        },
+        {
+          "name": "换元把 $x$ 提出来",
+          "latex": "$$\\int_0^1f(xt)\\,\\mathrm{d}t=\\frac1x\\int_0^{x}f(u)\\,\\mathrm{d}u$$"
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "number": "题 3",
+      "title": "已知积分因子形如 $x^{2}f(y)$ · 待定 + 恰当条件",
+      "chapter": 4,
+      "stemHtml": "已知方程 $\\left(3y+4xy^{2}\\right)\\mathrm dx+\\left(4x+5x^{2}y\\right)\\mathrm dy=0$ 具有形如 $x^{2}f(y)$ 的积分因子，试求解此方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"具有形如 $x^{2}f(y)$ 的积分因子\"就是送条件：乘上它以后 $M_{y}=N_{x}$ $\\to$ 把 $\\mu=x^{2}f(y)$ 代进恰当条件，得到一个只含 $y$ 的方程，解出 $f(y)$，再回头把方程凑成全微分】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：把恰当条件写成只含 $y$ 的方程</h3>\r\n  <p>记 $M=3y+4xy^{2}$、$N=4x+5x^{2}y$，取 $\\mu=x^{2}f(y)$。恰当条件 $\\left(\\mu M\\right)_{y}=\\left(\\mu N\\right)_{x}$ 是</p>\r\n  <div class=\"fm\">$$x^{2}\\left[f'\\left(3y+4xy^{2}\\right)+f\\left(3+8xy\\right)\\right]=2xf\\left(4x+5x^{2}y\\right)+x^{2}f\\left(4+10xy\\right).$$</div>\r\n  <p>右边两项除以 $x^{2}$：$2xf\\left(4x+5x^{2}y\\right)/x^{2}=\\dfrac{2\\left(4x+5x^{2}y\\right)}{x}f=f(8+10xy)$，于是右端 $=f(12+20xy)$。整理得</p>\r\n  <div class=\"fm\">$$f'\\left(3y+4xy^{2}\\right)=3f\\left(3+4xy\\right).$$</div>\r\n  <p>关键观察：$3y+4xy^{2}=y\\left(3+4xy\\right)$。两边约去公因子 $\\left(3+4xy\\right)$，得</p>\r\n  <div class=\"fm\">$$yf'(y)=3f(y)\\ \\Longrightarrow\\ \\frac{f'}{f}=\\frac3y\\ \\Longrightarrow\\ f(y)=y^{3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：验证 $x^{2}y^{3}$ 是积分因子并凑全微分</h3>\r\n  <p>取 $\\mu=x^{2}y^{3}$：</p>\r\n  <div class=\"fm\">$$\\mu M=3x^{2}y^{4}+4x^{3}y^{5},\\qquad \\mu N=4x^{3}y^{3}+5x^{4}y^{4},$$</div>\r\n  <p>且 $\\left(\\mu M\\right)_{y}=12x^{2}y^{3}+20x^{3}y^{4}=\\left(\\mu N\\right)_{x}$ ✓。再把左边拆成两个全微分：</p>\r\n  <div class=\"fm\">$$\\mathrm d\\left(x^{3}y^{4}\\right)=3x^{2}y^{4}\\mathrm dx+4x^{3}y^{3}\\mathrm dy,\\qquad \\mathrm d\\left(x^{4}y^{5}\\right)=4x^{3}y^{5}\\mathrm dx+5x^{4}y^{4}\\mathrm dy,$$</div>\r\n  <p>两者相加恰好等于 $\\mu M\\mathrm dx+\\mu N\\mathrm dy$，故 $\\mu M\\mathrm dx+\\mu N\\mathrm dy=\\mathrm d\\left(x^{3}y^{4}+x^{4}y^{5}\\right)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写通解</h3>\r\n  <p>由上式立得 $x^{3}y^{4}(1+xy)=C$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "题目说\"存在形如 $\\mu$ 的积分因子\"，本质是把\"找 $\\mu$\"降级成\"解一个只含一个变量的方程\"，路径只有两条。",
+        "items": [
+          "<b>公式路</b>：算 $\\frac{M_{y}-N_{x}}{N}$（若只含 $x$）或 $\\frac{N_{x}-M_{y}}{M}$（若只含 $y$），$\\mu=\\mathrm e^{\\int}$；",
+          "<b>待定路</b>：把 $\\mu$ 的具体形式（本题 $x^{2}f(y)$）代进 $(\\mu M)_{y}=(\\mu N)_{x}$，按 $x$ 的幂次比较系数，先解出 $f$；",
+          "本题第二组 $\\left(4xy^{2},5x^{2}y\\right)$ 与 $\\mathrm d\\left(x^{3}y^{4}\\right)$ 的系数 $3,4$ 只差一个 $x$ 的幂，这就是选中 $x^{2}y^{3}$ 的线索——<b>看到系数像某个单项式的偏导，就往那个单项式上凑</b>；",
+          "验证一步不能省：乘完必须真算一遍 $M'_{y}=N'_{x}$，否则整道题白做。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>积分因子 $\\mu=x^{2}y^{3}$，通解 $x^{3}y^{4}(1+xy)=C$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "恰当条件",
+          "latex": "$$\\frac{\\partial}{\\partial y}\\left[\\mu\\left(3y+4xy^{2}\\right)\\right]=\\frac{\\partial}{\\partial x}\\left[\\mu\\left(4x+5x^{2}y\\right)\\right]$$"
+        },
+        {
+          "name": "待定出 $\\mu=x^{2}y^{3}$",
+          "latex": "$$\\mu=x^{2}y^{3}\\ \\Longrightarrow\\ \\mu P\\,\\mathrm{d}x+\\mu Q\\,\\mathrm{d}y\\ \\text{为全微分}$$"
+        },
+        {
+          "name": "凑全微分写通解",
+          "latex": "$$\\mathrm{d}\\left(x^{3}y^{4}+x^{4}y^{5}\\right)=0\\ \\Longrightarrow\\ x^{3}y^{4}+x^{4}y^{5}=C$$"
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "number": "题 4",
+      "title": "两个互异解 $\\Rightarrow$ 通解结构 · 只考线性方程的解空间",
+      "chapter": 4,
+      "stemHtml": "设 $y=y_1(x)$ 与 $y=y_2(x)$ 是方程 $y'=p(x)y+Q(x)$ 的两个互异解，求证：存在常数 $C$，使得对于方程的任一解 $y(x)$，都有 $y(x)=y_1(x)+C\\left[y_2(x)-y_1(x)\\right]$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【一阶线性方程\"任两解之差是齐次方程的解\"$\\to$ 令 $w=y-y_1$，则 $w'=p(x)w$，一阶齐次线性方程的通解是 $w=C\\mathrm e^{\\int p}$，而 $y_2-y_1$ 也是它的一个非零解 $\\to$ 两者只差常数倍】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：验证\"差\"满足齐次方程</h3>\r\n  <p>设 $y$ 是方程的任一解，令 $w=y-y_1$，则</p>\r\n  <div class=\"fm\">$$w'=y'-y_1'=\\left[p(x)y+Q(x)\\right]-\\left[p(x)y_1+Q(x)\\right]=p(x)w.$$</div>\r\n  <p>同理 $y_2-y_1$ 也满足 $u'=p(x)u$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两个解只差常数倍</h3>\r\n  <p>因为 $y_1\\neq y_2$，所以 $y_2-y_1$ 在某个点 $x_0$ 处不为 0。考察</p>\r\n  <div class=\"fm\">$$\\left[\\frac{w}{y_2-y_1}\\right]'=\\frac{w'(y_2-y_1)-w(y_2-y_1)'}{(y_2-y_1)^{2}}=\\frac{pw(y_2-y_1)-w\\,p(y_2-y_1)}{(y_2-y_1)^{2}}=0,$$</div>\r\n  <p>故 $\\dfrac{w}{y_2-y_1}\\equiv C$（常数），即 $y-y_1=C\\left(y_2-y_1\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "一阶线性非齐次方程的解集 = 一个特解 + 齐次方程的通解；任意两解之差必是齐次解。",
+        "items": [
+          "\"两解之差是齐次解\"这条结论对任意阶线性方程都成立，是后面高阶方程\"$y_1+C(y_2-y_1)$\"结构的来源；",
+          "证\"两个同解只差常数\"的标准动作是作商再求导，比设比例常数 $k$ 更严谨（先证明比值可导）；",
+          "本题不需要解出 $p,Q$，也不需要可积性——只用到\"差仍是齐次解\"这一条代数性质；",
+          "反过来用：若已知一个特解和齐次通解，就能写出全部解，这是题 24 的伏笔。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>已证（$w=y-y_1$ 满足 $w'=p(x)w$，与 $y_2-y_1$ 同解且比值导数为 0，故 $w=C\\left(y_2-y_1\\right)$）。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "差满足齐次方程",
+          "latex": "$$\\left(y_2-y_1\\right)'=p(x)\\left(y_2-y_1\\right)$$"
+        },
+        {
+          "name": "齐次解的形状",
+          "latex": "$$y_2-y_1=C_0\\mathrm{e}^{\\int p(x)\\mathrm{d}x}$$"
+        },
+        {
+          "name": "任一解只差常数倍",
+          "latex": "$$y-y_1=C\\left(y_2-y_1\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "number": "题 5",
+      "title": "两个可降阶的二阶方程 · 令 $p=y'$",
+      "chapter": 4,
+      "stemHtml": "求解下列微分方程：<br>(1) $y''+2x\\left(y'\\right)^{2}=0$，$y(0)=1$，$y'(0)=-\\dfrac12$；<br>(2) $y''-\\left(y'\\right)^{2}-2y'-1=0$，$y(0)=1$，$y'(0)=0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【方程里不出现 $y$、只出现 $y'$ 与 $y''$ $\\to$ 令 $p=y'$，方程降成关于 $p$ 的一阶方程；解出 $p$ 后再积一次分。初始条件同步翻译成 $p(0)=y'(0)$】</strong>。两小题都属于\"缺 $y$\"型，动作完全一样。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(1) 分离变量解 $p$，再积一次</h3>\r\n  <p>令 $p=y'$，方程化为 $p'+2xp^{2}=0$，即 $\\dfrac{\\mathrm dp}{p^{2}}=-2x\\,\\mathrm dx$，积分得</p>\r\n  <div class=\"fm\">$$-\\frac1p=-x^{2}+C\\ \\Longrightarrow\\ p=\\frac{1}{x^{2}-C}.$$</div>\r\n  <p>由 $p(0)=-\\dfrac12$ 得 $C=-2$，故 $p=\\dfrac{1}{x^{2}-2}$。再积分：</p>\r\n  <div class=\"fm\">$$y=\\int\\frac{\\mathrm dx}{x^{2}-2}+C_{1}=\\frac{1}{2\\sqrt2}\\ln\\left|\\frac{x-\\sqrt2}{x+\\sqrt2}\\right|+C_{1}.$$</div>\r\n  <p>由 $y(0)=1$ 得 $C_{1}=1$。（这里 $\\displaystyle\\int\\frac{\\mathrm dx}{x^{2}-a^{2}}=\\frac{1}{2a}\\ln\\left|\\frac{x-a}{x+a}\\right|$。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(2) 右边恰好是完全平方</h3>\r\n  <p>令 $p=y'$，得 $p'=p^{2}+2p+1=(p+1)^{2}$，于是</p>\r\n  <div class=\"fm\">$$-\\frac{1}{p+1}=x+C.$$</div>\r\n  <p>由 $p(0)=0$ 得 $C=-1$，故 $p+1=\\dfrac{1}{1-x}$，即 $p=\\dfrac{x}{1-x}$。再积分：</p>\r\n  <div class=\"fm\">$$y=\\int\\frac{x}{1-x}\\mathrm dx=\\int\\left(-1+\\frac{1}{1-x}\\right)\\mathrm dx=-x-\\ln|1-x|+C_{1}.$$</div>\r\n  <p>由 $y(0)=1$ 得 $C_{1}=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "二阶方程缺什么，就换什么：缺 $y$ 令 $p=y'$（$p$ 是 $x$ 的函数）；缺 $x$ 令 $p=y'$（此时 $p$ 看成 $y$ 的函数，$y''=p\\frac{\\mathrm dp}{\\mathrm dy}$）；$y$ 与 $x$ 都缺就直接积两次。",
+        "items": [
+          "本题两小题都是\"缺 $y$\"，令 $p=y'$ 后 $p'=\\frac{\\mathrm dp}{\\mathrm dx}$，不要多乘一个 $p$；",
+          "解出 $p$ 后立刻用 $p(0)=y'(0)$ 定常数，<b>不要等到最后</b>——积第二次分时出现的新常数再用 $y(0)$ 定；",
+          "(2) 的右端 $(p+1)^{2}$ 是完全平方，积分 $\\int\\frac{\\mathrm dp}{(p+1)^{2}}=-\\frac{1}{p+1}$，比先因式分解成 $\\frac{1}{p+1}-\\frac{1}{p+1}$ 更快；",
+          "最后记得处理 $\\ln|1-x|$ 的绝对值与定义域，写\"$\\ln|1-x|$\"而不是 $\\ln(1-x)$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $y=\\dfrac{1}{2\\sqrt2}\\ln\\left|\\dfrac{x-\\sqrt2}{x+\\sqrt2}\\right|+1$；(2) $y=1-x-\\ln|1-x|$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "缺 $y$ 型：令 $p=y'$",
+          "latex": "$$p'+2xp^{2}=0\\ \\Longrightarrow\\ \\frac{\\mathrm{d}p}{p^{2}}=-2x\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "右边恰好完全平方",
+          "latex": "$$y''-\\left(y'+1\\right)^{2}=0$$"
+        },
+        {
+          "name": "再令 $p=y'+1$",
+          "latex": "$$p'-p^{2}=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "number": "题 6",
+      "title": "切线条件 $\\to$ 初值条件 · 非齐次特解先定",
+      "chapter": 4,
+      "stemHtml": "设 $y=y(x)$ 满足微分方程 $y''-3y'+2y=2\\mathrm e^{x}$，且其图形在点 $(0,1)$ 处的切线与曲线 $y=x^{2}-x+1$ 在该点的切线重合，求函数 $y=y(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"图形过 $(0,1)$ 且切线重合\"$\\to$ 翻译成两个初值 $y(0)=1$、$y'(0)=$ 已知曲线在该点的斜率 $\\to$ 先求通解（右端 $2\\mathrm e^{x}$，$\\lambda=1$ 是单根，特解设 $Ax\\mathrm e^{x}$），再代初值定常数】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：把\"切线重合\"翻译成初值</h3>\r\n  <p>曲线 $y=x^{2}-x+1$ 在 $x=0$ 处：$y(0)=1$，$y'=2x-1$，故 $y'(0)=-1$。于是所求函数满足</p>\r\n  <div class=\"fm\">$$y(0)=1,\\qquad y'(0)=-1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求通解</h3>\r\n  <p>特征方程 $\\lambda^{2}-3\\lambda+2=0$，$\\lambda_{1}=1$、$\\lambda_{2}=2$，齐次通解 $C_{1}\\mathrm e^{x}+C_{2}\\mathrm e^{2x}$。右端 $2\\mathrm e^{x}$ 中 $\\lambda=1$ 是单根，故设 $y^{*}=Ax\\mathrm e^{x}$，代入：</p>\r\n  <div class=\"fm\">$$y^{*''}-3y^{*'}+2y^{*}=\\left[A(2+x)-3A(1+x)+2Ax\\right]\\mathrm e^{x}=-A\\mathrm e^{x}=2\\mathrm e^{x}\\ \\Longrightarrow\\ A=-2.$$</div>\r\n  <p>故 $y=C_{1}\\mathrm e^{x}+C_{2}\\mathrm e^{2x}-2x\\mathrm e^{x}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：代初值</h3>\r\n  <p>$y(0)=C_{1}+C_{2}=1$；$y'=C_{1}\\mathrm e^{x}+2C_{2}\\mathrm e^{2x}-2\\mathrm e^{x}-2x\\mathrm e^{x}$，$y'(0)=C_{1}+2C_{2}-2=-1$，即 $C_{1}+2C_{2}=1$。两式相减得 $C_{2}=0$、$C_{1}=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "凡是用几何语言描述的条件，先翻译成 $y(x_{0})$ 与 $y'(x_{0})$ 两个数，题目立刻变成标准初值问题。",
+        "items": [
+          "过点 $(x_{0},y_{0})$ → $y(x_{0})=y_{0}$；切线斜率为 $k$ → $y'(x_{0})=k$；",
+          "\"与某曲线在该点相切\"= 两条曲线在该点<b>函数值相同且导数值相同</b>，两个条件缺一不可（题 21 也是这么用的）；",
+          "右端是 $\\mathrm e^{\\lambda x}$ 且 $\\lambda$ 恰为特征根时，特解必须多乘一个 $x$（单根乘 $x$，重根乘 $x^{2}$），本题 $A$ 就是靠这一步才解出来；",
+          "代入验证一步：把 $A=-2$ 代回，唯一剩下的是 $-A\\mathrm e^{x}=2\\mathrm e^{x}$，这种\"系数只剩一项\"的检验很快。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=(1-2x)\\mathrm e^{x}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "「切线重合」翻译成初值",
+          "latex": "$$y(0)=1,\\qquad y'(0)=\\left.\\left(2x-1\\right)\\right|_{x=0}=-1$$"
+        },
+        {
+          "name": "特征根与特解设法",
+          "latex": "$$\\lambda^{2}-3\\lambda+2=0\\ \\Longrightarrow\\ \\lambda=1,2;\\quad y^{*}=Ax\\,\\mathrm{e}^{x}$$"
+        },
+        {
+          "name": "通解",
+          "latex": "$$y=C_1\\mathrm{e}^{x}+C_2\\mathrm{e}^{2x}-2x\\,\\mathrm{e}^{x}$$"
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "number": "题 7",
+      "title": "八道高阶常系数线性方程 · 全是\"齐次通解 + 待定特解\"",
+      "chapter": 4,
+      "stemHtml": "求下列微分方程的通解：<br>(1) $y''-y'=\\mathrm e^{-x}$；　(2) $y''-4y'+3y=2x\\mathrm e^{3x}$；　(3) $y''+4y=x\\sin^{2}x$；　(4) $y''+4y'+4y=\\mathrm e^{-2x}$；<br>(5) $y'''+y=\\mathrm e^{x}\\sin 2x$；　(6) $y''-2y'-3y=\\mathrm e^{3x}+\\cos x$；　(7) $y^{(4)}-2y'''+y''=x$；　(8) $y'''+6y''+\\left(9+a^{2}\\right)y'=1\\ (a&gt;0)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【高阶常系数线性非齐次方程只有一条主线：先解特征方程拿齐次通解，再按右端\"长相\"设特解。右端是 $P_{n}(x)\\mathrm e^{\\lambda x}$ $\\to$ 设 $x^{k}Q_{n}(x)\\mathrm e^{\\lambda x}$（$k$ 为 $\\lambda$ 作为特征根的重数）；右端含 $\\cos\\omega x,\\sin\\omega x$ $\\to$ 设 $A\\cos\\omega x+B\\sin\\omega x$（$\\pm\\mathrm i\\omega$ 是根时乘 $x$）】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(1)(2)(4)：右端是指数，看 $\\lambda$ 是不是特征根</h3>\r\n  <p>(1) $\\lambda^{2}-\\lambda=0$ 得 $\\lambda=0,1$，齐次解 $C_{1}+C_{2}\\mathrm e^{x}$。右端 $\\lambda=-1$ 不是根，设 $y^{*}=A\\mathrm e^{-x}$，代入 $A+A=1$ 得 $A=\\dfrac12$。</p>\r\n  <p>(2) $\\lambda^{2}-4\\lambda+3=0$ 得 $1,3$，齐次解 $C_{1}\\mathrm e^{x}+C_{2}\\mathrm e^{3x}$。右端 $\\lambda=3$ 是单根，设 $y^{*}=x(ax+b)\\mathrm e^{3x}$。作代换 $y=\\mathrm e^{3x}u$，方程化为 $\\left(D^{2}+2D\\right)u=2x$，即 $u''+2u'=2x$，取 $u=\\dfrac{x^{2}}{2}-\\dfrac x2$ 得 $y^{*}=\\dfrac12x(x-1)\\mathrm e^{3x}$。</p>\r\n  <p>(4) $\\lambda^{2}+4\\lambda+4=0$ 得 $\\lambda=-2$（二重），齐次解 $\\left(C_{1}+C_{2}x\\right)\\mathrm e^{-2x}$。右端 $\\lambda=-2$ 是二重根，设 $y^{*}=Ax^{2}\\mathrm e^{-2x}$；令 $y=\\mathrm e^{-2x}u$ 得 $u''=1$，故 $u=\\dfrac{x^{2}}{2}$，$y^{*}=\\dfrac12x^{2}\\mathrm e^{-2x}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(3)(5)(6)：右端含三角，先降幂再定形</h3>\r\n  <p>(3) $\\sin^{2}x=\\dfrac{1-\\cos 2x}{2}$，右端 $=\\dfrac x2-\\dfrac{x\\cos 2x}{2}$。齐次解 $C_{1}\\cos 2x+C_{2}\\sin 2x$（$\\pm2\\mathrm i$ 是根）。对 $\\dfrac x2$ 设 $Ax$：$4Ax=\\dfrac x2$，$A=\\dfrac18$。对 $-\\dfrac{x\\cos 2x}{2}$（共振）设 $x(b\\cos 2x+c\\sin 2x)+x^{2}(d\\cos 2x+e\\sin 2x)$，逐项比较得 $b=-\\dfrac{1}{32}$、$e=-\\dfrac{1}{16}$，其余为 0，故 $y^{*}=\\dfrac x8-\\dfrac{1}{16}x^{2}\\sin 2x-\\dfrac{1}{32}x\\cos 2x$。</p>\r\n  <p>(5) $\\lambda^{3}+1=(\\lambda+1)\\left(\\lambda^{2}-\\lambda+1\\right)=0$，$\\lambda=-1$ 与 $\\dfrac{1\\pm\\sqrt3\\mathrm i}{2}$，齐次解 $C_{1}\\mathrm e^{-x}+\\mathrm e^{x/2}\\left(C_{2}\\cos\\dfrac{\\sqrt3x}{2}+C_{3}\\sin\\dfrac{\\sqrt3x}{2}\\right)$。设 $y^{*}=\\mathrm e^{x}\\left(A\\cos 2x+B\\sin 2x\\right)$，作 $y=\\mathrm e^{x}w$，方程化为 $\\left(w'''+3w''+3w'+2w\\right)=\\sin 2x$，比较系数：$-10A-2B=0$、$2A-10B=1$，得 $A=\\dfrac{1}{52}$、$B=-\\dfrac{5}{52}$。</p>\r\n  <p>(6) $\\lambda^{2}-2\\lambda-3=0$ 得 $3,-1$。对 $\\mathrm e^{3x}$（单根共振）设 $\\dfrac x4\\mathrm e^{3x}$：作 $y=\\mathrm e^{3x}u$ 得 $u''+4u'=1$，$u'=\\dfrac14$ 可行。对 $\\cos x$ 设 $A\\cos x+B\\sin x$：$(-4A-2B)\\cos x+(2A-4B)\\sin x=\\cos x$，得 $A=-\\dfrac15$、$B=-\\dfrac{1}{10}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>(7)(8)：右端是多项式 / 常数，考验\"重数\"</h3>\r\n  <p>(7) $\\lambda^{4}-2\\lambda^{3}+\\lambda^{2}=\\lambda^{2}(\\lambda-1)^{2}=0$，齐次解 $C_{1}+C_{2}x+\\left(C_{3}+C_{4}x\\right)\\mathrm e^{x}$。右端 $x$ 是 $0$ 次多项式，而 $\\lambda=0$ 是二重根，故特解须设 $ax^{3}+bx^{2}$：$y^{*''}=6ax+2b$、$y^{*'''}=6a$、$y^{*''''}=0$，代入 $-12a+6ax+2b=x$，得 $a=\\dfrac16$、$b=1$。</p>\r\n  <p>(8) 令 $p=y'$，降为一阶：$p''+6p'+\\left(9+a^{2}\\right)p=1$。特征根 $-3\\pm a\\mathrm i$，故 $p=\\mathrm e^{-3x}\\left(C_{2}\\cos ax+C_{3}\\sin ax\\right)+\\dfrac{1}{9+a^{2}}$；再积分得 $y$（常数项并入 $C_{1}$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "所有高阶常系数题的差别只在两处：特征根是什么、右端的 $\\lambda$（或 $\\omega$）与根撞不撞。",
+        "items": [
+          "右端 $P_{n}(x)\\mathrm e^{\\lambda x}$：设 $x^{k}Q_{n}(x)\\mathrm e^{\\lambda x}$，$k$ = $\\lambda$ 作为特征根的重数（0/1/2）；$Q_{n}$ 是与 $P_{n}$ 同次的一般多项式，<b>不能只设首项</b>；",
+          "右端 $\\mathrm e^{\\alpha x}\\left(P\\cos\\beta x+Q\\sin\\beta x\\right)$：设 $x^{k}\\mathrm e^{\\alpha x}\\left(R\\cos\\beta x+S\\sin\\beta x\\right)$，$k$ = $\\alpha\\pm\\beta\\mathrm i$ 作为根的重数；",
+          "右端是两项之和（如 (6) 的 $\\mathrm e^{3x}+\\cos x$）：<b>拆开分别设特解再相加</b>，不要硬凑成一个；",
+          "算特解最省力的技巧是\"指数平移\"：$y=\\mathrm e^{\\lambda x}u$ 把 $P(D)y$ 化为 $P(D+\\lambda)u$，共振时恰好降一次阶（(2)(4)(5)(6) 都靠这步化成一阶或纯积分）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $y=C_{1}+C_{2}\\mathrm e^{x}+\\dfrac12\\mathrm e^{-x}$；(2) $y=C_{1}\\mathrm e^{x}+C_{2}\\mathrm e^{3x}+\\dfrac12x(x-1)\\mathrm e^{3x}$；(3) $y=C_{1}\\cos 2x+C_{2}\\sin 2x+\\dfrac x8-\\dfrac{1}{16}x^{2}\\sin 2x-\\dfrac{1}{32}x\\cos 2x$；(4) $y=\\left(C_{1}+C_{2}x+\\dfrac12x^{2}\\right)\\mathrm e^{-2x}$；(5) $y=C_{1}\\mathrm e^{-x}+\\mathrm e^{x/2}\\left(C_{2}\\cos\\dfrac{\\sqrt3x}{2}+C_{3}\\sin\\dfrac{\\sqrt3x}{2}\\right)+\\dfrac{1}{52}\\mathrm e^{x}\\left(\\cos 2x-5\\sin 2x\\right)$；(6) $y=C_{1}\\mathrm e^{-x}+C_{2}\\mathrm e^{3x}+\\dfrac14x\\mathrm e^{3x}-\\dfrac{1}{10}\\left(2\\cos x+\\sin x\\right)$；(7) $y=C_{1}+C_{2}x+\\left(C_{3}+C_{4}x\\right)\\mathrm e^{x}+\\dfrac16x^{3}+x^{2}$；(8) $y=C_{1}+\\mathrm e^{-3x}\\left(C_{2}\\cos ax+C_{3}\\sin ax\\right)+\\dfrac{x}{9+a^{2}}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "指数型右端",
+          "latex": "$$f=\\mathrm{e}^{\\alpha x}:\\quad y^{*}=x^{k}A\\,\\mathrm{e}^{\\alpha x},\\quad k=\\alpha\\ \\text{作为特征根的重数}$$"
+        },
+        {
+          "name": "三角型右端",
+          "latex": "$$f=\\mathrm{e}^{\\alpha x}\\left(P\\cos\\beta x+Q\\sin\\beta x\\right):\\ y^{*}=x^{k}\\mathrm{e}^{\\alpha x}\\left(R\\cos\\beta x+S\\sin\\beta x\\right)$$"
+        },
+        {
+          "name": "多项式右端",
+          "latex": "$$f=P_n(x):\\quad y^{*}=x^{k}Q_n(x),\\quad k=0\\ \\text{作为特征根的重数}$$"
+        },
+        {
+          "name": "先降幂",
+          "latex": "$$\\sin^{2}x=\\frac{1-\\cos2x}{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 8,
+      "number": "题 8",
+      "title": "Euler 方程初值 · $x=\\mathrm e^{t}$ 化常系数",
+      "chapter": 4,
+      "stemHtml": "求解二阶微分方程的初值问题：<br>$x^{3}y''-x^{2}y'+xy=x^{2}+1\\ (x&gt;0)$，$y(1)=\\dfrac14$，$y'(1)=0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【系数是 $x^{3},x^{2},x$ 的幂次\"逐级降一\"$\\to$ 这是 Euler 方程 $\\to$ 两边除以 $x$ 化成标准形 $x^{2}y''-xy'+y=x+\\dfrac1x$，再令 $x=\\mathrm e^{t}$（$t=\\ln x$）变成常系数；最后解回代并代初值】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化标准形并换元</h3>\r\n  <p>两边除以 $x$：$x^{2}y''-xy'+y=x+\\dfrac1x$。令 $x=\\mathrm e^{t}$，则</p>\r\n  <div class=\"fm\">$$xy'=\\frac{\\mathrm dy}{\\mathrm dt},\\qquad x^{2}y''=\\frac{\\mathrm d^{2}y}{\\mathrm dt^{2}}-\\frac{\\mathrm dy}{\\mathrm dt}.$$</div>\r\n  <p>代入得常系数方程</p>\r\n  <div class=\"fm\">$$\\frac{\\mathrm d^{2}y}{\\mathrm dt^{2}}-2\\frac{\\mathrm dy}{\\mathrm dt}+y=\\mathrm e^{t}+\\mathrm e^{-t}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解常系数方程</h3>\r\n  <p>特征方程 $\\lambda^{2}-2\\lambda+1=(\\lambda-1)^{2}=0$，齐次通解 $\\left(C_{1}+C_{2}t\\right)\\mathrm e^{t}$。右端两项分别设特解：</p>\r\n  <div class=\"fm\">$$y_{1}^{*}=\\frac12t^{2}\\mathrm e^{t}\\ (\\text{\\lambda=1\\ \\text{是二重根}}),\\qquad y_{2}^{*}=A\\mathrm e^{-t}\\Rightarrow A+2A+A=1\\Rightarrow A=\\frac14.$$</div>\r\n  <p>故 $y=\\left(C_{1}+C_{2}t\\right)\\mathrm e^{t}+\\dfrac12t^{2}\\mathrm e^{t}+\\dfrac14\\mathrm e^{-t}$。回代 $t=\\ln x$：</p>\r\n  <div class=\"fm\">$$y=\\left(C_{1}+C_{2}\\ln x\\right)x+\\frac{x}{2}\\left(\\ln x\\right)^{2}+\\frac{1}{4x}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：代初值</h3>\r\n  <p>$y(1)=C_{1}+\\dfrac14=\\dfrac14$ 得 $C_{1}=0$。求导：$y'=C_{2}\\left(\\ln x+1\\right)+\\dfrac12\\left[\\left(\\ln x\\right)^{2}+2\\ln x\\right]-\\dfrac{1}{4x^{2}}$，$y'(1)=C_{2}-\\dfrac14=0$ 得 $C_{2}=\\dfrac14$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到 $x^{n}y^{(n)}$ 逐级配齐，立刻认 Euler 方程，换元 $x=\\mathrm e^{t}$，全部变常系数。",
+        "items": [
+          "换元公式只需记两条：$xy'=y'_{t}$、$x^{2}y''=y''_{tt}-y'_{t}$（三阶再加 $y'''_{ttt}-3y''_{tt}+2y'_{t}$）；",
+          "先化成\"每项都是 $x^{k}y^{(k)}$\"的标准形再换元，否则系数对不上；",
+          "回代时 $\\mathrm e^{t}=x$、$\\mathrm e^{-t}=\\dfrac1x$，$t=\\ln x$，特解里的 $t^{2}$ 会变成 $\\left(\\ln x\\right)^{2}$——这是 Euler 方程解的标志性长相；",
+          "初值 $y(1),y'(1)$ 在 $t$ 变量下要换算成 $y(0)=\\cdots$，本题直接用 $x$ 求导代值也很方便。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\dfrac x4\\ln x+\\dfrac x2\\left(\\ln x\\right)^{2}+\\dfrac{1}{4x}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "先化标准形",
+          "latex": "$$x^{2}y''-xy'+y=x+\\frac1x$$"
+        },
+        {
+          "name": "Euler 换元",
+          "latex": "$$x=\\mathrm{e}^{t}:\\quad x^{2}y''=\\ddot y-\\dot y,\\quad xy'=\\dot y$$"
+        },
+        {
+          "name": "转成常系数",
+          "latex": "$$\\ddot y-2\\dot y+y=\\mathrm{e}^{t}+\\mathrm{e}^{-t}$$"
+        }
+      ]
+    },
+    {
+      "seq": 9,
+      "number": "题 9",
+      "title": "先解方程再算广义积分 · 指数压过幂",
+      "chapter": 4,
+      "stemHtml": "设函数 $y=y(x)$ 是方程 $y''+6y'+9y=0$ 满足条件 $y(0)=0$、$y'(0)=1$ 的解，求积分 $\\displaystyle\\int_0^{+\\infty}y(x)\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"求 $\\int_0^{+\\infty}y$\"，而这个 $y$ 必是指数 $\\times$ 多项式 $\\to$ 先解方程得 $y=x\\mathrm e^{-3x}$，再分部积分算广义积分；指数衰减保证收敛】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：解方程</h3>\r\n  <p>特征方程 $\\lambda^{2}+6\\lambda+9=(\\lambda+3)^{2}=0$，$\\lambda=-3$ 二重，通解 $y=\\left(C_{1}+C_{2}x\\right)\\mathrm e^{-3x}$。由 $y(0)=0$ 得 $C_{1}=0$；$y'=C_{2}\\mathrm e^{-3x}\\left(1-3x\\right)$，由 $y'(0)=1$ 得 $C_{2}=1$。故 $y=x\\mathrm e^{-3x}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分部积分</h3>\r\n  <div class=\"fm\">$$\\int_0^{+\\infty}x\\mathrm e^{-3x}\\mathrm dx=-\\frac13\\left[x\\mathrm e^{-3x}\\right]_0^{+\\infty}+\\frac13\\int_0^{+\\infty}\\mathrm e^{-3x}\\mathrm dx=0+\\frac13\\cdot\\frac13=\\frac19.$$</div>\r\n  <p>其中 $\\lim\\limits_{x\\to+\\infty}x\\mathrm e^{-3x}=0$，边界项为 0。（也可直接用 $\\displaystyle\\int_0^\\infty x^{n}\\mathrm e^{-ax}\\mathrm dx=\\dfrac{n!}{a^{n+1}}$，取 $n=1$、$a=3$。）</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "$\\int_0^\\infty x^{n}\\mathrm e^{-ax}\\mathrm dx=\\dfrac{n!}{a^{n+1}}$，本题一步到位。",
+        "items": [
+          "二重根时通解必须写成 $\\left(C_{1}+C_{2}x\\right)\\mathrm e^{\\lambda x}$，漏掉 $x$ 那一项就定不出 $y'(0)$；",
+          "广义积分先看收敛：$x\\mathrm e^{-3x}$ 在无穷远处指数压过多项式，收敛无虞；",
+          "分部时 $\\mathrm e^{-3x}\\mathrm dx=-\\frac13\\mathrm d\\mathrm e^{-3x}$，负号最容易丢，写完立刻检查；",
+          "这类题最后往往出现 $\\dfrac{1}{a^{2}}$ 这个\"漂亮\"系数，若答案很脏，多半是符号或系数错了。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=x\\mathrm e^{-3x}$，$\\displaystyle\\int_0^{+\\infty}y(x)\\mathrm dx=\\dfrac19$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "重根通解",
+          "latex": "$$y=\\left(C_1+C_2x\\right)\\mathrm{e}^{-3x}$$"
+        },
+        {
+          "name": "代初值",
+          "latex": "$$y(0)=0,\\ y'(0)=1\\ \\Longrightarrow\\ y=x\\,\\mathrm{e}^{-3x}$$"
+        },
+        {
+          "name": "指数积分的速算",
+          "latex": "$$\\int_0^{+\\infty}x^{n}\\mathrm{e}^{-ax}\\,\\mathrm{d}x=\\frac{n!}{a^{n+1}}$$"
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "number": "题 10",
+      "title": "变系数但\"围着 $\\tan x$ 转\" · 令 $t=\\tan x$",
+      "chapter": 4,
+      "stemHtml": "求微分方程 $\\cos^{4}x\\dfrac{\\mathrm d^{2}y}{\\mathrm dx^{2}}+2\\cos^{2}x\\left(1-\\sin x\\cos x\\right)\\dfrac{\\mathrm dy}{\\mathrm dx}+y=\\tan x$ 的通解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【系数是 $\\cos$ 的幂、右端是 $\\tan x$ $\\to$ 公共函数是 $\\tan x$，令 $t=\\tan x$，各项会整齐地化掉 $\\cos$，变成常系数方程】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换元公式</h3>\r\n  <p>令 $t=\\tan x$，$\\dfrac{\\mathrm dt}{\\mathrm dx}=\\sec^{2}x$，故</p>\r\n  <div class=\"fm\">$$\\frac{\\mathrm dy}{\\mathrm dx}=\\sec^{2}x\\,\\dot y,\\qquad \\frac{\\mathrm d^{2}y}{\\mathrm dx^{2}}=\\sec^{4}x\\,\\ddot y+2\\sec^{2}x\\tan x\\,\\dot y,$$</div>\r\n  <p>其中点表示对 $t$ 求导。第二式由 $\\dfrac{\\mathrm d}{\\mathrm dx}\\left(\\sec^{2}x\\,\\dot y\\right)$ 用乘积法则并注意 $\\left(\\sec^{2}x\\right)'=2\\sec^{2}x\\tan x$ 得到。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代入，$\\sin x\\cos x$ 恰好抵消</h3>\r\n  <p>第一项：$\\cos^{4}x\\left(\\sec^{4}x\\,\\ddot y+2\\sec^{2}x\\tan x\\,\\dot y\\right)=\\ddot y+2\\cos^{2}x\\tan x\\,\\dot y=\\ddot y+2\\sin x\\cos x\\,\\dot y$。</p>\r\n  <p>第二项：$2\\cos^{2}x\\left(1-\\sin x\\cos x\\right)\\sec^{2}x\\,\\dot y=2\\dot y-2\\sin x\\cos x\\,\\dot y$。</p>\r\n  <p>两个 $\\sin x\\cos x\\,\\dot y$ 一正一负<b>正好抵消</b>，方程化为</p>\r\n  <div class=\"fm\">$$\\ddot y+2\\dot y+y=t.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：解常系数方程并回代</h3>\r\n  <p>特征方程 $\\lambda^{2}+2\\lambda+1=(\\lambda+1)^{2}=0$，齐次解 $\\left(C_{1}+C_{2}t\\right)\\mathrm e^{-t}$。右端 $t$ 为一次式，$\\lambda=0$ 不是根，设 $y^{*}=At+B$：$2A+At+B=t$，得 $A=1$、$B=-2$。故</p>\r\n  <div class=\"fm\">$$y=\\left(C_{1}+C_{2}\\tan x\\right)\\mathrm e^{-\\tan x}+\\tan x-2.$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "换元不是猜的：<b>看右端与系数的公共函数</b>，那就是新变量。",
+        "items": [
+          "本题右端 $\\tan x$、系数 $\\cos$ 的幂，公共函数 $\\tan x$ $\\to$ 令 $t=\\tan x$；",
+          "换元后二阶导要一起换，用 $\\frac{\\mathrm d}{\\mathrm dx}=\\frac{\\mathrm dt}{\\mathrm dx}\\frac{\\mathrm d}{\\mathrm dt}$ 推，别凭记忆；",
+          "$\\sec^{2}x=1+t^{2}$、$\\cos^{2}x=\\frac{1}{1+t^{2}}$、$\\sin x\\cos x=\\frac{t}{1+t^{2}}$ 是化简的全部工具；",
+          "本题设计得很巧：两个 $\\sin x\\cos x\\,\\dot y$ 自动抵消，留下干净的 $\\ddot y+2\\dot y+y$——若你算出的系数不干净，回去检查 $\\sec^{4}x$ 那一项。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\left(C_{1}+C_{2}\\tan x\\right)\\mathrm e^{-\\tan x}+\\tan x-2$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "换元公式",
+          "latex": "$$t=\\tan x,\\qquad \\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\cos^{2}x\\,\\frac{\\mathrm{d}y}{\\mathrm{d}t}$$"
+        },
+        {
+          "name": "二阶换元公式",
+          "latex": "$$\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=\\cos^{4}x\\,\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}t^{2}}-2\\sin x\\cos^{3}x\\,\\frac{\\mathrm{d}y}{\\mathrm{d}t}$$"
+        },
+        {
+          "name": "代入后成常系数",
+          "latex": "$$\\frac{\\mathrm{d}^{2}y}{\\mathrm{d}t^{2}}+y=t$$"
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "number": "题 11",
+      "title": "核里带 $x$ 的积分方程 · 换元后求导两次",
+      "chapter": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $(-\\infty,+\\infty)$ 上可微，且满足 $x=\\displaystyle\\int_0^{x}f(t)\\mathrm dt+\\int_0^{x}tf(t-x)\\mathrm dt$。求：(1) 函数 $f(x)$；(2) 积分 $\\displaystyle\\int_{-\\frac{\\pi}{4}}^{\\frac{3\\pi}{4}}\\left|f(x)\\right|^{n}\\mathrm dx$（其中 $n=2,3,\\cdots$）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【$x$ 既在上限又在核里 $\\to$ 先换元 $u=t-x$ 把 $x$ 从核里赶出去（上限变 $-x$），再对 $x$ 求导；求两次导得 $f''+f=0$，最后用 $x=0$ 取初值】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换元</h3>\r\n  <p>令 $u=t-x$，则 $t=u+x$、$\\mathrm dt=\\mathrm du$，$t:0\\to x$ 对应 $u:-x\\to0$：</p>\r\n  <div class=\"fm\">$$\\int_0^{x}tf(t-x)\\mathrm dt=\\int_{-x}^{0}(u+x)f(u)\\mathrm du=-\\int_0^{-x}(u+x)f(u)\\mathrm du.$$</div>\r\n  <p>原方程化为 $x=\\displaystyle\\int_0^{x}f(t)\\mathrm dt-x\\int_0^{-x}f(u)\\mathrm du-\\int_0^{-x}uf(u)\\mathrm du$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求导两次</h3>\r\n  <p>注意 $\\dfrac{\\mathrm d}{\\mathrm dx}\\displaystyle\\int_0^{-x}g(u)\\mathrm du=-g(-x)$，求导得</p>\r\n  <div class=\"fm\">$$1=f(x)-\\int_0^{-x}f(u)\\mathrm du-xf(-x)+xf(-x)=f(x)-\\int_0^{-x}f(u)\\mathrm du,$$</div>\r\n  <div class=\"fm\">$$0=f'(x)+f(-x)\\ \\Longrightarrow\\ f'(x)=-f(-x).$$</div>\r\n  <p>把 $x$ 换成 $-x$：$f'(-x)=-f(x)$，故 $f''(x)=f'(-x)=-f(x)$，即 $f''+f=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：定初值，解第 (2) 问</h3>\r\n  <p>由上两式令 $x=0$：$f(0)=1$、$f'(0)=-1$，故 $f(x)=\\cos x-\\sin x=\\sqrt2\\cos\\left(x+\\dfrac{\\pi}{4}\\right)$。</p>\r\n  <p>$\\left|f(x)\\right|$ 以 $\\pi$ 为周期，而 $\\left[-\\dfrac{\\pi}{4},\\dfrac{3\\pi}{4}\\right]$ 恰长 $\\pi$：</p>\r\n  <div class=\"fm\">$$\\int_{-\\frac{\\pi}{4}}^{\\frac{3\\pi}{4}}\\left|f\\right|^{n}\\mathrm dx=\\sqrt{2^{n}}\\int_0^{\\pi}\\left|\\cos u\\right|^{n}\\mathrm du=2\\sqrt{2^{n}}\\int_0^{\\frac{\\pi}{2}}\\cos^{n}u\\,\\mathrm du.$$</div>\r\n  <p>由 Wallis 公式，$n$ 奇时 $\\displaystyle\\int_0^{\\pi/2}\\cos^{n}=\\dfrac{(n-1)!!}{n!!}$，$n$ 偶时再乘 $\\dfrac{\\pi}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "$x$ 同时出现在积分上限和核里，第一步永远是换元把它从核里赶出去。",
+        "items": [
+          "换元后出现 $\\int_0^{-x}$ 这种\"上限为负\"的积分，求导时多一个负号，最常见的失分点就在这里；",
+          "只求一次导还留着积分号，<b>必须再求一次</b>才能得到纯微分方程；",
+          "出现 $f'=-f(-x)$ 这类\"带反射\"的关系时，把 $x$ 换成 $-x$ 联立，消去 $f(-x)$ 得 $f''+f=0$；",
+          "初值藏在\"令 $x=0$\"里，两道式子各给一个（$f(0)$ 与 $f'(0)$）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $f(x)=\\cos x-\\sin x$；(2) $n$ 为奇数：$2^{\\frac n2+1}\\dfrac{(n-1)!!}{n!!}$；$n$ 为偶数：$2^{\\frac n2}\\dfrac{(n-1)!!}{n!!}\\pi$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "核里带 $x$ 先换元",
+          "latex": "$$\\int_0^{x}t\\,f(t-x)\\,\\mathrm{d}t=\\int_0^{x}\\left(x-u\\right)f(u)\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "两次求导得方程",
+          "latex": "$$1=\\left(1+x\\right)f(x)-\\int_0^{x}f\\ \\Longrightarrow\\ f''+f=0$$"
+        },
+        {
+          "name": "初值",
+          "latex": "$$f(0)=0,\\quad f'(0)=1\\ \\Longrightarrow\\ f(x)=\\sin x$$"
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "number": "题 12",
+      "title": "已知一解 $y_2=u(x)\\mathrm e^{x}$ · 代入降阶",
+      "chapter": 4,
+      "stemHtml": "已知 $y_1(x)=\\mathrm e^{x}$、$y_2(x)=u(x)\\mathrm e^{x}$ 是二阶微分方程 $(2x-1)y''-(2x+1)y'+2y=0$ 的解，其中 $u(x)$ 满足 $u(-1)=\\mathrm e$、$u(0)=-1$。求函数 $u(x)$，并写出该微分方程的通解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【题目直接给出 $y_2=u(x)\\mathrm e^{x}$ $\\to$ 代进方程，$\\mathrm e^{x}$ 整体约掉，只剩 $u''$ 与 $u'$（$u$ 的系数必为 0），再令 $p=u'$ 解一阶线性】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：代入，$u$ 的系数自动消掉</h3>\r\n  <p>$y_2'=\\left(u'+u\\right)\\mathrm e^{x}$，$y_2''=\\left(u''+2u'+u\\right)\\mathrm e^{x}$，代入并约去 $\\mathrm e^{x}$：</p>\r\n  <div class=\"fm\">$$(2x-1)u''+\\left[2(2x-1)-(2x+1)\\right]u'+\\left[(2x-1)-(2x+1)+2\\right]u=0,$$</div>\r\n  <p>即 $(2x-1)u''+(2x-3)u'=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解 $u'$</h3>\r\n  <p>令 $p=u'$：$\\dfrac{p'}{p}=-\\dfrac{2x-3}{2x-1}=-1+\\dfrac{2}{2x-1}$，积分得 $p=C_{1}\\mathrm e^{-x}(2x-1)$。再积分（用 $\\int\\mathrm e^{-x}(2x-1)\\mathrm dx=-\\mathrm e^{-x}(2x+1)$）：</p>\r\n  <div class=\"fm\">$$u=-C_{1}\\mathrm e^{-x}(2x+1)+C_{2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：定常数、写通解</h3>\r\n  <p>由 $u(-1)=\\mathrm e$、$u(0)=-1$：</p>\r\n  <div class=\"fm\">$$\\begin{cases}C_{1}\\mathrm e\\cdot 1+C_{2}=\\mathrm e\\\\ -C_{1}+C_{2}=-1\\end{cases}\\Longrightarrow C_{1}=1,\\quad C_{2}=0.$$</div>\r\n  <p>故 $u(x)=-\\mathrm e^{-x}(2x+1)$，$y_2=-(2x+1)$，通解 $y=D_{1}\\mathrm e^{x}+D_{2}(2x+1)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "有了一解 $y_1$，另一个解必可写成 $y_2=u(x)y_1$；代入后 $u$ 的系数恒为 0，方程必然只剩 $u''$ 与 $u'$。",
+        "items": [
+          "代入后先检查 $u$ 的系数是否为 0——这是\"$y_1$ 确实是解\"的验算，不为 0 说明前面算错；",
+          "本例还可以用 Liouville 公式直接写：$u'=\\dfrac{1}{y_1^{2}}\\mathrm e^{\\int\\frac{2x+1}{2x-1}\\mathrm dx}$，与上面的结果一致；",
+          "通解写成 $D_{1}y_1+D_{2}y_2$，最后把 $y_2$ 化简成 $\\mathrm e^{x}\\cdot u=-(2x+1)$ 这样的简单形式，常数项可以并进 $D_{1}$；",
+          "本题 $y_1=\\mathrm e^{x}$ 是\"猜\"出来的，验证一下 $y_1'=y_1''=\\mathrm e^{x}$ 代入即可。若方程是 Euler 型或多项式型，先试 $x^{k}$、$\\mathrm e^{\\lambda x}$ 这些常见形式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$u(x)=-\\mathrm e^{-x}(2x+1)$；通解 $y=D_{1}\\mathrm e^{x}+D_{2}(2x+1)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "代入后 $u$ 的系数自动消掉",
+          "latex": "$$\\left(2x-1\\right)u''+\\left(2x-3\\right)u'=0$$"
+        },
+        {
+          "name": "降阶",
+          "latex": "$$\\frac{u''}{u'}=-\\frac{2x-3}{2x-1}$$"
+        },
+        {
+          "name": "通解结构",
+          "latex": "$$y=C_1\\mathrm{e}^{x}+C_2u(x)\\mathrm{e}^{x}$$"
+        }
+      ]
+    },
+    {
+      "seq": 13,
+      "number": "题 13",
+      "title": "系数和为零 $\\Rightarrow$ $\\mathrm e^{x}$ 是解 $\\Rightarrow$ 常数变易",
+      "chapter": 4,
+      "stemHtml": "求微分方程 $x\\dfrac{\\mathrm d^{2}y}{\\mathrm dx^{2}}-(2x+1)\\dfrac{\\mathrm dy}{\\mathrm dx}+(x+1)y=\\left(x^{2}+x\\right)\\mathrm e^{x}$ 的通解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【系数 $x-(2x+1)+(x+1)=0$ $\\to$ 把 $y=\\mathrm e^{x}$ 代进去正好消光 $\\to$ $\\mathrm e^{x}$ 是齐次解 $\\to$ 用常数变易法令 $y=u(x)\\mathrm e^{x}$，方程降成 $u$ 的一阶线性】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：验证 $\\mathrm e^{x}$ 是齐次解，再设 $y=u\\mathrm e^{x}$</h3>\r\n  <p>把 $y=\\mathrm e^{x}$ 代入左端：$\\mathrm e^{x}\\left[x-(2x+1)+(x+1)\\right]=0$ ✓。令 $y=u(x)\\mathrm e^{x}$，则 $y'=\\mathrm e^{x}(u+u')$、$y''=\\mathrm e^{x}(u+2u'+u'')$，代入并约去 $\\mathrm e^{x}$：</p>\r\n  <div class=\"fm\">$$xu''+\\left[2x-(2x+1)\\right]u'+\\left[x-(2x+1)+(x+1)\\right]u=\\left(x^{2}+x\\right),$$</div>\r\n  <p>即</p>\r\n  <div class=\"fm\">$$u''-\\frac1x u'=x+1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：降阶解出 $u$</h3>\r\n  <p>令 $v=u'$：$v'-\\dfrac vx=x+1$，积分因子 $\\dfrac1x$，得 $\\left(\\dfrac vx\\right)'=1+\\dfrac1x$，故</p>\r\n  <div class=\"fm\">$$v=x^{2}+x\\ln x+Cx\\ \\Longrightarrow\\ u=\\frac{x^{3}}{3}+\\int x\\ln x\\,\\mathrm dx+\\frac{C}{2}x^{2}.$$</div>\r\n  <p>而 $\\displaystyle\\int x\\ln x\\,\\mathrm dx=\\frac{x^{2}}{2}\\ln x-\\frac{x^{2}}{4}$，故 $u=\\dfrac{x^{3}}{3}+\\dfrac{x^{2}}{2}\\ln x+C_{1}x^{2}+C_{2}$，其中 $C_{1}=\\dfrac{2C-1}{4}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：乘回 $\\mathrm e^{x}$</h3>\r\n  <div class=\"fm\">$$y=\\mathrm e^{x}\\left(\\frac{x^{3}}{3}+\\frac{x^{2}}{2}\\ln x+C_{1}x^{2}+C_{2}\\right).$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "二阶线性方程 $a(x)y''+b(x)y'+c(x)y=\\cdots$，若 $a+b+c=0$，则 $y=\\mathrm e^{x}$ 必是齐次解；若 $a-b+c=0$，则 $y=\\mathrm e^{-x}$ 是解。",
+        "items": [
+          "这是最快的\"猜解\"技巧，比试 $x^{k}$、$\\mathrm e^{\\lambda x}$ 都快；本节的题 13、题 23 都靠它；",
+          "已知一个解后，另一解可用 $y_2=u\\mathrm e^{x}$ 或直接用 Liouville 公式求；",
+          "常数变易后 $u$ 满足的方程一定\"缺 $u$ 项\"（$u$ 的系数为 0），若没缺，说明前面的解猜错了；",
+          "$\\int x\\ln x\\,\\mathrm dx$ 必背：$\\frac{x^{2}}{2}\\ln x-\\frac{x^{2}}{4}$，这种积分在竞赛里出现频率很高。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\mathrm e^{x}\\left(\\dfrac{x^{3}}{3}+\\dfrac{x^{2}}{2}\\ln x+C_{1}x^{2}+C_{2}\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "「系数和为零」这个信号",
+          "latex": "$$x=1\\ \\text{处系数之和为}\\ 1-\\left(2+1\\right)+\\left(1+1\\right)=0\\ \\Longrightarrow\\ \\mathrm{e}^{x}\\ \\text{是齐次解}$$"
+        },
+        {
+          "name": "设 $y=u e^{x}$ 降阶",
+          "latex": "$$xu''-u'=x^{2}+x\\ \\Longrightarrow\\ u''-\\frac1xu'=x+1$$"
+        },
+        {
+          "name": "一阶线性",
+          "latex": "$$\\left(\\frac{u'}{x}\\right)'=1+\\frac1x$$"
+        }
+      ]
+    },
+    {
+      "seq": 14,
+      "number": "题 14",
+      "title": "$(y')^{3}$ 型 · 把 $x$ 当未知函数",
+      "chapter": 4,
+      "stemHtml": "求微分方程 $\\dfrac{\\mathrm d^{2}y}{\\mathrm dx^{2}}+\\left(4x+\\mathrm e^{2y}\\right)\\left(\\dfrac{\\mathrm dy}{\\mathrm dx}\\right)^{3}=0$ 的通解，要求满足 $\\dfrac{\\mathrm dy}{\\mathrm dx}\\neq0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【出现 $(y')^{3}$ 且 $y''$ 与 $(y')^{3}$ 同现 $\\to$ 这正是 $\\dfrac{\\mathrm d^{2}x}{\\mathrm dy^{2}}=-\\dfrac{y''}{(y')^{3}}$ 的\"反函数二阶导\"结构 $\\to$ 把 $x$ 当未知函数、$y$ 当自变量，方程变成 $x''-4x=\\mathrm e^{2y}$（常系数线性）】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：反函数求导公式</h3>\r\n  <p>由 $\\dfrac{\\mathrm dx}{\\mathrm dy}=\\dfrac{1}{y'}$（题设 $y'\\neq0$ 保证可反解），</p>\r\n  <div class=\"fm\">$$\\frac{\\mathrm d^{2}x}{\\mathrm dy^{2}}=\\frac{\\mathrm d}{\\mathrm dy}\\left(\\frac{1}{y'}\\right)=-\\frac{1}{(y')^{2}}\\frac{\\mathrm dy'}{\\mathrm dy}=-\\frac{1}{(y')^{2}}\\cdot\\frac{y''}{y'}=-\\frac{y''}{(y')^{3}}.$$</div>\r\n  <p>故 $y''+(4x+\\mathrm e^{2y})(y')^{3}=0$ 两边除以 $(y')^{3}$ 得 $-x''+4x+\\mathrm e^{2y}=0$，即</p>\r\n  <div class=\"fm\">$$\\frac{\\mathrm d^{2}x}{\\mathrm dy^{2}}-4x=\\mathrm e^{2y}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解关于 $x(y)$ 的常系数方程</h3>\r\n  <p>特征方程 $\\lambda^{2}-4=0$，$\\lambda=\\pm2$，齐次解 $X=C_{1}\\mathrm e^{2y}+C_{2}\\mathrm e^{-2y}$。右端 $\\mathrm e^{2y}$ 中 $\\lambda=2$ 是单根（共振），设 $x^{*}=Ay\\mathrm e^{2y}$：</p>\r\n  <div class=\"fm\">$$x^{*''}-4x^{*}=A\\mathrm e^{2y}(4+4y)-4Ay\\mathrm e^{2y}=4A\\mathrm e^{2y}=1\\cdot\\mathrm e^{2y}\\ \\Longrightarrow\\ A=\\frac14.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写通解</h3>\r\n  <div class=\"fm\">$$x=C_{1}\\mathrm e^{2y}+C_{2}\\mathrm e^{-2y}+\\frac{y}{4}\\mathrm e^{2y}.$$</div>\r\n  <p>这是\"以 $y$ 为自变量\"的通解形式，不必再解出 $y=y(x)$——原方程的通解就是这个隐式关系。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到 $y''$ 与 $(y')^{n}$ 同现（尤其 $(y')^{3}$），十有八九是把 $x$ 换作未知函数的信号。",
+        "items": [
+          "三条公式必须记牢：$\\frac{\\mathrm dx}{\\mathrm dy}=\\frac{1}{y'}$、$\\frac{\\mathrm d^{2}x}{\\mathrm dy^{2}}=-\\frac{y''}{(y')^{3}}$、$\\frac{\\mathrm d^{3}x}{\\mathrm dy^{3}}=\\frac{3(y'')^{2}-y'y'''}{(y')^{5}}$；",
+          "换完之后要检查\"自变量/未知函数\"彻底对调：方程里不能再出现 $y$ 对 $x$ 的导数；",
+          "题设 $\\frac{\\mathrm dy}{\\mathrm dx}\\neq0$ 不是废话，它保证 $x=x(y)$ 可导、可反解；",
+          "解出的 $x=C_{1}\\mathrm e^{2y}+C_{2}\\mathrm e^{-2y}+\\frac y4\\mathrm e^{2y}$ 就是通解，允许保留 $y$ 作自变量（隐式解也是解）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x=C_{1}\\mathrm e^{2y}+C_{2}\\mathrm e^{-2y}+\\dfrac{y}{4}\\mathrm e^{2y}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "反函数求导",
+          "latex": "$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{1}{x'},\\qquad \\frac{\\mathrm{d}^{2}y}{\\mathrm{d}x^{2}}=-\\frac{x''}{\\left(x'\\right)^{3}}$$"
+        },
+        {
+          "name": "代入成线性方程",
+          "latex": "$$x''-4x=\\mathrm{e}^{2y}$$"
+        },
+        {
+          "name": "共振特解",
+          "latex": "$$x^{*}=\\frac y4\\mathrm{e}^{2y}$$"
+        }
+      ]
+    },
+    {
+      "seq": 15,
+      "number": "题 15",
+      "title": "含 $f(x)$ 的任一解在 $x\\to+\\infty$ 的极限 · 先解 $u=y'+y$",
+      "chapter": 4,
+      "stemHtml": "设函数 $y=y(x)$ 是微分方程 $y''+6y'+5y=f(x)$ 的任一解，其中 $f(x)$ 是区间 $[a,+\\infty)$ 上的连续函数，且 $\\lim\\limits_{x\\to+\\infty}f(x)=A$（有限常数），求极限 $\\lim\\limits_{x\\to+\\infty}y(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【$y''+6y'+5y$ 可以拆成 $(y''+y')+5(y'+y)$ 或 $(y''+5y')+(y'+5y)$ $\\to$ 令 $u=y'+y$、$v=y'+5y$，各得一阶线性方程，解出后用 $y=\\dfrac{v-u}{4}$ 还原；$\\int_a^xe^{t}f$ 的极限靠一次洛必达】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拆成两个一阶方程</h3>\r\n  <p>由 $(y'+y)'+5(y'+y)=f(x)$ 与 $(y'+5y)'+(y'+5y)=f(x)$，令 $u=y'+y$、$v=y'+5y$：</p>\r\n  <div class=\"fm\">$$u'+5u=f(x)\\ \\Longrightarrow\\ u=\\mathrm e^{-5x}\\left(\\int_a^{x}\\mathrm e^{5t}f(t)\\mathrm dt+C_{3}\\right),$$</div>\r\n  <div class=\"fm\">$$v'+v=f(x)\\ \\Longrightarrow\\ v=\\mathrm e^{-x}\\left(\\int_a^{x}\\mathrm e^{t}f(t)\\mathrm dt+C_{4}\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：还原 $y$ 的通解</h3>\r\n  <p>由 $v-u=4y$ 得 $y=\\dfrac{v-u}{4}$。取 $C_{3}=C_{4}=0$ 得到一个特解</p>\r\n  <div class=\"fm\">$$y^{*}=\\frac14\\mathrm e^{-x}\\int_a^{x}\\mathrm e^{t}f(t)\\mathrm dt-\\frac14\\mathrm e^{-5x}\\int_a^{x}\\mathrm e^{5t}f(t)\\mathrm dt,$$</div>\r\n  <p>再补上齐次通解 $C_{1}\\mathrm e^{-x}+C_{2}\\mathrm e^{-5x}$（与 $y^*$ 中的两项形式重复，可并入常数）。故任一解形如</p>\r\n  <div class=\"fm\">$$y=C_{1}\\mathrm e^{-x}+C_{2}\\mathrm e^{-5x}+\\frac14\\mathrm e^{-x}\\int_a^{x}\\mathrm e^{t}f(t)\\mathrm dt-\\frac14\\mathrm e^{-5x}\\int_a^{x}\\mathrm e^{5t}f(t)\\mathrm dt.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：逐项取极限</h3>\r\n  <p>前两项 $\\to0$。对 $\\dfrac{\\int_a^{x}\\mathrm e^{t}f(t)\\mathrm dt}{\\mathrm e^{x}}$ 用洛必达（$\\frac{*}{\\infty}$ 型）：</p>\r\n  <div class=\"fm\">$$\\lim_{x\\to+\\infty}\\mathrm e^{-x}\\int_a^{x}\\mathrm e^{t}f(t)\\mathrm dt=\\lim_{x\\to+\\infty}\\frac{\\mathrm e^{x}f(x)}{\\mathrm e^{x}}=\\lim_{x\\to+\\infty}f(x)=A.$$</div>\r\n  <p>同理 $\\lim\\limits_{x\\to+\\infty}\\mathrm e^{-5x}\\displaystyle\\int_a^{x}\\mathrm e^{5t}f(t)\\mathrm dt=\\dfrac{A}{5}$。于是</p>\r\n  <div class=\"fm\">$$\\lim_{x\\to+\\infty}y(x)=\\frac{A}{4}-\\frac{A}{20}=\\frac{A}{5}.$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "\"任一解\"意味着答案与 $C_{1},C_{2}$ 无关——所以只要能证明齐次部分趋于 0，极限就由特解决定。",
+        "items": [
+          "特征根 $-1$、$-5$ 全为负，齐次解 $\\to0$，这是极限存在的根本原因；若特征根有正根，极限一般不存在；",
+          "把二阶拆成两个一阶（$u=y'+y$ 与 $v=y'+5y$）是本题的巧处：拆法取决于特征根 $-1,-5$；",
+          "$\\lim\\limits_{x\\to\\infty}\\mathrm e^{-kx}\\int_a^x\\mathrm e^{kt}f=A/k$（$k&gt;0$）是通用结论，用洛必达一行证完；",
+          "可能的坑：忘了 $f$ 只是在 $[a,+\\infty)$ 连续，所以积分下限写 $a$ 而不是 $0$（写 $0$ 在 $a&gt;0$ 时无意义）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\lim\\limits_{x\\to+\\infty}y(x)=\\dfrac{A}{5}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "拆成两个一阶",
+          "latex": "$$u=y'+y,\\qquad u'+5u=f$$"
+        },
+        {
+          "name": "通解",
+          "latex": "$$y=C_1\\mathrm{e}^{-x}+C_2\\mathrm{e}^{-5x}+y^{*}$$"
+        },
+        {
+          "name": "逐项取极限",
+          "latex": "$$\\lim_{x\\to+\\infty}y(x)=\\frac A5$$"
+        }
+      ]
+    },
+    {
+      "seq": 16,
+      "number": "题 16",
+      "title": "法线斜率条件 · 一阶线性（法线斜率是 $-1/y'$）",
+      "chapter": 4,
+      "stemHtml": "一曲线通过点 $(\\mathrm e,1)$，且在曲线上任一点处的法线的斜率等于 $\\dfrac{-x\\ln x}{x+y\\ln x}$。求这曲线的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"法线斜率\"$\\to$ 先换成切线斜率 $y'=-\\dfrac{1}{k_{\\text{法}}}$，得到 $y'=\\dfrac{x+y\\ln x}{x\\ln x}=\\dfrac1{\\ln x}+\\dfrac yx$，这是标准的一阶线性方程；再用过点 $(\\mathrm e,1)$ 定常数】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：翻译成微分方程</h3>\r\n  <p>法线斜率 $k_{\\text{法}}=-\\dfrac{x\\ln x}{x+y\\ln x}$，而法线与切线垂直，$k_{\\text{法}}=-\\dfrac1{y'}$，故</p>\r\n  <div class=\"fm\">$$-\\frac{1}{y'}=-\\frac{x\\ln x}{x+y\\ln x}\\ \\Longrightarrow\\ y'=\\frac{x+y\\ln x}{x\\ln x}=\\frac{1}{\\ln x}+\\frac yx.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解一阶线性</h3>\r\n  <p>$y'-\\dfrac yx=\\dfrac{1}{\\ln x}$，积分因子 $\\dfrac1x$：</p>\r\n  <div class=\"fm\">$$\\left(\\frac yx\\right)'=\\frac{1}{x\\ln x}\\ \\Longrightarrow\\ \\frac yx=\\ln\\left|\\ln x\\right|+C.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：代点定常数</h3>\r\n  <p>过 $(\\mathrm e,1)$：$\\dfrac1{\\mathrm e}=\\ln 1+C=C$，故 $C=\\dfrac1{\\mathrm e}$，即</p>\r\n  <div class=\"fm\">$$y=\\frac{x}{\\mathrm e}+x\\ln\\left(\\ln x\\right).$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "法线斜率 $=-\\dfrac{1}{y'}$；切线斜率 $=y'$。\"法线\"两字是唯一的陷阱。",
+        "items": [
+          "题目给的是 $\\frac{-x\\ln x}{x+y\\ln x}$ 这种分式，先取倒数再乘 $-1$，一步就化成线性；",
+          "解出的 $y'=\\frac1{\\ln x}+\\frac yx$ 属于 $y'+P(x)y=Q(x)$，$P=-\\frac1x$，积分因子 $\\mathrm e^{-\\int\\frac1x}=\\frac1x$；",
+          "$\\int\\frac{\\mathrm dx}{x\\ln x}=\\ln\\left|\\ln x\\right|$，这条积分在本题是\"必须要会\"的；",
+          "定义域 $\\ln x&gt;0$ 即 $x&gt;1$，点 $(\\mathrm e,1)$ 落在其中，答案在 $x&gt;1$ 上有效。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\dfrac x{\\mathrm e}+x\\ln\\left(\\ln x\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "法线斜率",
+          "latex": "$$-\\frac{1}{y'}=-\\frac{x\\ln x}{x+y\\ln x}$$"
+        },
+        {
+          "name": "化为一阶线性",
+          "latex": "$$y'-\\frac1xy=\\frac{1}{\\ln x}$$"
+        },
+        {
+          "name": "通解",
+          "latex": "$$y=x\\left(\\ln\\left|\\ln x\\right|+C\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 17,
+      "number": "题 17",
+      "title": "面积条件 $\\to$ 含变上限的方程 $\\to$ 求导成微分方程",
+      "chapter": 4,
+      "stemHtml": "有连接两点 $A(0,1)$ 与 $B(1,0)$ 的一条曲线，它位于弦 $AB$ 的上方，$P(x,y)$ 是曲线上任意一点。已知曲线与弦 $AP$ 之间的面积为 $x^{3}$，求曲线方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"曲线与弦 $AP$ 之间的面积 $=x^{3}$\"$\\to$ 是面积 $\\to$ 用定积分写：$\\displaystyle\\int_0^{x}\\left[y(t)-\\text{弦}AP\\text{的纵坐标}\\right]\\mathrm dt=x^{3}$；弦 $AP$ 过 $A(0,1)$ 与 $P(x,y)$，方程里含 $y$ 与 $x$ $\\to$ 求导把积分号去掉，得微分方程】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出面积式</h3>\r\n  <p>弦 $AP$ 的斜率 $\\dfrac{y-1}{x}$，故其纵坐标为 $1+\\dfrac{y-1}{x}t$（$t\\in[0,x]$）。由于曲线在弦上方，</p>\r\n  <div class=\"fm\">$$\\int_0^{x}y(t)\\mathrm dt-\\left[x+\\frac{(y-1)x}{2}\\right]=x^{3}.$$</div>\r\n  <p>（梯形面积 = $\\dfrac{1}{2}\\left[1+y\\right]x=x+\\dfrac{(y-1)x}{2}$，这里 $y$ 指 $y(x)$。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：对 $x$ 求导</h3>\r\n  <p>注意 $x\\dfrac{y-1}{2}$ 是乘积，求导要用乘积法则：</p>\r\n  <div class=\"fm\">$$y-1-\\frac12\\left[(y-1)+xy'\\right]=3x^{2}.$$</div>\r\n  <p>整理：$y-1-xy'=6x^{2}$，即</p>\r\n  <div class=\"fm\">$$y'-\\frac yx=-\\frac1x-6x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：解线性方程并代两点</h3>\r\n  <p>积分因子 $\\dfrac1x$：$\\left(\\dfrac yx\\right)'=-\\dfrac{1}{x^{2}}-6$，积分得 $\\dfrac yx=\\dfrac1x-6x+C$，即 $y=1-6x^{2}+Cx$。</p>\r\n  <p>由 $A(0,1)$ 自动满足；由 $B(1,0)$：$0=1-6+C$，$C=5$。故 $y=-6x^{2}+5x+1$（它是开口向下的抛物线，在弦 $y=1-x$ 上方，符合题意）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "凡是\"面积、弧长、旋转体体积\"这类几何量给成等式，都先写成定积分，再对上限求导，一次求导就把积分方程变成微分方程。",
+        "items": [
+          "写面积前先画图定\"谁减谁\"：曲线在弦上方则\"曲线上纵坐标 − 弦上纵坐标\"；",
+          "弦 $AP$ 的纵坐标随 $x$ 变化，含 $y(x)$，求导时<b>千万别把它当常数</b>——本题的 $xy'$ 就来自这里；",
+          "两个已知点给两个条件：一个定常数，另一个用于验证（本题 $A$ 自动满足，说明推导无误）；",
+          "这类题最后都用\"曲线在弦上方\"验证答案的凹凸与位置，答完回读一遍题意。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=-6x^{2}+5x+1$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "面积式",
+          "latex": "$$\\int_0^{x}y(t)\\,\\mathrm{d}t-\\frac{x\\left[y(x)+1\\right]}{2}=x^{3}$$"
+        },
+        {
+          "name": "求导成一阶方程",
+          "latex": "$$xy'-y=-1-6x^{2}$$"
+        },
+        {
+          "name": "代两点定常数",
+          "latex": "$$A(0,1)\\ \\text{与}\\ B(1,0)\\ \\text{都要满足}$$"
+        }
+      ]
+    },
+    {
+      "seq": 18,
+      "number": "题 18",
+      "title": "积分-微分方程 · 求导两次消积分 + 共振特解",
+      "chapter": 4,
+      "stemHtml": "求满足 $f'(x)+2f(x)+5\\displaystyle\\int_0^{x}f(x)\\mathrm dx+\\cos 3x=0$，且 $f(0)=0$、$f'(0)=-1$ 的函数 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【方程里既有 $f'$ 又有 $\\int_0^x f$ $\\to$ 对 $x$ 求导，把积分变成 $f(x)$，得到二阶常系数方程；$\\cos 3x$ 求导后变 $-\\sin 3x$（右端 $3\\sin 3x$），$\\lambda=\\pm3\\mathrm i$ 不是特征根 $\\to$ 设 $A\\cos3x+B\\sin3x$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：求导化微分方程</h3>\r\n  <p>原式对 $x$ 求导：$f''+2f'+5f-3\\sin 3x=0$，即</p>\r\n  <div class=\"fm\">$$f''+2f'+5f=3\\sin 3x.$$</div>\r\n  <p>特征方程 $\\lambda^{2}+2\\lambda+5=0$，$\\lambda=-1\\pm2\\mathrm i$，齐次解 $\\mathrm e^{-x}\\left(C_{1}\\cos 2x+C_{2}\\sin 2x\\right)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求特解</h3>\r\n  <p>设 $y^{*}=A\\cos 3x+B\\sin 3x$，则 $y^{*''}=-9y^{*}$，代入得 $(-9+5)y^{*}+2y^{*'}=3\\sin 3x$，即</p>\r\n  <div class=\"fm\">$$-4\\left(A\\cos 3x+B\\sin 3x\\right)+2\\left(-3A\\sin 3x+3B\\cos 3x\\right)=3\\sin 3x.$$</div>\r\n  <p>比较系数：$\\cos$：$-4A+6B=0$；$\\sin$：$-4B-6A=3$。解得 $B=\\dfrac23A$，代入第二式得 $-\\dfrac{26}{3}A=3$，故 $A=-\\dfrac{9}{26}$、$B=-\\dfrac{3}{13}$，即 $y^{*}=-\\dfrac{3}{26}\\left(3\\cos 3x+2\\sin 3x\\right)$。</p>\r\n  <p>复数法可一步验证：$3\\sin 3x=\\operatorname{Im}\\left(3\\mathrm e^{3\\mathrm ix}\\right)$，而 $P(3\\mathrm i)=-4+6\\mathrm i$，</p>\r\n  <div class=\"fm\">$$\\frac{3}{-4+6\\mathrm i}=\\frac{3(-4-6\\mathrm i)}{52}=-\\frac{3}{13}-\\frac{9}{26}\\mathrm i,$$</div>\r\n  <p>乘 $\\cos3x+\\mathrm i\\sin3x$ 取虚部得 $-\\dfrac{3}{13}\\sin 3x-\\dfrac{9}{26}\\cos 3x$，与上面一致 ✓。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：代初值定常数</h3>\r\n  <p>$f=\\mathrm e^{-x}\\left(C_{1}\\cos 2x+C_{2}\\sin 2x\\right)-\\dfrac{3}{26}\\left(3\\cos 3x+2\\sin 3x\\right)$。</p>\r\n  <p>由 $f(0)=0$：$C_{1}-\\dfrac{9}{26}=0$，$C_{1}=\\dfrac{9}{26}=\\dfrac{18}{52}$。</p>\r\n  <p>求导：$f'=\\mathrm e^{-x}\\left[\\left(-C_{1}+2C_{2}\\right)\\cos 2x+\\left(-C_{2}-2C_{1}\\right)\\sin 2x\\right]+\\dfrac{27}{26}\\sin 3x-\\dfrac{18}{26}\\cos 3x$，在 $x=0$ 处为 $\\left(-C_{1}+2C_{2}\\right)-\\dfrac{18}{26}$。由 $f'(0)=-1$：</p>\r\n  <div class=\"fm\">$$-C_{1}+2C_{2}=-1+\\frac{18}{26}=-\\frac{4}{13}\\ \\Longrightarrow\\ 2C_{2}=-\\frac{4}{13}+\\frac{9}{26}=\\frac{1}{26},\\quad C_{2}=\\frac{1}{52}.$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "$\\int_0^x$ 出现一次就求一次导；求导次数 = 消掉积分的次数，同时会\"抬高\"阶数，所以初值条件数目要跟阶数对上。",
+        "items": [
+          "求导前先确认 $f$ 可微（题目已给），求导后原式的 $f(0)=0$ 仍然有效，别丢掉；",
+          "$\\cos3x$ 求导得 $-3\\sin3x$，右端是 $3\\sin3x$，注意符号——本题 $A,B$ 都为负就来自这个负号；",
+          "$\\lambda=\\pm3\\mathrm i$ 不是特征根，特解不必乘 $x$；一旦右端频率与特征根的虚部相同（如 $f''+4f=\\sin 2x$），<b>必须乘 $x$</b>，务必先比一次；",
+          "用复数法求\"$\\cos/\\sin$ 型\"特解最快：$P(\\mathrm i\\omega)$ 一算，取实部/虚部即可，比硬比较系数省一半时间。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=\\dfrac{\\mathrm e^{-x}}{52}\\left(18\\cos 2x+\\sin 2x\\right)-\\dfrac{3}{26}\\left(3\\cos 3x+2\\sin 3x\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "求导消掉积分",
+          "latex": "$$f''+2f'+5f=3\\sin3x$$"
+        },
+        {
+          "name": "特征根",
+          "latex": "$$\\lambda^{2}+2\\lambda+5=0\\ \\Longrightarrow\\ \\lambda=-1\\pm2\\mathrm{i}$$"
+        },
+        {
+          "name": "非共振三角特解",
+          "latex": "$$f^{*}=A\\cos3x+B\\sin3x$$"
+        }
+      ]
+    },
+    {
+      "seq": 19,
+      "number": "题 19",
+      "title": "卷积型积分方程 · 换元 $\\to$ 分部 $\\to$ 求导",
+      "chapter": 4,
+      "stemHtml": "设二阶可微函数 $f(x)$ 满足方程 $\\displaystyle\\int_0^{x}(t+1)f'(x-t)\\mathrm dt=x^{2}+\\mathrm e^{x}-f(x)$，求 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【核里是 $f'(x-t)$、外面是 $(t+1)$ $\\to$ 换元 $u=x-t$ 把 $f'$ 的\"参数\"统一成 $u$；换完后 $\\displaystyle\\int_0^x(x+1-u)f'(u)\\mathrm du$ 里含 $f'$ $\\to$ 分部积分把 $f'$ 变成 $f$，得到一个\"$f$ 加变上限积分\"的方程，再求导成线性方程】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换元</h3>\r\n  <p>令 $u=x-t$，$t=x-u$，$\\mathrm dt=-\\mathrm du$，$t:0\\to x$ 对应 $u:x\\to0$：</p>\r\n  <div class=\"fm\">$$\\int_0^{x}(t+1)f'(x-t)\\mathrm dt=\\int_0^{x}(x+1-u)f'(u)\\mathrm du.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分部积分</h3>\r\n  <div class=\"fm\">$$\\int_0^{x}(x+1-u)f'(u)\\mathrm du=(x+1)\\left[f(x)-f(0)\\right]-\\left[uf(u)\\Big|_0^x-\\int_0^{x}f(u)\\mathrm du\\right]=f(x)-(x+1)f(0)+\\int_0^{x}f(u)\\mathrm du.$$</div>\r\n  <p>代回原方程：$f(x)-(x+1)f(0)+\\displaystyle\\int_0^{x}f=x^{2}+\\mathrm e^{x}-f(x)$，即</p>\r\n  <div class=\"fm\">$$2f(x)+\\int_0^{x}f(u)\\mathrm du-(x+1)f(0)=x^{2}+\\mathrm e^{x}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：求导解线性方程</h3>\r\n  <p>令 $x=0$ 定 $f(0)$：$2f(0)-f(0)=1$，故 $f(0)=1$。两边求导（注意 $(x+1)f(0)$ 导数为 $f(0)$）：</p>\r\n  <div class=\"fm\">$$2f'(x)+f(x)-1=2x+\\mathrm e^{x}\\ \\Longrightarrow\\ f'+\\frac12f=x+\\frac12+\\frac12\\mathrm e^{x}.$$</div>\r\n  <p>积分因子 $\\mathrm e^{x/2}$：$\\left(f\\mathrm e^{x/2}\\right)'=\\mathrm e^{x/2}\\left(x+\\dfrac12\\right)+\\dfrac12\\mathrm e^{3x/2}$，逐项积分（$\\int x\\mathrm e^{x/2}=2x\\mathrm e^{x/2}-4\\mathrm e^{x/2}$、$\\int\\frac12\\mathrm e^{x/2}=\\mathrm e^{x/2}$）得</p>\r\n  <div class=\"fm\">$$f\\mathrm e^{x/2}=2x\\mathrm e^{x/2}-3\\mathrm e^{x/2}+\\frac13\\mathrm e^{3x/2}+C.$$</div>\r\n  <p>由 $f(0)=1$：$-3+\\dfrac13+C=1$，$C=\\dfrac{11}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "$f(x-t)$ 型核，第一步永远是 $u=x-t$；换元后上限变 $-x$ 或保持 $x$，符号务必重算一遍。",
+        "items": [
+          "换元后 $(t+1)$ 变成 $(x+1-u)$，<b>$x$ 出现在被积函数里</b>，分部时它当常数处理，但求导时会产生额外项；",
+          "分部一次就把 $f'$ 转成 $f$ 与 $\\int f$，这一步是本题的核心，别漏掉 $uf(u)\\big|_0^x$ 的边界项；",
+          "求导前先令 $x=0$ 拿到 $f(0)$，否则 $(x+1)f(0)$ 求导后就找不到 $f(0)$ 的值了；",
+          "本题线性方程的解含 $\\mathrm e^{-x/2}$ 这一项，是\"$\\int \\mathrm e^{3x/2}$ 除以积分因子\"的产物，核对时最容易看错指数。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=2x-3+\\dfrac13\\mathrm e^{x}+\\dfrac{11}{3}\\mathrm e^{-x/2}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "换元",
+          "latex": "$$\\int_0^{x}\\left(t+1\\right)f'(x-t)\\mathrm{d}t=\\int_0^{x}\\left(x-u+1\\right)f'(u)\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "分部",
+          "latex": "$$\\int_0^{x}uf'(u)\\,\\mathrm{d}u=xf(x)-\\int_0^{x}f(u)\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "求导成一阶线性",
+          "latex": "$$f'(x)+f(x)=2x+\\mathrm{e}^{x}\\ \\text{型}$$"
+        }
+      ]
+    },
+    {
+      "seq": 20,
+      "number": "题 20",
+      "title": "$f=\\sin x-\\int_0^x(x-t)f$ · 求导两次",
+      "chapter": 4,
+      "stemHtml": "设 $f(x)=\\sin x-\\displaystyle\\int_0^{x}(x-t)f(t)\\mathrm dt$，其中 $f(x)$ 为连续函数，试求 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【$(x-t)$ 是\"核里带 $x$\"的典型 $\\to$ 把积分拆成 $x\\displaystyle\\int_0^xf-\\int_0^xtf$，求导时前面那项产生 $xf$ 与 $xf$ 相消（这正是 $(x-t)$ 这个核的妙处），剩下 $f''=-f-\\sin x$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拆开并求导一次</h3>\r\n  <div class=\"fm\">$$f(x)=\\sin x-x\\int_0^{x}f(t)\\mathrm dt+\\int_0^{x}tf(t)\\mathrm dt,$$</div>\r\n  <div class=\"fm\">$$f'(x)=\\cos x-\\int_0^{x}f(t)\\mathrm dt-xf(x)+xf(x)=\\cos x-\\int_0^{x}f(t)\\mathrm dt.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：再求导得 $f''+f=-\\sin x$</h3>\r\n  <div class=\"fm\">$$f''=-\\sin x-f\\ \\Longrightarrow\\ f''+f=-\\sin x.$$</div>\r\n  <p>初值：$f(0)=\\sin 0-0=0$，$f'(0)=\\cos 0-0=1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：共振特解</h3>\r\n  <p>齐次解 $C_{1}\\cos x+C_{2}\\sin x$；右端 $-\\sin x$ 与齐次解同频（$\\pm\\mathrm i$ 是特征根），特解须设 $y^{*}=x\\left(A\\cos x+B\\sin x\\right)$。对 $y^{*}=xA\\cos x+xB\\sin x$ 直接算得 $y^{*''}+y^{*}=-2A\\sin x+2B\\cos x$，令其等于 $-\\sin x$，得 $A=\\dfrac12$、$B=0$，即 $y^{*}=\\dfrac x2\\cos x$。</p>\r\n  <p>故 $f=C_{1}\\cos x+C_{2}\\sin x+\\dfrac x2\\cos x$。由 $f(0)=C_{1}=0$；$f'(0)=C_{2}+\\dfrac12=1$ 得 $C_{2}=\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "$\\int_0^x(x-t)f(t)\\mathrm dt$ 这个\"二重积分核\"，求导一次后变成 $\\int_0^xf$，求导两次后变成 $f$——记住这个节奏。",
+        "items": [
+          "先拆成 $x\\int_0^xf-\\int_0^xtf$ 再求导，两次 $xf(x)$ 自动相消，不留\"多出来的项\"；",
+          "$f(0)$ 与 $f'(0)$ 都要从原式取：$f'(0)$ 要把求导后的式子代 $x=0$，不能只代原式；",
+          "$\\pm\\mathrm i$ 是特征根 → 特解乘 $x$，这是本题最关键的一步，不乘根本凑不出 $-\\sin x$；",
+          "本题 $\\int_0^x(x-t)f$ 还有几何含义（二阶导的积分），这类核在振动、卷积里反复出现。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=\\dfrac12\\left(x\\cos x+\\sin x\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "拆开后求导一次",
+          "latex": "$$f'(x)=\\cos x-\\int_0^{x}f(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "再求导",
+          "latex": "$$f''+f=-\\sin x$$"
+        },
+        {
+          "name": "共振特解",
+          "latex": "$$f^{*}=\\frac x2\\cos x$$"
+        }
+      ]
+    },
+    {
+      "seq": 21,
+      "number": "题 21",
+      "title": "\"公切线\"= 值相等 + 斜率相等（隐函数求导）",
+      "chapter": 4,
+      "stemHtml": "求方程 $y''-5y'+6y=2\\mathrm e^{x}$ 在横坐标 $x=0$ 的点处与曲线 $2\\sin x-\\mathrm e^{y}+xy+1=0$ 相切（即有公共切线）的积分曲线。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"相切\"$\\to$ 在 $x=0$ 处两曲线的 $y$ 值相等且 $y'$ 值相等 $\\to$ 先由隐式曲线在 $x=0$、$y=y(0)$ 处定出 $y(0)$ 与 $y'(0)$（隐函数求导），再把它当初始条件解方程】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：由隐式曲线取初值</h3>\r\n  <p>在 $x=0$ 处设两曲线公共点为 $(0,y_{0})$，代入 $2\\sin x-\\mathrm e^{y}+xy+1=0$：</p>\r\n  <div class=\"fm\">$$0-\\mathrm e^{y_{0}}+0+1=0\\ \\Longrightarrow\\ \\mathrm e^{y_{0}}=1,\\quad y_{0}=0.$$</div>\r\n  <p>对该式两边求导（$y$ 是 $x$ 的隐函数）：$2\\cos x-\\mathrm e^{y}y'+y+xy'=0$，在 $(0,0)$ 处得</p>\r\n  <div class=\"fm\">$$2\\cdot1-y'(0)+0+0=0\\ \\Longrightarrow\\ y'(0)=2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解方程并代初值</h3>\r\n  <p>特征方程 $\\lambda^{2}-5\\lambda+6=(\\lambda-2)(\\lambda-3)=0$，齐次解 $C_{1}\\mathrm e^{2x}+C_{2}\\mathrm e^{3x}$；$2\\mathrm e^{x}$ 中 $\\lambda=1$ 不是根，设 $A\\mathrm e^{x}$：$A-5A+6A=2A=2$，$A=1$。故 $y=C_{1}\\mathrm e^{2x}+C_{2}\\mathrm e^{3x}+\\mathrm e^{x}$。</p>\r\n  <p>由 $y(0)=C_{1}+C_{2}+1=0$、$y'(0)=2C_{1}+3C_{2}+1=2$ 得 $C_{1}+C_{2}=-1$、$2C_{1}+3C_{2}=1$，解得 $C_{1}=-4$、$C_{2}=3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "\"曲线 $y_1$ 与 $y_2$ 在 $x_{0}$ 处相切\"$\\iff$ $y_1(x_{0})=y_2(x_{0})$ 且 $y_1'(x_{0})=y_2'(x_{0})$。",
+        "items": [
+          "对方程里的隐式曲线求导时把 $y$ 当函数，$\\mathrm e^{y}$ 的导数是 $\\mathrm e^{y}y'$，$xy$ 的导数是 $y+xy'$，这两处最容易漏项；",
+          "先解出 $(0,0)$ 这个切点，再求斜率，顺序不能反——斜率要靠切点坐标；",
+          "解出通解后<b>两个</b>初始条件都要用，本题正好定死 $C_{1},C_{2}$；",
+          "这类\"几何条件 + 微分方程\"的题，方程本身往往很简单，全部功夫在条件的翻译上。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\mathrm e^{x}-4\\mathrm e^{2x}+3\\mathrm e^{3x}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "隐函数求导取值",
+          "latex": "$$2\\cos x-\\mathrm{e}^{y}y'+y+xy'=0\\ \\Longrightarrow\\ y(0)=0,\\ y'(0)=2$$"
+        },
+        {
+          "name": "解方程",
+          "latex": "$$y''-5y'+6y=2\\mathrm{e}^{x}\\ \\Longrightarrow\\ \\lambda=2,3$$"
+        },
+        {
+          "name": "相切要两个条件",
+          "latex": "$$\\text{值相等}+\\text{斜率相等}$$"
+        }
+      ]
+    },
+    {
+      "seq": 22,
+      "number": "题 22",
+      "title": "函数方程 $f(x+y)=\\mathrm e^{x}f(y)+\\mathrm e^{y}f(x)$ · 导数定义直接上",
+      "chapter": 4,
+      "stemHtml": "设函数 $f(x)$ 在 $x=0$ 处可导，$f'(0)=2$，且对一切实数 $x,y$，恒有 $f(x+y)=\\mathrm e^{x}f(y)+\\mathrm e^{y}f(x)$，试证明 $f(x)$ 在 $(-\\infty,+\\infty)$ 内可导，并求 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【题目只在 $x=0$ 给导数，却要证\"处处可导\"$\\to$ 只能<span>用导数定义</span>：写 $[f(x+h)-f(x)]/h$，用函数方程把 $f(x+h)$ 拆成含 $f(x)$ 与 $f(h)$ 的两块，再让 $h\\to0$。第一步先令 $y=0$ 或 $x=y=0$ 挖出 $f(0)$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用定义证可导</h3>\r\n  <p>对任意 $x$ 与 $h\\neq0$，由函数方程（取 $y=h$）：$f(x+h)=\\mathrm e^{x}f(h)+\\mathrm e^{h}f(x)$，故</p>\r\n  <div class=\"fm\">$$\\frac{f(x+h)-f(x)}{h}=\\mathrm e^{x}\\cdot\\frac{f(h)-f(0)}{h}+f(x)\\cdot\\frac{\\mathrm e^{h}-1}{h}.$$</div>\r\n  <p>令 $h\\to0$：第一项 $\\to\\mathrm e^{x}f'(0)=2\\mathrm e^{x}$（用到 $f$ 在 $0$ 处可导），第二项 $\\to f(x)$。故极限存在，且</p>\r\n  <div class=\"fm\">$$f'(x)=f(x)+2\\mathrm e^{x},$$</div>\r\n  <p>即 $f$ 在任意 $x$ 处可导（从而处处可导）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：解一阶线性方程</h3>\r\n  <p>$f'-f=2\\mathrm e^{x}$，即 $\\left(f\\mathrm e^{-x}\\right)'=2$，故 $f\\mathrm e^{-x}=2x+C$。由 $f(0)=0$ 得 $C=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "一是<b>代特殊值</b>挖出 $f(0)$（本题只能得到 $f(0)=0$）；二是<b>用导数定义</b>把\"已知一点的导数\"推广到\"处处可导\"。",
+        "items": [
+          "证可导不要上洛必达、不要假设可导——题目只给 $x=0$ 可导，只能用定义；",
+          "拆分 $f(x+h)$ 靠的是函数方程里的\"加法结构\"，这是本题唯一的信息源；",
+          "拆出两项后，一项用 $f$ 在 $0$ 处的导数，一项用 $\\lim\\frac{\\mathrm e^{h}-1}{h}=1$，两块极限各自存在即可相加；",
+          "最后解出的 $f=2x\\mathrm e^{x}$ 满足 $f(0)=0$、$f'(0)=2$，代回原式可验证：$2(x+y)\\mathrm e^{x+y}=\\mathrm e^{x}\\cdot2y\\mathrm e^{y}+\\mathrm e^{y}\\cdot2x\\mathrm e^{x}$ ✓。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f$ 在 $(-\\infty,+\\infty)$ 内可导，且 $f(x)=2x\\mathrm e^{x}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "取 $y=0$ 定 $f(0)$",
+          "latex": "$$f(0)=0$$"
+        },
+        {
+          "name": "导数定义直接上",
+          "latex": "$$f'(x)=\\mathrm{e}^{x}f'(0)+f(x)=f(x)+2\\mathrm{e}^{x}$$"
+        },
+        {
+          "name": "解线性",
+          "latex": "$$f(x)=2x\\,\\mathrm{e}^{x}$$"
+        }
+      ]
+    },
+    {
+      "seq": 23,
+      "number": "题 23",
+      "title": "\"特解含 $x\\mathrm e^{x}$\"$\\Rightarrow$ $1+a+b=0$，反推系数",
+      "chapter": 4,
+      "stemHtml": "设二阶常系数线性微分方程 $y''+ay'+by=c\\mathrm e^{x}$ 的一个特解为 $y=\\left(1+x+\\mathrm e^{x}\\right)\\mathrm e^{x}$，试确定常数 $a,b,c$，并求该方程的通解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【把 $y=\\mathrm e^{x}+x\\mathrm e^{x}+\\mathrm e^{2x}$ 拆成三块分别代入 $L(D)=D^{2}+aD+b$ $\\to$ 因为右端只有 $c\\mathrm e^{x}$，所以 $\\mathrm e^{2x}$ 与 $x\\mathrm e^{x}$ 的贡献必须\"相互抵消成 0\"，只剩 $\\mathrm e^{x}$ 项 $\\to$ 得到 $1+a+b=0$ 与 $4+2a+b=0$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：分块代入</h3>\r\n  <p>注意 $L$ 作用在 $\\mathrm e^{\\lambda x}$ 上得 $P(\\lambda)\\mathrm e^{\\lambda x}$，$P(\\lambda)=\\lambda^{2}+a\\lambda+b$。</p>\r\n  <div class=\"fm\">$$L\\left(\\mathrm e^{2x}\\right)=P(2)\\mathrm e^{2x}=(4+2a+b)\\mathrm e^{2x},$$</div>\r\n  <div class=\"fm\">$$L\\left(x\\mathrm e^{x}\\right)=\\left[P(1)x+P'(1)\\right]\\mathrm e^{x}=(1+a+b)x\\mathrm e^{x}+(2+a)\\mathrm e^{x}.$$</div>\r\n  <p>（$L(x\\mathrm e^{x})$ 这条公式是\"$L$ 在 $\\lambda$ 处作 Taylor 展开\"的直接结论：$L\\left(x\\mathrm e^{x}\\right)=\\mathrm e^{x}\\left[xP(1)+P'(1)\\right]$。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：比较右端，解出 $a,b,c$</h3>\r\n  <p>左端总贡献为 $L(\\mathrm e^{x})+L(x\\mathrm e^{x})+L(\\mathrm e^{2x})$，右端只有 $c\\mathrm e^{x}$，故 $x\\mathrm e^{x}$ 与 $\\mathrm e^{2x}$ 的系数必须为 0，$\\mathrm e^{x}$ 的系数为 $c$：</p>\r\n  <div class=\"fm\">$$\\begin{cases}1+a+b=0\\\\ 4+2a+b=0\\\\ P(1)+(2+a)=c\\end{cases}\\Longrightarrow a=-3,\\ b=2,\\ c=-1.$$</div>\r\n  <p>（$P(1)=1-3+2=0$，$P'(1)=2+a=-1$，故 $c=0+(-1)=-1$ ✓。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写通解</h3>\r\n  <p>方程为 $y''-3y'+2y=-\\mathrm e^{x}$，特征根 $\\lambda=1,2$。$\\lambda=1$ 是单根 $\\to$ 特解 ${y}^{*}=A x\\mathrm e^{x}$：$L\\left(x\\mathrm e^{x}\\right)=P'(1)\\mathrm e^{x}=-\\mathrm e^{x}$，故 ${y}^{*}=x\\mathrm e^{x}$ 就是特解。通解</p>\r\n  <div class=\"fm\">$$y=C_{1}\\mathrm e^{2x}+C_{2}\\mathrm e^{x}+x\\mathrm e^{x}.$$</div>\r\n  <p>注意题给的 $y=\\left(1+x+\\mathrm e^{x}\\right)\\mathrm e^{x}$ 里的 $\\mathrm e^{x}$ 与 $\\mathrm e^{2x}$ 两项本身是齐次解，<b>真正属于非齐次的特解只有 $x\\mathrm e^{x}$</b>。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "$L\\left(\\mathrm e^{\\lambda x}\\right)=P(\\lambda)\\mathrm e^{\\lambda x}$；$L\\left(x\\mathrm e^{\\lambda x}\\right)=\\mathrm e^{\\lambda x}\\left[xP(\\lambda)+P'(\\lambda)\\right]$。这两条把\"代入\"变成\"代数\"。",
+        "items": [
+          "看到特解里有 $\\mathrm e^{\\lambda x}$ 这一项，说明 $P(\\lambda)=0$（$\\mathrm e^{\\lambda x}$ 是齐次解）；有 $x\\mathrm e^{\\lambda x}$，也印证同一件事；",
+          "右端只有 $c\\mathrm e^{x}$，则其他频率的系数必须全为 0——这是本题列方程的依据，比逐项硬代入省一半计算；",
+          "写通解前先分清\"哪些是齐次解、哪些是真特解\"，否则会把 $\\mathrm e^{x}$、$\\mathrm e^{2x}$ 重复计入；",
+          "验算：把 $y=x\\mathrm e^{x}$ 代入 $y''-3y'+2y$，得 $-1\\cdot\\mathrm e^{x}$ ✓，与 $c=-1$ 吻合。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$a=-3$，$b=2$，$c=-1$；通解 $y=C_{1}\\mathrm e^{2x}+C_{2}\\mathrm e^{x}+x\\mathrm e^{x}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "分块代入",
+          "latex": "$$y^{*}=\\mathrm{e}^{x}+x\\mathrm{e}^{x}+\\mathrm{e}^{2x}$$"
+        },
+        {
+          "name": "$e^{2x}$ 必须是齐次解",
+          "latex": "$$4+2a+b=0$$"
+        },
+        {
+          "name": "$xe^{x}$ 必须是特解",
+          "latex": "$$1+a+b=0,\\qquad 2+a=c$$"
+        },
+        {
+          "name": "解出",
+          "latex": "$$a=-3,\\quad b=2,\\quad c=-1$$"
+        }
+      ]
+    },
+    {
+      "seq": 24,
+      "number": "题 24",
+      "title": "三个特解 $\\to$ 两两之差是齐次解 $\\to$ 拼通解",
+      "chapter": 4,
+      "stemHtml": "设二阶线性微分方程 $y''+p(x)y'+Q(x)y=f(x)$ 的 3 个特解为 $y_{1}=x$、$y_{2}=\\mathrm e^{x}$、$y_{3}=\\mathrm e^{2x}$，试求此方程满足条件 $y(0)=1$、$y'(0)=3$ 的特解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【二阶非齐次方程的三个特解 $\\to$ 它们的<b>两两之差</b>必是齐次解（因为非齐次项 $f$ 相减抵消）$\\to$ 有了两个线性无关的齐次解就能写通解 $\"y=$ 一个特解 $+$ 两个齐次解的线性组合\"，再代初值】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：造齐次解</h3>\r\n  <p>$y_{2}-y_{1}=\\mathrm e^{x}-x$、$y_{3}-y_{1}=\\mathrm e^{2x}-x$ 都满足齐次方程 $y''+p y'+Q y=0$。它们线性无关（否则 $\\mathrm e^{x}-x$ 与 $\\mathrm e^{2x}-x$ 成比例，比较 $x$ 的系数即矛盾），故</p>\r\n  <div class=\"fm\">$$y=x+A\\left(\\mathrm e^{x}-x\\right)+B\\left(\\mathrm e^{2x}-x\\right)=x\\left(1-A-B\\right)+A\\mathrm e^{x}+B\\mathrm e^{2x}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代初值</h3>\r\n  <div class=\"fm\">$$y(0)=A+B=1,\\qquad y'(0)=\\left(1-A-B\\right)+A+2B=1+B=3,$$</div>\r\n  <p>故 $B=2$、$A=-1$，即 $y=2\\mathrm e^{2x}-\\mathrm e^{x}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "非齐次方程任意两个解之差是齐次解——这是本题唯一的信息来源，也是所有\"给特解求通解\"题的钥匙。",
+        "items": [
+          "要有 <b>两个</b>线性无关的齐次解才能写二阶的通解，所以至少要三个非齐次特解（两两作差凑两个）；",
+          "本题 $y(0)=1$ 恰好自动满足任何\"$x+A(\\mathrm e^{x}-x)+B(\\mathrm e^{2x}-x)$\"形式，不是巧合：因为 $x$、$\\mathrm e^{x}-x$、$\\mathrm e^{2x}-x$ 在 $x=0$ 处都等于 0、1、1；",
+          "另一种等价写法：$y=\\left(1-B\\right)y_{1}+Ay_{2}+By_{3}$，只要三者系数和为 1 就仍是该方程的解（因为 $f$ 的系数和为 1）；",
+          "$\\mathrm e^{x}$、$\\mathrm e^{2x}$ 的形式提示 $p,Q$ 都是常数，你可以顺便验证：$p=-3$、$Q=2$ 时 $y''-3y'+2y$ 的三解正为 $x$、$\\mathrm e^{x}$、$\\mathrm e^{2x}$（$f=x''-3x'+2x=2-3x$）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=2\\mathrm e^{2x}-\\mathrm e^{x}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "两两之差是齐次解",
+          "latex": "$$u_1=\\mathrm{e}^{x}-x,\\qquad u_2=\\mathrm{e}^{2x}-x$$"
+        },
+        {
+          "name": "通解",
+          "latex": "$$y=x+C_1\\left(\\mathrm{e}^{x}-x\\right)+C_2\\left(\\mathrm{e}^{2x}-x\\right)$$"
+        },
+        {
+          "name": "代初值",
+          "latex": "$$C_1+C_2=1,\\qquad 1+C_2=3$$"
+        }
+      ]
+    },
+    {
+      "seq": 25,
+      "number": "题 25",
+      "title": "恰当条件定 $f$（$f''+f=x^{2}$）再求势函数",
+      "chapter": 4,
+      "stemHtml": "设 $f(x)$ 具有二阶连续导数，$f(0)=0$、$f'(0)=1$，且 $\\left[xy(x+y)-f(x)y\\right]\\mathrm dx+\\left[f'(x)+x^{2}y\\right]\\mathrm dy=0$ 为一全微分方程，求 $f(x)$ 及此全微分方程的通解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"全微分方程\"$\\to$ 恰当条件 $M_{y}=N_{x}$ $\\to$ 对 $y$ 求偏导正好把 $y$ 消掉，得到一个只含 $f$ 的方程 $f''+f=x^{2}$ $\\to$ 解出 $f$ 后代回，再按\"$U_{x}=M$、$U_{y}=N$\"求势函数】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：用恰当条件定 $f$</h3>\r\n  <p>记 $M=xy(x+y)-f(x)y=x^{2}y+xy^{2}-f(x)y$，$N=f'(x)+x^{2}y$，则</p>\r\n  <div class=\"fm\">$$M_{y}=x^{2}+2xy-f(x),\\qquad N_{x}=f''(x)+2xy.$$</div>\r\n  <p>由 $M_{y}=N_{x}$：$x^{2}+2xy-f=f''+2xy$，即</p>\r\n  <div class=\"fm\">$$f''+f=x^{2}.$$</div>\r\n  <p>解得 $f=C_{1}\\cos x+C_{2}\\sin x+x^{2}-2$；由 $f(0)=0$ 得 $C_{1}=2$，由 $f'(0)=1$（$f'=-C_{1}\\sin x+C_{2}\\cos x+2x$）得 $C_{2}=1$。故</p>\r\n  <div class=\"fm\">$$f(x)=2\\cos x+\\sin x+x^{2}-2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求势函数</h3>\r\n  <p>此时代入 $f$：$f'=-2\\sin x+\\cos x+2x$，于是</p>\r\n  <div class=\"fm\">$$M=x^{2}y+xy^{2}-\\left(2\\cos x+\\sin x+x^{2}-2\\right)y,\\qquad N=-2\\sin x+\\cos x+2x+x^{2}y.$$</div>\r\n  <p>先对 $y$ 积 $N$：$U=-2y\\sin x+y\\cos x+2xy+\\dfrac12x^{2}y^{2}+\\varphi(x)$。再由 $U_{x}=M$ 求 $\\varphi$：</p>\r\n  <div class=\"fm\">$$U_{x}=-2y\\cos x-y\\sin x+2y+xy^{2}+\\varphi'(x),$$</div>\r\n  <p>与 $M$ 比较，余弦、正弦、$2y$、$xy^{2}$ 各项完全一致，故 $\\varphi'(x)=0$，$\\varphi$ 为常数（并入 $C$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "判恰当（$M_{y}=N_{x}$）$\\to$ 定未知函数 $\\to$ 求势函数 $U$（使 $\\mathrm dU=0$，通解 $U=C$）。",
+        "items": [
+          "本题的\"巧\"在于 $M_{y}$ 与 $N_{x}$ 里的 $2xy$ 恰好抵消，剩下的全是 $x$ 的函数——这是题目特意设计的；",
+          "求势函数有两种路径：先积 $M$ 对 $x$，或先积 $N$ 对 $y$（本题先积 $N$ 更省，因为 $N$ 对 $y$ 只是线性）；",
+          "$\\varphi'(x)$ 必须验到底：算出 $U_{x}$ 与 $M$ 逐项比较，若 $\\varphi'\\neq0$ 再积分，不能想当然设其为 0；",
+          "答案保留隐式 $U=C$ 即可——全微分方程的通解本来就是\"势函数等于常数\"。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=2\\cos x+\\sin x+x^{2}-2$；通解 $y\\cos x-2y\\sin x+\\dfrac{x^{2}y^{2}}{2}+2xy=C$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "恰当条件定 $f$",
+          "latex": "$$P_y=Q_x\\ \\Longrightarrow\\ f''+f=x^{2}$$"
+        },
+        {
+          "name": "两个初值",
+          "latex": "$$f(0)=0,\\qquad f'(0)=1$$"
+        },
+        {
+          "name": "势函数",
+          "latex": "$$u(x,y)\\ \\text{使}\\ \\mathrm{d}u=P\\,\\mathrm{d}x+Q\\,\\mathrm{d}y$$"
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "number": "题 26",
+      "title": "切线在 $y$ 轴上的截距 = 到原点的距离（齐次方程）",
+      "chapter": 4,
+      "stemHtml": "设曲线上任意一点 $M$ 到坐标原点的距离，等于曲线上 $M$ 点处的切线在 $y$ 轴上的截距，且曲线经过点 $(1,0)$，求曲线方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"截距\"与\"距离\"$\\to$ 把两句话各写成一个式子：截距 $=y-xy'$、距离 $=\\sqrt{x^{2}+y^{2}}$ $\\to$ 方程里出现 $\\dfrac{y}{x}$ 与 $\\sqrt{1+\\left(\\frac{y}{x}\\right)^{2}}$ $\\to$ 这是齐次方程，令 $y=ux$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出等式</h3>\r\n  <p>设 $M(x,y)$。切线方程 $Y-y=y'(X-x)$，令 $X=0$ 得 $y$ 轴截距 $Y=y-xy'$，故</p>\r\n  <div class=\"fm\">$$\\sqrt{x^{2}+y^{2}}=y-xy'.$$</div>\r\n  <p>令 $y=ux$，$y'=u+xu'$（取 $x&gt;0$），代得 $u+xu'=u-\\sqrt{1+u^{2}}$，即</p>\r\n  <div class=\"fm\">$$x\\frac{\\mathrm du}{\\mathrm dx}=-\\sqrt{1+u^{2}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分离变量并回代</h3>\r\n  <div class=\"fm\">$$\\int\\frac{\\mathrm du}{\\sqrt{1+u^{2}}}=-\\int\\frac{\\mathrm dx}{x}\\ \\Longrightarrow\\ \\ln\\left(u+\\sqrt{1+u^{2}}\\right)=-\\ln x+C_{1},$$</div>\r\n  <p>即 $u+\\sqrt{1+u^{2}}=\\dfrac{C}{x}$。移项平方：$\\left(\\dfrac{C}{x}-u\\right)^{2}=1+u^{2}$，化简得 $\\dfrac{C^{2}}{x^{2}}-\\dfrac{2Cu}{x}=1$，故 $u=\\dfrac{C^{2}-x^{2}}{2Cx}$，于是</p>\r\n  <div class=\"fm\">$$y=ux=\\frac{C^{2}-x^{2}}{2C}.$$</div>\r\n  <p>过 $(1,0)$：$\\dfrac{C^{2}-1}{2C}=0$，$C=\\pm1$。取 $C=1$ 得 $y=\\dfrac{1-x^{2}}{2}$（取 $C=-1$ 得 $y=\\dfrac{x^{2}-1}{2}$，是同一族里过该点的另一条抛物线）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "截距是<b>带符号的坐标</b>，距离是<b>非负的长度</b>，翻译时符号不能混：$y$ 轴截距 $=y-xy'$，$x$ 轴截距 $=x-\\dfrac{y}{y'}$。",
+        "items": [
+          "先写切线方程再令 $X=0$，这是所有\"截距\"条件的标准第一步，别凭印象写 $y-xy'$ 就完事；",
+          "根号里出现 $\\sqrt{x^{2}+y^{2}}$ 与 $\\dfrac{y}{x}$ 同时出现，就是齐次方程的信号，令 $y=ux$ 一步到位；",
+          "分离变量后 $u+\\sqrt{1+u^{2}}=C/x$ 这种\"非显式\"结果，要平方化简再回代 $y=ux$，否则解不出 $y$；",
+          "本题答案 $y=\\dfrac{1-x^{2}}{2}$ 是抛物线，可以验：在 $x=1$ 处 $y=0$、$y'=-1$，截距 $=0-1\\cdot(-1)=1=\\sqrt{1+0}$ ✓。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\dfrac{1}{2}\\left(1-x^{2}\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "切线的 $y$ 轴截距",
+          "latex": "$$Y-y=y'\\left(X-x\\right)\\ \\Longrightarrow\\ \\text{截距}=y-xy'$$"
+        },
+        {
+          "name": "等式",
+          "latex": "$$\\sqrt{x^{2}+y^{2}}=y-xy'$$"
+        },
+        {
+          "name": "齐次换元",
+          "latex": "$$y=ux\\ \\Longrightarrow\\ \\sqrt{1+u^{2}}=u-xu'$$"
+        }
+      ]
+    },
+    {
+      "seq": 27,
+      "number": "题 27",
+      "title": "移位对齐 + 周期性杀掉指数项",
+      "chapter": 4,
+      "stemHtml": "设 $f(x)$ 是以 $2\\pi$ 为周期的连续函数（且可导），且满足 $f(x)+3f'(x+\\pi)=\\sin x$，求 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【方程里的导数被\"平移\"了 $\\pi$ $\\to$ 把 $x$ 换成 $x-\\pi$ 把导数拉回 $f'(x)$ $\\to$ 再把两式错位相消，凑出一个普通二阶常系数方程 $\\to$ 解出来，最后用\"$2\\pi$ 周期\"这个额外条件把指数项全部杀掉】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：把参数对齐</h3>\r\n  <p>在原式中令 $x\\to x-\\pi$：$\\sin(x-\\pi)=-\\sin x$，得</p>\r\n  <div class=\"fm\">$$f(x-\\pi)+3f'(x)=-\\sin x.\\tag{1}$$</div>\r\n  <p>再把 (1) 中的 $x$ 换成 $x-\\pi$，并用 $f(x-2\\pi)=f(x)$：</p>\r\n  <div class=\"fm\">$$f(x)+3f'(x-\\pi)=\\sin x\\ \\Longrightarrow\\ f'(x-\\pi)=\\frac{\\sin x-f(x)}{3}.\\tag{2}$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：对 (1) 求导，消掉平移位</h3>\r\n  <p>(1) 两边对 $x$ 求导：$f'(x-\\pi)+3f''(x)=-\\cos x$，把 (2) 代入：</p>\r\n  <div class=\"fm\">$$\\frac{\\sin x-f(x)}{3}+3f''(x)=-\\cos x\\ \\Longrightarrow\\ 9f''(x)-f(x)=-\\sin x-3\\cos x,$$</div>\r\n  <p>即 $f''-\\dfrac19f=-\\dfrac{1}{9}\\left(\\sin x+3\\cos x\\right)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：解方程，用周期性定常数</h3>\r\n  <p>齐次解 $C_{1}\\mathrm e^{x/3}+C_{2}\\mathrm e^{-x/3}$；设特解 $A\\sin x+B\\cos x$ 代入：$-\\left(A\\sin x+B\\cos x\\right)-\\dfrac{A\\sin x+B\\cos x}{9}$ 应等于 $-\\dfrac{\\sin x+3\\cos x}{9}$，得 $A=\\dfrac{1}{10}$、$B=\\dfrac{3}{10}$（验：$-\\dfrac{10}{9}\\cdot\\dfrac{1}{10}=-\\dfrac19$ ✓）。所以</p>\r\n  <div class=\"fm\">$$f=C_{1}\\mathrm e^{x/3}+C_{2}\\mathrm e^{-x/3}+\\frac{1}{10}\\left(\\sin x+3\\cos x\\right).$$</div>\r\n  <p>但 $f$ 以 $2\\pi$ 为周期、在 $\\mathbb R$ 上有界，而 $\\mathrm e^{\\pm x/3}$ 当 $x\\to\\pm\\infty$ 时无界，故 $C_{1}=C_{2}=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "遇到 $f'(x+\\pi)$ 这种\"错位导数\"，先移位对齐，再求导消去错位项；剩下一个常系数方程，最后靠\"周期性 / 有界性\"删掉不该有的解。",
+        "items": [
+          "<b>周期性是最强的筛子</b>：常系数线性方程的通解里一旦出现 $\\mathrm e^{\\lambda x}$（$\\lambda\\neq0$），就不可能周期，系数必须为 0；",
+          "移位时别忘了 $\\sin(x-\\pi)=-\\sin x$、$\\cos(x-\\pi)=-\\cos x$，符号错一步后面全错；",
+          "用 $f(x-2\\pi)=f(x)$ 是非常关键的一步——它把\"两个平移量\"变成一个，否则方程消不干净；",
+          "验算：$f=\\dfrac{1}{10}\\left(\\sin x+3\\cos x\\right)$ 满足 $f+3f'(x+\\pi)=\\sin x$（前面已验），可以直接记这个结果。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=\\dfrac{1}{10}\\left(\\sin x+3\\cos x\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "移位对齐",
+          "latex": "$$f(x)+3f'(x+\\pi)=\\sin x\\ \\xrightarrow{x\\to x+\\pi}\\ f(x+\\pi)+3f'(x)=-\\sin x$$"
+        },
+        {
+          "name": "再求导",
+          "latex": "$$f'(x)+3f''(x+\\pi)=\\cos x$$"
+        },
+        {
+          "name": "周期性定常数",
+          "latex": "$$f(x+2\\pi)=f(x)$$"
+        }
+      ]
+    },
+    {
+      "seq": 28,
+      "number": "题 28",
+      "title": "切线与向径成定角 $\\to$ 极坐标下 $\\tan\\alpha=r\\,\\dfrac{\\mathrm d\\theta}{\\mathrm dr}$",
+      "chapter": 4,
+      "stemHtml": "求一曲率线（曲线），使其上每一点处的切线与该点到原点的连线（向径）的夹角恒为定值 $\\alpha$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"切线与向径的夹角\"—这是极坐标的天然语言 $\\to$ 在极坐标里，切线与向径的夹角 $\\psi$ 满足 $\\tan\\psi=r\\dfrac{\\mathrm d\\theta}{\\mathrm dr}$ $\\to$ 直接写成 $\\tan\\alpha=r\\dfrac{\\mathrm d\\theta}{\\mathrm dr}$，分离变量即可】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：建立极坐标方程</h3>\r\n  <p>在极坐标 $r=r(\\theta)$ 下，向径方向为 $\\theta$，切线与向径的夹角 $\\psi$ 满足 $\\tan\\psi=r\\dfrac{\\mathrm d\\theta}{\\mathrm dr}$（这是极坐标切线角的常用公式，也可由 $\\tan\\psi=\\dfrac{r}{r'_{\\theta}}$ 记）。由题意 $\\psi\\equiv\\alpha$：</p>\r\n  <div class=\"fm\">$$r\\frac{\\mathrm d\\theta}{\\mathrm dr}=\\tan\\alpha\\ \\Longrightarrow\\ \\mathrm d\\theta=\\tan\\alpha\\,\\frac{\\mathrm dr}{r}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：积分并回代直角坐标</h3>\r\n  <div class=\"fm\">$$\\theta=\\tan\\alpha\\ln r+C_{1}\\ \\Longrightarrow\\ 2\\theta=\\tan\\alpha\\ln r^{2}+C.$$</div>\r\n  <p>由 $r^{2}=x^{2}+y^{2}$、$\\theta=\\arctan\\dfrac{y}{x}$ 得</p>\r\n  <div class=\"fm\">$$2\\arctan\\frac{y}{x}=\\tan\\alpha\\ln\\left(x^{2}+y^{2}\\right)+C.$$</div>\r\n  <p>特别地，当 $\\alpha=\\dfrac{\\pi}{2}$（切线与向径垂直）时 $\\dfrac{\\mathrm dr}{\\mathrm d\\theta}=0$，$r\\equiv C$，即 $x^{2}+y^{2}=C$（一族圆）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "凡涉及\"向径\"\"极角\"\"切线角\"，<b>一律先转极坐标</b>；用直角坐标硬算 $y'$ 与 $\\dfrac yx$ 的夹角公式，计算量会翻几倍。",
+        "items": [
+          "记住极坐标切线与向径夹角 $\\tan\\psi=\\dfrac{r}{r'}$，反向写作 $\\dfrac{\\mathrm d\\theta}{\\mathrm dr}=\\dfrac{\\tan\\psi}{r}$；",
+          "$\\tan\\alpha$ 是常数，所以积分出来是对数——曲线是\"等角螺线\"（对数螺线）的一族；",
+          "$\\alpha=\\dfrac{\\pi}{2}$ 是退化情形，$\\tan\\alpha$ 无穷大，不能直接代入对数式，必须单独讨论，答案里\"或 $x^{2}+y^{2}=C$\"就是它；",
+          "若用直角坐标：$\\tan\\alpha=\\dfrac{y'-y/x}{1+y'\\cdot y/x}$，令 $y=ux$ 同样能得，但中间多一层分式化简。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2\\arctan\\dfrac{y}{x}=\\tan\\alpha\\ln\\left(x^{2}+y^{2}\\right)+C$；当 $\\alpha=\\dfrac{\\pi}{2}$ 时为 $x^{2}+y^{2}=C$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "极坐标下的夹角关系",
+          "latex": "$$\\tan\\alpha=r\\frac{\\mathrm{d}\\theta}{\\mathrm{d}r}$$"
+        },
+        {
+          "name": "分离变量",
+          "latex": "$$\\frac{\\mathrm{d}r}{r}=\\cot\\alpha\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "解并回代",
+          "latex": "$$r=C\\mathrm{e}^{\\theta\\cot\\alpha}$$"
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "number": "题 29",
+      "title": "曲率 = $1/|PQ|$（法线与 $x$ 轴的交点）",
+      "chapter": 4,
+      "stemHtml": "设曲线位于上半平面，过点 $(1,1)$，且在该点处切线水平。若曲线上任一点 $P$ 处的曲率等于 $1/|PQ|$，其中 $Q$ 是 $P$ 点处的法线与 $x$ 轴的交点，求此曲线。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"曲率 = $1/|PQ|$\"$\\to$ 两边各写一个几何量：曲率 $K=\\dfrac{|y''|}{\\left(1+y'^{2}\\right)^{3/2}}$，法线段长 $|PQ|=y\\sqrt{1+y'^{2}}$ $\\to$ 约分后得到一个只含 $y,y',y''$ 的方程 $yy''=1+y'^{2}$ $\\to$ 缺 $x$，令 $p=y'$、$y''=p\\dfrac{\\mathrm dp}{\\mathrm dy}$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算 $|PQ|$</h3>\r\n  <p>切线方向 $(1,y')$，法线方向可取 $(y',-1)$（与切线垂直）。从 $P(x,y)$ 沿法线走到 $x$ 轴，纵向坐标从 $y$ 降到 $0$，参数 $t=y$，故</p>\r\n  <div class=\"fm\">$$|PQ|=y\\sqrt{1+y'^{2}}.$$</div>\r\n  <p>（曲线在上半平面，$y&gt;0$。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代曲率公式得方程</h3>\r\n  <div class=\"fm\">$$\\frac{|y''|}{\\left(1+y'^{2}\\right)^{3/2}}=\\frac{1}{y\\sqrt{1+y'^{2}}}\\ \\Longrightarrow\\ y|y''|=1+y'^{2}.$$</div>\r\n  <p>右端 $1+y'^{2}&gt;0$，所以 $y''\\neq0$ 且与 $y$ 同号；$y&gt;0$ 故 $y''&gt;0$，可取绝对值：</p>\r\n  <div class=\"fm\">$$yy''=1+y'^{2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：降阶并代初值</h3>\r\n  <p>令 $p=y'$，$y''=p\\dfrac{\\mathrm dp}{\\mathrm dy}$：$y\\,p\\dfrac{\\mathrm dp}{\\mathrm dy}=1+p^{2}$，即 $\\dfrac{p\\,\\mathrm dp}{1+p^{2}}=\\dfrac{\\mathrm dy}{y}$，积分得</p>\r\n  <div class=\"fm\">$$\\ln\\left(1+p^{2}\\right)=2\\ln y+C_{1}.$$</div>\r\n  <p>由过 $(1,1)$ 且切线水平（$p=0$）：$\\ln 1=0+ C_{1}$，$C_{1}=0$，故 $1+p^{2}=y^{2}$，$p=\\sqrt{y^{2}-1}$（取正支，$x\\geqslant1$）。再由 $\\dfrac{\\mathrm dy}{\\mathrm dx}=\\sqrt{y^{2}-1}$：</p>\r\n  <div class=\"fm\">$$x-1=\\int_{1}^{y}\\frac{\\mathrm dt}{\\sqrt{t^{2}-1}}=\\operatorname{arch}y\\ \\Longrightarrow\\ y=\\operatorname{ch}\\left(x-1\\right).$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "凡\"曲率等于某个几何长度\"的题，套路固定：左边曲率公式、右边把长度用 $y,y'$ 表示，约分后必然得到 $yy''=1+y'^{2}$ 这类\"缺 $x$\"的方程。",
+        "items": [
+          "法线段长容易算错：法线方向向量取 $(y',-1)$，其长度 $\\sqrt{1+y'^{2}}$，纵向走 $y$ 就要走 $y\\sqrt{1+y'^{2}}$；",
+          "先判断 $y''$ 的符号再脱绝对值——$1+y'^{2}&gt;0$、$y&gt;0$ 直接把符号定死，省掉讨论；",
+          "缺 $x$ 的二阶方程标准降阶：$p=y'$、$y''=p\\dfrac{\\mathrm dp}{\\mathrm dy}$，不要对 $x$ 求导；",
+          "$y=\\operatorname{ch}(x-1)$ 是悬链线，可验：$y''=\\operatorname{ch}(x-1)=y$，$\\sqrt{1+y'^{2}}=\\sqrt{1+\\operatorname{sh}^{2}}=\\operatorname{ch}=y$，曲率 $=y/y^{3}=1/y^{2}$，$|PQ|=y\\cdot y=y^{2}$ ✓。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\operatorname{ch}\\left(x-1\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "$|PQ|$ 的表达",
+          "latex": "$$\\left|PQ\\right|=y\\sqrt{1+y'^{2}}$$"
+        },
+        {
+          "name": "曲率公式",
+          "latex": "$$K=\\frac{\\left|y''\\right|}{\\left(1+y'^{2}\\right)^{\\frac32}}$$"
+        },
+        {
+          "name": "降阶求解",
+          "latex": "$$y''=\\frac{1+y'^{2}}{y}\\ \\Longrightarrow\\ y'^{2}=Cy^{2}-1$$"
+        }
+      ]
+    },
+    {
+      "seq": 30,
+      "number": "题 30",
+      "title": "扇形面积 = 弧长 $\\to$ 求导得 $r'^{2}=r^{2}\\left(r^{2}-4\\right)/4$",
+      "chapter": 4,
+      "stemHtml": "设曲线 $L$ 的极坐标方程为 $r=r(\\theta)$，$P(r,\\theta)$ 是 $L$ 上的任一点，$Q\\left(2\\sqrt2,0\\right)$ 是 $L$ 上的一定点。已知极径 $OP$、$OQ$ 与曲线 $L$ 围成的曲边扇形的面积恰等于 $L$ 上 $P,Q$ 两点间的弧长值，求曲线 $L$ 的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"面积 = 弧长\"$\\to$ 两个积分公式各写一遍：面积 $\\dfrac12\\displaystyle\\int_0^{\\theta}r^{2}\\mathrm dt$，弧长 $\\displaystyle\\int_0^{\\theta}\\sqrt{r^{2}+r'^{2}}\\mathrm dt$ $\\to$ 两边都是变上限积分，<b>对上限 $\\theta$ 求导</b>一次就把积分方程变成微分方程】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：列式并求导</h3>\r\n  <div class=\"fm\">$$\\frac12\\int_0^{\\theta}r^{2}(t)\\mathrm dt=\\int_0^{\\theta}\\sqrt{r^{2}(t)+r'^{2}(t)}\\,\\mathrm dt,$$</div>\r\n  <p>对 $\\theta$ 求导（$r=r(\\theta)$）：</p>\r\n  <div class=\"fm\">$$\\frac12 r^{2}=\\sqrt{r^{2}+r'^{2}}\\ \\Longrightarrow\\ \\frac{r^{4}}{4}=r^{2}+r'^{2}\\ \\Longrightarrow\\ 2r'=\\pm r\\sqrt{r^{2}-4}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分离变量积分</h3>\r\n  <div class=\"fm\">$$\\int\\frac{2\\,\\mathrm dr}{r\\sqrt{r^{2}-4}}=\\pm\\int\\mathrm d\\theta.$$</div>\r\n  <p>左边是标准积分：$\\displaystyle\\int\\frac{2\\,\\mathrm dr}{r\\sqrt{r^{2}-4}}=\\arccos\\frac{2}{r}$（对 $r$ 求导可验），故</p>\r\n  <div class=\"fm\">$$\\arccos\\frac{2}{r}=C\\pm\\theta\\ \\Longrightarrow\\ \\frac{2}{r}=\\cos\\left(C\\pm\\theta\\right)\\ \\Longrightarrow\\ r=2\\sec\\left(C\\pm\\theta\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：用 $Q$ 定常数</h3>\r\n  <p>$Q\\left(2\\sqrt2,0\\right)$ 在 $L$ 上，即 $\\theta=0$ 时 $r=2\\sqrt2$：$2\\sqrt2=2\\sec C$，$\\cos C=\\dfrac{1}{\\sqrt2}$，$C=\\dfrac{\\pi}{4}$。故</p>\r\n  <div class=\"fm\">$$r=2\\sec\\left(\\frac{\\pi}{4}\\pm\\theta\\right).$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "凡\"某面积 = 某弧长\"\"某体积 = 某面积\"这类两头都是变上限积分的等式，<b>对上限求导</b>是最省力的一步，一步就把积分变成微分方程。",
+        "items": [
+          "面积、弧长、旋转体体积的公式要背准：面积 $\\dfrac12\\int r^{2}$、弧长 $\\int\\sqrt{r^{2}+r'^{2}}$、$V=2\\pi\\int y^{2}$……",
+          "求导后得到 $r'^{2}$ 的方程，开方会出现 $\\pm$，两个分支对应 $\\sec\\left(\\dfrac{\\pi}{4}+\\theta\\right)$ 与 $\\sec\\left(\\dfrac{\\pi}{4}-\\theta\\right)$，答案里用\"$\\pm$\"合并；",
+          "$\\arccos\\dfrac{2}{r}$ 这个积分结果要记：$\\displaystyle\\int\\frac{\\mathrm dr}{r\\sqrt{r^{2}-a^{2}}}=\\frac1a\\arccos\\frac{a}{r}$；",
+          "本题答案是\"两条直线 $r\\cos\\left(\\dfrac{\\pi}{4}\\pm\\theta\\right)=\\sqrt2$\"，即两条互相垂直的直线——可以回代验证面积与弧长确实相等。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$r=2\\sec\\left(\\dfrac{\\pi}{4}\\pm\\theta\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "曲边扇形面积",
+          "latex": "$$S=\\frac12\\int_0^{\\theta}r^{2}\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "弧长",
+          "latex": "$$L=\\int_0^{\\theta}\\sqrt{r^{2}+r'^{2}}\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "求导得方程",
+          "latex": "$$\\frac{r^{2}}{2}=\\sqrt{r^{2}+r'^{2}}\\ \\Longrightarrow\\ r'^{2}=\\frac{r^{2}\\left(r^{2}-4\\right)}{4}$$"
+        }
+      ]
+    },
+    {
+      "seq": 31,
+      "number": "题 31",
+      "title": "追踪曲线：速度方向指向目标 + 弧长与时间的比例",
+      "chapter": 4,
+      "stemHtml": "设物体 $A$ 从点 $(0,1)$ 出发，以速度大小为常数 $v$ 沿 $y$ 轴正向运动。物体 $B$ 从点 $(-1,0)$ 与 $A$ 同时出发，其速度大小为 $2v$，方向始终指向 $A$。试建立物体 $B$ 的运动轨迹所满足的微分方程，并写出初始条件。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"速度方向始终指向 $A$\"$\\to$ 轨迹切线过 $A$：$\\dfrac{\\mathrm dy}{\\mathrm dx}=\\dfrac{y_{A}-y}{0-x}$ $\\to$ 但 $y_{A}$ 随时间走，得把时间换成 $B$ 走过的弧长 $s$（$B$ 速度 $2v$，$A$ 速度 $v$，所以 $vt=\\dfrac s2$）$\\to$ 得到含 $s$ 的方程，再<b>对 $x$ 求导</b>把 $s$ 消掉】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：用弧长表示 $A$ 的位置</h3>\r\n  <p>设时刻 $t$，$B$ 在 $(x,y)$，$B$ 已走过的弧长为 $s$。由 $|\\vec v_{B}|=2v$ 得 $s=2vt$，即 $vt=\\dfrac s2$；由 $|\\vec v_{A}|=v$ 且 $A$ 从 $(0,1)$ 沿 $y$ 正向运动得</p>\r\n  <div class=\"fm\">$$y_{A}=1+vt=1+\\frac s2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：切线指向 $A$</h3>\r\n  <p>$B$ 的速度方向即轨迹切线方向，而它指向 $A(0,y_{A})$，故</p>\r\n  <div class=\"fm\">$$y'=\\frac{y_{A}-y}{0-x}=\\frac{1+\\dfrac s2-y}{-x}\\ \\Longrightarrow\\ xy'=y-1-\\frac s2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：对 $x$ 求导消去 $s$</h3>\r\n  <p>注意 $\\dfrac{\\mathrm ds}{\\mathrm dx}=\\sqrt{1+y'^{2}}$（$s$ 是弧长，$x$ 增大时 $s$ 增大）。两边对 $x$ 求导：</p>\r\n  <div class=\"fm\">$$y'+xy''=y'-\\frac12\\sqrt{1+y'^{2}}\\ \\Longrightarrow\\ 2xy''+\\sqrt{1+y'^{2}}=0.$$</div>\r\n  <p>初始条件：$B$ 从 $(-1,0)$ 出发，$y(-1)=0$；出发瞬间 $A$ 在 $(0,1)$，故指向 $A$ 的方向斜率为 $\\dfrac{1-0}{0-(-1)}=1$，即 $y'(-1)=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "\"指向某动点\"$\\to$ 切线方程里带出动点坐标；动点坐标靠<b>速度比 = 弧长比</b>换成弧长 $s$；最后对 $x$ 求导，用 $\\dfrac{\\mathrm ds}{\\mathrm dx}=\\sqrt{1+y'^{2}}$ 把 $s$ 消干净。",
+        "items": [
+          "速度比是关键信息：$B$ 速 $2v$、$A$ 速 $v$ 给出 $s=2vt$，从而 $y_{A}=1+\\dfrac s2$——若速度相等就是 $y_{A}=1+s$；",
+          "$\\dfrac{\\mathrm ds}{\\mathrm dx}=\\sqrt{1+y'^{2}}$ 的符号要跟\"$x$ 往哪边走\"一致，本题 $x$ 从 $-1$ 递增，取正；",
+          "求导后 $y'$ 会自动消掉，只剩 $xy''$ 与 $\\sqrt{1+y'^{2}}$，这是这类题的标准结果；",
+          "初始条件的斜率 1 来自\"出发时 $A$ 在 $(0,1)$、$B$ 在 $(-1,0)$\"，不是凭空给的，务必从几何上算一遍。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2xy''+\\sqrt{1+\\left(y'\\right)^{2}}=0$，初始条件 $y\\big|_{x=-1}=0$、$y'\\big|_{x=-1}=1$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "弧长表示 $A$ 的位置",
+          "latex": "$$A\\left(0,1+vt\\right),\\qquad s=2vt$$"
+        },
+        {
+          "name": "速度方向指向 $A$",
+          "latex": "$$y'=\\frac{1+vt-y}{0-x}$$"
+        },
+        {
+          "name": "消去时间",
+          "latex": "$$y'=-\\frac{1+\\frac s2-y}{x}$$"
+        }
+      ]
+    },
+    {
+      "seq": 32,
+      "number": "题 32",
+      "title": "弹簧振子：先由静伸长得 $k$，再换平衡位置建方程",
+      "chapter": 4,
+      "stemHtml": "设有长度为 $l$ 的弹簧，其上端固定，用 5 个质量都为 $m$ 的重物同时挂于弹簧下端，使弹簧伸长 $5a$。今突然取去其中一重物，使弹簧由静止状态开始振动。若不计弹簧本身重量，求所挂重物的运动规律。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"挂 5 个伸 $5a$\"$\\to$ 用胡克定律先定出劲度系数 $k=\\dfrac{5mg}{5a}=\\dfrac{mg}{a}$ $\\to$ 取走一个后剩 4 个，<b>平衡位置变了</b>（新伸长 $4a$）$\\to$ 把坐标原点放在新平衡位置，位移 $x$ 满足 $4mx''=-kx$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定 $k$ 与两个平衡位置</h3>\r\n  <p>挂 5 个时平衡：$5mg=k\\cdot 5a$，故 $k=\\dfrac{mg}{a}$。取走一个后挂 4 个，新平衡时伸长 $\\dfrac{4mg}{k}=4a$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：建方程</h3>\r\n  <p>取 $x$ 轴正向铅直向下，原点 $O$ 在固定端下方 $l+4a$ 处（即新平衡位置）。此时弹簧总伸长 $4a+x$，弹性力向上 $k(4a+x)$，重力向下 $4mg$，牛顿第二定律：</p>\r\n  <div class=\"fm\">$$4m\\frac{\\mathrm d^{2}x}{\\mathrm dt^{2}}=4mg-k\\left(4a+x\\right)=-kx\\ \\Longrightarrow\\ x''+\\frac{g}{4a}x=0,$$</div>\r\n  <p>其中用了 $k=mg/a$。角频率 $\\omega=\\sqrt{\\dfrac{g}{4a}}=\\dfrac12\\sqrt{\\dfrac ga}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：代初始条件</h3>\r\n  <p>取走瞬间，重物还在原位置（伸长 $5a$），比新平衡位置低 $a$，故 $x(0)=a$；由静止开始，$x'(0)=0$。于是</p>\r\n  <div class=\"fm\">$$x=a\\cos\\left(\\frac12\\sqrt{\\frac ga}\\,t\\right).$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "定 $k$（由静伸长）、定<b>新</b>平衡位置、定初位移。最常错的是把原点留在旧平衡位置，那样方程里会多出一个常数项。",
+        "items": [
+          "$k$ 只能由\"静止悬挂时的伸长\"求：$k=\\dfrac{\\text{总重}}{\\text{伸长}}$，与振动过程无关；",
+          "取走重物后平衡位置立刻上移 $a$，<b>原点必须重设</b>，这样 $4mg$ 与 $k\\cdot4a$ 自动抵消，方程化为标准形式；",
+          "初位移是\"相对新平衡\"的量：旧位置比新平衡低 $a$，故 $x(0)=a&gt;0$（向下为正）；",
+          "周期 $T=\\dfrac{2\\pi}{\\omega}=4\\pi\\sqrt{\\dfrac ag}$，可与\"挂 4 个时 $T=2\\pi\\sqrt{\\dfrac{4a}{g}}$\"对照记。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>取 $x$ 轴正向铅直向下、原点在距固定端 $l+4a$ 处：$x=a\\cos\\left(\\dfrac12\\sqrt{\\dfrac ga}\\,t\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "定 $k$",
+          "latex": "$$5mg=k\\cdot5a\\ \\Longrightarrow\\ k=\\frac{mg}{a}$$"
+        },
+        {
+          "name": "新平衡位置建方程",
+          "latex": "$$4m\\ddot u=-ku\\ \\Longrightarrow\\ \\ddot u+\\frac{g}{4a}u=0$$"
+        },
+        {
+          "name": "初始条件",
+          "latex": "$$u(0)=a,\\qquad \\dot u(0)=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 33,
+      "number": "题 33",
+      "title": "阻力 $\\propto v^{2}$ 的竖直上抛：换 $v$ 作自变量",
+      "chapter": 4,
+      "stemHtml": "质量为 $m$ 的炮弹以初速 $v_{0}$ 自地面垂直向上发射，设空气阻力始终与炮弹速度的平方成正比，比例系数为 $k$，重力加速度 $g$ 为已知，求炮弹的最高射程和所需的时间。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【上升段 $m\\dfrac{\\mathrm dv}{\\mathrm dt}=-mg-kv^{2}$ $\\to$ 求<b>时间</b>就直接对 $t$ 积分；求<b>高度</b>就用 $v\\dfrac{\\mathrm dv}{\\mathrm dx}$ 把自变量换成 $x$ $\\to$ 两个积分都是 $\\dfrac{1}{a^{2}+v^{2}}$ 与 $\\dfrac{v}{a^{2}+v^{2}}$ 型，直接套公式】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：求时间 $T$</h3>\r\n  <p>上升段速度向上、阻力向下，牛顿第二定律：$m\\dfrac{\\mathrm dv}{\\mathrm dt}=-mg-kv^{2}$，即 $\\dfrac{\\mathrm dv}{\\mathrm dt}=-g-\\dfrac kmv^{2}$。分离变量并积分（$v$ 从 $v_{0}$ 到 $0$）：</p>\r\n  <div class=\"fm\">$$T=\\int_{0}^{T}\\mathrm dt=\\int_{v_{0}}^{0}\\frac{\\mathrm dv}{-g-\\frac kmv^{2}}=\\int_{0}^{v_{0}}\\frac{\\mathrm dv}{g+\\frac kmv^{2}}.$$</div>\r\n  <p>记 $a=\\dfrac km$，用 $\\displaystyle\\int\\frac{\\mathrm dv}{g+av^{2}}=\\frac{1}{\\sqrt{ag}}\\arctan\\left(v\\sqrt{\\frac ag}\\right)$：</p>\r\n  <div class=\"fm\">$$T=\\frac{1}{\\sqrt{ag}}\\arctan\\left(v_{0}\\sqrt{\\frac ag}\\right)=\\sqrt{\\frac{m}{kg}}\\arctan\\left(\\sqrt{\\frac{k}{mg}}\\,v_{0}\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求最高射程 $H$</h3>\r\n  <p>由 $\\dfrac{\\mathrm dv}{\\mathrm dt}=v\\dfrac{\\mathrm dv}{\\mathrm dx}$ 得 $mv\\dfrac{\\mathrm dv}{\\mathrm dx}=-mg-kv^{2}$，即 $\\dfrac{mv\\,\\mathrm dv}{mg+kv^{2}}=-\\mathrm dx$，$x$ 从 $0$ 到 $H$、$v$ 从 $v_{0}$ 到 $0$：</p>\r\n  <div class=\"fm\">$$H=\\int_{0}^{v_{0}}\\frac{mv\\,\\mathrm dv}{mg+kv^{2}}=\\frac{m}{2k}\\ln\\left(mg+kv^{2}\\right)\\Big|_{0}^{v_{0}}=\\frac{m}{2k}\\ln\\left(1+\\frac{k}{mg}v_{0}^{2}\\right).$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "求时间用 $F=m\\dfrac{\\mathrm dv}{\\mathrm dt}$；求位移用 $F=mv\\dfrac{\\mathrm dv}{\\mathrm dx}$。<b>要什么就先换到那个自变量</b>，这是变力题唯一的分岔点。",
+        "items": [
+          "$\\dfrac{\\mathrm dv}{\\mathrm dt}$ 与 $v\\dfrac{\\mathrm dv}{\\mathrm dx}$ 的互换是核心技巧，含 $v^{2}$ 的阻力题几乎必用；",
+          "两个标准积分要背：$\\displaystyle\\int\\frac{\\mathrm dv}{a^{2}+v^{2}}=\\frac1a\\arctan\\frac va$、$\\displaystyle\\int\\frac{v\\,\\mathrm dv}{a^{2}+v^{2}}=\\frac12\\ln\\left(a^{2}+v^{2}\\right)$；",
+          "阻力方向随速度反向，上升段的方程与下降段<b>不同</b>，本题只问最高点之前，别把两段混写；",
+          "极限校验：$k\\to0$ 时 $T\\to\\sqrt{\\dfrac{m}{kg}}\\cdot\\sqrt{\\dfrac{k}{mg}}v_{0}=\\dfrac{v_{0}}{g}$ ✓，$H\\to\\dfrac{m}{2k}\\cdot\\dfrac{kv_{0}^{2}}{mg}=\\dfrac{v_{0}^{2}}{2g}$ ✓，与无阻力情形一致。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$H_{\\max}=\\dfrac{m}{2k}\\ln\\left(1+\\dfrac{k}{mg}v_{0}^{2}\\right)$，$T=\\sqrt{\\dfrac{m}{kg}}\\arctan\\left(\\sqrt{\\dfrac{k}{mg}}\\,v_{0}\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "牛顿方程",
+          "latex": "$$m\\frac{\\mathrm{d}v}{\\mathrm{d}t}=-\\left(mg+kv^{2}\\right)$$"
+        },
+        {
+          "name": "换 $v$ 作自变量",
+          "latex": "$$mv\\frac{\\mathrm{d}v}{\\mathrm{d}x}=-\\left(mg+kv^{2}\\right)$$"
+        },
+        {
+          "name": "上升时间",
+          "latex": "$$T=\\frac{m}{\\sqrt{kmg}}\\arctan\\left(v_0\\sqrt{\\frac{k}{mg}}\\right)$$"
+        },
+        {
+          "name": "最高射程",
+          "latex": "$$H=\\frac{m}{2k}\\ln\\left(1+\\frac{kv_0^{2}}{mg}\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 34,
+      "number": "题 34",
+      "title": "一阶线性 + 极限存在的\"系数筛选\"",
+      "chapter": 4,
+      "stemHtml": "设函数 $y=y(x)$ 满足 $\\begin{cases}x\\dfrac{\\mathrm dy}{\\mathrm dx}-\\left(2x^{2}-1\\right)y=x^{3},\\ x\\geqslant1\\\\ y(1)=y_{0}\\end{cases}$。(1) 求解 $y(x)$；(2) 已知 $\\lim\\limits_{x\\to+\\infty}\\dfrac{y(x)}{x}$ 存在有限极限，求 $y_{0}$ 的值，并求极限 $\\lim\\limits_{x\\to+\\infty}\\dfrac{y(x)}{x}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【方程两边除 $x$ 化标准形 $y'+P(x)y=Q(x)$ $\\to$ 积分因子 $\\mathrm e^{\\int P}=\\mathrm e^{-x^{2}}x$ $\\to$ 右端变成 $\\displaystyle\\int x^{3}\\mathrm e^{-x^{2}}\\mathrm dx$，凑 $\\mathrm d\\left(x^{2}\\right)$ 即可】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化标准形并求通解</h3>\r\n  <p>$y'-\\left(2x-\\dfrac1x\\right)y=x^{2}$，$P=-\\left(2x-\\dfrac1x\\right)$，$\\displaystyle\\int P\\,\\mathrm dx=-x^{2}+\\ln x$，积分因子 $\\mu=\\mathrm e^{-x^{2}}x$。故</p>\r\n  <div class=\"fm\">$$\\left(yx\\mathrm e^{-x^{2}}\\right)'=x^{3}\\mathrm e^{-x^{2}}\\ \\Longrightarrow\\ yx\\mathrm e^{-x^{2}}=\\int x^{3}\\mathrm e^{-x^{2}}\\mathrm dx+C.$$</div>\r\n  <p>而 $\\displaystyle\\int x^{3}\\mathrm e^{-x^{2}}\\mathrm dx=-\\frac12\\left(x^{2}+1\\right)\\mathrm e^{-x^{2}}$（凑 $\\mathrm d\\left(x^{2}\\right)$ 后分部一次），于是</p>\r\n  <div class=\"fm\">$$y=-\\frac{x}{2}-\\frac{1}{2x}+\\frac{C\\mathrm e^{x^{2}}}{x}.$$</div>\r\n  <p>由 $y(1)=y_{0}$：$-\\dfrac12-\\dfrac12+C\\mathrm e=y_{0}$，$C=\\mathrm e^{-1}\\left(y_{0}+1\\right)$，即</p>\r\n  <div class=\"fm\">$$y=-\\frac x2-\\frac{1}{2x}+\\mathrm e^{-1}\\left(y_{0}+1\\right)\\frac{\\mathrm e^{x^{2}}}{x}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用\"极限存在\"反定 $y_{0}$</h3>\r\n  <p>把上式两边除以 $x$：</p>\r\n  <div class=\"fm\">$$\\frac{y}{x}=-\\frac12-\\frac{1}{2x^{2}}+\\mathrm e^{-1}\\left(y_{0}+1\\right)\\frac{\\mathrm e^{x^{2}}}{x^{2}}.$$</div>\r\n  <p>后两项：$-\\dfrac{1}{2x^{2}}\\to0$，而 $\\dfrac{\\mathrm e^{x^{2}}}{x^{2}}\\to+\\infty$。若 $y_{0}+1\\neq0$，则 $\\dfrac yx$ 趋于 $\\pm\\infty$（取决于符号），与\"存在有限极限\"矛盾；故必有 $y_{0}+1=0$，即 $y_{0}=-1$。此时 $\\dfrac yx=-\\dfrac12-\\dfrac{1}{2x^{2}}$，极限为 $-\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "一是<b>用它卡住系数</b>（让发散项系数为零）；二是<b>用它给阶的估计</b>（如 $y=O(x)$）。本题第一种。",
+        "items": [
+          "一阶线性方程的积分因子 $\\mu=\\mathrm e^{\\int P\\mathrm dx}$，$\\int\\left(2x-\\dfrac1x\\right)\\mathrm dx=x^{2}-\\ln x$，指数上是 $-x^{2}+\\ln x$，别把 $\\ln x$ 遗漏；",
+          "$\\displaystyle\\int x^{3}\\mathrm e^{-x^{2}}\\mathrm dx$ 用 $u=x^{2}$ 化成 $\\dfrac12\\displaystyle\\int u\\mathrm e^{-u}\\mathrm du$，一步到位；",
+          "判断极限是否存在，要<b>盯住增长最快的那一项</b>：$\\mathrm e^{x^{2}}/x^{2}$ 必然是主角，其余两项可忽略；",
+          "$y_{0}=-1$ 时 $y=-\\dfrac x2-\\dfrac{1}{2x}$，正好是\"$y=O(x)$\"的最小增长解，这类\"筛掉发散解\"的思想在下册稳定性理论里还会出现。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $y=-\\dfrac x2-\\dfrac{1}{2x}+\\mathrm e^{-1}\\left(y_{0}+1\\right)\\dfrac{\\mathrm e^{x^{2}}}{x}$；(2) $y_{0}=-1$，$\\lim\\limits_{x\\to+\\infty}\\dfrac{y(x)}{x}=-\\dfrac12$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "化标准形",
+          "latex": "$$y'-\\left(2x-\\frac1x\\right)y=x^{2}$$"
+        },
+        {
+          "name": "一阶线性通解",
+          "latex": "$$y=\\mathrm{e}^{-\\int P}\\left[\\int Q\\,\\mathrm{e}^{\\int P}\\mathrm{d}x+C\\right]$$"
+        },
+        {
+          "name": "「极限存在」定 $y_0$",
+          "latex": "$$\\lim_{x\\to+\\infty}\\frac{y(x)}{x}\\ \\text{存在}\\ \\Longrightarrow\\ \\text{增长最快的项系数为 }0$$"
+        }
+      ]
+    },
+    {
+      "seq": 35,
+      "number": "题 35",
+      "title": "沿梯度方向 $\\to$ $\\dfrac{\\mathrm dy}{\\mathrm dx}=\\dfrac{f_{y}}{f_{x}}$，$y$ 可分离",
+      "chapter": 4,
+      "stemHtml": "一条缉毒犬在嗅到毒品散发的气味后始终朝着毒品味最浓烈的方向搜寻。实验表明，如果以毒品所在位置为坐标原点建立平面直角坐标系，那么任意点 $(x,y)$ 处毒品气味的浓烈程度可表示为 $f(x,y)=\\mathrm e^{-\\frac{x^{2}+2y^{2}}{10^{5}}}$。求这条缉毒犬从点 $(1,1)$ 出发搜寻毒品所走过的路径。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【\"味最浓的方向\"$\\to$ 梯度方向 $\\nabla f$ $\\to$ 路径的切线方向就是 $\\nabla f$ $\\to$ $\\dfrac{\\mathrm dy}{\\mathrm dx}=\\dfrac{f_{y}}{f_{x}}$ $\\to$ 两个偏导里指数因子相同、可以直接约掉，只剩 $\\dfrac{2y}{x}$】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算两个偏导</h3>\r\n  <div class=\"fm\">$$f_{x}=\\mathrm e^{-\\frac{x^{2}+2y^{2}}{10^{5}}}\\cdot\\left(-\\frac{2x}{10^{5}}\\right),\\qquad f_{y}=\\mathrm e^{-\\frac{x^{2}+2y^{2}}{10^{5}}}\\cdot\\left(-\\frac{4y}{10^{5}}\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：写路径方程</h3>\r\n  <p>路径上任一点切线方向与梯度同向（$\\mathrm e^{-\\cdots}$ 与 $-2/10^{5}$ 都是正的公共因子，直接约掉）：</p>\r\n  <div class=\"fm\">$$\\frac{\\mathrm dy}{\\mathrm dx}=\\frac{f_{y}}{f_{x}}=\\frac{2y}{x}\\ \\Longrightarrow\\ \\frac{\\mathrm dy}{y}=2\\frac{\\mathrm dx}{x}.$$</div>\r\n  <p>积分得 $\\ln|y|=2\\ln|x|+C_{1}$，即 $y=Cx^{2}$。由过 $(1,1)$：$C=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "\"始终朝最浓/最快/最陡的方向走\"$\\iff$ 轨迹切线平行于梯度 $\\iff$ $\\dfrac{\\mathrm dy}{\\mathrm dx}=\\dfrac{f_{y}}{f_{x}}$。指数型函数的两个偏导必含同一指数因子，约掉后方程往往极简单。",
+        "items": [
+          "梯度方向与等值线垂直：本题 $f$ 的等值线是椭圆 $x^{2}+2y^{2}=C$，路径 $y=x^{2}$ 与这族椭圆正交，可用来验算；",
+          "题目给的 $10^{5}$ 只是干扰项，全程不出现——见到大常数先别慌，约分后它就没了；",
+          "积分得 $\\ln y=2\\ln x+C$，一定要写成 $y=Cx^{2}$ 再代初值，别写成 $y=Cx^{2}+C'$ 之类的错式；",
+          "若强加\"过原点\"的终点条件，$y=x^{2}$ 恰好过 $(0,0)$，与\"毒品在原点\"完全吻合 ✓。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=x^{2}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "偏导",
+          "latex": "$$f_x=-\\frac{2x}{10^{5}}f,\\qquad f_y=-\\frac{4y}{10^{5}}f$$"
+        },
+        {
+          "name": "沿梯度方向",
+          "latex": "$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{f_y}{f_x}=\\frac{2y}{x}$$"
+        },
+        {
+          "name": "解并代初值",
+          "latex": "$$y=Cx^{2},\\quad y(1)=1\\ \\Longrightarrow\\ y=x^{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 36,
+      "number": "题 36",
+      "title": "二重积分换序 $\\to$ $y=\\int_0^x\\sin(x-u)f(u)\\mathrm du$",
+      "chapter": 4,
+      "stemHtml": "设 $f(x)$ 是 $(-\\infty,+\\infty)$ 上的连续函数，$y(x)=\\displaystyle\\int_0^{x}\\cos t\\,\\mathrm dt\\int_0^{x-t}f(u)\\mathrm du\\ (-\\infty&lt;x&lt;+\\infty)$。(1) 证明：$y=y(x)$ 是微分方程 $y''+y=f(x)$ 满足初始条件 $y(0)=0$、$y'(0)=0$ 的解；(2) 求微分方程 $y''+y=f(x)$ 的通解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【两个变上限积分套在一起，直接求导越算越乱 $\\to$ <b>换序</b>：区域 $0\\leqslant t\\leqslant x,\\ 0\\leqslant u\\leqslant x-t$ 改成先对 $t$ 积，内层 $\\displaystyle\\int_0^{x-u}\\cos t\\,\\mathrm dt=\\sin(x-u)$ $\\to$ 得 $y=\\displaystyle\\int_0^{x}\\sin(x-u)f(u)\\mathrm du$，再连求两次导就干净了】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换序化简</h3>\r\n  <p>区域由 $t\\geqslant0$、$u\\geqslant0$、$t+u\\leqslant x$ 围成。交换次序：$u$ 从 $0$ 到 $x$，对应 $t$ 从 $0$ 到 $x-u$，故</p>\r\n  <div class=\"fm\">$$y=\\int_0^{x}f(u)\\left[\\int_0^{x-u}\\cos t\\,\\mathrm dt\\right]\\mathrm du=\\int_0^{x}\\sin\\left(x-u\\right)f(u)\\mathrm du.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两次求导</h3>\r\n  <p>被积函数含 $x$，用变上限求导（上限代入 + 对 $x$ 的偏导积分）：</p>\r\n  <div class=\"fm\">$$y'=\\sin0\\cdot f(x)+\\int_0^{x}\\cos\\left(x-u\\right)f(u)\\mathrm du=\\int_0^{x}\\cos\\left(x-u\\right)f(u)\\mathrm du,$$</div>\r\n  <div class=\"fm\">$$y''=\\cos0\\cdot f(x)-\\int_0^{x}\\sin\\left(x-u\\right)f(u)\\mathrm du=f(x)-y.$$</div>\r\n  <p>故 $y''+y=f(x)$ ✓；又 $y(0)=0$、$y'(0)=0$ ✓。第 (1) 问得证。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写通解</h3>\r\n  <p>齐次方程 $y''+y=0$ 的通解为 $C_{1}\\cos x+C_{2}\\sin x$，而 $y_{0}(x)=\\displaystyle\\int_0^{x}\\sin(x-u)f(u)\\mathrm du$ 是满足零初值的特解，故通解</p>\r\n  <div class=\"fm\">$$y=C_{1}\\cos x+C_{2}\\sin x+\\int_0^{x}\\sin\\left(x-u\\right)f(u)\\mathrm du.$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "含 $x$ 的被积函数求导时：\"<b>上限代入</b>\" + \"<b>被积函数对 $x$ 的偏导再积分</b>\"，两项都不能漏；能换序的积分一定先换序，把 $x$ 从内层挪出来。",
+        "items": [
+          "$\\displaystyle\\int_0^{x}\\sin(x-u)f(u)\\mathrm du$ 是卷积形状，求导两次得 $f(x)-y$——这个节奏与题 19、题 20 的 $f(x-t)$、$(x-t)$ 核同属一族；",
+          "换序边界要画图确认：三角形区域 $t+u\\leqslant x$ 最常见，写反上下限会直接丢因子；",
+          "第 (2) 问不是重解方程，而是\"已知一个零初值特解，补上齐次通解\"，这是线性方程结构定理的直接应用；",
+          "验算：$y''=\\cos0\\cdot f(x)-\\displaystyle\\int_0^x\\sin(x-u)f$（第一项就是 $f(x)$），与 $f-y$ 完全对上。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) 已证；(2) $y=C_{1}\\cos x+C_{2}\\sin x+\\displaystyle\\int_0^{x}\\sin(x-u)f(u)\\mathrm du$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "换序化简",
+          "latex": "$$y(x)=\\int_0^{x}\\sin\\left(x-u\\right)f(u)\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "两次求导",
+          "latex": "$$y'(x)=\\int_0^{x}\\cos\\left(x-u\\right)f(u)\\,\\mathrm{d}u,\\qquad y''+y=f(x)$$"
+        },
+        {
+          "name": "通解",
+          "latex": "$$y=C_1\\cos x+C_2\\sin x+\\int_0^{x}\\sin\\left(x-u\\right)f(u)\\,\\mathrm{d}u$$"
+        }
+      ]
+    },
+    {
+      "seq": 37,
+      "number": "题 37",
+      "title": "凑出 $\\left[\\dfrac{f}{1+x}\\right]'$，积分只剩端点值",
+      "chapter": 4,
+      "stemHtml": "设函数 $f(x)$ 和 $g(x)$ 都有连续的导数，满足 $f'(x)=g(x)$，$g'(x)=2\\mathrm e^{x}-f(x)$，且 $f(0)=0$、$g(0)=2$。求定积分 $\\displaystyle\\int_0^{\\pi}\\left[\\frac{g(x)}{1+x}-\\frac{f(x)}{(1+x)^{2}}\\right]\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【被积函数 $\\dfrac{g}{1+x}-\\dfrac{f}{(1+x)^{2}}$ 一眼就是商的导数 $\\left[\\dfrac{f}{1+x}\\right]'$（因为 $f'=g$）$\\to$ 积分立刻化为端点值 $\\dfrac{f(\\pi)}{1+\\pi}-f(0)$ $\\to$ 只需算出 $f(\\pi)$，而 $f,g$ 的方程组正好给出一个二阶方程】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：凑微分</h3>\r\n  <div class=\"fm\">$$\\left[\\frac{f(x)}{1+x}\\right]'=\\frac{f'(x)}{1+x}-\\frac{f(x)}{(1+x)^{2}}=\\frac{g(x)}{1+x}-\\frac{f(x)}{(1+x)^{2}},$$</div>\r\n  <div class=\"fm\">$$\\int_0^{\\pi}\\left[\\frac{g(x)}{1+x}-\\frac{f(x)}{(1+x)^{2}}\\right]\\mathrm dx=\\frac{f(\\pi)}{1+\\pi}-\\frac{f(0)}{1}=\\frac{f(\\pi)}{1+\\pi}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解出 $f$</h3>\r\n  <p>由 $f'=g$ 得 $f''=g'=2\\mathrm e^{x}-f$，即 $f''+f=2\\mathrm e^{x}$，初值 $f(0)=0$、$f'(0)=g(0)=2$。</p>\r\n  <p>齐次解 $C_{1}\\cos x+C_{2}\\sin x$；$\\lambda=1$ 不是特征根，设 $A\\mathrm e^{x}$：$A+A=2$，$A=1$。由 $f(0)=C_{1}+1=0$ 得 $C_{1}=-1$；由 $f'(0)=C_{2}+1=2$ 得 $C_{2}=1$，故</p>\r\n  <div class=\"fm\">$$f(x)=-\\cos x+\\sin x+\\mathrm e^{x},\\qquad f(\\pi)=1+\\mathrm e^{\\pi}.$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "出现\"一项除以分母、一项除以分母平方\"的组合，先试 $\\left[\\dfrac{f}{1+x}\\right]'$，命中率极高——凑成全导数后直接用牛顿-莱布尼茨，端点值远比原函数简单。",
+        "items": [
+          "$\\left[\\dfrac uv\\right]'=\\dfrac{u'v-uv'}{v^{2}}$，本题 $v=1+x$ 使 $v'=1$，正好对上 $\\dfrac{g}{1+x}-\\dfrac{f}{(1+x)^{2}}$；",
+          "注意 $f'=g$ 不只是\"凑微分\"的工具，还是初值的来源：$f'(0)=g(0)=2$；",
+          "右端 $2\\mathrm e^{x}$ 与特征根 $\\pm\\mathrm i$ 无冲突，特解不必乘 $x$；",
+          "答案约 $5.6=\\dfrac{1+23.14}{4.14}$，量级合理，可作粗验。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{1+\\mathrm e^{\\pi}}{1+\\pi}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "凑成全导数",
+          "latex": "$$\\left[\\frac{f(x)}{1+x}\\right]'=\\frac{g(x)}{1+x}-\\frac{f(x)}{\\left(1+x\\right)^{2}}$$"
+        },
+        {
+          "name": "解出 $f$",
+          "latex": "$$f''+f=2\\mathrm{e}^{x}$$"
+        },
+        {
+          "name": "只剩端点值",
+          "latex": "$$\\int_0^{\\pi}\\left[\\cdots\\right]\\mathrm{d}x=\\frac{f(\\pi)}{1+\\pi}-\\frac{f(0)}{1}$$"
+        }
+      ]
+    },
+    {
+      "seq": 38,
+      "number": "题 38",
+      "title": "分段比较 $\\min\\{f,g\\}$：$n$ 偶取 $g$，$n$ 奇取 $f$",
+      "chapter": 4,
+      "stemHtml": "设函数 $y=f(x)$ 是微分方程 $y''+2y'-3y=\\mathrm e^{-x}\\sin x$ 满足初始条件 $y(0)=0$、$y'(0)=-\\dfrac15$ 的特解，函数 $g(x)=\\dfrac{(-1)^{n+1}}{5(n+1)^{2}}\\ \\left(n\\pi\\leqslant x\\leqslant(n+1)\\pi,\\ n=0,1,2,\\cdots\\right)$。求积分 $I=\\displaystyle\\int_0^{+\\infty}\\min\\left\\{f(x),g(x)\\right\\}\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【先解 $f$——本题数字配得极巧，会得到 $f=-\\dfrac15\\mathrm e^{-x}\\sin x$ 这一项 $\\to$ 于是 $f$ 在每个半周期内符号固定、绝对值按 $\\mathrm e^{-x}$ 衰减，而 $g$ 是分段常数 $\\to$ 逐段比大小定出 $\\min$，再按奇偶两族分别求和】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：解出 $f(x)=-\\dfrac15\\mathrm e^{-x}\\sin x$</h3>\r\n  <p>特征方程 $\\lambda^{2}+2\\lambda-3=(\\lambda+3)(\\lambda-1)=0$，根 $1,-3$。右端对应 $\\lambda=-1+\\mathrm i$，</p>\r\n  <div class=\"fm\">$$P(-1+\\mathrm i)=(-1+\\mathrm i)^{2}+2(-1+\\mathrm i)-3=-2\\mathrm i-2+2\\mathrm i-3=-5,$$</div>\r\n  <p>故特解 $y^{*}=\\operatorname{Im}\\dfrac{\\mathrm e^{(-1+\\mathrm i)x}}{-5}=-\\dfrac15\\mathrm e^{-x}\\sin x$。由 $f(0)=C_{1}+C_{2}=0$、$f'(0)=C_{1}-3C_{2}-\\dfrac15=-\\dfrac15$ 得 $C_{1}=3C_{2}$ 且 $C_{1}+C_{2}=0$，故 $C_{1}=C_{2}=0$：</p>\r\n  <div class=\"fm\">$$f(x)=-\\frac15\\mathrm e^{-x}\\sin x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：逐段比较</h3>\r\n  <p>在 $(n\\pi,(n+1)\\pi)$ 内，$f$ 的符号由 $\\sin x$ 决定，$g$ 恒为 $\\dfrac{(-1)^{n+1}}{5(n+1)^{2}}$（$n$ 偶为负、$n$ 奇为正）。</p>\r\n  <p>(i) $n$ 偶：$\\sin x&gt;0$，$f&lt;0$；且 $\\left|f\\right|=\\dfrac15\\mathrm e^{-x}\\sin x\\leqslant\\dfrac15\\mathrm e^{-n\\pi}&lt;\\dfrac{1}{5(n+1)^{2}}=\\left|g\\right|$（$n=0$ 时 $\\mathrm e^{-x}\\sin x$ 在 $x=\\dfrac{\\pi}{4}$ 取最大约 $0.32&lt;1$），故 $f&gt;g$，$\\min=g$。</p>\r\n  <p>(ii) $n$ 奇：$\\sin x&lt;0$，$f&gt;0$，且同样有 $f&lt;g$，故 $\\min=f$。即</p>\r\n  <div class=\"fm\">$$\\min\\left\\{f(x),g(x)\\right\\}=\\begin{cases}g(x),&amp;n=0,2,4,\\cdots\\\\ f(x),&amp;n=1,3,5,\\cdots\\end{cases}$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：两族分别求和</h3>\r\n  <p>偶段（$g$ 段）：每段长 $\\pi$，值 $\\dfrac{-1}{5(2k+1)^{2}}$，</p>\r\n  <div class=\"fm\">$$\\sum_{k=0}^{\\infty}\\frac{-\\pi}{5(2k+1)^{2}}=-\\frac{\\pi}{5}\\cdot\\frac{\\pi^{2}}{8}=-\\frac{\\pi^{3}}{40}.$$</div>\r\n  <p>奇段（$f$ 段）：用 $\\displaystyle\\int\\mathrm e^{-x}\\sin x\\,\\mathrm dx=-\\frac{\\mathrm e^{-x}}{2}\\left(\\sin x+\\cos x\\right)$，端点处 $\\sin=0$、$\\cos$ 依次为 $-1$ 与 $1$：</p>\r\n  <div class=\"fm\">$$\\int_{(2k+1)\\pi}^{(2k+2)\\pi}\\left(-\\frac15\\mathrm e^{-x}\\sin x\\right)\\mathrm dx=\\frac{1}{10}\\left(\\mathrm e^{-(2k+2)\\pi}+\\mathrm e^{-(2k+1)\\pi}\\right).$$</div>\r\n  <p>求和：$\\displaystyle\\sum_{k=0}^{\\infty}\\mathrm e^{-(2k+2)\\pi}=\\frac{\\mathrm e^{-2\\pi}}{1-\\mathrm e^{-2\\pi}}$、$\\displaystyle\\sum_{k=0}^{\\infty}\\mathrm e^{-(2k+1)\\pi}=\\frac{\\mathrm e^{-\\pi}}{1-\\mathrm e^{-2\\pi}}$，两者相加 $=\\dfrac{\\mathrm e^{-\\pi}}{1-\\mathrm e^{-\\pi}}$，故奇段合计</p>\r\n  <div class=\"fm\">$$\\frac{1}{10}\\cdot\\frac{\\mathrm e^{-\\pi}}{1-\\mathrm e^{-\\pi}}=\\frac{1}{10}\\cdot\\frac{1}{\\mathrm e^{\\pi}-1}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第四步：合并</h3>\r\n  <div class=\"fm\">$$I=-\\frac{\\pi^{3}}{40}+\\frac{1}{10}\\cdot\\frac{1}{\\mathrm e^{\\pi}-1}=\\frac{1}{10}\\left(\\frac{1}{\\mathrm e^{\\pi}-1}-\\frac{\\pi^{3}}{4}\\right).$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "① 解出两个函数；② <b>逐段定号</b>、比较绝对值；③ 按段写成分段表达式；④ 按\"等比 / 级数\"求和。本题的\"巧\"在于 $f$ 恰好只剩一项、且 $g$ 的分母 $(n+1)^{2}$ 与 $\\mathrm e^{-n\\pi}$ 恰好同量级但总大一点。",
+        "items": [
+          "比较两段函数的大小，靠的是<b>绝对值上界</b>：$\\mathrm e^{-n\\pi}&lt;\\dfrac{1}{(n+1)^{2}}$ 是本题能分段的关键，不验证就下结论容易错；",
+          "$\\displaystyle\\sum_{k=0}^{\\infty}\\frac{1}{(2k+1)^{2}}=\\frac{\\pi^{2}}{8}$ 与 $\\displaystyle\\sum\\mathrm e^{-2k\\pi}=\\frac{1}{1-\\mathrm e^{-2\\pi}}$ 这两个和要熟，级数求和题几乎都用它们；",
+          "$\\displaystyle\\int\\mathrm e^{-x}\\sin x\\,\\mathrm dx=-\\frac{\\mathrm e^{-x}}{2}(\\sin x+\\cos x)$ 是循环分部的结果，端点处 $\\sin$ 归零，只剩 $\\cos$ 的 $\\pm1$，很好算；",
+          "最终结果 $-0.0776+0.0317\\approx-0.046$（$\\pi^{3}/40\\approx0.775$），符号为负，说明 $g$ 的负值段贡献更大，与\"$n$ 偶段长 $\\pi$、值 $-1/5$\"的直觉吻合。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{1}{10}\\left(\\dfrac{1}{\\mathrm e^{\\pi}-1}-\\dfrac{\\pi^{3}}{4}\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "特征根与特解",
+          "latex": "$$\\lambda^{2}+2\\lambda-3=0,\\qquad y^{*}=\\mathrm{e}^{-x}\\left(A\\cos x+B\\sin x\\right)$$"
+        },
+        {
+          "name": "按奇偶逐段取小",
+          "latex": "$$\\min\\left\\{f,g\\right\\}\\ \\text{按}\\ n\\ \\text{的奇偶分段}$$"
+        },
+        {
+          "name": "两族分别求和",
+          "latex": "$$\\text{几何级数}+\\text{交错级数}$$"
+        }
+      ]
+    },
+    {
+      "seq": 39,
+      "number": "题 39",
+      "title": "可降阶求出 $f$，再对 $F(x)$ 求导定极大值",
+      "chapter": 4,
+      "stemHtml": "设函数 $y=f(x)$ 是微分方程 $(x+1)y''=y'$ 满足初始条件 $y(0)=3$、$y'(0)=-2$ 的解，证明：对任意正整数 $n&gt;1$ 及所有 $x\\geqslant0$，恒有 $\\displaystyle\\int_0^{x}f(t)\\sin^{2n-2}t\\,\\mathrm dt\\leqslant\\frac{4n+1}{n\\left(4n^{2}-1\\right)}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手</h3>\r\n  <p><strong>【左边是变上限积分 $\\to$ 令 $F(x)=\\displaystyle\\int_0^{x}f\\sin^{2n-2}$，则 $F'=f\\sin^{2n-2}$ $\\to$ <b>把 $F$ 的最大值算出来</b>就是左边的一致上界 $\\to$ 先降阶解出 $f$，再找 $F'$ 的符号（$\\sin^{2n-2}\\geqslant0$，符号全看 $f$）】</strong>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：解 $f$</h3>\r\n  <p>$(x+1)y''=y'$ 缺 $y$，令 $p=y'$：$\\dfrac{\\mathrm dp}{p}=\\dfrac{\\mathrm dx}{x+1}$，$\\ln|p|=\\ln|x+1|+C$，$p=C_{1}(x+1)$。由 $p(0)=-2$ 得 $C_{1}=-2$，$y'=-2(x+1)$，积分得 $y=-(x+1)^{2}+C_{2}$，由 $y(0)=3$：$C_{2}=4$。故</p>\r\n  <div class=\"fm\">$$f(x)=4-(x+1)^{2}=(3+x)(1-x).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：定 $F$ 的最大值点</h3>\r\n  <p>记 $F(x)=\\displaystyle\\int_0^{x}f(t)\\sin^{2n-2}t\\,\\mathrm dt$，则 $F'(x)=f(x)\\sin^{2n-2}x$。$F'=0$ 的点：$x=1$、$x=-3$（舍）、$x=0$ 以及 $x=k\\pi$。由于 $\\sin^{2n-2}x\\geqslant0$，$F'$ 的符号只由 $f$ 决定：</p>\r\n  <div class=\"fm\">$$0&lt;x&lt;1:\\ f&gt;0\\Rightarrow F'&gt;0;\\qquad x&gt;1:\\ f&lt;0\\Rightarrow F'\\leqslant0,$$</div>\r\n  <p>而 $x=k\\pi$（$k\\geqslant1$ 时 $\\pi&gt;1$）、$x=0$ 处 $F'$ 两侧不变号，故 $x=1$ 是 $F$ 在 $(0,+\\infty)$ 内唯一的极大值点，也是最大值点。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：估上界</h3>\r\n  <p>在 $[0,1]$ 上 $f(t)=3-2t-t^{2}&gt;0$，且 $\\sin t\\leqslant t$ 给出 $\\sin^{2n-2}t\\leqslant t^{2n-2}$，故</p>\r\n  <div class=\"fm\">$$F(x)\\leqslant F(1)=\\int_0^{1}\\left(3-2t-t^{2}\\right)\\sin^{2n-2}t\\,\\mathrm dt\\leqslant\\int_0^{1}\\left(3-2t-t^{2}\\right)t^{2n-2}\\mathrm dt.$$</div>\r\n  <div class=\"fm\">$$=\\frac{3}{2n-1}-\\frac{2}{2n}-\\frac{1}{2n+1}=\\frac{3}{2n-1}-\\frac1n-\\frac{1}{2n+1}=\\frac{4n+1}{n\\left(4n^{2}-1\\right)}.$$</div>\r\n  <p>（通分：分子 $3n(2n+1)-(2n+1)(2n-1)-n(2n-1)=6n^{2}+3n-4n^{2}+1-2n^{2}+n=4n+1$，分母 $n(2n-1)(2n+1)$ ✓。）</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "一端是变上限积分的不等式，几乎都是\"设 $F$ 为左端、求 $F'$、定最大值\"。这比直接对被积函数放缩稳得多。",
+        "items": [
+          "$(x+1)y''=y'$ 缺 $y$，标准降阶令 $p=y'$；缺 $x$ 才令 $p=y'$ 换 $y$ 作自变量，<b>两种缺项对应两种降阶</b>，别混；",
+          "$\\sin^{2n-2}x\\geqslant0$，所以 $F'$ 的符号就等于 $f$ 的符号——这是本题能定性判定的关键；",
+          "$x=k\\pi$ 是\"伪驻点\"：$F'$ 在此不变号，必须逐一排除，否则会误判最值点个数；",
+          "$\\sin t\\leqslant t$（$t\\in[0,1]$）是最常用的放缩，配合 $\\displaystyle\\int_0^1 t^{k}\\mathrm dt=\\frac{1}{k+1}$ 直接出结果，$n&gt;1$ 保证各项收敛。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>已证：$f(x)=(3+x)(1-x)$，$F$ 在 $x=1$ 取最大值，上界为 $\\dfrac{4n+1}{n\\left(4n^{2}-1\\right)}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "解方程",
+          "latex": "$$\\frac{y''}{y'}=\\frac{1}{x+1}\\ \\Longrightarrow\\ y'=C\\left(x+1\\right)$$"
+        },
+        {
+          "name": "定出 $f$",
+          "latex": "$$f(x)=4-\\left(x+1\\right)^{2}$$"
+        },
+        {
+          "name": "先求导看最值",
+          "latex": "$$F'(x)=f(x)\\sin^{2n-2}x\\ \\Longrightarrow\\ \\text{最大值在}\\ x=1$$"
+        },
+        {
+          "name": "估上界",
+          "latex": "$$\\int_0^1\\sin^{2n-2}t\\,\\mathrm{d}t\\leqslant\\int_0^1t^{2n-2}\\mathrm{d}t=\\frac{1}{2n-1}$$"
+        }
+      ]
+    }
+  ]
+}

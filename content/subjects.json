@@ -20,6 +20,22 @@
               "name": "初赛",
               "desc": "第 1–17 届初赛真题，含填空与解答",
               "dir": "math/competition"
+            },
+            {
+              "id": "training",
+              "name": "能力拓展与训练",
+              "desc": "按 8 章知识点专项训练，共 499 题",
+              "dir": "math/training",
+              "chapters": [
+                { "no": 1, "name": "极限、函数与连续", "count": 69 },
+                { "no": 2, "name": "一元函数微分学", "count": 77 },
+                { "no": 3, "name": "一元函数积分学", "count": 66 },
+                { "no": 4, "name": "常微分方程", "count": 39 },
+                { "no": 5, "name": "向量代数与空间解析几何", "count": 40 },
+                { "no": 6, "name": "多元函数微分学", "count": 52 },
+                { "no": 7, "name": "多元函数积分学", "count": 76 },
+                { "no": 8, "name": "无穷级数", "count": 80 }
+              ]
             }
           ]
         }

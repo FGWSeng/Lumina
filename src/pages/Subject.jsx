@@ -138,18 +138,22 @@ export default function Subject() {
                     {c.name}
                     <span className="count">{c.count}</span>
                   </button>
-                  {c.years?.length > 0 && (
+                  {c.id === catId && c.years?.length > 0 && (
                     <div className="tree-sub">
-                      {c.years.map((y) => (
-                        <button
-                          key={y.year}
-                          className={`tree-item ${String(y.year) === year ? 'active' : ''}`}
-                          onClick={() => patch('year', String(y.year) === year ? '' : String(y.year))}
-                        >
-                          {y.year}
-                          <span className="count">{y.count}</span>
-                        </button>
-                      ))}
+                      {c.years.map((y) => {
+                        const key = y.chapter ?? y.year
+                        return (
+                          <button
+                            key={key}
+                            className={`tree-item ${String(key) === year ? 'active' : ''}`}
+                            onClick={() => patch('year', String(key) === year ? '' : String(key))}
+                            title={y.name || ''}
+                          >
+                            {y.chapter ? `第 ${y.chapter} 章` : y.year}
+                            <span className="count">{y.count}</span>
+                          </button>
+                        )
+                      })}
                     </div>
                   )}
                 </div>
@@ -240,13 +244,16 @@ export default function Subject() {
             ))}
           </select>
 
-          <select className="select" value={year} onChange={(e) => patch('year', e.target.value)} aria-label="年份">
-            <option value="">全部年份</option>
-            {(category?.years || []).map((y) => (
-              <option key={y.year} value={y.year}>
-                {y.year}（{y.count}）
-              </option>
-            ))}
+          <select className="select" value={year} onChange={(e) => patch('year', e.target.value)} aria-label="按年份或章节筛选">
+            <option value="">{category?.id === 'training' ? '全部章节' : '全部年份'}</option>
+            {(category?.years || []).map((y) => {
+              const key = y.chapter ?? y.year
+              return (
+                <option key={key} value={key}>
+                  {y.chapter ? `第 ${y.chapter} 章 ${y.name}（${y.count}）` : `${y.year}（${y.count}）`}
+                </option>
+              )
+            })}
           </select>
 
           {hasFilter && (

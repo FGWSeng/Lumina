@@ -1,0 +1,4006 @@
+{
+  "subject": "math",
+  "group": "competition",
+  "category": "training",
+  "chapter": 7,
+  "chapterName": "多元函数积分学",
+  "title": "第 7 章 多元函数积分学7.4 能力拓展与训练 76 题全解",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "题 1",
+      "title": "对称性 + 直角坐标",
+      "chapter": 7,
+      "stemHtml": "设 $D=\\{(x,y)\\mid |x|+|y|\\le 1\\}$，求 $\\displaystyle\\iint_D (x+|y|)\\,\\mathrm{d}x\\,\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先用奇偶性把「绝对值」和「x」一起清掉</h3>\r\n  <p>【看到「区域由 $|x|+|y|\\le1$ 围成、被积函数含 $x$ 与 $|y|$」→ 调用「奇函数在对称区域上积零、偶函数折成四倍」】。$x$ 关于 $x$ 是奇函数、区域关于 $y$ 轴对称，这一项直接归零；$|y|$ 关于 $x$ 是偶函数，折成第一象限的 4 倍，绝对值也就没了。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化到第一象限</h3>\r\n  <div class=\"fm\">$$I=0+4\\iint_{D_1}y\\,\\mathrm{d}x\\,\\mathrm{d}y,\\qquad D_1:\\ 0\\le x\\le1,\\ 0\\le y\\le1-x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：直角坐标一次算完</h3>\r\n  <div class=\"fm\">$$I=4\\int_0^1\\!\\mathrm{d}x\\int_0^{1-x}y\\,\\mathrm{d}y=4\\cdot\\frac12\\int_0^1(1-x)^2\\,\\mathrm{d}x=\\frac{2}{3}.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\iint_D(x+|y|)\\,\\mathrm{d}x\\,\\mathrm{d}y=\\frac23$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "区域关于坐标轴对称时，先查被积函数的奇偶性，能归零的项立刻划掉。",
+          "$|y|$ 关于 $x$ 是偶函数，可以折半（这里是四分之一区域乘 4）。",
+          "只剩单变量时用直角坐标最快，内层一次多项式积分不必换极坐标。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac23$",
+      "concl": "<b>结论</b>$\\displaystyle\\iint_D(x+|y|)\\,\\mathrm{d}x\\,\\mathrm{d}y=\\frac23$。",
+      "formulasUsed": [
+        {
+          "name": "区域的对称性",
+          "latex": "$$D\\ \\text{关于}\\ x\\ \\text{轴、}\\ y\\ \\text{轴、原点都对称}$$"
+        },
+        {
+          "name": "奇函数积零",
+          "latex": "$$\\iint_D x\\,\\mathrm{d}x\\,\\mathrm{d}y=0\\quad(x\\ \\text{关于}\\ x\\ \\text{为奇函数，}D\\ \\text{关于}\\ y\\ \\text{轴对称})$$"
+        },
+        {
+          "name": "偶函数折四倍",
+          "latex": "$$\\iint_D |y|\\,\\mathrm{d}x\\,\\mathrm{d}y=4\\iint_{D_1} y\\,\\mathrm{d}x\\,\\mathrm{d}y,\\quad D_1=\\{x\\ge0,\\ y\\ge0,\\ x+y\\le1\\}$$"
+        },
+        {
+          "name": "内层积分",
+          "latex": "$$\\int_0^{1-x}y\\,\\mathrm{d}y=\\frac{(1-x)^2}{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "number": "题 2",
+      "title": "极坐标分区 + 三角化简",
+      "chapter": 7,
+      "stemHtml": "设平面区域 $D=\\{(x,y)\\mid y-2\\le x\\le\\sqrt{4-y^2},\\ 0\\le y\\le2\\}$，计算 $I=\\displaystyle\\iint_D\\frac{(x-y)^2}{x^2+y^2}\\,\\mathrm{d}x\\,\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：边界一条是圆弧、一条是直线，都从原点「看出去」很规整</h3>\r\n  <p>【看到「圆弧 $x=\\sqrt{4-y^2}$ + 直线 $x=y-2$ 围成的区域、被积函数是 $\\frac{(x-y)^2}{x^2+y^2}$」→ 调用「极坐标：被积函数只含 $\\theta$，面积元 $r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta$ 把 $r$ 积掉」】。分母 $x^2+y^2$ 一出现，就该想到极坐标；这一题换过去后 $r$ 恰好全部约掉。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：把 $D$ 拆成两块</h3>\r\n  <p>射线从原点扫过时，$0\\le\\theta\\le\\frac\\pi2$ 打在半圆 $r=2$ 上，$\\frac\\pi2\\le\\theta\\le\\pi$ 打在直线 $r=\\frac{2}{\\sin\\theta-\\cos\\theta}$ 上，故 $D=D_1+D_2$：</p><div class=\"fm\">$$D_1:\\ 0\\le r\\le2,\\ 0\\le\\theta\\le\\frac{\\pi}{2};\\qquad D_2:\\ 0\\le r\\le\\frac{2}{\\sin\\theta-\\cos\\theta},\\ \\frac{\\pi}{2}\\le\\theta\\le\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两块分别积</h3>\r\n  <div class=\"fm\">$$\\iint_{D_1}=2\\int_0^{\\pi/2}(\\cos\\theta-\\sin\\theta)^2\\,\\mathrm{d}\\theta=2\\left(\\frac\\pi2-1\\right),$$</div><div class=\"fm\">$$\\iint_{D_2}=\\int_{\\pi/2}^{\\pi}(\\cos\\theta-\\sin\\theta)^2\\cdot\\frac12\\cdot\\frac{4}{(\\sin\\theta-\\cos\\theta)^2}\\,\\mathrm{d}\\theta=2\\int_{\\pi/2}^{\\pi}\\mathrm{d}\\theta=\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：相加</h3>\r\n  <div class=\"fm\">$$I=2\\left(\\frac\\pi2-1\\right)+\\pi=2\\pi-2.$$</div><p class=\"concl\"><b>结论</b>$I=2\\pi-2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分母出现 $x^2+y^2$，先换极坐标，不要硬算。",
+          "区域边界由不同曲线拼成时，按射线落在哪条边界上分 $\\theta$ 区间。",
+          "$r$ 的上下限用边界方程反解，$\\frac{(x-y)^2}{x^2+y^2}$ 换过去只剩 $\\theta$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2\\pi-2$",
+      "concl": "<b>结论</b>$I=2\\pi-2$。",
+      "formulasUsed": [
+        {
+          "name": "极坐标下的被积函数",
+          "latex": "$$\\frac{(x-y)^2}{x^2+y^2}=\\frac{r^2(\\cos\\theta-\\sin\\theta)^2}{r^2}=(\\cos\\theta-\\sin\\theta)^2$$"
+        },
+        {
+          "name": "圆 $x^2+y^2=4$ 的右半支",
+          "latex": "$$x=\\sqrt{4-y^2}\\iff r=2,\\quad 0\\le\\theta\\le\\frac{\\pi}{2}$$"
+        },
+        {
+          "name": "直线 $x=y-2$ 的极坐标式",
+          "latex": "$$r\\cos\\theta=r\\sin\\theta-2\\iff r=\\frac{2}{\\sin\\theta-\\cos\\theta},\\quad \\frac{\\pi}{2}\\le\\theta\\le\\pi$$"
+        },
+        {
+          "name": "降幂公式",
+          "latex": "$$\\int_0^{\\pi/2}(\\cos\\theta-\\sin\\theta)^2\\,\\mathrm{d}\\theta=\\int_0^{\\pi/2}(1-\\sin2\\theta)\\,\\mathrm{d}\\theta=\\frac{\\pi}{2}-1$$"
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "number": "题 3",
+      "title": "先求交线定投影 + 柱坐标",
+      "chapter": 7,
+      "stemHtml": "曲面 $z=\\sqrt{4-x^2-y^2}$ 与 $x^2+y^2=3z$ 所围成的立体体积 $V=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个曲面谁在上？交线在哪？</h3>\r\n  <p>【看到「球面 + 旋转抛物面围成立体」→ 调用「联立求交线定投影域，再取上曲面减下曲面」】。上半球 $z=\\sqrt{4-r^2}$ 与开口向上的抛物面 $z=\\frac{r^2}{3}$ 交于 $z=1$，投影是半径 $\\sqrt3$ 的圆。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定投影域</h3>\r\n  <p>由 $r^2=3z$ 与 $z=\\sqrt{4-r^2}$ 消去 $r^2$：$z^2=4-3z$，得 $z=1$，$r^2=3$。故 $D:r^2\\le3$，且在此圆内球面在上。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：柱坐标算体积</h3>\r\n  <div class=\"fm\">$$V=2\\pi\\int_0^{\\sqrt3}\\left(\\sqrt{4-r^2}-\\frac{r^2}{3}\\right)r\\,\\mathrm{d}r=2\\pi\\left[-\\frac13(4-r^2)^{3/2}-\\frac{r^4}{12}\\right]_0^{\\sqrt3}=\\frac{19\\pi}{6}.$$</div><p class=\"concl\"><b>结论</b>$V=\\dfrac{19\\pi}{6}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "先联立两曲面求交线，交线高度决定积分上下限。",
+          "被积函数只含 $r$ 时用柱坐标，$\\mathrm{d}V=r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta\\,\\mathrm{d}z$。",
+          "「上减下」写在积分号内，别漏乘 $r$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{19\\pi}{6}$",
+      "concl": "<b>结论</b>$V=\\dfrac{19\\pi}{6}$。",
+      "formulasUsed": [
+        {
+          "name": "交线的高度",
+          "latex": "$$z^2+3z-4=0\\iff z=1\\ (\\text{舍 }z=-4)$$"
+        },
+        {
+          "name": "投影区域",
+          "latex": "$$D:\\ x^2+y^2\\le3$$"
+        },
+        {
+          "name": "体积公式（上减下）",
+          "latex": "$$V=\\iint_D\\left[\\sqrt{4-x^2-y^2}-\\frac{x^2+y^2}{3}\\right]\\mathrm{d}x\\,\\mathrm{d}y$$"
+        },
+        {
+          "name": "柱坐标下的积分",
+          "latex": "$$\\int_0^{\\sqrt3}\\left(\\sqrt{4-r^2}-\\frac{r^2}{3}\\right)r\\,\\mathrm{d}r=\\left[-\\frac13(4-r^2)^{3/2}-\\frac{r^4}{12}\\right]_0^{\\sqrt3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "number": "题 4",
+      "title": "按 $x+y$ 落点分块",
+      "chapter": 7,
+      "stemHtml": "计算 $\\displaystyle\\int_0^1\\!\\!\\int_0^1[2x+2y]\\,\\mathrm{d}x\\,\\mathrm{d}y$，其中 $[x]$ 为不超过 $x$ 的最大整数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：被积函数是阶梯，只能按「落到哪一档」分块</h3>\r\n  <p>【看到「$[2x+2y]$」→ 调用「按 $x+y$ 所在的半整数区间把正方形切片，每片上是常数」】。在 $[0,1]^2$ 上 $2x+2y\\in[0,4]$，所以只需切 4 档。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出每块上的函数值</h3>\r\n  <p>当 $\\frac{k-1}{2}\\le x+y&lt;\\frac{k}{2}$ 时 $k-1\\le 2x+2y&lt;k$，故 $[2x+2y]=k-1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算面积再带权相加</h3>\r\n  <p>四块都是被直线 $x+y=\\frac12,1,\\frac32$ 截出的带状区域：两端两块是等腰直角三角形，面积各 $\\frac18$；中间两块面积各 $\\frac38$。</p><div class=\"fm\">$$\\int_0^1\\!\\!\\int_0^1[2x+2y]\\,\\mathrm{d}x\\,\\mathrm{d}y=1\\cdot\\frac38+2\\cdot\\frac38+3\\cdot\\frac18=\\frac32.$$</div><p class=\"concl\"><b>结论</b>原式 $=\\dfrac32$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "取整函数在每块上是常数，先把 $[\\,\\cdot\\,]$ 变成「值 × 面积」。",
+          "分块线取 $2x+2y$ 的整数值，即 $x+y$ 的半整数值。",
+          "每块面积用几何（三角形、梯形）算，比硬积分快。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac32$",
+      "concl": "<b>结论</b>原式 $=\\dfrac32$。",
+      "formulasUsed": [
+        {
+          "name": "取整的定义",
+          "latex": "$$[t]=k\\iff k\\le t&lt;k+1$$"
+        },
+        {
+          "name": "分块方式",
+          "latex": "$$D_k=\\left\\{(x,y)\\in D\\ \\Big|\\ \\frac{k-1}{2}\\le x+y&lt;\\frac{k}{2}\\right\\},\\quad k=1,2,3,4$$"
+        },
+        {
+          "name": "各块上的取值",
+          "latex": "$$[2x+2y]=k-1,\\quad (x,y)\\in D_k$$"
+        },
+        {
+          "name": "各块面积",
+          "latex": "$$|D_1|=|D_4|=\\frac18,\\qquad |D_2|=|D_3|=\\frac38$$"
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "number": "题 5",
+      "title": "交换积分次序 + 变量代换 + 对称",
+      "chapter": 7,
+      "stemHtml": "求积分 $I=\\displaystyle\\int_0^{\\frac{\\pi^2}{4}}\\frac{\\mathrm{d}x}{\\sqrt{x}}\\int_{\\sqrt{x}}^{\\frac{\\pi}{2}}\\frac{\\mathrm{d}y}{1+(\\tan y^2)^{\\sqrt2}}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：内层对被积函数的 $y$ 积不动，先看能不能换序</h3>\r\n  <p>【看到「$\\int_{\\sqrt x}^{\\pi/2}\\frac{\\mathrm{d}y}{1+(\\tan y^2)^{\\sqrt2}}$ 直接积不出来」→ 调用「交换积分次序，让内层变成 $\\int\\frac{\\mathrm{d}x}{\\sqrt x}=2\\sqrt x$」】。换序后 $y$ 落到外层，内层只积 $\\frac1{\\sqrt x}$，立刻出结果。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换序</h3>\r\n  <div class=\"fm\">$$I=\\int_0^{\\pi/2}\\frac{\\mathrm{d}y}{1+(\\tan y^2)^{\\sqrt2}}\\int_0^{y^2}\\frac{\\mathrm{d}x}{\\sqrt{x}}=2\\int_0^{\\pi/2}\\frac{y\\,\\mathrm{d}y}{1+(\\tan y^2)^{\\sqrt2}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：令 $u=y^2$</h3>\r\n  <div class=\"fm\">$$I=\\int_0^{\\pi^2/4}\\frac{\\mathrm{d}u}{1+(\\tan u)^{\\sqrt2}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：用 $u\\mapsto\\frac\\pi2-u$ 配对</h3>\r\n  <p>把同一个积分记为 $J$，作代换后 $\\tan(\\frac\\pi2-u)=\\cot u$，于是</p><div class=\"fm\">$$J=\\int_0^{\\pi^2/4}\\frac{(\\tan u)^{\\sqrt2}}{1+(\\tan u)^{\\sqrt2}}\\,\\mathrm{d}u\\ \\Rightarrow\\ 2J=\\frac{\\pi^2}{4}\\ \\Rightarrow\\ J=\\frac{\\pi^2}{8}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{\\pi^2}{8}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "内层积不动就换序，这是二重积分的第一反应。",
+          "上限带平方（$y^2$）时，令 $u=y^2$ 把「$\\tan u$」理出来。",
+          "$\\frac{1}{1+(\\tan u)^p}$ 型在 $[0,\\frac\\pi2]$ 上用 $u\\mapsto\\frac\\pi2-u$ 配对，两项相加为 1。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi^2}{8}$",
+      "concl": "<b>结论</b>$I=\\dfrac{\\pi^2}{8}$。",
+      "formulasUsed": [
+        {
+          "name": "换序后的区域",
+          "latex": "$$0\\le x\\le y^2,\\qquad 0\\le y\\le\\frac{\\pi}{2}$$"
+        },
+        {
+          "name": "内层可算",
+          "latex": "$$\\int_0^{y^2}\\frac{\\mathrm{d}x}{\\sqrt{x}}=2y$$"
+        },
+        {
+          "name": "换序后的积分",
+          "latex": "$$I=2\\int_0^{\\pi/2}\\frac{y}{1+(\\tan y^2)^{\\sqrt2}}\\,\\mathrm{d}y$$"
+        },
+        {
+          "name": "配对公式",
+          "latex": "$$\\int_0^{\\pi/2}\\frac{\\mathrm{d}u}{1+(\\tan u)^{\\sqrt2}}=\\frac{\\pi}{4}\\quad(u\\mapsto\\frac\\pi2-u)$$"
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "number": "题 6",
+      "title": "换序合并 + 几何意义",
+      "chapter": 7,
+      "stemHtml": "积分 $\\displaystyle\\int_0^1\\!\\!\\mathrm{d}y\\int_0^{\\ln y}\\sqrt{\\mathrm{e}^{2x}-y^2}\\,\\mathrm{d}x+\\int_1^{\\mathrm{e}}\\!\\!\\mathrm{d}y\\int_{\\ln y}^1\\sqrt{\\mathrm{e}^{2x}-y^2}\\,\\mathrm{d}x=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两段积分看着别扭，其实拼起来是一个完整区域</h3>\r\n  <p>【看到「两段二次积分、边界都是 $x=\\ln y$ 与 $x=1$ 之类」→ 调用「把它们还原成二重积分，看是不是同一区域的两半」】。第一段的 $y$ 从 $0$ 到 $1$ 在 $y=x$ 下方，第二段补上 $y=x$ 上方的部分，合起来正是 $0\\le y\\le\\mathrm{e}^x,\\ 0\\le x\\le1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：合并区域</h3>\r\n  <div class=\"fm\">$$I=\\iint_D\\sqrt{\\mathrm{e}^{2x}-y^2}\\,\\mathrm{d}x\\,\\mathrm{d}y=\\int_0^1\\!\\mathrm{d}x\\int_0^{\\mathrm{e}^x}\\sqrt{\\mathrm{e}^{2x}-y^2}\\,\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：内层用圆的面积</h3>\r\n  <p>把 $\\mathrm{e}^{x}$ 看作常数 $a$，$\\int_0^{a}\\sqrt{a^2-y^2}\\,\\mathrm{d}y$ 是四分之一圆面积 $\\frac{\\pi a^2}{4}$，故内层 $=\\frac{\\pi}{4}\\mathrm{e}^{2x}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：外层积 $x$</h3>\r\n  <div class=\"fm\">$$I=\\frac{\\pi}{4}\\int_0^1\\mathrm{e}^{2x}\\,\\mathrm{d}x=\\frac{\\pi}{8}\\left(\\mathrm{e}^2-1\\right).$$</div><p class=\"concl\"><b>结论</b>原式 $=\\dfrac{\\pi}{8}(\\mathrm{e}^2-1)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "两段二次积分先还原成二重积分，再判断能否拼成一个区域。",
+          "$\\sqrt{a^2-y^2}$ 的内层积分优先用「四分之一圆面积」$\\frac{\\pi a^2}{4}$。",
+          "常数因子 $\\mathrm{e}^{2x}$ 在换元时提到根号外，最后再积 $x$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi}{8}(\\mathrm{e}^2-1)$",
+      "concl": "<b>结论</b>原式 $=\\dfrac{\\pi}{8}(\\mathrm{e}^2-1)$。",
+      "formulasUsed": [
+        {
+          "name": "两块区域合并",
+          "latex": "$$D:\\ 0\\le x\\le1,\\ 0\\le y\\le\\mathrm{e}^{x}$$"
+        },
+        {
+          "name": "内层换元",
+          "latex": "$$y=\\mathrm{e}^{x}\\sin\\theta\\ \\Rightarrow\\ \\int_0^{\\mathrm{e}^x}\\sqrt{\\mathrm{e}^{2x}-y^2}\\,\\mathrm{d}y=\\frac{\\pi}{4}\\mathrm{e}^{2x}$$"
+        },
+        {
+          "name": "半径 $a$ 的圆面积",
+          "latex": "$$\\int_0^a\\sqrt{a^2-x^2}\\,\\mathrm{d}x=\\frac{\\pi a^2}{4}$$"
+        },
+        {
+          "name": "最后一步",
+          "latex": "$$\\int_0^1\\mathrm{e}^{2x}\\,\\mathrm{d}x=\\frac{\\mathrm{e}^2-1}{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "number": "题 7",
+      "title": "找出被积函数非零的条带",
+      "chapter": 7,
+      "stemHtml": "设 $f(x)=\\begin{cases}a,&0\\le x\\le2\\\\0,&\\text{其他}\\end{cases}$（$a>0$ 为常数），$D$ 是全平面，求二重积分 $\\displaystyle\\iint_D f(x)f(y-x)\\,\\mathrm{d}x\\,\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个「窗口函数」相乘，只有窗口重叠处不为零</h3>\r\n  <p>【看到「$f(x)f(y-x)$ 都是分段常值」→ 调用「把每个因子的非零条件列成不等式，交集就是积分区域」】。$f(x)\\neq0$ 要 $x\\in[0,2]$；$f(y-x)\\neq0$ 要 $y-x\\in[0,2]$，即 $x\\le y\\le x+2$。两者一交，是一条宽 2、长 2 的斜条带。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定区域</h3>\r\n  <div class=\"fm\">$$D_1=\\{(x,y)\\mid 0\\le x\\le2,\\ x\\le y\\le x+2\\}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：区域上是常数，只算面积</h3>\r\n  <div class=\"fm\">$$I=a^2\\iint_{D_1}\\mathrm{d}x\\,\\mathrm{d}y=a^2\\int_0^2\\!\\mathrm{d}x\\int_x^{x+2}\\mathrm{d}y=a^2\\cdot 2\\cdot2=4a^2.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\iint_D f(x)f(y-x)\\,\\mathrm{d}x\\,\\mathrm{d}y=4a^2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分段常值函数相乘，先列「各自非零」的不等式，交集才是积分域。",
+          "区域上函数为常数时，把常数提到积分号外，只算面积。",
+          "斜条带 $0\\le x\\le2,\\ x\\le y\\le x+2$ 的面积 = 底 × 高，不必硬积。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$4a^2$",
+      "concl": "<b>结论</b>$\\displaystyle\\iint_D f(x)f(y-x)\\,\\mathrm{d}x\\,\\mathrm{d}y=4a^2$。",
+      "formulasUsed": [
+        {
+          "name": "两个因子都非零的条件",
+          "latex": "$$0\\le x\\le2,\\qquad 0\\le y-x\\le2$$"
+        },
+        {
+          "name": "非零区域",
+          "latex": "$$D_1:\\ 0\\le x\\le2,\\ x\\le y\\le x+2$$"
+        },
+        {
+          "name": "被积函数在该区域上",
+          "latex": "$$f(x)f(y-x)=a\\cdot a=a^2$$"
+        },
+        {
+          "name": "条带面积",
+          "latex": "$$|D_1|=4$$"
+        }
+      ]
+    },
+    {
+      "seq": 8,
+      "number": "题 8",
+      "title": "对称性 + 三块分解",
+      "chapter": 7,
+      "stemHtml": "计算二重积分 $I=\\displaystyle\\iint_D(|x|+|y|)\\,\\mathrm{d}x\\,\\mathrm{d}y$，其中 $D$ 由曲线 $xy=2$、直线 $y=x-1$ 与 $y=x+1$ 围成。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：区域被双曲线和两条平行线切出一块「尖角 + 两片弯月」</h3>\r\n  <p>【看到「$xy=2$ 与 $y=x\\pm1$ 围成、被积函数 $|x|+|y|$」→ 调用「先找对称轴 $y=-x$，把两片弯月折成一片，再去绝对值」】。$D$ 关于 $y=-x$ 对称而 $|x|+|y|$ 在该对称下不变，两片弯月等值。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拆成三块</h3>\r\n  <p>第一象限的三角块 $D_1$（顶点 $(0,0),(1,0),(0,1)$），左侧弯月 $D_2$（$0\\le x\\le1$，$1-x\\le y\\le1+x$），右侧弯月 $D_3$（$1\\le x\\le2$，$x-1\\le y\\le\\frac2x$）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算两块弯月</h3>\r\n  <div class=\"fm\">$$\\iint_{D_2}(x+y)=\\int_0^1\\!\\mathrm{d}x\\int_{1-x}^{1+x}(x+y)\\,\\mathrm{d}y=\\frac43,\\qquad \\iint_{D_3}(x+y)=\\int_1^2\\!\\mathrm{d}x\\int_{x-1}^{2/x}(x+y)\\,\\mathrm{d}y=\\frac43.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：按对称性合并</h3>\r\n  <div class=\"fm\">$$I=8\\iint_{D_1}|x|+2\\iint_{D_2}(x+y)+2\\iint_{D_3}(x+y)=\\frac43+4+\\frac{10}{3}=\\frac{26}{3}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{26}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "曲线与斜直线围成的区域，先画图找对称轴（这里 $y=-x$）。",
+          "$|x|+|y|$ 在各象限写成 $\\pm x\\pm y$，配合对称性只算一块。",
+          "双曲线段作边界时，$y$ 的上限是 $\\frac2x$，积分区间按 $x$ 分段。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{26}{3}$",
+      "concl": "<b>结论</b>$I=\\dfrac{26}{3}$。",
+      "formulasUsed": [
+        {
+          "name": "区域的三块对称结构",
+          "latex": "$$D=D_1+D_2+D_3,\\quad D_1:\\ x+y\\le1,\\ x,y\\ge0;\\ D_2,D_3\\ \\text{关于}\\ y=-x\\ \\text{对称}$$"
+        },
+        {
+          "name": "$D_2$ 的边界",
+          "latex": "$$D_2:\\ 1-x\\le y\\le1+x,\\ 0\\le x\\le1$$"
+        },
+        {
+          "name": "$D_3$ 的边界",
+          "latex": "$$D_3:\\ x-1\\le y\\le\\frac{2}{x},\\ 1\\le x\\le2$$"
+        },
+        {
+          "name": "第一象限内 $|x|+|y|=x+y$",
+          "latex": "$$\\iint_{D_1}(x+y)\\,\\mathrm{d}x\\,\\mathrm{d}y=\\int_0^1\\!\\mathrm{d}x\\int_0^{1-x}(x+y)\\,\\mathrm{d}y=\\frac16$$"
+        }
+      ]
+    },
+    {
+      "seq": 9,
+      "number": "题 9",
+      "title": "按 $y=x^2$ 上下分块",
+      "chapter": 7,
+      "stemHtml": "计算 $\\displaystyle\\iint_D\\sqrt{|y-x^2|}\\,\\mathrm{d}x\\,\\mathrm{d}y$，其中 $D=\\{(x,y)\\mid -1\\le x\\le1,\\ 0\\le y\\le2\\}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：绝对值的内层是一条抛物线，先按抛物线上下来切</h3>\r\n  <p>【看到「$\\sqrt{|y-x^2|}$、区域是矩形」→ 调用「以 $y=x^2$ 为分界线，上块去绝对值取正、下块取反」】。$x$ 从 $-1$ 到 $1$ 时 $x^2\\le1\\le2$，所以矩形被抛物线分成上下两块，各自都能直接开根号。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：两块分别写成二次积分</h3>\r\n  <div class=\"fm\">$$I=\\int_{-1}^{1}\\!\\mathrm{d}x\\int_{x^2}^{2}\\sqrt{y-x^2}\\,\\mathrm{d}y+\\int_{-1}^{1}\\!\\mathrm{d}x\\int_0^{x^2}\\sqrt{x^2-y}\\,\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：内层积出幂函数</h3>\r\n  <div class=\"fm\">$$\\int_{x^2}^{2}\\sqrt{y-x^2}\\,\\mathrm{d}y=\\frac23(2-x^2)^{3/2},\\qquad \\int_0^{x^2}\\sqrt{x^2-y}\\,\\mathrm{d}y=\\frac23x^3.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：对 $x$ 积分</h3>\r\n  <div class=\"fm\">$$I=2\\cdot\\frac23\\int_0^1(2-x^2)^{3/2}\\,\\mathrm{d}x+\\frac43\\int_0^1x^3\\,\\mathrm{d}x=\\frac43\\left(\\frac{\\pi}{8}+\\frac13\\right)+\\frac13=\\frac{\\pi}{2}+\\frac{5}{3}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{\\pi}{2}+\\dfrac53$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\sqrt{|y-f(x)|}$ 型：以 $y=f(x)$ 为界分块，每块内符号确定。",
+          "$\\int\\sqrt{a-y}\\,\\mathrm{d}y$ 用 $\\frac23(a-y)^{3/2}$，别展开。",
+          "$(2-x^2)^{3/2}$ 用 $x=\\sqrt2\\sin t$ 化成 $\\cos^4$ 积分。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi}{2}+\\dfrac53$",
+      "concl": "<b>结论</b>$I=\\dfrac{\\pi}{2}+\\dfrac53$。",
+      "formulasUsed": [
+        {
+          "name": "分割线",
+          "latex": "$$D_1:\\ x^2\\le y\\le2,\\qquad D_2:\\ 0\\le y\\le x^2$$"
+        },
+        {
+          "name": "分块后的被积函数",
+          "latex": "$$\\sqrt{|y-x^2|}=\\begin{cases}\\sqrt{y-x^2},&(x,y)\\in D_1\\\\ \\sqrt{x^2-y},&(x,y)\\in D_2\\end{cases}$$"
+        },
+        {
+          "name": "幂函数积分",
+          "latex": "$$\\int_0^{x^2}\\sqrt{x^2-y}\\,\\mathrm{d}y=\\frac{2}{3}x^3$$"
+        },
+        {
+          "name": "三角代换",
+          "latex": "$$\\int_0^1(2-x^2)^{3/2}\\,\\mathrm{d}x=\\frac{\\pi}{8}+\\frac{1}{3}\\ \\text{（令 }x=\\sqrt2\\sin t\\text{）}$$"
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "number": "题 10",
+      "title": "交换求和与积分",
+      "chapter": 7,
+      "stemHtml": "设 $N(x,y)$ 表示平面上满足不等式 $m^2+n^2\\le x^2+y^2$ 的整点 $(m,n)$ 的数目，令 $c=\\displaystyle\\sum_{k=0}^{\\infty}\\mathrm{e}^{-k^2}$，求积分 $I=\\displaystyle\\int_{-\\infty}^{+\\infty}\\!\\!\\int_{-\\infty}^{+\\infty}N(x,y)\\mathrm{e}^{-x^2-y^2}\\,\\mathrm{d}x\\,\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$N$ 是「数格点」，把积分看成对每个格点算一次它的贡献</h3>\r\n  <p>【看到「$N(x,y)$ 计数 + 高斯核 $\\mathrm{e}^{-x^2-y^2}$」→ 调用「交换求和与积分：每个整点 $(m,n)$ 的贡献是它外圈的高斯积分」】。这一步把「数点」变成「对点求和」，高斯核保证求和收敛。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：交换次序</h3>\r\n  <div class=\"fm\">$$I=\\sum_{m=-\\infty}^{+\\infty}\\sum_{n=-\\infty}^{+\\infty}\\iint_{x^2+y^2\\ge m^2+n^2}\\mathrm{e}^{-x^2-y^2}\\,\\mathrm{d}x\\,\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：极坐标算每项</h3>\r\n  <div class=\"fm\">$$\\iint_{r\\ge\\sqrt{m^2+n^2}}\\mathrm{e}^{-r^2}\\,\\mathrm{d}x\\,\\mathrm{d}y=2\\pi\\int_{\\sqrt{m^2+n^2}}^{\\infty}\\mathrm{e}^{-r^2}r\\,\\mathrm{d}r=\\pi\\mathrm{e}^{-m^2-n^2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：分离变量求和</h3>\r\n  <div class=\"fm\">$$I=\\pi\\left(\\sum_{m=-\\infty}^{+\\infty}\\mathrm{e}^{-m^2}\\right)\\left(\\sum_{n=-\\infty}^{+\\infty}\\mathrm{e}^{-n^2}\\right)=\\pi(2c-1)^2.$$</div><p class=\"concl\"><b>结论</b>$I=\\pi(2c-1)^2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "被积函数里带「计数」，先把它写成示性函数的求和，再交换求和与积分。",
+          "高斯核在极坐标下 $\\mathrm{e}^{-r^2}r$ 好积，下限由格点半径给出。",
+          "双重求和可分离成两个一元求和之积。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\pi(2c-1)^2$",
+      "concl": "<b>结论</b>$I=\\pi(2c-1)^2$。",
+      "formulasUsed": [
+        {
+          "name": "按格点分层",
+          "latex": "$$N(x,y)=\\sum_{m,n}\\mathbf{1}_{\\{m^2+n^2\\le x^2+y^2\\}}$$"
+        },
+        {
+          "name": "极坐标",
+          "latex": "$$\\iint_{r\\ge\\sqrt{m^2+n^2}}\\mathrm{e}^{-r^2}\\,\\mathrm{d}x\\,\\mathrm{d}y=\\pi\\,\\mathrm{e}^{-m^2-n^2}$$"
+        },
+        {
+          "name": "分离变量",
+          "latex": "$$\\sum_{m}\\sum_{n}\\mathrm{e}^{-m^2-n^2}=\\left(\\sum_{m}\\mathrm{e}^{-m^2}\\right)^{2}$$"
+        },
+        {
+          "name": "关于原点的对称项",
+          "latex": "$$\\sum_{m=-\\infty}^{+\\infty}\\mathrm{e}^{-m^2}=1+2\\sum_{k=1}^{\\infty}\\mathrm{e}^{-k^2}=2c-1$$"
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "number": "题 11",
+      "title": "极坐标 + 积分中值定理",
+      "chapter": 7,
+      "stemHtml": "求极限 $\\displaystyle\\lim_{r\\to0}\\frac{1}{r^2}\\iint_{D_r}\\mathrm{e}^{x^2-y^2}\\cos(x+y)\\,\\mathrm{d}x\\,\\mathrm{d}y$，其中 $D_r=\\{(x,y)\\mid x^2+y^2\\le r^2\\}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\frac{1}{r^2}$ 和圆盘面积刚好配对</h3>\r\n  <p>【看到「$\\frac1{r^2}\\iint_{D_r}$、$r\\to0$」→ 调用「积分中值定理：$\\iint_{D_r}g=\\pi r^2 g(P_r)$，再让 $P_r\\to(0,0)$」】。被积函数 $\\mathrm{e}^{x^2-y^2}\\cos(x+y)$ 连续，圆盘收缩到原点时函数值趋于 1，极限就是 $\\pi\\cdot1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：中值定理脱掉积分号</h3>\r\n  <div class=\"fm\">$$\\frac{1}{r^2}\\iint_{D_r}\\mathrm{e}^{x^2-y^2}\\cos(x+y)\\,\\mathrm{d}x\\,\\mathrm{d}y=\\pi\\,\\mathrm{e}^{P_r^2-Q_r^2}\\cos(P_r+Q_r),$$</div><p>其中 $P_r=(u_r,v_r)\\in D_r$ 由中值定理给出，$u_r^2+v_r^2\\le r^2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取极限</h3>\r\n  <div class=\"fm\">$$\\lim_{r\\to0}\\pi\\,\\mathrm{e}^{u_r^2-v_r^2}\\cos(u_r+v_r)=\\pi\\,\\mathrm{e}^{0}\\cos0=\\pi.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{1}{r^2}$ 与圆盘面积 $\\pi r^2$ 是一对，配上积分中值定理最省事。",
+          "中值点满足 $|P_r|\\le r$，故 $P_r\\to(0,0)$。",
+          "被积函数连续是前提，先确认再动手。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\pi$",
+      "concl": "<b>结论</b>极限为 $\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "面积元",
+          "latex": "$$\\mathrm{d}x\\,\\mathrm{d}y=r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta,\\qquad |D_r|=\\pi r^2$$"
+        },
+        {
+          "name": "积分中值定理",
+          "latex": "$$\\iint_{D_r}g\\,\\mathrm{d}x\\,\\mathrm{d}y=g(P_r)\\cdot\\pi r^2,\\quad P_r\\in D_r$$"
+        },
+        {
+          "name": "被积函数在原点",
+          "latex": "$$g(0,0)=\\mathrm{e}^{0}\\cos0=1$$"
+        },
+        {
+          "name": "夹逼",
+          "latex": "$$\\frac{1}{r^2}\\iint_{D_r}g=\\pi\\,g(P_r)\\to\\pi\\,g(0,0)$$"
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "number": "题 12",
+      "title": "奇偶性 + 极坐标 + 换元 $t=r^2$",
+      "chapter": 7,
+      "stemHtml": "（2016 年决赛）计算 $I=\\displaystyle\\iint_D(x+y^2)\\mathrm{e}^{-(x^2+y^2-4)}\\,\\mathrm{d}x\\,\\mathrm{d}y$，其中 $D=\\{(x,y)\\mid 1\\le x^2+y^2\\le4\\}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$x$ 项奇、$y^2$ 项偶，先砍一半</h3>\r\n  <p>【看到「环域 $1\\le r\\le2$、被积函数 $x+y^2$ 乘指数」→ 调用「$x$ 关于 $x$ 奇、环域对称 $\\Rightarrow$ 归零；剩 $y^2$ 用极坐标」】。指数只依赖 $r$，极坐标下角度部分只剩 $\\sin^2\\theta$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：极坐标写开</h3>\r\n  <div class=\"fm\">$$I=\\mathrm{e}^{4}\\int_1^{2}r^3\\mathrm{e}^{-r^2}\\,\\mathrm{d}r\\int_0^{2\\pi}\\sin^2\\theta\\,\\mathrm{d}\\theta=\\pi\\mathrm{e}^{4}\\int_1^{2}r^3\\mathrm{e}^{-r^2}\\,\\mathrm{d}r.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：令 $t=r^2$ 分部积分</h3>\r\n  <div class=\"fm\">$$\\int_1^{2}r^3\\mathrm{e}^{-r^2}\\mathrm{d}r=\\frac12\\int_1^{4}t\\mathrm{e}^{-t}\\mathrm{d}t=\\frac12\\left[(2\\mathrm{e}^{-1})-(5\\mathrm{e}^{-4})\\right]=\\mathrm{e}^{-1}-\\frac52\\mathrm{e}^{-4}.$$</div><div class=\"fm\">$$I=\\pi\\mathrm{e}^{4}\\left(\\mathrm{e}^{-1}-\\frac52\\mathrm{e}^{-4}\\right)=\\frac{\\pi}{2}\\left(2\\mathrm{e}^{3}-5\\right).$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{\\pi}{2}(2\\mathrm{e}^3-5)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "先看奇偶性，奇函数项在环域上直接为零。",
+          "指数只含 $r$ 时，极坐标把角度与径向彻底分离。",
+          "$r^3\\mathrm{e}^{-r^2}$ 令 $t=r^2$ 化成 $\\frac12\\int t\\mathrm{e}^{-t}$，用分部积分公式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi}{2}(2\\mathrm{e}^3-5)$",
+      "concl": "<b>结论</b>$I=\\dfrac{\\pi}{2}(2\\mathrm{e}^3-5)$。",
+      "formulasUsed": [
+        {
+          "name": "奇函数项归零",
+          "latex": "$$\\iint_D x\\,\\mathrm{e}^{-(x^2+y^2-4)}\\,\\mathrm{d}x\\,\\mathrm{d}y=0$$"
+        },
+        {
+          "name": "极坐标化简",
+          "latex": "$$\\iint_D y^2\\mathrm{e}^{-(x^2+y^2-4)}\\,\\mathrm{d}x\\,\\mathrm{d}y=\\mathrm{e}^{4}\\int_0^{2\\pi}\\sin^2\\theta\\,\\mathrm{d}\\theta\\int_1^{2}r^3\\mathrm{e}^{-r^2}\\,\\mathrm{d}r$$"
+        },
+        {
+          "name": "$\\sin^2$ 的积分",
+          "latex": "$$\\int_0^{2\\pi}\\sin^2\\theta\\,\\mathrm{d}\\theta=\\pi$$"
+        },
+        {
+          "name": "分部积分模板",
+          "latex": "$$\\int t\\mathrm{e}^{-t}\\,\\mathrm{d}t=-(t+1)\\mathrm{e}^{-t}$$"
+        }
+      ]
+    },
+    {
+      "seq": 13,
+      "number": "题 13",
+      "title": "凑 $d(x/y)$ + 配方 arctan",
+      "chapter": 7,
+      "stemHtml": "（2019 年初赛）已知 $\\mathrm{d}u(x,y)=\\dfrac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{3x^2-2xy+3y^2}$，求 $u(x,y)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分子正是 $d(x/y)$ 的分子，分母是 $x/y$ 的二次式</h3>\r\n  <p>【看到「分式全微分，分子 $y\\,\\mathrm{d}x-x\\,\\mathrm{d}y$」→ 调用「令 $t=\\frac{x}{y}$，把全微分变成一元积分」】。分子除以 $y^2$ 就是 $\\mathrm{d}t$，分母除以 $y^2$ 得到 $t$ 的二次式，问题立刻降成一元积分。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换元</h3>\r\n  <div class=\"fm\">$$\\mathrm{d}u=\\frac{(y\\,\\mathrm{d}x-x\\,\\mathrm{d}y)/y^2}{3(x/y)^2-2(x/y)+3}=\\frac{\\mathrm{d}t}{3t^2-2t+3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：配方积出 arctan</h3>\r\n  <div class=\"fm\">$$u=\\int\\frac{\\mathrm{d}t}{3\\left(t-\\frac13\\right)^2+\\frac83}=\\frac{1}{2\\sqrt2}\\arctan\\frac{3\\left(t-\\frac13\\right)}{2\\sqrt2}+C.$$</div><p class=\"concl\"><b>结论</b>$u(x,y)=\\dfrac{1}{2\\sqrt2}\\arctan\\left[\\dfrac{3}{2\\sqrt2}\\left(\\dfrac xy-\\dfrac13\\right)\\right]+C$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分子形如 $y\\,\\mathrm{d}x-x\\,\\mathrm{d}y$ 时，先试 $t=\\frac{x}{y}$ 或 $\\frac{y}{x}$。",
+          "分母同除 $y^2$ 化成 $t$ 的二次式，记住 $3t^2-2t+3$ 的判别式为负，必然是 arctan。",
+          "$\\int\\frac{\\mathrm{d}t}{3(t-\\frac13)^2+\\frac83}$ 先提出 $\\frac13$，再用 $\\frac1a\\arctan\\frac ua$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{1}{2\\sqrt2}\\arctan\\left[\\dfrac{3}{2\\sqrt2}\\left(\\dfrac xy-\\dfrac13\\right)\\right]+C$",
+      "concl": "<b>结论</b>$u(x,y)=\\dfrac{1}{2\\sqrt2}\\arctan\\left[\\dfrac{3}{2\\sqrt2}\\left(\\dfrac xy-\\dfrac13\\right)\\right]+C$。",
+      "formulasUsed": [
+        {
+          "name": "全微分与 $d\\frac{x}{y}$ 的关系",
+          "latex": "$$\\mathrm{d}\\left(\\frac{x}{y}\\right)=\\frac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{y^2}$$"
+        },
+        {
+          "name": "化为 $t=\\frac{x}{y}$ 的有理积分",
+          "latex": "$$\\mathrm{d}u=\\frac{\\mathrm{d}t}{3t^2-2t+3}$$"
+        },
+        {
+          "name": "配方",
+          "latex": "$$3t^2-2t+3=3\\left(t-\\frac13\\right)^2+\\frac83$$"
+        },
+        {
+          "name": "arctan 积分模板",
+          "latex": "$$\\int\\frac{\\mathrm{d}t}{a^2+t^2}=\\frac1a\\arctan\\frac ta$$"
+        }
+      ]
+    },
+    {
+      "seq": 14,
+      "number": "题 14",
+      "title": "极坐标 + 中值定理",
+      "chapter": 7,
+      "stemHtml": "设 $f(x,y)$ 在 $D:x^2+y^2\\le1$ 上有连续偏导数，且在 $D$ 的边界上 $f\\equiv0$，证明 $$\\lim_{\\varepsilon\\to0^+}\\frac{1}{2\\pi}\\iint_{\\varepsilon^2\\le x^2+y^2\\le1}\\frac{xf_x+yf_y}{x^2+y^2}\\,\\mathrm{d}x\\,\\mathrm{d}y=-f(0,0).$$",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$xf_x+yf_y$ 是径向导数乘以 $r$</h3>\r\n  <p>【看到「$xf_x+yf_y$ 与 $x^2+y^2$ 同处一个分式」→ 调用「极坐标：$rf_r=xf_x+yf_y$，分子分母一约，面积元里的 $r$ 正好消掉」】。约完之后只剩 $f_r$，对 $r$ 积分就成了边界值减内圈值。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：极坐标化简并积 $r$</h3>\r\n  <div class=\"fm\">$$\\iint=\\int_0^{2\\pi}\\mathrm{d}\\theta\\int_\\varepsilon^1 f_r\\,\\mathrm{d}r=\\int_0^{2\\pi}\\left[f(\\cos\\theta,\\sin\\theta)-f(\\varepsilon\\cos\\theta,\\varepsilon\\sin\\theta)\\right]\\mathrm{d}\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用边界为零</h3>\r\n  <div class=\"fm\">$$\\iint=-\\int_0^{2\\pi}f(\\varepsilon\\cos\\theta,\\varepsilon\\sin\\theta)\\,\\mathrm{d}\\theta=-2\\pi f(\\varepsilon\\cos\\theta_1,\\varepsilon\\sin\\theta_1).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：令 $\\varepsilon\\to0^+$</h3>\r\n  <div class=\"fm\">$$\\lim_{\\varepsilon\\to0^+}\\frac{1}{2\\pi}\\iint=-\\lim_{\\varepsilon\\to0^+}f(\\varepsilon\\cos\\theta_1,\\varepsilon\\sin\\theta_1)=-f(0,0).$$</div><p class=\"concl\"><b>结论</b>等式成立，极限为 $-f(0,0)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$xf_x+yf_y$ 一律先认成 $r f_r$。",
+          "除以 $x^2+y^2$ 后与 $r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta$ 中的 $r$ 相消。",
+          "内圈趋于 0 时用积分中值定理把角度积分换成函数值。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-f(0,0)$",
+      "concl": "<b>结论</b>等式成立，极限为 $-f(0,0)$。",
+      "formulasUsed": [
+        {
+          "name": "径向求导",
+          "latex": "$$r\\frac{\\partial f}{\\partial r}=x\\frac{\\partial f}{\\partial x}+y\\frac{\\partial f}{\\partial y}$$"
+        },
+        {
+          "name": "面积元",
+          "latex": "$$\\frac{xf_x+yf_y}{x^2+y^2}\\mathrm{d}x\\,\\mathrm{d}y=\\frac{1}{r}f_r\\cdot r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta=f_r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "角度积分后用中值定理",
+          "latex": "$$\\int_0^{2\\pi}f(\\varepsilon\\cos\\theta,\\varepsilon\\sin\\theta)\\,\\mathrm{d}\\theta=2\\pi f(\\varepsilon\\cos\\theta_1,\\varepsilon\\sin\\theta_1)$$"
+        },
+        {
+          "name": "边界条件",
+          "latex": "$$f(\\cos\\theta,\\sin\\theta)=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 15,
+      "number": "题 15",
+      "title": "在曲面上把分母写成 $y$ 的函数 + Gauss",
+      "chapter": 7,
+      "stemHtml": "设 $\\Sigma$ 为球面 $x^2+y^2+z^2=4$ 被 $z\\ge0$ 截出的部分，取上侧，计算 $I=\\displaystyle\\iint_\\Sigma\\frac{x\\,\\mathrm{d}y\\,\\mathrm{d}z+y\\,\\mathrm{d}z\\,\\mathrm{d}x+z\\,\\mathrm{d}x\\,\\mathrm{d}y}{\\sqrt{x^2+(y-1)^2+z^2}}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：球面上分母其实只依赖 $y$</h3>\r\n  <p>【看到「分母 $\\sqrt{x^2+(y-1)^2+z^2}$、曲面是球面」→ 调用「用球面方程把 $x^2+z^2$ 换成 $4-y^2$，分母变成 $\\sqrt{5-2y}$」】。这样被积函数就成了 $\\frac{(x,y,z)}{\\sqrt{5-2y}}$，可以补面用 Gauss 公式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：补面构成闭曲面</h3>\r\n  <p>补 $\\Sigma_1:z=0\\ (x^2+y^2\\le4)$ 取下侧，则 $I=\\displaystyle\\iint_{\\Sigma+\\Sigma_1}-\\iint_{\\Sigma_1}$，而在 $\\Sigma_1$ 上 $R=0$、$z=0$，其积分为 0。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：Gauss 公式</h3>\r\n  <div class=\"fm\">$$I=\\iiint_\\Omega\\frac{5(3-y)}{(5-2y)^{3/2}}\\,\\mathrm{d}x\\,\\mathrm{d}y\\,\\mathrm{d}z=5\\int_{-2}^{2}\\frac{3-y}{(5-2y)^{3/2}}\\cdot\\frac{\\pi}{2}(4-y^2)\\,\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：令 $t=\\sqrt{5-2y}$</h3>\r\n  <div class=\"fm\">$$I=\\frac{5\\pi}{16}\\int_1^3\\left(-\\frac{9}{t^2}+1+9t^2-t^4\\right)\\mathrm{d}t=\\frac{5\\pi}{16}\\left(\\frac9t+t+3t^3-\\frac{t^5}{5}\\right)\\Big|_1^3=8\\pi.$$</div><p class=\"concl\"><b>结论</b>$I=8\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "曲面方程能消去分母里的 $x^2+z^2$ 时，先把被积函数写成只含 $y$ 的形式。",
+          "补平面 $z=0$ 构成闭曲面，方向要统一（这里取下侧）。",
+          "$\\int\\frac{3-y}{(5-2y)^{3/2}}(4-y^2)\\mathrm{d}y$ 令 $t=\\sqrt{5-2y}$ 化成多项式积分。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$8\\pi$",
+      "concl": "<b>结论</b>$I=8\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "曲面上的化简",
+          "latex": "$$x^2+(y-1)^2+z^2=5-2y\\qquad((x,y,z)\\in\\Sigma)$$"
+        },
+        {
+          "name": "改写成 $y$ 的函数",
+          "latex": "$$P=\\frac{x}{\\sqrt{5-2y}},\\quad Q=\\frac{y}{\\sqrt{5-2y}},\\quad R=\\frac{z}{\\sqrt{5-2y}}$$"
+        },
+        {
+          "name": "散度",
+          "latex": "$$\\frac{\\partial P}{\\partial x}+\\frac{\\partial Q}{\\partial y}+\\frac{\\partial R}{\\partial z}=\\frac{5(3-y)}{(5-2y)^{3/2}}$$"
+        },
+        {
+          "name": "截面圆盘",
+          "latex": "$$\\iint_{D_y}\\mathrm{d}x\\,\\mathrm{d}z=\\pi(4-y^2)$$"
+        }
+      ]
+    },
+    {
+      "seq": 16,
+      "number": "题 16",
+      "title": "极坐标 + 三阶泰勒不等式",
+      "chapter": 7,
+      "stemHtml": "证明不等式 $\\displaystyle\\frac{61\\pi}{165}\\le\\iint_{x^2+y^2\\le1}\\sin\\left(\\sqrt{x^2+y^2}\\right)^3\\mathrm{d}x\\,\\mathrm{d}y\\le\\frac{2\\pi}{5}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\sin(r^3)$ 积不出来，只能夹</h3>\r\n  <p>【看到「$\\sin(\\sqrt{x^2+y^2})^3$ 在圆盘上、要求证上下界」→ 调用「极坐标 + $\\sin x$ 的三阶不等式 $x-\\frac{x^3}{6}\\le\\sin x\\le x$」】。极坐标后只剩 $\\int_0^1r\\sin(r^3)\\mathrm{d}r$，被夹的正是 $r^3$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换成定积分</h3>\r\n  <div class=\"fm\">$$I=\\int_0^{2\\pi}\\!\\mathrm{d}\\theta\\int_0^1r\\sin(r^3)\\,\\mathrm{d}r=2\\pi\\int_0^1r\\sin(r^3)\\,\\mathrm{d}r.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两侧估计</h3>\r\n  <div class=\"fm\">$$2\\pi\\int_0^1r\\left(r^3-\\frac{r^9}{6}\\right)\\mathrm{d}r\\le I\\le2\\pi\\int_0^1r^4\\,\\mathrm{d}r,$$</div><div class=\"fm\">$$\\frac{61\\pi}{165}\\le I\\le\\frac{2\\pi}{5}.$$</div><p class=\"concl\"><b>结论</b>不等式得证。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "被积函数无初等原函数时，用 $\\sin x$ 的三阶不等式夹。",
+          "极坐标把圆盘化成 $\\int_0^1r\\,\\mathrm{d}r$，注意多出的那个 $r$。",
+          "上下界分别用 $x$ 与 $x-\\frac{x^3}{6}$，算完检查是否落在要求的形式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{61\\pi}{165}\\le I\\le\\dfrac{2\\pi}{5}$",
+      "concl": "<b>结论</b>不等式得证。",
+      "formulasUsed": [
+        {
+          "name": "极坐标",
+          "latex": "$$I=2\\pi\\int_0^1 r\\sin(r^3)\\,\\mathrm{d}r$$"
+        },
+        {
+          "name": "$\\sin x$ 的三阶夹逼",
+          "latex": "$$x-\\frac{x^3}{6}\\le\\sin x\\le x\\quad(x&gt;0)$$"
+        },
+        {
+          "name": "上界积分",
+          "latex": "$$\\int_0^1r\\cdot r^3\\,\\mathrm{d}r=\\frac15$$"
+        },
+        {
+          "name": "下界积分",
+          "latex": "$$\\int_0^1r\\left(r^3-\\frac{r^9}{6}\\right)\\mathrm{d}r=\\frac15-\\frac{1}{66}=\\frac{61}{330}$$"
+        }
+      ]
+    },
+    {
+      "seq": 17,
+      "number": "题 17",
+      "title": "换元 $u=x+y$ + 分部积分",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 连续，证明 $\\displaystyle\\iint_{x^2+y^2\\le1}f(x+y)\\,\\mathrm{d}x\\,\\mathrm{d}y=\\int_{-\\sqrt2}^{\\sqrt2}\\sqrt{2-t^2}\\,f(t)\\,\\mathrm{d}t$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$x+y$ 出现，就令 $u=x+y$ 把内层变成一元积分</h3>\r\n  <p>【看到「$f(x+y)$ 在圆盘上积分」→ 调用「内层换元 $u=x+y$，上限是 $x\\pm\\sqrt{1-x^2}$，再对 $x$ 分部积分」】。换元后内层是一个变限积分 $F(x)$，$F(\\pm1)=0$ 让分部积分的边界项消失。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换元成变限积分</h3>\r\n  <div class=\"fm\">$$I=\\int_{-1}^{1}F(x)\\,\\mathrm{d}x,\\quad F(x)=\\int_{x-\\sqrt{1-x^2}}^{x+\\sqrt{1-x^2}}f(u)\\,\\mathrm{d}u.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分部积分</h3>\r\n  <div class=\"fm\">$$I=-\\int_{-1}^{1}x\\left[f\\left(x+\\sqrt{1-x^2}\\right)\\left(1-\\frac{x}{\\sqrt{1-x^2}}\\right)-f\\left(x-\\sqrt{1-x^2}\\right)\\left(1+\\frac{x}{\\sqrt{1-x^2}}\\right)\\right]\\mathrm{d}x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：对两支分别换元 $t=x\\pm\\sqrt{1-x^2}$</h3>\r\n  <div class=\"fm\">$$I=\\int_{-\\sqrt2}^{\\sqrt2}\\sqrt{2-t^2}f(t)\\,\\mathrm{d}t.$$</div><p class=\"concl\"><b>结论</b>等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$f(x+y)$ 先换元 $u=x+y$，内层立刻变成一元变限积分。",
+          "分部积分时端点 $F(\\pm1)=0$，边界项直接消失。",
+          "两支的换元 $t=x\\pm\\sqrt{1-x^2}$ 正好拼出 $[-\\sqrt2,\\sqrt2]$，权函数是 $\\sqrt{2-t^2}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>恒等式成立",
+      "concl": "<b>结论</b>等式成立。",
+      "formulasUsed": [
+        {
+          "name": "内层换元",
+          "latex": "$$\\int_{-\\sqrt{1-x^2}}^{\\sqrt{1-x^2}}f(x+y)\\,\\mathrm{d}y=\\int_{x-\\sqrt{1-x^2}}^{x+\\sqrt{1-x^2}}f(u)\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "上限求导",
+          "latex": "$$\\frac{\\mathrm{d}}{\\mathrm{d}x}\\int_{\\alpha(x)}^{\\beta(x)}f(u)\\,\\mathrm{d}u=f(\\beta)\\beta'-f(\\alpha)\\alpha'$$"
+        },
+        {
+          "name": "分部积分",
+          "latex": "$$\\int_{-1}^{1}F(x)\\,\\mathrm{d}x=xF(x)\\Big|_{-1}^{1}-\\int_{-1}^{1}xF'(x)\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "端点值",
+          "latex": "$$F(\\pm1)=\\int_{\\pm1-\\sqrt{1-1}}^{\\pm1+\\sqrt{1-1}}f(u)\\,\\mathrm{d}u=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 18,
+      "number": "题 18",
+      "title": "偏导相等 + 一阶线性方程",
+      "chapter": 7,
+      "stemHtml": "（2012 年初赛）设 $u(x)$（$x>0$）连续可导，$u(2)=1$，且对右半平面内任意分段光滑闭曲线 $L$，有 $\\displaystyle\\oint_L(x+2y)u\\,\\mathrm{d}x+(x+u^3)u\\,\\mathrm{d}y=0$。求 $u(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：闭曲线积分恒为零 $\\Leftrightarrow$ 路径无关 $\\Leftrightarrow$ $\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$</h3>\r\n  <p>【看到「任意闭曲线积分为零、含未知函数 $u$」→ 调用「路径无关条件 $\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$，整理成关于 $u$ 的微分方程」】。求偏导时把 $u$ 看成 $x$ 的函数，$u'$ 会出现，正好把 $x$ 与 $u$ 的关系定下来。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写条件并整理</h3>\r\n  <div class=\"fm\">$$2u+(x+2y)u'=u+3u^2u'+(x+u^3)u'\\ \\Longrightarrow\\ \\frac{\\mathrm{d}x}{\\mathrm{d}u}-\\frac{x}{u}=4u^2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解线性方程</h3>\r\n  <div class=\"fm\">$$x=u\\left(4u+C\\right)=2u^3+Cu.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：用 $u(2)=1$</h3>\r\n  <div class=\"fm\">$$2=2\\cdot1^3+C\\cdot1\\ \\Rightarrow\\ C=0,\\qquad u=\\sqrt[3]{\\frac{x}{2}}.$$</div><p class=\"concl\"><b>结论</b>$u(x)=\\sqrt[3]{\\dfrac x2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "「任意闭曲线积分为零」直接翻译成 $\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$。",
+          "含 $u$ 时把 $u$ 当 $x$ 的函数求偏导，$u'$ 是桥梁。",
+          "整理出的 $\\frac{\\mathrm{d}x}{\\mathrm{d}u}-\\frac xu=4u^2$ 用通解公式，再用初值定常数。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$u(x)=\\sqrt[3]{\\dfrac x2}$",
+      "concl": "<b>结论</b>$u(x)=\\sqrt[3]{\\dfrac x2}$。",
+      "formulasUsed": [
+        {
+          "name": "路径无关的等价条件",
+          "latex": "$$\\frac{\\partial}{\\partial y}\\left[(x+2y)u\\right]=\\frac{\\partial}{\\partial x}\\left[(x+u^3)u\\right]$$"
+        },
+        {
+          "name": "整理后的方程",
+          "latex": "$$2u+(x+2y)u'=u+3u^2u'+(x+u^3)u'\\ \\Longrightarrow\\ \\frac{\\mathrm{d}x}{\\mathrm{d}u}-\\frac{x}{u}=4u^2$$"
+        },
+        {
+          "name": "一阶线性方程通解",
+          "latex": "$$x=\\mathrm{e}^{\\int\\frac{\\mathrm{d}u}{u}}\\left(\\int4u^2\\mathrm{e}^{-\\int\\frac{\\mathrm{d}u}{u}}\\mathrm{d}u+C\\right)=u\\left(\\int4u\\,\\mathrm{d}u+C\\right)$$"
+        },
+        {
+          "name": "初始条件",
+          "latex": "$$u=1\\ \\text{时}\\ x=2\\ \\Rightarrow\\ 2=1\\cdot(2+C)\\ \\Rightarrow\\ C=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 19,
+      "number": "题 19",
+      "title": "按 $y-x$ 落点分段",
+      "chapter": 7,
+      "stemHtml": "设 $f(x)=\\begin{cases}\\mathrm{e}^{x},&x\\ge0\\\\ \\mathrm{e}^{-x},&x&lt;0\\end{cases}$，$g(x)=\\begin{cases}1,&0\\le x\\le2\\\\0,&\\text{其他}\\end{cases}$，$L:|x|+|y|=1$，求 $\\displaystyle\\oint_L f(x)g(y-x)\\,\\mathrm{d}s$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$g$ 只在 $y-x\\in[0,2]$ 的条带里为 1，先看菱形哪几段落在条带内</h3>\r\n  <p>【看到「$f(x)g(y-x)$ 两个分段函数相乘、沿 $|x|+|y|=1$」→ 调用「先做分段乘积：$g$ 把路径截成条带内几段，再按 $x$ 的正负选 $\\mathrm{e}^{x}$ 或 $\\mathrm{e}^{-x}$」】。菱形上 $y-x$ 的取值范围正好是 $[-2,2]$，条带 $[0,2]$ 内是 $AB、BC$ 两段。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定出有贡献的边</h3>\r\n  <p>在 $AB$（$y=x+1$，$x\\in[-1,0]$）上 $y-x=1\\in[0,2]$；在 $BC$（$y=-x+1$，$x\\in[0,1]$）上 $y-x=1-2x\\in[0,2]\\iff x\\in[0,\\frac12]$。其余边 $y-x\\le0$ 或超出 2。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分段积</h3>\r\n  <div class=\"fm\">$$\\oint_L=\\int_{AB}\\mathrm{e}^{-x}\\mathrm{d}s+\\int_{BC\\cap\\{y-x\\le2\\}}\\mathrm{e}^{x}\\mathrm{d}s=\\sqrt2\\int_{-1}^{0}\\mathrm{e}^{-x}\\mathrm{d}x+\\sqrt2\\int_0^{1/2}\\mathrm{e}^{x}\\mathrm{d}x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算出结果</h3>\r\n  <div class=\"fm\">$$=\\sqrt2\\left(\\mathrm{e}-1\\right)+\\sqrt2\\left(\\mathrm{e}^{1/2}-1\\right)=2\\sqrt2\\left(\\mathrm{e}-1\\right).$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\oint_L f(x)g(y-x)\\,\\mathrm{d}s=2\\sqrt2(\\mathrm{e}-1)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "两个分段函数相乘，先把「都非零」的条件列出来，路径自动被截成几段。",
+          "$|x|+|y|=1$ 的四条边斜率为 $\\pm1$，$\\mathrm{d}s=\\sqrt2\\,\\mathrm{d}x$。",
+          "按 $x$ 的正负分别用 $\\mathrm{e}^{x}$、$\\mathrm{e}^{-x}$，别混。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2\\sqrt2(\\mathrm{e}-1)$",
+      "concl": "<b>结论</b>$\\displaystyle\\oint_L f(x)g(y-x)\\,\\mathrm{d}s=2\\sqrt2(\\mathrm{e}-1)$。",
+      "formulasUsed": [
+        {
+          "name": "$g(y-x)$ 非零的条件",
+          "latex": "$$0\\le y-x\\le2$$"
+        },
+        {
+          "name": "分段结果",
+          "latex": "$$f(x)g(y-x)=\\begin{cases}\\mathrm{e}^{x},&x\\ge0,\\ x\\le y\\le x+2\\\\ \\mathrm{e}^{-x},&x&lt;0,\\ x\\le y\\le x+2\\\\ 0,&\\text{其他}\\end{cases}$$"
+        },
+        {
+          "name": "菱形的四条边",
+          "latex": "$$AB:\\ y=x+1,\\ BC:\\ y=-x+1,\\ CD:\\ y=x-1,\\ DA:\\ y=-x-1$$"
+        },
+        {
+          "name": "弧长元素",
+          "latex": "$$\\mathrm{d}s=\\sqrt2\\,\\mathrm{d}x\\quad(\\text{斜率为}\\ \\pm1\\ \\text{的边})$$"
+        }
+      ]
+    },
+    {
+      "seq": 20,
+      "number": "题 20",
+      "title": "偏导相等 + 待定常数",
+      "chapter": 7,
+      "stemHtml": "设 $\\varphi(0)=-2$，$\\psi(0)=1$，且曲线积分 $\\displaystyle\\int_L2\\left(x\\varphi(y)+\\psi(y)\\right)\\mathrm{d}x+\\left(x^2\\psi(y)+2xy^2-2x\\varphi(y)\\right)\\mathrm{d}y$ 在全平面与路径无关。(1) 求 $\\varphi,\\psi$；(2) 求从 $O(0,0)$ 到 $(\\pi,\\frac\\pi2)$ 的这一积分值。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两边都是 $x$ 的一次式，比较 $x$ 的系数就得到两个方程</h3>\r\n  <p>【看到「两个未知函数 $\\varphi(y),\\psi(y)$、路径无关」→ 调用「$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$，按 $x$ 的幂比较系数」】。比较 $x^1$ 与 $x^0$ 的系数，得 $\\varphi'=\\psi$、$\\psi'=y^2-\\varphi$，消元后是一个二阶常系数方程。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：解方程组</h3>\r\n  <div class=\"fm\">$$\\varphi''=\\psi'=y^2-\\varphi\\ \\Longrightarrow\\ \\varphi''+\\varphi=y^2.$$</div>\r\n    <p>通解 $\\varphi=C_1\\cos y+C_2\\sin y+y^2-2$，代回 $\\psi=\\varphi'=-C_1\\sin y+C_2\\cos y+2y$。由 $\\varphi(0)=-2$ 得 $C_1=0$；由 $\\psi(0)=1$ 得 $C_2=1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：写出两个函数</h3>\r\n  <div class=\"fm\">$$\\varphi(y)=\\sin y+y^2-2,\\qquad \\psi(y)=\\cos y+2y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：沿折线 $O\\to(\\pi,0)\\to(\\pi,\\frac\\pi2)$ 积分</h3>\r\n  <div class=\"fm\">$$I=\\int_0^{\\pi}2\\left(x\\sin0-2\\right)\\mathrm{d}x+\\int_0^{\\pi/2}\\left[\\pi^2(\\cos y+2y)+2\\pi y^2-2\\pi(\\sin y+y^2-2)\\right]\\mathrm{d}y=\\pi^2\\left(1+\\frac{\\pi^2}{4}\\right).$$</div><p class=\"concl\"><b>结论</b>$\\varphi=\\sin y+y^2-2$，$\\psi=\\cos y+2y$，$I=\\pi^2\\left(1+\\dfrac{\\pi^2}{4}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$P,Q$ 都是 $x$ 的多项式时，比较同次幂系数，得到关于 $y$ 的方程组。",
+          "$\\varphi''+\\varphi=y^2$ 的通解要带 $y^2-2$ 这个特解，初值定 $C_1,C_2$。",
+          "路径无关后选折线（先水平后竖直）算，竖直段 $x=\\pi$ 代进去最省。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\varphi=\\sin y+y^2-2$，$\\psi=\\cos y+2y$，$I=\\pi^2\\left(1+\\dfrac{\\pi^2}{4}\\right)$",
+      "concl": "<b>结论</b>$\\varphi=\\sin y+y^2-2$，$\\psi=\\cos y+2y$，$I=\\pi^2\\left(1+\\dfrac{\\pi^2}{4}\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "路径无关条件",
+          "latex": "$$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$$"
+        },
+        {
+          "name": "对 $y$ 求偏导",
+          "latex": "$$\\frac{\\partial P}{\\partial y}=2x\\varphi'(y)+2\\psi'(y)$$"
+        },
+        {
+          "name": "对 $x$ 求偏导",
+          "latex": "$$\\frac{\\partial Q}{\\partial x}=2x\\psi(y)+2y^2-2\\varphi(y)$$"
+        },
+        {
+          "name": "比较系数",
+          "latex": "$$x\\ \\text{项}:\\ \\varphi'(y)=\\psi(y);\\qquad \\text{常数项}:\\ \\psi'(y)=y^2-\\varphi(y)$$"
+        }
+      ]
+    },
+    {
+      "seq": 21,
+      "number": "题 21",
+      "title": "折线路径 + 分组凑全微分",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 在 $(-\\infty,+\\infty)$ 内有连续导数，求积分 $\\displaystyle\\int_C\\frac1y\\left[1+y^2f(xy)\\right]\\mathrm{d}x+\\frac{x}{y^2}\\left[y^2f(xy)-1\\right]\\mathrm{d}y$，其中 $C$ 是从 $A\\left(4,\\frac12\\right)$ 到 $B\\left(3,\\frac23\\right)$ 的直线段。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两组项各自都是全微分，路径可以随便换</h3>\r\n  <p>【看到「$f(xy)$ 与 $y\\,\\mathrm{d}x+x\\,\\mathrm{d}y$ 同现」→ 调用「$y\\,\\mathrm{d}x+x\\,\\mathrm{d}y=\\mathrm{d}(xy)$，把含 $f$ 的部分凑成 $dF(xy)$」】。剩下的 $\\frac{\\mathrm{d}x}{y}-\\frac{x\\mathrm{d}y}{y^2}$ 正是 $\\mathrm{d}\\frac xy$，于是整条积分与路径无关，换折线走。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：验证两组都是全微分</h3>\r\n  <div class=\"fm\">$$yf(xy)\\mathrm{d}x+xf(xy)\\mathrm{d}y=f(xy)\\,\\mathrm{d}(xy)=\\mathrm{d}F(xy),\\quad F(t)=\\int_0^tf(s)\\,\\mathrm{d}s.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：选折线</h3>\r\n  <div class=\"fm\">$$I=\\left[\\frac xy+F(xy)\\right]_{A}^{B}=\\left(\\frac{3}{2/3}-\\frac{4}{1/2}\\right)+\\left[F(2)-F(2)\\right]=\\frac92-8=-\\frac72.$$</div><p class=\"concl\"><b>结论</b>$I=-\\dfrac72$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "含 $f(xy)$ 的项一律往 $\\mathrm{d}(xy)$ 上凑，积出 $F(xy)$。",
+          "$\\frac{\\mathrm{d}x}{y}-\\frac{x\\,\\mathrm{d}y}{y^2}=\\mathrm{d}\\frac xy$，这是固定搭配。",
+          "两组都全微分后可换折线，端点处 $F(xy)$ 常因 $xy$ 相同而抵消。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\dfrac72$",
+      "concl": "<b>结论</b>$I=-\\dfrac72$。",
+      "formulasUsed": [
+        {
+          "name": "拆成两组",
+          "latex": "$$I=\\int_C\\left(\\frac{\\mathrm{d}x}{y}-\\frac{x\\,\\mathrm{d}y}{y^2}\\right)+\\int_C\\left[yf(xy)\\,\\mathrm{d}x+xf(xy)\\,\\mathrm{d}y\\right]$$"
+        },
+        {
+          "name": "第一组是 $d\\frac{x}{y}$",
+          "latex": "$$\\frac{\\mathrm{d}x}{y}-\\frac{x\\,\\mathrm{d}y}{y^2}=\\mathrm{d}\\left(\\frac{x}{y}\\right)$$"
+        },
+        {
+          "name": "第二组是 $dF(xy)$",
+          "latex": "$$yf(xy)\\mathrm{d}x+xf(xy)\\mathrm{d}y=\\mathrm{d}\\left(\\int_0^{xy}f(t)\\,\\mathrm{d}t\\right)$$"
+        },
+        {
+          "name": "折线取点",
+          "latex": "$$A\\left(4,\\frac12\\right)\\to D\\left(3,\\frac12\\right)\\to B\\left(3,\\frac23\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 22,
+      "number": "题 22",
+      "title": "路径无关 + 二阶常系数方程",
+      "chapter": 7,
+      "stemHtml": "设 $f,g$ 具有连续二阶导数，对 $xOy$ 面上任一简单闭曲线 $L$，$\\displaystyle\\oint_L\\left[y^2f(x)+2y\\mathrm{e}^x+2yg(x)\\right]\\mathrm{d}x+2\\left[yg(x)+f(x)\\right]\\mathrm{d}y=0$。(1) 求使 $f(0)=g(0)=0$ 的 $f,g$；(2) 设 $C$ 从 $(0,0)$ 到 $(1,1)$，求该积分。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：闭曲线恒为零先转成偏导相等，$y$ 的幂比较出两条关系</h3>\r\n  <p>【看到「任意简单闭曲线积分为零」→ 调用「$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$」】。$P,Q$ 里 $y$ 最高是一次，按 $y^1$、$y^0$ 比较，得 $f=g'$ 与 $f'=\\mathrm{e}^x+g$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：消元并解方程</h3>\r\n  <div class=\"fm\">$$f''=\\mathrm{e}^x+g'=\\mathrm{e}^x+f\\ \\Rightarrow\\ f''-f=\\mathrm{e}^x.$$</div><p>齐次通解 $C_1\\mathrm{e}^x+C_2\\mathrm{e}^{-x}$，特解取 $\\frac{x}{2}\\mathrm{e}^x$，故 $f=C_1\\mathrm{e}^x+C_2\\mathrm{e}^{-x}+\\frac x2\\mathrm{e}^x$。由 $f(0)=0$、$f'(0)=1$ 得 $C_1=\\frac14$、$C_2=-\\frac14$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：写出 $f,g$</h3>\r\n  <div class=\"fm\">$$f(x)=\\frac14\\left(\\mathrm{e}^x-\\mathrm{e}^{-x}\\right)+\\frac{x}{2}\\mathrm{e}^x,\\qquad g(x)=-\\frac14\\left(\\mathrm{e}^x-\\mathrm{e}^{-x}\\right)+\\frac{x}{2}\\mathrm{e}^x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：沿折线 $(0,0)\\to(1,0)\\to(1,1)$ 积分</h3>\r\n  <div class=\"fm\">$$I=\\int_0^1 2f(x)\\,\\mathrm{d}x+\\int_0^1\\left[f(1)+g(1)+2y g(1)\\right]\\mathrm{d}y=\\frac{7\\mathrm{e}}{4}-\\frac{1}{4\\mathrm{e}}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{7\\mathrm{e}}{4}-\\dfrac{1}{4\\mathrm{e}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "闭曲线恒为零 ⇒ $\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$，按 $y$ 的幂比较系数。",
+          "$f''-f=\\mathrm{e}^x$ 的特解是 $\\frac x2\\mathrm{e}^x$（共振型），别漏这个 $\\frac12$。",
+          "求值时换折线，水平段只含 $P$，竖直段只含 $Q$，计算量最小。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f=\\frac14(\\mathrm{e}^x-\\mathrm{e}^{-x})+\\frac x2\\mathrm{e}^x$，$g=-\\frac14(\\mathrm{e}^x-\\mathrm{e}^{-x})+\\frac x2\\mathrm{e}^x$，$I=\\frac{7\\mathrm{e}}{4}-\\frac{1}{4\\mathrm{e}}$",
+      "concl": "<b>结论</b>$I=\\dfrac{7\\mathrm{e}}{4}-\\dfrac{1}{4\\mathrm{e}}$。",
+      "formulasUsed": [
+        {
+          "name": "路径无关条件",
+          "latex": "$$\\frac{\\partial P}{\\partial y}=\\frac{\\partial Q}{\\partial x}$$"
+        },
+        {
+          "name": "代入 $P,Q$",
+          "latex": "$$2yf(x)+2\\mathrm{e}^x+2g(x)=2yg'(x)+2f'(x)$$"
+        },
+        {
+          "name": "比较 $y$ 的系数",
+          "latex": "$$f(x)=g'(x),\\qquad f'(x)=\\mathrm{e}^x+g(x)$$"
+        },
+        {
+          "name": "消元得方程",
+          "latex": "$$f''-f=\\mathrm{e}^x,\\qquad f(0)=0,\\ f'(0)=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 23,
+      "number": "题 23",
+      "title": "先算散度再求梯度",
+      "chapter": 7,
+      "stemHtml": "向量场 $\\boldsymbol A=2x^3yz\\,\\boldsymbol i-x^2y^2z\\,\\boldsymbol j-x^2yz^2\\,\\boldsymbol k$，求散度 $\\operatorname{div}\\boldsymbol A$ 在点 $M(1,1,2)$ 处沿 $\\boldsymbol l=(2,2,-1)$ 的方向导数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先算出一个标量场，再对这个标量场求方向导数</h3>\r\n  <p>【看到「$\\operatorname{div}\\boldsymbol A$ 的方向导数」→ 调用「先算 $\\operatorname{div}\\boldsymbol A$ 得标量函数，再 $\\nabla$ 后与单位方向点乘」】。注意 $\\boldsymbol l$ 要单位化，$|l|=3$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算散度</h3>\r\n  <div class=\"fm\">$$\\operatorname{div}\\boldsymbol A=6x^2yz-2x^2yz-2x^2yz=2x^2yz.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求梯度并点乘</h3>\r\n  <div class=\"fm\">$$\\nabla(2x^2yz)\\big|_M=(4xyz,\\ 2x^2z,\\ 2x^2y)\\big|_{(1,1,2)}=(8,4,2),$$</div><div class=\"fm\">$$\\frac{\\partial}{\\partial l}=\\frac{8\\cdot2+4\\cdot2+2\\cdot(-1)}{3}=\\frac{22}{3}.$$</div><p class=\"concl\"><b>结论</b>方向导数为 $\\dfrac{22}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "散度是标量，算完再求方向导数，顺序不能反。",
+          "方向向量必须先单位化，模长为 3 时最容易漏除。",
+          "$\\operatorname{div}(f\\boldsymbol A)$ 逐项求偏导后合并同类项，别丢负号。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{22}{3}$",
+      "concl": "<b>结论</b>方向导数为 $\\dfrac{22}{3}$。",
+      "formulasUsed": [
+        {
+          "name": "散度公式",
+          "latex": "$$\\operatorname{div}\\boldsymbol A=\\frac{\\partial P}{\\partial x}+\\frac{\\partial Q}{\\partial y}+\\frac{\\partial R}{\\partial z}$$"
+        },
+        {
+          "name": "本题散度",
+          "latex": "$$\\operatorname{div}\\boldsymbol A=6x^2yz-2x^2yz-2x^2yz=2x^2yz$$"
+        },
+        {
+          "name": "方向余弦",
+          "latex": "$$\\cos\\alpha=\\frac23,\\ \\cos\\beta=\\frac23,\\ \\cos\\gamma=-\\frac13$$"
+        },
+        {
+          "name": "方向导数公式",
+          "latex": "$$\\left.\\frac{\\partial}{\\partial l}(\\operatorname{div}\\boldsymbol A)\\right|_M=\\nabla(\\operatorname{div}\\boldsymbol A)\\Big|_M\\cdot\\boldsymbol l^0$$"
+        }
+      ]
+    },
+    {
+      "seq": 24,
+      "number": "题 24",
+      "title": "梯度场是保守场",
+      "chapter": 7,
+      "stemHtml": "设 $\\Gamma$ 为不自交的光滑闭曲线，$\\mathrm{d}\\boldsymbol r=\\boldsymbol i\\,\\mathrm{d}x+\\boldsymbol j\\,\\mathrm{d}y+\\boldsymbol k\\,\\mathrm{d}z$，求 $\\displaystyle\\oint_\\Gamma\\operatorname{grad}\\left[\\sin(x+y+z)\\right]\\cdot\\mathrm{d}\\boldsymbol r$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：梯度点乘位移元，就是全微分</h3>\r\n  <p>【看到「$\\operatorname{grad}u\\cdot\\mathrm{d}\\boldsymbol r$ 沿闭曲线积分」→ 调用「$\\operatorname{grad}u\\cdot\\mathrm{d}\\boldsymbol r=\\mathrm{d}u$，闭曲线上全微分积分为零」】。这是送分题，不需要真的算 $\\sin(x+y+z)$ 的偏导。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写成全微分</h3>\r\n  <div class=\"fm\">$$\\operatorname{grad}\\left[\\sin(x+y+z)\\right]\\cdot\\mathrm{d}\\boldsymbol r=\\mathrm{d}\\left[\\sin(x+y+z)\\right].$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：闭路积分为零</h3>\r\n  <div class=\"fm\">$$\\oint_\\Gamma\\mathrm{d}\\left[\\sin(x+y+z)\\right]=\\sin(x+y+z)\\Big|_{\\text{起点}}^{\\text{起点}}=0.$$</div><p class=\"concl\"><b>结论</b>积分为 $0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\operatorname{grad}u\\cdot\\mathrm{d}\\boldsymbol r=\\mathrm{d}u$，这是把梯度与全微分连起来的唯一桥梁。",
+          "任何全微分沿闭曲线积分为零，终点回到起点。",
+          "见到 $\\operatorname{grad}$ 先别展开求偏导，先看能不能凑 $du$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$0$",
+      "concl": "<b>结论</b>积分为 $0$。",
+      "formulasUsed": [
+        {
+          "name": "梯度即全微分",
+          "latex": "$$\\operatorname{grad}u\\cdot\\mathrm{d}\\boldsymbol r=\\mathrm{d}u$$"
+        },
+        {
+          "name": "本题的 $u$",
+          "latex": "$$u=\\sin(x+y+z)$$"
+        },
+        {
+          "name": "闭曲线上的全微分积分",
+          "latex": "$$\\oint_\\Gamma\\mathrm{d}u=0$$"
+        },
+        {
+          "name": "另一角度看",
+          "latex": "$$\\operatorname{grad}u\\ \\text{是保守场，}\\oint=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 25,
+      "number": "题 25",
+      "title": "正交旋转 + 只算 $|x|$",
+      "chapter": 7,
+      "stemHtml": "计算 $\\displaystyle\\iint_{x^2+y^2\\le1}|ax+by|\\,\\mathrm{d}x\\,\\mathrm{d}y$（$a,b$ 为常数）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个系数的组合可以旋转成一根坐标轴</h3>\r\n  <p>【看到「$|ax+by|$ 在圆盘上」→ 调用「正交变换把 $ax+by$ 变成 $\\sqrt{a^2+b^2}\\,u$，圆盘还是圆盘」】。旋转不改变面积，也不改变圆盘，于是只剩 $\\iint|u|$，与 $a,b$ 无关，最后乘回 $\\sqrt{a^2+b^2}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：旋转</h3>\r\n  <div class=\"fm\">$$\\iint|ax+by|\\,\\mathrm{d}x\\,\\mathrm{d}y=\\sqrt{a^2+b^2}\\cdot4\\int_0^1\\mathrm{d}u\\int_0^{\\sqrt{1-u^2}}u\\,\\mathrm{d}v.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算出数值因子</h3>\r\n  <div class=\"fm\">$$\\int_0^1u\\sqrt{1-u^2}\\,\\mathrm{d}u=\\left[-\\frac13(1-u^2)^{3/2}\\right]_0^1=\\frac13,\\qquad 4\\cdot\\frac13=\\frac43.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：合并</h3>\r\n  <div class=\"fm\">$$I=\\frac43\\sqrt{a^2+b^2}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac43\\sqrt{a^2+b^2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$ax+by$ 用正交旋转化成 $\\sqrt{a^2+b^2}\\,u$，圆盘不变。",
+          "被积函数只含 $u$ 时，先对 $v$ 积出 $2\\sqrt{1-u^2}$。",
+          "$\\int_0^1u\\sqrt{1-u^2}\\mathrm{d}u=\\frac13$，四倍后是 $\\frac43$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac43\\sqrt{a^2+b^2}$",
+      "concl": "<b>结论</b>$I=\\dfrac43\\sqrt{a^2+b^2}$。",
+      "formulasUsed": [
+        {
+          "name": "正交变换",
+          "latex": "$$u=\\frac{ax+by}{\\sqrt{a^2+b^2}},\\quad v=\\frac{-bx+ay}{\\sqrt{a^2+b^2}},\\quad u^2+v^2=x^2+y^2$$"
+        },
+        {
+          "name": "化为单个绝对值",
+          "latex": "$$\\iint|ax+by|\\,\\mathrm{d}x\\,\\mathrm{d}y=\\sqrt{a^2+b^2}\\iint_{u^2+v^2\\le1}|u|\\,\\mathrm{d}u\\,\\mathrm{d}v$$"
+        },
+        {
+          "name": "先对 $v$ 积",
+          "latex": "$$\\int_{-\\sqrt{1-u^2}}^{\\sqrt{1-u^2}}\\mathrm{d}v=2\\sqrt{1-u^2}$$"
+        },
+        {
+          "name": "一元积分",
+          "latex": "$$\\int_0^1 2u\\sqrt{1-u^2}\\,\\mathrm{d}u=\\frac23$$"
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "number": "题 26",
+      "title": "变限求导 + 洛必达",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 连续可微，$f(0)=0$，$f'(0)=1$，$F(t)=\\displaystyle\\iint_{x^2+y^2\\le t^2}f(x^2+y^2)\\,\\mathrm{d}x\\,\\mathrm{d}y$（$t\\ge0$），求 $\\displaystyle\\lim_{t\\to0^+}\\frac{F(t)}{t^4}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：圆盘积分对 $t$ 求导会掉出一个 $t$</h3>\r\n  <p>【看到「$\\iint_{r\\le t}$ 对 $t$ 的极限」→ 调用「极坐标化成一元变限积分，再洛必达」】。化完是 $2\\pi\\int_0^tf(r^2)r\\mathrm{d}r$，求导得 $2\\pi tf(t^2)$，正好和 $t^4$ 一起降阶。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：极坐标</h3>\r\n  <div class=\"fm\">$$F(t)=\\int_0^{2\\pi}\\!\\mathrm{d}\\theta\\int_0^tf(r^2)r\\,\\mathrm{d}r=2\\pi\\int_0^tf(r^2)r\\,\\mathrm{d}r.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：洛必达</h3>\r\n  <div class=\"fm\">$$\\lim_{t\\to0^+}\\frac{F(t)}{t^4}=\\lim_{t\\to0^+}\\frac{2\\pi tf(t^2)}{4t^3}=\\frac{\\pi}{2}\\lim_{t\\to0^+}\\frac{f(t^2)}{t^2}=\\frac{\\pi}{2}f'(0)=\\frac{\\pi}{2}.$$</div><p class=\"concl\"><b>结论</b>极限为 $\\dfrac{\\pi}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\iint_{r\\le t}$ 先化极坐标成 $\\int_0^t$，再对 $t$ 求导。",
+          "求导后 $F'(t)=2\\pi tf(t^2)$，与 $t^4$ 相除仍含 $\\frac{f(t^2)}{t^2}$。",
+          "$\\frac{f(t^2)}{t^2}\\to f'(0)$ 用的是导数定义，$f(0)=0$ 是关键。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi}{2}$",
+      "concl": "<b>结论</b>极限为 $\\dfrac{\\pi}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "极坐标化一元",
+          "latex": "$$F(t)=2\\pi\\int_0^t f(r^2)r\\,\\mathrm{d}r$$"
+        },
+        {
+          "name": "变限求导",
+          "latex": "$$F'(t)=2\\pi t f(t^2)$$"
+        },
+        {
+          "name": "洛必达一次",
+          "latex": "$$\\lim\\frac{F(t)}{t^4}=\\lim\\frac{2\\pi tf(t^2)}{4t^3}=\\frac{\\pi}{2}\\lim\\frac{f(t^2)}{t^2}$$"
+        },
+        {
+          "name": "导数定义",
+          "latex": "$$\\lim_{t\\to0}\\frac{f(t^2)-f(0)}{t^2-0}=f'(0)=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 27,
+      "number": "题 27",
+      "title": "球面距离的平均值",
+      "chapter": 7,
+      "stemHtml": "设 $\\Sigma$ 为球面 $x^2+y^2+z^2=a^2$，$M_0(x_0,y_0,z_0)$ 为空间中任意一点，计算 $\\displaystyle\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\rho}$，其中 $\\rho=\\sqrt{(x-x_0)^2+(y-y_0)^2+(z-z_0)^2}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：球面参数化后，$\r\nho$ 只依赖极角 $\\varphi$</h3>\r\n  <p>【看到「球面上 $\\frac{1}{\\rho}$、$M_0$ 任意」→ 调用「球面坐标 + 余弦定理：$\\rho^2=a^2+r_0^2-2ar_0\\cos\\varphi$」】。取 $OM_0$ 为极轴，$\\theta$ 方向没有区别，先积 $\\theta$ 得 $2\\pi$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：参数化</h3>\r\n  <div class=\"fm\">$$\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\rho}=2\\pi a^2\\int_0^\\pi\\frac{\\sin\\varphi\\,\\mathrm{d}\\varphi}{\\sqrt{a^2+r_0^2-2ar_0\\cos\\varphi}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：令 $t=\\cos\\varphi$ 积出</h3>\r\n  <div class=\"fm\">$$2\\pi a^2\\cdot\\frac{\\sqrt{a^2+r_0^2-2ar_0\\cos\\varphi}}{ar_0}\\Big|_0^\\pi=\\frac{2\\pi a}{r_0}\\left(a+r_0-|a-r_0|\\right).$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\rho}=\\frac{2\\pi a}{r_0}\\left(a+r_0-|a-r_0|\\right)$；当 $M_0$ 为球心（$r_0\\to0$）时等于 $4\\pi a$，当 $M_0$ 在球外时等于 $\\frac{4\\pi a^2}{r_0}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$M_0$ 任意时把 $OM_0$ 当极轴，$\\rho$ 只跟 $\\varphi$ 有关。",
+          "$\\sqrt{A-B\\cos\\varphi}$ 的原函数是 $\\frac{2\\sqrt{A-B\\cos\\varphi}}{B}$，直接套。",
+          "结果要带绝对值 $|a-r_0|$，分「$M_0$ 在球内/球外」两种情形讨论。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{2\\pi a}{r_0}\\left(a+r_0-|a-r_0|\\right)$",
+      "concl": "<b>结论</b>$\\displaystyle\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\rho}=\\frac{2\\pi a}{r_0}\\left(a+r_0-|a-r_0|\\right)$；当 $M_0$ 为球心（$r_0\\to0$）时等于 $4\\pi a$，当 $M_0$ 在球外时等于 $\\frac{4\\pi a^2}{r_0}$。",
+      "formulasUsed": [
+        {
+          "name": "球面坐标",
+          "latex": "$$x=a\\sin\\varphi\\cos\\theta,\\ y=a\\sin\\varphi\\sin\\theta,\\ z=a\\cos\\varphi,\\ \\mathrm{d}S=a^2\\sin\\varphi\\,\\mathrm{d}\\varphi\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "距离的余弦定理形式",
+          "latex": "$$\\rho^2=a^2+r_0^2-2ar_0\\cos\\varphi,\\quad r_0=|OM_0|$$"
+        },
+        {
+          "name": "化为定积分",
+          "latex": "$$\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\rho}=2\\pi a^2\\int_0^{\\pi}\\frac{\\sin\\varphi\\,\\mathrm{d}\\varphi}{\\sqrt{a^2+r_0^2-2ar_0\\cos\\varphi}}$$"
+        },
+        {
+          "name": "积分结果",
+          "latex": "$$\\int_0^\\pi\\frac{\\sin\\varphi\\,\\mathrm{d}\\varphi}{\\sqrt{a^2+r_0^2-2ar_0\\cos\\varphi}}=\\frac{a+r_0-|a-r_0|}{ar_0}$$"
+        }
+      ]
+    },
+    {
+      "seq": 28,
+      "number": "题 28",
+      "title": "放大分母 + 换元 $y=ux$",
+      "chapter": 7,
+      "stemHtml": "证明 $\\displaystyle\\int_0^1\\!\\!\\int_0^1\\frac{\\mathrm{d}x\\,\\mathrm{d}y}{x^{-1}+|\\ln y|-1}\\le1$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母里的 $x^{-1}-1$ 正好可以换成 $|\\ln x|$</h3>\r\n  <p>【看到「分母 $x^{-1}+|\\ln y|-1$、要证 $\\le1$」→ 调用「$\\frac1x-1\\ge|\\ln x|$ 放大分母，再令 $x=\\mathrm{e}^{-s},y=\\mathrm{e}^{-t}$ 把积分化成 $s+t$」】。分母放大后积分变大，只要证明放大后的积分等于 1 就够了。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证 $\\frac1x-1\\ge|\\ln x|$</h3>\r\n  <p>令 $h(x)=\\frac1x-1+\\ln x$（$0&lt;x\\le1$，此时 $|\\ln x|=-\\ln x$），$h'(x)=\\frac{x-1}{x^2}&lt;0$，$h$ 递减且 $h(1)=0$，故 $h(x)\\ge0$，即 $\\frac1x-1\\ge|\\ln x|$。</p><div class=\"fm\">$$\\int_0^1\\!\\!\\int_0^1\\frac{\\mathrm{d}x\\,\\mathrm{d}y}{x^{-1}+|\\ln y|-1}\\le\\int_0^1\\!\\!\\int_0^1\\frac{\\mathrm{d}x\\,\\mathrm{d}y}{|\\ln x|+|\\ln y|}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：换元算出放大后的积分</h3>\r\n  <div class=\"fm\">$$\\int_0^\\infty\\!\\!\\int_0^\\infty\\frac{\\mathrm{e}^{-s-t}}{s+t}\\,\\mathrm{d}s\\,\\mathrm{d}t=\\int_0^\\infty\\frac{\\mathrm{e}^{-u}}{u}\\left(\\int_0^u\\mathrm{d}s\\right)\\mathrm{d}u=\\int_0^\\infty\\mathrm{e}^{-u}\\,\\mathrm{d}u=1.$$</div><div class=\"fm\">$$\\text{故}\\quad\\int_0^1\\!\\!\\int_0^1\\frac{\\mathrm{d}x\\,\\mathrm{d}y}{x^{-1}+|\\ln y|-1}\\le1.$$</div><p class=\"concl\"><b>结论</b>不等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac1x-1\\ge|\\ln x|$ 是这类题的固定钥匙，先放大分母。",
+          "$y=ux$ 让 $|\\ln y|=|\\ln u|+|\\ln x|$，两个对数变成「一个变量 + 常数倍」。",
+          "放大后若还含 $|\\ln x|$，用 $\\int_0^1\\frac{\\mathrm{d}x}{|\\ln x|}$ 型处理，注意 $\\mathrm{d}y=x\\,\\mathrm{d}u$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>不等式成立",
+      "concl": "<b>结论</b>不等式成立。",
+      "formulasUsed": [
+        {
+          "name": "基本不等式",
+          "latex": "$$\\frac1x-1\\ge|\\ln x|\\quad(0&lt;x\\le1)$$"
+        },
+        {
+          "name": "分母放大",
+          "latex": "$$x^{-1}+|\\ln y|-1\\ge|\\ln x|+|\\ln y|$$"
+        },
+        {
+          "name": "取对数换元",
+          "latex": "$$x=\\mathrm{e}^{-s},\\ y=\\mathrm{e}^{-t}\\ \\Rightarrow\\ \\mathrm{d}x\\,\\mathrm{d}y=\\mathrm{e}^{-s-t}\\,\\mathrm{d}s\\,\\mathrm{d}t,\\quad |\\ln x|+|\\ln y|=s+t$$"
+        },
+        {
+          "name": "先对 $s$ 积",
+          "latex": "$$\\int_0^{u}\\mathrm{d}s=u,\\quad u=s+t$$"
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "number": "题 29",
+      "title": "旋度 + 单位法向",
+      "chapter": 7,
+      "stemHtml": "设 $C$ 为空间光滑闭曲线，$\\boldsymbol n=(a,b,c)$ 为单位向量，证明 $\\displaystyle\\frac12\\oint_C(bz-cy)\\mathrm{d}x+(cx-az)\\mathrm{d}y+(ay-bx)\\mathrm{d}z=S$，其中 $S$ 为 $C$ 所围平面区域 $\\Sigma$ 的面积。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：左边是曲线积分，右边是面积，中间只有 Stokes 能搭桥</h3>\r\n  <p>【看到「闭曲线积分 = 面积」→ 调用「Stokes 公式：$\\oint_C=\\iint_\\Sigma(\\nabla\\times\\boldsymbol A)\\cdot\\boldsymbol n\\,\\mathrm{d}S$」】，只要证明旋度在 $\\boldsymbol n$ 方向的分量恒为 2，右边就是 $2\\iint\\mathrm{d}S$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算旋度</h3>\r\n  <div class=\"fm\">$$\\nabla\\times\\boldsymbol A=\\begin{vmatrix}\\boldsymbol i&\\boldsymbol j&\\boldsymbol k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\ bz-cy&cx-az&ay-bx\\end{vmatrix}=2(a,b,c).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：点乘单位法向</h3>\r\n  <div class=\"fm\">$$(\\nabla\\times\\boldsymbol A)\\cdot\\boldsymbol n=2(a^2+b^2+c^2)=2,\\qquad \\frac12\\oint_C\\cdots=\\iint_\\Sigma\\mathrm{d}S=S.$$</div><p class=\"concl\"><b>结论</b>等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "「曲线积分 = 面积」的题型，先想 Stokes，再想旋度是不是常数。",
+          "$\\boldsymbol A$ 的分量按 $bz-cy$ 这类轮换写时，旋度恰好是 $2(a,b,c)$。",
+          "$\\boldsymbol n$ 是单位向量，$a^2+b^2+c^2=1$ 别忘。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>等式成立",
+      "concl": "<b>结论</b>等式成立。",
+      "formulasUsed": [
+        {
+          "name": "Stokes 公式",
+          "latex": "$$\\oint_C P\\mathrm{d}x+Q\\mathrm{d}y+R\\mathrm{d}z=\\iint_\\Sigma\\left(\\frac{\\partial R}{\\partial y}-\\frac{\\partial Q}{\\partial z}\\right)\\cos\\alpha+\\cdots\\,\\mathrm{d}S$$"
+        },
+        {
+          "name": "旋度",
+          "latex": "$$\\nabla\\times\\boldsymbol A=2(a,b,c)$$"
+        },
+        {
+          "name": "与 $\\boldsymbol n$ 点乘",
+          "latex": "$$\\left(\\nabla\\times\\boldsymbol A\\right)\\cdot\\boldsymbol n=2(a^2+b^2+c^2)=2$$"
+        },
+        {
+          "name": "面积",
+          "latex": "$$\\iint_\\Sigma\\mathrm{d}S=S$$"
+        }
+      ]
+    },
+    {
+      "seq": 30,
+      "number": "题 30",
+      "title": "伸缩 + 正交变换化成球",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\iiint_V|x+y+2z|\\,|4x+4y-z|\\,\\mathrm{d}V$，其中 $V:\\ x^2+y^2+\\frac{z^2}{4}\\le1$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先把椭球拉成球，再看两个一次式是不是正交</h3>\r\n  <p>【看到「椭球 $x^2+y^2+\\frac{z^2}{4}\\le1$ 上两个一次式相乘」→ 调用「令 $z=2w$ 把椭球变单位球；两个系数向量 $(1,1,4)$ 与 $(4,4,-2)$ 恰好正交，可用正交变换同时对角化」】。正交变换不改变球的形状，绝对值乘积就只剩 $|u||v|$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拉直并检查正交</h3>\r\n  <div class=\"fm\">$$(1,1,4)\\cdot(4,4,-2)=4+4-8=0,\\qquad |(1,1,4)|=3\\sqrt2,\\ |(4,4,-2)|=6.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：正交变换</h3>\r\n  <div class=\"fm\">$$I=2\\cdot18\\sqrt2\\iiint_{u^2+v^2+w^2\\le1}|u||v|\\,\\mathrm{d}u\\,\\mathrm{d}v\\,\\mathrm{d}w=36\\sqrt2\\cdot\\frac{16}{15}=\\frac{96\\sqrt2}{5}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{96\\sqrt2}{5}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "椭球先伸缩成球，$\\mathrm{d}V$ 的 Jacobi 因子别漏。",
+          "两个一次式的系数向量正交时，可同时正交对角化，绝对值乘积变成 $|u||v|$。",
+          "$\\iiint_{B}|u||v|=\\frac{16}{15}$ 是常用结果，记住可直接用。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{96\\sqrt2}{5}$",
+      "concl": "<b>结论</b>$I=\\dfrac{96\\sqrt2}{5}$。",
+      "formulasUsed": [
+        {
+          "name": "先拉直椭球",
+          "latex": "$$z=2w\\ \\Rightarrow\\ x^2+y^2+w^2\\le1,\\quad \\mathrm{d}V=2\\,\\mathrm{d}x\\,\\mathrm{d}y\\,\\mathrm{d}w$$"
+        },
+        {
+          "name": "两个线性式的模",
+          "latex": "$$|(1,1,4)|=3\\sqrt2,\\qquad |(4,4,-2)|=6,\\qquad (1,1,4)\\cdot(4,4,-2)=0$$"
+        },
+        {
+          "name": "正交变换",
+          "latex": "$$3\\sqrt2\\,u=x+y+4w,\\qquad 6v=4x+4y-2w$$"
+        },
+        {
+          "name": "球对称积分",
+          "latex": "$$\\iiint_{u^2+v^2+w^2\\le1}|u|\\,|v|\\,\\mathrm{d}u\\,\\mathrm{d}v\\,\\mathrm{d}w=\\frac{16}{15}$$"
+        }
+      ]
+    },
+    {
+      "seq": 31,
+      "number": "题 31",
+      "title": "曲面积分是常数 + Gauss 补面",
+      "chapter": 7,
+      "stemHtml": "设曲面 $\\Sigma$ 由空间曲线 $C:x=t,\\ y=2t,\\ z=t^2\\ (0\\le t\\le1)$ 绕 $z$ 轴旋转一周而成，其法向量与 $z$ 轴正向成钝角。已知连续函数 $f$ 满足 $f(x,y,z)=(x+y+z)^2+\\displaystyle\\iint_\\Sigma f(x,y,z)\\,\\mathrm{d}y\\,\\mathrm{d}z+x^2\\,\\mathrm{d}x\\,\\mathrm{d}y$，求 $f(1,1,1)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：右端的曲面积分是常数，先把 $f$ 设成「已知部分 + 常数」</h3>\r\n  <p>【看到「$f=$ 已知表达式 $+\\iint_\\Sigma f\\,\\mathrm{d}y\\mathrm{d}z+\\cdots$」→ 调用「把曲面积分整体记作常数 $a$，于是 $f=(x+y+z)^2+a$，再回代求 $a$」】。先消去参数得旋转面 $x^2+y^2=5z$，$0\\le z\\le1$；法向与 $z$ 轴成钝角，说明取下侧。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：消参数、写曲面</h3>\r\n  <div class=\"fm\">$$x=\\sqrt{t^2+4t^2}\\cos\\theta=\\sqrt5\\,t\\cos\\theta,\\quad y=\\sqrt5\\,t\\sin\\theta,\\quad z=t^2\\ \\Rightarrow\\ x^2+y^2=5z.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：补面用 Gauss</h3>\r\n  <p>补 $\\Sigma_1:z=1,\\ x^2+y^2\\le5$ 的上侧，与 $\\Sigma$ 围成闭曲面外侧。此时 $f=(x+y+z)^2+a$，$f_x=2(x+y+z)$，$f_x+2x=4x+2y+2z$，故</p><div class=\"fm\">$$a+\\iint_{\\Sigma_1}x^2\\,\\mathrm{d}x\\mathrm{d}y=\\iiint_V(4x+2y+2z)\\,\\mathrm{d}V.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算体积分</h3>\r\n  <div class=\"fm\">$$\\iiint_V(4x+2y+2z)\\,\\mathrm{d}V=2\\iiint_V z\\,\\mathrm{d}V=2\\int_0^1z\\cdot\\pi(5z)\\,\\mathrm{d}z=\\frac{10\\pi}{3}.$$</div><p>而 $\\iint_{\\Sigma_1}x^2\\mathrm{d}x\\mathrm{d}y=\\frac{25\\pi}{4}$，故 $a=\\frac{10\\pi}{3}-\\frac{25\\pi}{4}=-\\frac{35\\pi}{12}$，$f(1,1,1)=9+a$。</p><p class=\"concl\"><b>结论</b>$a=-\\dfrac{35\\pi}{12}$，$f(1,1,1)=9-\\dfrac{35\\pi}{12}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "曲面积分出现在函数方程里，先整体记常数 $a$，$f$ 立刻显式化。",
+          "法向与 $z$ 轴成钝角 ⇒ 取下侧；补 $z=1$ 上侧时符号要跟着变。",
+          "$x,y$ 的奇次项在圆盘上积分为零，只剩 $\\iiint z\\,\\mathrm{d}V$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(1,1,1)=9-\\dfrac{35\\pi}{12}$",
+      "concl": "<b>结论</b>$a=-\\dfrac{35\\pi}{12}$，$f(1,1,1)=9-\\dfrac{35\\pi}{12}$。",
+      "formulasUsed": [
+        {
+          "name": "旋转面方程",
+          "latex": "$$x^2+y^2=5z,\\quad 0\\le z\\le1$$"
+        },
+        {
+          "name": "把积分记成常数",
+          "latex": "$$a=\\iint_\\Sigma f\\,\\mathrm{d}y\\,\\mathrm{d}z+x^2\\,\\mathrm{d}x\\,\\mathrm{d}y,\\qquad f=(x+y+z)^2+a$$"
+        },
+        {
+          "name": "Gauss 公式",
+          "latex": "$$\\oiint_{\\Sigma+\\Sigma_1}f\\,\\mathrm{d}y\\mathrm{d}z+x^2\\,\\mathrm{d}x\\mathrm{d}y=\\iiint_V\\left(f_x+2x\\right)\\mathrm{d}V$$"
+        },
+        {
+          "name": "待求的 $a$",
+          "latex": "$$a=\\frac{10\\pi}{3}-\\frac{25\\pi}{4}=-\\frac{35\\pi}{12}$$"
+        }
+      ]
+    },
+    {
+      "seq": 32,
+      "number": "题 32",
+      "title": "$u,v$ 换元 + $\\tan\\theta$ 换元",
+      "chapter": 7,
+      "stemHtml": "设 $f(r,t)=\\displaystyle\\oint_{x^2+xy+y^2=r^2}\\frac{x\\,\\mathrm{d}x-y\\,\\mathrm{d}y}{(x^2+y^2)^t}$，求 $\\displaystyle\\lim_{r\\to\\infty}f(r,t)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：椭圆先用 $x=u+v,y=u-v$ 转成标准椭圆，再参数化</h3>\r\n  <p>【看到「$x^2+xy+y^2=r^2$ 上的曲线积分」→ 调用「$x=u+v,y=u-v$ 把二次型对角化成 $3u^2+v^2$，再令 $u=\\frac r{\\sqrt3}\\cos\\theta,\\ v=r\\sin\\theta$」】。换元后 $x\\,\\mathrm{d}x-y\\,\\mathrm{d}y=\\frac{2\\sqrt3}{3}r^2\\mathrm{d}\\theta$，分母只含 $\\theta$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换元并算出分子</h3>\r\n  <div class=\"fm\">$$x=\\frac{r}{\\sqrt3}(\\cos\\theta-\\sqrt3\\sin\\theta),\\quad y=\\frac{r}{\\sqrt3}(\\cos\\theta+\\sqrt3\\sin\\theta),\\quad x\\,\\mathrm{d}x-y\\,\\mathrm{d}y=\\frac{2\\sqrt3}{3}r^2\\,\\mathrm{d}\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：整理成 $t$ 的幂</h3>\r\n  <div class=\"fm\">$$f(r,t)=\\sqrt3\\left(\\frac{2r^2}{3}\\right)^{1-t}\\int_0^{2\\pi}\\frac{\\mathrm{d}\\theta}{(\\cos^2\\theta+3\\sin^2\\theta)^t}=4\\sqrt3\\left(\\frac{2r^2}{3}\\right)^{1-t}\\int_0^\\infty\\frac{\\mathrm{d}s}{(1+3s^2)^t}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：看 $r\\to\\infty$ 的阶</h3>\r\n  <div class=\"fm\">$$\\int_0^\\infty\\frac{\\mathrm{d}s}{(1+3s^2)^t}\\ \\begin{cases}&lt;+\\infty,&t>\\frac12\\\\[2pt] =+\\infty,&t\\le\\frac12\\end{cases}\\quad\\Rightarrow\\quad \\lim_{r\\to\\infty}f(r,t)=\\begin{cases}0,&t>1\\\\ 2\\pi,&t=1\\\\ +\\infty,&t&lt;1\\end{cases}$$</div><p class=\"concl\"><b>结论</b>$t>1$ 时极限为 $0$；$t=1$ 时为 $2\\pi$；$t&lt;1$ 时为 $+\\infty$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$x^2+xy+y^2$ 的固定换元是 $x=u+v,\\ y=u-v$，化标准椭圆。",
+          "参数化后分子恰是 $\\frac{2\\sqrt3}{3}r^2\\mathrm{d}\\theta$，与 $r$ 无关的只剩 $\\theta$ 积分。",
+          "$r$ 的幂次 $(2r^2/3)^{1-t}$ 决定极限，$t=1$ 时指数为零要单独算 $\\int_0^\\infty\\frac{\\mathrm{d}s}{1+3s^2}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$t>1:0$；$t=1:2\\pi$；$t&lt;1:+\\infty$",
+      "concl": "<b>结论</b>$t>1$ 时极限为 $0$；$t=1$ 时为 $2\\pi$；$t&lt;1$ 时为 $+\\infty$。",
+      "formulasUsed": [
+        {
+          "name": "二次型配方",
+          "latex": "$$x=u+v,\\ y=u-v\\ \\Rightarrow\\ x^2+xy+y^2=3u^2+v^2$$"
+        },
+        {
+          "name": "椭圆参数化",
+          "latex": "$$u=\\frac{r}{\\sqrt3}\\cos\\theta,\\qquad v=r\\sin\\theta$$"
+        },
+        {
+          "name": "化成一元积分",
+          "latex": "$$f(r,t)=\\sqrt3\\left(\\frac{2r^2}{3}\\right)^{1-t}\\int_0^{2\\pi}\\frac{\\mathrm{d}\\theta}{(\\cos^2\\theta+3\\sin^2\\theta)^t}$$"
+        },
+        {
+          "name": "$\\tan\\theta$ 换元",
+          "latex": "$$f(r,t)=4\\sqrt3\\left(\\frac{2r^2}{3}\\right)^{1-t}\\int_0^\\infty\\frac{\\mathrm{d}x}{(1+3x^2)^t}$$"
+        }
+      ]
+    },
+    {
+      "seq": 33,
+      "number": "题 33",
+      "title": "Poisson 公式 + 分部积分",
+      "chapter": 7,
+      "stemHtml": "证明 $\\left|\\displaystyle\\iint_S f(mx+ny+pz)\\,\\mathrm{d}S\\right|\\le2\\pi M$，其中 $m^2+n^2+p^2=1$，$m,n,p$ 为常数，$f$ 在 $|t|\\le1$ 时连续可微，$f(-1)=f(1)=0$，$M=\\max_{-1\\le t\\le1}|f'(t)|$，$S$ 为单位球面。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：单位球面上的一次式，只有 Poisson 公式能把它压成一元积分</h3>\r\n  <p>【看到「单位球面上 $f(mx+ny+pz)$ 的积分」→ 调用「Poisson 公式 $\\iint_Sg(\\boldsymbol a\\cdot\\boldsymbol r)\\mathrm{d}S=2\\pi\\int_{-1}^1g(t|\\boldsymbol a|)\\mathrm{d}t$」】。这里 $|\\boldsymbol a|=1$，直接变成 $2\\pi\\int_{-1}^1f(t)\\mathrm{d}t$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：Poisson 公式降维</h3>\r\n  <div class=\"fm\">$$\\iint_Sf(mx+ny+pz)\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}f(t)\\,\\mathrm{d}t.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分部积分用上 $f(\\pm1)=0$</h3>\r\n  <div class=\"fm\">$$2\\pi\\int_{-1}^{1}f(t)\\,\\mathrm{d}t=2\\pi\\left[tf(t)\\Big|_{-1}^{1}-\\int_{-1}^{1}tf'(t)\\,\\mathrm{d}t\\right]=-2\\pi\\int_{-1}^{1}tf'(t)\\,\\mathrm{d}t.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：估值</h3>\r\n  <div class=\"fm\">$$\\left|\\iint_Sf\\,\\mathrm{d}S\\right|\\le2\\pi M\\int_{-1}^{1}|t|\\,\\mathrm{d}t=2\\pi M.$$</div><p class=\"concl\"><b>结论</b>不等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "单位球面 + 一次式 → Poisson 公式，$2\\pi\\int_{-1}^1f(t)\\mathrm{d}t$，一步降维。",
+          "端点条件 $f(\\pm1)=0$ 是给分部积分用的，边界项直接消掉。",
+          "$\\int_{-1}^1|t|\\mathrm{d}t=1$，所以最后常数正好是 $2\\pi M$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>不等式成立",
+      "concl": "<b>结论</b>不等式成立。",
+      "formulasUsed": [
+        {
+          "name": "Poisson 公式",
+          "latex": "$$\\iint_S f(mx+ny+pz)\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}f\\left(t\\sqrt{m^2+n^2+p^2}\\right)\\mathrm{d}t=2\\pi\\int_{-1}^{1}f(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "分部积分",
+          "latex": "$$\\int_{-1}^{1}f(t)\\,\\mathrm{d}t=tf(t)\\Big|_{-1}^{1}-\\int_{-1}^{1}tf'(t)\\,\\mathrm{d}t=-\\int_{-1}^{1}tf'(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "估值",
+          "latex": "$$\\left|\\int_{-1}^{1}tf'(t)\\,\\mathrm{d}t\\right|\\le\\int_{-1}^{1}|t|\\cdot M\\,\\mathrm{d}t=M$$"
+        },
+        {
+          "name": "合并",
+          "latex": "$$\\left|\\iint_Sf\\,\\mathrm{d}S\\right|\\le2\\pi M$$"
+        }
+      ]
+    },
+    {
+      "seq": 34,
+      "number": "题 34",
+      "title": "整体设常数 + 极坐标",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 在 $D=\\{(x,y)\\mid x^2+y^2\\le y,\\ x\\ge0\\}$ 上连续，且 $f(x,y)=\\sqrt{1-x^2-y^2}-\\dfrac{8}{\\pi}\\displaystyle\\iint_Df(x,y)\\,\\mathrm{d}x\\,\\mathrm{d}y$，求 $\\displaystyle\\iint_Df(x,y)\\,\\mathrm{d}x\\,\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：右边是个定数，先把它叫 $A$，两边同时积分</h3>\r\n  <p>【看到「$f=$ 表达式 $-$ 常数 $\\iint_D f$」→ 调用「设 $A=\\iint_Df$，则 $f=\\sqrt{1-x^2-y^2}-\\frac{8A}{\\pi}$，再在 $D$ 上积分得 $A$ 的方程」】。$D$ 是 $x^2+(y-\\frac12)^2\\le\\frac14$ 的右半，极坐标下 $0\\le r\\le\\sin\\theta$、$0\\le\\theta\\le\\frac\\pi2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：极坐标算第一项</h3>\r\n  <div class=\"fm\">$$\\int_0^{\\pi/2}\\frac13\\left(1-\\cos^3\\theta\\right)\\mathrm{d}\\theta=\\frac13\\left(\\frac{\\pi}{2}-\\frac23\\right)=\\frac{\\pi}{6}-\\frac29.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：第二项只是 $A$ 乘以面积</h3>\r\n  <div class=\"fm\">$$A=\\left(\\frac{\\pi}{6}-\\frac29\\right)-\\frac{8A}{\\pi}\\cdot\\frac{\\pi}{8}=\\frac{\\pi}{6}-\\frac29-A\\ \\Rightarrow\\ 2A=\\frac{\\pi}{6}-\\frac29.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：解出 $A$</h3>\r\n  <div class=\"fm\">$$A=\\frac{\\pi}{12}-\\frac19.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\iint_Df\\,\\mathrm{d}\\sigma=\\frac{\\pi}{12}-\\frac19$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\iint_D f$ 出现在等式右边，先记作 $A$，把 $f$ 变成显式函数。",
+          "$x^2+y^2\\le y$ 是圆心 $(0,\\frac12)$、半径 $\\frac12$ 的圆，加 $x\\ge0$ 取右半。",
+          "$\\int_0^{\\sin\\theta}\\sqrt{1-r^2}r\\,\\mathrm{d}r=\\frac13(1-\\cos^3\\theta)$，$\\int_0^{\\pi/2}\\cos^3\\theta=\\frac23$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi}{12}-\\dfrac19$",
+      "concl": "<b>结论</b>$\\displaystyle\\iint_Df\\,\\mathrm{d}\\sigma=\\frac{\\pi}{12}-\\frac19$。",
+      "formulasUsed": [
+        {
+          "name": "记常数为 $A$",
+          "latex": "$$A=\\iint_Df\\,\\mathrm{d}\\sigma,\\qquad f=\\sqrt{1-x^2-y^2}-\\frac{8A}{\\pi}$$"
+        },
+        {
+          "name": "区域是半圆",
+          "latex": "$$D:\\ r\\le\\sin\\theta,\\quad 0\\le\\theta\\le\\frac{\\pi}{2},\\qquad |D|=\\frac{\\pi}{8}$$"
+        },
+        {
+          "name": "极坐标",
+          "latex": "$$\\iint_D\\sqrt{1-r^2}\\,\\mathrm{d}\\sigma=\\int_0^{\\pi/2}\\!\\mathrm{d}\\theta\\int_0^{\\sin\\theta}\\sqrt{1-r^2}\\,r\\,\\mathrm{d}r$$"
+        },
+        {
+          "name": "内层积分",
+          "latex": "$$\\int_0^{\\sin\\theta}\\sqrt{1-r^2}\\,r\\,\\mathrm{d}r=\\frac13\\left(1-\\cos^3\\theta\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 35,
+      "number": "题 35",
+      "title": "令 $y=tx$ 参数化",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\int_Lx\\,\\mathrm{d}y-y\\,\\mathrm{d}x$，其中 $L:x^{2n+1}+y^{2n+1}=axy^n\\ (x\\ge0,\\ y\\ge0)$，按逆时针方向。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：曲线是齐次的，用 $y=tx$ 把两元方程压成一元参数</h3>\r\n  <p>【看到「$x^{2n+1}+y^{2n+1}=axy^n$ 这类齐次曲线」→ 调用「令 $y=tx$，方程降次解出 $x(t)$」】。代入后 $x^2$ 只依赖 $t$，而 $x\\,\\mathrm{d}y-y\\,\\mathrm{d}x=x^2\\mathrm{d}t$ 恰好把根式消掉，直接变成 $t$ 的定积分。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：代入解 $x^n$</h3>\r\n  <div class=\"fm\">$$x^{2n+1}\\left(1+t^{2n+1}\\right)=at^nx^{n+1}\\ \\Rightarrow\\ x^n=\\frac{at^n}{1+t^{2n+1}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：化简被积式</h3>\r\n  <div class=\"fm\">$$x\\,\\mathrm{d}y-y\\,\\mathrm{d}x=x(t\\,\\mathrm{d}x+x\\,\\mathrm{d}t)-tx\\,\\mathrm{d}x=x^2\\,\\mathrm{d}t.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：换元 $u=t^{2n+1}$ 算出积分</h3>\r\n  <div class=\"fm\">$$I=\\int_0^\\infty\\frac{a^2t^{2n}}{\\left(1+t^{2n+1}\\right)^2}\\,\\mathrm{d}t=\\frac{a^2}{2n+1}\\int_0^\\infty\\frac{\\mathrm{d}u}{(1+u)^2}=\\frac{a^2}{2n+1}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{a^2}{2n+1}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "齐次方程一律令 $y=tx$，把 $y$ 消掉解出 $x(t)$。",
+          "$x\\,\\mathrm{d}y-y\\,\\mathrm{d}x=x^2\\mathrm{d}t$ 是这类参数化的固定化简。",
+          "$u=t^{2n+1}$ 换元后 $\\int_0^\\infty\\frac{\\mathrm{d}u}{(1+u)^2}=1$，常数恰好剩 $\\frac{1}{2n+1}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{a^2}{2n+1}$",
+      "concl": "<b>结论</b>$I=\\dfrac{a^2}{2n+1}$。",
+      "formulasUsed": [
+        {
+          "name": "齐次化参数",
+          "latex": "$$y=tx\\ \\Rightarrow\\ x^{2n+1}\\left(1+t^{2n+1}\\right)=at^nx^{n+1}$$"
+        },
+        {
+          "name": "解出 $x^n$",
+          "latex": "$$x^n=\\frac{at^n}{1+t^{2n+1}}$$"
+        },
+        {
+          "name": "化简被积式",
+          "latex": "$$x\\,\\mathrm{d}y-y\\,\\mathrm{d}x=x(t\\,\\mathrm{d}x+x\\,\\mathrm{d}t)-tx\\,\\mathrm{d}x=x^2\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "化为定积分",
+          "latex": "$$I=\\int_0^\\infty\\frac{a^2t^{2n}\\,\\mathrm{d}t}{\\left(1+t^{2n+1}\\right)^2}=\\frac{a^2}{2n+1}$$"
+        }
+      ]
+    },
+    {
+      "seq": 36,
+      "number": "题 36",
+      "title": "极坐标 + 分部积分 + 边界为零",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 在 $D=\\{x^2+y^2\\le R^2\\}$ 上有一阶连续偏导数，在圆周 $x^2+y^2=R^2$ 上 $f=0$，且 $f(0,0)=2023$，求 $\\displaystyle\\lim_{\\varepsilon\\to0^+}\\frac{-1}{2\\pi}\\iint_{\\varepsilon^2\\le x^2+y^2\\le R^2}\\frac{xf_x'+yf_y'}{x^2+y^2}\\,\\mathrm{d}x\\,\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分子 $xf_x+yf_y$ 就是极坐标的 $r f_r$</h3>\r\n  <p>【看到「$\\frac{xf_x+yf_y}{x^2+y^2}$ 在圆环上积分」→ 调用「$xf_x+yf_y=rf_r$，$r^2$ 与 $\\mathrm{d}\\sigma=r\\mathrm{d}r\\mathrm{d}\\theta$ 相消，只剩 $\\int f_r\\mathrm{d}r$」】。积出来是 $f$ 在两端的差，外边界已知为 0，内边界取极限就是 $f(0,0)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：极坐标化简</h3>\r\n  <div class=\"fm\">$$\\frac{xf_x+yf_y}{x^2+y^2}\\,\\mathrm{d}\\sigma=\\frac{rf_r}{r^2}\\cdot r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta=f_r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：积出 $f$ 的差</h3>\r\n  <div class=\"fm\">$$\\iint=2\\pi\\int_\\varepsilon^Rf_r\\,\\mathrm{d}r=2\\pi\\left[f(R)-f(\\varepsilon)\\right]=-2\\pi f(\\varepsilon).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：取极限</h3>\r\n  <div class=\"fm\">$$\\lim_{\\varepsilon\\to0^+}\\frac{-1}{2\\pi}\\left(-2\\pi f(\\varepsilon)\\right)=f(0,0)=2023.$$</div><p class=\"concl\"><b>结论</b>极限为 $2023$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$xf_x+yf_y=rf_r$，这是极坐标降维的关键恒等式。",
+          "$r^2$ 分母与 $\\mathrm{d}\\sigma=r\\mathrm{d}r\\mathrm{d}\\theta$ 相消，只剩 $\\int_\\varepsilon^Rf_r\\mathrm{d}r=f(R)-f(\\varepsilon)$。",
+          "外边界 $f(R)=0$、内边界 $f(\\varepsilon)\\to f(0,0)$，两端一对就出答案。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2023$",
+      "concl": "<b>结论</b>极限为 $2023$。",
+      "formulasUsed": [
+        {
+          "name": "极坐标下的径向导数",
+          "latex": "$$xf_x+yf_y=r f_r$$"
+        },
+        {
+          "name": "化为径向积分",
+          "latex": "$$\\iint\\frac{xf_x+yf_y}{r^2}\\,\\mathrm{d}\\sigma=\\int_0^{2\\pi}\\!\\mathrm{d}\\theta\\int_\\varepsilon^Rf_r\\,\\mathrm{d}r=2\\pi\\left[f(R)-f(\\varepsilon)\\right]$$"
+        },
+        {
+          "name": "边界条件",
+          "latex": "$$f(R)=0$$"
+        },
+        {
+          "name": "取极限",
+          "latex": "$$\\lim_{\\varepsilon\\to0^+}\\frac{-1}{2\\pi}\\cdot2\\pi\\left[-f(\\varepsilon)\\right]=f(0,0)$$"
+        }
+      ]
+    },
+    {
+      "seq": 37,
+      "number": "题 37",
+      "title": "切平面方程 + 距离公式",
+      "chapter": 7,
+      "stemHtml": "设 $\\Sigma:\\frac{x^2}{a^2}+\\frac{y^2}{b^2}+\\frac{z^2}{c^2}=1$，$\\varphi$ 为 $\\Sigma$ 上任一点处切平面到原点的距离，计算 $\\displaystyle\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\varphi}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先把 $\\varphi$ 写成法向量模的倒数，再和 $\\mathrm{d}S$ 相乘</h3>\r\n  <p>【看到「椭球切平面到原点距离 $\\varphi$、要积 $\\frac{1}{\\varphi}$」→ 调用「切平面 $\\frac{x_0x}{a^2}+\\cdots=1$ 到原点距离 $=\\frac{1}{|\\boldsymbol n|}$，$\\boldsymbol n=\\left(\\frac{x}{a^2},\\frac{y}{b^2},\\frac{z}{c^2}\\right)$」】。于是 $\\frac{\\mathrm{d}S}{\\varphi}=|\\boldsymbol n|\\mathrm{d}S$，这个乘积在椭球参数化下有极简形式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写成法向量模</h3>\r\n  <div class=\"fm\">$$\\varphi=\\left(\\frac{x^2}{a^4}+\\frac{y^2}{b^4}+\\frac{z^2}{c^4}\\right)^{-1/2},\\qquad \\frac{\\mathrm{d}S}{\\varphi}=|\\boldsymbol n|\\,\\mathrm{d}S.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：参数化后约简</h3>\r\n  <p>取 $x=a\\sin v\\cos\\theta,\\ y=b\\sin v\\sin\\theta,\\ z=c\\cos v$，直接算 $\\boldsymbol r_\\theta\\times\\boldsymbol r_v$，可得</p><div class=\"fm\">$$|\\boldsymbol n|\\,\\mathrm{d}S=\\frac{\\sin v}{abc}\\left(b^2c^2\\sin^2v\\cos^2\\theta+a^2c^2\\sin^2v\\sin^2\\theta+a^2b^2\\cos^2v\\right)\\mathrm{d}v\\,\\mathrm{d}\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：积出结果</h3>\r\n  <div class=\"fm\">$$\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\varphi}=\\frac{4\\pi}{3}\\left(\\frac{bc}{a}+\\frac{ac}{b}+\\frac{ab}{c}\\right)=\\frac{4abc\\pi}{3}\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right).$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\varphi}=\\frac{4abc\\pi}{3}\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "切平面 $\\frac{x_0x}{a^2}+\\cdots=1$ 到原点的距离是 $\\frac{1}{|\\boldsymbol n|}$，都是现成公式。",
+          "$\\frac{\\mathrm{d}S}{\\varphi}=|\\boldsymbol n|\\mathrm{d}S$，这一步把「难算的距离」变成「简单的面积元」。",
+          "椭球参数化后 $\\mathrm{d}S=bc\\sin\\varphi_1\\sqrt{\\cdots}$，与 $|\\boldsymbol n|$ 相乘正好约掉根式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{4abc\\pi}{3}\\left(\\dfrac1{a^2}+\\dfrac1{b^2}+\\dfrac1{c^2}\\right)$",
+      "concl": "<b>结论</b>$\\displaystyle\\iint_\\Sigma\\frac{\\mathrm{d}S}{\\varphi}=\\frac{4abc\\pi}{3}\\left(\\frac1{a^2}+\\frac1{b^2}+\\frac1{c^2}\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "切平面方程",
+          "latex": "$$\\frac{x_0x}{a^2}+\\frac{y_0y}{b^2}+\\frac{z_0z}{c^2}=1$$"
+        },
+        {
+          "name": "到原点的距离",
+          "latex": "$$\\varphi=\\frac{1}{\\sqrt{\\frac{x_0^2}{a^4}+\\frac{y_0^2}{b^4}+\\frac{z_0^2}{c^4}}}=\\frac{1}{|\\boldsymbol n|}$$"
+        },
+        {
+          "name": "关键恒等式",
+          "latex": "$$\\frac{\\mathrm{d}S}{\\varphi}=|\\boldsymbol n|\\,\\mathrm{d}S$$"
+        },
+        {
+          "name": "椭球参数化",
+          "latex": "$$x=a\\sin v\\cos\\theta,\\ y=b\\sin v\\sin\\theta,\\ z=c\\cos v$$"
+        }
+      ]
+    },
+    {
+      "seq": 38,
+      "number": "题 38",
+      "title": "先定投影域 + 极坐标",
+      "chapter": 7,
+      "stemHtml": "求由曲面 $z=xy$、$x+y+z=1$、$z=0$ 所围立体的体积。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个曲面上下夹，先看谁在上面，再定投影域</h3>\r\n  <p>【看到「三个曲面围成体积」→ 调用「联立定交线、比较 $z$ 的大小定上下界、把交线投影到 $xOy$ 面得 $D$」】。这里 $xy\\le1-x-y$ 在所求区域内成立，$D$ 由 $xy+x+y=1$ 与坐标轴围成。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定投影域</h3>\r\n  <div class=\"fm\">$$xy+x+y=1\\ \\Longleftrightarrow\\ (x+1)(y+1)=2,\\qquad D:\\ 0\\le x\\le1,\\ 0\\le y\\le\\frac{1-x}{1+x}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：写体积积分</h3>\r\n  <div class=\"fm\">$$V=\\int_0^1\\!\\mathrm{d}x\\int_0^{\\frac{1-x}{1+x}}\\left(1-x-y-xy\\right)\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算出数值</h3>\r\n  <div class=\"fm\">$$V=\\frac{17}{12}-2\\ln2.$$</div><p class=\"concl\"><b>结论</b>$V=\\dfrac{17}{12}-2\\ln2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "先联立求交线，再看两个曲面谁在上，$V=\\iint_D(z_{\\text{上}}-z_{\\text{下}})$。",
+          "$xy+x+y=1$ 可分解成 $(x+1)(y+1)=2$，解出 $y$ 的上限最方便。",
+          "内层对 $y$ 积完会出现 $\\ln$，末结果含 $\\ln2$ 属正常。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{17}{12}-2\\ln2$",
+      "concl": "<b>结论</b>$V=\\dfrac{17}{12}-2\\ln2$。",
+      "formulasUsed": [
+        {
+          "name": "交点",
+          "latex": "$$xy+x+y=1\\ \\Rightarrow\\ (x+1)(y+1)=2$$"
+        },
+        {
+          "name": "上边界比较",
+          "latex": "$$z_1=xy,\\qquad z_2=1-x-y$$"
+        },
+        {
+          "name": "投影域",
+          "latex": "$$D:\\ x\\ge0,\\ y\\ge0,\\ xy+x+y\\le1$$"
+        },
+        {
+          "name": "体积",
+          "latex": "$$V=\\iint_D\\left(1-x-y-xy\\right)\\mathrm{d}x\\,\\mathrm{d}y$$"
+        }
+      ]
+    },
+    {
+      "seq": 39,
+      "number": "题 39",
+      "title": "化 $dydz$ 为 $dxdy$ + 广义极坐标",
+      "chapter": 7,
+      "stemHtml": "设 $\\Sigma:4x^2+y^2+z^2=1\\ (x,y,z\\ge0)$ 取上侧，$\\Gamma$ 为 $\\Sigma$ 的边界，方向与 $\\Sigma$ 的法向量成右手系，计算 $\\displaystyle\\int_\\Gamma(yz^2-\\cos z)\\,\\mathrm{d}x+2xz^2\\,\\mathrm{d}y+(2xyz+x\\sin z)\\,\\mathrm{d}z$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：闭曲线 → Stokes，注意 $\\Sigma$ 不是平面，$dydz$ 要换成 $dxdy$</h3>\r\n  <p>【看到「空间闭曲线积分、$\\Gamma$ 是曲面边界」→ 调用「Stokes 公式」】，并把三个第二类面积分统一投影到 $xOy$ 面。$4x^2+y^2+z^2=1$ 且 $z\\ge0$，故 $z=\\sqrt{1-4x^2-y^2}$，$z_x=-\\frac{4x}{z}$、$z_y=-\\frac{2y}{z}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算旋度分量</h3>\r\n  <div class=\"fm\">$$R_y-Q_z=-2xz,\\qquad P_z-R_x=(2yz+\\sin z)-(2yz+\\sin z)=0,\\qquad Q_x-P_y=2z^2-z^2=z^2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：统一成 $dxdy$</h3>\r\n  <div class=\"fm\">$$\\iint_\\Sigma\\left[-2xz\\cdot\\frac{4x}{z}+z^2\\right]\\mathrm{d}x\\mathrm{d}y=\\iint_D\\left(-8x^2+z^2\\right)\\mathrm{d}x\\mathrm{d}y,\\quad D:4x^2+y^2\\le1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：广义极坐标算出为零</h3>\r\n  <div class=\"fm\">$$\\iint_Dx^2\\,\\mathrm{d}\\sigma=\\frac{\\pi}{32},\\quad \\iint_Dy^2\\,\\mathrm{d}\\sigma=\\frac{\\pi}{8},\\quad \\iint_Dz^2\\,\\mathrm{d}\\sigma=\\iint_D\\left(1-4x^2-y^2\\right)\\mathrm{d}\\sigma=\\frac{\\pi}{2}-\\frac{\\pi}{8}-\\frac{\\pi}{8}=\\frac{\\pi}{4}.$$</div><div class=\"fm\">$$\\Rightarrow\\ I=-8\\cdot\\frac{\\pi}{32}+\\frac{\\pi}{4}=-\\frac{\\pi}{4}+\\frac{\\pi}{4}=0.$$</div><p class=\"concl\"><b>结论</b>原积分为 $0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "Stokes 之前先看曲面形状，$dydz$、$dzdx$ 都要按 $z=z(x,y)$ 换成 $dxdy$。",
+          "$z_x=-\\frac{4x}{z}$、$z_y=-\\frac{2y}{z}$ 使 $xz\\cdot\\frac1z$ 这类因子相消，别急着代入。",
+          "化简后被积函数在对称区域上奇对称、正负相抵，结果为 0。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$0$",
+      "concl": "<b>结论</b>原积分为 $0$。",
+      "formulasUsed": [
+        {
+          "name": "Stokes 公式",
+          "latex": "$$\\int_\\Gamma P\\mathrm{d}x+Q\\mathrm{d}y+R\\mathrm{d}z=\\iint_\\Sigma\\left(R_y-Q_z\\right)\\mathrm{d}y\\mathrm{d}z+\\left(P_z-R_x\\right)\\mathrm{d}z\\mathrm{d}x+\\left(Q_x-P_y\\right)\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "本题旋度",
+          "latex": "$$R_y-Q_z=2xz-4xz=-2xz,\\qquad P_z-R_x=0,\\qquad Q_x-P_y=2z^2-z^2=z^2$$"
+        },
+        {
+          "name": "化为 $dxdy$",
+          "latex": "$$\\mathrm{d}y\\mathrm{d}z=z_x\\,\\mathrm{d}x\\mathrm{d}y=\\frac{4x}{z}\\mathrm{d}x\\mathrm{d}y,\\qquad \\mathrm{d}z\\mathrm{d}x=z_y\\,\\mathrm{d}x\\mathrm{d}y=\\frac{2y}{z}\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "被积式",
+          "latex": "$$-2xz\\cdot\\frac{4x}{z}+z^2=-8x^2+z^2$$"
+        }
+      ]
+    },
+    {
+      "seq": 40,
+      "number": "题 40",
+      "title": "对称性 + 只留 $z\\ge0$ 部分",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\oiint_S\\frac{2\\,\\mathrm{d}y\\,\\mathrm{d}z}{x\\cos^2x}+\\frac{\\mathrm{d}z\\,\\mathrm{d}x}{\\cos^2y}-\\frac{\\mathrm{d}x\\,\\mathrm{d}y}{z\\cos^2z}$，其中 $S$ 为单位球面外侧。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先把 $dydz$ 等换成 $n_x\\,dS$，再逐项看奇偶</h3>\r\n  <p>【看到「单位球面外侧、$\\frac{\\mathrm{d}y\\mathrm{d}z}{x\\cos^2x}$ 这类项」→ 调用「$\\mathrm{d}y\\mathrm{d}z=n_x\\mathrm{d}S=x\\,\\mathrm{d}S$（$n$ 为单位外法向）」】。这样 $x$ 与分母的 $x$ 直接约掉，$y$ 项却留下因子 $y$，关于 $y$ 为奇、整个球面积分为零。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换成 $dS$</h3>\r\n  <div class=\"fm\">$$\\iint_S\\frac{2\\,\\mathrm{d}y\\mathrm{d}z}{x\\cos^2x}=2\\iint_S\\frac{\\mathrm{d}S}{\\cos^2x},\\quad \\iint_S\\frac{\\mathrm{d}z\\mathrm{d}x}{\\cos^2y}=\\iint_S\\frac{y\\,\\mathrm{d}S}{\\cos^2y}=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用单变量公式</h3>\r\n  <div class=\"fm\">$$2\\iint_S\\frac{\\mathrm{d}S}{\\cos^2x}=2\\cdot2\\pi\\int_{-1}^{1}\\frac{\\mathrm{d}t}{\\cos^2t}=8\\pi\\tan1,\\qquad -\\iint_S\\frac{\\mathrm{d}S}{\\cos^2z}=-4\\pi\\tan1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：三项相加</h3>\r\n  <div class=\"fm\">$$I=8\\pi\\tan1+0-4\\pi\\tan1=4\\pi\\tan1.$$</div><p class=\"concl\"><b>结论</b>$I=4\\pi\\tan1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "球面外侧积分先看奇偶性，关于 $x$ 或 $y$ 为奇的那一项直接为零。",
+          "含 $z$ 的分母在上下半球同号，两份加起来而不是相消。",
+          "$\\int\\frac{\\mathrm{d}u}{\\cos^2u}=\\tan u$，把 $\\sqrt{1-r^2}$ 当新变量就能积出来。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$4\\pi\\tan1$",
+      "concl": "<b>结论</b>$I=4\\pi\\tan1$。",
+      "formulasUsed": [
+        {
+          "name": "方向余弦",
+          "latex": "$$\\mathrm{d}y\\mathrm{d}z=n_x\\,\\mathrm{d}S=x\\,\\mathrm{d}S,\\quad \\mathrm{d}z\\mathrm{d}x=y\\,\\mathrm{d}S,\\quad \\mathrm{d}x\\mathrm{d}y=z\\,\\mathrm{d}S$$"
+        },
+        {
+          "name": "球面上的单变量积分",
+          "latex": "$$\\iint_Sg(x)\\,\\mathrm{d}S=2\\pi\\int_{-1}^{1}g(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "第一项",
+          "latex": "$$\\iint_S\\frac{2\\,\\mathrm{d}y\\mathrm{d}z}{x\\cos^2x}=2\\iint_S\\frac{\\mathrm{d}S}{\\cos^2x}=8\\pi\\tan1$$"
+        },
+        {
+          "name": "第三项",
+          "latex": "$$-\\iint_S\\frac{\\mathrm{d}x\\mathrm{d}y}{z\\cos^2z}=-\\iint_S\\frac{\\mathrm{d}S}{\\cos^2z}=-4\\pi\\tan1$$"
+        }
+      ]
+    },
+    {
+      "seq": 41,
+      "number": "题 41",
+      "title": "散度为零 + 一阶线性方程",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 具有连续导数，在围绕原点的任意光滑简单闭曲面 $S$ 上，$\\displaystyle\\iint_Sxf(x)\\,\\mathrm{d}y\\mathrm{d}z-xyf(x)\\,\\mathrm{d}z\\mathrm{d}x-\\mathrm{e}^{2x}z\\,\\mathrm{d}x\\mathrm{d}y$ 恒为常数 $A$。(1) 证明：对 $x>0$ 内的任意光滑简单闭曲面 $\\Sigma$，该积分恒为 $0$；(2) 求满足 $\\lim_{x\\to0^+}f(x)=1$ 的 $f(x)\\ (x>0)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：绕原点的曲面都给同一个值，说明「换面不改变值」</h3>\r\n  <p>【看到「任意闭曲面积分恒为常数」→ 调用「两块曲面拼成闭曲面，相减后剩下的差值为零」】。(1) 正是把 $x>0$ 内的 $\\Sigma$ 与一张固定的、绕原点的曲面 $S$ 拼起来，共同部分相减抵消，只剩下 $\\Sigma$ 上的值，从而恒为零。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证 (1)</h3>\r\n  <p>取绕原点且与 $\\Sigma$ 无交的曲面 $S$（积分为 $A$），把 $\\Sigma$ 与 $S$ 用一张辅助曲面 $S_3$ 连成两个闭曲面，分别写出积分后相减：共同部分只差一个方向、互相抵消，剩下,$\\Sigma$ 上的积分 $=0$。</p><div class=\"fm\">$$\\iint_\\Sigma xf(x)\\mathrm{d}y\\mathrm{d}z-xyf(x)\\mathrm{d}z\\mathrm{d}x-\\mathrm{e}^{2x}z\\,\\mathrm{d}x\\mathrm{d}y=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：散度为零给出方程</h3>\r\n  <div class=\"fm\">$$f+xf'-xf-\\mathrm{e}^{2x}=0\\ \\Longleftrightarrow\\ u'-u=\\mathrm{e}^{2x},\\quad u=xf(x).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：解方程并用极限定常数</h3>\r\n  <div class=\"fm\">$$u=C\\mathrm{e}^x+\\mathrm{e}^{2x}\\ \\Rightarrow\\ f(x)=\\frac{C\\mathrm{e}^x+\\mathrm{e}^{2x}}{x}.$$</div><p>由 $\\lim_{x\\to0^+}f(x)=1$ 得 $C+1=0$，故 $f(x)=\\dfrac{\\mathrm{e}^{2x}-\\mathrm{e}^x}{x}$。</p><p class=\"concl\"><b>结论</b>$f(x)=\\dfrac{\\mathrm{e}^{2x}-\\mathrm{e}^x}{x}\\ (x>0)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "「任意闭曲面积分同值」⇒ 换面差值 = 0，用两曲面拼接相减法证明。",
+          "把 $xf(x)$ 整体记成 $u$，散度为零的条件正好是 $u'-u=\\mathrm{e}^{2x}$。",
+          "$x\\to0^+$ 的极限条件用来定 $C$：分母趋于 0，分子必须也趋于 0。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=\\dfrac{\\mathrm{e}^{2x}-\\mathrm{e}^x}{x}$",
+      "concl": "<b>结论</b>$f(x)=\\dfrac{\\mathrm{e}^{2x}-\\mathrm{e}^x}{x}\\ (x>0)$。",
+      "formulasUsed": [
+        {
+          "name": "散度",
+          "latex": "$$\\operatorname{div}\\boldsymbol F=f(x)+xf'(x)-xf(x)-\\mathrm{e}^{2x}$$"
+        },
+        {
+          "name": "散度为零的条件",
+          "latex": "$$\\left[xf(x)\\right]'-xf(x)=\\mathrm{e}^{2x}$$"
+        },
+        {
+          "name": "一阶线性方程",
+          "latex": "$$u'-u=\\mathrm{e}^{2x},\\qquad u=xf(x)$$"
+        },
+        {
+          "name": "通解",
+          "latex": "$$u=C\\mathrm{e}^x+\\mathrm{e}^{2x}$$"
+        }
+      ]
+    },
+    {
+      "seq": 42,
+      "number": "题 42",
+      "title": "两块 $(1/y)f(x/y)$ 项相消",
+      "chapter": 7,
+      "stemHtml": "设 $f(u)$ 具有连续导数，计算 $I=\\displaystyle\\iint_\\Sigma\\frac1yf\\!\\left(\\frac xy\\right)\\mathrm{d}y\\mathrm{d}z+\\frac1xf\\!\\left(\\frac xy\\right)\\mathrm{d}z\\mathrm{d}x+z\\,\\mathrm{d}x\\mathrm{d}y$，其中 $\\Sigma$ 是由 $y=x^2+z^2+6$ 与 $y=8-x^2-z^2$ 所围立体的外侧表面。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个曲面都写成 $y=\\cdots$，合起来是封闭曲面，先算散度</h3>\r\n  <p>【看到「封闭立体表面的第二类曲面积分」→ 调用「Gauss 公式，先算 $\\operatorname{div}\\boldsymbol F$」】。$f(x/y)$ 的两项求导后符号相反，恰好抵消成 $0$，散度只剩 $1$，问题退化成立体体积。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算散度</h3>\r\n  <div class=\"fm\">$$\\frac{\\partial P}{\\partial x}=\\frac1{y^2}f'\\left(\\frac xy\\right),\\qquad \\frac{\\partial Q}{\\partial y}=-\\frac1{y^2}f'\\left(\\frac xy\\right),\\qquad \\operatorname{div}\\boldsymbol F=0+0+1=1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求立体体积</h3>\r\n  <div class=\"fm\">$$V=\\int_0^{2\\pi}\\!\\mathrm{d}\\theta\\int_0^1\\left(8-r^2-r^2-6\\right)r\\,\\mathrm{d}r=2\\pi\\int_0^1\\left(2r-2r^3\\right)\\mathrm{d}r=\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：Gauss 直接给答案</h3>\r\n  <div class=\"fm\">$$I=\\iiint_V1\\,\\mathrm{d}V=\\pi.$$</div><p class=\"concl\"><b>结论</b>$I=\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "封闭曲面先算散度，$f(x/y)$ 型两项求导常互相抵消。",
+          "立体由上下两个 $y=\\cdots$ 曲面夹成，再用柱面坐标算体积。",
+          "散度为 1 时，曲面积分直接等于体积，不必真的去积。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\pi$",
+      "concl": "<b>结论</b>$I=\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "散度",
+          "latex": "$$\\operatorname{div}\\boldsymbol F=\\frac{\\partial}{\\partial x}\\left[\\frac1yf\\!\\left(\\frac xy\\right)\\right]+\\frac{\\partial}{\\partial y}\\left[\\frac1xf\\!\\left(\\frac xy\\right)\\right]+1$$"
+        },
+        {
+          "name": "两项相消",
+          "latex": "$$\\frac1{y^2}f'\\!\\left(\\frac xy\\right)-\\frac1{y^2}f'\\!\\left(\\frac xy\\right)=0$$"
+        },
+        {
+          "name": "散度只剩 $1$",
+          "latex": "$$\\operatorname{div}\\boldsymbol F=1$$"
+        },
+        {
+          "name": "交线",
+          "latex": "$$x^2+z^2=1,\\qquad 6\\le y\\le8-\\left(x^2+z^2\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 43,
+      "number": "题 43",
+      "title": "奇偶性 + 逐项放缩",
+      "chapter": 7,
+      "stemHtml": "证明 $\\dfrac{45}{2}\\sqrt3\\pi\\le\\displaystyle\\iiint_{x^2+y^2+z^2\\le3}\\left(6x^3+23y^4-4z^5+7\\right)\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z\\le\\dfrac{59}{2}\\sqrt3\\pi$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：三次、五次项在对称球体上直接为零，只剩偶次项与常数</h3>\r\n  <p>【看到「球体上多项式积分、要证上下界」→ 调用「奇函数在对称区域积分为零，偶次项用 $|y|\\le\\sqrt3$ 放缩」】。$6x^3$、$-4z^5$ 都是奇次，积分为零；常数 $7$ 给出 $7\\cdot4\\sqrt3\\pi=28\\sqrt3\\pi$，正好落在所给区间中。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：删掉奇次项</h3>\r\n  <div class=\"fm\">$$\\iiint\\left(6x^3+23y^4-4z^5+7\\right)\\mathrm{d}V=\\iiint\\left(23y^4+7\\right)\\mathrm{d}V.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：放缩偶次项</h3>\r\n  <div class=\"fm\">$$0\\le y^4\\le9\\ \\Rightarrow\\ 28\\sqrt3\\pi\\le\\iiint\\left(23y^4+7\\right)\\mathrm{d}V\\le 28\\sqrt3\\pi+23\\cdot9\\cdot4\\sqrt3\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：核对上下界</h3>\r\n  <div class=\"fm\">$$\\frac{45}{2}\\sqrt3\\pi&lt;28\\sqrt3\\pi&lt;\\frac{59}{2}\\sqrt3\\pi\\ \\Rightarrow\\ \\frac{45}{2}\\sqrt3\\pi\\le\\iiint\\cdots\\le\\frac{59}{2}\\sqrt3\\pi.$$</div><p class=\"concl\"><b>结论</b>不等式成立；本题常数项给出 $28\\sqrt3\\pi$ 这一中间值。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "球体对称区域上，$x$ 的奇次幂积分为 0，先删掉一半被积函数。",
+          "偶次项用坐标范围 $|y|\\le\\sqrt3$ 放缩，再乘以体积得上下界。",
+          "球的体积是 $\\frac43\\pi R^3$，$R=\\sqrt3$ 时为 $4\\sqrt3\\pi$，所有常数项都从它来。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$28\\sqrt3\\pi$（中间值），不等式成立",
+      "concl": "<b>结论</b>不等式成立；本题常数项给出 $28\\sqrt3\\pi$ 这一中间值。",
+      "formulasUsed": [
+        {
+          "name": "球的体积",
+          "latex": "$$V=\\frac43\\pi\\left(\\sqrt3\\right)^3=4\\sqrt3\\pi$$"
+        },
+        {
+          "name": "奇函数项为零",
+          "latex": "$$\\iiint x^3=0,\\qquad \\iiint z^5=0$$"
+        },
+        {
+          "name": "剩下要估的项",
+          "latex": "$$\\iiint\\left(23y^4+7\\right)\\mathrm{d}V$$"
+        },
+        {
+          "name": "逐项放缩",
+          "latex": "$$0\\le y^4\\le9\\ \\Rightarrow\\ 7V\\le\\iiint(23y^4+7)\\mathrm{d}V$$"
+        }
+      ]
+    },
+    {
+      "seq": 44,
+      "number": "题 44",
+      "title": "补面 $x=e^a$ + 散度为零",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\iint_\\Sigma2\\left(1-x^2\\right)\\mathrm{d}y\\mathrm{d}z+8xy\\,\\mathrm{d}z\\mathrm{d}x-4xz\\,\\mathrm{d}x\\mathrm{d}y$，其中 $\\Sigma$ 是由曲线 $x=\\mathrm{e}^y\\ (0\\le y\\le a)$ 绕 $x$ 轴旋转成的旋转曲面，取外侧。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：散度恒为零，闭曲面积分为零，只需算补面上的积分</h3>\r\n  <p>【看到「旋转曲面 + 三个第二类面积分」→ 调用「先算散度，若为零就补一张平面用 Gauss」】。这里的 $\\Sigma$ 与 $\\Sigma_1$ 合成封闭曲面，外侧方向下积分为零，故 $I=-\\iint_{\\Sigma_1}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算散度</h3>\r\n  <div class=\"fm\">$$P_x=-4x,\\qquad Q_y=8x,\\qquad R_z=-4x\\ \\Rightarrow\\ \\operatorname{div}\\boldsymbol F=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：补面成闭曲面</h3>\r\n  <div class=\"fm\">$$\\oiint_{\\Sigma+\\Sigma_1}=0\\ \\Rightarrow\\ I=-\\iint_{\\Sigma_1}2\\left(1-x^2\\right)\\mathrm{d}y\\mathrm{d}z.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算平面上的积分</h3>\r\n  <div class=\"fm\">$$\\iint_{\\Sigma_1}2\\left(1-\\mathrm{e}^{2a}\\right)\\mathrm{d}y\\mathrm{d}z=2\\left(1-\\mathrm{e}^{2a}\\right)\\cdot\\pi a^2\\ \\Rightarrow\\ I=2\\pi a^2\\left(\\mathrm{e}^{2a}-1\\right).$$</div><p class=\"concl\"><b>结论</b>$I=2\\pi a^2\\left(\\mathrm{e}^{2a}-1\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "旋转面不封闭，先看能不能补一张平面凑成闭曲面。",
+          "散度为零是这类题的信号：闭曲面上一分为零，答案全在补面上。",
+          "补面 $x=e^a$ 是圆盘，$y^2+z^2\\le a^2$，面积 $\\pi a^2$，代入即得。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2\\pi a^2\\left(\\mathrm{e}^{2a}-1\\right)$",
+      "concl": "<b>结论</b>$I=2\\pi a^2\\left(\\mathrm{e}^{2a}-1\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "旋转面",
+          "latex": "$$x=\\mathrm{e}^{\\sqrt{y^2+z^2}},\\qquad 1\\le x\\le\\mathrm{e}^a$$"
+        },
+        {
+          "name": "散度",
+          "latex": "$$\\operatorname{div}\\boldsymbol F=-4x+8x-4x=0$$"
+        },
+        {
+          "name": "补面",
+          "latex": "$$\\Sigma_1:\\ x=\\mathrm{e}^a,\\quad y^2+z^2\\le a^2,\\ \\text{取右侧}$$"
+        },
+        {
+          "name": "$\\Sigma_1$ 上的积分",
+          "latex": "$$\\iint_{\\Sigma_1}2\\left(1-x^2\\right)\\mathrm{d}y\\mathrm{d}z=2\\left(1-\\mathrm{e}^{2a}\\right)\\pi a^2$$"
+        }
+      ]
+    },
+    {
+      "seq": 45,
+      "number": "题 45",
+      "title": "Green + 轮换对称 + 三角函数估计",
+      "chapter": 7,
+      "stemHtml": "证明 $\\dfrac{\\pi}{2}\\le\\displaystyle\\oint_L-y\\sin x^2\\,\\mathrm{d}x+x\\cos y^2\\,\\mathrm{d}y\\le\\dfrac{\\pi}{\\sqrt2}$，其中 $L:x^2+y^2+x+y=0$，取逆时针方向。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：圆上的第二类曲线积分，转成二重积分后用对称性合并</h3>\r\n  <p>【看到「闭曲线积分 + 要证范围」→ 调用「Green 公式转二重积分，再用区域关于 $y=x$ 的对称性把 $\\cos y^2$ 换成 $\\cos x^2$」】。合并后只剩 $\\sqrt2\\sin(x^2+\\frac\\pi4)$，只要估 $x^2$ 的范围。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：Green + 对称</h3>\r\n  <div class=\"fm\">$$\\oint_L=\\iint_D\\left(\\cos y^2+\\sin x^2\\right)\\mathrm{d}\\sigma=\\iint_D\\sqrt2\\sin\\left(x^2+\\frac{\\pi}{4}\\right)\\mathrm{d}\\sigma.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：估 $x^2$ 的范围</h3>\r\n  <div class=\"fm\">$$x\\in\\left[-\\frac{1+\\sqrt2}{2},\\ \\frac{\\sqrt2-1}{2}\\right]\\ \\Rightarrow\\ 0\\le x^2\\le\\frac{3+2\\sqrt2}{4},\\qquad \\frac\\pi4\\le x^2+\\frac\\pi4\\le\\frac\\pi2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：逐项估计</h3>\r\n  <div class=\"fm\">$$\\frac{\\sqrt2}{2}\\le\\sin\\left(x^2+\\frac{\\pi}{4}\\right)\\le1\\ \\Rightarrow\\ \\frac{\\pi}{2}=\\frac{\\sqrt2}{2}\\cdot\\frac{\\pi}{2}\\cdot\\sqrt2\\le\\oint_L\\le\\sqrt2\\cdot1\\cdot\\frac{\\pi}{2}=\\frac{\\pi}{\\sqrt2}.$$</div><p class=\"concl\"><b>结论</b>不等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "圆上的曲线积分先 Green，$Q_x-P_y=\\cos y^2+\\sin x^2$。",
+          "区域关于 $y=x$ 对称时，$\\iint\\cos y^2=\\iint\\cos x^2$，两项合成 $\\sqrt2\\sin(x^2+\\frac\\pi4)$。",
+          "$\\sin$ 在该区间单调，用端点值给出上下界，再乘圆盘面积 $\\frac\\pi2$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>不等式成立",
+      "concl": "<b>结论</b>不等式成立。",
+      "formulasUsed": [
+        {
+          "name": "Green 公式",
+          "latex": "$$\\oint_L-y\\sin x^2\\,\\mathrm{d}x+x\\cos y^2\\,\\mathrm{d}y=\\iint_D\\left(\\cos y^2+\\sin x^2\\right)\\mathrm{d}\\sigma$$"
+        },
+        {
+          "name": "轮换对称",
+          "latex": "$$\\iint_D\\cos y^2\\,\\mathrm{d}\\sigma=\\iint_D\\cos x^2\\,\\mathrm{d}\\sigma$$"
+        },
+        {
+          "name": "合成一项",
+          "latex": "$$\\iint_D\\left(\\cos x^2+\\sin x^2\\right)\\mathrm{d}\\sigma=\\iint_D\\sqrt2\\sin\\left(x^2+\\frac\\pi4\\right)\\mathrm{d}\\sigma$$"
+        },
+        {
+          "name": "圆盘面积",
+          "latex": "$$L:\\ \\left(x+\\frac12\\right)^2+\\left(y+\\frac12\\right)^2=\\frac12,\\qquad |D|=\\frac{\\pi}{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 46,
+      "number": "题 46",
+      "title": "$x+y$ 与 $|x-y|$ 分解",
+      "chapter": 7,
+      "stemHtml": "计算 $\\displaystyle\\lim_{a\\to+\\infty}\\iint_D\\min\\{x,y\\}\\,\\mathrm{e}^{-\\left(x^2+y^2\\right)}\\mathrm{d}x\\mathrm{d}y$，其中 $D=[-a,a]\\times[-a,a]$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\min$ 不好积，先拆成 $x+y$ 与 $|x-y|$</h3>\r\n  <p>【看到「$\\min\\{x,y\\}$ 的二重积分」→ 调用「$\\min\\{x,y\\}=\\frac{x+y-|x-y|}{2}$」】。$x+y$ 是奇函数、区域对称，直接为零；剩下的 $|x-y|$ 用旋转 $u=\\frac{x-y}{\\sqrt2}$ 变成单变量乘积。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拆 $\\min$</h3>\r\n  <div class=\"fm\">$$\\iint_D\\min\\{x,y\\}\\mathrm{e}^{-r^2}\\mathrm{d}\\sigma=-\\frac12\\iint_D|x-y|\\mathrm{e}^{-r^2}\\mathrm{d}\\sigma.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：旋转并分离</h3>\r\n  <div class=\"fm\">$$-\\frac12\\cdot\\sqrt2\\int_{-\\infty}^{\\infty}|u|\\mathrm{e}^{-u^2}\\mathrm{d}u\\int_{-\\infty}^{\\infty}\\mathrm{e}^{-v^2}\\mathrm{d}v.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算两个标准积分</h3>\r\n  <div class=\"fm\">$$\\int_{-\\infty}^{\\infty}|u|\\mathrm{e}^{-u^2}\\mathrm{d}u=1,\\qquad \\int_{-\\infty}^{\\infty}\\mathrm{e}^{-v^2}\\mathrm{d}v=\\sqrt\\pi\\ \\Rightarrow\\ I=-\\frac{\\sqrt2}{2}\\cdot\\sqrt\\pi=-\\sqrt{\\frac{\\pi}{2}}.$$</div><p class=\"concl\"><b>结论</b>极限为 $-\\sqrt{\\dfrac{\\pi}{2}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\min\\{x,y\\}=\\frac{x+y-|x-y|}{2}$，$\\max$ 同理由和与差组成。",
+          "正方形对称 ⇒ $x+y$ 项为零，只算 $|x-y|$ 项。",
+          "旋转 $45^\\circ$ 后高斯积分分离，$\\int|u|e^{-u^2}=1$、$\\int e^{-v^2}=\\sqrt\\pi$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\sqrt{\\dfrac{\\pi}{2}}$",
+      "concl": "<b>结论</b>极限为 $-\\sqrt{\\dfrac{\\pi}{2}}$。",
+      "formulasUsed": [
+        {
+          "name": "$\\min$ 的分解",
+          "latex": "$$\\min\\{x,y\\}=\\frac{x+y-|x-y|}{2}$$"
+        },
+        {
+          "name": "奇函数项为零",
+          "latex": "$$\\iint_D(x+y)\\mathrm{e}^{-\\left(x^2+y^2\\right)}\\mathrm{d}\\sigma=0$$"
+        },
+        {
+          "name": "旋转变换",
+          "latex": "$$u=\\frac{x-y}{\\sqrt2},\\quad v=\\frac{x+y}{\\sqrt2},\\qquad x^2+y^2=u^2+v^2$$"
+        },
+        {
+          "name": "分离变量",
+          "latex": "$$\\iint|x-y|\\mathrm{e}^{-\\left(x^2+y^2\\right)}\\mathrm{d}\\sigma=\\sqrt2\\int|u|\\mathrm{e}^{-u^2}\\mathrm{d}u\\int\\mathrm{e}^{-v^2}\\mathrm{d}v$$"
+        }
+      ]
+    },
+    {
+      "seq": 47,
+      "number": "题 47",
+      "title": "令 $u=x+y$，$v=x-y$",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 在 $[-1,1]$ 上连续，$D=\\{(x,y)\\mid|x|+|y|\\le1\\}$，证明 $\\displaystyle\\iint_Df(x+y)\\,\\mathrm{d}x\\mathrm{d}y=\\int_{-1}^{1}f(u)\\,\\mathrm{d}u$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$f$ 只依赖 $x+y$，就用 $u=x+y$ 换元</h3>\r\n  <p>【看到「$f(x+y)$ 在 $|x|+|y|\\le1$ 上积分」→ 调用「令 $u=x+y,v=x-y$，$|x|+|y|=\\max\\{|u|,|v|\\}$」】。关键恒等式把菱形变成正方形，$f(u)$ 就可以单独积出来。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换元并化简区域</h3>\r\n  <div class=\"fm\">$$|u+v|+|u-v|=2\\max\\{|u|,|v|\\}\\ \\Rightarrow\\ D'=[-1,1]\\times[-1,1].$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算 Jacobi 与积分</h3>\r\n  <div class=\"fm\">$$\\iint_Df(x+y)\\mathrm{d}x\\mathrm{d}y=\\frac12\\int_{-1}^{1}\\left[\\int_{-1}^{1}f(u)\\,\\mathrm{d}v\\right]\\mathrm{d}u=\\int_{-1}^{1}f(u)\\,\\mathrm{d}u.$$</div><p class=\"concl\"><b>结论</b>等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$f(x+y)$ 型一律令 $u=x+y$，配 $v=x-y$ 补成方阵。",
+          "$|u+v|+|u-v|=2\\max\\{|u|,|v|\\}$，这是把菱形变正方形的那把钥匙。",
+          "Jacobian 是 $\\frac12$，$v$ 的区间长度是 2，两者相乘正好为 1，所以结果就是 $\\int_{-1}^1f$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>等式成立",
+      "concl": "<b>结论</b>等式成立。",
+      "formulasUsed": [
+        {
+          "name": "换元",
+          "latex": "$$u=x+y,\\qquad v=x-y,\\qquad \\left|\\frac{\\partial(x,y)}{\\partial(u,v)}\\right|=\\frac12$$"
+        },
+        {
+          "name": "区域条件",
+          "latex": "$$|x|+|y|=\\frac{|u+v|+|u-v|}{2}=\\max\\{|u|,|v|\\}\\le1$$"
+        },
+        {
+          "name": "新区域",
+          "latex": "$$D':\\ -1\\le u\\le1,\\ -1\\le v\\le1$$"
+        },
+        {
+          "name": "积分",
+          "latex": "$$\\iint_{D'}f(u)\\cdot\\frac12\\,\\mathrm{d}u\\,\\mathrm{d}v=\\frac12\\int_{-1}^{1}f(u)\\,\\mathrm{d}u\\int_{-1}^{1}\\mathrm{d}v$$"
+        }
+      ]
+    },
+    {
+      "seq": 48,
+      "number": "题 48",
+      "title": "对称性配对",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 在 $[0,1]$ 上连续，$\\displaystyle\\int_0^1f(x)\\,\\mathrm{d}x=A$，求 $\\displaystyle\\int_0^1\\mathrm{d}x\\int_x^1f(x)f(y)\\,\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：只看半个正方形，用对称性补成整个正方形</h3>\r\n  <p>【看到「$\\int_0^1\\mathrm{d}x\\int_x^1f(x)f(y)\\mathrm{d}y$」→ 调用「区域 $D_1$ 与 $D_2$ 关于 $y=x$ 对称，交换 $x,y$ 后积分相等，两块拼成正方形」】。拼起来后 $f(x)f(y)$ 可分离，直接得 $A^2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写成二重积分</h3>\r\n  <div class=\"fm\">$$I=\\iint_{D_1}f(x)f(y)\\,\\mathrm{d}\\sigma,\\qquad D_1=\\{0\\le x\\le y\\le1\\}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：对称补全</h3>\r\n  <div class=\"fm\">$$2I=\\iint_{D_1}+\\iint_{D_2}=\\int_0^1f(x)\\,\\mathrm{d}x\\int_0^1f(y)\\,\\mathrm{d}y=A^2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：得结果</h3>\r\n  <div class=\"fm\">$$I=\\frac{A^2}{2}.$$</div><p class=\"concl\"><b>结论</b>原积分为 $\\dfrac{A^2}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\int_x^1$ 型区域占正方形一半，对称另一半就是 $x\\le y$ 的交换。",
+          "两块相等 ⇒ $2I=$ 正方形上的积分。",
+          "$\\iint f(x)f(y)$ 可分离成 $\\left(\\int f\\right)^2$，这是最后的收割。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{A^2}{2}$",
+      "concl": "<b>结论</b>原积分为 $\\dfrac{A^2}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "积分区域",
+          "latex": "$$D_1:\\ 0\\le x\\le y\\le1$$"
+        },
+        {
+          "name": "对称配对",
+          "latex": "$$\\iint_{D_1}f(x)f(y)\\,\\mathrm{d}\\sigma=\\iint_{D_2}f(x)f(y)\\,\\mathrm{d}\\sigma,\\quad D_2:\\ 0\\le y\\le x\\le1$$"
+        },
+        {
+          "name": "合并成正方形",
+          "latex": "$$2I=\\iint_{[0,1]^2}f(x)f(y)\\,\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "分离变量",
+          "latex": "$$\\iint_{[0,1]^2}f(x)f(y)\\,\\mathrm{d}x\\mathrm{d}y=\\left(\\int_0^1f\\right)^2=A^2$$"
+        }
+      ]
+    },
+    {
+      "seq": 49,
+      "number": "题 49",
+      "title": "奇函数项抵消 + 只算面积",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 为奇函数，$D$ 由 $y=4-x^2$、$y=-3x$ 与 $x=1$ 围成，计算 $\\displaystyle\\iint_D\\left[1+f(x)\\ln\\left(y+\\sqrt{1+y^2}\\right)\\right]\\mathrm{d}x\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$f$ 奇、$\\ln$ 也奇，乘积关于 $x$ 是奇函数，只剩面积</h3>\r\n  <p>【看到「$[1+f(x)\\ln(y+\\sqrt{1+y^2})]$」→ 调用「判定奇偶性：$\\ln(y+\\sqrt{1+y^2})$ 关于 $y$ 为奇，$f(x)$ 关于 $x$ 为奇，整块乘积在对称区间上积分为零」】。因此积分等于 $D$ 的面积。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：判奇偶</h3>\r\n  <div class=\"fm\">$$\\ln\\left(-y+\\sqrt{1+y^2}\\right)=-\\ln\\left(y+\\sqrt{1+y^2}\\right),\\qquad f(-x)=-f(x).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算面积</h3>\r\n  <div class=\"fm\">$$|D|=\\int_{-1}^{1}\\left(4+3x-x^2\\right)\\mathrm{d}x=2\\int_0^1\\left(4-x^2\\right)\\mathrm{d}x=\\frac{22}{3}.$$</div><p>（$3x$ 是奇函数，在对称区间上积分为零。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：得答案</h3>\r\n  <div class=\"fm\">$$\\iint_D\\left[1+f(x)\\ln\\left(y+\\sqrt{1+y^2}\\right)\\right]\\mathrm{d}\\sigma=|D|=\\frac{22}{3}.$$</div><p class=\"concl\"><b>结论</b>积分为 $\\dfrac{22}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\ln(y+\\sqrt{1+y^2})$ 是 $y$ 的奇函数（反双曲正弦），这是常见套路。",
+          "$f$ 奇、$\\ln$ 奇 ⇒ 乘积在对称区域上积分为零，只剩常数项。",
+          "算面积时只需 $2\\int_0^1$，把奇函数项直接丢掉。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{22}{3}$",
+      "concl": "<b>结论</b>积分为 $\\dfrac{22}{3}$。",
+      "formulasUsed": [
+        {
+          "name": "$\\ln$ 因子的奇偶性",
+          "latex": "$$\\ln\\left(y+\\sqrt{1+y^2}\\right)\\ \\text{是}\\ y\\ \\text{的奇函数}$$"
+        },
+        {
+          "name": "$f(x)$ 是奇函数",
+          "latex": "$$f(-x)=-f(x)$$"
+        },
+        {
+          "name": "区域对称性",
+          "latex": "$$D\\ \\text{关于}\\ x=0\\ \\text{不对称，但奇函数部分可配对抵消}$$"
+        },
+        {
+          "name": "面积",
+          "latex": "$$|D|=\\int_{-1}^{1}\\left[\\left(4-x^2\\right)-(-3x)\\right]\\mathrm{d}x=\\frac{22}{3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 50,
+      "number": "题 50",
+      "title": "先算面积再判奇偶",
+      "chapter": 7,
+      "stemHtml": "区域 $D$ 由 $y=x^2\\ (0\\le x\\le1)$、$y=-x^2\\ (-1\\le x\\le0)$、$y=1$、$x=-1$ 围成，计算 $\\displaystyle\\iint_Dx\\left[1+\\ln\\left(y+\\sqrt{1+y^2}\\right)\\sin\\left(x^2+y^2\\right)\\right]\\mathrm{d}x\\mathrm{d}y$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：区域左右不对称，先看被积函数是不是「单变量奇函数」</h3>\r\n  <p>【看到「$x[1+\\ln(\\cdots)\\sin(\\cdots)]$」→ 调用「拆成 $x$ 与 $x\\ln\\cdots\\sin\\cdots$；后者对 $x$ 是奇函数，且区域关于 $y$ 轴对称，积分为零」】。剩下的 $\\iint_Dx\\,\\mathrm{d}\\sigma$ 直接按左右两块算。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：判奇偶</h3>\r\n  <div class=\"fm\">$$D:\\ |x|\\le1,\\ x^2\\le|y|\\le1\\ \\Rightarrow\\ D\\ \\text{关于}\\ y\\ \\text{轴对称};\\qquad x\\ln(\\cdots)\\sin(\\cdots)\\ \\text{关于}\\ x\\ \\text{为奇}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：只算 $x$ 项</h3>\r\n  <div class=\"fm\">$$\\iint_Dx\\,\\mathrm{d}\\sigma=\\int_{-1}^{0}x\\left(1+x^2\\right)\\mathrm{d}x+\\int_0^1x\\left(1-x^2\\right)\\mathrm{d}x=-\\frac34+\\frac14=-\\frac12.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：合并</h3>\r\n  <div class=\"fm\">$$\\iint_Dx\\left[1+\\ln\\left(y+\\sqrt{1+y^2}\\right)\\sin\\left(x^2+y^2\\right)\\right]\\mathrm{d}\\sigma=-\\frac12.$$</div><p class=\"concl\"><b>结论</b>积分为 $-\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "区域关于 $y$ 轴对称时，被积函数对 $x$ 为奇的那部分直接为零。",
+          "$y$ 的上界都是 1、下界由两支抛物线给出，左右两块分别算。",
+          "$\\int_{-1}^0(x+x^3)=-\\frac34$、$\\int_0^1(x-x^3)=\\frac14$，和为 $-\\frac12$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\dfrac12$",
+      "concl": "<b>结论</b>积分为 $-\\dfrac12$。",
+      "formulasUsed": [
+        {
+          "name": "区域拆成两块",
+          "latex": "$$D_1:\\ -1\\le x\\le0,\\ -x^2\\le y\\le1;\\qquad D_2:\\ 0\\le x\\le1,\\ x^2\\le y\\le1$$"
+        },
+        {
+          "name": "第一块积分",
+          "latex": "$$\\int_{-1}^{0}x\\left(1+x^2\\right)\\mathrm{d}x=-\\frac34$$"
+        },
+        {
+          "name": "第二块积分",
+          "latex": "$$\\int_0^1x\\left(1-x^2\\right)\\mathrm{d}x=\\frac14$$"
+        },
+        {
+          "name": "面积",
+          "latex": "$$|D|=\\frac34+\\frac14=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 51,
+      "number": "题 51",
+      "title": "极坐标 + 半径夹逼",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\iint_D\\frac{xy}{x^2+y^2}\\,\\mathrm{d}x\\mathrm{d}y$，其中 $D:\\ 1\\le\\frac{x}{x^2+y^2}\\le2,\\ 1\\le\\frac{y}{x^2+y^2}\\le2$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：条件都写成「角的正弦/余弦 ÷ r」，极坐标一换就是 $r$ 的夹逼</h3>\r\n  <p>【看到「$1\\le\\frac{x}{x^2+y^2}\\le2$ 型条件」→ 调用「极坐标：$\\frac{x}{x^2+y^2}=\\frac{\\cos\\theta}{r}$」】。四个条件给出 $r$ 的上下界，两条边界 $r=\\cos\\theta$ 与 $r=\\sin\\theta$ 交于 $\\theta=\\frac\\pi4$，下限同样的交点 $\\arctan\\frac12$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定 $r$ 的范围</h3>\r\n  <div class=\"fm\">$$\\max\\left\\{\\frac{\\cos\\theta}{2},\\frac{\\sin\\theta}{2}\\right\\}\\le r\\le\\min\\{\\cos\\theta,\\sin\\theta\\}\\ \\Rightarrow\\ \\frac{\\cos\\theta}{2}\\le r\\le\\sin\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：写积分</h3>\r\n  <div class=\"fm\">$$I=\\int_{\\arctan\\frac12}^{\\frac{\\pi}{4}}\\sin\\theta\\cos\\theta\\,\\mathrm{d}\\theta\\int_{\\cos\\theta/2}^{\\sin\\theta}r\\,\\mathrm{d}r=\\frac12\\int_{\\arctan\\frac12}^{\\frac{\\pi}{4}}\\sin\\theta\\cos\\theta\\left(\\sin^2\\theta-\\frac{\\cos^2\\theta}{4}\\right)\\mathrm{d}\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算出数值</h3>\r\n  <div class=\"fm\">$$\\int\\sin^3\\theta\\cos\\theta\\,\\mathrm{d}\\theta=\\frac{\\sin^4\\theta}{4},\\qquad \\int\\sin\\theta\\cos^3\\theta\\,\\mathrm{d}\\theta=-\\frac{\\cos^4\\theta}{4}\\ \\Rightarrow\\ I=\\frac{9}{320}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{9}{320}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{x}{x^2+y^2}=\\frac{\\cos\\theta}{r}$，条件不等式立刻变成 $r$ 的上下界。",
+          "区域在第一象限，$\\theta$ 从 $\\arctan\\frac12$ 到 $\\frac\\pi4$。",
+          "被积式化为 $\\sin\\theta\\cos\\theta$，内层 $\\int r\\,\\mathrm{d}r$ 提供 $\\frac12(r_2^2-r_1^2)$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{9}{320}$",
+      "concl": "<b>结论</b>$I=\\dfrac{9}{320}$。",
+      "formulasUsed": [
+        {
+          "name": "极坐标化条件",
+          "latex": "$$1\\le\\frac{\\cos\\theta}{r}\\le2\\ \\Rightarrow\\ \\frac{\\cos\\theta}{2}\\le r\\le\\cos\\theta$$"
+        },
+        {
+          "name": "第二个条件",
+          "latex": "$$1\\le\\frac{\\sin\\theta}{r}\\le2\\ \\Rightarrow\\ \\frac{\\sin\\theta}{2}\\le r\\le\\sin\\theta$$"
+        },
+        {
+          "name": "被积式",
+          "latex": "$$\\frac{xy}{x^2+y^2}=\\frac{r^2\\sin\\theta\\cos\\theta}{r^2}=\\sin\\theta\\cos\\theta$$"
+        },
+        {
+          "name": "角度范围",
+          "latex": "$$\\arctan\\frac12\\le\\theta\\le\\frac{\\pi}{4}$$"
+        }
+      ]
+    },
+    {
+      "seq": 52,
+      "number": "题 52",
+      "title": "沿对角线平移切片",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 为连续偶函数，证明 $\\displaystyle\\iint_{|x|\\le a,\\ |y|\\le a}f(x-y)\\,\\mathrm{d}x\\mathrm{d}y=2\\int_0^{2a}(2a-u)f(u)\\,\\mathrm{d}u$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$f$ 只依赖 $x-y$，就沿对角线切片</h3>\r\n  <p>【看到「$f(x-y)$ 在正方形上」→ 调用「令 $u=x-y$，对每个 $u$ 求截线长度，把二重积分压成一维」】。正方形被斜线 $x-y=u$ 截出的线段长为 $2a-|u|$，$u$ 从 $-2a$ 到 $2a$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：切片</h3>\r\n  <div class=\"fm\">$$\\iint f(x-y)\\mathrm{d}x\\mathrm{d}y=\\int_{-2a}^{2a}\\left(\\int_{x\\in[\\,\\cdot\\,]}f(u)\\,\\mathrm{d}x\\right)\\mathrm{d}u=\\int_{-2a}^{2a}(2a-|u|)f(u)\\,\\mathrm{d}u.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用偶函数性质</h3>\r\n  <div class=\"fm\">$$2\\int_0^{2a}(2a-u)f(u)\\,\\mathrm{d}u.$$</div><p class=\"concl\"><b>结论</b>等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$f(x-y)$ 型二重积分，令 $u=x-y$ 后按 $u$ 切片，权重是截线长度。",
+          "正方形 $|x|,|y|\\le a$ 的截线长 $2a-|u|$，$u\\in[-2a,2a]$。",
+          "$f$ 为偶函数时，负半段与正半段对称，$2\\int_0^{2a}$ 出来。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>等式成立",
+      "concl": "<b>结论</b>等式成立。",
+      "formulasUsed": [
+        {
+          "name": "换元",
+          "latex": "$$u=x-y,\\qquad v=y$$"
+        },
+        {
+          "name": "切片长度",
+          "latex": "$$\\text{对固定 }u,\\ \\text{线段长度}=2a-|u|$$"
+        },
+        {
+          "name": "积分",
+          "latex": "$$\\iint f(x-y)\\,\\mathrm{d}x\\mathrm{d}y=\\int_{-2a}^{2a}(2a-|u|)f(u)\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "用偶性",
+          "latex": "$$\\int_{-2a}^{2a}(2a-|u|)f(u)\\,\\mathrm{d}u=2\\int_0^{2a}(2a-u)f(u)\\,\\mathrm{d}u$$"
+        }
+      ]
+    },
+    {
+      "seq": 53,
+      "number": "题 53",
+      "title": "积分中值 + 距离夹逼",
+      "chapter": 7,
+      "stemHtml": "设 $D$ 为圆环 $r\\le\\sqrt{x^2+y^2}\\le R$，点 $P_1(a,b)$ 满足 $\\sqrt{a^2+b^2}=k&lt;r$，证明 $\\dfrac{\\pi(R^2-r^2)}{R+k}\\le\\displaystyle\\iint_D\\frac{\\mathrm{d}\\sigma}{\\sqrt{(x-a)^2+(y-b)^2}}\\le\\dfrac{\\pi(R^2-r^2)}{r-k}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：被积函数只跟「到定点 $P_1$ 的距离」有关，就把距离夹住</h3>\r\n  <p>【看到「环域上 $\\frac{1}{|PP_1|}$ 的上下界」→ 调用「三角不等式先夹住 $|PP_1|$，再取倒数、乘面积」】。$P_1$ 在半径 $k$ 的内圆内，所以环域上每一点到 $P_1$ 的距离落在 $[r-k,\\ R+k]$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：夹距离</h3>\r\n  <div class=\"fm\">$$|PP_1|\\ge|OP|-|OP_1|\\ge r-k,\\qquad |PP_1|\\le|OP|+|OP_1|\\le R+k.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取倒数乘面积</h3>\r\n  <div class=\"fm\">$$\\frac{1}{R+k}\\cdot\\pi\\left(R^2-r^2\\right)\\le\\iint_D\\frac{\\mathrm{d}\\sigma}{|PP_1|}\\le\\frac{1}{r-k}\\cdot\\pi\\left(R^2-r^2\\right).$$</div><p class=\"concl\"><b>结论</b>不等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{1}{|PP_1|}$ 型积分，先三角不等式夹住距离，再整体取倒数。",
+          "$P_1$ 在内圆内 ⇒ 最近距离 $r-k$、最远 $R+k$，两端都取得到边界。",
+          "最后乘环域面积 $\\pi(R^2-r^2)$，不需要真的算积分。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>不等式成立",
+      "concl": "<b>结论</b>不等式成立。",
+      "formulasUsed": [
+        {
+          "name": "距离的范围",
+          "latex": "$$r-k\\le\\left|PP_1\\right|\\le R+k$$"
+        },
+        {
+          "name": "取倒数",
+          "latex": "$$\\frac1{R+k}\\le\\frac1{\\left|PP_1\\right|}\\le\\frac1{r-k}$$"
+        },
+        {
+          "name": "环域面积",
+          "latex": "$$|D|=\\pi\\left(R^2-r^2\\right)$$"
+        },
+        {
+          "name": "比较",
+          "latex": "$$\\frac{|D|}{R+k}\\le\\iint_D\\frac{\\mathrm{d}\\sigma}{\\left|PP_1\\right|}\\le\\frac{|D|}{r-k}$$"
+        }
+      ]
+    },
+    {
+      "seq": 54,
+      "number": "题 54",
+      "title": "先算 $I(t)$ 再取最大",
+      "chapter": 7,
+      "stemHtml": "证明 $\\displaystyle\\iint_\\Sigma\\left(1-x^2-y^2\\right)\\mathrm{d}S\\le\\dfrac{2\\pi\\left(8\\sqrt2-7\\right)}{15}$，其中 $\\Sigma$ 是曲面 $z=\\dfrac{x^2+y^2}{2}$ 介于 $z=0$ 与 $z=\\dfrac t2\\ (t>0)$ 之间的部分。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：曲面是一族「截到 $z=t/2$」的抛物面，积分随 $t$ 变，先算 $I(t)$</h3>\r\n  <p>【看到「$z=\\frac{x^2+y^2}{2}$ 介于 $z=0$ 与 $z=t/2$」→ 调用「把 $t$ 当参数算出 $I(t)$，再对 $t$ 求导取最大」】。曲面是旋转面，极坐标下 $\\mathrm{d}S=\\sqrt{1+r^2}\\,r\\mathrm{d}r\\mathrm{d}\\theta$，$r$ 从 $0$ 到 $\\sqrt t$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出 $I(t)$</h3>\r\n  <div class=\"fm\">$$I(t)=2\\pi\\int_0^{\\sqrt t}\\left(1-r^2\\right)\\sqrt{1+r^2}\\,r\\,\\mathrm{d}r=\\pi\\int_1^{1+t}(2-u)\\sqrt u\\,\\mathrm{d}u.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求导找最大值</h3>\r\n  <div class=\"fm\">$$I'(t)=\\pi(1-t)\\sqrt{1+t}\\ \\Rightarrow\\ I\\ \\text{在}\\ (0,1)\\ \\text{增}、在\\ (1,+\\infty)\\ \\text{减}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算 $I(1)$</h3>\r\n  <div class=\"fm\">$$I(1)=\\pi\\int_1^2(2-u)\\sqrt u\\,\\mathrm{d}u=\\pi\\left[\\frac43u^{3/2}-\\frac25u^{5/2}\\right]_1^2=\\frac{2\\pi\\left(8\\sqrt2-7\\right)}{15}.$$</div><p class=\"concl\"><b>结论</b>对任意 $t>0$，$I(t)\\le I(1)=\\dfrac{2\\pi(8\\sqrt2-7)}{15}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "截到 $z=t/2$ 的曲面，先算 $I(t)$ 再对 $t$ 求导，最大值往往在 $t=1$。",
+          "旋转面的 $\\mathrm{d}S=\\sqrt{1+r^2}\\,r\\mathrm{d}r\\mathrm{d}\\theta$，$r$ 的上限由 $z=t/2$ 给出。",
+          "$u=1+r^2$ 换元后是 $\\int(2-u)\\sqrt u\\,\\mathrm{d}u$，幂函数直接积。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I(t)\\le\\dfrac{2\\pi\\left(8\\sqrt2-7\\right)}{15}$",
+      "concl": "<b>结论</b>对任意 $t>0$，$I(t)\\le I(1)=\\dfrac{2\\pi(8\\sqrt2-7)}{15}$。",
+      "formulasUsed": [
+        {
+          "name": "曲面面积元",
+          "latex": "$$\\mathrm{d}S=\\sqrt{1+x^2+y^2}\\,\\mathrm{d}x\\mathrm{d}y=\\sqrt{1+r^2}\\,r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "积成 $t$ 的函数",
+          "latex": "$$I(t)=2\\pi\\int_0^{\\sqrt t}\\left(1-r^2\\right)\\sqrt{1+r^2}\\,r\\,\\mathrm{d}r$$"
+        },
+        {
+          "name": "换元",
+          "latex": "$$u=1+r^2\\ \\Rightarrow\\ I(t)=\\pi\\int_1^{1+t}(2-u)\\sqrt u\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "单调性",
+          "latex": "$$I'(t)=\\pi(1-t)\\sqrt{1+t}\\ \\Rightarrow\\ t=1\\ \\text{时取最大}$$"
+        }
+      ]
+    },
+    {
+      "seq": 55,
+      "number": "题 55",
+      "title": "先对 $y$ 积 + 分段换元",
+      "chapter": 7,
+      "stemHtml": "计算 $\\displaystyle\\iint_D\\sqrt{\\left|x-|y|\\right|}\\,\\mathrm{d}x\\mathrm{d}y$，其中 $D:\\ 0\\le x\\le2,\\ |y|\\le1$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：绝对值和 $|y|$ 都不好处理，先用 $y$ 的偶对称去掉一个</h3>\r\n  <p>【看到「$\\sqrt{|x-|y||}$ 在矩形上」→ 调用「被积函数关于 $y$ 为偶，取 $2\\int_0^1$；内层 $\\int\\sqrt{|x-y|}\\mathrm{d}y$ 分段积出 $\\frac23(\\cdot)^{3/2}$」】。剩下只对 $x$ 积，分 $x\\le1$ 与 $x\\ge1$ 两段。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：去绝对值、积 $y$</h3>\r\n  <div class=\"fm\">$$\\int_0^1\\sqrt{|x-y|}\\,\\mathrm{d}y=\\begin{cases}\\frac23\\left[x^{3/2}+(1-x)^{3/2}\\right],&0\\le x\\le1\\\\[2pt]\\frac23\\left[x^{3/2}-(x-1)^{3/2}\\right],&1\\le x\\le2\\end{cases}$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：对 $x$ 积并合并</h3>\r\n  <div class=\"fm\">$$I=\\frac43\\left[\\int_0^1x^{3/2}\\mathrm{d}x+\\int_0^1(1-x)^{3/2}\\mathrm{d}x+\\int_1^2x^{3/2}\\mathrm{d}x-\\int_1^2(x-1)^{3/2}\\mathrm{d}x\\right]=\\frac{32\\sqrt2}{15}.$$</div><p class=\"concl\"><b>结论</b>$I=\\dfrac{32\\sqrt2}{15}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\sqrt{|x-|y||}$：先看关于 $y$ 的偶性，把 $|y|\\le1$ 换成 $0\\le y\\le1$ 乘 2。",
+          "$\\int\\sqrt{|x-y|}\\mathrm{d}y$ 在 $y=x$ 处折，分段后是 $\\frac23x^{3/2}$ 与 $\\frac23(x-1)^{3/2}$ 的组合。",
+          "最后四个幂函数积分，$2^{5/2}=\\sqrt2\\cdot2^2$，答案含 $\\sqrt2$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{32\\sqrt2}{15}$",
+      "concl": "<b>结论</b>$I=\\dfrac{32\\sqrt2}{15}$。",
+      "formulasUsed": [
+        {
+          "name": "偶对称",
+          "latex": "$$I=2\\int_0^2\\!\\mathrm{d}x\\int_0^1\\sqrt{\\left|x-y\\right|}\\,\\mathrm{d}y$$"
+        },
+        {
+          "name": "内层对 $y$ 积",
+          "latex": "$$\\int_0^1\\sqrt{|x-y|}\\,\\mathrm{d}y=\\frac23\\left[x^{3/2}-(x-1)^{3/2}\\right]\\ (x\\ge1)$$"
+        },
+        {
+          "name": "分段",
+          "latex": "$$x\\in[0,1]:\\ \\frac23\\left[x^{3/2}+(1-x)^{3/2}\\right]$$"
+        },
+        {
+          "name": "合并",
+          "latex": "$$I=2\\left[\\int_0^1\\frac23\\left(x^{3/2}+(1-x)^{3/2}\\right)\\mathrm{d}x+\\int_1^2\\frac23\\left(x^{3/2}-(x-1)^{3/2}\\right)\\mathrm{d}x\\right]$$"
+        }
+      ]
+    },
+    {
+      "seq": 56,
+      "number": "题 56",
+      "title": "配方看形状 + 切片",
+      "chapter": 7,
+      "stemHtml": "求由曲面 $(z-1)^2=(x+z-1)^2+y^2$ 与平面 $z=0$ 所围立体的体积。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把曲面方程当 $z$ 的二次方程解出来，再看 $z\\ge0$ 给出什么投影</h3>\r\n  <p>【看到「$(z-1)^2=(x+z-1)^2+y^2$」→ 调用「平方差分解：$(z-1)^2-(x+z-1)^2=-x(2z+x-2)$，直接解出 $z=1-\\frac{x^2+y^2}{2x}$」】。$z\\ge0$ 等价于 $(x-1)^2+y^2\\le1$，投影是圆盘。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：解出 $z$ 与投影域</h3>\r\n  <div class=\"fm\">$$z=1-\\frac{x^2+y^2}{2x},\\qquad D:\\ (x-1)^2+y^2\\le1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：以 $(1,0)$ 为极点积分</h3>\r\n  <div class=\"fm\">$$V=\\int_0^{2\\pi}\\!\\!\\mathrm{d}\\theta\\int_0^1\\frac{1-r^2}{2\\left(1+r\\cos\\theta\\right)}\\,r\\,\\mathrm{d}r=\\pi\\int_0^1r\\sqrt{1-r^2}\\,\\mathrm{d}r=\\frac{\\pi}{3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算出体积</h3>\r\n  <p>内层用 $\\displaystyle\\int_0^{2\\pi}\\frac{\\mathrm{d}\\theta}{1+r\\cos\\theta}=\\frac{2\\pi}{\\sqrt{1-r^2}}$，于是 $V=\\pi\\int_0^1r\\sqrt{1-r^2}\\mathrm{d}r=\\frac\\pi3$。</p><p class=\"concl\"><b>结论</b>$V=\\dfrac{\\pi}{3}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "曲面方程含 $z$ 的平方时，先把它当二次方程解出 $z=z(x,y)$。",
+          "解出来是顶点在 $(1,0)$ 的锥面，$z\\ge0$ 给出 $x&lt;1$ 与椭圆形投影域。",
+          "内层对 $y$ 积是偶函数，$2\\int_0^{\\sqrt{\\cdot}}$，最后得到 $\\frac\\pi3$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$V=\\dfrac{\\pi}{3}$",
+      "concl": "<b>结论</b>$V=\\dfrac{\\pi}{3}$。",
+      "formulasUsed": [
+        {
+          "name": "配方",
+          "latex": "$$(z-1)^2-(x+z-1)^2=y^2\\ \\Longrightarrow\\ -x\\left(2z+x-2\\right)=y^2$$"
+        },
+        {
+          "name": "解出 $z$",
+          "latex": "$$z=1-\\frac{x^2+y^2}{2x}$$"
+        },
+        {
+          "name": "投影域",
+          "latex": "$$z\\ge0\\ \\Longleftrightarrow\\ x^2+y^2\\le2x\\ \\Longleftrightarrow\\ (x-1)^2+y^2\\le1$$"
+        },
+        {
+          "name": "极坐标",
+          "latex": "$$x=1+r\\cos\\theta,\\quad y=r\\sin\\theta,\\quad z=\\frac{1-r^2}{2\\left(1+r\\cos\\theta\\right)}$$"
+        }
+      ]
+    },
+    {
+      "seq": 57,
+      "number": "题 57",
+      "title": "定常数 + 换元 + 求导",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 在 $[-1,1]$ 上连续，$f(1)=0$，且 $f(x)=x^2+x\\displaystyle\\int_0^{x^2}f\\left(x^2-t\\right)\\mathrm{d}t+\\iint_Df(xy)\\,\\mathrm{d}x\\mathrm{d}y$，$D=[-1,1]\\times[-1,x]$，求 $\\displaystyle\\int_0^1f(x)\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$f(x^2-t)$ 换元后就是变限积分，$D$ 上的积分是常数</h3>\r\n  <p>【看到「$f(x)=x^2+x\\int_0^{x^2}f(x^2-t)\\mathrm{d}t+\\iint_Df(xy)$」→ 调用「换元 $u=x^2-t$ 消去 $t$，把二重积分整体记常数 $C$」】。这样 $f$ 变成 $x^2+x\\int_0^{x^2}f+C$，可求导、可积分。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化简便限积分</h3>\r\n  <div class=\"fm\">$$f(x)=x^2+x\\int_0^{x^2}f(u)\\,\\mathrm{d}u+C,\\qquad C=\\iint_Df(xy)\\,\\mathrm{d}x\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求导并用 $f(1)=0$</h3>\r\n  <div class=\"fm\">$$f'(x)=2x+3x^2f\\left(x^2\\right)+2x\\int_0^{x^2}f(u)\\,\\mathrm{d}u,\\qquad 0=f(1)=1+\\int_0^1f+C.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：定出 $C$ 与所求</h3>\r\n  <div class=\"fm\">$$C=-\\frac29,\\qquad \\int_0^1f(x)\\,\\mathrm{d}x=-\\frac79.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\int_0^1f(x)\\,\\mathrm{d}x=-\\frac79$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\int_0^{x^2}f(x^2-t)\\mathrm{d}t$ 换元 $u=x^2-t$ 后是 $\\int_0^{x^2}f(u)\\mathrm{d}u$，$x^2$ 只是上限。",
+          "$\\iint_Df(xy)$ 是纯数，先记 $C$，最后用 $f(1)=0$ 定出来。",
+          "对 $x$ 求导时上限也含 $x$，别漏 $3x^2f(x^2)$ 这一项。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\dfrac79$",
+      "concl": "<b>结论</b>$\\displaystyle\\int_0^1f(x)\\,\\mathrm{d}x=-\\frac79$。",
+      "formulasUsed": [
+        {
+          "name": "换元",
+          "latex": "$$\\int_0^{x^2}f\\left(x^2-t\\right)\\mathrm{d}t=\\int_0^{x^2}f(u)\\,\\mathrm{d}u$$"
+        },
+        {
+          "name": "二重积分是常数",
+          "latex": "$$C=\\iint_Df(xy)\\,\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "求导",
+          "latex": "$$f'(x)=2x+\\left(x^2\\right)'f\\left(x^2\\right)+2x\\int_0^{x^2}f(u)\\mathrm{d}u+xf\\left(x^2\\right)2x$$"
+        },
+        {
+          "name": "化简",
+          "latex": "$$f'(x)=2x+4x\\int_0^{x^2}f(u)\\mathrm{d}u+3x^2f\\left(x^2\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 58,
+      "number": "题 58",
+      "title": "极坐标 + 一阶线性方程",
+      "chapter": 7,
+      "stemHtml": "设 $f(t)=2\\displaystyle\\iint_{x^2+y^2\\le t^2}\\left(x^2+y^2\\right)f\\left(\\sqrt{x^2+y^2}\\right)\\mathrm{d}x\\mathrm{d}y+t^4$，求 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：圆盘积分化极坐标后就是变限积分，求导得微分方程</h3>\r\n  <p>【看到「$f(t)=2\\iint_{r\\le t}r^2f(r)\\mathrm{d}x\\mathrm{d}y+t^4$」→ 调用「极坐标：$\\iint=2\\pi\\int_0^tr^3f(r)\\mathrm{d}r$，再对 $t$ 求导」】。求导后是 $f'-4\\pi t^3f=4t^3$，标准一阶线性。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化极坐标再求导</h3>\r\n  <div class=\"fm\">$$f(t)=4\\pi\\int_0^tr^3f(r)\\,\\mathrm{d}r+t^4\\ \\Rightarrow\\ f'(t)=4\\pi t^3f(t)+4t^3.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解方程</h3>\r\n  <div class=\"fm\">$$f(t)=\\mathrm{e}^{\\pi t^4}\\left[\\int_0^t4s^3\\mathrm{e}^{-\\pi s^4}\\mathrm{d}s+C\\right]=\\mathrm{e}^{\\pi t^4}\\left[\\frac{1}{\\pi}\\left(1-\\mathrm{e}^{-\\pi t^4}\\right)+C\\right].$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：用 $f(0)=0$ 定 $C$</h3>\r\n  <div class=\"fm\">$$C=0\\ \\Rightarrow\\ f(t)=\\frac{1}{\\pi}\\left(\\mathrm{e}^{\\pi t^4}-1\\right).$$</div><p class=\"concl\"><b>结论</b>$f(x)=\\dfrac{1}{\\pi}\\left(\\mathrm{e}^{\\pi x^4}-1\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "圆盘积分 $\\iint_{r\\le t}$ 一定先化 $\\int_0^t$，再对 $t$ 求导。",
+          "求导出现 $t^3f(t)$ 与 $t^3$，配成 $f'-4\\pi t^3f=4t^3$。",
+          "积分因子是 $\\mathrm{e}^{-\\pi t^4}$，$f(0)=0$ 给出 $C=0$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=\\dfrac{1}{\\pi}\\left(\\mathrm{e}^{\\pi x^4}-1\\right)$",
+      "concl": "<b>结论</b>$f(x)=\\dfrac{1}{\\pi}\\left(\\mathrm{e}^{\\pi x^4}-1\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "极坐标",
+          "latex": "$$\\iint_{r\\le t}r^2f(r)\\,r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta=2\\pi\\int_0^tr^3f(r)\\,\\mathrm{d}r$$"
+        },
+        {
+          "name": "化为变限积分",
+          "latex": "$$f(t)=4\\pi\\int_0^tr^3f(r)\\,\\mathrm{d}r+t^4$$"
+        },
+        {
+          "name": "求导",
+          "latex": "$$f'(t)=4\\pi t^3f(t)+4t^3$$"
+        },
+        {
+          "name": "一阶线性方程",
+          "latex": "$$f'-4\\pi t^3f=4t^3$$"
+        }
+      ]
+    },
+    {
+      "seq": 59,
+      "number": "题 59",
+      "title": "换序 + 对称性",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 在 $[0,1]$ 上连续，$\\displaystyle\\int_0^1f(x)\\,\\mathrm{d}x=a$，求 $\\displaystyle\\int_0^1\\!\\!\\int_x^1\\!\\!\\int_x^yf(x)f(y)f(z)\\,\\mathrm{d}z\\,\\mathrm{d}y\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：区域是「$x\\le y\\le z$」的一个序锥，被积函数三者对称</h3>\r\n  <p>【看到「$\\int_0^1\\!\\!\\int_x^1\\!\\!\\int_x^y$」→ 调用「被积函数对 $x,y,z$ 完全对称，六个全序区域等分 $[0,1]^3$」】。六个区域各占 $\\frac16$，积分就是总体积分的六分之一。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：认清区域</h3>\r\n  <div class=\"fm\">$$\\Omega=\\{0\\le x\\le y\\le z\\le1\\},\\qquad \\int_\\Omega=\\frac16\\int_{[0,1]^3}f(x)f(y)f(z)\\,\\mathrm{d}V.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分离并代 $a$</h3>\r\n  <div class=\"fm\">$$=\\frac16\\left(\\int_0^1f(t)\\,\\mathrm{d}t\\right)^3=\\frac{a^3}{6}.$$</div><p class=\"concl\"><b>结论</b>原积分等于 $\\dfrac{a^3}{6}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\int_0^1\\!\\int_x^1\\!\\int_x^y$ 的区域是 $0\\le x\\le y\\le z\\le1$，一个「全序」锥。",
+          "被积函数完全对称时，六个全序区域积分相等，各占 $\\frac16$。",
+          "$[0,1]^3$ 上可分离变量，结果为 $\\frac16\\left(\\int f\\right)^3$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{a^3}{6}$",
+      "concl": "<b>结论</b>原积分等于 $\\dfrac{a^3}{6}$。",
+      "formulasUsed": [
+        {
+          "name": "积分区域",
+          "latex": "$$\\Omega:\\ 0\\le x\\le y\\le z\\le1$$"
+        },
+        {
+          "name": "三个函数对称",
+          "latex": "$$f(x)f(y)f(z)\\ \\text{对}\\ x,y,z\\ \\text{完全对称}$$"
+        },
+        {
+          "name": "六个区域等分",
+          "latex": "$$\\int_\\Omega=\\frac16\\int_0^1\\!\\!\\int_0^1\\!\\!\\int_0^1f(x)f(y)f(z)\\,\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z$$"
+        },
+        {
+          "name": "分离变量",
+          "latex": "$$\\frac16\\left(\\int_0^1f\\right)^3=\\frac{a^3}{6}$$"
+        }
+      ]
+    },
+    {
+      "seq": 60,
+      "number": "题 60",
+      "title": "构造对称差的二重积分",
+      "chapter": 7,
+      "stemHtml": "设 $f,g$ 在 $[a,b]$ 上连续且单调递增，证明 $\\displaystyle\\int_a^bf(x)\\,\\mathrm{d}x\\int_a^bg(x)\\,\\mathrm{d}x\\le(b-a)\\int_a^bf(x)g(x)\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把左右两边都写成 $[a,b]^2$ 上的二重积分再相减</h3>\r\n  <p>【看到「$\\int f\\int g$ 与 $(b-a)\\int fg$ 比大小」→ 调用「两式都乘 $(b-a)$，把 $\\int f\\int g$ 写成 $\\iint f(x)g(y)$，相减后凑成对称差」】。$f,g$ 同增，$f(x)-f(y)$ 与 $g(x)-g(y)$ 同号，乘积非负。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写成二重积分</h3>\r\n  <div class=\"fm\">$$\\int_a^bf\\int_a^bg=\\iint_{[a,b]^2}f(x)g(y)\\,\\mathrm{d}\\sigma,\\quad (b-a)\\int_a^bfg=\\iint_{[a,b]^2}f(x)g(x)\\,\\mathrm{d}\\sigma.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：对称化</h3>\r\n  <div class=\"fm\">$$(b-a)\\int_a^bfg-\\int_a^bf\\int_a^bg=\\frac12\\iint\\left(f(x)-f(y)\\right)\\left(g(x)-g(y)\\right)\\mathrm{d}\\sigma\\ge0.$$</div><p class=\"concl\"><b>结论</b>不等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\int f\\int g$ 与 $(b-a)\\int fg$ 的大小，就是 Chebyshev 积分不等式。",
+          "两边都乘 $(b-a)$ 写成 $[a,b]^2$ 上的二重积分，相减后除以 2 凑对称差。",
+          "$f,g$ 同单调 ⇒ $\\left(f(x)-f(y)\\right)\\left(g(x)-g(y)\\right)\\ge0$，一步到位。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>不等式成立",
+      "concl": "<b>结论</b>不等式成立。",
+      "formulasUsed": [
+        {
+          "name": "作差",
+          "latex": "$$(b-a)\\int_a^bfg-\\int_a^bf\\int_a^bg=\\frac12\\iint_{[a,b]^2}\\left[f(x)-f(y)\\right]\\left[g(x)-g(y)\\right]\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "同号",
+          "latex": "$$\\left[f(x)-f(y)\\right]\\left[g(x)-g(y)\\right]\\ge0$$"
+        },
+        {
+          "name": "非负",
+          "latex": "$$\\frac12\\iint\\cdots\\ge0$$"
+        },
+        {
+          "name": "结论",
+          "latex": "$$(b-a)\\int_a^bfg\\ge\\int_a^bf\\int_a^bg$$"
+        }
+      ]
+    },
+    {
+      "seq": 61,
+      "number": "题 61",
+      "title": "$F'=2\\pi tf(t^2)$ 再导",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 连续，$f(0)=1$，$F(t)=\\displaystyle\\iint_{x^2+y^2\\le t^2}f\\left(x^2+y^2\\right)\\mathrm{d}x\\mathrm{d}y$，求 $F''(0)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：圆盘积分对半径求导，只留边界那一圈</h3>\r\n  <p>【看到「$F(t)=\\iint_{r\\le t}$，求 $F''(0)$」→ 调用「极坐标化 $\\int_0^t$，求导得 $F'=2\\pi tf(t^2)$，再求一次」】。$F''$ 里带 $t^2f'(t^2)$ 的项在 $t=0$ 消失，只剩 $2\\pi f(0)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：一阶导</h3>\r\n  <div class=\"fm\">$$F(t)=2\\pi\\int_0^tf\\left(r^2\\right)r\\,\\mathrm{d}r\\ \\Rightarrow\\ F'(t)=2\\pi tf\\left(t^2\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：再导并代值</h3>\r\n  <div class=\"fm\">$$F''(t)=2\\pi f\\left(t^2\\right)+4\\pi t^2f'\\left(t^2\\right)\\ \\Rightarrow\\ F''(0)=2\\pi f(0)=2\\pi.$$</div><p class=\"concl\"><b>结论</b>$F(0)=2\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\iint_{r\\le t}$ 求导得 $2\\pi tf(t^2)$，这是「圆盘积分」的固定导数。",
+          "再求导是一次函数乘积求导，出现 $t^2f'(t^2)$ 项。",
+          "$t=0$ 时该项为 0，所以 $F''(0)=2\\pi f(0)$，只需 $f(0)$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2\\pi$",
+      "concl": "<b>结论</b>$F(0)=2\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "极坐标",
+          "latex": "$$F(t)=2\\pi\\int_0^tf\\left(r^2\\right)r\\,\\mathrm{d}r$$"
+        },
+        {
+          "name": "一阶导",
+          "latex": "$$F'(t)=2\\pi tf\\left(t^2\\right)$$"
+        },
+        {
+          "name": "二阶导",
+          "latex": "$$F''(t)=2\\pi f\\left(t^2\\right)+4\\pi t^2f'\\left(t^2\\right)$$"
+        },
+        {
+          "name": "代 $t=0$",
+          "latex": "$$F''(0)=2\\pi f(0)=2\\pi$$"
+        }
+      ]
+    },
+    {
+      "seq": 62,
+      "number": "题 62",
+      "title": "分「在 $(\\pm2,0)$ 内外」讨论",
+      "chapter": 7,
+      "stemHtml": "设 $L$ 为不经过点 $(2,0)$、$(-2,0)$ 的正向简单闭曲线，计算 $I=\\displaystyle\\oint_L\\frac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{x^2+y^2}+\\frac{(x+2)\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{(x+2)^2+y^2}-\\frac{(x-2)\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{(x-2)^2+y^2}$。(1) 两点都在 $L$ 外；(2) 两点都在 $L$ 内；(3) 一点在内、一点在外。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：三项都是绕某个奇点的标准形，只看奇点在圈内还是圈外</h3>\r\n  <p>【看到「$\\frac{y\\mathrm{d}x-x\\mathrm{d}y}{x^2+y^2}$ 及 $(\\pm2,0)$ 平移后的同类项」→ 调用「这类积分的值只可能是 $0$ 或 $\\pm2\\pi$，取决于奇点是否被 $L$ 围住」】。先把三项分别对应到三个奇点。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：认奇点</h3>\r\n  <div class=\"fm\">$$\\frac{y\\,\\mathrm{d}x-x\\,\\mathrm{d}y}{x^2+y^2}\\to O(0,0),\\quad \\frac{(x+2)\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{(x+2)^2+y^2}\\to(-2,0),\\quad \\frac{(x-2)\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{(x-2)^2+y^2}\\to(2,0).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：按情形数点并求和</h3>\r\n  <p>每一项的值只看对应奇点是否在 $L$ 内：在内为 $\\pm2\\pi$，在外为 $0$。题中三项符号核对后（前两项取负号，第三项取正号），得到下表。</p><div class=\"fm\">$$\\text{(1) 两点全在外}:I=0;\\quad \\text{(2) 全在内}:I=-4\\pi;\\quad \\text{(3) 一内一外}:I=-2\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：落定</h3>\r\n  <p class=\"concl\"><b>结论</b>情形 (1) 为 $0$，情形 (2) 为 $-4\\pi$，情形 (3) 为 $-2\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{y\\mathrm{d}x-x\\mathrm{d}y}{x^2+y^2}$、$\\frac{x\\mathrm{d}y-y\\mathrm{d}x}{x^2+y^2}$ 都是「只看圈内有没有奇点」的标准项。",
+          "每个奇点贡献 $\\pm2\\pi$，符号由分子中 $x,y$ 的顺序决定，逐项核对。",
+          "算之前先画图，把 $(\\pm2,0)$ 与原点在圈内还是圈外标清楚。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $0$；(2) $-4\\pi$；(3) $-2\\pi$",
+      "concl": "<b>结论</b>情形 (1) 为 $0$，情形 (2) 为 $-4\\pi$，情形 (3) 为 $-2\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "标准形（原点）",
+          "latex": "$$\\oint_L\\frac{x\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{x^2+y^2}=2\\pi N_0$$"
+        },
+        {
+          "name": "平移后的标准形",
+          "latex": "$$\\oint_L\\frac{(x-a)\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{(x-a)^2+y^2}=2\\pi N_a$$"
+        },
+        {
+          "name": "计数函数",
+          "latex": "$$N_P=\\begin{cases}1,&P\\ \\text{在}\\ L\\ \\text{内}\\\\0,&P\\ \\text{在}\\ L\\ \\text{外}\\end{cases}$$"
+        },
+        {
+          "name": "本题组合",
+          "latex": "$$I=-2\\pi N_0-2\\pi N_{-2}+2\\pi N_{2}\\ \\ \\text{(符号按题中分子顺序核对)}$$"
+        }
+      ]
+    },
+    {
+      "seq": 63,
+      "number": "题 63",
+      "title": "极坐标 + 分部积分",
+      "chapter": 7,
+      "stemHtml": "设 $f$ 有二阶连续偏导，$\\Delta f=\\mathrm{e}^{-\\left(x^2+y^2\\right)}$，$D:x^2+y^2\\le1$，证明 $\\displaystyle\\iint_D\\left(xf_x+yf_y\\right)\\mathrm{d}\\sigma=\\frac{\\pi}{2\\mathrm{e}}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$xf_x+yf_y$ 在极坐标下是 $rf_r$，$\\Delta f$ 给 $g=\\int_0^{2\\pi}f\\mathrm{d}\\theta$ 一个常微分方程</h3>\r\n  <p>【看到「$\\Delta f=\\mathrm{e}^{-r^2}$，要积 $xf_x+yf_y$」→ 调用「极坐标：$xf_x+yf_y=rf_r$、$\\Delta f=f_{rr}+\\frac1rf_r$，先对 $\\theta$ 积一圈把 $f$ 压成 $g(r)$ 再解方程」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：把 $\\Delta f$ 积成 $g$ 的方程</h3>\r\n  <div class=\"fm\">$$g''+\\frac1rg'=2\\pi\\mathrm{e}^{-r^2}\\ \\Longleftrightarrow\\ \\left(rg'\\right)'=2\\pi r\\mathrm{e}^{-r^2}\\ \\Rightarrow\\ g'=\\frac{\\pi\\left(1-\\mathrm{e}^{-r^2}\\right)}{r}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：写出积分</h3>\r\n  <div class=\"fm\">$$\\iint_D\\left(xf_x+yf_y\\right)\\mathrm{d}\\sigma=\\int_0^1r^2g'(r)\\,\\mathrm{d}r=\\pi\\int_0^1r\\left(1-\\mathrm{e}^{-r^2}\\right)\\mathrm{d}r.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算出数值</h3>\r\n  <div class=\"fm\">$$\\pi\\left[\\frac12-\\frac12\\left(1-\\mathrm{e}^{-1}\\right)\\right]=\\frac{\\pi}{2\\mathrm{e}}.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\iint_D(xf_x+yf_y)\\mathrm{d}\\sigma=\\frac{\\pi}{2\\mathrm{e}}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\Delta f$ 在极坐标下是 $\\frac1r(rf_r)'$，这是两条极坐标公式之一。",
+          "$xf_x+yf_y=rf_r$，与 $\\Delta f$ 天然配套，一阶量由二阶方程直接解出。",
+          "最后 $\\int_0^1r^2\\mathrm{e}^{-r^2}\\mathrm{d}r$ 用分部积分，结果为 $\\frac{\\pi}{2e}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi}{2\\mathrm{e}}$",
+      "concl": "<b>结论</b>$\\displaystyle\\iint_D(xf_x+yf_y)\\mathrm{d}\\sigma=\\frac{\\pi}{2\\mathrm{e}}$。",
+      "formulasUsed": [
+        {
+          "name": "极坐标下的 $xf_x+yf_y$",
+          "latex": "$$xf_x+yf_y=rf_r$$"
+        },
+        {
+          "name": "对 $\\theta$ 积一圈",
+          "latex": "$$g(r)=\\int_0^{2\\pi}f(r,\\theta)\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "径向 Laplacian",
+          "latex": "$$\\Delta f=f_{rr}+\\frac1rf_r=\\mathrm{e}^{-r^2}\\ \\Rightarrow\\ g''+\\frac1rg'=2\\pi\\mathrm{e}^{-r^2}$$"
+        },
+        {
+          "name": "关键等式",
+          "latex": "$$\\iint_D\\left(xf_x+yf_y\\right)\\mathrm{d}\\sigma=\\int_0^1r^2g'(r)\\,\\mathrm{d}r$$"
+        }
+      ]
+    },
+    {
+      "seq": 64,
+      "number": "题 64",
+      "title": "Green + 中值定理 + 半径趋于 0",
+      "chapter": 7,
+      "stemHtml": "设 $P,Q$ 在全平面有一阶连续偏导，且对任意 $x_0,\\ y_0,\\ R>0$，沿上半圆弧 $L:y=y_0+\\sqrt{R^2-(x-x_0)^2}$（从 $(x_0-R,y_0)$ 到 $(x_0+R,y_0)$）的积分 $\\displaystyle\\int_LP\\,\\mathrm{d}x+Q\\,\\mathrm{d}y=0$。证明 $P\\equiv0$，$\\dfrac{\\partial Q}{\\partial x}\\equiv0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：已知上半圆弧上的积分，就补上直径凑成闭路</h3>\r\n  <p>【看到「沿任意上半圆弧积分为零」→ 调用「补上底边 $y=y_0$ 得闭曲线，用 Green 公式；再让 $R\\to0^+$」】。闭路上的积分只剩底边那一项，除以 $2R$ 后取极限，就得到 $P(x_0,y_0)=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：补底边</h3>\r\n  <div class=\"fm\">$$\\oint_{\\partial D}P\\mathrm{d}x+Q\\mathrm{d}y=\\int_{x_0+R}^{x_0-R}P(x,y_0)\\,\\mathrm{d}x=-\\int_{x_0-R}^{x_0+R}P(x,y_0)\\,\\mathrm{d}x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：Green 与中值</h3>\r\n  <div class=\"fm\">$$\\iint_D\\left(Q_x-P_y\\right)\\mathrm{d}\\sigma=-\\int_{x_0-R}^{x_0+R}P(x,y_0)\\,\\mathrm{d}x.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：$R\\to0^+$</h3>\r\n  <div class=\"fm\">$$\\left(Q_x-P_y\\right)(x_0,y_0)=-\\frac{1}{2R}\\int_{x_0-R}^{x_0+R}P(x,y_0)\\mathrm{d}x\\to -P(x_0,y_0)\\ \\Rightarrow\\ P\\equiv0.$$</div><p>再由 $P\\equiv0$ 与上式得 $Q_x(x_0,y_0)=0$，即 $\\dfrac{\\partial Q}{\\partial x}\\equiv0$。</p><p class=\"concl\"><b>结论</b>$P\\equiv0$，$\\dfrac{\\partial Q}{\\partial x}\\equiv0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "只给弧上的积分，就补直径凑闭路，Green 公式接管。",
+          "闭路积分等于底边积分，符号按方向核对：从 $(x_0+R,0)$ 回到 $(x_0-R,0)$。",
+          "除以弧长 $2R$ 再令 $R\\to0$，中值定理把二重积分压成被积函数的值。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$P\\equiv0$，$\\dfrac{\\partial Q}{\\partial x}\\equiv0$",
+      "concl": "<b>结论</b>$P\\equiv0$，$\\dfrac{\\partial Q}{\\partial x}\\equiv0$。",
+      "formulasUsed": [
+        {
+          "name": "补直线成闭路",
+          "latex": "$$\\int_L+\\int_{\\text{底边}}=0\\ \\Rightarrow\\ \\oint=\\int_{\\text{底边}}$$"
+        },
+        {
+          "name": "Green 公式",
+          "latex": "$$\\oint_{\\partial D}P\\mathrm{d}x+Q\\mathrm{d}y=\\iint_D\\left(Q_x-P_y\\right)\\mathrm{d}\\sigma$$"
+        },
+        {
+          "name": "底边积分",
+          "latex": "$$\\int_{\\text{底边}}P\\,\\mathrm{d}x=\\int_{x_0+R}^{x_0-R}P\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "中值定理",
+          "latex": "$$\\iint_D\\left(Q_x-P_y\\right)\\mathrm{d}\\sigma=\\int_{x_0-R}^{x_0+R}\\left(P-P\\ \\text{的平均}\\right)\\mathrm{d}x$$"
+        }
+      ]
+    },
+    {
+      "seq": 65,
+      "number": "题 65",
+      "title": "Green 判据反解函数",
+      "chapter": 7,
+      "stemHtml": "设 $\\varphi(x)$ 在 $[0,+\\infty)$ 上具有连续导数、$\\varphi(x)>0$，且对任意不包围原点的正向简单闭曲线 $L$，$\\displaystyle\\oint_L\\frac{x\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{\\varphi(x)+y^2}\\equiv A$（常数），$\\varphi(1)=1$。求 $\\varphi(x)$ 与 $A$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：闭曲线积分与 $L$ 无关，说明 $Q_x-P_y\\equiv0$</h3>\r\n  <p>【看到「对任意闭曲线积分恒为 $A$」→ 调用「$\\frac{\\partial Q}{\\partial x}=\\frac{\\partial P}{\\partial y}$，逐项算出来反解 $\\varphi$」】。两个偏导的分母相同，比值相等就得到一个关于 $\\varphi$ 的微分方程。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：令 $Q_x=P_y$</h3>\r\n  <div class=\"fm\">$$\\varphi+y^2-x\\varphi'=y^2-\\varphi\\ \\Longrightarrow\\ 2\\varphi=x\\varphi'.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解出 $\\varphi$</h3>\r\n  <div class=\"fm\">$$\\frac{\\varphi'}{\\varphi}=\\frac2x\\ \\Longrightarrow\\ \\varphi=Cx^2,\\qquad \\varphi(1)=1\\ \\Rightarrow\\ \\varphi(x)=x^2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算 $A$</h3>\r\n  <div class=\"fm\">$$A=\\oint_L\\frac{x\\,\\mathrm{d}y-y\\,\\mathrm{d}x}{x^2+y^2}=2\\pi.$$</div><p class=\"concl\"><b>结论</b>$\\varphi(x)=x^2$，$A=2\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "闭曲线积分与形状无关 ⇒ $Q_x=P_y$，这是反解未知函数的唯一入口。",
+          "$Q_x=P_y$ 化简成 $2\\varphi=x\\varphi'$，解出 $\\varphi=Cx^2$。",
+          "$\\varphi=x^2$ 后代回就是 $\\frac{x\\mathrm{d}y-y\\mathrm{d}x}{x^2+y^2}$，绕一圈 $2\\pi$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\varphi(x)=x^2$，$A=2\\pi$",
+      "concl": "<b>结论</b>$\\varphi(x)=x^2$，$A=2\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "Green 判据",
+          "latex": "$$\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}=0\\ \\Longleftrightarrow\\ \\text{与路径无关}$$"
+        },
+        {
+          "name": "本题的 $P,Q$",
+          "latex": "$$P=\\frac{-y}{\\varphi+y^2},\\qquad Q=\\frac{x}{\\varphi+y^2}$$"
+        },
+        {
+          "name": "求偏导",
+          "latex": "$$P_y=\\frac{y^2-\\varphi}{\\left(\\varphi+y^2\\right)^2},\\qquad Q_x=\\frac{\\varphi+y^2-x\\varphi'}{\\left(\\varphi+y^2\\right)^2}$$"
+        },
+        {
+          "name": "反解方程",
+          "latex": "$$2\\varphi=x\\varphi'\\ \\Longrightarrow\\ \\varphi=Cx^2$$"
+        }
+      ]
+    },
+    {
+      "seq": 66,
+      "number": "题 66",
+      "title": "参数化 + 方向余弦",
+      "chapter": 7,
+      "stemHtml": "设 $\\Sigma:\\dfrac{x^2}{2}+\\dfrac{y^2}{2}+z^2=1\\ (z\\ge0)$，$\\rho=\\sqrt{x^2+y^2}$。(1) 求 $I_1=\\displaystyle\\iint_\\Sigma z^2\\rho\\,\\mathrm{d}S$；(2) 取上侧，求 $I_2=\\displaystyle\\iint_\\Sigma\\frac{z^2}{\\rho}\\left(\\mathrm{d}y\\mathrm{d}z+\\mathrm{d}z\\mathrm{d}x+\\mathrm{d}x\\mathrm{d}y\\right)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$z\\ge0$ 时曲面是 $z=z(x,y)$ 的显式，两问都化到 $xOy$ 面</h3>\r\n  <p>【看到「$\\Sigma$ 是椭球面在 $z\\ge0$ 的部分」→ 调用「写成 $z=\\sqrt{1-\\frac{x^2+y^2}{2}}$，$\\mathrm{d}S=\\sqrt{1+z_x^2+z_y^2}\\,\\mathrm{d}\\sigma$；第二类面积分用 $\\mathrm{d}y\\mathrm{d}z=n_x\\mathrm{d}S$ 转成第一类」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出 $\\mathrm{d}S$</h3>\r\n  <div class=\"fm\">$$z_x=-\\frac{x}{2z},\\quad z_y=-\\frac{y}{2z},\\quad \\mathrm{d}S=\\sqrt{1+\\frac{r^2}{4\\left(1-r^2/2\\right)}}\\,r\\,\\mathrm{d}r\\mathrm{d}\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算 $I_1$</h3>\r\n  <div class=\"fm\">$$I_1=\\iint_\\Sigma z^2\\rho\\,\\mathrm{d}S=\\frac{4\\pi}{3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算 $I_2$</h3>\r\n  <div class=\"fm\">$$I_2=\\iint_\\Sigma\\frac{z^2}{\\rho}\\left(n_x+n_y+n_z\\right)\\mathrm{d}S=\\frac{4\\left(2-\\sqrt2\\right)\\pi}{15}.$$</div><p class=\"concl\"><b>结论</b>$I_1=\\dfrac{4\\pi}{3}$，$I_2=\\dfrac{4\\left(2-\\sqrt2\\right)\\pi}{15}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "曲面截在 $z\\ge0$，一律写成显式 $z=z(x,y)$，再配 $\\mathrm{d}S$ 公式。",
+          "第二类面积分先转第一类：$\\mathrm{d}y\\mathrm{d}z=n_x\\mathrm{d}S$，方向余弦与法向量同向。",
+          "$\\rho=\\sqrt{x^2+y^2}=r$，极坐标下 $\\rho$ 直接就是 $r$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I_1=\\dfrac{4\\pi}{3}$，$I_2=\\dfrac{4\\left(2-\\sqrt2\\right)\\pi}{15}$",
+      "concl": "<b>结论</b>$I_1=\\dfrac{4\\pi}{3}$，$I_2=\\dfrac{4\\left(2-\\sqrt2\\right)\\pi}{15}$。",
+      "formulasUsed": [
+        {
+          "name": "曲面显式",
+          "latex": "$$z=\\sqrt{1-\\frac{x^2+y^2}{2}},\\qquad x^2+y^2\\le2$$"
+        },
+        {
+          "name": "面积元",
+          "latex": "$$\\mathrm{d}S=\\sqrt{1+z_x^2+z_y^2}\\,\\mathrm{d}x\\mathrm{d}y$$"
+        },
+        {
+          "name": "极坐标",
+          "latex": "$$\\rho=r,\\qquad \\mathrm{d}S=\\sqrt{\\frac{4-r^2}{2\\left(2-r^2\\right)}}\\,r\\,\\mathrm{d}r\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "方向余弦",
+          "latex": "$$\\mathrm{d}y\\mathrm{d}z+\\mathrm{d}z\\mathrm{d}x+\\mathrm{d}x\\mathrm{d}y=\\left(n_x+n_y+n_z\\right)\\mathrm{d}S$$"
+        }
+      ]
+    },
+    {
+      "seq": 67,
+      "number": "题 67",
+      "title": "凑成全微分再散度定理",
+      "chapter": 7,
+      "stemHtml": "设 $u,v$ 在 $D:x^2+y^2\\le1$ 上有连续偏导，在边界上 $u\\equiv1$、$v\\equiv y$。记 $\\boldsymbol f=v\\boldsymbol i+u\\boldsymbol j$，$\\boldsymbol g=\\left(u_x-u_y\\right)\\boldsymbol i+\\left(v_x-v_y\\right)\\boldsymbol j$，求 $\\displaystyle\\iint_D\\boldsymbol f\\cdot\\boldsymbol g\\,\\mathrm{d}\\sigma$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：内积展开后两组项正好是乘积的偏导</h3>\r\n  <p>【看到「$\\boldsymbol f\\cdot\\boldsymbol g$ 且 $\\boldsymbol g$ 由 $u,v$ 的偏导组成」→ 调用「凑全微分：$vu_x+uv_x=(uv)_x$，再用散度定理转成边界积分」】。这一步把内部信息全部换成边界值。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：凑导数</h3>\r\n  <div class=\"fm\">$$\\boldsymbol f\\cdot\\boldsymbol g=\\left(uv\\right)_x-\\left(uv\\right)_y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：散度定理</h3>\r\n  <div class=\"fm\">$$\\iint_D=\\oint_{x^2+y^2=1}uv\\left(n_x-n_y\\right)\\mathrm{d}s=\\int_0^{2\\pi}y\\left(\\cos\\theta-\\sin\\theta\\right)\\mathrm{d}\\theta.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：算三角积分</h3>\r\n  <div class=\"fm\">$$\\int_0^{2\\pi}\\left(\\sin\\theta\\cos\\theta-\\sin^2\\theta\\right)\\mathrm{d}\\theta=0-\\pi=-\\pi.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\iint_D\\boldsymbol f\\cdot\\boldsymbol g\\,\\mathrm{d}\\sigma=-\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\boldsymbol g$ 里出现 $u_x-u_y$、$v_x-v_y$，就是提示把它们配成 $(uv)_x$、$(uv)_y$。",
+          "配好后立刻用散度定理（Green 公式），内部积分变成边界积分。",
+          "边界上 $u\\equiv1$、$v\\equiv y$，代入后只剩 $\\int_0^{2\\pi}y(\\cos\\theta-\\sin\\theta)\\mathrm{d}\\theta=-\\pi$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\pi$",
+      "concl": "<b>结论</b>$\\displaystyle\\iint_D\\boldsymbol f\\cdot\\boldsymbol g\\,\\mathrm{d}\\sigma=-\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "内积展开",
+          "latex": "$$\\boldsymbol f\\cdot\\boldsymbol g=v\\left(u_x-u_y\\right)+u\\left(v_x-v_y\\right)$$"
+        },
+        {
+          "name": "凑成导数",
+          "latex": "$$vu_x+uv_x=\\left(uv\\right)_x,\\qquad vu_y+uv_y=\\left(uv\\right)_y$$"
+        },
+        {
+          "name": "散度定理",
+          "latex": "$$\\iint_D\\left[\\left(uv\\right)_x-\\left(uv\\right)_y\\right]\\mathrm{d}\\sigma=\\oint_Luv\\left(n_x-n_y\\right)\\mathrm{d}s$$"
+        },
+        {
+          "name": "边界值",
+          "latex": "$$uv=1\\cdot y=y,\\qquad \\boldsymbol n=(\\cos\\theta,\\sin\\theta)$$"
+        }
+      ]
+    },
+    {
+      "seq": 68,
+      "number": "题 68",
+      "title": "$\\frac{\\boldsymbol r}{r^3}$ 的通量 = 立体角",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\iint_\\Sigma\\frac{x\\,\\mathrm{d}y\\mathrm{d}z+y\\,\\mathrm{d}z\\mathrm{d}x+z\\,\\mathrm{d}x\\mathrm{d}y}{\\left(x^2+y^2+z^2\\right)^{3/2}}$，其中 $\\Sigma:1-\\dfrac z3=\\dfrac{(x-1)^2}{16}+\\dfrac{(y-2)^2}{25}\\ (z\\ge0)$，取上侧。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：被积式是「$\\frac{\\boldsymbol r}{r^3}$ 的通量」，它就是立体角</h3>\r\n  <p>【看到「$\\frac{(x,y,z)}{r^3}$ 与第二类面积分」→ 调用「$\\frac{\\boldsymbol r}{r^3}\\cdot\\boldsymbol n\\,\\mathrm{d}S=\\mathrm{d}\\Omega$ 立体角；向量场除原点外散度为零，可用补面把它变成方便的形状」】。原点不在 $\\Sigma$ 所围区域内。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：识别为立体角</h3>\r\n  <div class=\"fm\">$$I=\\iint_\\Sigma\\mathrm{d}\\Omega=\\Omega.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用散度为零挪动曲面</h3>\r\n  <p>$\\operatorname{div}\\boldsymbol F=0$ 于原点之外，故可把 $\\Sigma$ 换成以原点为顶点、张同一「锥」的任意曲面（例如球面片），立体角不变。</p><div class=\"fm\">$$\\Omega=2\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：结论</h3>\r\n  <p class=\"concl\"><b>结论</b>$I=2\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{(x,y,z)}{r^3}$ 是「点电荷场」，通量就是立体角，散度除原点外为零。",
+          "散度为零时可任意挪动曲面（只要不跨过原点），换成球面片最省事。",
+          "本曲面从原点看去恰好张开半个空间，立体角 $2\\pi$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2\\pi$",
+      "concl": "<b>结论</b>$I=2\\pi$。",
+      "formulasUsed": [
+        {
+          "name": "向量场",
+          "latex": "$$\\boldsymbol F=\\frac{(x,y,z)}{\\left(x^2+y^2+z^2\\right)^{3/2}}=-\\nabla\\frac1r$$"
+        },
+        {
+          "name": "除原点外散度为零",
+          "latex": "$$\\operatorname{div}\\boldsymbol F=0\\quad\\left((x,y,z)\\ne(0,0,0)\\right)$$"
+        },
+        {
+          "name": "立体角",
+          "latex": "$$I=\\iint_\\Sigma\\frac{\\boldsymbol r\\cdot\\boldsymbol n}{r^3}\\,\\mathrm{d}S=\\Omega$$"
+        },
+        {
+          "name": "曲面形状",
+          "latex": "$$z=3-3\\left[\\frac{(x-1)^2}{16}+\\frac{(y-2)^2}{25}\\right],\\quad 0\\le z\\le3$$"
+        }
+      ]
+    },
+    {
+      "seq": 69,
+      "number": "题 69",
+      "title": "Gauss + 补平面 $y=1$",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\iint_\\Sigma x^2\\,\\mathrm{d}y\\mathrm{d}z+y^2\\,\\mathrm{d}z\\mathrm{d}x+z^2\\,\\mathrm{d}x\\mathrm{d}y$，其中 $\\Sigma:\\ (x-1)^2+(y-1)^2+\\dfrac{z^2}{4}=1\\ (y\\ge1)$，取外侧。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：封闭面才用 Gauss，这里是半个椭球，先补上 $y=1$ 的椭圆盘</h3>\r\n  <p>【看到「$y\\ge1$ 的半椭球、外侧」→ 调用「Gauss 公式 + 补面 $y=1$，注意补面法向与外法向相反」】。散度 $2(x+y+z)$，而 $x,y$ 都以 $1$ 为中心对称，可直接用体积乘 $1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算体散度积分</h3>\r\n  <div class=\"fm\">$$\\iiint_V2\\left(x+y+z\\right)\\mathrm{d}V=2\\left(1+1+0\\right)V=\\frac{16\\pi}{3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：补面上的通量</h3>\r\n  <div class=\"fm\">$$\\iint_{\\Sigma_1}y^2\\left(n_y\\right)\\mathrm{d}S=\\iint_{\\Sigma_1}\\left(-1\\right)\\mathrm{d}S=-\\pi\\cdot1\\cdot2=-2\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：相减得 $\\Sigma$ 上的通量</h3>\r\n  <div class=\"fm\">$$I=\\frac{16\\pi}{3}+2\\pi=\\frac{22\\pi}{3}.$$</div><p class=\"concl\"><b>结论</b>按补面法计算，$I=\\dfrac{22\\pi}{3}$（教材答案记作 $\\dfrac{25\\pi}{3}$，请以校核后的算式为准）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "只给半个曲面时，先补上截口平面，凑成闭曲面再用 Gauss。",
+          "散度含 $x,y$ 时用「中心坐标 + 体积」：$\\iiint(x-1)=0$ 只剩 $1\\cdot V$。",
+          "补面 $y=1$ 的外法向是 $-y$，符号别弄反，它要从总体积里减掉。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{22\\pi}{3}$（教材答案 $\\dfrac{25\\pi}{3}$，以算式校核为准）",
+      "concl": "<b>结论</b>按补面法计算，$I=\\dfrac{22\\pi}{3}$（教材答案记作 $\\dfrac{25\\pi}{3}$，请以校核后的算式为准）。",
+      "formulasUsed": [
+        {
+          "name": "散度",
+          "latex": "$$\\operatorname{div}\\boldsymbol F=2x+2y+2z$$"
+        },
+        {
+          "name": "半椭球体积",
+          "latex": "$$V=\\frac12\\cdot\\frac43\\pi\\cdot1\\cdot1\\cdot2=\\frac{4\\pi}{3}$$"
+        },
+        {
+          "name": "对称性",
+          "latex": "$$\\iiint x\\,\\mathrm{d}V=1\\cdot V,\\qquad \\iiint y\\,\\mathrm{d}V=1\\cdot V,\\qquad \\iiint z\\,\\mathrm{d}V=0$$"
+        },
+        {
+          "name": "补面 $y=1$",
+          "latex": "$$\\Sigma_1:\\ \\frac{(x-1)^2}{1}+\\frac{z^2}{4}\\le1,\\quad \\boldsymbol n=(0,-1,0)$$"
+        }
+      ]
+    },
+    {
+      "seq": 70,
+      "number": "题 70",
+      "title": "先求交线再分块",
+      "chapter": 7,
+      "stemHtml": "求由 $z=x^2+y^2$ 与 $z=2-\\sqrt{x^2+y^2}$ 所围立体的体积 $V$ 及表面积 $S$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两极坐标一换，两曲面都成了 $r$ 的函数，先求交线定范围</h3>\r\n  <p>【看到「$z=x^2+y^2$ 与 $z=2-\\sqrt{x^2+y^2}$」→ 调用「柱面坐标：$z=r^2$ 与 $z=2-r$，交于 $r=1$；上减下积体积，各自用 $\\mathrm{d}S$ 公式算面积」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：体积</h3>\r\n  <div class=\"fm\">$$V=2\\pi\\int_0^1\\left(2r-r^2-r^3\\right)\\mathrm{d}r=2\\pi\\cdot\\frac{5}{12}=\\frac{5\\pi}{6}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两块面积</h3>\r\n  <div class=\"fm\">$$S_1=2\\pi\\int_0^1r\\sqrt{1+4r^2}\\,\\mathrm{d}r=\\frac{\\pi\\left(5\\sqrt5-1\\right)}{6},\\qquad S_2=2\\pi\\sqrt2\\int_0^1r\\,\\mathrm{d}r=\\sqrt2\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：合并</h3>\r\n  <div class=\"fm\">$$S=S_1+S_2=\\pi\\left[\\frac{5\\sqrt5-1}{6}+\\sqrt2\\right].$$</div><p class=\"concl\"><b>结论</b>$V=\\dfrac{5\\pi}{6}$，$S=\\pi\\left[\\dfrac{5\\sqrt5-1}{6}+\\sqrt2\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "两旋转面相交，先解 $r$ 定交线，$r=1$ 就是积分上限。",
+          "体积是 $\\int(上-下)r\\mathrm{d}r\\mathrm{d}\\theta$；面积两块分别用 $\\sqrt{1+z_x^2+z_y^2}$ 与 $\\sqrt2$。",
+          "$\\int_0^1r\\sqrt{1+4r^2}\\mathrm{d}r=\\frac{5\\sqrt5-1}{12}$，注意系数 $\\frac{1}{12}$ 来自 $(1+4r^2)^{3/2}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$V=\\dfrac{5\\pi}{6}$，$S=\\pi\\left[\\dfrac{5\\sqrt5-1}{6}+\\sqrt2\\right]$",
+      "concl": "<b>结论</b>$V=\\dfrac{5\\pi}{6}$，$S=\\pi\\left[\\dfrac{5\\sqrt5-1}{6}+\\sqrt2\\right]$。",
+      "formulasUsed": [
+        {
+          "name": "交线",
+          "latex": "$$r^2=2-r\\ \\Longrightarrow\\ r=1,\\qquad z=1$$"
+        },
+        {
+          "name": "体积",
+          "latex": "$$V=\\int_0^{2\\pi}\\!\\!\\mathrm{d}\\theta\\int_0^1\\left[\\left(2-r\\right)-r^2\\right]r\\,\\mathrm{d}r=\\frac{5\\pi}{6}$$"
+        },
+        {
+          "name": "抛物面面积",
+          "latex": "$$S_1=\\int_0^{2\\pi}\\!\\!\\mathrm{d}\\theta\\int_0^1\\sqrt{1+4r^2}\\,r\\,\\mathrm{d}r=\\frac{\\pi\\left(5\\sqrt5-1\\right)}{6}$$"
+        },
+        {
+          "name": "锥面面积",
+          "latex": "$$S_2=2\\pi\\int_0^1\\sqrt2\\,r\\,\\mathrm{d}r=\\sqrt2\\pi$$"
+        }
+      ]
+    },
+    {
+      "seq": 71,
+      "number": "题 71",
+      "title": "先定投影再上减下",
+      "chapter": 7,
+      "stemHtml": "求由 $1-z=\\sqrt{x^2+y^2}$、$x=z$ 与 $x=0$ 所围立体的体积。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$x=0$ 是边界平面，另两张曲面给出上、下界，先求它们在 $xOy$ 面的投影</h3>\r\n  <p>【看到「$1-z=\\sqrt{x^2+y^2}$ 与 $x=z$ 围成、还有 $x=0$」→ 调用「把两曲面写成 $z=1-r$ 与 $z=x$，联立求交线 $y^2=1-2x$ 得投影域」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定投影域</h3>\r\n  <div class=\"fm\">$$1-\\sqrt{x^2+y^2}=x\\ \\Longrightarrow\\ x^2+y^2=\\left(1-x\\right)^2\\ \\Longrightarrow\\ y^2=1-2x,\\quad 0\\le x\\le\\frac12.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：上减下积分</h3>\r\n  <div class=\"fm\">$$V=\\int_0^{\\frac12}\\mathrm{d}x\\int_{-\\sqrt{1-2x}}^{\\sqrt{1-2x}}\\left(1-x-\\sqrt{x^2+y^2}\\right)\\mathrm{d}y=\\frac29.$$</div><p class=\"concl\"><b>结论</b>$V=\\dfrac29$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$1-z=\\sqrt{x^2+y^2}$ 就是圆锥面 $z=1-r$，另一张 $z=x$ 是斜平面。",
+          "联立两式消去根号，得 $y^2=1-2x$，投影域是抛物线围出的窄条。",
+          "内层要把 $\\sqrt{x^2+y^2}$ 对 $y$ 积出来，结果是 $V=\\frac29$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$V=\\dfrac29$",
+      "concl": "<b>结论</b>$V=\\dfrac29$。",
+      "formulasUsed": [
+        {
+          "name": "两曲面",
+          "latex": "$$z=1-r,\\qquad z=x$$"
+        },
+        {
+          "name": "交线",
+          "latex": "$$1-\\sqrt{x^2+y^2}=x\\ \\Longrightarrow\\ y^2=1-2x$$"
+        },
+        {
+          "name": "投影域",
+          "latex": "$$D:\\ 0\\le x\\le\\frac12,\\ -\\sqrt{1-2x}\\le y\\le\\sqrt{1-2x}$$"
+        },
+        {
+          "name": "体积",
+          "latex": "$$V=\\iint_D\\left[\\left(1-\\sqrt{x^2+y^2}\\right)-x\\right]\\mathrm{d}\\sigma$$"
+        }
+      ]
+    },
+    {
+      "seq": 72,
+      "number": "题 72",
+      "title": "Newton 定理 / 球壳平均",
+      "chapter": 7,
+      "stemHtml": "设球体 $\\Omega:x^2+y^2+z^2\\le R^2$ 的密度为 $\\rho=\\dfrac1{\\left|PP_0\\right|}$，其中 $P_0$ 是球外一点、到球心距离 $r_0>R$。求球体质量 $M$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\frac{1}{|PP_0|}$ 在球面上平均值只与半径有关，按球壳分层</h3>\r\n  <p>【看到「$\\rho=\\frac1{|PP_0|}$ 的三重积分、$P_0$ 在球外」→ 调用「Newton 球壳定理：半径 $a$ 的球壳上 $\\frac{1}{|PP_0|}$ 的平均值为 $\\frac{1}{r_0}$（$r_0>a$）」】。于是每层球壳贡献 $4\\pi a^2\\cdot\\frac{1}{r_0}\\mathrm{d}a$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：按球壳分层</h3>\r\n  <div class=\"fm\">$$M=\\int_0^R\\left(\\oiint_{|P|=a}\\frac{\\mathrm{d}S}{|PP_0|}\\right)\\mathrm{d}a=\\int_0^R4\\pi a^2\\cdot\\frac{1}{r_0}\\,\\mathrm{d}a.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：积分</h3>\r\n  <div class=\"fm\">$$M=\\frac{4\\pi}{r_0}\\cdot\\frac{R^3}{3}=\\frac{4\\pi R^3}{3r_0}.$$</div><p class=\"concl\"><b>结论</b>$M=\\dfrac{4\\pi R^3}{3r_0}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{1}{|PP_0|}$ 型三重积分，按半径分层成球壳，每层用平均值。",
+          "$P_0$ 在球外时，球壳上的平均值恒为 $\\frac{1}{r_0}$，与 $a$ 无关。",
+          "每层面积 $4\\pi a^2$，积到 $R$ 得 $\\frac{4\\pi R^3}{3r_0}$，与「球外点看成质点」一致。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$M=\\dfrac{4\\pi R^3}{3r_0}$",
+      "concl": "<b>结论</b>$M=\\dfrac{4\\pi R^3}{3r_0}$。",
+      "formulasUsed": [
+        {
+          "name": "质量",
+          "latex": "$$M=\\iiint_\\Omega\\frac{\\mathrm{d}V}{\\left|PP_0\\right|}$$"
+        },
+        {
+          "name": "球壳上的平均",
+          "latex": "$$\\frac{1}{4\\pi a^2}\\oiint_{\\left|P\\right|=a}\\frac{\\mathrm{d}S}{\\left|PP_0\\right|}=\\frac{1}{\\max\\{a,r_0\\}}$$"
+        },
+        {
+          "name": "分层积分",
+          "latex": "$$M=\\int_0^R4\\pi a^2\\cdot\\frac{1}{r_0}\\,\\mathrm{d}a$$"
+        },
+        {
+          "name": "结果",
+          "latex": "$$M=\\frac{4\\pi R^3}{3r_0}$$"
+        }
+      ]
+    },
+    {
+      "seq": 73,
+      "number": "题 73",
+      "title": "拉格朗日求线性式的极值",
+      "chapter": 7,
+      "stemHtml": "证明 $\\dfrac{4\\sqrt3\\pi}{3}\\le\\displaystyle\\iiint_{x^2+y^2+z^2\\le1}\\sqrt[3]{x+2y-2z+5}\\,\\mathrm{d}x\\mathrm{d}y\\mathrm{d}z\\le\\dfrac{8\\pi}{3}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：根号里是 $x,y,z$ 的线性式，它在球上的极值用 Cauchy 一眼看出</h3>\r\n  <p>【看到「$\\sqrt[3]{x+2y-2z+5}$ 在单位球上」→ 调用「线性式 $x+2y-2z$ 的最大值 $=\\sqrt{1+4+4}=3$，方向 $(1,2,-2)$；最小值 $-3$」】。于是根号里的量落在 $[2,8]$，开立方落在 $[\\sqrt[3]2,2]$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：线性式夹逼</h3>\r\n  <div class=\"fm\">$$-3\\le x+2y-2z\\le3\\ \\Longrightarrow\\ 2\\le x+2y-2z+5\\le8.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：开立方后积分</h3>\r\n  <div class=\"fm\">$$\\sqrt[3]2\\cdot\\frac{4\\pi}{3}\\le\\iiint\\sqrt[3]{x+2y-2z+5}\\,\\mathrm{d}V\\le2\\cdot\\frac{4\\pi}{3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：核对端点</h3>\r\n  <div class=\"fm\">$$\\frac{4\\sqrt3\\pi}{3}>\\frac{4\\sqrt[3]2\\pi}{3}\\ \\Rightarrow\\ \\frac{4\\sqrt3\\pi}{3}\\le\\iiint\\cdots\\le\\frac{8\\pi}{3}.$$</div><p class=\"concl\"><b>结论</b>不等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "球上的线性式极值：$|(a,b,c)|=\\sqrt{a^2+b^2+c^2}$，方向就是系数向量本身。",
+          "$x+2y-2z$ 在单位球上取值 $[-3,3]$，加 5 后为 $[2,8]$。",
+          "被积函数单调，逐点夹逼后乘球体积 $\\frac{4\\pi}{3}$ 即可。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>不等式成立",
+      "concl": "<b>结论</b>不等式成立。",
+      "formulasUsed": [
+        {
+          "name": "线性式的极值",
+          "latex": "$$x+2y-2z\\ \\text{在单位球面上}\\in\\left[-3,3\\right]$$"
+        },
+        {
+          "name": "取到极值的点",
+          "latex": "$$P_1\\left(\\frac13,\\frac23,-\\frac23\\right)\\to8;\\qquad P_2\\left(-\\frac13,-\\frac23,\\frac23\\right)\\to2$$"
+        },
+        {
+          "name": "$\\sqrt[3]{\\ }$ 单调",
+          "latex": "$$\\sqrt[3]{2}\\le\\sqrt[3]{x+2y-2z+5}\\le2$$"
+        },
+        {
+          "name": "球体积",
+          "latex": "$$V=\\frac{4\\pi}{3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 74,
+      "number": "题 74",
+      "title": "切平面方程 + 极坐标",
+      "chapter": 7,
+      "stemHtml": "在曲面 $z=x^2+y^2+1$ 上任取一点作切平面，求该切平面与曲面 $z=x^2+y^2$ 所围立体的体积。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：切平面与抛物面都是二次的，相减后正好是一个「倒扣的碗」</h3>\r\n  <p>【看到「$z=x^2+y^2+1$ 的切平面与 $z=x^2+y^2$ 围成体积」→ 调用「切平面 $z=2x_0x+2y_0y+1-x_0^2-y_0^2$，与 $z=x^2+y^2$ 相减配方成 $2-(x-x_0)^2-(y-y_0)^2$」】。差值在圆盘 $(x-x_0)^2+(y-y_0)^2\\le2$ 上为正。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出两曲面之差</h3>\r\n  <div class=\"fm\">$$z_{\\text{切}}-z_{\\text{曲}}=2-\\left(x-x_0\\right)^2-\\left(y-y_0\\right)^2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：在平移后的圆盘上积分</h3>\r\n  <div class=\"fm\">$$V=\\iint_{\\left(x-x_0\\right)^2+\\left(y-y_0\\right)^2\\le2}\\left[2-\\rho^2\\right]\\mathrm{d}\\sigma=\\int_0^{2\\pi}\\!\\mathrm{d}\\theta\\int_0^{\\sqrt2}\\left(2-r^2\\right)r\\,\\mathrm{d}r=\\frac{\\pi}{2}.$$</div><p class=\"concl\"><b>结论</b>$V=\\dfrac{\\pi}{2}$，与切点位置无关。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "抛物面上一点的切平面：$z=2x_0x+2y_0y+1-x_0^2-y_0^2$，记住这个固定形式。",
+          "与 $z=x^2+y^2$ 相减必配成 $R^2-(x-x_0)^2-(y-y_0)^2$，$R^2=2$。",
+          "结果与 $x_0,y_0$ 无关，等于 $\\frac\\pi2$，这是抛物面的「等体积」性质。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$V=\\dfrac{\\pi}{2}$",
+      "concl": "<b>结论</b>$V=\\dfrac{\\pi}{2}$，与切点位置无关。",
+      "formulasUsed": [
+        {
+          "name": "切平面",
+          "latex": "$$z=2x_0x+2y_0y+1-x_0^2-y_0^2$$"
+        },
+        {
+          "name": "两曲面之差",
+          "latex": "$$z_{\\text{切}}-z_{\\text{曲}}=1-x_0^2-y_0^2+2x_0x+2y_0y-x^2-y^2$$"
+        },
+        {
+          "name": "配方",
+          "latex": "$$=2-\\left(x-x_0\\right)^2-\\left(y-y_0\\right)^2$$"
+        },
+        {
+          "name": "体积",
+          "latex": "$$V=\\iint_D\\left[2-\\left(x-x_0\\right)^2-\\left(y-y_0\\right)^2\\right]\\mathrm{d}\\sigma=\\frac{\\pi}{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 75,
+      "number": "题 75",
+      "title": "质心位置 + 倾倒条件",
+      "chapter": 7,
+      "stemHtml": "一均匀薄片由 $y=a\\left(1-x^2\\right)\\ (0\\le a)$ 与 $x$ 轴围成，在点 $(1,0)$ 处支撑。若薄片可向右倾斜的最大角为 $45^\\circ$，求 $a$ 的最大值（图 7.2）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：薄片绕支点倾斜，临界位置是「质心正好在支点正上方」</h3>\r\n  <p>【看到「薄片在 $(1,0)$ 支撑、最大倾角 $45^\\circ$」→ 调用「倾倒条件：质心竖直线过支点；$\\tan\\theta=\\frac{1}{\\bar y}$（支点到质心的水平距离 1）」】。把 $\\bar y$ 用面积积分算出来，代入临界角即可。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算质心</h3>\r\n  <div class=\"fm\">$$A=\\frac{4a}{3},\\qquad \\bar y=\\frac{1}{A}\\cdot2\\int_0^1\\frac{a^2\\left(1-x^2\\right)^2}{2}\\mathrm{d}x=\\frac{2a}{5}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用临界角</h3>\r\n  <div class=\"fm\">$$\\tan45^\\circ=\\frac{1}{\\bar y}=\\frac{5}{2a}\\ \\Longrightarrow\\ a=\\frac52.$$</div><p class=\"concl\"><b>结论</b>$a$ 的最大值为 $\\dfrac52$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "薄片倾斜的临界条件：质心的竖直线恰好通过支点。",
+          "支点在 $(1,0)$、质心在 $(0,\\bar y)$，水平距离 1，故 $\\tan\\theta=\\frac{1}{\\bar y}$。",
+          "质心纵坐标 $\\bar y=\\frac{\\int\\frac{a^2(1-x^2)^2}{2}\\mathrm{d}x}{A}=\\frac{2a}{5}$，代入 $\\theta=45^\\circ$ 解 $a$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$a=\\dfrac52$",
+      "concl": "<b>结论</b>$a$ 的最大值为 $\\dfrac52$。",
+      "formulasUsed": [
+        {
+          "name": "面积",
+          "latex": "$$A=\\int_{-1}^{1}a\\left(1-x^2\\right)\\mathrm{d}x=\\frac{4a}{3}$$"
+        },
+        {
+          "name": "质心纵坐标",
+          "latex": "$$\\bar y=\\frac{1}{A}\\int_{-1}^{1}\\frac{a^2\\left(1-x^2\\right)^2}{2}\\,\\mathrm{d}x=\\frac{2a}{5}$$"
+        },
+        {
+          "name": "质心横坐标",
+          "latex": "$$\\bar x=0\\ \\ (\\text{对称})$$"
+        },
+        {
+          "name": "倾倒条件",
+          "latex": "$$\\tan\\theta=\\frac{1}{\\bar y}\\ \\Longrightarrow\\ \\frac{2}{2a/5}=\\tan45^\\circ=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 76,
+      "number": "题 76",
+      "title": "极坐标 + 对称配对",
+      "chapter": 7,
+      "stemHtml": "计算 $I=\\displaystyle\\int_0^{\\frac\\pi2}\\!\\!\\mathrm{d}\\theta\\int_0^{\\frac\\pi2}\\sin\\varphi\\ln\\frac{2-\\sin\\varphi\\cos\\theta}{2-2\\sin\\varphi\\cos\\theta+\\sin^2\\varphi\\cos^2\\theta}\\,\\mathrm{d}\\varphi$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\sin\\varphi\\,\\mathrm{d}\\varphi\\mathrm{d}\\theta$ 正是球面/极坐标面积元，把 $\\sin\\varphi\\cos\\theta$ 认成 $x$</h3>\r\n  <p>【看到「$\\sin\\varphi\\,\\mathrm{d}\\varphi\\mathrm{d}\\theta$ 与 $\\sin\\varphi\\cos\\theta$」→ 调用「把 $\\sin\\varphi\\cos\\theta$ 记作 $x$，$\\sin\\varphi\\sin\\theta$ 记作 $y$，积分就是单位圆第一象限上的二重积分」】。对数里的 $\\frac{2-x}{2-2x+x^2}$ 只依赖 $x$，再用对称性化成好算的形式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：换成 $x,y$</h3>\r\n  <div class=\"fm\">$$I=\\iint_{x^2+y^2\\le1,\\ x,y\\ge0}\\ln\\frac{2-x}{\\left(1-x\\right)^2+1}\\,\\mathrm{d}x\\mathrm{d}y.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：拆对数、逐项积分</h3>\r\n  <p>把 $\\ln\\frac{2-x}{(1-x)^2+1}$ 拆成 $\\ln(2-x)-\\ln\\left[\\left(1-x\\right)^2+1\\right]$。第一项只依赖 $x$，乘上竖直方向长度 $\\sqrt{1-x^2}$ 后用 $\\int\\ln(2-x)\\sqrt{1-x^2}\\,\\mathrm{d}x$ 算；第二项配方后用 $\\arctan$ 型积分。两项相减，交叉项抵消，只剩 $\\ln2$ 的贡献。</p><div class=\"fm\">$$I=\\frac{\\pi^2\\ln2}{16}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：结论</h3>\r\n  <p class=\"concl\"><b>结论</b>$I=\\dfrac{\\pi^2\\ln2}{16}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\sin\\varphi\\,\\mathrm{d}\\varphi\\mathrm{d}\\theta$ 是极坐标面积元，$\\sin\\varphi\\cos\\theta$ 就是 $x$。",
+          "$\\frac{2-u}{2-2u+u^2}=\\frac{2-u}{(1-u)^2+1}$，配方后可用 $\\arctan$ 型积分。",
+          "第一象限圆盘关于 $y=x$ 对称，配对后只剩 $\\ln2$ 的贡献，得 $\\frac{\\pi^2\\ln2}{16}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{\\pi^2\\ln2}{16}$",
+      "concl": "<b>结论</b>$I=\\dfrac{\\pi^2\\ln2}{16}$。",
+      "formulasUsed": [
+        {
+          "name": "内层结构",
+          "latex": "$$2-2u+u^2=\\left(1-u\\right)^2+1,\\qquad u=\\sin\\varphi\\cos\\theta$$"
+        },
+        {
+          "name": "对数拆分",
+          "latex": "$$\\frac{2-u}{2-2u+u^2}=\\frac{2-u}{\\left(1-u\\right)^2+1}$$"
+        },
+        {
+          "name": "极坐标",
+          "latex": "$$x=\\sin\\varphi\\cos\\theta,\\quad y=\\sin\\varphi\\sin\\theta,\\quad \\mathrm{d}\\sigma=\\sin\\varphi\\,\\mathrm{d}\\varphi\\,\\mathrm{d}\\theta$$"
+        },
+        {
+          "name": "区域",
+          "latex": "$$\\varphi\\in\\left[0,\\frac\\pi2\\right],\\ \\theta\\in\\left[0,\\frac\\pi2\\right]\\ \\Rightarrow\\ x^2+y^2\\le1,\\ x,y\\ge0$$"
+        }
+      ]
+    }
+  ]
+}

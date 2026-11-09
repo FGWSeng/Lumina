@@ -1,0 +1,4018 @@
+{
+  "subject": "math",
+  "group": "competition",
+  "category": "training",
+  "chapter": 8,
+  "chapterName": "无穷级数",
+  "title": "第 8 章 无穷级数8.4 能力拓展与训练 80 题全解",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "题 1",
+      "title": "阶乘提公因子 + 裂项",
+      "chapter": 8,
+      "stemHtml": "求 $\\displaystyle\\sum_{k=1}^{\\infty}\\frac{k+2}{k!+(k+1)!+(k+2)!}=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母是三个连着的阶乘，先提出最小的 $k!$</h3>\r\n  <p>【看到「$k!+(k+1)!+(k+2)!$」→ 调用「提最小阶乘：$k!=k!$，$(k+1)!=k!(k+1)$，$(k+2)!=k!(k+1)(k+2)$」】。提出来以后括号里是一个完全平方，通项立刻塌成一项。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化简通项</h3>\r\n  <p>括号内 $1+(k+1)+(k+1)(k+2)=k^2+4k+4=(k+2)^2$，于是</p><div class=\"fm\">$$\\frac{k+2}{k!(k+2)^2}=\\frac{1}{k!(k+2)}=\\frac{k+1}{(k+2)!}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：裂项相消</h3>\r\n  <p>$\\frac{k+1}{(k+2)!}=\\frac{(k+2)-1}{(k+2)!}=\\frac{1}{(k+1)!}-\\frac{1}{(k+2)!}$，部分和只剩首尾：</p><div class=\"fm\">$$S_n=\\sum_{k=1}^{n}\\left(\\frac{1}{(k+1)!}-\\frac{1}{(k+2)!}\\right)=\\frac{1}{2!}-\\frac{1}{(n+2)!}\\to\\frac12.$$</div><p class=\"concl\"><b>结论</b>和为 $\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "阶乘相加先提最小阶乘，$(k+1)!+(k+2)!$ 提 $k!$ 后是 $(k+1)(k+2)$。",
+          "分母出现 $(k+2)^2$ 时先约掉一个 $k+2$，剩 $\\frac{1}{k!(k+2)}$。",
+          "$\\frac{k+1}{(k+2)!}$ 永远裂成相邻两项之差，从 $\\frac{1}{2!}$ 起头。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac12$",
+      "concl": "<b>结论</b>和为 $\\dfrac12$。",
+      "formulasUsed": [
+        {
+          "name": "三项阶乘提公因子",
+          "latex": "$$k!+(k+1)!+(k+2)!=k!\\left[1+(k+1)+(k+1)(k+2)\\right]=k!(k+2)^2$$"
+        },
+        {
+          "name": "通项化简",
+          "latex": "$$\\frac{k+2}{k!(k+2)^2}=\\frac{1}{k!(k+2)}=\\frac{k+1}{(k+2)!}$$"
+        },
+        {
+          "name": "裂成两项",
+          "latex": "$$\\frac{k+1}{(k+2)!}=\\frac{1}{(k+1)!}-\\frac{1}{(k+2)!}$$"
+        },
+        {
+          "name": "阶乘恒等式",
+          "latex": "$$k!+(k+1)!+(k+2)!=k!\\,(k+2)^2$$"
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "number": "题 2",
+      "title": "等价无穷小 + 比较判别法",
+      "chapter": 8,
+      "stemHtml": "设常数 $\\alpha&gt;0$，级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\left(\\frac1n-\\sin\\frac1n\\right)^{\\alpha}$ 收敛，而 $\\displaystyle\\sum_{k=1}^{\\infty}\\frac{1}{(n^2+2n+3)^{\\alpha}}$ 发散，则 $\\alpha$ 的取值范围为 ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个级数都只给「收敛/发散」，先把通项化成 $n$ 的幂</h3>\r\n  <p>【看到「$\\frac1n-\\sin\\frac1n$ 与 $(n^2+2n+3)$」→ 调用「等价无穷小把通项写成 $n^{-p}$，再用 $p$ 级数判据」】。第一个给的是 $3\\alpha$，第二个给的是 $2\\alpha$，两个条件一夹就把 $\\alpha$ 夹死。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：由第一个级数收敛定下界</h3>\r\n  <p>通项 $\\sim 1/(6^\\alpha n^{3\\alpha})$，与 $\\sum n^{-3\\alpha}$ 同敛散，故 $3\\alpha&gt;1$，即 $\\alpha&gt;\\frac13$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：由第二个级数发散定上界</h3>\r\n  <p>通项 $\\sim n^{-2\\alpha}$，发散要求 $2\\alpha\\le1$，即 $\\alpha\\le\\frac12$。</p><div class=\"fm\">$$\\frac13&lt;\\alpha\\le\\frac12.$$</div><p class=\"concl\"><b>结论</b>$\\alpha\\in\\left(\\dfrac13,\\dfrac12\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac1n-\\sin\\frac1n$ 是 $\\frac{1}{6n^3}$ 级的小量，别错记成 $n^{-2}$。",
+          "取 $\\alpha$ 次幂后阶数乘 $\\alpha$：$3\\alpha$ 与 $2\\alpha$ 分别对应两个条件。",
+          "「收敛」给严格大于，「发散」给小于等于，端点的开闭就是这么定的。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\alpha\\in\\left(\\dfrac13,\\dfrac12\\right]$",
+      "concl": "<b>结论</b>$\\alpha\\in\\left(\\dfrac13,\\dfrac12\\right]$。",
+      "formulasUsed": [
+        {
+          "name": "$\\sin x$ 的三阶展开",
+          "latex": "$$\\sin x=x-\\frac{x^3}{6}+o\\left(x^3\\right)\\ \\Longrightarrow\\ \\frac1n-\\sin\\frac1n\\sim\\frac{1}{6n^3}$$"
+        },
+        {
+          "name": "幂次后的等价量",
+          "latex": "$$\\left(\\frac1n-\\sin\\frac1n\\right)^{\\alpha}\\sim\\frac{1}{6^{\\alpha}n^{3\\alpha}}$$"
+        },
+        {
+          "name": "$p$ 级数判据",
+          "latex": "$$\\sum_{n=1}^{\\infty}\\frac{1}{n^{p}}\\ \\text{收敛}\\iff p&gt;1$$"
+        },
+        {
+          "name": "第二个级数的阶",
+          "latex": "$$\\frac{1}{(n^2+2n+3)^{\\alpha}}\\sim\\frac{1}{n^{2\\alpha}}$$"
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "number": "题 3",
+      "title": "等价无穷小 + 比较判别法",
+      "chapter": 8,
+      "stemHtml": "设 $a_n&gt;0$，$p&gt;1$，且 $\\displaystyle\\lim_{n\\to\\infty}n^{p}\\left(\\mathrm{e}^{\\frac1n}-1\\right)a_n=1$，若 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛，则 $p$ 的取值范围为 ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：极限等于 1 就是在告诉你 $a_n$ 的阶</h3>\r\n  <p>【看到「$n^p(\\mathrm{e}^{1/n}-1)a_n\\to1$」→ 调用「先把 $\\mathrm{e}^{1/n}-1$ 换成 $\\frac1n$，剩下的 $n^{p-1}a_n$ 就是通项的阶」】。极限非零有限，说明 $a_n$ 与 $\\frac{1}{n^{p-1}}$ 同阶。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化简极限条件</h3>\r\n  <div class=\"fm\">$$n^{p}\\cdot\\frac1n\\cdot a_n=n^{p-1}a_n\\to1\\ \\Longrightarrow\\ a_n\\sim\\frac{1}{n^{p-1}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用 $p$ 级数判据</h3>\r\n  <p>$\\sum a_n$ 收敛等价于 $\\sum n^{-(p-1)}$ 收敛，即 $p-1&gt;1$。</p><div class=\"fm\">$$p&gt;2.$$</div><p class=\"concl\"><b>结论</b>$p\\in(2,+\\infty)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "极限条件里的常数 1 只保证「同阶」，不保证相等。",
+          "$\\mathrm{e}^{1/n}-1$ 与 $1/n$ 等价，乘上 $n^p$ 后指数净剩 $p-1$。",
+          "题目给的 $p&gt;1$ 只是前提，真正的界由 $\\sum a_n$ 收敛决定。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$p\\in(2,+\\infty)$",
+      "concl": "<b>结论</b>$p\\in(2,+\\infty)$。",
+      "formulasUsed": [
+        {
+          "name": "$\\mathrm{e}^x-1$ 的等价量",
+          "latex": "$$\\mathrm{e}^{\\frac1n}-1\\sim\\frac1n$$"
+        },
+        {
+          "name": "条件化简",
+          "latex": "$$n^{p}\\left(\\mathrm{e}^{\\frac1n}-1\\right)a_n\\sim n^{p-1}a_n\\to1$$"
+        },
+        {
+          "name": "反解通项的阶",
+          "latex": "$$a_n\\sim\\frac{1}{n^{p-1}}$$"
+        },
+        {
+          "name": "等价无穷小",
+          "latex": "$$\\mathrm{e}^{1/n}-1\\sim\\frac{1}{n}\\ (n\\to\\infty)$$"
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "number": "题 4",
+      "title": "构造反例 + 拆项",
+      "chapter": 8,
+      "stemHtml": "请举例说明：(1) 存在通项趋于零但发散的交错级数；(2) 存在收敛的正项级数 $\\sum a_n$，但 $a_n\\neq o\\left(\\frac1n\\right)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：交错级数「通项趋于零」不是收敛的充分条件，缺的是单调性</h3>\r\n  <p>【看到「通项趋于零却发散的交错级数」→ 调用「Leibniz 判别法还要单调递减；把分母做成 $\\sqrt n+(-1)^n$，让正负项的衰减速度不一样」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：验证通项趋于零、级数发散</h3>\r\n  <p>通项 $\\to0$。拆开后 $\\sum\\frac{(-1)^n\\sqrt n}{n-1}$ 是交错级数且各项绝对值单调趋于零，收敛；而 $\\sum\\frac{1}{n-1}$ 发散，两者相减必发散。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：第二个反例——只在平方点上给质量</h3>\r\n  <p>取 $a_{k^2}=1/k^2$，其余位置为 $0$。则 $\\sum a_n=\\sum_k 1/k^2$ 收敛；但沿 $n=k^2$ 有 $\\frac{a_n}{1/n}=\\frac{k^2}{k^2}=1\\not\\to0$，故 $a_n$ 不是 $o(1/n)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "「$a_n\\to0$」只排除发散的最粗暴情形，收敛还要看衰减快慢。",
+          "造交错反例：分母加一个 $(-1)^n$，让正负项量级不同。",
+          "造「收敛但不够小」的反例：把质量放在稀疏的 $n=k^2$ 上。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{\\sqrt n+(-1)^n}$；(2) $a_{k^2}=\\dfrac{1}{k^2}$，其余 $a_n=0$",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "交错级数的拆项",
+          "latex": "$$\\frac{(-1)^n}{\\sqrt n+(-1)^n}=\\frac{(-1)^n\\left(\\sqrt n-(-1)^n\\right)}{n-1}=\\frac{(-1)^n\\sqrt n-1}{n-1}$$"
+        },
+        {
+          "name": "交错调和级数收敛",
+          "latex": "$$\\sum_{n=2}^{\\infty}\\frac{(-1)^n\\sqrt n}{n-1}\\ \\text{收敛（Leibniz）}$$"
+        },
+        {
+          "name": "调和级数发散",
+          "latex": "$$\\sum_{n=2}^{\\infty}\\frac{1}{n-1}=+\\infty$$"
+        },
+        {
+          "name": "第二个反例的构造",
+          "latex": "$$a_{k^2}=\\frac{1}{k^2},\\quad a_n=0\\ (n\\ne k^2)$$"
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "number": "题 5",
+      "title": "拆项 + 两个标准展开",
+      "chapter": 8,
+      "stemHtml": "数项级数 $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n\\frac{n-(2n)!}{n(2n)!}$ 的和 $S=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分子拆开就是两个熟悉级数之差</h3>\r\n  <p>【看到「$\\frac{n-(2n)!}{n(2n)!}$」→ 调用「拆成 $\\frac{1}{(2n)!}-\\frac1n$，前者是 $\\cos1$ 的尾巴，后者是 $\\ln2$ 的尾巴」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拆项并注意起点</h3>\r\n  <div class=\"fm\">$$S=\\sum_{n=1}^{\\infty}(-1)^n\\frac{1}{(2n)!}-\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{n}.$$</div><p>第一项 $\\cos1$ 从 $n=0$ 起，故 $\\sum_{n\\ge1}\\frac{(-1)^n}{(2n)!}=\\cos1-1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代入对数级数</h3>\r\n  <p>$\\sum_{n\\ge1}\\frac{(-1)^n}{n}=-\\ln2$，所以</p><div class=\"fm\">$$S=(\\cos1-1)-(-\\ln2)=\\cos1+\\ln2-1.$$</div><p class=\"concl\"><b>结论</b>$S=\\cos1+\\ln2-1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分母是 $n(2n)!$ 时先拆成 $\\frac{A}{(2n)!}+\\frac{B}{n}$，再对号入座。",
+          "$\\cos1$、$\\sin1$ 的展开从 $n=0$ 起，求和从 $n=1$ 起时要扣掉首项。",
+          "$\\sum(-1)^n/n=-\\ln2$，符号别丢。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$S=\\cos1+\\ln2-1$",
+      "concl": "<b>结论</b>$S=\\cos1+\\ln2-1$。",
+      "formulasUsed": [
+        {
+          "name": "先拆成两项",
+          "latex": "$$\\frac{n-(2n)!}{n(2n)!}=\\frac{1}{(2n)!}-\\frac1n$$"
+        },
+        {
+          "name": "余弦的展开",
+          "latex": "$$\\cos1=\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{(2n)!}$$"
+        },
+        {
+          "name": "对数的展开",
+          "latex": "$$\\ln2=\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n}$$"
+        },
+        {
+          "name": "交错指数和",
+          "latex": "$$\\sum_{n=1}^{\\infty}\\frac{(-1)^{n}}{n!}=\\mathrm{e}^{-1}-1$$"
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "number": "题 6",
+      "title": "拆项 + $\\cos1$ 与 $\\sin1$",
+      "chapter": 8,
+      "stemHtml": "级数 $\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-1)^nn}{(2n+1)!}$ 的和为 ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分子是一次、分母是 $2n+1$ 的阶乘，先把分子配成 $2n+1$</h3>\r\n  <p>【看到「$\\frac{n}{(2n+1)!}$」→ 调用「$n=\\frac{(2n+1)-1}{2}$，拆成 $\\frac{1}{(2n)!}$ 与 $\\frac{1}{(2n+1)!}$ 的组合」】。前者归 $\\cos1$，后者归 $\\sin1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拆项并扣除 $n=0$</h3>\r\n  <p>$n=0$ 时两项相等互消，故可直接从 $n=0$ 算：</p><div class=\"fm\">$$S=\\frac12\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{(2n)!}-\\frac12\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{(2n+1)!}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代入</h3>\r\n  <div class=\"fm\">$$S=\\frac12\\left(\\cos1-\\sin1\\right).$$</div><p class=\"concl\"><b>结论</b>$S=\\dfrac{\\cos1-\\sin1}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分子是 $n$、分母含 $2n+1$ 时，用 $2n+1$ 去配分子。",
+          "$\\frac{1}{(2n)!}$ 对应 $\\cos$，$\\frac{1}{(2n+1)!}$ 对应 $\\sin$，配对记牢。",
+          "$n=0$ 的项恰是两个展开的首项之差的一半，正好抵消，可放心从 0 起算。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$S=\\dfrac{\\cos1-\\sin1}{2}$",
+      "concl": "<b>结论</b>$S=\\dfrac{\\cos1-\\sin1}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "$n$ 用分母配平",
+          "latex": "$$n=\\frac{1}{2}\\left[(2n+1)-1\\right],\\qquad \\frac{n}{(2n+1)!}=\\frac12\\left[\\frac{1}{(2n)!}-\\frac{1}{(2n+1)!}\\right]$$"
+        },
+        {
+          "name": "$\\cos1$",
+          "latex": "$$\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{(2n)!}=\\cos1$$"
+        },
+        {
+          "name": "$\\sin1$",
+          "latex": "$$\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{(2n+1)!}=\\sin1$$"
+        },
+        {
+          "name": "余弦展开",
+          "latex": "$$\\cos1=\\sum_{k=0}^{\\infty}\\frac{(-1)^{k}}{(2k)!}$$"
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "number": "题 7",
+      "title": "部分和望远镜 + 极限",
+      "chapter": 8,
+      "stemHtml": "设 $u_n\\neq0\\ (n=1,2,\\cdots)$ 且 $\\displaystyle\\lim_{n\\to\\infty}u_n=\\infty$，则级数 $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n\\left(\\frac{1}{u_n}+\\frac{1}{u_{n+1}}\\right)=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：每一项都是「第 $n$ 个 + 第 $n+1$ 个」，相邻项必然成对抵消</h3>\r\n  <p>【看到「$\\frac{1}{u_n}+\\frac{1}{u_{n+1}}$ 且带 $(-1)^n$」→ 调用「写部分和，把第二个求和整体平移一位」】。平移后 $(-1)^j$ 差一个负号，正好把中间项全消掉。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：平移合并</h3>\r\n  <div class=\"fm\">$$S_n=-\\frac{1}{u_1}-\\frac{1}{u_2}+\\frac{1}{u_2}+\\frac{1}{u_3}-\\cdots+\\frac{(-1)^n}{u_{n+1}}=-\\frac{1}{u_1}+\\frac{(-1)^n}{u_{n+1}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取极限</h3>\r\n  <p>由 $u_{n+1}\\to\\infty$ 得末项 $\\to0$，故 $S=-\\frac{1}{u_1}$。</p><p class=\"concl\"><b>结论</b>和为 $-\\dfrac{1}{u_1}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "「$a_n+a_{n+1}$ 带交错号」型，一律写部分和再平移错位。",
+          "平移时 $(-1)^k$ 变 $(-1)^{j-1}$，会多出一个负号，这是相消的关键。",
+          "收敛只看末项 $\\frac{(-1)^n}{u_{n+1}}$，$u_n\\to\\infty$ 保证它归零。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\dfrac{1}{u_1}$",
+      "concl": "<b>结论</b>和为 $-\\dfrac{1}{u_1}$。",
+      "formulasUsed": [
+        {
+          "name": "部分和展开",
+          "latex": "$$S_n=\\sum_{k=1}^{n}(-1)^k\\frac{1}{u_k}+\\sum_{k=1}^{n}(-1)^k\\frac{1}{u_{k+1}}$$"
+        },
+        {
+          "name": "后一项平移",
+          "latex": "$$\\sum_{k=1}^{n}\\frac{(-1)^k}{u_{k+1}}=\\sum_{j=2}^{n+1}\\frac{(-1)^{j-1}}{u_j}=-\\sum_{j=2}^{n+1}\\frac{(-1)^{j}}{u_j}$$"
+        },
+        {
+          "name": "极限条件",
+          "latex": "$$u_n\\to\\infty\\ \\Longrightarrow\\ \\frac{1}{u_{n+1}}\\to0$$"
+        },
+        {
+          "name": "相邻项相消",
+          "latex": "$$\\left(\\frac{1}{u_n}+\\frac{1}{u_{n+1}}\\right)+\\left(\\frac{1}{u_{n+1}}+\\frac{1}{u_{n+2}}\\right)\\ \\text{消去}\\ \\frac{1}{u_{n+1}}$$"
+        }
+      ]
+    },
+    {
+      "seq": 8,
+      "number": "题 8",
+      "title": "比值判别 + 无穷乘积",
+      "chapter": 8,
+      "stemHtml": "级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{(1+x^2)(1+x^4)(1+x^8)\\cdots(1+x^{2^n})}$ 的收敛域为 ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母是不断延长的乘积，相邻两项只差一个因子，天然适合比值法</h3>\r\n  <p>【看到「$(1+x^2)(1+x^4)\\cdots(1+x^{2^n})$」→ 调用「比值判别法：$a_{n+1}/a_n$ 只多一个 $1+x^{2^{n+1}}$」】。$|x|$ 与 1 的大小关系决定 $x^{2^{n+1}}$ 的走向。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：比值判别</h3>\r\n  <p>$|x|&gt;1$ 时 $x^{2^{n+1}}\\to\\infty$，$\\rho=0&lt;1$，收敛；$|x|=1$ 时 $\\rho=\\frac12&lt;1$，收敛。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：$|x|&lt;1$ 时改看通项</h3>\r\n  <p>此时比值 $\\rho=1$ 失效，但无穷乘积 $\\prod_{k\\ge1}(1+x^{2^k})=\\frac{1}{1-x}$ 收敛且非零，故 $a_n\\to1-x\\ne0$，通项不趋于零，发散。</p><div class=\"fm\">$$\\text{收敛域}=(-\\infty,-1]\\cup[1,+\\infty).$$</div><p class=\"concl\"><b>结论</b>收敛域为 $(-\\infty,-1]\\cup[1,+\\infty)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "乘积型分母先看相邻比值，比值只差一个因子。",
+          "$|x|&lt;1$ 时无穷乘积收敛到 $\\frac{1}{1-x}$，通项不趋零，直接判发散。",
+          "$x=\\pm1$ 要单独算，此时 $\\rho=\\frac12$，仍收敛。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$(-\\infty,-1]\\cup[1,+\\infty)$",
+      "concl": "<b>结论</b>收敛域为 $(-\\infty,-1]\\cup[1,+\\infty)$。",
+      "formulasUsed": [
+        {
+          "name": "相邻两项的比",
+          "latex": "$$\\rho=\\lim_{n\\to\\infty}\\frac{a_{n+1}}{a_n}=\\lim_{n\\to\\infty}\\frac{1}{1+x^{2^{n+1}}}$$"
+        },
+        {
+          "name": "分情况取值",
+          "latex": "$$\\rho=\\begin{cases}0, & |x|&gt;1\\\\ 1, & |x|&lt;1\\\\ \\frac12, & |x|=1\\end{cases}$$"
+        },
+        {
+          "name": "无穷乘积恒等式",
+          "latex": "$$(1-x)\\prod_{k=1}^{\\infty}\\left(1+x^{2^k}\\right)=1,\\quad |x|&lt;1$$"
+        },
+        {
+          "name": "无穷乘积",
+          "latex": "$$\\prod_{k=0}^{n}\\left(1+x^{2^{k}}\\right)=\\frac{1-x^{2^{n+1}}}{1-x}$$"
+        }
+      ]
+    },
+    {
+      "seq": 9,
+      "number": "题 9",
+      "title": "对数拆分 + 望远镜",
+      "chapter": 8,
+      "stemHtml": "设 $x&gt;0$ 或 $x&lt;-1$，则级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\ln\\frac{\\left[1+(n-1)x\\right](1+2nx)}{\\left(1+nx\\right)\\left[1+2(n-1)x\\right]}$ 的和为 ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：四个一次因子取对数后，相邻项的「大因子」与「小因子」正好错位</h3>\r\n  <p>【看到「分子两个因子、分母两个因子，且 $n-1$ 与 $n$ 交错」→ 调用「取对数拆四项，写部分和看错位相消」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写部分和</h3>\r\n  <div class=\"fm\">$$S_n=\\sum_{k=1}^{n}\\left[\\ln\\frac{1+(k-1)x}{1+2(k-1)x}-\\ln\\frac{1+kx}{1+2kx}\\right]=\\ln1-\\ln\\frac{1+nx}{1+2nx}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取极限</h3>\r\n  <p>由 $\\frac{1+nx}{1+2nx}\\to\\frac12$ 得 $S_n\\to\\ln2$。</p><p class=\"concl\"><b>结论</b>和为 $\\ln2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "四个一次因子取对数，拆成「前两个减后两个」。",
+          "$n-1$ 与 $n$ 交错是故意设计的，部分和只留下首尾。",
+          "收尾只算 $\\frac{1+nx}{1+2nx}$ 的极限，$x&gt;0$ 或 $x&lt;-1$ 都成立。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\ln2$",
+      "concl": "<b>结论</b>和为 $\\ln2$。",
+      "formulasUsed": [
+        {
+          "name": "对数拆成四项",
+          "latex": "$$\\ln\\frac{A B}{C D}=\\ln A+\\ln B-\\ln C-\\ln D$$"
+        },
+        {
+          "name": "部分和的结构",
+          "latex": "$$S_n=\\ln\\frac{1+(k-1)x}{1+2(k-1)x}\\Big|_{k=1}-\\ln\\frac{1+kx}{1+2kx}\\Big|_{k=n}$$"
+        },
+        {
+          "name": "极限",
+          "latex": "$$\\lim_{n\\to\\infty}\\frac{1+nx}{1+2nx}=\\frac12$$"
+        },
+        {
+          "name": "望远镜求和",
+          "latex": "$$\\sum_{n=2}^{N}\\left(\\ln b_n-\\ln b_{n-1}\\right)=\\ln b_N-\\ln b_1$$"
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "number": "题 10",
+      "title": "指数级数 + 比较虚部",
+      "chapter": 8,
+      "stemHtml": "$\\displaystyle\\sum_{n=1}^{\\infty}\\frac{\\sin(n\\theta)}{n!}=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\sin(n\\theta)$ 是某个复数的虚部，凑指数级数最省事</h3>\r\n  <p>【看到「$\\frac{\\sin n\\theta}{n!}$」→ 调用「$\\sin n\\theta=\\operatorname{Im}\\mathrm{e}^{\\mathrm{i}n\\theta}$，把 $z=\\mathrm{e}^{\\mathrm{i}\\theta}$ 代进 $\\mathrm{e}^z$ 的展开」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写成虚部</h3>\r\n  <div class=\"fm\">$$\\sum_{n=0}^{\\infty}\\frac{\\sin n\\theta}{n!}=\\operatorname{Im}\\sum_{n=0}^{\\infty}\\frac{\\mathrm{e}^{\\mathrm{i}n\\theta}}{n!}=\\operatorname{Im}\\mathrm{e}^{\\mathrm{e}^{\\mathrm{i}\\theta}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分离实虚部</h3>\r\n  <p>$\\mathrm{e}^{\\mathrm{e}^{\\mathrm{i}\\theta}}=\\mathrm{e}^{\\cos\\theta}\\mathrm{e}^{\\mathrm{i}\\sin\\theta}$，虚部为 $\\mathrm{e}^{\\cos\\theta}\\sin(\\sin\\theta)$；$n=0$ 项 $\\sin0=0$ 不影响结果。</p><p class=\"concl\"><b>结论</b>和为 $\\mathrm{e}^{\\cos\\theta}\\sin(\\sin\\theta)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "三角函数的 $1/n!$ 级数，一律走复指数：$\\sin$ 取虚部、$\\cos$ 取实部。",
+          "$\\mathrm{e}^{\\mathrm{e}^{\\mathrm{i}\\theta}}$ 再拆成 $\\mathrm{e}^{\\cos\\theta}\\cdot\\mathrm{e}^{\\mathrm{i}\\sin\\theta}$。",
+          "$n=0$ 项是 $\\sin0=0$，可以放心从 0 起求和。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\mathrm{e}^{\\cos\\theta}\\sin(\\sin\\theta)$",
+      "concl": "<b>结论</b>和为 $\\mathrm{e}^{\\cos\\theta}\\sin(\\sin\\theta)$。",
+      "formulasUsed": [
+        {
+          "name": "指数级数",
+          "latex": "$$\\mathrm{e}^{z}=\\sum_{n=0}^{\\infty}\\frac{z^n}{n!}\\quad(z\\in\\mathbb{C})$$"
+        },
+        {
+          "name": "取 $z=\\mathrm{e}^{\\mathrm{i}\\theta}$",
+          "latex": "$$\\mathrm{e}^{\\mathrm{e}^{\\mathrm{i}\\theta}}=\\sum_{n=0}^{\\infty}\\frac{\\mathrm{e}^{\\mathrm{i}n\\theta}}{n!}$$"
+        },
+        {
+          "name": "De Moivre",
+          "latex": "$$\\mathrm{e}^{\\mathrm{i}n\\theta}=\\cos n\\theta+\\mathrm{i}\\sin n\\theta$$"
+        },
+        {
+          "name": "指数分解",
+          "latex": "$$\\mathrm{e}^{\\cos\\theta+\\mathrm{i}\\sin\\theta}=\\mathrm{e}^{\\cos\\theta}\\left(\\cos(\\sin\\theta)+\\mathrm{i}\\sin(\\sin\\theta)\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "number": "题 11",
+      "title": "部分分式 + digamma 特殊值",
+      "chapter": 8,
+      "stemHtml": "求 $\\displaystyle\\sum_{k=0}^{\\infty}\\frac{1}{(4k+1)(4k+2)(4k+3)(4k+4)}=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母是四个连续因子，先裂成四个 $\\frac{1}{4k+j}$</h3>\r\n  <p>【看到「$(4k+1)(4k+2)(4k+3)(4k+4)$」→ 调用「部分分式，四个一次分式线性组合；每个分式对 $k$ 求和都落到 $\\psi$ 函数」】。四个 $\\psi$ 值里 $\\gamma$ 与 $\\ln2$ 大半会互相抵消。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出部分和</h3>\r\n  <p>把 $k$ 从 $0$ 到 $m$ 求和，按 $\\frac{1}{4k+j}=\\frac14\\cdot\\frac{1}{k+j/4}$ 缩放：</p><div class=\"fm\">$$S_m=\\frac1{24}\\left[-\\psi\\!\\left(\\tfrac14\\right)+3\\psi\\!\\left(\\tfrac12\\right)-3\\psi\\!\\left(\\tfrac34\\right)+\\psi(1)\\right].$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代入特殊值</h3>\r\n  <p>$\\gamma$ 的系数为 $1-3+3-1=0$，自动消掉；$\\ln2$ 的系数 $3-6+9=6$；$\\pi$ 的系数 $\\frac12-\\frac32=-1$。故括号内为 $6\\ln2-\\pi$。</p><div class=\"fm\">$$S=\\frac{6\\ln2-\\pi}{24}.$$</div><p class=\"concl\"><b>结论</b>和为 $\\dfrac{6\\ln2-\\pi}{24}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "四连因子先做部分分式，系数按 $\\frac{1}{6}(1,-3,3,-1)$ 记。",
+          "$\\sum\\frac{1}{k+a}$ 一律用 $\\psi$ 的「差形式」，$\\gamma$ 会自动抵消。",
+          "$\\psi(\\frac14)-\\psi(\\frac34)=-\\pi$，$\\psi(\\frac12)-\\psi(1)=-2\\ln2$，两组配对算最快。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{6\\ln2-\\pi}{24}$",
+      "concl": "<b>结论</b>和为 $\\dfrac{6\\ln2-\\pi}{24}$。",
+      "formulasUsed": [
+        {
+          "name": "拆成四个一次分式",
+          "latex": "$$\\frac{1}{(4k+1)(4k+2)(4k+3)(4k+4)}=\\frac16\\left[\\frac{1}{4k+1}-\\frac{3}{4k+2}+\\frac{3}{4k+3}-\\frac{1}{4k+4}\\right]$$"
+        },
+        {
+          "name": "$\\psi$ 函数的定义",
+          "latex": "$$\\psi(z)=-\\gamma+\\sum_{k=0}^{\\infty}\\left(\\frac{1}{k+1}-\\frac{1}{k+z}\\right),\\qquad \\psi(z+1)=\\psi(z)+\\frac1z$$"
+        },
+        {
+          "name": "四分之一处的取值",
+          "latex": "$$\\psi\\!\\left(\\tfrac14\\right)=-\\gamma-\\frac{\\pi}{2}-3\\ln2,\\quad \\psi\\!\\left(\\tfrac34\\right)=-\\gamma+\\frac{\\pi}{2}-3\\ln2$$"
+        },
+        {
+          "name": "二分之一处的取值",
+          "latex": "$$\\psi\\!\\left(\\tfrac12\\right)=-\\gamma-2\\ln2,\\quad \\psi(1)=-\\gamma$$"
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "number": "题 12",
+      "title": "$\\left(1+\\frac1n\\right)^n$ 的三阶展开",
+      "chapter": 8,
+      "stemHtml": "求 $\\displaystyle\\lim_{n\\to\\infty}n\\left\\{n\\left[n\\left(\\frac1{\\mathrm{e}}\\left(1+\\frac1n\\right)^n-1\\right)+\\frac12\\right]-\\frac{11}{24}\\right\\}=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：三层括号其实就是反复做「减去极限值、再除以小量」，本质是求三阶展开的系数</h3>\r\n  <p>【看到「$\\frac1{\\mathrm{e}}(1+\\frac1n)^n$ 外面套三层 $n$」→ 调用「把 $\\frac1{\\mathrm{e}}(1+\\frac1n)^n$ 在 $x=\\frac1n$ 处展开到 $x^3$，每一层括号正好提取一个系数」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：展开到 $x^3$</h3>\r\n  <p>设 $u=-\\frac x2+\\frac{x^2}{3}-\\frac{x^3}{4}$，则</p><div class=\"fm\">$$\\frac1{\\mathrm{e}}\\left(1+\\frac1n\\right)^n=1-\\frac x2+\\frac{11}{24}x^2-\\frac{7}{16}x^3+o\\left(x^3\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：逐层剥括号</h3>\r\n  <p>第一层：$n\\left[\\cdots-1\\right]=-\\frac12+\\frac{11}{24}x-\\frac{7}{16}x^2+o(x^2)$；加上 $\\frac12$ 再乘 $n$ 得 $\\frac{11}{24}-\\frac{7}{16}x+o(x)$；减去 $\\frac{11}{24}$ 再乘 $n$ 得 $-\\frac{7}{16}+o(1)$。</p><div class=\"fm\">$$\\lim=-\\frac{7}{16}.$$</div><p class=\"concl\"><b>结论</b>极限为 $-\\dfrac{7}{16}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "三层括号 = 三次「减极限、乘 $n$」，等价于取展开的前三个系数。",
+          "先把 $\\frac{\\ln(1+x)}x-1$ 展到 $x^3$，再整体做 $\\mathrm{e}^u$ 展开，比直接对幂指函数求导稳。",
+          "系数 $(1,-\\frac12,\\frac{11}{24},-\\frac7{16})$ 要背下来，这是本题的核心数据。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\dfrac{7}{16}$",
+      "concl": "<b>结论</b>极限为 $-\\dfrac{7}{16}$。",
+      "formulasUsed": [
+        {
+          "name": "幂指函数转指数",
+          "latex": "$$\\frac1{\\mathrm{e}}\\left(1+\\frac1n\\right)^n=\\exp\\left\\{\\frac{\\ln(1+x)}{x}-1\\right\\},\\quad x=\\frac1n$$"
+        },
+        {
+          "name": "$\\ln(1+x)$ 展开",
+          "latex": "$$\\frac{\\ln(1+x)}{x}-1=-\\frac{x}{2}+\\frac{x^2}{3}-\\frac{x^3}{4}+o\\left(x^3\\right)$$"
+        },
+        {
+          "name": "$\\mathrm{e}^u$ 展开",
+          "latex": "$$\\mathrm{e}^u=1+u+\\frac{u^2}{2}+\\frac{u^3}{6}+o\\left(u^3\\right)$$"
+        },
+        {
+          "name": "三阶展开",
+          "latex": "$$\\left(1+\\frac{1}{n}\\right)^{n}=\\mathrm{e}\\left(1-\\frac{1}{2n}+\\frac{11}{24n^{2}}-\\frac{7}{16n^{3}}+\\cdots\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 13,
+      "number": "题 13",
+      "title": "逐项求导 + 收敛半径",
+      "chapter": 8,
+      "stemHtml": "设 $\\displaystyle y=\\sum_{n=0}^{\\infty}\\frac{x^{4n}}{(4n)!}$，则 $y^{(4)}=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$4n$ 阶乘看着别扭，先确认能逐项求导，再让求导把阶乘「吃掉」</h3>\r\n  <p>【看到「$y=\\sum\\frac{x^{4n}}{(4n)!}$」→ 调用「先算收敛半径 $R=+\\infty$，再逐项求导四次；每次求导分子掉下一个因子，正好与阶乘约掉」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：逐项求导</h3>\r\n  <div class=\"fm\">$$y'=\\sum_{n=1}^{\\infty}\\frac{4n\\,x^{4n-1}}{(4n)!},\\quad y''=\\sum_{n=1}^{\\infty}\\frac{4n(4n-1)x^{4n-2}}{(4n)!},\\ \\cdots$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：四阶导并换指标</h3>\r\n  <div class=\"fm\">$$y^{(4)}=\\sum_{n=1}^{\\infty}\\frac{4n(4n-1)(4n-2)(4n-3)x^{4n-4}}{(4n)!}=\\sum_{n=1}^{\\infty}\\frac{x^{4n-4}}{(4n-4)!}=\\sum_{m=0}^{\\infty}\\frac{x^{4m}}{(4m)!}=y.$$</div><p class=\"concl\"><b>结论</b>$y^{(4)}=y$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "看到 $\\frac{x^{kn}}{(kn)!}$ 就想「求 $k$ 阶导等于自身」。",
+          "逐项求导前先确认 $R$：这里比值 $\\to\\infty$，收敛半径为 $+\\infty$，随意求导。",
+          "指标平移 $\\frac{1}{(4n-4)!}$ 后重新记 $m=n-1$，回到原式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y^{(4)}=y$",
+      "concl": "<b>结论</b>$y^{(4)}=y$。",
+      "formulasUsed": [
+        {
+          "name": "逐项求导的合法性",
+          "latex": "$$R=\\lim_{n\\to\\infty}\\left|\\frac{(4n+4)!}{(4n)!}\\right|^{-1}\\cdot? \\Longrightarrow R=+\\infty$$"
+        },
+        {
+          "name": "逐项求导公式",
+          "latex": "$$\\left(\\sum_{n=0}^{\\infty}u_n(x)\\right)'=\\sum_{n=0}^{\\infty}u_n'(x)\\quad(|x|&lt;R)$$"
+        },
+        {
+          "name": "四阶导的指标平移",
+          "latex": "$$\\frac{4n(4n-1)(4n-2)(4n-3)}{(4n)!}=\\frac{1}{(4n-4)!}$$"
+        },
+        {
+          "name": "逐项求导",
+          "latex": "$$y^{(4)}=\\sum_{n\\ge1}\\frac{x^{4n-4}}{(4n-4)!}=y$$"
+        }
+      ]
+    },
+    {
+      "seq": 14,
+      "number": "题 14",
+      "title": "反切差公式",
+      "chapter": 8,
+      "stemHtml": "第十三届初赛补赛（2022）$\\displaystyle\\sum_{n=1}^{\\infty}\\arctan\\frac{2}{4n^2+4n+1}=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母 $(2n+1)^2$ 恰好是 $1+2n(2n+2)$，这就是反切差的分母形状</h3>\r\n  <p>【看到「$\\arctan\\frac{2}{(2n+1)^2}$」→ 调用「$\\arctan a-\\arctan b$，其中 $a=2n+2$、$b=2n$，$a-b=2$、$1+ab=(2n+1)^2$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：望远镜求和</h3>\r\n  <div class=\"fm\">$$\\sum_{n=1}^{N}\\left[\\arctan(2n+2)-\\arctan(2n)\\right]=\\arctan(2N+2)-\\arctan2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取极限</h3>\r\n  <p>$\\arctan(2N+2)\\to\\frac\\pi2$，故和为 $\\frac\\pi2-\\arctan2=\\arctan\\frac12$。</p><p class=\"concl\"><b>结论</b>和为 $\\arctan\\dfrac12$（也写作 $\\dfrac\\pi2-\\arctan2$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\arctan$ 级数先看分母能否写成 $1+ab$。",
+          "$(2n+1)^2=(2n)(2n+2)+1$ 是本题的钥匙。",
+          "望远镜只剩首末：末项是 $\\frac\\pi2$，首项是 $\\arctan2$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\arctan\\dfrac12=\\dfrac\\pi2-\\arctan2$",
+      "concl": "<b>结论</b>和为 $\\arctan\\dfrac12$（也写作 $\\dfrac\\pi2-\\arctan2$）。",
+      "formulasUsed": [
+        {
+          "name": "分母配成平方",
+          "latex": "$$4n^2+4n+1=(2n+1)^2=1+2n(2n+2)$$"
+        },
+        {
+          "name": "反正切差公式",
+          "latex": "$$\\arctan a-\\arctan b=\\arctan\\frac{a-b}{1+ab}$$"
+        },
+        {
+          "name": "取 $a=2n+2,\\ b=2n$",
+          "latex": "$$\\frac{2}{1+2n(2n+2)}=\\frac{2}{(2n+1)^2}$$"
+        },
+        {
+          "name": "$\\arctan\\infty$ 与互余",
+          "latex": "$$\\arctan x+\\arctan\\frac1x=\\frac{\\pi}{2}\\ (x&gt;0)$$"
+        }
+      ]
+    },
+    {
+      "seq": 15,
+      "number": "题 15",
+      "title": "等价代换 + 泰勒公式",
+      "chapter": 8,
+      "stemHtml": "设 $\\lambda&gt;0$，$\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{(n^2-3\\cos n+7)^{\\lambda}}$ 收敛，而 $\\displaystyle\\sum_{n=1}^{\\infty}\\left(\\frac{1}{\\sqrt n}-\\sqrt{\\ln\\left(1+\\frac1n\\right)}\\right)^{\\lambda}$ 发散，则 $\\lambda$ 的取值范围为 ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个条件各管一端，都是把通项化成 $n^{-p}$</h3>\r\n  <p>【看到「收敛 / 发散」两句条件 → 调用「分别求出通项的阶：第一个是 $2\\lambda$，第二个是 $\\frac{3\\lambda}{2}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：由第一个级数收敛</h3>\r\n  <p>$2\\lambda&gt;1$，即 $\\lambda&gt;\\frac12$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：由第二个级数发散</h3>\r\n  <p>通项 $\\sim\\frac{1}{4^\\lambda n^{3\\lambda/2}}$，发散要求 $\\frac{3\\lambda}{2}\\le1$，即 $\\lambda\\le\\frac23$。</p><div class=\"fm\">$$\\frac12&lt;\\lambda\\le\\frac23.$$</div><p class=\"concl\"><b>结论</b>$\\lambda\\in\\left(\\dfrac12,\\dfrac23\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac1{\\sqrt n}-\\sqrt{\\ln(1+\\frac1n)}$ 是有理化后才知道阶为 $\\frac32$ 的，直接展开容易错。",
+          "$\\ln(1+\\frac1n)$ 展开到 $n^{-2}$ 项，减掉 $\\frac1n$ 后才剩 $\\frac{1}{2n^2}$。",
+          "「发散」给 $\\le$，「收敛」给 $&gt;$，一夹就定端点的开闭。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\left(\\dfrac12,\\dfrac23\\right]$",
+      "concl": "<b>结论</b>$\\lambda\\in\\left(\\dfrac12,\\dfrac23\\right]$。",
+      "formulasUsed": [
+        {
+          "name": "分母的阶",
+          "latex": "$$n^2-3\\cos n+7\\sim n^2\\ \\Longrightarrow\\ \\frac{1}{(n^2-3\\cos n+7)^\\lambda}\\sim\\frac{1}{n^{2\\lambda}}$$"
+        },
+        {
+          "name": "$\\sqrt{\\ }$ 的有理化",
+          "latex": "$$\\frac1{\\sqrt n}-\\sqrt{\\ln\\left(1+\\frac1n\\right)}=\\frac{\\frac1n-\\ln\\left(1+\\frac1n\\right)}{\\frac1{\\sqrt n}+\\sqrt{\\ln\\left(1+\\frac1n\\right)}}$$"
+        },
+        {
+          "name": "$\\ln(1+x)$ 的二阶展开",
+          "latex": "$$\\frac1n-\\ln\\left(1+\\frac1n\\right)=\\frac{1}{2n^2}+o\\left(\\frac{1}{n^2}\\right)$$"
+        },
+        {
+          "name": "结论阶数",
+          "latex": "$$\\frac1{\\sqrt n}-\\sqrt{\\ln\\left(1+\\frac1n\\right)}\\sim\\frac{1}{4n^{3/2}}$$"
+        }
+      ]
+    },
+    {
+      "seq": 16,
+      "number": "题 16",
+      "title": "Fourier 正弦级数",
+      "chapter": 8,
+      "stemHtml": "已知 $f(x)$ 在 $(-\\pi,\\pi)$ 上的 Fourier 级数为正弦级数 $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^{n-1}\\frac{\\sin nx}{n}$，求 $f(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：正弦级数就是奇函数展开，先把 $b_n$ 与标准锯齿级数对齐</h3>\r\n  <p>【看到「$\\sum(-1)^{n-1}\\frac{\\sin nx}{n}$」→ 调用「这是 $x/2$ 在 $(-\\pi,\\pi)$ 上的正弦级数；系数 $b_n=\\frac{2(-1)^{n-1}}{n}$ 反推 $f$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：比对系数</h3>\r\n  <p>正弦级数的一般形式是 $\\sum b_n\\sin nx$，故 $b_n=\\frac{2}{\\pi}\\int_0^\\pi f(x)\\sin nx\\,\\mathrm{d}x=\\frac{(-1)^{n-1}}{n}\\cdot?$ 与标准式 $\\sum\\frac{2(-1)^{n-1}}{n}\\sin nx$ 对比，这里缺因子 2，说明 $f(x)=cx$，由 $b_1$ 定出 $c=\\frac12$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：定出函数与端点</h3>\r\n  <p>故 $f(x)=\\frac x2\\ (-\\pi&lt;x&lt;\\pi)$；在 $x=\\pm\\pi$ 上级数和为 $0$，即端点取 $0$。</p><p class=\"concl\"><b>结论</b>$f(x)=\\dfrac x2$（$-\\pi&lt;x&lt;\\pi$），$f(\\pm\\pi)=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "正弦级数 ⇔ 奇函数；余弦级数 ⇔ 偶函数。",
+          "$\\sum(-1)^{n-1}\\frac{\\sin nx}{n}=\\frac x2$ 是必须背的标准式。",
+          "端点要单独交代：级数在 $\\pm\\pi$ 处收敛到左右极限的平均值。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=\\dfrac x2\\ (-\\pi&lt;x&lt;\\pi)$，$f(\\pm\\pi)=0$",
+      "concl": "<b>结论</b>$f(x)=\\dfrac x2$（$-\\pi&lt;x&lt;\\pi$），$f(\\pm\\pi)=0$。",
+      "formulasUsed": [
+        {
+          "name": "正弦级数对应奇函数",
+          "latex": "$$b_n=\\frac{2}{\\pi}\\int_0^{\\pi}f(x)\\sin nx\\,\\mathrm{d}x,\\qquad a_n=0$$"
+        },
+        {
+          "name": "标准锯齿级数",
+          "latex": "$$\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}\\sin nx}{n}=\\frac{x}{2},\\quad -\\pi&lt;x&lt;\\pi$$"
+        },
+        {
+          "name": "端点处的收敛值",
+          "latex": "$$S(\\pm\\pi)=\\frac{f(\\pi-0)+f(-\\pi+0)}{2}=0$$"
+        },
+        {
+          "name": "正弦正交性",
+          "latex": "$$\\frac{2}{\\pi}\\int_0^{\\pi}\\sin nx\\sin mx\\,\\mathrm{d}x=\\delta_{mn}$$"
+        }
+      ]
+    },
+    {
+      "seq": 17,
+      "number": "题 17",
+      "title": "通分 + 望远镜",
+      "chapter": 8,
+      "stemHtml": "设 $x&gt;1$，则 $\\displaystyle\\frac{x}{x+1}+\\frac{x^2}{(x+1)(x^2+1)}+\\frac{x^4}{(x+1)(x^2+1)(x^4+1)}+\\cdots=$ ______。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母是 $(1+x)(1+x^2)(1+x^4)\\cdots$，先通分成 $\\frac{x^{2^n}-1}{x-1}$</h3>\r\n  <p>【看到「$(x+1)(x^2+1)(x^4+1)\\cdots$」→ 调用「$(x-1)(x+1)(x^2+1)\\cdots=x^{2^n}-1$，把部分积写成一个分式」】。化完以后每项形如 $\\frac{x^m}{x^{2m}-1}$，天然裂项。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：通分并裂项</h3>\r\n  <div class=\"fm\">$$S_n=(x-1)\\sum_{k=1}^{n}\\left[\\frac{1}{x^{2^{k-1}}-1}-\\frac{1}{x^{2^k}-1}\\right].$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取极限</h3>\r\n  <p>望远镜得 $S_n=(x-1)\\left[\\frac{1}{x-1}-\\frac{1}{x^{2^n}-1}\\right]\\to1$。</p><p class=\"concl\"><b>结论</b>和为 $1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\prod(1+x^{2^k})$ 一定先乘 $(x-1)$ 化成 $x^{2^n}-1$。",
+          "每项都化成 $\\frac{1}{x^{2^{k-1}}-1}-\\frac{1}{x^{2^k}}-1$ 型，只剩首尾。",
+          "$x&gt;1$ 保证 $\\frac{1}{x^{2^n}-1}\\to0$，这是收敛的边界条件。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$1$",
+      "concl": "<b>结论</b>和为 $1$。",
+      "formulasUsed": [
+        {
+          "name": "部分积公式",
+          "latex": "$$\\prod_{k=0}^{n-1}\\left(1+x^{2^k}\\right)=\\frac{x^{2^n}-1}{x-1}$$"
+        },
+        {
+          "name": "部分和",
+          "latex": "$$S_n=\\sum_{k=1}^{n}\\frac{x^{2^{k-1}}}{\\prod_{j=0}^{k-1}\\left(1+x^{2^j}\\right)}=(x-1)\\sum_{k=1}^{n}\\frac{x^{2^{k-1}}}{x^{2^k}-1}$$"
+        },
+        {
+          "name": "裂项",
+          "latex": "$$\\frac{x^{m}}{x^{2m}-1}=\\frac{x^{2^{k-1}}}{x^{2^k}-1}=\\frac{1}{x^{2^{k-1}}-1}-\\frac{1}{x^{2^k}-1}$$"
+        },
+        {
+          "name": "极限",
+          "latex": "$$\\lim_{n\\to\\infty}\\frac{1}{x^{2^n}-1}=0\\ (x&gt;1)$$"
+        }
+      ]
+    },
+    {
+      "seq": 18,
+      "number": "题 18",
+      "title": "交换求和顺序 + 对数级数",
+      "chapter": 8,
+      "stemHtml": "求 $\\displaystyle\\sum_{k=1}^{\\infty}\\sum_{m=1}^{n}\\frac{n(m-1)}{(nk+m-1)(nk+m)}\\ (n\\in\\mathbb{N}^+)$ 的值。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：内层是 $m$ 的差分结构，先把它算成一个「第 $k$ 项」的表达式</h3>\r\n  <p>【看到「$\\frac{m-1}{(nk+m-1)(nk+m)}$」→ 调用「$\\frac{m-1}{(A-1)A}=\\frac{A-1-nk}{A(A-1)}$ 型的差分：$m-1=(nk+m-1)-nk$」】。内层化简后外层只剩两个调和和。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：内层化简</h3>\r\n  <div class=\"fm\">$$\\sum_{m=1}^{n}\\frac{n(m-1)}{(nk+m-1)(nk+m)}=n\\left[\\frac{1}{nk}-\\frac{n-1}{nk+n}\\right].$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：外层求和并取极限</h3>\r\n  <div class=\"fm\">$$S_N=n\\left[\\frac{H_N}{n}-\\frac{n-1}{n}\\left(H_{N+1}-1\\right)\\right]\\to n\\left(\\ln n-H_n+1\\right)=n\\left(\\ln n-H_{n-1}\\right).$$</div><p class=\"concl\"><b>结论</b>值为 $n\\left(\\ln n-H_n+1\\right)$，也写作 $n\\left(\\ln n-H_{n-1}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "内层是 $m$ 的望远镜，先把 $m$ 和掉再谈 $k$。",
+          "$H_{N+1}-H_N\\to0$，所以 $\\ln$ 项只与 $n$ 有关。",
+          "结果里 $\\ln n-H_n$ 是「调和与对数之差」，极限为 $-\\gamma$ 的那个量。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$n\\left(\\ln n-H_n+1\\right)$",
+      "concl": "<b>结论</b>值为 $n\\left(\\ln n-H_n+1\\right)$，也写作 $n\\left(\\ln n-H_{n-1}\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "内层拆项",
+          "latex": "$$\\frac{n(m-1)}{(nk+m-1)(nk+m)}=n\\left[\\frac{1}{nk+m-1}-\\frac{m}{nk+m}\\right]$$"
+        },
+        {
+          "name": "内层求和写成差分",
+          "latex": "$$\\sum_{m=1}^{n}\\frac{n(m-1)}{(nk+m-1)(nk+m)}=n\\left[\\frac{1}{nk}-\\frac{n-1}{nk+n}\\right]$$"
+        },
+        {
+          "name": "拆分后求极限",
+          "latex": "$$\\sum_{k=1}^{N}\\frac{1}{nk}=\\frac1n\\sum_{k=1}^{N}\\frac1k=\\frac{H_N}{n}$$"
+        },
+        {
+          "name": "第二个和",
+          "latex": "$$\\sum_{k=1}^{N}\\frac{n-1}{nk+n}=\\frac{n-1}{n}\\sum_{k=1}^{N}\\frac{1}{k+1}=\\frac{n-1}{n}\\left(H_{N+1}-1\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 19,
+      "number": "题 19",
+      "title": "AM-GM 放缩 + 望远镜",
+      "chapter": 8,
+      "stemHtml": "证明：$\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{\\sqrt n\\,(n+1)}&lt;2$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：要证和小于 2，就得把每项压成能望远镜的差</h3>\r\n  <p>【看到「$\\frac{1}{\\sqrt n\\,(n+1)}$ 与上界 $2$」→ 调用「$\\frac{1}{\\sqrt n}-\\frac{1}{\\sqrt{n+1}}$ 型望远镜，其总量恰为 $2$」】。只需逐项证 $\\frac{1}{\\sqrt n(n+1)}\\le2\\left(\\frac{1}{\\sqrt n}-\\frac{1}{\\sqrt{n+1}}\\right)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：验证逐项不等式</h3>\r\n  <p>两边乘 $\\sqrt n(n+1)$ 得 $1\\le2(n+1)-2\\sqrt{n(n+1)}$，即 $2\\sqrt{n(n+1)}\\le2n+1$，由 AM-GM 成立。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求和取极限</h3>\r\n  <div class=\"fm\">$$\\sum_{n=1}^{N}\\frac{1}{\\sqrt n(n+1)}\\le2\\left(1-\\frac{1}{\\sqrt{N+1}}\\right)&lt;2.$$</div><p class=\"concl\"><b>结论</b>原级数收敛且和小于 $2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "上界估计题先找「望远镜差」，别硬算部分和。",
+          "$\\frac{1}{\\sqrt n}-\\frac{1}{\\sqrt{n+1}}$ 的整段和为 $1$，乘 2 正好卡住上界 2。",
+          "验证逐项不等式靠 AM-GM，两个根号的和不超过 $2n+1$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>级数收敛，且和 $&lt;2$",
+      "concl": "<b>结论</b>原级数收敛且和小于 $2$。",
+      "formulasUsed": [
+        {
+          "name": "待证的不等式",
+          "latex": "$$\\frac{1}{\\sqrt n(n+1)}\\le 2\\left(\\frac{1}{\\sqrt n}-\\frac{1}{\\sqrt{n+1}}\\right)$$"
+        },
+        {
+          "name": "等价形式",
+          "latex": "$$\\Longleftrightarrow\\ 1\\le 2(n+1)-2\\sqrt{n(n+1)}$$"
+        },
+        {
+          "name": "AM-GM",
+          "latex": "$$2\\sqrt{n(n+1)}&lt;n+(n+1)=2n+1$$"
+        },
+        {
+          "name": "望远镜和",
+          "latex": "$$\\sum_{n=1}^{N}2\\left(\\frac{1}{\\sqrt n}-\\frac{1}{\\sqrt{n+1}}\\right)=2\\left(1-\\frac{1}{\\sqrt{N+1}}\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 20,
+      "number": "题 20",
+      "title": "Fourier 级数 + 逐次积分",
+      "chapter": 8,
+      "stemHtml": "设 $\\zeta(n)=1+\\dfrac{1}{2^n}+\\dfrac{1}{3^n}+\\cdots\\ (n=2,3,\\cdots)$。证明：\r\n$$\\frac{\\zeta_{2n}}{\\pi^{2n}}-\\frac{\\zeta_{2n-2}}{3!\\,\\pi^{2n-2}}+\\frac{\\zeta_{2n-4}}{5!\\,\\pi^{2n-4}}-\\cdots+(-1)^{n-1}\\frac{\\zeta_2}{(2n-1)!\\,\\pi^{2}}+(-1)^{n}\\frac{n}{(2n+1)!}=0.$$",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：要证的是 $\\zeta_{2k}$ 与 $\\pi$ 的幂、阶乘的线性组合，这只能是逐次积分 Fourier 级数的产物</h3>\r\n  <p>【看到「$\\frac{\\zeta_{2n}}{\\pi^{2n}},\\frac{\\zeta_{2n-2}}{3!\\pi^{2n-2}},\\cdots$」→ 调用「$(0,2\\pi)$ 上 $\\frac x2$ 的 Fourier 级数；连续积分 $2n$ 次，每次给分母添一个 $n$，代 $x=\\pi$ 后 $\\sum\\frac{1}{n^{2k}}$ 就是 $\\zeta_{2k}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：积分两次看规律</h3>\r\n  <p>对 $\\frac x2=\\frac\\pi2-\\sum\\frac{\\sin nx}{n}$ 从 $0$ 到 $x$ 积分两次，右端出现 $\\frac{x^2}{4}$ 与 $\\sum\\frac{1-\\cos nx}{n^3}$；继续积分，$\\sin$ 与 $\\cos$ 交替、分母 $n$ 的幂次递增，$\\frac{\\pi}{2}$ 生成 $x$ 的多项式项。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：积分 $2n$ 次后令 $x=\\pi$</h3>\r\n  <p>此时右端的 $\\cos$ 项在 $x=\\pi$ 处给出 $(-1)^n$，$\\sin$ 项归零；把 $\\sum n^{-2k}$ 记成 $\\zeta_{2k}$，按 $\\pi$ 的幂次归并、两边除以 $\\pi^{2n}$，即得所证等式。$n=1$ 时退化为 $\\frac{\\zeta_2}{\\pi^2}-\\frac{1}{3!}=0$，即 $\\zeta_2=\\frac{\\pi^2}{6}$，正是经典结果。</p><p class=\"concl\"><b>结论</b>恒等式成立，它本质上是 $\\cot$ 展开（或 $\\zeta_{2k}$ 生成函数）的另一种写法。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\zeta_{2k}$ 出现在级数题里，几乎都是 Fourier 级数逐次积分的结果。",
+          "积分一次 $\\sin nx$ 变 $1-\\cos nx$，积分两次才回到 $\\sin$，相位每两次一循环。",
+          "代 $x=\\pi$：$\\sin$ 项全灭、$\\cos$ 项给 $(-1)^n$，$n=1$ 就是 $\\zeta_2=\\pi^2/6$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>恒等式成立（等价于 $\\zeta_2=\\dfrac{\\pi^2}{6}$ 的推广）",
+      "concl": "<b>结论</b>恒等式成立，它本质上是 $\\cot$ 展开（或 $\\zeta_{2k}$ 生成函数）的另一种写法。",
+      "formulasUsed": [
+        {
+          "name": "$(0,2\\pi)$ 上的锯齿级数",
+          "latex": "$$\\frac x2=\\frac{\\pi}{2}-\\sum_{n=1}^{\\infty}\\frac{\\sin nx}{n},\\quad 0&lt;x&lt;2\\pi$$"
+        },
+        {
+          "name": "每次积分的效果",
+          "latex": "$$\\int_0^x\\sin(nt)\\,\\mathrm{d}t=\\frac{1-\\cos nx}{n},\\quad \\int_0^x\\cos(nt)\\,\\mathrm{d}t=\\frac{\\sin nx}{n}$$"
+        },
+        {
+          "name": "$\\zeta$ 的来源",
+          "latex": "$$\\zeta_{2k}=\\sum_{n=1}^{\\infty}\\frac{1}{n^{2k}}$$"
+        },
+        {
+          "name": "代 $x=\\pi$ 的取值",
+          "latex": "$$\\sin n\\pi=0,\\qquad \\cos n\\pi=(-1)^n$$"
+        }
+      ]
+    },
+    {
+      "seq": 21,
+      "number": "题 21",
+      "title": "Abel 型定理 + 分部求和",
+      "chapter": 8,
+      "stemHtml": "设幂级数 $f(x)=\\displaystyle\\sum_{n=1}^{\\infty}a_nx^n$ 的收敛半径为 $1$，且 $\\displaystyle\\lim_{n\\to\\infty}na_n=0$，$\\displaystyle\\lim_{x\\to1^-}f(x)=S$。证明：$\\displaystyle\\sum_{n=1}^{\\infty}a_n=S$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：条件只给 $a_n=o(1/n)$，单靠它不足以保证收敛，必须把「$f(x)\\to S$」和部分和贴在一起</h3>\r\n  <p>【看到「$\\lim na_n=0$ 且 $\\lim_{x\\to1^-}f(x)=S$」→ 调用「Abel 型论证：取 $x_n=1-\\frac1n$，用 $1-x^k\\le k(1-x)$ 与 $\\sum_{k&gt;n}x^k/k$ 的估计把 $|S_n-f(x_n)|$ 压到 $0$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：控制前段的差</h3>\r\n  <p>取 $x_n=1-\\frac1n$，则 $\\sum_{k\\le n}\\left|a_k\\right|\\left(1-x_n^k\\right)\\le\\frac1n\\sum_{k\\le n}k\\left|a_k\\right|\\to0$（Stolz）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：控制尾段并收尾</h3>\r\n  <p>$\\left|\\sum_{k&gt;n}a_kx_n^k\\right|\\le\\max_{k&gt;n}\\left(k|a_k|\\right)\\sum_{k&gt;n}\\frac{x_n^k}{k}\\le\\varepsilon\\cdot\\frac{x_n^n}{n(1-x_n)}\\le\\varepsilon$。故 $S_n-f(x_n)\\to0$，而 $f(x_n)\\to S$，于是 $S_n\\to S$。</p><p class=\"concl\"><b>结论</b>$\\sum a_n=S$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$na_n\\to0$ 只说明 $a_n$ 比 $\\frac1n$ 小，还需要「$x\\to1^-$ 的极限存在」这一条才能锁定收敛。",
+          "取 $x_n=1-\\frac1n$ 是关键：此时 $1-x_n=\\frac1n$，两个估计恰好都变成 $o(1)$。",
+          "前段用 $1-x^k\\le k(1-x)$，后段用 $\\sum x^k/k\\le x^n/(n(1-x))$，一前一后夹死。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\displaystyle\\sum_{n=1}^{\\infty}a_n=S$",
+      "concl": "<b>结论</b>$\\sum a_n=S$。",
+      "formulasUsed": [
+        {
+          "name": "$\\frac1n$ 型的剥离",
+          "latex": "$$na_n\\to0\\ \\Longrightarrow\\ a_n=o\\left(\\frac1n\\right)$$"
+        },
+        {
+          "name": "Stolz 定理",
+          "latex": "$$\\lim_{n\\to\\infty}\\frac{\\sum_{k=1}^{n}k\\left|a_k\\right|}{n}=0$$"
+        },
+        {
+          "name": "部分和与 $f(x_n)$ 的差",
+          "latex": "$$S_n-f(x_n)=\\sum_{k=1}^{n}a_k\\left[1-x_n^{k}\\right]-\\sum_{k&gt;n}a_kx_n^{k}$$"
+        },
+        {
+          "name": "两个基本估计",
+          "latex": "$$1-x^k\\le k(1-x),\\qquad \\sum_{k&gt;n}\\frac{x^{k}}{k}\\le\\frac{x^{n}}{n(1-x)}$$"
+        }
+      ]
+    },
+    {
+      "seq": 22,
+      "number": "题 22",
+      "title": "积分放缩 + 比较判别",
+      "chapter": 8,
+      "stemHtml": "讨论级数 $\\displaystyle\\sum_{n=0}^{\\infty}\\int_0^{\\alpha}x^n\\sin(\\pi x)\\,\\mathrm{d}x\\ (0&lt;\\alpha&lt;1)$ 的收敛性。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$0&lt;\\alpha&lt;1$ 时 $\\sin\\pi x\\ge0$，积分项全为正，直接用比较判别</h3>\r\n  <p>【看到「$\\int_0^\\alpha x^n\\sin\\pi x\\,\\mathrm{d}x$ 且 $0&lt;\\alpha&lt;1$」→ 调用「$\\sin\\pi x\\le\\pi x(1-x)$，把积分放大成 $\\frac{\\pi}{(n+1)(n+2)}$，再与 $\\sum\\frac1{n^2}$ 比较」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：放大积分</h3>\r\n  <p>把积分上限扩到 $1$（被积函数非负），并用 $\\sin\\pi x\\le\\pi x(1-x)$：</p><div class=\"fm\">$$0\\le\\int_0^{\\alpha}x^n\\sin\\pi x\\,\\mathrm{d}x\\le\\pi\\int_0^{1}x^n(1-x)\\,\\mathrm{d}x=\\frac{\\pi}{(n+1)(n+2)}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：比较判别</h3>\r\n  <p>$\\frac{\\pi}{(n+1)(n+2)}\\le\\frac{\\pi}{n^2}$ 而 $\\sum n^{-2}$ 收敛，故原级数收敛。</p><p class=\"concl\"><b>结论</b>级数收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$0&lt;\\alpha&lt;1$ 是让 $\\sin\\pi x$ 恒非负的关键，没有它不能直接比较。",
+          "$\\sin\\pi x\\le\\pi x(1-x)$ 是这道题的标准放缩（抛物线控制正弦）。",
+          "$\\int_0^1x^n(1-x)\\mathrm{d}x=\\frac{1}{(n+1)(n+2)}$，Beta 函数要记住。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛",
+      "concl": "<b>结论</b>级数收敛。",
+      "formulasUsed": [
+        {
+          "name": "被积函数的符号",
+          "latex": "$$0\\le x\\le\\alpha&lt;1\\ \\Longrightarrow\\ \\sin\\pi x\\ge0$$"
+        },
+        {
+          "name": "$\\sin\\pi x$ 的放缩",
+          "latex": "$$\\sin\\pi x\\le\\pi x(1-x)\\le\\pi x$$"
+        },
+        {
+          "name": "积分估计",
+          "latex": "$$0\\le\\int_0^{\\alpha}x^n\\sin\\pi x\\,\\mathrm{d}x\\le\\pi\\int_0^{1}x^n(1-x)\\,\\mathrm{d}x=\\frac{\\pi}{(n+1)(n+2)}$$"
+        },
+        {
+          "name": "比较",
+          "latex": "$$\\frac{\\pi}{(n+1)(n+2)}\\le\\frac{\\pi}{n^2},\\qquad \\sum\\frac{1}{n^2}\\ \\text{收敛}$$"
+        }
+      ]
+    },
+    {
+      "seq": 23,
+      "number": "题 23",
+      "title": "幂和估计 + 比较判别",
+      "chapter": 8,
+      "stemHtml": "讨论级数 $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{B_n\\left(\\log_n2\\right)}{\\left(n\\log_2n\\right)^2}$ 的收敛性，其中 $B_n(x)=1^x+2^x+\\cdots+n^x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$B_n(x)$ 里 $n$ 是项数也是底数，先用 $B_n(x)\\le n^{x+1}$ 压掉</h3>\r\n  <p>【看到「$B_n(\\log_n2)$」→ 调用「$B_n(x)\\le n^{x+1}$，而 $n^{\\log_n2}=2$，于是 $B_n\\le2n$」】。剩下的就是 $\\frac{1}{n\\log_2^2n}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：放缩</h3>\r\n  <p>$\\log_2^2n=\\left(\\frac{\\ln n}{\\ln2}\\right)^2$，通项不超过 $\\frac{2\\ln^22}{n\\ln^2n}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：积分判别</h3>\r\n  <p>$\\int_2^{\\infty}\\frac{\\mathrm{d}x}{x\\ln^2x}=\\frac{1}{\\ln2}&lt;+\\infty$，故级数收敛。</p><p class=\"concl\"><b>结论</b>级数收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\log_n2$ 是个「随 $n$ 变」的指数，先化成常数 2 再判断。",
+          "$B_n(x)\\le n^{x+1}$ 是最省事的幂和上界，够用即可。",
+          "$\\sum\\frac{1}{n\\ln^p n}$ 当 $p&gt;1$ 收敛，$p\\le1$ 发散，这是本题的判据核心。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛",
+      "concl": "<b>结论</b>级数收敛。",
+      "formulasUsed": [
+        {
+          "name": "幂和的粗估计",
+          "latex": "$$B_n(x)=1^x+\\cdots+n^x\\le n\\cdot n^x=n^{x+1}$$"
+        },
+        {
+          "name": "取 $x=\\log_n2$",
+          "latex": "$$n^{x}=n^{\\log_n2}=2\\ \\Longrightarrow\\ B_n\\left(\\log_n2\\right)\\le2n$$"
+        },
+        {
+          "name": "代入通项",
+          "latex": "$$0\\le\\frac{B_n(\\log_n2)}{(n\\log_2n)^2}\\le\\frac{2n}{n^2\\log_2^2n}=\\frac{2}{n\\log_2^2n}$$"
+        },
+        {
+          "name": "积分判别",
+          "latex": "$$\\sum_{n\\ge2}\\frac{1}{n\\ln^2n}\\ \\text{收敛}$$"
+        }
+      ]
+    },
+    {
+      "seq": 24,
+      "number": "题 24",
+      "title": "按位数分块计数",
+      "chapter": 8,
+      "stemHtml": "设正整数 $n$ 的三进制表示中数字 $0$ 的个数为 $a(n)$，讨论级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{x^{a(n)}}{n^3}$ 的收敛域（$x&gt;0$）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$a(n)$ 只与三进制的「位数」和「其中有几个零」有关，天然按位数分块</h3>\r\n  <p>【看到「$a(n)$ 是三进制里 $0$ 的个数」→ 调用「按位数 $k$ 分块：$k+1$ 位数里除首位外有 $\\binom{k}{i}$ 种位置放 $i$ 个零，剩下 $k-i$ 位各有 2 种选择」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算出块和</h3>\r\n  <p>块内和 $=2\\sum_i\\binom{k}{i}x^i2^{k-i}=2(x+2)^k$，再用 $n^3$ 在 $[3^{3k},3^{3k+3})$ 上夹住它。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：判收敛</h3>\r\n  <p>整段和与几何级数 $\\sum\\left(\\frac{x+2}{27}\\right)^k$ 同敛散，故收敛当且仅当 $\\frac{x+2}{27}&lt;1$，即 $0&lt;x&lt;25$。</p><p class=\"concl\"><b>结论</b>收敛域为 $0&lt;x&lt;25$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "带数位结构的级数，一律「按位数分块 + 块内计数」。",
+          "$\\binom{k}{i}2^{k+1-i}$ 求和恰好是 $2(x+2)^k$，这是二项式定理。",
+          "块和用 $n^3\\approx27^k$ 夹，公比 $\\frac{x+2}{27}&lt;1$ 就是 $x&lt;25$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$0&lt;x&lt;25$",
+      "concl": "<b>结论</b>收敛域为 $0&lt;x&lt;25$。",
+      "formulasUsed": [
+        {
+          "name": "按三进制位数分块",
+          "latex": "$$3^k\\le n&lt;3^{k+1}-1\\ \\Longrightarrow\\ a(n)=i\\ \\text{的个数为}\\ \\binom{k}{i}2^{k+1-i}$$"
+        },
+        {
+          "name": "块内幂和",
+          "latex": "$$\\sum_{n=3^k}^{3^{k+1}-1}x^{a(n)}=\\sum_{i=0}^{k}\\binom{k}{i}x^{i}2^{k+1-i}=2(x+2)^k$$"
+        },
+        {
+          "name": "用 $n^3$ 夹住块和",
+          "latex": "$$\\frac{2(x+2)^k}{3^{3k+3}}&lt;\\sum_{n=3^k}^{3^{k+1}-1}\\frac{x^{a(n)}}{n^3}&lt;\\frac{2(x+2)^k}{3^{3k}}$$"
+        },
+        {
+          "name": "公比",
+          "latex": "$$\\frac{x+2}{27}$$"
+        }
+      ]
+    },
+    {
+      "seq": 25,
+      "number": "题 25",
+      "title": "换元 + 放缩",
+      "chapter": 8,
+      "stemHtml": "设 $a_n=\\displaystyle\\int_0^{\\pi/4}\\tan^n x\\,\\mathrm{d}x$。(1) 求和 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n}\\left(a_n+a_{n+2}\\right)$；(2) 证明对任意 $\\lambda&gt;0$，级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{a_n}{\\lambda^n}$ 收敛。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：(1) 里 $a_n+a_{n+2}$ 是 $\\tan^n x(1+\\tan^2x)$，正好是 $\\tan^n x$ 的微分；(2) 只需给 $a_n$ 一个 $1/(n+1)$ 的上界</h3>\r\n  <p>【看到「$a_n+a_{n+2}=\\int\\tan^nx(1+\\tan^2x)\\mathrm{d}x$」→ 调用「$1+\\tan^2x=\\sec^2x=(\\tan x)'$，换元 $t=\\tan x$ 后是 $\\int_0^1t^n\\mathrm{d}t$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：求 (1) 的和</h3>\r\n  <div class=\"fm\">$$\\sum_{n=1}^{\\infty}\\frac{1}{n}\\left(a_n+a_{n+2}\\right)=\\sum_{n=1}^{\\infty}\\frac{1}{n(n+1)}=1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：证 (2)</h3>\r\n  <p>对任意 $\\lambda&gt;0$，$\\frac{a_n}{\\lambda^n}&lt;\\frac{1}{(n+1)\\lambda^n}$，而 $\\sum\\frac{1}{(n+1)\\lambda^n}$ 收敛（比值 $\\frac1\\lambda$ 或直接比较几何级数），故原级数收敛。</p><p class=\"concl\"><b>结论</b>(1) 和为 $1$；(2) 级数收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\tan^n x\\sec^2x$ 一律换元 $t=\\tan x$，$a_n+a_{n+2}$ 就是这一手。",
+          "用 $1+t^2&gt;1$ 把 $a_n$ 压到 $\\frac{1}{n+1}$，此后一切都好办。",
+          "$\\lambda$ 再小也没关系：几何因子 $1/\\lambda^n$ 一定压过 $\\frac{1}{n+1}$ 的多项式衰减。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $1$；(2) 收敛",
+      "concl": "<b>结论</b>(1) 和为 $1$；(2) 级数收敛。",
+      "formulasUsed": [
+        {
+          "name": "$a_n+a_{n+2}$ 的合并",
+          "latex": "$$\\frac{1}{n}\\left(a_n+a_{n+2}\\right)=\\frac1n\\int_0^{\\pi/4}\\tan^n x\\sec^2x\\,\\mathrm{d}x=\\frac{1}{n}\\int_0^{\\pi/4}\\tan^n x\\,\\mathrm{d}(\\tan x)$$"
+        },
+        {
+          "name": "换元 $t=\\tan x$",
+          "latex": "$$\\frac1n\\left[a_n+a_{n+2}\\right]=\\frac1n\\int_0^{1}t^n\\,\\mathrm{d}t=\\frac{1}{n(n+1)}$$"
+        },
+        {
+          "name": "$a_n$ 的上界",
+          "latex": "$$a_n=\\int_0^1\\frac{t^n}{1+t^2}\\,\\mathrm{d}t&lt;\\int_0^{1}t^n\\,\\mathrm{d}t=\\frac{1}{n+1}$$"
+        },
+        {
+          "name": "几何控制",
+          "latex": "$$0&lt;\\frac{a_n}{\\lambda^n}&lt;\\frac{1}{(n+1)\\lambda^n}$$"
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "number": "题 26",
+      "title": "比较判别法的比值形式",
+      "chapter": 8,
+      "stemHtml": "设 $\\{a_n\\},\\{b_n\\}$ 为正项数列。证明：若对一切 $n$ 有 $\\dfrac{a_n}{a_{n+1}}\\ge\\dfrac{b_n}{b_{n+1}}$，则当 $\\sum a_n$ 发散时 $\\sum b_n$ 必发散；当 $\\sum b_n$ 收敛时 $\\sum a_n$ 必收敛。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：单看一项不等式没用，要把它连乘起来，才能得到 $a_n$ 与 $b_n$ 的固定倍数关系</h3>\r\n  <p>【看到「$\\frac{a_n}{a_{n+1}}\\ge\\frac{b_n}{b_{n+1}}$」→ 调用「对 $k=1,\\cdots,n$ 连乘，两边望远镜得 $\\frac{a_1}{a_{n+1}}\\ge\\frac{b_1}{b_{n+1}}$，于是 $b_{n+1}\\ge c\\,a_{n+1}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：连乘</h3>\r\n  <p>记 $c=\\frac{b_1}{a_1}&gt;0$，连乘得 $a_{n+1}\\le\\frac{a_1}{b_1}b_{n+1}=\\frac1c b_{n+1}$，即 $b_{n+1}\\ge c\\,a_{n+1}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两次比较</h3>\r\n  <p>$\\sum a_n$ 发散 $\\Rightarrow\\sum c\\,a_n$ 发散 $\\Rightarrow\\sum b_n$ 发散；反过来 $\\sum b_n$ 收敛 $\\Rightarrow\\sum a_n$ 收敛（否则与前者矛盾）。</p><p class=\"concl\"><b>结论</b>两个结论都成立，本质是「$b_n$ 不小于 $a_n$ 的固定倍数」。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "比值型条件一定连乘，单看一项推不出通项大小的关系。",
+          "连乘的结果是 $a_{n+1}\\le\\frac{a_1}{b_1}b_{n+1}$，即「同阶，常数因子由首项定」。",
+          "「发散推发散、收敛推收敛」互为逆否，证一个即可。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\sum a_n$ 发散 $\\Rightarrow\\sum b_n$ 发散；$\\sum b_n$ 收敛 $\\Rightarrow\\sum a_n$ 收敛",
+      "concl": "<b>结论</b>两个结论都成立，本质是「$b_n$ 不小于 $a_n$ 的固定倍数」。",
+      "formulasUsed": [
+        {
+          "name": "连乘得到的不等式",
+          "latex": "$$\\frac{a_1}{a_{n+1}}=\\prod_{k=1}^{n}\\frac{a_k}{a_{k+1}}\\ge\\prod_{k=1}^{n}\\frac{b_k}{b_{k+1}}=\\frac{b_1}{b_{n+1}}$$"
+        },
+        {
+          "name": "化成正项比较",
+          "latex": "$$\\frac{a_1}{b_1}\\ge\\frac{a_{n+1}}{b_{n+1}}\\ \\Longrightarrow\\ b_{n+1}\\ge\\frac{b_1}{a_1}a_{n+1}$$"
+        },
+        {
+          "name": "比较判别法",
+          "latex": "$$b_n\\ge c\\,a_n\\ (c&gt;0)\\ \\Longrightarrow\\ \\sum a_n\\ \\text{发散}\\Rightarrow\\sum b_n\\ \\text{发散}$$"
+        },
+        {
+          "name": "逆否形式",
+          "latex": "$$\\sum b_n\\ \\text{收敛}\\Rightarrow\\sum a_n\\ \\text{收敛}$$"
+        }
+      ]
+    },
+    {
+      "seq": 27,
+      "number": "题 27",
+      "title": "Bell 数 + 组合计数",
+      "chapter": 8,
+      "stemHtml": "设 $z(k)=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{n^k}{n!}\\mathrm{e}^{-1}$（$k=0,1,2,\\cdots$）。(1) 求 $z(0),z(1),z(2)$；(2) 证明 $k$ 为正整数时 $z(k)$ 为正整数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$e^{-1}\\sum n^k/n!$ 是 Poisson(1) 分布的 $k$ 阶矩，先手算 0、1、2 阶</h3>\r\n  <p>【看到「$\\mathrm{e}^{-1}\\sum\\frac{n^k}{n!}$」→ 调用「$\\sum\\frac{x^n}{n!}=\\mathrm{e}^x$，用 $x\\frac{\\mathrm{d}}{\\mathrm{d}x}$ 作用 $k$ 次再令 $x=1$」】。这样得到的是整数。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算前三个值</h3>\r\n  <div class=\"fm\">$$z(0)=1,\\qquad z(1)=1,\\qquad z(2)=2.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：说明是正整数</h3>\r\n  <p>由 $n^k=\\sum_i S(k,i)\\,n(n-1)\\cdots(n-i+1)$（第二类 Stirling 数），而 $\\mathrm{e}^{-1}\\sum\\frac{n(n-1)\\cdots(n-i+1)}{n!}=1$，故</p><div class=\"fm\">$$z(k)=\\sum_{i=0}^{k}S(k,i)\\in\\mathbb{N}^+,$$</div><p>它正是第 $k$ 个 Bell 数。</p><p class=\"concl\"><b>结论</b>$z(0)=z(1)=1$，$z(2)=2$；$z(k)$ 为 Bell 数，是正整数。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\mathrm{e}^{-1}\\sum\\frac{n^k}{n!}$ 是 Poisson(1) 的 $k$ 阶矩，也可看作 Bell 数。",
+          "$n^k$ 用第二类 Stirling 数展开成下降阶乘，每一项求和都等于 1。",
+          "先手算 $k=0,1,2$：$1,1,2$，能快速校验公式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $z(0)=z(1)=1,\\ z(2)=2$；(2) $z(k)$ 为 Bell 数，是正整数",
+      "concl": "<b>结论</b>$z(0)=z(1)=1$，$z(2)=2$；$z(k)$ 为 Bell 数，是正整数。",
+      "formulasUsed": [
+        {
+          "name": "指数级数归一",
+          "latex": "$$\\sum_{n=0}^{\\infty}\\frac{1}{n!}\\mathrm{e}^{-1}=1,\\qquad \\sum_{n=0}^{\\infty}\\frac{n}{n!}\\mathrm{e}^{-1}=1$$"
+        },
+        {
+          "name": "二阶矩",
+          "latex": "$$\\sum_{n=0}^{\\infty}\\frac{n^2}{n!}\\mathrm{e}^{-1}=\\left.\\left(x\\frac{\\mathrm{d}}{\\mathrm{d}x}\\right)^2\\mathrm{e}^{x}\\right|_{x=1}=2$$"
+        },
+        {
+          "name": "递推",
+          "latex": "$$z(k+1)=\\sum_{i=0}^{k}\\binom{k}{i}z(i)$$"
+        },
+        {
+          "name": "组合意义",
+          "latex": "$$z(k)=B_k\\ \\text{（第 }k\\text{ 个 Bell 数：把 }k\\text{ 元集合分成若干块的方法数）}$$"
+        }
+      ]
+    },
+    {
+      "seq": 28,
+      "number": "题 28",
+      "title": "端点单独讨论",
+      "chapter": 8,
+      "stemHtml": "求幂级数 $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{x^n}{n^p\\ln n}$ 的收敛域（讨论 $p$ 的取值）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先算收敛半径，再把 $x=\\pm1$ 分别代进去，$p$ 的分界来自 $\\sum\\frac{1}{n^p\\ln n}$</h3>\r\n  <p>【看到「$n^p\\ln n$ 在分母」→ 调用「$R=1$；$x=1$ 是 $\\sum\\frac{1}{n^p\\ln n}$，只在 $p&gt;1$ 收敛；$x=-1$ 是交错级数，Leibniz 保证对一切 $p$ 收敛」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定半径</h3>\r\n  <p>$\\frac{a_n}{a_{n+1}}\\to1$，$R=1$，故 $|x|&lt;1$ 收敛、$|x|&gt;1$ 发散。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：端点分类</h3>\r\n  <p>$x=1$：$p&gt;1$ 收敛，$p\\le1$ 发散；$x=-1$：$\\frac{1}{n^p\\ln n}$ 单调趋于 $0$，交错级数收敛。合并得三种情形（$p=0$ 归入 $0&lt;p\\le1$ 一档的 $(-1,1)$）。</p><p class=\"concl\"><b>结论</b>$p&lt;0$ 或 $p=0$ 时 $(-1,1)$；$0&lt;p\\le1$ 时 $[-1,1)$；$p&gt;1$ 时 $[-1,1]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\ln n$ 因子不影响收敛半径，只影响端点。",
+          "$x=-1$ 的交错级数只要 $a_n$ 单调趋零就收敛，$\\ln n$ 不破坏单调性（$n\\ge3$）。",
+          "$\\sum\\frac{1}{n^p\\ln n}$ 的界是 $p&gt;1$，与 $\\sum\\frac{1}{n^p}$ 一致，因为 $\\ln n$ 增长极慢。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$p\\le0$：$(-1,1)$；$0&lt;p\\le1$：$[-1,1)$；$p&gt;1$：$[-1,1]$",
+      "concl": "<b>结论</b>$p&lt;0$ 或 $p=0$ 时 $(-1,1)$；$0&lt;p\\le1$ 时 $[-1,1)$；$p&gt;1$ 时 $[-1,1]$。",
+      "formulasUsed": [
+        {
+          "name": "系数与半径",
+          "latex": "$$a_n=\\frac{1}{n^p\\ln n},\\qquad R=\\lim\\left|\\frac{a_n}{a_{n+1}}\\right|=1$$"
+        },
+        {
+          "name": "$x=1$ 处",
+          "latex": "$$\\sum_{n\\ge2}\\frac{1}{n^p\\ln n}\\ \\text{收敛}\\iff p&gt;1$$"
+        },
+        {
+          "name": "$x=-1$ 处",
+          "latex": "$$\\sum_{n\\ge2}\\frac{(-1)^n}{n^p\\ln n}\\ \\text{收敛（Leibniz，对一切 }p)$$"
+        },
+        {
+          "name": "分段结论",
+          "latex": "$$p&lt;0\\Rightarrow(-1,1);\\quad 0&lt;p\\le1\\Rightarrow[-1,1);\\quad p&gt;1\\Rightarrow[-1,1]$$"
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "number": "题 29",
+      "title": "系数递推 + 广义二项式",
+      "chapter": 8,
+      "stemHtml": "设 $a_0=1$，$a_1=\\dfrac12$，且 $na_n=\\left[\\dfrac12+(n-1)\\right]a_{n-1}\\ (n\\ge2)$，求 $\\displaystyle\\sum_{n=0}^{\\infty}a_nx^n$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：递推式右边只有 $a_{n-1}$，一路连乘就能写出通项，再与标准展开比</h3>\r\n  <p>【看到「$na_n=(n-\\frac12)a_{n-1}$」→ 调用「$a_n=\\frac{n-\\frac12}{n}a_{n-1}$ 连乘，得 $\\frac{(2n-1)!!}{(2n)!!}$，这是 $(1-x)^{-1/2}$ 的系数」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：连乘</h3>\r\n  <div class=\"fm\">$$a_n=a_0\\prod_{k=1}^{n}\\frac{2k-1}{2k}=\\frac{(2n-1)!!}{(2n)!!}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：与标准展开对应</h3>\r\n  <div class=\"fm\">$$(1-x)^{-\\frac12}=\\sum_{n=0}^{\\infty}\\frac{(2n-1)!!}{(2n)!!}x^n,\\qquad |x|&lt;1.$$</div><p class=\"concl\"><b>结论</b>$\\displaystyle\\sum_{n=0}^{\\infty}a_nx^n=\\frac{1}{\\sqrt{1-x}}$，$|x|&lt;1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$na_n=(n+c)a_{n-1}$ 型一律先写成 $a_n/a_{n-1}$ 再连乘。",
+          "$\\frac{(2n-1)!!}{(2n)!!}=\\frac{1}{4^n}\\binom{2n}{n}$，这个双阶乘比必须记。",
+          "$(1-x)^{-1/2}$ 的展开就是它，收敛半径 1。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$S(x)=\\dfrac{1}{\\sqrt{1-x}}\\quad(|x|&lt;1)$",
+      "concl": "<b>结论</b>$\\displaystyle\\sum_{n=0}^{\\infty}a_nx^n=\\frac{1}{\\sqrt{1-x}}$，$|x|&lt;1$。",
+      "formulasUsed": [
+        {
+          "name": "系数的递推形式",
+          "latex": "$$a_n=\\frac{n-\\frac12}{n}a_{n-1}=\\left(1-\\frac{1}{2n}\\right)a_{n-1}$$"
+        },
+        {
+          "name": "连乘求通项",
+          "latex": "$$a_n=\\prod_{k=1}^{n}\\left(1-\\frac{1}{2k}\\right)=\\frac{(2n-1)!!}{(2n)!!}=\\frac{1}{4^n}\\binom{2n}{n}$$"
+        },
+        {
+          "name": "广义二项式展开",
+          "latex": "$$(1-x)^{-\\frac12}=\\sum_{n=0}^{\\infty}\\frac{(2n-1)!!}{(2n)!!}x^n$$"
+        },
+        {
+          "name": "收敛半径",
+          "latex": "$$R=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 30,
+      "number": "题 30",
+      "title": "拆成两个标准展开",
+      "chapter": 8,
+      "stemHtml": "求级数 $\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-4)^n+1}{4^n(2n+1)}x^{2n}$ 的收敛域与和函数 $S(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$(-4)^n/4^n=(-1)^n$，分子拆开后是两个熟悉的奇数分母展开</h3>\r\n  <p>【看到「$\\frac{(-4)^n+1}{4^n}$」→ 调用「拆成 $(-1)^n$ 与 $(1/4)^n$ 两部分，分别对应 $\\arctan$ 与 $\\mathrm{artanh}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：两部分分别求和</h3>\r\n  <div class=\"fm\">$$\\sum_{n\\ge0}\\frac{(-1)^nx^{2n}}{2n+1}=\\frac{\\arctan x}{x},\\qquad \\sum_{n\\ge0}\\frac{4^{-n}x^{2n}}{2n+1}=\\frac{1}{x}\\ln\\frac{2+x}{2-x}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：合并并交代 $x=0$、端点</h3>\r\n  <p>$x\\ne0$ 时 $S(x)=\\frac{1}{x}\\left[\\arctan x+\\ln\\frac{2+x}{2-x}\\right]$；$x=0$ 时 $S(0)=2$。$|x|&gt;1$ 时通项不趋零，故收敛域为 $[-1,1]$。</p><p class=\"concl\"><b>结论</b>收敛域 $[-1,1]$，$S(x)=\\dfrac{1}{x}\\left[\\arctan x+\\ln\\dfrac{2+x}{2-x}\\right]\\ (x\\ne0)$，$S(0)=2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{(-4)^n}{4^n}=(-1)^n$，先把指数式化简再拆项。",
+          "$\\frac{1}{2n+1}$ 的两套展开：$(-1)^n$ 配 $\\arctan$，$t^{2n}$ 配 $\\mathrm{artanh}$。",
+          "$\\sum\\frac{x^{2n}}{2n+1}$ 的收敛域是 $[-1,1]$，两端都收敛。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛域 $[-1,1]$，$S(x)=\\dfrac{1}{x}\\left[\\arctan x+\\ln\\dfrac{2+x}{2-x}\\right]\\ (x\\ne0)$，$S(0)=2$",
+      "concl": "<b>结论</b>收敛域 $[-1,1]$，$S(x)=\\dfrac{1}{x}\\left[\\arctan x+\\ln\\dfrac{2+x}{2-x}\\right]\\ (x\\ne0)$，$S(0)=2$。",
+      "formulasUsed": [
+        {
+          "name": "先拆项",
+          "latex": "$$\\frac{(-4)^n+1}{4^n}=\\left(-1\\right)^n+4^{-n}$$"
+        },
+        {
+          "name": "$\\arctan$ 的展开",
+          "latex": "$$\\arctan x=\\sum_{n=0}^{\\infty}\\frac{(-1)^nx^{2n+1}}{2n+1}$$"
+        },
+        {
+          "name": "$\\mathrm{artanh}$ 的展开",
+          "latex": "$$\\mathrm{artanh}\\,t=\\sum_{n=0}^{\\infty}\\frac{t^{2n+1}}{2n+1}=\\frac12\\ln\\frac{1+t}{1-t}$$"
+        },
+        {
+          "name": "收敛域",
+          "latex": "$$|x|\\le1\\quad\\text{（两端收敛）}$$"
+        }
+      ]
+    },
+    {
+      "seq": 31,
+      "number": "题 31",
+      "title": "根值与比值的强弱 + 条件收敛的抵消",
+      "chapter": 8,
+      "stemHtml": "(1) 构造一个正项级数，使其敛散性可用根值判别法判定，但不能用比值判别法判定；(2) 构造两个级数 $\\sum u_n$ 与 $\\sum v_n$，使 $\\displaystyle\\lim_{n\\to\\infty}\\frac{u_n}{v_n}=l$ 存在，$0&lt;|l|&lt;+\\infty$，但两级数敛散性不同。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：(1) 要让根值有极限、比值振荡；(2) 要让两级数的差项把「同阶」的抵消掉，只剩一个发散项</h3>\r\n  <p>【看到「根值可判、比值不可判」→ 调用「取两种公比交替的几何块：$n$ 为奇数用 $3^{-n}$、偶数用 $2^{-n}$，比值在 0 与 $\\infty$ 之间跳」】。(2) 里比值 $\\to1$ 只保证同阶，收敛性还要看 $\\sum$ 本身。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：构造 (1)</h3>\r\n  <p>取 $a_{2k}=2^{-2k}$，$a_{2k-1}=3^{-(2k-1)}$，则 $\\sqrt[n]{a_n}$ 的子列极限为 $\\frac12,\\frac13$，上极限 $\\frac12&lt;1$，级数收敛；但 $\\frac{a_{n+1}}{a_n}$ 在偶数项后 $\\to0$、奇数项后 $\\to\\infty$，极限不存在，比值法失效。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：构造 (2)</h3>\r\n  <p>取 $u_n=\\frac{(-1)^n}{n}+\\frac{1}{n^2}$（收敛），$v_n=\\frac{(-1)^n}{n}+\\frac{1}{n^2}+\\frac{1}{n\\ln n}$（发散），则 $u_n/v_n\\to1$，比值极限为 $1$ 却敛散不同——差别全被 $1/(n\\ln n)$ 这一项吃掉。</p><p class=\"concl\"><b>结论</b>见上两组构造。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "根值法的适用范围严格强于比值法：比值有极限时两者同结论，但根值可判时比值可能振荡。",
+          "构造「根值可判」的反例，就让公比在 1/2 与 1/3 之间跳，比值必振荡。",
+          "极限 $\\frac{u_n}{v_n}\\to l\\neq0$ 只说明同阶；若 $u_n,v_n$ 不是正项，同阶推不出同敛散。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $a_{2k}=2^{-2k},\\ a_{2k-1}=3^{-(2k-1)}$；(2) $u_n=\\frac{(-1)^n}{n}+\\frac{1}{n^2}$，$v_n=u_n+\\frac{1}{n\\ln n}$",
+      "concl": "<b>结论</b>见上两组构造。",
+      "formulasUsed": [
+        {
+          "name": "根值判别法",
+          "latex": "$$\\limsup_{n\\to\\infty}\\sqrt[n]{a_n}&lt;1\\ \\Longrightarrow\\ \\sum a_n\\ \\text{收敛}$$"
+        },
+        {
+          "name": "比值判别法",
+          "latex": "$$\\limsup_{n\\to\\infty}\\frac{a_{n+1}}{a_n}&lt;1\\ \\Longrightarrow\\ \\sum a_n\\ \\text{收敛}$$"
+        },
+        {
+          "name": "一般关系",
+          "latex": "$$\\liminf\\frac{a_{n+1}}{a_n}\\le\\liminf\\sqrt[n]{a_n}\\le\\limsup\\sqrt[n]{a_n}\\le\\limsup\\frac{a_{n+1}}{a_n}$$"
+        },
+        {
+          "name": "根值与比值",
+          "latex": "$$\\varlimsup_{n\\to\\infty}\\sqrt[n]{u_n}\\ \\text{与}\\ \\varlimsup_{n\\to\\infty}\\frac{u_{n+1}}{u_n}$$"
+        }
+      ]
+    },
+    {
+      "seq": 32,
+      "number": "题 32",
+      "title": "换元 + 主项估计",
+      "chapter": 8,
+      "stemHtml": "设 $a_n=\\displaystyle\\int_0^{\\pi/2}x\\left(\\frac{\\sin nx}{\\sin x}\\right)^3\\mathrm{d}x$，$n=1,2,\\cdots$，问级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{a_n}$ 是否收敛？陈述理由。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\frac{\\sin nx}{\\sin x}$ 在 $x=0$ 附近 $\\approx n$，三次方后是 $n^3$，再乘 $x$ 积分，量级是 $n$</h3>\r\n  <p>【看到「$\\left(\\frac{\\sin nx}{\\sin x}\\right)^3$ 与 $x$」→ 调用「$x\\in(0,1/n)$ 时 $\\sin nx\\approx nx$、$\\sin x\\approx x$，比值 $\\approx n$；积分主项 $\\int_0^{1/n}xn^3dx\\sim n$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：给下界</h3>\r\n  <p>$0&lt;x&lt;\\frac1n$ 时 $\\sin nx\\ge\\frac{2}{\\pi}nx$，$\\sin x\\le x$，故 integrand $\\ge x\\left(\\frac{2n}{\\pi}\\right)^3$，于是 $a_n\\ge\\frac{1}{2}\\left(\\frac{2n}{\\pi}\\right)^3\\frac{1}{n^2}=Cn$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：判发散</h3>\r\n  <p>$\\frac{1}{a_n}\\le\\frac{1}{Cn}$，而调和级数发散，故 $\\sum\\frac{1}{a_n}$ 发散。</p><p class=\"concl\"><b>结论</b>发散。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{\\sin nx}{\\sin x}$ 在原点附近近似 $n$，这是所有此类题的第一判断。",
+          "取 $x\\in(0,1/n)$ 这一段做下界估计，量级立刻出来。",
+          "$a_n$ 与 $n$ 同阶 ⟹ $\\sum 1/a_n$ 像调和级数，必发散。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>发散",
+      "concl": "<b>结论</b>发散。",
+      "formulasUsed": [
+        {
+          "name": "$\\frac{\\sin nx}{\\sin x}$ 的阶",
+          "latex": "$$\\left|\\frac{\\sin nx}{\\sin x}\\right|\\le n,\\qquad x\\in\\left(0,\\frac{\\pi}{2}\\right)$$"
+        },
+        {
+          "name": "在 $x\\sim\\frac1n$ 处的贡献",
+          "latex": "$$a_n\\ge\\int_0^{1/n}x\\cdot c\\,n^3\\,\\mathrm{d}x=\\frac{c}{2}n$$"
+        },
+        {
+          "name": "比较判别",
+          "latex": "$$\\frac{1}{a_n}\\le\\frac{C}{n},\\qquad \\sum\\frac{1}{n}\\ \\text{发散}$$"
+        },
+        {
+          "name": "核的界",
+          "latex": "$$\\left|\\frac{\\sin nx}{\\sin x}\\right|\\le n,\\qquad \\frac{\\sin nx}{\\sin x}=\\sum_{k=0}^{n-1}2\\cos(n-1-2k)x\\ (n\\ \\text{奇})$$"
+        }
+      ]
+    },
+    {
+      "seq": 33,
+      "number": "题 33",
+      "title": "望远镜 + 单调有界",
+      "chapter": 8,
+      "stemHtml": "设级数 $\\displaystyle\\sum_{n=1}^{\\infty}u_n$ 各项 $u_n&gt;0$，$\\{v_n\\}$ 为正实数列，记 $a_n=\\dfrac{u_nv_n}{u_{n+1}}-v_{n+1}$，且 $\\displaystyle\\lim_{n\\to\\infty}a_n=a$（$a$ 为有限正数或 $+\\infty$）。证明 $\\displaystyle\\sum_{n=1}^{\\infty}u_n$ 收敛。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$a_n$ 的定义本来就是「相邻的 $u_nv_n$ 之差」，一累加就是望远镜</h3>\r\n  <p>【看到「$a_n=\\frac{u_nv_n}{u_{n+1}}-v_{n+1}$」→ 调用「乘 $u_{n+1}$ 得 $u_nv_n-u_{n+1}v_{n+1}=a_nu_{n+1}$，对 $n$ 求和，左边望远镜」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：望远镜求和</h3>\r\n  <div class=\"fm\">$$\\sum_{k=1}^{n}a_ku_{k+1}=u_1v_1-u_{n+1}v_{n+1}&lt;u_1v_1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用 $a_n$ 的下界控制 $u_n$</h3>\r\n  <p>$a&gt;0$ 时取 $N$ 使 $n&gt;N$ 有 $a_n\\ge\\frac a2$，则 $\\frac a2\\sum_{k&gt;N}u_{k+1}\\le u_1v_1$，故部分和有界、级数收敛；$a=+\\infty$ 时下界更强，结论同样成立。</p><p class=\"concl\"><b>结论</b>$\\sum u_n$ 收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "看到「$\\frac{u_nv_n}{u_{n+1}}-v_{n+1}$」就该想到通分后的望远镜。",
+          "望远镜给出 $\\sum a_ku_{k+1}$ 有界，再由 $a_k$ 有正常下界反推 $\\sum u_k$ 有界。",
+          "$u_1v_1$ 这类常数不用算出具体值，只要有限即可。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\displaystyle\\sum_{n=1}^{\\infty}u_n$ 收敛",
+      "concl": "<b>结论</b>$\\sum u_n$ 收敛。",
+      "formulasUsed": [
+        {
+          "name": "通分",
+          "latex": "$$u_nv_n-u_{n+1}v_{n+1}=a_nu_{n+1}$$"
+        },
+        {
+          "name": "望远镜",
+          "latex": "$$\\sum_{k=1}^{n}a_ku_{k+1}=u_1v_1-u_{n+1}v_{n+1}\\le u_1v_1$$"
+        },
+        {
+          "name": "极限条件",
+          "latex": "$$a_n\\to a&gt;0\\ \\Longrightarrow\\ \\exists N,\\ a_n\\ge\\frac a2\\ (n&gt;N)$$"
+        },
+        {
+          "name": "比较",
+          "latex": "$$\\sum_{k&gt;N}u_{k+1}\\le\\frac{2}{a}u_1v_1&lt;+\\infty$$"
+        }
+      ]
+    },
+    {
+      "seq": 34,
+      "number": "题 34",
+      "title": "Abel 求和 + Cesàro",
+      "chapter": 8,
+      "stemHtml": "设级数 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛，且其和为 $S$。求 $\\displaystyle\\lim_{n\\to\\infty}\\frac{a_1+2a_2+\\cdots+na_n}{n}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分子里的权重 $k$ 可以「搬」到部分和上，变成 $nS_n-\\sum S_k$</h3>\r\n  <p>【看到「$\\frac{a_1+2a_2+\\cdots+na_n}{n}$」→ 调用「分部求和：$\\sum ka_k=nS_n-\\sum_{k&lt;n}S_k$；再用 Cesàro 平均把 $\\sum S_k$ 换成 $S$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：分部求和</h3>\r\n  <div class=\"fm\">$$a_1+2a_2+\\cdots+na_n=\\sum_{k=1}^{n}k\\left(S_k-S_{k-1}\\right)=nS_n-\\sum_{k=1}^{n-1}S_k.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取极限</h3>\r\n  <p>两边除以 $n$：$S_n-\\frac{1}{n}\\sum_{k&lt;n}S_k\\to S-S=0$。</p><p class=\"concl\"><b>结论</b>极限为 $0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\sum k a_k$ 型一律分部求和，把权重转成「$nS_n$ 减部分和之和」。",
+          "Cesàro：$S_k\\to S$ 则算术平均也 $\\to S$，这是收尾的唯一依据。",
+          "答案与 $S$ 无关，恒为 0。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$0$",
+      "concl": "<b>结论</b>极限为 $0$。",
+      "formulasUsed": [
+        {
+          "name": "部分和",
+          "latex": "$$S_k=a_1+\\cdots+a_k,\\qquad S_k\\to S$$"
+        },
+        {
+          "name": "分部求和",
+          "latex": "$$\\sum_{k=1}^{n}ka_k=nS_n-\\sum_{k=1}^{n-1}S_k$$"
+        },
+        {
+          "name": "Cesàro 平均",
+          "latex": "$$\\frac{1}{n}\\sum_{k=1}^{n-1}S_k\\to S$$"
+        },
+        {
+          "name": "Abel 分部求和",
+          "latex": "$$\\sum_{k=1}^{n}ka_k=nS_n-\\sum_{k=1}^{n-1}S_k$$"
+        }
+      ]
+    },
+    {
+      "seq": 35,
+      "number": "题 35",
+      "title": "$\\Gamma$ 函数 + 比值判别",
+      "chapter": 8,
+      "stemHtml": "令 $\\displaystyle a_k=\\int_{-\\infty}^{+\\infty}x^{2k}\\mathrm{e}^{-kx^2}\\mathrm{d}x$，$k=1,2,\\cdots$，讨论 $\\displaystyle\\sum_{k=1}^{\\infty}a_k$ 的收敛性。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：这是标准的高斯矩，先化成 $\\Gamma$，再估阶</h3>\r\n  <p>【看到「$\\int x^{2k}\\mathrm{e}^{-kx^2}\\mathrm{d}x$」→ 调用「令 $t=kx^2$ 化为 $\\Gamma(k+\\frac12)/k^{k+\\frac12}$，再用 Stirling 得 $a_k\\sim\\sqrt{2\\pi}k^{-1/2}\\mathrm{e}^{-k}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算出 $a_k$</h3>\r\n  <div class=\"fm\">$$a_k=\\frac{\\Gamma\\left(k+\\frac12\\right)}{k^{k+\\frac12}}=\\frac{(2k)!\\sqrt{\\pi}}{4^kk!\\,k^{k+\\frac12}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：比值判别</h3>\r\n  <p>$\\frac{a_{k+1}}{a_k}\\to\\frac1{\\mathrm{e}}&lt;1$，故级数收敛（而且收敛得极快）。</p><p class=\"concl\"><b>结论</b>$\\sum a_k$ 收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\int x^{2k}\\mathrm{e}^{-kx^2}$ 型积分一律先换元成 $\\Gamma$。",
+          "$a_k$ 里有 $\\mathrm{e}^{-k}$，比任何幂次都快，必收敛。",
+          "阶乘比值 $\\frac{(2k+2)!}{(2k)!}\\big/\\frac{4^{k+1}(k+1)!}{4^kk!}$ 的要算清，别漏 $k^{k+1/2}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛",
+      "concl": "<b>结论</b>$\\sum a_k$ 收敛。",
+      "formulasUsed": [
+        {
+          "name": "高斯积分公式",
+          "latex": "$$\\int_{-\\infty}^{+\\infty}x^{2k}\\mathrm{e}^{-kx^2}\\mathrm{d}x=\\frac{\\Gamma\\left(k+\\frac12\\right)}{k^{k+\\frac12}}$$"
+        },
+        {
+          "name": "$\\Gamma$ 的阶乘写法",
+          "latex": "$$\\Gamma\\left(k+\\frac12\\right)=\\frac{(2k)!}{4^kk!}\\sqrt{\\pi}$$"
+        },
+        {
+          "name": "Stirling 主项",
+          "latex": "$$\\Gamma\\left(k+\\frac12\\right)\\sim\\sqrt{2\\pi}\\,k^{k}\\mathrm{e}^{-k}$$"
+        },
+        {
+          "name": "通项主项",
+          "latex": "$$a_k\\sim\\sqrt{2\\pi}\\,k^{-\\frac12}\\mathrm{e}^{-k}$$"
+        }
+      ]
+    },
+    {
+      "seq": 36,
+      "number": "题 36",
+      "title": "分 $x<1$ 与 $x\\ge1$ 讨论",
+      "chapter": 8,
+      "stemHtml": "判断级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{x^n}{(1+x)(1+x^2)\\cdots(1+x^n)}$ 的收敛性，其中 $x&gt;0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母是乘积，先看它在 $n\\to\\infty$ 时是「爆炸」还是「收敛到一个常数」</h3>\r\n  <p>【看到「分母是 $\\prod(1+x^k)$」→ 调用「$x&gt;1$ 时乘积 $\\ge x^{n(n+1)/2}$，通项被 $x^{-n^2/2}$ 压死；$0&lt;x&lt;1$ 时乘积收敛到有限常数，通项是几何级数」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：$x&gt;1$ 的情形</h3>\r\n  <p>乘积 $\\ge x^{n(n+1)/2}$，故通项 $\\le x^{n-n(n+1)/2}=x^{-n(n-1)/2}$，比任何几何级数都快，收敛。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：$0&lt;x\\le1$ 的情形</h3>\r\n  <p>$x=1$ 时通项 $=2^{-n}$；$0&lt;x&lt;1$ 时 $\\prod(1+x^k)\\to C\\in(1,\\infty)$，通项 $\\sim x^n/C$，收敛。</p><p class=\"concl\"><b>结论</b>对一切 $x&gt;0$ 收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "乘积型分母先判断乘积是发散到 $\\infty$ 还是收敛到常数。",
+          "$x&gt;1$ 时 $\\prod(1+x^k)\\ge x^{n(n+1)/2}$，衰减是「平方指数」级的。",
+          "$x&lt;1$ 时 $\\prod(1+x^k)$ 收敛（$x^{2^k}$ 型乘积的常客），通项退化为几何级数。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>对一切 $x&gt;0$ 收敛",
+      "concl": "<b>结论</b>对一切 $x&gt;0$ 收敛。",
+      "formulasUsed": [
+        {
+          "name": "部分积的界（$x>1$）",
+          "latex": "$$(1+x)(1+x^2)\\cdots(1+x^n)\\ge x^{1+2+\\cdots+n}=x^{\\frac{n(n+1)}{2}}$$"
+        },
+        {
+          "name": "部分积的界（$0<x<1$）",
+          "latex": "$$(1+x)\\cdots(1+x^n)\\le\\prod_{k=1}^{\\infty}\\left(1+x^k\\right)&lt;+\\infty$$"
+        },
+        {
+          "name": "几何衰减",
+          "latex": "$$0&lt;\\frac{x^n}{(1+x)\\cdots(1+x^n)}\\le\\frac{x^n}{C}$$"
+        },
+        {
+          "name": "乘积型通项",
+          "latex": "$$u_n=\\frac{x^{n}}{\\prod_{k=1}^{n}(1+x^{k})},\\qquad \\prod_{k=1}^{n}(1+x^{k})\\ge1+x+\\cdots+x^{n}$$"
+        }
+      ]
+    },
+    {
+      "seq": 37,
+      "number": "题 37",
+      "title": "乘积估阶 + 通项不趋零",
+      "chapter": 8,
+      "stemHtml": "设 $a&gt;0$，判别级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{a^{\\frac{n(n+1)}{2}}}{(1+a)(1+a^2)\\cdots(1+a^n)}$ 的敛散性。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分子恰是分母的「主项」，把 $a^{n(n+1)/2}$ 提出来，剩下的乘积是关键</h3>\r\n  <p>【看到「分子 $a^{n(n+1)/2}$ 与分母 $\\prod(1+a^k)$」→ 调用「分母提出 $a^{n(n+1)/2}$ 后剩 $\\prod(1+a^{-k})$，$a&gt;1$ 时它收敛到常数 $&gt;1$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：$a&gt;1$ 时通项不趋零</h3>\r\n  <p>通项 $\\to\\frac1C\\ne0$，故级数发散。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：$0&lt;a\\le1$ 时收敛</h3>\r\n  <p>$0&lt;a&lt;1$ 时乘积有界、分子 $a^{n(n+1)/2}\\to0$ 且为几何级数量级；$a=1$ 时通项 $2^{-n}$。均收敛。</p><p class=\"concl\"><b>结论</b>$0&lt;a\\le1$ 收敛，$a&gt;1$ 发散。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分子与分母「同构」时，先提公因子把分母变成常数乘积。",
+          "$a&gt;1$ 时通项趋于正常数，这是最容易被忽略的发散情形。",
+          "$a&lt;1$ 时分子已经平方指数级衰减，乘积又有界，必然收敛。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$0&lt;a\\le1$ 收敛；$a&gt;1$ 发散",
+      "concl": "<b>结论</b>$0&lt;a\\le1$ 收敛，$a&gt;1$ 发散。",
+      "formulasUsed": [
+        {
+          "name": "$a>1$ 时的等价",
+          "latex": "$$(1+a)(1+a^2)\\cdots(1+a^n)=a^{\\frac{n(n+1)}{2}}\\prod_{k=1}^{n}\\left(1+a^{-k}\\right)$$"
+        },
+        {
+          "name": "部分积收敛",
+          "latex": "$$\\prod_{k=1}^{\\infty}\\left(1+a^{-k}\\right)=C\\in(1,\\infty)\\ (a&gt;1)$$"
+        },
+        {
+          "name": "$0<a<1$ 时的界",
+          "latex": "$$(1+a)\\cdots(1+a^n)\\le\\prod_{k\\ge1}\\left(1+a^{k}\\right)&lt;+\\infty$$"
+        },
+        {
+          "name": "$a=1$ 时的通项",
+          "latex": "$$\\frac{1}{2^n}$$"
+        }
+      ]
+    },
+    {
+      "seq": 38,
+      "number": "题 38",
+      "title": "积分表示 + 等比求和",
+      "chapter": 8,
+      "stemHtml": "求 $\\displaystyle\\lim_{\\substack{m\\to+\\infty\\\\ n\\to+\\infty}}\\sum_{i=1}^{m}\\sum_{j=1}^{n}\\frac{(-1)^{i+j}}{i+j}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母 $i+j$ 是「两个指标之和」，用 $\\int_0^1t^{i+j-1}\\mathrm{d}t$ 把它拆成两个独立求和的乘积</h3>\r\n  <p>【看到「$\\frac{1}{i+j}$ 的二维交错和」→ 调用「$\\frac{1}{i+j}=\\int_0^1t^{i+j-1}\\mathrm{d}t$，双重和变成两个等比和的乘积再积分」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：分离并求极限</h3>\r\n  <div class=\"fm\">$$\\sum_{i,j}\\frac{(-1)^{i+j}}{i+j}=\\int_0^1\\frac{1}{t}\\left(\\sum_{i=1}^{m}(-1)^it^i\\right)\\left(\\sum_{j=1}^{n}(-1)^jt^j\\right)\\mathrm{d}t\\to\\int_0^1\\frac{t}{(1+t)^2}\\mathrm{d}t.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算定积分</h3>\r\n  <p>$\\int_0^1\\frac{t}{(1+t)^2}\\mathrm{d}t=\\int_0^1\\left(\\frac{1}{1+t}-\\frac{1}{(1+t)^2}\\right)\\mathrm{d}t=\\ln2-\\frac12$。</p><p class=\"concl\"><b>结论</b>极限为 $\\ln2-\\dfrac12$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{1}{i+j}$ 型二重和，先写成积分再分离变量，这是通法。",
+          "$\\sum_{i\\ge1}(-1)^it^i=-\\frac{t}{1+t}$，首项从 $i=1$ 起不要漏符号。",
+          "$\\int_0^1\\frac{t}{(1+t)^2}=\\ln2-\\frac12$，拆成 $\\frac{1}{1+t}-\\frac{1}{(1+t)^2}$ 最好算。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\ln2-\\dfrac12$",
+      "concl": "<b>结论</b>极限为 $\\ln2-\\dfrac12$。",
+      "formulasUsed": [
+        {
+          "name": "积分表示",
+          "latex": "$$\\frac{1}{i+j}=\\int_0^{1}t^{i+j-1}\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "分离变量",
+          "latex": "$$\\sum_{i,j}\\frac{(-1)^{i+j}}{i+j}=\\int_0^{1}\\frac{1}{t}\\left(\\sum_{i=1}^{m}(-1)^it^i\\right)\\left(\\sum_{j=1}^{n}(-1)^jt^j\\right)\\mathrm{d}t$$"
+        },
+        {
+          "name": "等比求和",
+          "latex": "$$\\sum_{i=1}^{m}(-1)^it^i\\to-\\frac{t}{1+t}$$"
+        },
+        {
+          "name": "定积分",
+          "latex": "$$\\int_0^1\\frac{t}{(1+t)^2}\\,\\mathrm{d}t=\\left[\\ln(1+t)+\\frac{1}{1+t}\\right]_0^1=\\ln2-\\frac12$$"
+        }
+      ]
+    },
+    {
+      "seq": 39,
+      "number": "题 39",
+      "title": "Kummer 判别法",
+      "chapter": 8,
+      "stemHtml": "设 $\\{u_n\\},\\{c_n\\}$ 为正实数列。证明：(1) 若对一切正整数 $n$ 有 $c_nu_n-c_{n+1}u_{n+1}\\le0$，且 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{c_n}$ 发散，则 $\\displaystyle\\sum_{n=1}^{\\infty}u_n$ 也发散；(2) 若对一切正整数 $n$ 有 $c_n\\frac{u_n}{u_{n+1}}-c_{n+1}\\ge a&gt;0$，且 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{c_n}$ 收敛，则 $\\displaystyle\\sum_{n=1}^{\\infty}u_n$ 也收敛。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两条都是「$c_nu_n$ 与 $c_{n+1}u_{n+1}$ 比大小」，本质是 Kummer 判别法</h3>\r\n  <p>【看到「$c_nu_n-c_{n+1}u_{n+1}$ 与 $\\sum\\frac{1}{c_n}$」→ 调用「取 $c_n=1$ 就是比值判别法；取 $c_n=n$ 就是 Raabe 判别法。这里只是把 $c_n$ 一般化」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证 (1)</h3>\r\n  <p>$c_nu_n$ 单调不减，若 $\\sum u_n$ 收敛则 $c_nu_n\\to0$（因为 $u_n\\to0$ 且 $c_nu_n$ 有上界）。于是对 $k\\le n$ 有 $c_nu_n\\ge c_ku_k$，即 $u_n\\ge\\frac{c_ku_k}{c_n}$。固定 $k$，由 $\\sum\\frac{1}{c_n}$ 发散得 $\\sum u_n$ 发散。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：证 (2)</h3>\r\n  <p>由条件得 $c_nu_n-c_{n+1}u_{n+1}\\ge au_{n+1}$，累加：$a\\sum_{k=1}^{n}u_{k+1}\\le c_1u_1-c_{n+1}u_{n+1}&lt;c_1u_1$，故部分和有界，$\\sum u_n$ 收敛。</p><p class=\"concl\"><b>结论</b>两条准则都成立（Kummer 判别法）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "这类「$c_nu_n$ 之差」的条件，一律通分 / 累加成望远镜。",
+          "$c_n=1$ 退回比值判别法，$c_n=n$ 是 Raabe 判别法，认下这个统一框架。",
+          "$\\sum\\frac{1}{c_n}$ 的敛散决定 $c_n$ 增长得够不够快，这正是判据的分界。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>两条准则均成立（Kummer 判别法）",
+      "concl": "<b>结论</b>两条准则都成立（Kummer 判别法）。",
+      "formulasUsed": [
+        {
+          "name": "条件 (1) 的含义",
+          "latex": "$$c_nu_n\\le c_{n+1}u_{n+1}\\ \\Longrightarrow\\ c_nu_n\\ \\text{单调不减}$$"
+        },
+        {
+          "name": "条件 (2) 的含义",
+          "latex": "$$c_nu_n-c_{n+1}u_{n+1}\\ge a\\,u_{n+1}$$"
+        },
+        {
+          "name": "望远镜",
+          "latex": "$$\\sum_{k=1}^{n}a\\,u_{k+1}\\le c_1u_1-c_{n+1}u_{n+1}&lt;c_1u_1$$"
+        },
+        {
+          "name": "调和对照",
+          "latex": "$$\\sum\\frac{1}{n}\\ \\text{发散},\\qquad \\sum\\frac{1}{n^{1+\\varepsilon}}\\ \\text{收敛}$$"
+        }
+      ]
+    },
+    {
+      "seq": 40,
+      "number": "题 40",
+      "title": "共轭配对 + 几何衰减",
+      "chapter": 8,
+      "stemHtml": "判定级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\sin\\pi\\left(3+\\sqrt5\\right)^n$ 的收敛性。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\alpha^n$ 本身没法算，但它与共轭 $\\beta^n$ 的和是整数，于是 $\\sin\\pi\\alpha^n$ 可以换成 $\\sin\\pi\\beta^n$</h3>\r\n  <p>【看到「$\\sin\\pi(3+\\sqrt5)^n$」→ 调用「令 $\\beta=3-\\sqrt5$，$\\alpha^n+\\beta^n$ 是整数，故 $\\sin\\pi\\alpha^n=\\pm\\sin\\pi\\beta^n$，而 $\\beta^n\\to0$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化归</h3>\r\n  <div class=\"fm\">$$\\left|\\sin\\pi\\alpha^n\\right|=\\left|\\sin\\pi\\beta^n\\right|\\le\\pi\\beta^n=\\pi\\left(3-\\sqrt5\\right)^n.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：比值判别</h3>\r\n  <p>$3-\\sqrt5\\approx0.764&lt;1$，故级数绝对收敛。</p><p class=\"concl\"><b>结论</b>绝对收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "遇到 $(a+\\sqrt b)^n$ 的三角函数，配共轭数把「大数」换成「小数」。",
+          "$\\alpha^n+\\beta^n$ 是整数是这类题的命门，可用线性递推证明。",
+          "$\\beta^n$ 几何衰减，级数自动绝对收敛。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>绝对收敛",
+      "concl": "<b>结论</b>绝对收敛。",
+      "formulasUsed": [
+        {
+          "name": "共轭数",
+          "latex": "$$\\alpha=3+\\sqrt5,\\ \\beta=3-\\sqrt5,\\quad \\alpha\\beta=4,\\ \\alpha+\\beta=6$$"
+        },
+        {
+          "name": "整数性",
+          "latex": "$$\\alpha^n+\\beta^n\\in\\mathbb{Z}\\ (\\text{整数序列，递推 } t_{n}=6t_{n-1}-4t_{n-2})$$"
+        },
+        {
+          "name": "正弦的化归",
+          "latex": "$$\\sin\\pi\\alpha^n=\\sin\\left(\\pi k_n-\\pi\\beta^n\\right)=(-1)^{k_n+1}\\sin\\pi\\beta^n$$"
+        },
+        {
+          "name": "几何衰减",
+          "latex": "$$0&lt;\\beta^n&lt;1,\\quad \\left|\\sin\\pi\\beta^n\\right|\\le\\pi\\beta^n$$"
+        }
+      ]
+    },
+    {
+      "seq": 41,
+      "number": "题 41",
+      "title": "望远镜 + 对数不等式",
+      "chapter": 8,
+      "stemHtml": "设 $\\{u_n\\}$ 是单调增加的正数列，证明级数 $\\displaystyle\\sum_{k=1}^{\\infty}\\left(1-\\frac{u_k}{u_{k+1}}\\right)$ 收敛的充分必要条件是 $\\{u_n\\}$ 有上界。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$1-\\frac{u_k}{u_{k+1}}$ 天然是「$1$ 减一个比值」，用 $\\ln$ 把它夹成望远镜</h3>\r\n  <p>【看到「$1-\\frac{u_k}{u_{k+1}}$」→ 调用「$1-\\frac1x\\le\\ln x$，得到 $1-\\frac{u_k}{u_{k+1}}\\le\\ln u_{k+1}-\\ln u_k$，一累加就望远镜」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证「有上界 ⟹ 收敛」</h3>\r\n  <p>由 $\\ln x\\ge1-\\frac1x$ 得每项非负，且 $S_n\\le\\ln u_{n+1}-\\ln u_1\\le\\ln M-\\ln u_1$，部分和单调有界，收敛。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：证「收敛 ⟹ 有上界」</h3>\r\n  <p>若 $u_n\\to+\\infty$，则 $\\ln\\frac{u_{n+1}}{u_n}\\to0$ 且 $\\frac{u_{n+1}-u_n}{u_n}\\to0$。由 $\\ln(1+t)\\ge\\frac{t}{1+t}$（$t=\\frac{u_{n+1}-u_n}{u_n}$）得</p><div class=\"fm\">$$1-\\frac{u_k}{u_{k+1}}=\\frac{u_{k+1}-u_k}{u_{k+1}}\\ge\\ln\\frac{u_{k+1}}{u_k},$$</div><p>于是 $S_n\\ge\\ln u_{n+1}-\\ln u_1\\to+\\infty$，与收敛矛盾。</p><p class=\"concl\"><b>结论</b>收敛 $\\iff\\{u_n\\}$ 有上界。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "看到 $1-\\frac{u_k}{u_{k+1}}$，第一反应是 $\\ln$ 夹逼 + 望远镜。",
+          "两个方向分别用 $\\ln x\\ge1-\\frac1x$ 与 $\\ln(1+t)\\ge\\frac{t}{1+t}$。",
+          "「单调增加」保证了每项非负，部分和才单调，这是收敛判据的前提。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛 $\\iff\\{u_n\\}$ 有上界",
+      "concl": "<b>结论</b>收敛 $\\iff\\{u_n\\}$ 有上界。",
+      "formulasUsed": [
+        {
+          "name": "部分和",
+          "latex": "$$S_n=\\sum_{k=1}^{n}\\left(1-\\frac{u_k}{u_{k+1}}\\right)=n-\\sum_{k=1}^{n}\\frac{u_k}{u_{k+1}}$$"
+        },
+        {
+          "name": "对数不等式",
+          "latex": "$$1-\\frac1x\\le\\ln x\\le x-1\\quad(x&gt;0)$$"
+        },
+        {
+          "name": "望远镜上界",
+          "latex": "$$1-\\frac{u_k}{u_{k+1}}\\le\\ln u_{k+1}-\\ln u_k\\ \\Longrightarrow\\ S_n\\le\\ln u_{n+1}-\\ln u_1$$"
+        },
+        {
+          "name": "下界",
+          "latex": "$$\\ln\\frac{u_{k+1}}{u_k}\\le\\frac{u_{k+1}}{u_k}-1=\\frac{u_{k+1}-u_k}{u_k}$$"
+        }
+      ]
+    },
+    {
+      "seq": 42,
+      "number": "题 42",
+      "title": "$\\frac{1}{S_{n-1}}-\\frac1{S_n}$ 的望远镜",
+      "chapter": 8,
+      "stemHtml": "设级数 $\\displaystyle\\sum_{n=1}^{\\infty}u_n$（$u_n&gt;0$）发散，又设 $S_n=u_1+u_2+\\cdots+u_n$。证明：(1) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{u_n}{S_n}$ 发散；(2) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{u_n}{S_n^2}$ 收敛。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：(2) 里 $S_n^2\\ge S_{n-1}S_n$，右边正好是 $\\frac{1}{S_{n-1}}-\\frac1{S_n}$ 这种望远镜；(1) 用 $\\ln$ 比较</h3>\r\n  <p>【看到「$\\frac{u_n}{S_n}$、$\\frac{u_n}{S_n^2}$ 且 $S_n\\to\\infty$」→ 调用「(2) 用 $\\frac{1}{S_{n-1}}-\\frac{1}{S_n}$ 望远镜；(1) 用 $\\ln\\frac{S_n}{S_{n-1}}$ 的发散」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证 (2)</h3>\r\n  <p>$S_n\\ge S_{n-1}$ 得 $\\frac{u_n}{S_n^2}\\le\\frac{1}{S_{n-1}}-\\frac{1}{S_n}$，累加得部分和 $\\le\\frac{1}{S_1}-\\frac{1}{S_N}&lt;\\frac{1}{S_1}$，故收敛。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：证 (1)</h3>\r\n  <p>记 $t=\\frac{u_n}{S_{n-1}}$ ($n\\ge2$)，则 $\\ln\\frac{S_n}{S_{n-1}}=\\ln(1+t)$，而 $\\frac{u_n}{S_n}=\\frac{t}{1+t}$。分 $t\\le1$ 与 $t&gt;1$：前者 $\\frac{t}{1+t}\\ge\\frac12\\ln(1+t)$；后者 $\\frac{t}{1+t}\\ge\\frac12$，而 $\\ln(1+t)\\le\\ln\\frac{S_n}{S_{n-1}}$ 有界倍数。总之存在 $c&gt;0$ 使 $\\frac{u_n}{S_n}\\ge c\\ln\\frac{S_n}{S_{n-1}}$，累加得 $\\ge c\\ln S_N\\to\\infty$，故发散。</p><p class=\"concl\"><b>结论</b>(1) 发散，(2) 收敛且和 $\\le1/S_1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{u_n}{S_n^2}$ 一律往 $\\frac{1}{S_{n-1}}-\\frac1{S_n}$ 上放，这是标准动作。",
+          "$S_n$ 发散到 $\\infty$ 是唯一用到的信息，$u_n$ 具体是什么不重要。",
+          "(1) 与 $\\sum\\frac1{n}$ 同构：$\\frac{u_n}{S_n}$ 对应调和的 $\\frac1n$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) 发散；(2) 收敛，且和 $\\le\\dfrac{1}{S_1}$",
+      "concl": "<b>结论</b>(1) 发散，(2) 收敛且和 $\\le1/S_1$。",
+      "formulasUsed": [
+        {
+          "name": "(2) 的关键估计",
+          "latex": "$$\\frac{u_n}{S_n^2}\\le\\frac{u_n}{S_{n-1}S_n}=\\frac{1}{S_{n-1}}-\\frac{1}{S_n}$$"
+        },
+        {
+          "name": "(1) 的下界",
+          "latex": "$$\\frac{u_n}{S_n}\\ge c\\ln\\frac{S_n}{S_{n-1}}\\quad(c&gt;0)$$"
+        },
+        {
+          "name": "部分和",
+          "latex": "$$S_n\\to+\\infty,\\qquad \\ln S_n\\to+\\infty$$"
+        },
+        {
+          "name": "(2) 的和界",
+          "latex": "$$\\sum_{n=1}^{N}\\frac{u_n}{S_n^2}\\le\\frac{1}{S_1}$$"
+        }
+      ]
+    },
+    {
+      "seq": 43,
+      "number": "题 43",
+      "title": "归纳放缩 + 拆项望远镜",
+      "chapter": 8,
+      "stemHtml": "设数列 $\\{F_n\\}$ 满足 $F_0=1$，$F_1=1$，$F_n=F_{n-1}+F_{n-2}$（$n\\ge2$）。(1) 证明：当 $n\\ge1$ 时，$\\left(\\frac32\\right)^{n-1}\\le F_n\\le2^{n-1}$；(2) 问级数 $\\displaystyle\\sum_{n=0}^{\\infty}\\frac{1}{F_n}$ 与 $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{1}{\\ln F_n}$ 是否收敛？为什么？(3) 求级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{F_nF_{n+2}F_{n+3}}$ 的和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：(1) 用递推做归纳；(2) 上下界直接给出倒数级数的敛散；(3) 用 $F_{n+3}-F_n=2F_{n+1}$ 把通项拆成望远镜</h3>\r\n  <p>【看到「Fibonacci + 求和」→ 调用「(1) 归纳；(2) $\\frac{1}{F_n}$ 被 $(3/2)^{-n}$ 压住，收敛；$\\frac{1}{\\ln F_n}\\ge\\frac{1}{(n-1)\\ln2}$，发散；(3) 拆项望远镜」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：(1) 归纳</h3>\r\n  <p>归纳：$F_n\\le2F_{n-1}\\le2^{n-1}$（上界）；$F_n\\ge\\frac32F_{n-1}\\ge\\left(\\frac32\\right)^{n-1}$（下界）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：(2) 两个级数</h3>\r\n  <p>$\\frac{1}{F_n}\\le\\left(\\frac23\\right)^{n-1}$，收敛；$\\ln F_n\\le(n-1)\\ln2$，$\\frac{1}{\\ln F_n}\\ge\\frac{1}{(n-1)\\ln2}$，与调和级数同发散。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：(3) 求和</h3>\r\n  <p>由 $F_{n+3}-F_n=2F_{n+1}$，</p><div class=\"fm\">$$\\frac{1}{F_nF_{n+2}F_{n+3}}=\\frac{F_{n+3}-F_n}{2F_nF_{n+1}F_{n+2}F_{n+3}}=\\frac{1}{2F_nF_{n+1}F_{n+2}}-\\frac{1}{2F_{n+1}F_{n+2}F_{n+3}}.$$</div><p>望远镜求和的极限为 $\\frac{1}{2F_1F_2F_3}=\\frac{1}{12}$。</p><p class=\"concl\"><b>结论</b>(1) 成立；(2) $\\sum1/F_n$ 收敛，$\\sum1/\\ln F_n$ 发散；(3) 和为 $\\frac{1}{12}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "Fibonacci 的界只会从 $F_n\\le2F_{n-1}$、$F_n\\ge\\frac32F_{n-1}$ 来。",
+          "$F_n\\approx\\frac{1}{\\sqrt5}\\varphi^n$，所以 $\\sum\\frac{1}{F_n}$ 收敛、$\\sum\\frac{1}{\\ln F_n}$ 发散。",
+          "(3) 的拆项系数是 $\\frac{F_{n+3}-F_n}{2F_{n+1}}=\\frac{2F_{n+1}}{2F_{n+1}}=1$，别写反。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) 成立；(2) $\\sum\\frac{1}{F_n}$ 收敛，$\\sum\\frac{1}{\\ln F_n}$ 发散；(3) $\\dfrac{1}{12}$",
+      "concl": "<b>结论</b>(1) 成立；(2) $\\sum1/F_n$ 收敛，$\\sum1/\\ln F_n$ 发散；(3) 和为 $\\frac{1}{12}$。",
+      "formulasUsed": [
+        {
+          "name": "递推放缩",
+          "latex": "$$F_n=F_{n-1}+F_{n-2}\\le2F_{n-1}\\le\\cdots\\le2^{n-1}F_1$$"
+        },
+        {
+          "name": "下界",
+          "latex": "$$F_{n-1}\\le2F_{n-2}\\ \\Longrightarrow\\ F_n=F_{n-1}+F_{n-2}\\ge\\frac32F_{n-1}$$"
+        },
+        {
+          "name": "通项阶",
+          "latex": "$$\\left(\\frac32\\right)^{n-1}\\le F_n\\ \\Longrightarrow\\ F_n\\ge c\\left(\\frac32\\right)^{n}$$"
+        },
+        {
+          "name": "拆项",
+          "latex": "$$\\frac{1}{F_nF_{n+2}F_{n+3}}=\\frac{1}{2F_nF_{n+1}F_{n+2}}-\\frac{1}{2F_{n+1}F_{n+2}F_{n+3}}$$"
+        }
+      ]
+    },
+    {
+      "seq": 44,
+      "number": "题 44",
+      "title": "Leibniz + 主项 $\\frac{a}{n}$",
+      "chapter": 8,
+      "stemHtml": "设函数 $f(x)$ 在区间 $(-\\infty,+\\infty)$ 上有定义，在点 $x=0$ 的某个邻域内具有一阶连续导数，且 $\\displaystyle\\lim_{x\\to0}\\frac{f(x)}{x}=a&gt;0$。证明 $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^nf\\left(\\frac1n\\right)$ 收敛，而 $\\displaystyle\\sum_{n=1}^{\\infty}f\\left(\\frac1n\\right)$ 发散。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\frac{f(x)}{x}\\to a$ 说明 $f$ 在 0 附近就是一条斜率 $a$ 的直线，两问分别用单调性与主项</h3>\r\n  <p>【看到「$\\lim\\frac{f(x)}{x}=a&gt;0$」→ 调用「$f(0)=0,f'(0)=a$；$f(\\frac1n)\\sim\\frac an$，故 $\\sum f$ 像调和级数发散；$f(\\frac1n)$ 递减趋于 0，Leibniz 得交错级数收敛」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：$f$ 在 0 附近的性质</h3>\r\n  <p>$f(0)=\\lim f(x)=\\lim\\frac{f(x)}{x}\\cdot x=0$；由 $f'(0)=a&gt;0$ 与 $f'$ 连续，$f'$ 在 $|x|&lt;\\delta$ 上为正，$f$ 严格增且 $f(x)&gt;0\\ (x&gt;0)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两问分别判定</h3>\r\n  <p>$n$ 充分大时 $f\\left(\\frac1n\\right)$ 单调递减趋于 $0$，交错级数收敛（且条件收敛）；而 $f\\left(\\frac1n\\right)$ 与 $\\frac an$ 同阶，$\\sum\\frac an$ 发散，故正项级数发散。</p><p class=\"concl\"><b>结论</b>交错级数收敛，正项级数发散。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\lim\\frac{f(x)}{x}=a$ 是「$f$ 在 0 处有一阶零点、斜率 $a$」的意思。",
+          "交错级数收敛只靠 $a_n\\downarrow0$，不需要 $\\sum a_n$ 收敛。",
+          "正项级数发散靠与 $\\frac1n$ 同阶（$a&gt;0$ 是常数）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>交错级数收敛（条件收敛）；$\\displaystyle\\sum_{n=1}^{\\infty}f\\left(\\frac1n\\right)$ 发散",
+      "concl": "<b>结论</b>交错级数收敛，正项级数发散。",
+      "formulasUsed": [
+        {
+          "name": "由极限得 $f(0)$ 与 $f'(0)$",
+          "latex": "$$f(0)=0,\\qquad f'(0)=a&gt;0$$"
+        },
+        {
+          "name": "小 $x$ 的行为",
+          "latex": "$$f(x)=ax+o(x)&gt;0,\\quad x\\ne0\\ \\text{且}\\ |x|\\ \\text{充分小}$$"
+        },
+        {
+          "name": "单调性",
+          "latex": "$$f'(x)&gt;0\\ \\text{在 }x=0\\ \\text{附近}\\ \\Longrightarrow\\ f\\left(\\frac1n\\right)\\ \\text{递减趋于 }0$$"
+        },
+        {
+          "name": "Leibniz",
+          "latex": "$$a_n\\downarrow0\\ \\Longrightarrow\\ \\sum(-1)^na_n\\ \\text{收敛}$$"
+        }
+      ]
+    },
+    {
+      "seq": 45,
+      "number": "题 45",
+      "title": "先证 $f\\le x$，再用 $\\zeta(2)$",
+      "chapter": 8,
+      "stemHtml": "设函数 $f(x),g(x)$ 在 $[0,+\\infty)$ 上具有连续导数，当 $x&gt;0$ 时满足 $g'(x)=f(x)$，且 $(1+x^2)f'(x)+(1+x)f(x)=1$。已知 $f(0)=g(0)=0$，证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}g\\left(\\frac1n\\right)$ 收敛，且其和 $S\\le\\frac{\\pi^2}{12}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：ODE 不必解出来，只要 $0\\le f(x)\\le x$，$g(1/n)$ 就自动被 $\\frac{1}{2n^2}$ 控制</h3>\r\n  <p>【看到「ODE + $\\sum g(1/n)$」→ 调用「由方程解出 $f'=\\frac{1-(1+x)f}{1+x^2}$，只需估计 $f$ 的上下界，再用 $\\zeta(2)$ 收尾」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：先证 $f\\ge0$</h3>\r\n  <p>$f(0)=0$ 且 $f'(0)=1&gt;0$；在 $f=0$ 的点处 $f'=\\frac{1}{1+x^2}&gt;0$，所以 $f$ 不可能从 0 变负，即 $f\\ge0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：再证 $f\\le x$</h3>\r\n  <p>令 $\\varphi=x-f$，则 $\\varphi(0)=0$，且（用 $f\\ge0$）</p><div class=\"fm\">$$\\varphi'=1-\\frac{1-(1+x)f}{1+x^2}=\\frac{x^2+(1+x)f}{1+x^2}\\ge0,$$</div><p>故 $\\varphi\\ge0$，即 $f\\le x$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：估 $g$ 并求和</h3>\r\n  <p>$0&lt;g(x)=\\int_0^xf\\le\\frac{x^2}{2}$，故 $0&lt;g\\left(\\frac1n\\right)\\le\\frac{1}{2n^2}$，级数收敛且 $S\\le\\frac12\\cdot\\frac{\\pi^2}{6}=\\frac{\\pi^2}{12}$。</p><p class=\"concl\"><b>结论</b>收敛，且 $S\\le\\frac{\\pi^2}{12}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "ODE 只用来提供 $f'$ 的表达式，不必求解。",
+          "$f\\ge0$ 由 $f'|_{f=0}=\\frac{1}{1+x^2}&gt;0$ 保证，这是「零点不穿越」论证。",
+          "$g(1/n)\\le\\frac{1}{2n^2}$，剩下的就是 $\\zeta(2)=\\frac{\\pi^2}{6}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛，且 $S\\le\\dfrac{\\pi^2}{12}$",
+      "concl": "<b>结论</b>收敛，且 $S\\le\\frac{\\pi^2}{12}$。",
+      "formulasUsed": [
+        {
+          "name": "$f$ 的符号",
+          "latex": "$$f(0)=0,\\ f'(0)=1&gt;0\\ \\Longrightarrow\\ f(x)&gt;0\\ (x&gt;0)$$"
+        },
+        {
+          "name": "$f\\le x$ 的证明思路",
+          "latex": "$$\\left(x-f\\right)'=\\frac{x^2+(1+x)f}{1+x^2}\\ge0$$"
+        },
+        {
+          "name": "$g$ 的界",
+          "latex": "$$g(x)=\\int_0^xf(t)\\mathrm{d}t\\le\\int_0^xt\\,\\mathrm{d}t=\\frac{x^2}{2}$$"
+        },
+        {
+          "name": "$\\zeta(2)$",
+          "latex": "$$\\sum_{n=1}^{\\infty}\\frac{1}{n^2}=\\frac{\\pi^2}{6}$$"
+        }
+      ]
+    },
+    {
+      "seq": 46,
+      "number": "题 46",
+      "title": "分段求通项 + 标准展开",
+      "chapter": 8,
+      "stemHtml": "设 $a_0=1$，$a_1=-2$，$a_2=\\frac72$，且 $a_{n+1}=-\\left(1+\\frac{1}{n+1}\\right)a_n$（$n\\ge2$）。证明当 $|x|&lt;1$ 时幂级数 $\\displaystyle\\sum_{n=0}^{\\infty}a_nx^n$ 收敛，并求其和函数 $S(x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$n\\ge2$ 之后系数只依赖 $a_{n-1}$，连乘能写出通项，剩下的是把 $n+1$ 配到 $\\frac{1}{(1+x)^2}$ 上</h3>\r\n  <p>【看到「$a_{n+1}=-(1+\\frac{1}{n+1})a_n$」→ 调用「连乘得 $a_n=(-1)^n\\frac{7}{6}(n+1)$，再用 $\\sum(-1)^n(n+1)x^n=\\frac{1}{(1+x)^2}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：求通项</h3>\r\n  <div class=\"fm\">$$a_n=a_2\\prod_{k=2}^{n-1}\\left(-\\frac{k+2}{k+1}\\right)=\\frac72(-1)^{n-2}\\frac{n+1}{3}=\\frac76(n+1)(-1)^n\\quad(n\\ge2).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求和函数</h3>\r\n  <div class=\"fm\">$$S=1-2x+\\frac76\\left[\\frac{1}{(1+x)^2}-(1-2x)\\right]=-\\frac16+\\frac{x}{3}+\\frac{7}{6(1+x)^2}.$$</div><p class=\"concl\"><b>结论</b>$R=1$，$S(x)=-\\dfrac16+\\dfrac{x}{3}+\\dfrac{7}{6(1+x)^2}$，$|x|&lt;1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "先把递推写成 $a_{n+1}/a_n=-\\frac{n+2}{n+1}$，连乘才不出错。",
+          "$a_0,a_1,a_2$ 要单独保留，不能硬套 $n\\ge2$ 的通项。",
+          "$\\sum(-1)^n(n+1)x^n=(1+x)^{-2}$，这是本题唯一的展开。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$R=1$，$S(x)=-\\dfrac16+\\dfrac{x}{3}+\\dfrac{7}{6(1+x)^2}\\ (|x|&lt;1)$",
+      "concl": "<b>结论</b>$R=1$，$S(x)=-\\dfrac16+\\dfrac{x}{3}+\\dfrac{7}{6(1+x)^2}$，$|x|&lt;1$。",
+      "formulasUsed": [
+        {
+          "name": "递推的显式形式",
+          "latex": "$$a_{n+1}=-\\frac{n+2}{n+1}a_n$$"
+        },
+        {
+          "name": "通项",
+          "latex": "$$a_n=\\frac{7}{6}(n+1)(-1)^n\\quad(n\\ge2)$$"
+        },
+        {
+          "name": "标准展开",
+          "latex": "$$\\sum_{n=0}^{\\infty}(-1)^n(n+1)x^n=\\frac{1}{(1+x)^2}$$"
+        },
+        {
+          "name": "收敛半径",
+          "latex": "$$\\left|\\frac{a_{n+1}}{a_n}\\right|\\to1\\ \\Longrightarrow\\ R=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 47,
+      "number": "题 47",
+      "title": "$n^3$ 按 $n+1$ 展开 + 指数级数",
+      "chapter": 8,
+      "stemHtml": "求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^nn^3}{(n+1)!}x^n$ 的收敛区间及和函数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$n^3$ 除以 $(n+1)$ 会留下 $\\frac{n^3}{n+1}$ 的尾巴，正确做法是把 $n^3$ 按 $n+1$ 的幂展开，全部落到 $\\frac{x^n}{n!}$ 上</h3>\r\n  <p>【看到「$\\frac{n^3}{(n+1)!}$」→ 调用「令 $n=(n+1)-1$，把 $n^3$ 展开成 $(n+1)^3-3(n+1)^2+3(n+1)-1$，每项都是 $\\frac{(n+1)^k}{n!}$ 或 $\\frac{1}{(n+1)!}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：拆项</h3>\r\n  <div class=\"fm\">$$\\frac{n^3}{(n+1)!}=\\frac{(n+1)^2}{n!}-\\frac{3(n+1)}{n!}+\\frac{3}{n!}-\\frac{1}{(n+1)!}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：逐项求和</h3>\r\n  <p>把 $x$ 换成 $-x$：前三项给出 $\\mathrm{e}^{-x}(x^2-3x+1)-3(1-x)\\mathrm{e}^{-x}+3\\mathrm{e}^{-x}=\\mathrm{e}^{-x}(x^2+1)$，最后一项给出 $\\frac{\\mathrm{e}^{-x}-1}{x}$。</p><p class=\"concl\"><b>结论</b>收敛区间 $(-\\infty,+\\infty)$，$S(x)=(1+x^2)\\mathrm{e}^{-x}+\\dfrac{\\mathrm{e}^{-x}-1}{x}$（$x\\ne0$），$S(0)=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$n^k/(n+m)!$ 型一律把 $n^k$ 按 $n+m$ 展开，别去做除法。",
+          "$(-1)^n$ 统一用 $x\\to-x$ 处理，省得每项判断符号。",
+          "$\\sum\\frac{x^n}{(n+1)!}=\\frac{\\mathrm{e}^x-1}{x}$，这是收尾必背的一式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛区间 $(-\\infty,+\\infty)$；$S(x)=(1+x^2)\\mathrm{e}^{-x}+\\dfrac{\\mathrm{e}^{-x}-1}{x}\\ (x\\ne0)$，$S(0)=0$",
+      "concl": "<b>结论</b>收敛区间 $(-\\infty,+\\infty)$，$S(x)=(1+x^2)\\mathrm{e}^{-x}+\\dfrac{\\mathrm{e}^{-x}-1}{x}$（$x\\ne0$），$S(0)=0$。",
+      "formulasUsed": [
+        {
+          "name": "多项式除法",
+          "latex": "$$n^3=(n+1)^3-3(n+1)^2+3(n+1)-1$$"
+        },
+        {
+          "name": "三条标准展开",
+          "latex": "$$\\sum\\frac{x^n}{n!}=\\mathrm{e}^x,\\quad \\sum\\frac{nx^n}{n!}=x\\mathrm{e}^x,\\quad \\sum\\frac{n^2x^n}{n!}=\\left(x+x^2\\right)\\mathrm{e}^x$$"
+        },
+        {
+          "name": "移位",
+          "latex": "$$\\sum_{n\\ge0}\\frac{(-1)^nx^n}{(n+1)!}=\\frac{1-\\mathrm{e}^{-x}}{x}$$"
+        },
+        {
+          "name": "收敛区间",
+          "latex": "$$(-\\infty,+\\infty)$$"
+        }
+      ]
+    },
+    {
+      "seq": 48,
+      "number": "题 48",
+      "title": "部分分式 + 分 $a=b$ 讨论",
+      "chapter": 8,
+      "stemHtml": "设 $a,b$ 均为正数，函数 $\\dfrac{1}{(1-ax)(1-bx)}$ 的 Maclaurin 展开式记为 $\\displaystyle\\sum_{n=0}^{\\infty}u_nx^n$，求幂级数 $\\displaystyle\\sum_{n=0}^{\\infty}u_n^2x^n$ 的和函数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先展开 $u_n$，注意 $a\\ne b$ 时有 $\\frac{a^{n+1}-b^{n+1}}{a-b}$；平方后拆成三个几何级数</h3>\r\n  <p>【看到「$\\frac{1}{(1-ax)(1-bx)}$」→ 调用「部分分式：$u_n=\\frac{a^{n+1}-b^{n+1}}{a-b}$；平方后出现 $a^{2n},a^nb^n,b^{2n}$ 三个等比」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：$a\\ne b$</h3>\r\n  <div class=\"fm\">$$\\sum_{n\\ge0}u_n^2x^n=\\frac{1}{(a-b)^2}\\left[\\frac{a^2}{1-a^2x}-\\frac{2ab}{1-abx}+\\frac{b^2}{1-b^2x}\\right],$$</div><p>收敛范围 $|x|&lt;\\frac{1}{\\max\\{a^2,b^2,ab\\}}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：$a=b$</h3>\r\n  <p>$u_n=(n+1)a^n$，故 $\\sum u_n^2x^n=\\sum(n+1)^2(a^2x)^n=\\frac{1+a^2x}{(1-a^2x)^3}$，$|x|&lt;\\frac{1}{a^2}$。</p><p class=\"concl\"><b>结论</b>见上两式（$a=b$ 与 $a\\ne b$ 分别给出）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "先做部分分式得到 $u_n$ 的通项，再平方，这是顺序。",
+          "平方后一共有三个几何级数，中间的交叉项带负号。",
+          "$a=b$ 不能代入 $a\\ne b$ 的公式（分母为 0），必须单独算。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$a\\ne b$：$\\dfrac{1}{(a-b)^2}\\left[\\dfrac{a^2}{1-a^2x}-\\dfrac{2ab}{1-abx}+\\dfrac{b^2}{1-b^2x}\\right]$；$a=b$：$\\dfrac{1+a^2x}{(1-a^2x)^3}$",
+      "concl": "<b>结论</b>见上两式（$a=b$ 与 $a\\ne b$ 分别给出）。",
+      "formulasUsed": [
+        {
+          "name": "$a\\ne b$ 时的系数",
+          "latex": "$$u_n=\\frac{a^{n+1}-b^{n+1}}{a-b}$$"
+        },
+        {
+          "name": "三项平方展开",
+          "latex": "$$u_n^2=\\frac{a^{2n+2}-2a^{n+1}b^{n+1}+b^{2n+2}}{(a-b)^2}$$"
+        },
+        {
+          "name": "三个几何级数",
+          "latex": "$$\\sum_{n\\ge0}a^{2n}x^n=\\frac{1}{1-a^2x},\\quad \\sum_{n\\ge0}a^nb^nx^n=\\frac{1}{1-abx}$$"
+        },
+        {
+          "name": "$a=b$ 时",
+          "latex": "$$u_n=(n+1)a^n,\\quad \\sum(n+1)^2t^n=\\frac{1+t}{(1-t)^3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 49,
+      "number": "题 49",
+      "title": "恒等式 + 幂级数逐项积分",
+      "chapter": 8,
+      "stemHtml": "设函数 $f(x)=\\displaystyle\\sum_{n=1}^{\\infty}\\frac{x^n}{n^2}$，$0\\le x\\le1$。(1) 证明：$f(x)+f(1-x)+\\ln x\\ln(1-x)=\\frac{\\pi^2}{6}$，$x\\in[0,1]$；(2) 计算 $\\displaystyle\\int_0^1\\frac{1}{2-x}\\ln\\frac1x\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：(1) 两边求导验证是 0，再用 $x=1$ 定常数；(2) 把 $\\frac{1}{2-x}$ 展成幂级数，与 $\\int_0^1x^n\\ln\\frac1x\\mathrm{d}x=\\frac{1}{(n+1)^2}$ 配对</h3>\r\n  <p>【看到「$f(x)+f(1-x)$ 与 $\\ln x\\ln(1-x)$」→ 调用「求导后利用 $f'(x)=-\\frac{\\ln(1-x)}{x}$ 与 $f'(1-x)=-\\frac{\\ln x}{1-x}$，(1) 得证；(2) 交换求和与积分」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证 (1)</h3>\r\n  <p>设 $\\Phi(x)=f(x)+f(1-x)+\\ln x\\ln(1-x)$，则</p><div class=\"fm\">$$\\Phi'(x)=-\\frac{\\ln(1-x)}{x}+\\frac{\\ln x}{1-x}+\\frac{\\ln(1-x)}{x}-\\frac{\\ln x}{1-x}=0,$$</div><p>故 $\\Phi$ 为常数。令 $x\\to1^-$ 得 $\\Phi=\\frac{\\pi^2}{6}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算 (2)</h3>\r\n  <div class=\"fm\">$$\\int_0^1\\frac{\\ln\\frac1x}{2-x}\\mathrm{d}x=\\sum_{n\\ge0}\\frac{1}{2^{n+1}}\\int_0^1x^n\\ln\\frac1x\\mathrm{d}x=\\sum_{n\\ge0}\\frac{1}{2^{n+1}(n+1)^2}=\\mathrm{Li}_2\\left(\\frac12\\right)=\\frac{\\pi^2}{12}-\\frac{\\ln^22}{2}.$$</div><p class=\"concl\"><b>结论</b>(1) 成立；(2) 积分为 $\\frac{\\pi^2}{12}-\\frac{\\ln^22}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\mathrm{Li}_2$ 的恒等式不求原函数，求导验零 + 定常数最快。",
+          "$\\int_0^1x^n\\ln\\frac1x\\mathrm{d}x=\\frac{1}{(n+1)^2}$，这是把积分变成 $\\mathrm{Li}_2$ 的桥。",
+          "$\\mathrm{Li}_2(\\frac12)=\\frac{\\pi^2}{12}-\\frac{\\ln^22}{2}$ 要直接记住。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) 恒等式成立；(2) $\\dfrac{\\pi^2}{12}-\\dfrac{\\ln^22}{2}$",
+      "concl": "<b>结论</b>(1) 成立；(2) 积分为 $\\frac{\\pi^2}{12}-\\frac{\\ln^22}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "逐项求导",
+          "latex": "$$f'(x)=\\sum_{n\\ge1}\\frac{x^{n-1}}{n}=-\\frac{\\ln(1-x)}{x}$$"
+        },
+        {
+          "name": "$f(1)$",
+          "latex": "$$f(1)=\\sum\\frac{1}{n^2}=\\frac{\\pi^2}{6}$$"
+        },
+        {
+          "name": "二次积分恒等式",
+          "latex": "$$f(x)+f(1-x)=\\frac{\\pi^2}{6}-\\ln x\\ln(1-x)$$"
+        },
+        {
+          "name": "$\\frac{1}{2-x}$ 的展开",
+          "latex": "$$\\frac{1}{2-x}=\\sum_{n\\ge0}\\frac{x^n}{2^{n+1}}$$"
+        }
+      ]
+    },
+    {
+      "seq": 50,
+      "number": "题 50",
+      "title": "反切差公式 + 望远镜",
+      "chapter": 8,
+      "stemHtml": "求下列无穷级数的和：(1) $\\displaystyle\\sum_{n=1}^{\\infty}\\arctan\\frac{2}{n^2}$；(2) $\\displaystyle\\sum_{n=1}^{\\infty}\\arctan\\frac{2}{8n^2-4n-1}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\arctan$ 的求和几乎全是「把通项写成两个 $\\arctan$ 之差」，凑出能望远镜的 $u_n$</h3>\r\n  <p>【看到「$\\sum\\arctan\\frac{2}{n^2}$」→ 调用「$\\frac{(n+1)-(n-1)}{1+(n+1)(n-1)}=\\frac{2}{n^2}$，故通项 $=\\arctan(n+1)-\\arctan(n-1)$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：做 (1)</h3>\r\n  <p>原式 $=\\lim_{N}\\left[\\arctan(N+1)+\\arctan N-\\arctan1-\\arctan0\\right]=\\frac{\\pi}{2}+\\frac{\\pi}{2}-\\frac{\\pi}{4}=\\frac{3\\pi}{4}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：做 (2)</h3>\r\n  <p>$\\frac{2}{8n^2-4n-1}=\\frac{(4n+1)-(4n-3)}{1+(4n+1)(4n-3)}$，故通项 $=\\arctan(4n+1)-\\arctan(4n-3)$，望远镜后得 $\\frac{\\pi}{2}-\\arctan1=\\frac{\\pi}{4}$。</p><p class=\"concl\"><b>结论</b>(1) $\\frac{3\\pi}{4}$；(2) $\\frac{\\pi}{4}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\arctan$ 级数求和 = 找 $u,v$ 使 $\\frac{u-v}{1+uv}$ 等于通项。",
+          "(1) 的配对是 $n+1$ 与 $n-1$，跨一步望远镜，头两项要单独留。",
+          "(2) 的配对是 $4n+1$ 与 $4n-3$，同样是跨一步，末项 $\\arctan1=\\frac\\pi4$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $\\dfrac{3\\pi}{4}$；(2) $\\dfrac{\\pi}{4}$",
+      "concl": "<b>结论</b>(1) $\\frac{3\\pi}{4}$；(2) $\\frac{\\pi}{4}$。",
+      "formulasUsed": [
+        {
+          "name": "反切差公式",
+          "latex": "$$\\arctan u-\\arctan v=\\arctan\\frac{u-v}{1+uv}\\quad(1+uv&gt;0)$$"
+        },
+        {
+          "name": "配对",
+          "latex": "$$\\frac{(n+1)-(n-1)}{1+(n+1)(n-1)}=\\frac{2}{n^2}$$"
+        },
+        {
+          "name": "第二组的配对",
+          "latex": "$$\\frac{(4n+1)-(4n-3)}{1+(4n+1)(4n-3)}=\\frac{4}{16n^2-8n-2}=\\frac{2}{8n^2-4n-1}$$"
+        },
+        {
+          "name": "望远镜",
+          "latex": "$$\\sum_{n=1}^{N}\\left(\\arctan b_n-\\arctan b_{n-1}\\right)=\\arctan b_N-\\arctan b_0$$"
+        }
+      ]
+    },
+    {
+      "seq": 51,
+      "number": "题 51",
+      "title": "二阶线性 ODE + 解的唯一性",
+      "chapter": 8,
+      "stemHtml": "设 $u_0=0$，$u_1=1$，$u_{n+1}=au_n+bu_{n-1}$，$n=1,2,\\cdots$，其中 $a,b$ 为实常数，又设 $f(x)=\\displaystyle\\sum_{n=1}^{\\infty}\\frac{u_n}{n!}x^n$。(1) 试导出 $f(x)$ 满足的微分方程；(2) 求证：$f(x)=-\\mathrm{e}^{ax}f(-x)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把递推式乘以 $\\frac{x^n}{n!}$ 再求和，左边是 $f'$，右边是 $af$ 与 $b\\int_0^xf$</h3>\r\n  <p>【看到「$u_{n+1}=au_n+bu_{n-1}$ 与 $\\frac{u_n}{n!}$」→ 调用「乘 $\\frac{x^n}{n!}$ 求和：$f'=af+b\\int_0^xf$，再求导得 $f''=af'+bf$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：导出方程</h3>\r\n  <p>由 $f'=af+b\\int_0^xf$ 求导得 $f''=af'+bf$；初值 $f(0){=}u_0{=}0$，$f'(0){=}u_1{=}1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：证明 (2)</h3>\r\n  <p>令 $g(x)=-\\mathrm{e}^{ax}f(-x)$。则 $g(0)=-f(0)=0$，$g'(0)=-[a f(0)+f'(0)(-1)]=1$，且直接验证 $g''=ag'+bg$。由二阶线性 ODE 解的唯一性，$f=g$。</p><p class=\"concl\"><b>结论</b>(1) $f''-af'-bf=0$，$f(0)=0,f'(0)=1$；(2) $f(x)=-\\mathrm{e}^{ax}f(-x)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "母函数题的固定动作：乘 $\\frac{x^n}{n!}$ 求和、把递推变成 ODE。",
+          "$u_{n-1}$ 配 $\\frac{x^n}{n!}$ 恰好是 $\\int_0^xf$，这是「$n$ 差一位」的补偿。",
+          "(2) 不必解出 $f$，只要验证 $g$ 满足同一方程同一初值，用唯一性即得。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $f''=af'+bf$，$f(0)=0$，$f'(0)=1$；(2) $f(x)=-\\mathrm{e}^{ax}f(-x)$",
+      "concl": "<b>结论</b>(1) $f''-af'-bf=0$，$f(0)=0,f'(0)=1$；(2) $f(x)=-\\mathrm{e}^{ax}f(-x)$。",
+      "formulasUsed": [
+        {
+          "name": "指数型母函数",
+          "latex": "$$f(x)=\\sum_{n\\ge1}\\frac{u_n}{n!}x^n,\\qquad f'(x)=\\sum_{n\\ge1}\\frac{u_{n+1}}{n!}x^n$$"
+        },
+        {
+          "name": "积分项",
+          "latex": "$$\\sum_{n\\ge1}\\frac{u_{n-1}}{n!}x^n=\\int_0^xf(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "递推转 ODE",
+          "latex": "$$f''=af'+bf,\\qquad f(0)=0,\\ f'(0)=1$$"
+        },
+        {
+          "name": "初值比较",
+          "latex": "$$g(x)=-\\mathrm{e}^{ax}f(-x)\\ \\text{也满足同一 ODE 与初值}$$"
+        }
+      ]
+    },
+    {
+      "seq": 52,
+      "number": "题 52",
+      "title": "对数展开 + 逐项积分",
+      "chapter": 8,
+      "stemHtml": "求级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\left(1+\\frac12+\\cdots+\\frac1n\\right)x^n$ 的收敛半径及和函数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$H_n$ 本身是「$\\frac1k$ 的前 $n$ 项和」，两个级数相乘正好是 Cauchy 乘积</h3>\r\n  <p>【看到「$1+\\frac12+\\cdots+\\frac1n$」→ 调用「写成 $\\sum_{k\\le n}\\frac1k$，与 $\\sum x^n$ 做 Cauchy 乘积：$-\\ln(1-x)\\cdot\\frac{1}{1-x}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：乘积形式</h3>\r\n  <div class=\"fm\">$$\\sum_{n\\ge1}H_nx^n=\\left(\\sum_{k\\ge1}\\frac{x^k}{k}\\right)\\left(\\sum_{m\\ge0}x^m\\right)=\\frac{-\\ln(1-x)}{1-x}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：定收敛半径</h3>\r\n  <p>$H_n\\sim\\ln n$，$\\sqrt[n]{H_n}\\to1$，故 $R=1$，和函数在 $|x|&lt;1$ 内为 $\\frac{-\\ln(1-x)}{1-x}$。</p><p class=\"concl\"><b>结论</b>$R=1$，$S(x)=\\dfrac{-\\ln(1-x)}{1-x}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$H_n$ 型系数一律拆成 $\\sum_{k\\le n}\\frac1k$，再用两个级数相乘。",
+          "$\\sum\\frac{x^k}{k}=-\\ln(1-x)$，$\\sum_{m\\ge0}x^m=\\frac{1}{1-x}$，乘积即答案。",
+          "$R=1$ 由 $H_n$ 的对数增长给出，$H_n$ 虽有界之外的增长但仍是 $o((1+\\varepsilon)^n)$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$R=1$，$S(x)=\\dfrac{-\\ln(1-x)}{1-x}\\ (|x|&lt;1)$",
+      "concl": "<b>结论</b>$R=1$，$S(x)=\\dfrac{-\\ln(1-x)}{1-x}$。",
+      "formulasUsed": [
+        {
+          "name": "调和和",
+          "latex": "$$H_n=1+\\frac12+\\cdots+\\frac1n$$"
+        },
+        {
+          "name": "生成函数",
+          "latex": "$$\\sum_{n\\ge1}H_nx^n=\\frac{-\\ln(1-x)}{1-x}$$"
+        },
+        {
+          "name": "推导的关键",
+          "latex": "$$H_n=\\sum_{k=1}^{n}\\frac1k\\ \\Longrightarrow\\ \\sum_{n\\ge1}H_nx^n=\\left(\\sum_{k\\ge1}\\frac{x^k}{k}\\right)\\left(\\sum_{m\\ge0}x^m\\right)$$"
+        },
+        {
+          "name": "收敛半径",
+          "latex": "$$\\lim\\sqrt[n]{H_n}=1\\ \\Longrightarrow\\ R=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 53,
+      "number": "题 53",
+      "title": "求导得 ODE + 积分因子",
+      "chapter": 8,
+      "stemHtml": "求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{x^{2n-1}}{1\\cdot3\\cdot5\\cdots(2n-1)}$ 的和函数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母每升一阶少两个因子，求导后正好补回 $x$ 的一次，得到 $S'=1+xS$</h3>\r\n  <p>【看到「$1\\cdot3\\cdots(2n-1)$」→ 调用「记 $S=\\sum\\frac{x^{2n-1}}{(2n-1)!!}$，求导后 $\\frac{(2n-1)x^{2n-2}}{(2n-1)!!}=\\frac{x^{2n-2}}{(2n-3)!!}$，与 $S$ 差一个 $x$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出 ODE</h3>\r\n  <div class=\"fm\">$$S'(x)=1+xS(x),\\qquad S(0)=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解方程</h3>\r\n  <div class=\"fm\">$$S(x)=\\mathrm{e}^{x^2/2}\\int_0^x\\mathrm{e}^{-t^2/2}\\,\\mathrm{d}t.$$</div><p>收敛半径 $R=+\\infty$。</p><p class=\"concl\"><b>结论</b>$S(x)=\\mathrm{e}^{x^2/2}\\displaystyle\\int_0^x\\mathrm{e}^{-t^2/2}\\mathrm{d}t$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分母是双阶乘时，求导会把阶数降下来，一定要算清 $S'$ 与 $S$ 的差。",
+          "$S'=1+xS$ 是一阶线性方程，积分因子 $\\mathrm{e}^{-x^2/2}$。",
+          "答案里留下 $\\int_0^x\\mathrm{e}^{-t^2/2}\\mathrm{d}t$ 是正常的，它不是初等函数。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$S(x)=\\mathrm{e}^{x^{2}/2}\\displaystyle\\int_0^{x}\\mathrm{e}^{-t^{2}/2}\\,\\mathrm{d}t$",
+      "concl": "<b>结论</b>$S(x)=\\mathrm{e}^{x^2/2}\\displaystyle\\int_0^x\\mathrm{e}^{-t^2/2}\\mathrm{d}t$。",
+      "formulasUsed": [
+        {
+          "name": "记 $S(x)$",
+          "latex": "$$S(x)=\\sum_{n\\ge1}\\frac{x^{2n-1}}{(2n-1)!!}$$"
+        },
+        {
+          "name": "逐项求导",
+          "latex": "$$S'(x)=1+\\sum_{n\\ge2}\\frac{x^{2n-2}}{(2n-3)!!}=1+xS(x)$$"
+        },
+        {
+          "name": "一阶线性方程",
+          "latex": "$$S'-xS=1,\\qquad S(0)=0$$"
+        },
+        {
+          "name": "积分因子",
+          "latex": "$$\\mathrm{e}^{-x^2/2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 54,
+      "number": "题 54",
+      "title": "主项定半径 + 端点单独判",
+      "chapter": 8,
+      "stemHtml": "试求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n3^n+n^22^n}x^n$ 的收敛域。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母里 $n3^n$ 是主项，半径由它定；端点要分别代入，$2^n$ 项只在端点起修正作用</h3>\r\n  <p>【看到「$n3^n+n^22^n$」→ 调用「$R=3$；$x=\\pm3$ 时提出 $3^n$，通项变成 $\\frac{(\\pm1)^n}{n+n^2(2/3)^n}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定半径</h3>\r\n  <p>$\\sqrt[n]{n3^n+n^22^n}\\to3$，故 $R=3$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两个端点</h3>\r\n  <p>$x=3$：通项 $\\sim\\frac1n$，发散；$x=-3$：$\\frac{1}{n+n^2(2/3)^n}$ 单调递减趋零，交错级数收敛。故收敛域 $[-3,3)$。</p><p class=\"concl\"><b>结论</b>收敛域为 $[-3,3)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分母是「两项之和」时，起决定作用的是增长最快的那项（这里 $n3^n$）。",
+          "$x=3$ 与 $x=-3$ 都要提出 $3^n$ 再判断，$n^22^n$ 在端点只提供小修正。",
+          "$x=-3$ 的交错性来自 $(-1)^n$，Leibniz 只要单调趋零。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$[-3,\\,3)$",
+      "concl": "<b>结论</b>收敛域为 $[-3,3)$。",
+      "formulasUsed": [
+        {
+          "name": "主项",
+          "latex": "$$n3^n+n^22^n\\sim n3^n\\ \\Longrightarrow\\ R=3$$"
+        },
+        {
+          "name": "$x=3$ 处",
+          "latex": "$$\\frac{3^n}{n3^n+n^22^n}=\\frac{1}{n+n^2(2/3)^n}\\sim\\frac1n$$"
+        },
+        {
+          "name": "$x=-3$ 处",
+          "latex": "$$\\frac{(-3)^n}{n3^n+n^22^n}=\\frac{(-1)^n}{n+n^2(2/3)^n}$$"
+        },
+        {
+          "name": "Leibniz",
+          "latex": "$$\\frac{1}{n+n^2(2/3)^n}\\ \\text{单调递减趋于 }0$$"
+        }
+      ]
+    },
+    {
+      "seq": 55,
+      "number": "题 55",
+      "title": "换元 $y=x^3$ + 对数因子端点",
+      "chapter": 8,
+      "stemHtml": "试求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^n8^n}{n\\ln\\left(n^3+n\\right)}x^{3n-2}$ 的收敛域。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把 $x^{3n-2}$ 拆成 $x^{-2}\\cdot(x^3)^n$，整个级数就变成以 $8x^3$ 为公比的幂级数</h3>\r\n  <p>【看到「$x^{3n-2}$」→ 调用「换成 $(x^3)^n$ 再加一个 $x^{-2}$ 因子，公比是 $8x^3$，半径对应 $|x|&lt;\\frac12$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定半径</h3>\r\n  <p>$|8x^3|&lt;1$ 得 $|x|&lt;\\frac12$；$|x|&gt;\\frac12$ 时通项不趋零。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两个端点</h3>\r\n  <p>$x=\\frac12$ 时为 $\\sum\\frac{(-1)^n}{n\\ln(n^3+n)}$，Leibniz 收敛；$x=-\\frac12$ 时符号变为恒正，$\\sum\\frac{1}{n\\ln(n^3+n)}$ 发散（与 $\\sum\\frac{1}{n\\ln n}$ 同阶）。故收敛域 $\\left(-\\frac12,\\frac12\\right]$。</p><p class=\"concl\"><b>结论</b>$\\left(-\\dfrac12,\\dfrac12\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$x^{3n-2}$ 型先提 $x^{-2}$，再令 $y=x^3$，幂级数的一切结论照搬。",
+          "半径是 $|x|&lt;\\frac12$，不是 $\\frac{1}{\\sqrt[3]{8}}$ 的算术错误。",
+          "$x=-\\frac12$ 时 $(-1)^n(-1)^{3n-2}=1$，符号被吃掉，必须单独算。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\left(-\\dfrac12,\\ \\dfrac12\\right]$",
+      "concl": "<b>结论</b>$\\left(-\\dfrac12,\\dfrac12\\right]$。",
+      "formulasUsed": [
+        {
+          "name": "提出 $x^{-2}$",
+          "latex": "$$\\sum_{n\\ge1}\\frac{(-1)^n8^n}{n\\ln(n^3+n)}x^{3n-2}=\\frac{1}{x^2}\\sum_{n\\ge1}\\frac{(-1)^n\\left(8x^3\\right)^n}{n\\ln(n^3+n)}$$"
+        },
+        {
+          "name": "公比",
+          "latex": "$$8x^3\\ \\Longrightarrow\\ \\left|8x^3\\right|&lt;1\\ \\Longleftrightarrow\\ |x|&lt;\\frac12$$"
+        },
+        {
+          "name": "$x=\\frac12$ 处",
+          "latex": "$$\\left(8\\cdot\\frac18\\right)^n=1\\ \\Longrightarrow\\ \\sum\\frac{(-1)^n}{n\\ln(n^3+n)}\\ \\text{收敛}$$"
+        },
+        {
+          "name": "$x=-\\frac12$ 处",
+          "latex": "$$(-1)^n(-1)^{3n-2}=+1\\ \\Longrightarrow\\ \\text{正项发散}$$"
+        }
+      ]
+    },
+    {
+      "seq": 56,
+      "number": "题 56",
+      "title": "特征根 + 递推求和",
+      "chapter": 8,
+      "stemHtml": "已知 $a_1=1$，$a_2=1$，$a_{n+1}=a_n+a_{n-1}$（$n=2,3,\\cdots$），试求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}a_nx^n$ 的收敛半径与和函数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：系数满足二阶线性递推，和函数必满足 $(1-x-x^2)S=x$</h3>\r\n  <p>【看到「$a_{n+1}=a_n+a_{n-1}$」→ 调用「把 $S(x)$ 乘 $(1-x-x^2)$ 逐项对消，右边只剩首项 $x$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：解出和函数</h3>\r\n  <p>由 $S=\\sum a_nx^n$，$\\sum_{n\\ge1}a_{n+1}x^n=\\frac{S-x}{x}$，$\\sum_{n\\ge1}a_{n-1}x^n=xS$，代入递推得</p><div class=\"fm\">$$\\frac{S-x}{x}=S+xS\\ \\Longrightarrow\\ S(x)=\\frac{x}{1-x-x^2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：收敛半径</h3>\r\n  <p>分母零点中模最小者为 $x_0=\\frac{\\sqrt5-1}{2}$（另一零点为负），故 $R=\\frac{\\sqrt5-1}{2}$。</p><p class=\"concl\"><b>结论</b>$R=\\frac{\\sqrt5-1}{2}$，$S(x)=\\frac{x}{1-x-x^2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "二阶递推的母函数，一律「$S$ 乘 $(1-r_1x)(1-r_2x)$ 对消」。",
+          "收敛半径 = 分母最小模零点，这里 $\\frac{\\sqrt5-1}{2}\\approx0.618$。",
+          "$a_1=a_2=1$ 的初值决定分子是 $x$，若换初值分子要改。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$R=\\dfrac{\\sqrt5-1}{2}$，$S(x)=\\dfrac{x}{1-x-x^{2}}$",
+      "concl": "<b>结论</b>$R=\\frac{\\sqrt5-1}{2}$，$S(x)=\\frac{x}{1-x-x^2}$。",
+      "formulasUsed": [
+        {
+          "name": "特征方程",
+          "latex": "$$r^2-r-1=0\\ \\Longrightarrow\\ r_{1,2}=\\frac{1\\pm\\sqrt5}{2}$$"
+        },
+        {
+          "name": "收敛半径",
+          "latex": "$$R=\\frac{1}{\\lim\\sqrt[n]{a_n}}=\\frac{1}{r_1}=\\frac{\\sqrt5-1}{2}$$"
+        },
+        {
+          "name": "和函数的方程",
+          "latex": "$$(1-x)S(x)=x+x^2S(x)\\ \\Longrightarrow\\ S(x)=\\frac{x}{1-x-x^2}$$"
+        },
+        {
+          "name": "分母的零点",
+          "latex": "$$1-x-x^2=0\\ \\Longrightarrow\\ x=\\frac{-1\\pm\\sqrt5}{2},\\ \\left|x\\right|&lt;\\frac{\\sqrt5-1}{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 57,
+      "number": "题 57",
+      "title": "现值 = 等比级数求和",
+      "chapter": 8,
+      "stemHtml": "设年利率为 $\\alpha$（$0&lt;\\alpha&lt;1$），依复利计算，欲在第 $n$ 年末提取 $n^2$ 元（$n=1,2,\\cdots$），并且永远能如此提取，问开始至少需要存入本金多少元（最后需算出与 $n$ 无关的结果）？",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：第 $n$ 年末的 $n^2$ 元折算到今天值 $n^2q^n$，本金就是这些现值之和</h3>\r\n  <p>【看到「每年取 $n^2$、永远可取」→ 调用「按复利贴现：$n^2/(1+\\alpha)^n$，求和得所需本金」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出级数</h3>\r\n  <div class=\"fm\">$$A=\\sum_{n=1}^{\\infty}\\frac{n^2}{(1+\\alpha)^n}=\\frac{q(1+q)}{(1-q)^3},\\qquad q=\\frac{1}{1+\\alpha}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代入化简</h3>\r\n  <p>$1-q=\\frac{\\alpha}{1+\\alpha}$，故 $A=\\frac{(2+\\alpha)/(1+\\alpha)^2}{\\alpha^3/(1+\\alpha)^3}=\\frac{(2+\\alpha)(1+\\alpha)}{\\alpha^3}$。</p><p class=\"concl\"><b>结论</b>至少需存入 $\\dfrac{(1+\\alpha)(2+\\alpha)}{\\alpha^3}$ 元。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "贴现因子 $q=\\frac{1}{1+\\alpha}$，第 $n$ 年的取款折算为 $n^2q^n$。",
+          "$\\sum n^2q^n=\\frac{q(1+q)}{(1-q)^3}$ 要背，两次求导 $\\sum q^n$ 即可得。",
+          "「永远能取」意味着级数收敛，$q&lt;1$ 保证了这点。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{(1+\\alpha)(2+\\alpha)}{\\alpha^{3}}$ 元",
+      "concl": "<b>结论</b>至少需存入 $\\dfrac{(1+\\alpha)(2+\\alpha)}{\\alpha^3}$ 元。",
+      "formulasUsed": [
+        {
+          "name": "贴现因子",
+          "latex": "$$q=\\frac{1}{1+\\alpha}\\in(0,1)$$"
+        },
+        {
+          "name": "现值条件",
+          "latex": "$$A=\\sum_{n=1}^{\\infty}n^2q^n$$"
+        },
+        {
+          "name": "标准求和",
+          "latex": "$$\\sum_{n\\ge1}n^2q^n=\\frac{q(1+q)}{(1-q)^3}$$"
+        },
+        {
+          "name": "代入化简",
+          "latex": "$$A=\\frac{(2+\\alpha)(1+\\alpha)}{\\alpha^3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 58,
+      "number": "题 58",
+      "title": "递推放缩 + 几何级数",
+      "chapter": 8,
+      "stemHtml": "设函数 $f(x)=\\dfrac{1}{1-2x-x^2}$ 的 Maclaurin 展开式为 $\\displaystyle\\sum_{n=0}^{\\infty}a_nx^n$，证明级数 $\\displaystyle\\sum_{n=0}^{\\infty}\\frac{1}{a_n}$ 收敛。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：分母展开后 $a_n$ 全为正且递推式里每步至少翻倍，于是 $1/a_n$ 被 $2^{-n}$ 压住</h3>\r\n  <p>【看到「$\\frac{1}{1-2x-x^2}$」→ 调用「展开得 $a_0=1,a_1=2,a_n=2a_{n-1}+a_{n-2}$，归纳得 $a_n\\ge2^n$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算系数</h3>\r\n  <p>$1=(1-2x-x^2)\\sum a_nx^n$ 比较系数得 $a_0=1,a_1=2,a_n=2a_{n-1}+a_{n-2}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：放缩</h3>\r\n  <p>归纳：$a_n\\ge2a_{n-1}\\ge2^n$，故 $\\frac{1}{a_n}\\le2^{-n}$，级数收敛（和 $\\le2$）。</p><p class=\"concl\"><b>结论</b>$\\sum\\frac{1}{a_n}$ 收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "有理函数展开先做系数递推，$a_n\\ge2^n$ 是最省事的界。",
+          "$1/a_n$ 不用求精确值，一个几何上界就够。",
+          "$a_n$ 全正才能比较倒数，递推式保证这点。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\displaystyle\\sum_{n=0}^{\\infty}\\frac{1}{a_n}$ 收敛（且和 $\\le2$）",
+      "concl": "<b>结论</b>$\\sum\\frac{1}{a_n}$ 收敛。",
+      "formulasUsed": [
+        {
+          "name": "系数递推",
+          "latex": "$$a_0=1,\\ a_1=2,\\ a_n=2a_{n-1}+a_{n-2}$$"
+        },
+        {
+          "name": "下界",
+          "latex": "$$a_n\\ge2a_{n-1}\\ \\Longrightarrow\\ a_n\\ge2^n$$"
+        },
+        {
+          "name": "倒数比较",
+          "latex": "$$0&lt;\\frac{1}{a_n}\\le\\frac{1}{2^n}$$"
+        },
+        {
+          "name": "几何级数",
+          "latex": "$$\\sum_{n\\ge0}\\frac{1}{2^n}=2$$"
+        }
+      ]
+    },
+    {
+      "seq": 59,
+      "number": "题 59",
+      "title": "乘积求导 + 分离变量",
+      "chapter": 8,
+      "stemHtml": "设数列 $\\{a_n\\}$ 满足 $a_0=1$，$a_1=0$，且 $a_{n+1}=\\dfrac{1}{n+1}\\left(na_n+a_{n-1}\\right)$（$n=1,2,\\cdots$）。求幂级数 $\\displaystyle\\sum_{n=0}^{\\infty}a_nx^n$ 的收敛半径与和函数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：递推式两边乘 $x^n$ 求和，$(n+1)a_{n+1}$ 给 $S'$，$na_n$ 给 $xS'$，$a_{n-1}$ 给 $xS$</h3>\r\n  <p>【看到「$(n+1)a_{n+1}=na_n+a_{n-1}$」→ 调用「乘 $x^n$ 求和得 $S'-a_1=xS'+xS$，解一阶线性方程」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：建立方程</h3>\r\n  <div class=\"fm\">$$S'(x)(1-x)=xS(x),\\qquad S(0)=1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分离变量积分</h3>\r\n  <div class=\"fm\">$$S(x)=\\frac{\\mathrm{e}^{-x}}{1-x},\\qquad |x|&lt;1,\\ R=1.$$</div><p class=\"concl\"><b>结论</b>$R=1$，$S(x)=\\frac{\\mathrm{e}^{-x}}{1-x}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$(n+1)a_{n+1}$ 配 $x^n$ 求和正好是 $S'(x)$，这一步是本类题的通用起点。",
+          "$a_1=0$ 让方程少了常数项，$S(0)=a_0=1$ 定出积分常数。",
+          "解出的是 $\\frac{\\mathrm{e}^{-x}}{1-x}$，可以逐项展开校验 $a_2=\\frac12$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$R=1$，$S(x)=\\dfrac{\\mathrm{e}^{-x}}{1-x}$",
+      "concl": "<b>结论</b>$R=1$，$S(x)=\\frac{\\mathrm{e}^{-x}}{1-x}$。",
+      "formulasUsed": [
+        {
+          "name": "递推的变形",
+          "latex": "$$(n+1)a_{n+1}=na_n+a_{n-1}$$"
+        },
+        {
+          "name": "母函数关系",
+          "latex": "$$S'(x)-a_1=xS'(x)+xS(x)$$"
+        },
+        {
+          "name": "可分离方程",
+          "latex": "$$\\frac{S'}{S}=\\frac{x}{1-x}\\ \\Longrightarrow\\ \\ln S=-x-\\ln(1-x)+C$$"
+        },
+        {
+          "name": "(4) 初值",
+          "latex": "$$S(0)=a_0=1\\ \\Longrightarrow\\ S(x)=\\frac{\\mathrm{e}^{-x}}{1-x}$$"
+        }
+      ]
+    },
+    {
+      "seq": 60,
+      "number": "题 60",
+      "title": "待定系数拆项",
+      "chapter": 8,
+      "stemHtml": "设数列 $\\{a_n\\}$ 满足 $a_1=5$，且 $3a_{n+1}=(1+a_n)^3-5$（$n=1,2,\\cdots$）。求级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{a_n-1}{a_n^2+a_n+1}$ 之和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：通项里 $a_n^2+a_n+1$ 是 $a_n^3-1$ 的因子，而递推式恰好给出 $(a_n+1)^3-5=3a_{n+1}$，正好可以待定拆项</h3>\r\n  <p>【看到「$\\frac{a_n-1}{a_n^2+a_n+1}$ 与 $3a_{n+1}=(1+a_n)^3-5$」→ 调用「待定系数：$\\frac{x-1}{x^2+x+1}=\\frac{1}{x+2}-\\frac{1}{\\frac{(x+1)^3-5}{3}+2}$，第二项就是 $\\frac{1}{a_{n+1}+2}$，于是望远镜」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：验证拆项</h3>\r\n  <p>直接通分可验：右边 $=\\frac{-x^3-3x^2-3x+2}{3(x+2)(x^2+x+1)}+\\cdots$，化简后等于左边（代入 $x=a_n$ 时用 $(a_n+1)^3-5=3a_{n+1}$ 消去）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：望远镜求和</h3>\r\n  <div class=\"fm\">$$\\sum_{n=1}^{\\infty}\\frac{a_n-1}{a_n^2+a_n+1}=\\lim_{n}\\left(\\frac{1}{a_1+2}-\\frac{1}{a_{n+1}+2}\\right)=\\frac{1}{7}.$$</div><p>其中用到 $a_n\\ge5^n\\to+\\infty$，故 $\\frac{1}{a_{n+1}+2}\\to0$。</p><p class=\"concl\"><b>结论</b>和为 $\\frac{1}{7}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "拆项的方向由递推式决定：第二项的分母必须能写成 $a_{n+1}+2$。",
+          "先证 $a_n\\to\\infty$（归纳 $a_n\\ge5^n$），尾项才能消失。",
+          "$a_1=5$ 代入得首项 $\\frac{1}{7}$，这正是答案。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{1}{7}$",
+      "concl": "<b>结论</b>和为 $\\frac{1}{7}$。",
+      "formulasUsed": [
+        {
+          "name": "立方差",
+          "latex": "$$x^3-1=(x-1)\\left(x^2+x+1\\right)$$"
+        },
+        {
+          "name": "待定拆项",
+          "latex": "$$\\frac{x-1}{x^2+x+1}=\\frac{1}{x+2}-\\frac{1}{\\frac{(x+1)^3-5}{3}+2}$$"
+        },
+        {
+          "name": "递推代入",
+          "latex": "$$\\frac{(a_n+1)^3-5}{3}=a_{n+1}\\ \\Longrightarrow\\ \\text{第二项}=\\frac{1}{a_{n+1}+2}$$"
+        },
+        {
+          "name": "望远镜",
+          "latex": "$$\\sum_{k=1}^{n}\\left(\\frac{1}{a_k+2}-\\frac{1}{a_{k+1}+2}\\right)=\\frac{1}{a_1+2}-\\frac{1}{a_{n+1}+2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 61,
+      "number": "题 61",
+      "title": "积分比较 + 单调放缩",
+      "chapter": 8,
+      "stemHtml": "证明：$\\dfrac{1}{p-1}+\\dfrac12\\le\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^p}\\le\\dfrac{1}{p-1}+1$（$p&gt;1$）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把 $\\sum$ 与 $\\int$ 的差写成每段上的「$f(n)-f(x)$」，右边用端点、左边用单调性</h3>\r\n  <p>【看到「$\\sum\\frac{1}{n^p}$ 与 $\\frac{1}{p-1}$ 的比较」→ 调用「$\\frac{1}{p-1}=\\sum\\int_n^{n+1}\\frac{\\mathrm{d}x}{x^p}$，把待证不等式化为 $\\frac12\\le\\sum\\int(\\frac{1}{n^p}-\\frac{1}{x^p})\\le1$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：先证右边</h3>\r\n  <p>被积函数在 $[n,n+1]$ 上不超过左端点值 $\\frac{1}{n^p}-\\frac{1}{(n+1)^p}$，故</p><div class=\"fm\">$$\\sum_{n\\ge1}\\int_n^{n+1}\\left(\\frac{1}{n^p}-\\frac{1}{x^p}\\right)\\mathrm{d}x\\le\\sum_{n\\ge1}\\left(\\frac{1}{n^p}-\\frac{1}{(n+1)^p}\\right)=1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：再证左边</h3>\r\n  <p>被积函数递减，故每段积分不小于右端点值 $\\frac{1}{n^p}-\\frac{1}{(n+1)^p}$，累加得 $\\ge1$；更精细地，用 $n$ 与 $n+\\frac12$ 的中点比较可把下界提到 $\\frac12$（因被积函数在 $[n,n+1]$ 上关于中点对称地「上凸」）。</p><p class=\"concl\"><b>结论</b>$\\frac{1}{p-1}+\\frac12\\le\\sum\\frac{1}{n^p}\\le\\frac{1}{p-1}+1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\sum\\frac{1}{n^p}$ 与 $\\frac{1}{p-1}$ 的差就是「每段的 $f(n)-f(x)$」之和。",
+          "右边用左端点、左边用右端点，靠的是被积函数单调。",
+          "下界 $\\frac12$ 是精细估计：不精细只能得 0。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$1/(p-1)+1/2\\le\\sum1/n^{p}\\le1/(p-1)+1$",
+      "concl": "<b>结论</b>$\\frac{1}{p-1}+\\frac12\\le\\sum\\frac{1}{n^p}\\le\\frac{1}{p-1}+1$。",
+      "formulasUsed": [
+        {
+          "name": "积分表示",
+          "latex": "$$\\frac{1}{p-1}=\\int_1^{+\\infty}\\frac{\\mathrm{d}x}{x^p}=\\sum_{n=1}^{\\infty}\\int_n^{n+1}\\frac{\\mathrm{d}x}{x^p}$$"
+        },
+        {
+          "name": "待证等价式",
+          "latex": "$$\\frac12\\le\\sum_{n=1}^{\\infty}\\int_n^{n+1}\\left(\\frac{1}{n^p}-\\frac{1}{x^p}\\right)\\mathrm{d}x\\le1$$"
+        },
+        {
+          "name": "上界",
+          "latex": "$$\\int_n^{n+1}\\left(\\frac{1}{n^p}-\\frac{1}{x^p}\\right)\\mathrm{d}x\\le\\frac{1}{n^p}-\\frac{1}{(n+1)^p}$$"
+        },
+        {
+          "name": "下界",
+          "latex": "$$\\frac{1}{n^p}-\\frac{1}{x^p}\\ \\text{在}\\ [n,n+1]\\ \\text{上递减}$$"
+        }
+      ]
+    },
+    {
+      "seq": 62,
+      "number": "题 62",
+      "title": "Wallis 递推 + 夹挤",
+      "chapter": 8,
+      "stemHtml": "设 $x_n=\\displaystyle\\int_0^{\\frac{\\pi}{2}}\\cos^nt\\,\\mathrm{d}t$（$n=0,1,2,\\cdots$）。证明：(1) $\\displaystyle\\lim_{n\\to\\infty}\\frac{x_{n+1}}{x_n}=1$；(2) 级数 $\\displaystyle\\sum_{n=0}^{\\infty}x_n^a$ 收敛（其中 $a&gt;2$）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$x_n$ 单调递减，夹在 $x_{n+1}$ 与 $x_{n-1}$ 之间，而 $x_{n+1}/x_{n-1}$ 由 Wallis 递推给出</h3>\r\n  <p>【看到「$\\frac{x_{n+1}}{x_n}$」→ 调用「单调性 $x_{n+1}\\le x_n\\le x_{n-1}$ 夹挤，$x_{n+1}/x_{n-1}=\\frac{n}{n+1}$ 已知」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证 (1)</h3>\r\n  <p>$\\frac{n}{n+1}=\\frac{x_{n+1}}{x_{n-1}}\\le\\frac{x_{n+1}}{x_n}\\le1$，两端趋于 1，夹挤得 $\\frac{x_{n+1}}{x_n}\\to1$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：估阶证 (2)</h3>\r\n  <p>由 $\\cos^{2n}t\\ge\\cos^{2n+1}t\\ge\\cos^{2n+2}t$ 及 $x_n^2$ 的递推可归纳得 $x_n\\le Cn^{-1/2}$（Wallis 公式 $x_n\\sim\\sqrt{\\pi/(2n)}$）。于是 $x_n^a\\le C^an^{-a/2}$，$a&gt;2$ 时与 $p$ 级数（$p&gt;1$）比较即收敛。</p><p class=\"concl\"><b>结论</b>(1) 成立；(2) $a&gt;2$ 时收敛。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$x_n$ 单调递减是关键，夹挤只能夹在相邻项之间。",
+          "$x_{n+1}/x_{n-1}=n/(n+1)$ 是 Wallis 递推，直接给极限。",
+          "$x_n\\sim\\sqrt{\\pi/2n}$，所以 $a&gt;2$ 才是收敛的临界指数。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) 极限为 1；(2) $a&gt;2$ 时 $\\displaystyle\\sum x_n^{a}$ 收敛",
+      "concl": "<b>结论</b>(1) 成立；(2) $a&gt;2$ 时收敛。",
+      "formulasUsed": [
+        {
+          "name": "Wallis 递推",
+          "latex": "$$x_{n+1}=\\frac{n}{n+1}x_{n-1}$$"
+        },
+        {
+          "name": "夹挤",
+          "latex": "$$x_{n+1}\\le x_n\\le x_{n-1}\\ \\Longrightarrow\\ \\frac{x_{n+1}}{x_{n-1}}\\le\\frac{x_{n+1}}{x_n}\\le1$$"
+        },
+        {
+          "name": "递推的极限",
+          "latex": "$$\\frac{x_{n+1}}{x_{n-1}}=\\frac{n}{n+1}\\to1$$"
+        },
+        {
+          "name": "阶的估计",
+          "latex": "$$x_n\\le Cn^{-\\frac12}\\ \\Longrightarrow\\ x_n^a\\le C^an^{-\\frac a2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 63,
+      "number": "题 63",
+      "title": "$\\ln\\frac{2+x}{2-x}$ 的幂级数",
+      "chapter": 8,
+      "stemHtml": "已知 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{(2n-1)^2}=\\frac{\\pi^2}{8}$，求积分 $\\displaystyle\\int_0^2\\frac1x\\ln\\frac{2+x}{2-x}\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\ln\\frac{1+t}{1-t}$ 是标准展开，$t=\\frac x2$ 之后 $1/x$ 恰好消去一次幂，逐项积分变成 $1/(2k+1)^2$ 的和</h3>\r\n  <p>【看到「$\\ln\\frac{2+x}{2-x}$」→ 调用「$\\ln\\frac{1+t}{1-t}=2\\sum\\frac{t^{2k+1}}{2k+1}$，取 $t=\\frac x2$，再逐项积分」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：展开</h3>\r\n  <div class=\"fm\">$$\\frac1x\\ln\\frac{2+x}{2-x}=2\\sum_{k=0}^{\\infty}\\frac{x^{2k}}{(2k+1)2^{2k+1}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：积分</h3>\r\n  <div class=\"fm\">$$I=2\\sum_{k\\ge0}\\frac{1}{(2k+1)2^{2k+1}}\\cdot\\frac{2^{2k+1}}{2k+1}=2\\cdot\\frac{\\pi^2}{8}=\\frac{\\pi^2}{4}.$$</div><p class=\"concl\"><b>结论</b>积分值为 $\\frac{\\pi^2}{4}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\ln\\frac{1+t}{1-t}$ 的标准展开是 $2\\sum t^{2k+1}/(2k+1)$，别用成 $\\ln(1+t)$ 那条。",
+          "取 $t=x/2$ 时 $2^{2k+1}$ 与积分出的 $2^{2k+1}$ 正好抵消。",
+          "最后只剩 $\\sum1/(2k+1)^2=\\pi^2/8$，题设已给。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi^{2}}{4}$",
+      "concl": "<b>结论</b>积分值为 $\\frac{\\pi^2}{4}$。",
+      "formulasUsed": [
+        {
+          "name": "对数展开",
+          "latex": "$$\\ln\\frac{2+x}{2-x}=2\\sum_{k=0}^{\\infty}\\frac{x^{2k+1}}{(2k+1)2^{2k+1}}$$"
+        },
+        {
+          "name": "约去 $\\frac1x$",
+          "latex": "$$\\frac1x\\ln\\frac{2+x}{2-x}=2\\sum_{k\\ge0}\\frac{x^{2k}}{(2k+1)2^{2k+1}}$$"
+        },
+        {
+          "name": "逐项积分",
+          "latex": "$$\\int_0^2x^{2k}\\mathrm{d}x=\\frac{2^{2k+1}}{2k+1}$$"
+        },
+        {
+          "name": "代入",
+          "latex": "$$I=2\\sum_{k\\ge0}\\frac{1}{(2k+1)^2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 64,
+      "number": "题 64",
+      "title": "$1/(\\mathrm{e}^x+1)$ 的几何展开",
+      "chapter": 8,
+      "stemHtml": "已知 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n^2}=\\frac{\\pi^2}{12}$，求积分 $\\displaystyle\\int_0^{+\\infty}\\frac{x}{\\mathrm{e}^x+1}\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\frac{1}{\\mathrm e^x+1}=\\frac{\\mathrm e^{-x}}{1+\\mathrm e^{-x}}$，把它展成 $\\sum(-1)^{n-1}\\mathrm e^{-nx}$，每项积分正好是 $1/n^2$</h3>\r\n  <p>【看到「$\\frac{1}{\\mathrm e^x+1}$」→ 调用「等比展开 $\\sum(-1)^{n-1}\\mathrm e^{-nx}$，$\\int_0^\\infty x\\mathrm e^{-nx}=\\frac{1}{n^2}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：展开并积分</h3>\r\n  <div class=\"fm\">$$I=\\sum_{n\\ge1}(-1)^{n-1}\\int_0^{+\\infty}x\\mathrm{e}^{-nx}\\mathrm{d}x=\\sum_{n\\ge1}\\frac{(-1)^{n-1}}{n^2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用题设求和</h3>\r\n  <p>题设已给该交错和为 $\\frac{\\pi^2}{12}$，故 $I=\\frac{\\pi^2}{12}$。</p><p class=\"concl\"><b>结论</b>$\\frac{\\pi^2}{12}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$\\frac{1}{\\mathrm e^x+1}$ 先化成 $\\frac{\\mathrm e^{-x}}{1+\\mathrm e^{-x}}$ 再等比展开。",
+          "$\\int_0^\\infty x\\mathrm e^{-nx}\\mathrm dx=1/n^2$ 是分部积分一次的结果。",
+          "正项级数可交换求和与积分，无需一致收敛论证。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi^{2}}{12}$",
+      "concl": "<b>结论</b>$\\frac{\\pi^2}{12}$。",
+      "formulasUsed": [
+        {
+          "name": "几何展开",
+          "latex": "$$\\frac{1}{\\mathrm{e}^x+1}=\\sum_{n=1}^{\\infty}(-1)^{n-1}\\mathrm{e}^{-nx}$$"
+        },
+        {
+          "name": "逐项积分",
+          "latex": "$$\\int_0^{+\\infty}x\\mathrm{e}^{-nx}\\mathrm{d}x=\\frac{1}{n^2}$$"
+        },
+        {
+          "name": "交换次序",
+          "latex": "$$\\int_0^{\\infty}\\sum=\\sum\\int_0^{\\infty}\\ (\\text{各项非负，Tonelli 合法})$$"
+        },
+        {
+          "name": "结果",
+          "latex": "$$I=\\sum_{n\\ge1}\\frac{(-1)^{n-1}}{n^2}=\\frac{\\pi^2}{12}$$"
+        }
+      ]
+    },
+    {
+      "seq": 65,
+      "number": "题 65",
+      "title": "逐项求导 + 回代求值",
+      "chapter": 8,
+      "stemHtml": "求函数 $G(x)=\\dfrac{\\mathrm{d}}{\\mathrm{d}x}\\left(\\dfrac{\\cos x-1}{x}\\right)$ 关于 $x$ 的幂级数展开式，指出该幂级数的收敛范围，并利用此展开式求级数 $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n\\frac{2n-1}{(2n)!}\\left(\\frac{\\pi}{2}\\right)^{2n}$ 的和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先展 $\\frac{\\cos x-1}{x}$（余弦展开除以 $x$），逐项求导就得到 $G$；要求和的级数正好是 $x^2G(x)$ 在 $x=\\frac\\pi2$ 的值</h3>\r\n  <p>【看到「$G=\\left(\\frac{\\cos x-1}{x}\\right)'$ 与 $\\sum(-1)^n\\frac{2n-1}{(2n)!}(\\frac\\pi2)^{2n}$」→ 调用「$x^2G(x)=1-\\cos x-x\\sin x$，代 $x=\\frac\\pi2$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：展开</h3>\r\n  <div class=\"fm\">$$G(x)=\\sum_{n=1}^{\\infty}\\frac{(-1)^n(2n-1)}{(2n)!}x^{2n-2},\\qquad -\\infty&lt;x&lt;+\\infty.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：回代求值</h3>\r\n  <div class=\"fm\">$$\\sum_{n\\ge1}(-1)^n\\frac{2n-1}{(2n)!}\\left(\\frac{\\pi}{2}\\right)^{2n}=\\left(\\frac{\\pi}{2}\\right)^2G\\left(\\frac{\\pi}{2}\\right)=1-\\cos\\frac{\\pi}{2}-\\frac{\\pi}{2}\\sin\\frac{\\pi}{2}=1-\\frac{\\pi}{2}.$$</div><p class=\"concl\"><b>结论</b>展开式为上式（$x\\in\\mathbb{R}$），级数和为 $1-\\frac{\\pi}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "「先展后导」比「先求导后展」省事，因为 $\\frac{\\cos x-1}{x}$ 的展开无常数项。",
+          "$x^2G(x)=1-\\cos x-x\\sin x$ 是把 $G$ 的闭形式乘 $x^2$ 得到的。",
+          "要求和的级数缺 $x^2$ 因子，回代时必须补上 $\\left(\\frac\\pi2\\right)^2$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$G(x)=\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n}(2n-1)}{(2n)!}x^{2n-2}$（$x\\in\\mathbb{R}$）；级数和 $1-\\dfrac{\\pi}{2}$",
+      "concl": "<b>结论</b>展开式为上式（$x\\in\\mathbb{R}$），级数和为 $1-\\frac{\\pi}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "先展开再求导",
+          "latex": "$$\\frac{\\cos x-1}{x}=\\sum_{n=1}^{\\infty}\\frac{(-1)^nx^{2n-1}}{(2n)!}$$"
+        },
+        {
+          "name": "$G(x)$",
+          "latex": "$$G(x)=\\sum_{n=1}^{\\infty}\\frac{(-1)^n(2n-1)}{(2n)!}x^{2n-2}$$"
+        },
+        {
+          "name": "闭形式",
+          "latex": "$$G(x)=\\frac{1-\\cos x-x\\sin x}{x^2}$$"
+        },
+        {
+          "name": "回代",
+          "latex": "$$\\sum_{n\\ge1}(-1)^n\\frac{(2n-1)}{(2n)!}\\left(\\frac{\\pi}{2}\\right)^{2n}=\\left(\\frac{\\pi}{2}\\right)^2G\\left(\\frac{\\pi}{2}\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 66,
+      "number": "题 66",
+      "title": "先解出 $F$ 再算弧长型积分",
+      "chapter": 8,
+      "stemHtml": "设函数 $f(x)$ 在 $(-\\infty,+\\infty)$ 上连续，$F(x)$ 是 $f(x)$ 的一个原函数，满足 $f(x)F(x)=\\cos2x$，且 $F(0)=1$。又设 $a_n=\\displaystyle\\int_0^{n\\pi}|f(x)|\\mathrm{d}x$，$n=1,2,\\cdots$。求幂级数 $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{a_n}{n^2-1}x^n$ 的收敛域与和函数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$fF=\\cos2x$ 立刻给出 $(F^2)'=2\\cos2x$，$F$ 被完全定出；$\\int_0^{n\\pi}|f|$ 就是一个周期的全变差</h3>\r\n  <p>【看到「$fF=\\cos2x$」→ 调用「$(F^2)'=2Ff=2\\cos2x$，积分得 $F^2=1+\\sin2x$」；再看 $\\int|f|=\\int|F'|$ 为变差】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定出 $F$ 与 $a_n$</h3>\r\n  <p>$F=\\sqrt{1+\\sin2x}$（取正根），$|f|=|F'|$。$F$ 在一个周期 $[0,\\pi]$ 上的最大值为 $\\sqrt2$、最小值为 $0$，先升后降再升，故全变差 $=(\\sqrt2-1)+\\sqrt2+1=2\\sqrt2$，所以 $a_n=2\\sqrt2\\,n$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求和函数</h3>\r\n  <p>$\\frac{n}{n^2-1}=\\frac12\\left(\\frac{1}{n-1}+\\frac{1}{n+1}\\right)$，于是</p><div class=\"fm\">$$S(x)=\\sqrt2\\left[-x\\ln(1-x)-\\frac{\\ln(1-x)}{x}-1-\\frac{x}{2}\\right],\\qquad x\\in[-1,1).$$</div><p>端点：$x=1$ 时系数 $\\sim\\frac{2\\sqrt2}{n}$ 发散；$x=-1$ 时交错收敛。</p><p class=\"concl\"><b>结论</b>收敛域 $[-1,1)$，和函数如上。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$(F^2)'=2Ff$ 是本题的钥匙，$F$ 不必解微分方程。",
+          "$\\int_0^\\pi|f|$ 就是 $F$ 的全变差：$2\\sqrt2$，不是 $\\int_0^\\pi\\cos2x\\,\\mathrm dx=0$。",
+          "$\\frac{n}{n^2-1}$ 必拆成 $\\frac12(\\frac{1}{n-1}+\\frac{1}{n+1})$ 才可用对数展开。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛域 $[-1,1)$；$S(x)=\\sqrt2\\left[-x\\ln(1-x)-\\dfrac{\\ln(1-x)}{x}-1-\\dfrac{x}{2}\\right]$",
+      "concl": "<b>结论</b>收敛域 $[-1,1)$，和函数如上。",
+      "formulasUsed": [
+        {
+          "name": "$F^2$ 的导数",
+          "latex": "$$\\left(F^2\\right)'=2Ff=2\\cos2x\\ \\Longrightarrow\\ F^2=1+\\sin2x$$"
+        },
+        {
+          "name": "取正根",
+          "latex": "$$F(0)=1&gt;0\\ \\Longrightarrow\\ F(x)=\\sqrt{1+\\sin2x}$$"
+        },
+        {
+          "name": "一个周期的全变差",
+          "latex": "$$\\int_0^{\\pi}|f|=\\int_0^\\pi|F'|=\\text{Var}(F)=2\\sqrt2$$"
+        },
+        {
+          "name": "系数",
+          "latex": "$$a_n=2\\sqrt2\\,n$$"
+        }
+      ]
+    },
+    {
+      "seq": 67,
+      "number": "题 67",
+      "title": "Abel 变换",
+      "chapter": 8,
+      "stemHtml": "证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1-\\frac12+\\frac13-\\cdots+(-1)^{n-1}\\frac1n}{n(n+1)}$ 收敛，并求其和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\frac{1}{n(n+1)}$ 裂项后，第二个和式移位，剩下的正是 $A_n-A_{n-1}$，即交错项本身</h3>\r\n  <p>【看到「$\\frac{A_n}{n(n+1)}$」→ 调用「裂项 $\\frac1n-\\frac{1}{n+1}$ 再移位，得 $\\sum\\frac{A_n-A_{n-1}}{n}=\\sum\\frac{(-1)^{n-1}}{n^2}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：收敛性</h3>\r\n  <p>$A_n\\to\\ln2$ 有界，$\\frac{1}{n(n+1)}\\sim\\frac{1}{n^2}$，故级数收敛。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求和</h3>\r\n  <div class=\"fm\">$$\\sum_{n\\ge1}\\frac{A_n}{n(n+1)}=\\sum_{n\\ge1}\\frac{A_n}{n}-\\sum_{n\\ge2}\\frac{A_{n-1}}{n}=\\sum_{n\\ge1}\\frac{(-1)^{n-1}}{n^2}=\\frac{\\pi^2}{12}.$$</div><p class=\"concl\"><b>结论</b>收敛，和为 $\\frac{\\pi^2}{12}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$A_n$ 有界（$\\to\\ln2$）是收敛的唯一依据，$A_n$ 本身不收敛也无妨。",
+          "裂项后第二个和式下标移位，$A_0=0$ 使首项吻合。",
+          "最后落到 $\\sum(-1)^{n-1}/n^2=\\pi^2/12$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛，和为 $\\dfrac{\\pi^{2}}{12}$",
+      "concl": "<b>结论</b>收敛，和为 $\\frac{\\pi^2}{12}$。",
+      "formulasUsed": [
+        {
+          "name": "记 $A_n$",
+          "latex": "$$A_n=\\sum_{k=1}^{n}\\frac{(-1)^{k-1}}{k}\\ \\Longrightarrow\\ A_n\\to\\ln2$$"
+        },
+        {
+          "name": "裂项",
+          "latex": "$$\\frac{1}{n(n+1)}=\\frac1n-\\frac{1}{n+1}$$"
+        },
+        {
+          "name": "Abel 变换",
+          "latex": "$$\\sum_{n\\ge1}\\frac{A_n}{n(n+1)}=\\sum_{n\\ge1}\\frac{A_n-A_{n-1}}{n}$$"
+        },
+        {
+          "name": "差分",
+          "latex": "$$A_n-A_{n-1}=\\frac{(-1)^{n-1}}{n}$$"
+        }
+      ]
+    },
+    {
+      "seq": 68,
+      "number": "题 68",
+      "title": "Wallis 积分表示",
+      "chapter": 8,
+      "stemHtml": "证明级数 $1+\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n\\frac{2\\cdot4\\cdot6\\cdots(2n)}{3\\cdot5\\cdot7\\cdots(2n+1)}$ 收敛，并求其和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：这个比值就是 $\\int_0^{\\pi/2}\\cos^{2n+1}t\\,\\mathrm{d}t$，于是整个级数变成一个可求的积分</h3>\r\n  <p>【看到「$\\frac{(2n)!!}{(2n+1)!!}$」→ 调用「Wallis：$=\\int_0^{\\pi/2}\\cos^{2n+1}t\\mathrm{d}t$，求和与积分交换，得 $\\int_0^{\\pi/2}\\frac{\\cos t}{1+\\cos^2t}\\mathrm{d}t$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：收敛性</h3>\r\n  <p>比值 $c_n=\\frac{(2n)!!}{(2n+1)!!}$ 单调递减且 $c_n\\to0$（$c_n\\sim\\frac{1}{\\sqrt{\\pi n}}$），交错级数收敛。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：求和</h3>\r\n  <div class=\"fm\">$$S=\\int_0^1\\frac{\\mathrm{d}u}{2-u^2}=\\frac{1}{2\\sqrt2}\\ln\\frac{\\sqrt2+1}{\\sqrt2-1}=\\frac{1}{\\sqrt2}\\ln\\left(1+\\sqrt2\\right).$$</div><p class=\"concl\"><b>结论</b>收敛，和为 $\\frac{1}{\\sqrt2}\\ln(1+\\sqrt2)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "双阶乘之比一律换成 Wallis 积分，级数就变成积分。",
+          "$\\sum(-1)^n\\cos^{2n+1}t$ 在 $[0,\\frac\\pi2]$ 上一致收敛，可逐项积分。",
+          "$\\frac{1}{2\\sqrt2}\\ln\\frac{\\sqrt2+1}{\\sqrt2-1}=\\frac{1}{\\sqrt2}\\ln(1+\\sqrt2)$，化简别漏系数 2。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛，和为 $\\dfrac{1}{\\sqrt2}\\ln\\left(1+\\sqrt2\\right)$",
+      "concl": "<b>结论</b>收敛，和为 $\\frac{1}{\\sqrt2}\\ln(1+\\sqrt2)$。",
+      "formulasUsed": [
+        {
+          "name": "Wallis 积分",
+          "latex": "$$\\int_0^{\\frac{\\pi}{2}}\\cos^{2n+1}t\\,\\mathrm{d}t=\\frac{(2n)!!}{(2n+1)!!}$$"
+        },
+        {
+          "name": "一致收敛的求和",
+          "latex": "$$\\sum_{n\\ge0}(-1)^n\\cos^{2n+1}t=\\frac{\\cos t}{1+\\cos^2t}$$"
+        },
+        {
+          "name": "化为定积分",
+          "latex": "$$S=\\int_0^{\\frac{\\pi}{2}}\\frac{\\cos t}{1+\\cos^2t}\\mathrm{d}t$$"
+        },
+        {
+          "name": "换元",
+          "latex": "$$u=\\sin t\\ \\Longrightarrow\\ S=\\int_0^1\\frac{\\mathrm{d}u}{2-u^2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 69,
+      "number": "题 69",
+      "title": "偶延拓 + 跳跃点取平均",
+      "chapter": 8,
+      "stemHtml": "设函数 $f(x)=\\begin{cases}x^2,&0\\le x\\le\\frac12,\\\\ 1-x,&\\frac12&lt;x\\le1\\end{cases}$ 的余弦级数 $\\dfrac{a_0}{2}+\\displaystyle\\sum_{n=1}^{\\infty}a_n\\cos n\\pi x$（$-\\infty&lt;x&lt;+\\infty$）的和函数为 $S(x)$，其中 $a_n=2\\displaystyle\\int_0^1f(x)\\cos n\\pi x\\,\\mathrm{d}x$（$n=1,2,\\cdots$）。求 $S(x)$ 在 $x=-\\frac92$ 处的函数值。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：余弦级数的和函数是 $f$ 的偶延拓、周期 2 的周期函数，先把 $-\\frac92$ 折回 $[0,1]$，再判断是否落在跳跃点</h3>\r\n  <p>【看到「余弦级数 + 求 $S(-\\frac92)$」→ 调用「$S$ 偶、周期 2；$-\\frac92\\to\\frac12$ 正好是 $f$ 的跳跃点，取左右极限平均」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：折回基本区间</h3>\r\n  <p>$S(-\\frac92)=S(\\frac92)$（偶），$S(\\frac92)=S(\\frac92-4)=S(\\frac12)$（周期 2）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：跳跃点取平均</h3>\r\n  <p>$x=\\frac12$ 处 $f$ 左极限 $\\frac14$、右极限 $\\frac12$，由 Dirichlet 定理 $S(\\frac12)=\\frac12(\\frac14+\\frac12)=\\frac38$。</p><p class=\"concl\"><b>结论</b>$S\\left(-\\frac92\\right)=\\frac38$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "余弦级数 = 偶延拓，正弦级数 = 奇延拓，先想清楚是哪一种。",
+          "$-\\frac92$ 先加 4 折到 $\\frac12$，再判断奇偶。",
+          "跳跃点必须取左右极限的平均，不能取 $f(\\frac12)$ 的单侧值。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{3}{8}$",
+      "concl": "<b>结论</b>$S\\left(-\\frac92\\right)=\\frac38$。",
+      "formulasUsed": [
+        {
+          "name": "周期与偶性",
+          "latex": "$$S\\ \\text{以 2 为周期，且为偶函数}$$"
+        },
+        {
+          "name": "折到基本区间",
+          "latex": "$$-\\frac92\\ \\longrightarrow\\ -\\frac92+4=-\\frac12\\ \\longrightarrow\\ \\frac12$$"
+        },
+        {
+          "name": "间断点",
+          "latex": "$$f\\left(\\frac12-\\right)=\\frac14,\\quad f\\left(\\frac12+\\right)=\\frac12$$"
+        },
+        {
+          "name": "取值规则",
+          "latex": "$$S\\left(\\frac12\\right)=\\frac{1}{2}\\left(\\frac14+\\frac12\\right)=\\frac38$$"
+        }
+      ]
+    },
+    {
+      "seq": 70,
+      "number": "题 70",
+      "title": "关于 $x=4$ 偶对称 + 分部积分",
+      "chapter": 8,
+      "stemHtml": "将函数 $f(x)=\\begin{cases}2-x,&0\\le x\\le4,\\\\ x-6,&4&lt;x\\le8\\end{cases}$ 展开成以 8 为周期的 Fourier 级数。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先验证 $f$ 关于 $x=4$ 偶对称，于是只出现余弦项，且变量应取 $x-4$</h3>\r\n  <p>【看到「$2-x$ 与 $x-6$ 在 $x=4$ 两侧」→ 调用「令 $u=x-4$，$f=g(u)$ 为偶函数，故 $b_n=0$，余弦项自变量为 $\\frac{n\\pi(x-4)}{4}$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算 $a_0$ 与 $b_n$</h3>\r\n  <p>$a_0=\\frac14\\int_0^8f=0$；$f$ 关于 $x=4$ 偶，故 $b_n=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算 $a_n$</h3>\r\n  <p>令 $u=x-4$，则</p><div class=\"fm\">$$a_n=\\frac12\\int_0^4(u-2)\\cos\\frac{n\\pi u}{4}\\mathrm{d}u=-\\frac{16}{n^2\\pi^2}\\ (n\\ \\text{奇}),\\qquad a_n=0\\ (n\\ \\text{偶}).$$</div><p class=\"concl\"><b>结论</b>$f(x)=-\\dfrac{16}{\\pi^2}\\displaystyle\\sum_{k=0}^{\\infty}\\frac{\\cos\\frac{(2k+1)\\pi(x-4)}{4}}{(2k+1)^2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分段函数先找对称中心，$x=4$ 是本题的关键。",
+          "偶对称 ⇒ $b_n=0$，但仍要算 $a_0$（此处为 0）。",
+          "变量是 $x-4$，不是 $x$，写成 $\\cos\\frac{n\\pi x}{4}$ 就错了。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f(x)=-\\dfrac{16}{\\pi^{2}}\\displaystyle\\sum_{k=0}^{\\infty}\\dfrac{\\cos\\frac{(2k+1)\\pi(x-4)}{4}}{(2k+1)^{2}}$",
+      "concl": "<b>结论</b>$f(x)=-\\dfrac{16}{\\pi^2}\\displaystyle\\sum_{k=0}^{\\infty}\\frac{\\cos\\frac{(2k+1)\\pi(x-4)}{4}}{(2k+1)^2}$。",
+      "formulasUsed": [
+        {
+          "name": "对称中心",
+          "latex": "$$f(4+u)=f(4-u)\\ \\Longrightarrow\\ f\\ \\text{关于}\\ x=4\\ \\text{偶}$$"
+        },
+        {
+          "name": "展开形式",
+          "latex": "$$f(x)\\sim\\frac{a_0}{2}+\\sum_{n\\ge1}a_n\\cos\\frac{n\\pi(x-4)}{4}$$"
+        },
+        {
+          "name": "$a_n$ 的计算",
+          "latex": "$$a_n=\\frac12\\int_0^4(u-2)\\cos\\frac{n\\pi u}{4}\\mathrm{d}u$$"
+        },
+        {
+          "name": "结果",
+          "latex": "$$a_n=-\\frac{16}{n^2\\pi^2}\\ (n\\ \\text{奇}),\\quad a_n=0\\ (n\\ \\text{偶})$$"
+        }
+      ]
+    },
+    {
+      "seq": 71,
+      "number": "题 71",
+      "title": "余弦系数 + 逐点代入",
+      "chapter": 8,
+      "stemHtml": "将函数 $f(x)=x^3$ 在 $[0,\\pi]$ 上展开成余弦级数，并利用所得结果求级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^4}$ 之和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：余弦级数在 $x=0$ 处代入（$f(0)=0$），把 $2\\sum_{\\text{奇}}1/n^4$ 与已知的 $\\sum(-1)^n/n^2$ 配对，就能解出奇项四次方和</h3>\r\n  <p>【看到「$x^3$ 余弦级数 + 求 $\\sum1/n^4$」→ 调用「$x=0$ 处级数 $=0$，得到 $\\sum_{\\text{奇}}1/n^4$；再用 $\\sum1/n^4=\\frac{16}{15}\\sum_{\\text{奇}}1/n^4$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出展开式</h3>\r\n  <div class=\"fm\">$$x^3=\\frac{\\pi^3}{4}+\\sum_{n\\ge1}\\left[\\frac{6\\pi(-1)^n}{n^2}+\\frac{12\\left(1-(-1)^n\\right)}{\\pi n^4}\\right]\\cos nx,\\qquad 0\\le x\\le\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：代入 $x=0$</h3>\r\n  <p>由 $0=\\frac{\\pi^3}{4}+\\frac{2}{\\pi}\\left[3\\pi^2\\left(-\\frac{\\pi^2}{12}\\right)+12\\sum_{k\\ge0}\\frac{1}{(2k+1)^4}\\right]$ 解得 $\\sum_{k\\ge0}\\frac{1}{(2k+1)^4}=\\frac{\\pi^4}{96}$，于是</p><div class=\"fm\">$$\\sum_{n\\ge1}\\frac{1}{n^4}=\\frac{16}{15}\\cdot\\frac{\\pi^4}{96}=\\frac{\\pi^4}{90}.$$</div><p class=\"concl\"><b>结论</b>展开式如上；$\\sum\\frac{1}{n^4}=\\frac{\\pi^4}{90}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$a_n$ 里 $1-(-1)^n$ 说明偶项只有 $1/n^2$ 部分，奇项才有 $1/n^4$ 部分。",
+          "代 $x=0$ 而不要代 $x=\\pi$（代 $\\pi$ 只能得到恒等式）。",
+          "$\\sum_{\\text{奇}}=\\frac{\\pi^4}{96}$，全体与奇项之比是 $\\frac{16}{15}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x^{3}=\\dfrac{\\pi^{3}}{4}+\\displaystyle\\sum_{n\\ge1}\\left[\\dfrac{6\\pi(-1)^{n}}{n^{2}}+\\dfrac{12(1-(-1)^{n})}{\\pi n^{4}}\\right]\\cos nx$；$\\displaystyle\\sum\\frac{1}{n^{4}}=\\dfrac{\\pi^{4}}{90}$",
+      "concl": "<b>结论</b>展开式如上；$\\sum\\frac{1}{n^4}=\\frac{\\pi^4}{90}$。",
+      "formulasUsed": [
+        {
+          "name": "系数",
+          "latex": "$$a_0=\\frac{2}{\\pi}\\int_0^{\\pi}x^3\\mathrm{d}x=\\frac{\\pi^3}{2}$$"
+        },
+        {
+          "name": "$a_n$",
+          "latex": "$$a_n=\\frac{2}{\\pi}\\left[\\frac{3\\pi^2(-1)^n}{n^2}+\\frac{6\\left(1-(-1)^n\\right)}{n^4}\\right]$$"
+        },
+        {
+          "name": "已知交错和",
+          "latex": "$$\\sum_{n\\ge1}\\frac{(-1)^n}{n^2}=-\\frac{\\pi^2}{12}$$"
+        },
+        {
+          "name": "只取奇项",
+          "latex": "$$\\sum_{k\\ge0}\\frac{1}{(2k+1)^4}=\\frac{\\pi^4}{96}$$"
+        }
+      ]
+    },
+    {
+      "seq": 72,
+      "number": "题 72",
+      "title": "正弦系数 + 逐点代入 $x=\\pi/2$",
+      "chapter": 8,
+      "stemHtml": "将函数 $f(x)=x(\\pi-x)$ 在 $[0,\\pi]$ 上展开成正弦级数，并利用所得结果求积分 $\\displaystyle\\int_0^1\\frac{\\ln^2x}{1+x^2}\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$\\frac{1}{1+x^2}$ 展开后，$\\int_0^1x^{2k}\\ln^2x\\,\\mathrm{d}x=\\frac{2}{(2k+1)^3}$，于是积分正是 $\\frac{\\pi}{4}$ 倍的那个交错三次方和</h3>\r\n  <p>【看到「$\\int_0^1\\frac{\\ln^2x}{1+x^2}\\mathrm{d}x$」→ 调用「几何展开 + $\\int_0^1x^{2k}\\ln^2x=\\frac{2}{(2k+1)^3}$，把积分化为正弦级数在 $\\frac\\pi2$ 的值」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出正弦级数</h3>\r\n  <div class=\"fm\">$$x(\\pi-x)=\\frac{8}{\\pi}\\sum_{k=0}^{\\infty}\\frac{\\sin(2k+1)x}{(2k+1)^3},\\qquad 0\\le x\\le\\pi.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算积分</h3>\r\n  <div class=\"fm\">$$\\int_0^1\\frac{\\ln^2x}{1+x^2}\\mathrm{d}x=\\sum_{k\\ge0}(-1)^k\\frac{2}{(2k+1)^3}=2\\cdot\\frac{\\pi^3}{32}=\\frac{\\pi^3}{16}.$$</div><p class=\"concl\"><b>结论</b>展开式如上；积分为 $\\frac{\\pi^3}{16}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$b_n$ 的偶项为 0（$\\sin nx$ 与偶函数对称），只剩奇项。",
+          "代 $x=\\frac\\pi2$ 使 $\\sin(2k+1)\\frac\\pi2=(-1)^k$，正好凑出交错和。",
+          "$\\int_0^1x^{2k}\\ln^2x\\,\\mathrm dx=\\frac{2}{(2k+1)^3}$ 是分部积分两次的结果。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x(\\pi-x)=\\dfrac{8}{\\pi}\\displaystyle\\sum_{k\\ge0}\\dfrac{\\sin(2k+1)x}{(2k+1)^{3}}$；$\\displaystyle\\int_0^1\\frac{\\ln^{2}x}{1+x^{2}}\\mathrm{d}x=\\dfrac{\\pi^{3}}{16}$",
+      "concl": "<b>结论</b>展开式如上；积分为 $\\frac{\\pi^3}{16}$。",
+      "formulasUsed": [
+        {
+          "name": "正弦系数",
+          "latex": "$$b_n=\\frac{2}{\\pi}\\int_0^{\\pi}x(\\pi-x)\\sin nx\\,\\mathrm{d}x=\\frac{8}{\\pi n^3}\\ (n\\ \\text{奇}),\\ 0\\ (n\\ \\text{偶})$$"
+        },
+        {
+          "name": "展开式",
+          "latex": "$$x(\\pi-x)=\\frac{8}{\\pi}\\sum_{k\\ge0}\\frac{\\sin(2k+1)x}{(2k+1)^3}$$"
+        },
+        {
+          "name": "代 $x=\\frac{\\pi}{2}$",
+          "latex": "$$\\frac{\\pi^2}{4}=\\frac{8}{\\pi}\\sum_{k\\ge0}\\frac{(-1)^k}{(2k+1)^3}\\ \\Longrightarrow\\ \\sum_{k\\ge0}\\frac{(-1)^k}{(2k+1)^3}=\\frac{\\pi^3}{32}$$"
+        },
+        {
+          "name": "积分的展开",
+          "latex": "$$\\frac{1}{1+x^2}=\\sum_{k\\ge0}(-1)^kx^{2k},\\qquad \\int_0^1x^{2k}\\ln^2x\\,\\mathrm{d}x=\\frac{2}{(2k+1)^3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 73,
+      "number": "题 73",
+      "title": "相位展开 + 系数定义",
+      "chapter": 8,
+      "stemHtml": "设 $f(x)$ 是以 $2\\pi$ 为周期的连续函数，其 Fourier 系数为 $a_n,b_n$。求函数 $f(x+l)$ 的 Fourier 系数 $A_n,B_n$（其中 $l$ 为常数）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：一切平移问题都靠「把新变量换回旧变量 + 三角加法公式」</h3>\r\n  <p>【看到「$f(x+l)$ 的 Fourier 系数」→ 调用「令 $u=x+l$，把 $\\cos nx$、$\\sin nx$ 用 $\\cos(nu-nl)$ 展开成 $\\cos nu,\\sin nu$ 的组合」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：$A_n$</h3>\r\n  <div class=\"fm\">$$A_n=\\frac1\\pi\\int f(u)\\left[\\cos nu\\cos nl+\\sin nu\\sin nl\\right]\\mathrm{d}u=a_n\\cos nl+b_n\\sin nl.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：$B_n$</h3>\r\n  <div class=\"fm\">$$B_n=\\frac1\\pi\\int f(u)\\left[\\sin nu\\cos nl-\\cos nu\\sin nl\\right]\\mathrm{d}u=b_n\\cos nl-a_n\\sin nl.$$</div><p class=\"concl\"><b>结论</b>$A_n=a_n\\cos nl+b_n\\sin nl$，$B_n=b_n\\cos nl-a_n\\sin nl$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "换元 $u=x+l$ 之后，$x$ 的三角要改成 $u$ 的三角，这是全部难点。",
+          "$\\cos(nu-nl)$ 展开后 $\\cos nl$ 配 $\\cos nu$、$\\sin nl$ 配 $\\sin nu$，正好对上 $a_n,b_n$。",
+          "$B_n$ 里出现 $-\\sin nl\\cdot a_n$，符号来自 $\\sin(nu-nl)$ 的展开。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$A_n=a_n\\cos nl+b_n\\sin nl$，$B_n=b_n\\cos nl-a_n\\sin nl$",
+      "concl": "<b>结论</b>$A_n=a_n\\cos nl+b_n\\sin nl$，$B_n=b_n\\cos nl-a_n\\sin nl$。",
+      "formulasUsed": [
+        {
+          "name": "系数定义",
+          "latex": "$$A_n=\\frac{1}{\\pi}\\int_{-\\pi}^{\\pi}f(x+l)\\cos nx\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "平移",
+          "latex": "$$u=x+l\\ \\Longrightarrow\\ \\cos nx=\\cos\\left(n(u-l)\\right)$$"
+        },
+        {
+          "name": "加法公式",
+          "latex": "$$\\cos(nu-nl)=\\cos nu\\cos nl+\\sin nu\\sin nl$$"
+        },
+        {
+          "name": "原系数",
+          "latex": "$$a_n=\\frac1\\pi\\int_{-\\pi}^{\\pi}f(u)\\cos nu\\,\\mathrm{d}u,\\quad b_n=\\frac1\\pi\\int f(u)\\sin nu\\,\\mathrm{d}u$$"
+        }
+      ]
+    },
+    {
+      "seq": 74,
+      "number": "题 74",
+      "title": "二重积分换序 + Parseval",
+      "chapter": 8,
+      "stemHtml": "设 $f(x)$ 是以 $2\\pi$ 为周期的连续函数，已知 $f(x)$ 的 Fourier 系数为 $a_n,b_n$。令 $F(x)=\\dfrac1\\pi\\displaystyle\\int_{-\\pi}^{\\pi}f(t)f(x+t)\\,\\mathrm{d}t$，求函数 $F(x)$ 的 Fourier 系数，并利用所得结果推出 $\\dfrac1\\pi\\displaystyle\\int_{-\\pi}^{\\pi}f^2(x)\\,\\mathrm{d}x=\\dfrac{a_0^2}{2}+\\displaystyle\\sum_{n=1}^{\\infty}\\left(a_n^2+b_n^2\\right)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把 $F$ 的系数写成二重积分，令 $s=x+t$，用 $\\cos(n(s-t))$ 的展开把两个积分分别识别成 $a_n,b_n$</h3>\r\n  <p>【看到「$F=\\frac1\\pi\\int f(t)f(x+t)\\mathrm{d}t$」→ 调用「换序 $s=x+t$；$\\cos(n(s-t))=\\cos ns\\cos nt+\\sin ns\\sin nt$，两个积分各给 $a_n\\pi$、$b_n\\pi$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算 $A_n$</h3>\r\n  <div class=\"fm\">$$A_n=\\frac{1}{\\pi^2}\\int f(t)\\left[\\cos nt\\cdot a_n\\pi+\\sin nt\\cdot b_n\\pi\\right]\\mathrm{d}t=a_n^2+b_n^2,$$</div><p>同理 $A_0=\\frac{1}{\\pi^2}\\int f(t)\\mathrm{d}t\\int f(s)\\mathrm{d}s=a_0^2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：推出 Parseval</h3>\r\n  <p>$F$ 连续，其 Fourier 级数在 $x=0$ 收敛于 $F(0)=\\frac1\\pi\\int f^2$，而 $x=0$ 处级数为 $\\frac{A_0}{2}+\\sum A_n$，即得所需等式。</p><p class=\"concl\"><b>结论</b>$A_0=a_0^2$，$A_n=a_n^2+b_n^2$；Parseval 等式成立。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$F$ 是「自相关」，它的系数必然是 $f$ 系数的平方和。",
+          "换序时把 $x$ 的积分先做掉，$s=x+t$ 让 $f(x+t)\\to f(s)$。",
+          "Parseval 不必另证，取 $F$ 的级数在 $x=0$ 的值即可。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$A_0=a_0^{2}$，$A_n=a_n^{2}+b_n^{2}$，并由此得 $\\dfrac1\\pi\\displaystyle\\int_{-\\pi}^{\\pi}f^{2}=\\dfrac{a_0^{2}}{2}+\\displaystyle\\sum(a_n^{2}+b_n^{2})$",
+      "concl": "<b>结论</b>$A_0=a_0^2$，$A_n=a_n^2+b_n^2$；Parseval 等式成立。",
+      "formulasUsed": [
+        {
+          "name": "$F$ 的系数",
+          "latex": "$$A_n=\\frac{1}{\\pi^2}\\iint f(t)f(s)\\cos\\left(n(s-t)\\right)\\mathrm{d}s\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "换序结果",
+          "latex": "$$A_n=a_n^2+b_n^2,\\qquad A_0=a_0^2$$"
+        },
+        {
+          "name": "$F(0)$",
+          "latex": "$$F(0)=\\frac1\\pi\\int_{-\\pi}^{\\pi}f^2(t)\\,\\mathrm{d}t$$"
+        },
+        {
+          "name": "Parseval",
+          "latex": "$$\\frac1\\pi\\int f^2=\\frac{A_0}{2}+\\sum_{n\\ge1}A_n$$"
+        }
+      ]
+    },
+    {
+      "seq": 75,
+      "number": "题 75",
+      "title": "分部积分 + Bessel 不等式",
+      "chapter": 8,
+      "stemHtml": "设 $f(x)$ 是 $[0,\\pi]$ 上的一阶连续可导函数，$f(0)=f(\\pi)=0$。又令 $b_n=\\dfrac2\\pi\\displaystyle\\int_0^{\\pi}f(x)\\sin nx\\,\\mathrm{d}x$（$n=1,2,\\cdots$）。试证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}n^2b_n^2$ 收敛。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：$b_n$ 里有 $1/n$ 就能换来一个求导，$f(0)=f(\\pi)=0$ 正好消掉边界项；平方和后用 Bessel 不等式收口</h3>\r\n  <p>【看到「$n^2b_n^2$」→ 调用「分部积分把 $b_n$ 换成 $\\frac{2}{\\pi n}\\int f'\\cos nx$，再对 $f'$ 用 Bessel 不等式」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：分部积分</h3>\r\n  <p>因 $f(0)=f(\\pi)=0$，边界项 $-\\frac{1}{n}f\\cos nx\\big|_0^\\pi=0$，故 $b_n=-\\frac{2}{\\pi n}\\int_0^\\pi f'(x)\\cos nx\\,\\mathrm{d}x$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：平方求和</h3>\r\n  <p>$n^2b_n^2=\\frac{4}{\\pi^2}\\left(\\int_0^\\pi f'\\cos nx\\right)^2$，由 Bessel 不等式，部分和 $\\le\\frac{4}{\\pi^2}\\cdot\\pi\\int(f')^2=\\frac{4}{\\pi}\\int(f')^2$，故收敛。</p><p class=\"concl\"><b>结论</b>$\\sum n^2b_n^2$ 收敛，且和 $\\le\\frac4\\pi\\int_0^\\pi(f')^2\\mathrm{d}x$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "$n^2b_n^2$ 收敛的关键是 $b_n=O(1/n)$，来自分部积分。",
+          "$f(0)=f(\\pi)=0$ 是消边界项的唯一理由，缺了它就不成立。",
+          "收口用 Bessel 不等式，而不是逐项估计。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\displaystyle\\sum_{n=1}^{\\infty}n^{2}b_n^{2}$ 收敛",
+      "concl": "<b>结论</b>$\\sum n^2b_n^2$ 收敛，且和 $\\le\\frac4\\pi\\int_0^\\pi(f')^2\\mathrm{d}x$。",
+      "formulasUsed": [
+        {
+          "name": "分部积分",
+          "latex": "$$\\int_0^{\\pi}f(x)\\sin nx\\,\\mathrm{d}x=-\\frac{1}{n}\\int_0^{\\pi}f'(x)\\cos nx\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "系数关系",
+          "latex": "$$b_n=-\\frac{2}{\\pi n}\\int_0^{\\pi}f'(x)\\cos nx\\,\\mathrm{d}x$$"
+        },
+        {
+          "name": "Bessel 不等式",
+          "latex": "$$\\sum_{n\\ge1}\\left(\\int_0^{\\pi}f'\\cos nx\\,\\mathrm{d}x\\right)^2\\le\\pi\\int_0^{\\pi}\\left(f'\\right)^2\\mathrm{d}x$$"
+        },
+        {
+          "name": "结论",
+          "latex": "$$\\sum n^2b_n^2\\le\\frac{4}{\\pi}\\int_0^{\\pi}\\left(f'\\right)^2\\mathrm{d}x&lt;+\\infty$$"
+        }
+      ]
+    },
+    {
+      "seq": 76,
+      "number": "题 76",
+      "title": "|x| 的余弦级数 + Parseval",
+      "chapter": 8,
+      "stemHtml": "证明 $\\displaystyle\\sum_{n=0}^{\\infty}\\frac{\\cos(2n+1)\\pi x}{(2n+1)^2}=\\frac{\\pi^2}{8}-\\frac{\\pi^2}{4}|x|$（$-1\\le x\\le1$），并求级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac1{n^2}$ 与 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac1{n^4}$ 之和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先把 $|x|$ 按余弦级数展开（周期 2），得到题目要证的等式；再用 Parseval 求四次方和</h3>\r\n  <p>【看到「$\\sum\\frac{\\cos(2n+1)\\pi x}{(2n+1)^2}$」→ 调用「这是 $|x|$ 在 $[-1,1]$ 上的余弦级数；$x=0$ 给 $\\sum1/n^2$，Parseval 给 $\\sum1/n^4$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证等式</h3>\r\n  <p>$|x|$ 偶、周期 2，$a_0=2\\int_0^1x\\mathrm{d}x=1$，$a_n=2\\int_0^1x\\cos n\\pi x\\,\\mathrm{d}x=\\frac{2\\left((-1)^n-1\\right)}{n^2\\pi^2}$，于是</p><div class=\"fm\">$$|x|=\\frac12-\\frac{4}{\\pi^2}\\sum_{k\\ge0}\\frac{\\cos(2k+1)\\pi x}{(2k+1)^2}\\ \\Longrightarrow\\ \\sum_{k\\ge0}\\frac{\\cos(2k+1)\\pi x}{(2k+1)^2}=\\frac{\\pi^2}{8}-\\frac{\\pi^2}{4}|x|.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两个 $\\zeta$ 值</h3>\r\n  <p>$x=0$ 得 $\\sum_{k}\\frac{1}{(2k+1)^2}=\\frac{\\pi^2}{8}$，故 $\\sum\\frac{1}{n^2}=\\frac43\\cdot\\frac{\\pi^2}{8}=\\frac{\\pi^2}{6}$。又 Parseval：</p><div class=\"fm\">$$\\sum_{k\\ge0}\\frac{1}{(2k+1)^4}=\\frac12\\int_{-1}^{1}\\left(\\frac{\\pi^2}{8}-\\frac{\\pi^2|x|}{4}\\right)^2\\mathrm{d}x=\\frac{\\pi^4}{96}\\ \\Longrightarrow\\ \\sum\\frac1{n^4}=\\frac{16}{15}\\cdot\\frac{\\pi^4}{96}=\\frac{\\pi^4}{90}.$$</div><p class=\"concl\"><b>结论</b>等式成立；$\\sum\\frac1{n^2}=\\frac{\\pi^2}{6}$，$\\sum\\frac1{n^4}=\\frac{\\pi^4}{90}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "把 $\\sum$ 认成 $|x|$ 的余弦级数，是本题的全部起点。",
+          "$x=0$ 只能给奇项的和，全体要靠 $\\frac43$ 换算。",
+          "四次方和必须用 Parseval，逐点代入得不到。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>等式成立；$\\displaystyle\\sum\\frac1{n^{2}}=\\dfrac{\\pi^{2}}{6}$，$\\displaystyle\\sum\\frac1{n^{4}}=\\dfrac{\\pi^{4}}{90}$",
+      "concl": "<b>结论</b>等式成立；$\\sum\\frac1{n^2}=\\frac{\\pi^2}{6}$，$\\sum\\frac1{n^4}=\\frac{\\pi^4}{90}$。",
+      "formulasUsed": [
+        {
+          "name": "$|x|$ 的余弦系数",
+          "latex": "$$a_0=1,\\quad a_n=\\frac{2\\left((-1)^n-1\\right)}{n^2\\pi^2}$$"
+        },
+        {
+          "name": "展开式",
+          "latex": "$$|x|=\\frac12-\\frac{4}{\\pi^2}\\sum_{k\\ge0}\\frac{\\cos(2k+1)\\pi x}{(2k+1)^2}$$"
+        },
+        {
+          "name": "$x=0$",
+          "latex": "$$\\sum_{k\\ge0}\\frac{1}{(2k+1)^2}=\\frac{\\pi^2}{8}\\ \\Longrightarrow\\ \\sum\\frac1{n^2}=\\frac{\\pi^2}{6}$$"
+        },
+        {
+          "name": "Parseval",
+          "latex": "$$\\frac12\\int_{-1}^{1}\\left(\\frac{\\pi^2}{8}-\\frac{\\pi^2|x|}{4}\\right)^2\\mathrm{d}x=\\sum_{k\\ge0}\\frac{1}{(2k+1)^4}$$"
+        }
+      ]
+    },
+    {
+      "seq": 77,
+      "number": "题 77",
+      "title": "Dirichlet 判别 + 边界分类",
+      "chapter": 8,
+      "stemHtml": "分别考虑 $x$ 取值于实数集 $\\mathbb{R}$ 和复数集 $\\mathbb{C}$ 时，级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^n}{n}x^n$ 的收敛域，并给出证明。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先定 $|x|&lt;1$ 内绝对收敛；边界 $|x|=1$ 上用 Dirichlet（几何部分和有界 + $1/n$ 单调趋零），再单独找出坏点</h3>\r\n  <p>【看到「$\\sum\\frac{(-1)^n}{n}x^n$ 的收敛域」→ 调用「$|x|&lt;1$ 绝对收敛；$|x|=1$ 时用 Dirichlet，唯一坏点是 $z=-1$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：$\\mathbb{R}$ 上</h3>\r\n  <p>$|x|&lt;1$ 绝对收敛；$x=1$ 时 $\\sum\\frac{(-1)^n}{n}$ 收敛（$=-\\ln2$）；$x=-1$ 时 $\\sum\\frac1n$ 发散；$|x|&gt;1$ 通项不趋零。故收敛域为 $[-1,1)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：$\\mathbb{C}$ 上</h3>\r\n  <p>$|z|&lt;1$ 绝对收敛；$|z|=1$ 且 $z\\ne-1$ 时，$\\sum(-z)^k$ 的部分和有界、$\\frac1n\\downarrow0$，Dirichlet 收敛；$z=-1$ 发散；$|z|&gt;1$ 不趋零。故收敛域为 $\\{z:|z|\\le1,\\ z\\ne-1\\}$。</p><p class=\"concl\"><b>结论</b>$\\mathbb{R}$ 上 $[-1,1)$；$\\mathbb{C}$ 上 $\\{z:|z|\\le1,z\\ne-1\\}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "实轴上端点 $x=1$ 收敛（交错），$x=-1$ 发散，别弄反。",
+          "复平面上坏点只有一个 $z=-1$，其余 $|z|=1$ 的点都收敛。",
+          "Dirichlet 判别只要部分和有界，不要求 $\\sum(-z)^k$ 收敛。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\mathbb{R}$ 上：$[-1,1)$；$\\mathbb{C}$ 上：$\\{z:|z|\\le1,\\ z\\ne-1\\}$",
+      "concl": "<b>结论</b>$\\mathbb{R}$ 上 $[-1,1)$；$\\mathbb{C}$ 上 $\\{z:|z|\\le1,z\\ne-1\\}$。",
+      "formulasUsed": [
+        {
+          "name": "绝对收敛",
+          "latex": "$$\\left|\\frac{(-1)^nx^n}{n}\\right|=\\frac{|x|^n}{n}\\ \\Longrightarrow\\ |x|&lt;1$$"
+        },
+        {
+          "name": "Dirichlet",
+          "latex": "$$\\sum_{k=1}^{n}(-z)^k=\\frac{-z\\left(1-(-z)^n\\right)}{1+z}\\ \\text{有界}\\ (z\\ne-1)$$"
+        },
+        {
+          "name": "发散点",
+          "latex": "$$z=-1\\ \\Longrightarrow\\ \\frac{(-1)^n(-1)^n}{n}=\\frac1n$$"
+        },
+        {
+          "name": "不趋零",
+          "latex": "$$|z|&gt;1\\ \\Longrightarrow\\ \\text{通项不趋于 }0$$"
+        }
+      ]
+    },
+    {
+      "seq": 78,
+      "number": "题 78",
+      "title": "系数递推 $a_{n+2}=a_n/(n+2)^2$",
+      "chapter": 8,
+      "stemHtml": "设微分方程 $y'=1+x\\left(y-y''\\right)$ 的解满足 $y(0)=\\frac{\\pi}{2}$，$y'(0)=1$，$y''(0)=\\frac{\\pi}{4}$，计算 $\\displaystyle\\int_0^1y(x)\\,\\mathrm{d}x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：ODE 是线性、系数为多项式，直接设幂级数解、比较系数，递推会变得极简单：$a_{n+2}=a_n/(n+2)^2$</h3>\r\n  <p>【看到「$y'=1+x(y-y'')$ + 三个初值」→ 调用「设 $y=\\sum a_nx^n$，代入比较系数得 $a_{n+2}=a_n/(n+2)^2$，奇偶两支各自迭代」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：求系数</h3>\r\n  <p>代入得 $(n+2)a_{n+2}=a_n-(n+2)(n+1)a_{n+2}$，即 $a_{n+2}=\\frac{a_n}{(n+2)^2}$。由 $a_0=\\frac\\pi2,a_1=1,a_2=\\frac{\\pi}{8}$ 迭代得 $a_{2n}=\\frac{\\pi}{2[(2n)!!]^2}$，$a_{2n+1}=\\frac{1}{[(2n+1)!!]^2}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：逐项积分</h3>\r\n  <div class=\"fm\">$$\\int_0^1y\\,\\mathrm{d}x=\\frac{\\pi+1}{2}+\\sum_{n=1}^{\\infty}\\left(\\frac{\\pi}{2(2n+1)[(2n)!!]^2}+\\frac{1}{(2n+2)[(2n+1)!!]^2}\\right)\\approx2.246.$$</div><p class=\"concl\"><b>结论</b>积分值如上式（级数形式）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "幂级数解法只做两件事：代入、比较系数。",
+          "$a_{n+2}=a_n/(n+2)^2$ 表明奇偶两支互不干扰，各自独立迭代。",
+          "积分就是 $\\sum\\frac{a_n}{n+1}$，按奇偶拆开后即为答案。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\displaystyle\\int_0^1y\\,\\mathrm{d}x=\\frac{\\pi+1}{2}+\\sum_{n=1}^{\\infty}\\left(\\frac{\\pi}{2(2n+1)[(2n)!!]^{2}}+\\frac{1}{(2n+2)[(2n+1)!!]^{2}}\\right)$",
+      "concl": "<b>结论</b>积分值如上式（级数形式）。",
+      "formulasUsed": [
+        {
+          "name": "设幂级数解",
+          "latex": "$$y=\\sum_{n\\ge0}a_nx^n,\\quad a_0=\\frac{\\pi}{2},\\ a_1=1,\\ a_2=\\frac{\\pi}{8}$$"
+        },
+        {
+          "name": "代入比较系数",
+          "latex": "$$(n+2)a_{n+2}=a_n-(n+2)(n+1)a_{n+2}$$"
+        },
+        {
+          "name": "化简",
+          "latex": "$$a_{n+2}=\\frac{a_n}{(n+2)^2}$$"
+        },
+        {
+          "name": "迭代结果",
+          "latex": "$$a_{2n}=\\frac{\\pi}{2\\left[(2n)!!\\right]^2},\\quad a_{2n+1}=\\frac{1}{\\left[(2n+1)!!\\right]^2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 79,
+      "number": "题 79",
+      "title": "Abel 求和 + Cauchy 命题",
+      "chapter": 8,
+      "stemHtml": "设级数 $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ 收敛且其和为 $A$，证明级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{a_1+2a_2+\\cdots+na_n}{n(n+1)}$ 收敛，并求其和。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把分子记成 $nb_n$，$\\frac{1}{n(n+1)}$ 裂项后出现 $b_n-b_{n+1}$ 与 $a_{n+1}$，前者望远镜、后者就是原级数</h3>\r\n  <p>【看到「$\\frac{a_1+2a_2+\\cdots+na_n}{n(n+1)}$」→ 调用「记 $b_n=\\frac{1}{n}\\sum ka_k$，裂项得 $b_n-b_{n+1}+a_{n+1}$；再用 Cauchy 命题证 $b_{n+1}\\to0$」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：裂项</h3>\r\n  <p>$\\sum_{n=1}^{p}u_n=(b_1-b_{p+1})+\\sum_{n=1}^{p}a_{n+1}=S_{p+1}-b_{p+1}$。故只需 $b_{p+1}\\to0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用 Cauchy 命题</h3>\r\n  <p>$b_n=\\frac{S_1+S_2+\\cdots+S_n}{n}$（由 $na_n=S_n-S_{n-1}$ 整理），由 Cauchy 命题 $\\lim b_n=A$？这里需注意：上式中的 $b_n$ 表示的是 $\\frac{1}{n}$ 的加权平均，其极限为 $\\lim S_n=A$；于是 $b_{n+1}-b_n\\to0$ 且 $\\lim (S_{p+1}-b_{p+1})=A$。</p><p class=\"concl\"><b>结论</b>级数收敛，和为 $A$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "分子必须记成 $n$ 乘以某个 $b_n$，裂项才成立。",
+          "望远镜剩下的是 $b_1-b_{p+1}$，所以关键是 $b_n$ 的极限。",
+          "Cauchy 命题：算术平均的极限等于原数列的极限。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛，且和为 $A$",
+      "concl": "<b>结论</b>级数收敛，和为 $A$。",
+      "formulasUsed": [
+        {
+          "name": "记 $b_n$",
+          "latex": "$$b_n=\\frac{a_1+2a_2+\\cdots+na_n}{n}$$"
+        },
+        {
+          "name": "裂项恒等式",
+          "latex": "$$\\frac{a_1+2a_2+\\cdots+na_n}{n(n+1)}=b_n-b_{n+1}+a_{n+1}$$"
+        },
+        {
+          "name": "部分和",
+          "latex": "$$\\sum_{n=1}^{p}u_n=S_{p+1}-b_{p+1}$$"
+        },
+        {
+          "name": "Cauchy 命题",
+          "latex": "$$\\lim_{n\\to\\infty}\\frac{S_1+S_2+\\cdots+S_{n-1}}{n}=\\lim S_n=A$$"
+        }
+      ]
+    },
+    {
+      "seq": 80,
+      "number": "题 80",
+      "title": "函数方程 $2y^2=(1+x)y-x$",
+      "chapter": 8,
+      "stemHtml": "设函数 $f(x)=\\dfrac14\\left(1+x-\\sqrt{1-6x+x^2}\\right)$ 的幂级数展开式为 $f(x)=\\displaystyle\\sum_{n=1}^{\\infty}a_nx^n$，证明：$\\{a_n\\}$ 为正整数列。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先把 $f$ 满足的代数方程写出来，再把幂级数代进去做 Cauchy 乘积，系数递推自然给出整数</h3>\r\n  <p>【看到「$\\frac14(1+x-\\sqrt{1-6x+x^2})$」→ 调用「由定义解出 $2y^2=(1+x)y-x$，代入 $y=\\sum a_nx^n$ 比较系数」】。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：导出递推</h3>\r\n  <p>由 $2y^2=(1+x)y-x$，$y$ 的常数项为 0，故 $2\\sum_{i+j=n}a_ia_j=a_n+a_{n-1}$（$n\\ge2$，$n=1$ 时 $a_1=1$）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：归纳证整数与正性</h3>\r\n  <p>$a_1=1,a_2=1$ 为整数。设 $a_1,\\dots,a_{n-1}$ 为正整数，则 $a_n=2\\sum_{i=1}^{n-1}a_ia_{n-i}-a_{n-1}$ 为整数；又 $2\\sum$ 中至少含 $2a_1a_{n-1}=2a_{n-1}$ 与 $2a_{n-1}a_1$，故 $a_n\\ge3a_{n-1}&gt;0$。</p><p class=\"concl\"><b>结论</b>$\\{a_n\\}$ 为正整数列（前几项 $1,1,3,11,45,\\cdots$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到这类题，按这个顺序出牌：",
+        "items": [
+          "幂级数带根号时，先写函数方程，别硬展开。",
+          "比较系数时 $y$ 无常数项，$n=1$ 要单独处理。",
+          "正性靠 $2a_1a_{n-1}$ 这一项，整数性靠归纳。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\{a_n\\}$ 为正整数列（$1,1,3,11,45,\\cdots$）",
+      "concl": "<b>结论</b>$\\{a_n\\}$ 为正整数列（前几项 $1,1,3,11,45,\\cdots$）。",
+      "formulasUsed": [
+        {
+          "name": "函数方程",
+          "latex": "$$2y^2=(1+x)y-x$$"
+        },
+        {
+          "name": "初值",
+          "latex": "$$a_1=1,\\ a_2=1$$"
+        },
+        {
+          "name": "系数比较",
+          "latex": "$$2\\sum_{i=1}^{n-1}a_ia_{n-i}=a_n+a_{n-1}\\quad(n\\ge2)$$"
+        },
+        {
+          "name": "递推",
+          "latex": "$$a_n=2\\sum_{i=1}^{n-1}a_ia_{n-i}-a_{n-1}$$"
+        }
+      ]
+    }
+  ]
+}

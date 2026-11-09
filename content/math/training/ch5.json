@@ -1,0 +1,2222 @@
+{
+  "subject": "math",
+  "group": "competition",
+  "category": "training",
+  "chapter": 5,
+  "chapterName": "向量代数与空间解析几何",
+  "title": "第 5 章 向量代数与空间解析几何5.4 能力拓展与训练 40 题全解",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "题 1",
+      "title": "两向量夹角 · 两个垂直条件联立消元",
+      "chapter": 5,
+      "stemHtml": "设向量 $\\boldsymbol{a}+3\\boldsymbol{b}$ 与 $\\boldsymbol{a}-4\\boldsymbol{b}$ 分别垂直于向量 $7\\boldsymbol{a}-5\\boldsymbol{b}$ 与 $7\\boldsymbol{a}-2\\boldsymbol{b}$，试求 $\\boldsymbol{a}$ 与 $\\boldsymbol{b}$ 间的夹角。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把「垂直」翻成「内积为零」，两个条件就是两个方程</h3>\n  <p>【看到「向量与向量垂直」→ 调用 $\\boldsymbol{x}\\cdot\\boldsymbol{y}=0$，立刻列式】。两个垂直条件各产出一个关于 $\\boldsymbol{a}^{2}$、$\\boldsymbol{b}^{2}$、$\\boldsymbol{a}\\cdot\\boldsymbol{b}$ 的方程；三个未知量只有两个方程，看上去不够，但本题只问夹角，只要消掉 $\\boldsymbol{a}^{2}$ 拿到 $\\boldsymbol{b}^{2}$ 与 $\\boldsymbol{a}\\cdot\\boldsymbol{b}$ 的比例就够了。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：两个条件各展开成一个方程</h3>\n  <p>由 $(\\boldsymbol{a}+3\\boldsymbol{b})\\cdot(7\\boldsymbol{a}-5\\boldsymbol{b})=0$：</p>\n  <div class=\"fm\">$$7\\boldsymbol{a}^{2}+16\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}-15\\boldsymbol{b}^{2}=0.$$</div>\n  <p>由 $(\\boldsymbol{a}-4\\boldsymbol{b})\\cdot(7\\boldsymbol{a}-2\\boldsymbol{b})=0$：</p>\n  <div class=\"fm\">$$7\\boldsymbol{a}^{2}-30\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}+8\\boldsymbol{b}^{2}=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两式相减，直接把 $\\boldsymbol{a}^{2}$ 消掉</h3>\n  <p>上减下：</p>\n  <div class=\"fm\">$$46\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}-23\\boldsymbol{b}^{2}=0\\ \\Longrightarrow\\ \\boldsymbol{b}^{2}=2\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}.$$</div>\n  <p>把 $\\boldsymbol{b}^{2}=2\\boldsymbol{a}\\cdot\\boldsymbol{b}$ 代回第二式：$7\\boldsymbol{a}^{2}-30\\boldsymbol{a}\\cdot\\boldsymbol{b}+16\\boldsymbol{a}\\cdot\\boldsymbol{b}=0$，得</p>\n  <div class=\"fm\">$$7\\boldsymbol{a}^{2}-14\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}=0\\ \\Longrightarrow\\ \\boldsymbol{a}^{2}=2\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}.$$</div>\n  <p>于是 $\\boldsymbol{a}^{2}=\\boldsymbol{b}^{2}=2\\boldsymbol{a}\\cdot\\boldsymbol{b}$，即 $|\\boldsymbol{a}|=|\\boldsymbol{b}|$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：代入夹角公式</h3>\n  <p>由 $\\boldsymbol{b}^{2}=2\\boldsymbol{a}\\cdot\\boldsymbol{b}$ 得 $\\boldsymbol{a}\\cdot\\boldsymbol{b}=\\dfrac{\\boldsymbol{b}^{2}}{2}$，而 $\\boldsymbol{a}^{2}=\\boldsymbol{b}^{2}$ 即 $|\\boldsymbol{a}|\\,|\\boldsymbol{b}|=\\boldsymbol{b}^{2}$，所以</p>\n  <div class=\"fm\">$$\\cos\\theta=\\frac{\\boldsymbol{b}^{2}/2}{\\boldsymbol{b}^{2}}=\\frac12\\ \\Longrightarrow\\ \\theta=\\frac{\\pi}{3}.$$</div>\n  <p class=\"concl\"><b>结论</b>夹角为 $\\dfrac{\\pi}{3}$。注意 $\\theta$ 只能取 $[0,\\pi]$ 内使 $\\cos\\theta=\\frac12$ 的那个值，不能写成 $\\frac{\\pi}{3}$ 或 $-\\frac{\\pi}{3}$ 两个。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「几个线性组合互相垂直」，按这个顺序出牌：",
+        "items": [
+          "先写 $\\boldsymbol{x}\\cdot\\boldsymbol{y}=0$，再把括号乘开，得到 $\\boldsymbol{a}^{2},\\boldsymbol{b}^{2},\\boldsymbol{a}\\cdot\\boldsymbol{b}$ 的三元一次方程。",
+          "两个条件就两式相减，$7\\boldsymbol{a}^{2}$ 这种同系数项必被消掉，剩下的正是 $\\boldsymbol{b}^{2}$ 与 $\\boldsymbol{a}\\cdot\\boldsymbol{b}$ 的比。",
+          "求夹角只需要 $\\dfrac{\\boldsymbol{a}\\cdot\\boldsymbol{b}}{|\\boldsymbol{a}||\\boldsymbol{b}|}$，模长能约就约，不必真去求 $|\\boldsymbol{a}|$。",
+          "本题的「标准答案结构」是 $\\boldsymbol{a}^{2}=\\boldsymbol{b}^{2}=2\\boldsymbol{a}\\cdot\\boldsymbol{b}$，等价于两向量等长且夹角 $60^\\circ$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\theta=\\dfrac{\\pi}{3}$（即 $60^{\\circ}$）",
+      "concl": "<b>结论</b>夹角为 $\\dfrac{\\pi}{3}$。注意 $\\theta$ 只能取 $[0,\\pi]$ 内使 $\\cos\\theta=\\frac12$ 的那个值，不能写成 $\\frac{\\pi}{3}$ 或 $-\\frac{\\pi}{3}$ 两个。",
+      "formulasUsed": [
+        {
+          "name": "垂直 ⟺ 内积为零",
+          "latex": "$$\\boldsymbol{x}\\perp\\boldsymbol{y}\\iff \\boldsymbol{x}\\cdot\\boldsymbol{y}=0$$"
+        },
+        {
+          "name": "内积的展开（线性分配）",
+          "latex": "$$(\\alpha\\boldsymbol{a}+\\beta\\boldsymbol{b})\\cdot(\\gamma\\boldsymbol{a}+\\delta\\boldsymbol{b})=\\alpha\\gamma\\,\\boldsymbol{a}^{2}+(\\alpha\\delta+\\beta\\gamma)\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}+\\beta\\delta\\,\\boldsymbol{b}^{2}$$"
+        },
+        {
+          "name": "夹角公式",
+          "latex": "$$\\cos\\theta=\\frac{\\boldsymbol{a}\\cdot\\boldsymbol{b}}{|\\boldsymbol{a}|\\,|\\boldsymbol{b}|},\\qquad \\theta\\in[0,\\pi]$$"
+        },
+        {
+          "name": "本题归约到的特例",
+          "latex": "$$\\boldsymbol{a}^{2}=\\boldsymbol{b}^{2}=2\\boldsymbol{a}\\cdot\\boldsymbol{b}\\ \\Longrightarrow\\ \\cos\\theta=\\frac{\\boldsymbol{a}\\cdot\\boldsymbol{b}}{\\boldsymbol{b}^{2}}=\\frac12$$"
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "number": "题 2",
+      "title": "二次函数极小 · 投影与垂直",
+      "chapter": 5,
+      "stemHtml": "设向量 $\\boldsymbol{a}=(1,-1,1)$，$\\boldsymbol{b}=(3,-4,5)$，$\\boldsymbol{x}=\\boldsymbol{a}+\\lambda\\boldsymbol{b}$，$\\lambda$ 为实数。试证：使模 $|\\boldsymbol{x}|$ 最小的向量 $\\boldsymbol{x}$ 必垂直于向量 $\\boldsymbol{b}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把「模最小」翻译成「二次函数取最小」</h3>\n  <p>【看到「$|\\boldsymbol{a}+\\lambda\\boldsymbol{b}|$ 最小」→ 调用「模平方是 $\\lambda$ 的二次函数，最小值在对称轴」】。模最小与模平方最小同解，而模平方展开后是标准二次函数，最小值点可以一步写出；把 $\\lambda^{*}$ 代回 $\\boldsymbol{x}\\cdot\\boldsymbol{b}$，正好能凑出 $0$，这就是结论。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算出三个基本量，写出 $|\\boldsymbol{x}|^{2}$</h3>\n  <p>$\\boldsymbol{a}^{2}=1+1+1=3$，$\\boldsymbol{b}^{2}=9+16+25=50$，$\\boldsymbol{a}\\cdot\\boldsymbol{b}=3+4+5=12$。于是</p>\n  <div class=\"fm\">$$|\\boldsymbol{x}|^{2}=50\\lambda^{2}+24\\lambda+3=50\\left(\\lambda+\\frac{6}{25}\\right)^{2}+3-\\frac{72}{25}.$$</div>\n  <p>最小值在 $\\lambda^{*}=-\\dfrac{24}{2\\cdot 50}=-\\dfrac{6}{25}$ 处取到。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：把 $\\lambda^{*}$ 代回 $\\boldsymbol{x}\\cdot\\boldsymbol{b}$，得到 0</h3>\n  <div class=\"fm\">$$\\boldsymbol{x}\\cdot\\boldsymbol{b}=\\boldsymbol{a}\\cdot\\boldsymbol{b}+\\lambda^{*}\\boldsymbol{b}^{2}=12-\\frac{6}{25}\\cdot 50=12-12=0.$$</div>\n  <p>所以 $\\boldsymbol{x}\\perp\\boldsymbol{b}$，结论得证。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步（更本质的说法）：对 $\\lambda$ 求导，令导数为零</h3>\n  <p>不必展开，直接对 $|\\boldsymbol{x}|^{2}=(\\boldsymbol{a}+\\lambda\\boldsymbol{b})\\cdot(\\boldsymbol{a}+\\lambda\\boldsymbol{b})$ 求导：</p>\n  <div class=\"fm\">$$\\frac{\\mathrm{d}}{\\mathrm{d}\\lambda}|\\boldsymbol{x}|^{2}=2(\\boldsymbol{a}+\\lambda\\boldsymbol{b})\\cdot\\boldsymbol{b}=2\\,\\boldsymbol{x}\\cdot\\boldsymbol{b}=0.$$</div>\n  <p>这说明「模最小」与「$\\boldsymbol{x}$ 垂直于 $\\boldsymbol{b}$」是同一件事：$\\boldsymbol{x}$ 就是 $\\boldsymbol{a}$ 在 $\\boldsymbol{b}$ 上的正交投影对应的垂足向量。这一句话适用于任何 $\\boldsymbol{a},\\boldsymbol{b}$，比代具体数字更有价值。</p>\n  <p class=\"concl\"><b>结论</b>$\\lambda^{*}=-\\dfrac{6}{25}$，$\\boldsymbol{x}=\\left(\\dfrac{7}{25},-\\dfrac1{25},-\\dfrac15\\right)$，且 $\\boldsymbol{x}\\cdot\\boldsymbol{b}=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「$|\\boldsymbol{a}+\\lambda\\boldsymbol{b}|$ 的最小值 / 最短距离」，按这个顺序出牌：",
+        "items": [
+          "模平方 = 二次函数，最小点 $\\lambda^{*}=-\\dfrac{\\boldsymbol{a}\\cdot\\boldsymbol{b}}{\\boldsymbol{b}^{2}}$，一步到位，别配方配到出错。",
+          "「模最小 ⟺ 垂直于 $\\boldsymbol{b}$」是一条可以当定理用的结论，考试里直接引用能省一整段计算。",
+          "本质是正交投影：$\\boldsymbol{x}=\\boldsymbol{a}-\\dfrac{\\boldsymbol{a}\\cdot\\boldsymbol{b}}{\\boldsymbol{b}^{2}}\\boldsymbol{b}$ 就是 $\\boldsymbol{a}$ 垂直于 $\\boldsymbol{b}$ 的分量。",
+          "最后一定要回代验算 $\\boldsymbol{x}\\cdot\\boldsymbol{b}=0$，这是本题的判分点。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\lambda^{*}=-\\dfrac{6}{25}$，$\\boldsymbol{x}=\\left(\\dfrac{7}{25},-\\dfrac{1}{25},-\\dfrac{1}{5}\\right)$，$\\boldsymbol{x}\\cdot\\boldsymbol{b}=0$，故 $\\boldsymbol{x}\\perp\\boldsymbol{b}$",
+      "concl": "<b>结论</b>$\\lambda^{*}=-\\dfrac{6}{25}$，$\\boldsymbol{x}=\\left(\\dfrac{7}{25},-\\dfrac1{25},-\\dfrac15\\right)$，且 $\\boldsymbol{x}\\cdot\\boldsymbol{b}=0$。",
+      "formulasUsed": [
+        {
+          "name": "模平方展开成 $\\lambda$ 的二次函数",
+          "latex": "$$|\\boldsymbol{a}+\\lambda\\boldsymbol{b}|^{2}=\\boldsymbol{a}^{2}+2\\lambda\\,\\boldsymbol{a}\\cdot\\boldsymbol{b}+\\lambda^{2}\\boldsymbol{b}^{2}$$"
+        },
+        {
+          "name": "二次函数的最小点",
+          "latex": "$$c+2d\\lambda+e\\lambda^{2}\\ \\ (e>0)\\ \\Longrightarrow\\ \\lambda^{*}=-\\frac{d}{e}$$"
+        },
+        {
+          "name": "垂直判据（这就是本题要证的东西）",
+          "latex": "$$\\boldsymbol{x}\\cdot\\boldsymbol{b}=(\\boldsymbol{a}+\\lambda\\boldsymbol{b})\\cdot\\boldsymbol{b}=\\boldsymbol{a}\\cdot\\boldsymbol{b}+\\lambda\\boldsymbol{b}^{2}$$"
+        },
+        {
+          "name": "本题的具体数",
+          "latex": "$$\\boldsymbol{a}^{2}=3,\\qquad \\boldsymbol{b}^{2}=50,\\qquad \\boldsymbol{a}\\cdot\\boldsymbol{b}=3+4+5=12$$"
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "number": "题 3",
+      "title": "叉积两两垂直 · 模方程 $x=yz$",
+      "chapter": 5,
+      "stemHtml": "设 $\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}$ 均为非零向量，且 $\\boldsymbol{a}=\\boldsymbol{b}\\times\\boldsymbol{c}$，$\\boldsymbol{b}=\\boldsymbol{c}\\times\\boldsymbol{a}$，$\\boldsymbol{c}=\\boldsymbol{a}\\times\\boldsymbol{b}$。试证：$|\\boldsymbol{a}|+|\\boldsymbol{b}|+|\\boldsymbol{c}|=3$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先看出「两两垂直」，再把模的关系写成方程组</h3>\n  <p>【看到 $\\boldsymbol{a}=\\boldsymbol{b}\\times\\boldsymbol{c}$ → 调用「叉积垂直于两个因子」】，立刻知道 $\\boldsymbol{a}$ 同时垂直于 $\\boldsymbol{b}$ 与 $\\boldsymbol{c}$；三式轮换一圈，就得到 $\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}$ 两两垂直。两个垂直向量的叉积模长等于模长之积，于是三个模 $x=|\\boldsymbol{a}|,\\ y=|\\boldsymbol{b}|,\\ z=|\\boldsymbol{c}|$ 满足 $x=yz,\\ y=zx,\\ z=xy$——这是本题的全部内容。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：证明两两垂直</h3>\n  <p>由 $\\boldsymbol{a}=\\boldsymbol{b}\\times\\boldsymbol{c}$ 得 $\\boldsymbol{a}\\cdot\\boldsymbol{b}=(\\boldsymbol{b}\\times\\boldsymbol{c})\\cdot\\boldsymbol{b}=0$，$\\boldsymbol{a}\\cdot\\boldsymbol{c}=0$；再由 $\\boldsymbol{b}=\\boldsymbol{c}\\times\\boldsymbol{a}$ 得 $\\boldsymbol{b}\\cdot\\boldsymbol{c}=0$。三向量两两垂直。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：把叉积取模，得到三个模方程</h3>\n  <p>因为两两垂直，$\\sin\\langle\\boldsymbol{b},\\boldsymbol{c}\\rangle=1$，所以</p>\n  <div class=\"fm\">$$x=|\\boldsymbol{a}|=|\\boldsymbol{b}\\times\\boldsymbol{c}|=|\\boldsymbol{b}|\\,|\\boldsymbol{c}|=yz,$$</div>\n  <p>同理 $y=zx$，$z=xy$，且 $x,y,z>0$（非零向量的模）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：三式相乘，解出 $x=y=z=1$</h3>\n  <div class=\"fm\">$$xyz=(yz)(zx)(xy)=(xyz)^{2}\\ \\Longrightarrow\\ xyz\\left[xyz-1\\right]=0\\ \\Longrightarrow\\ xyz=1.$$</div>\n  <p>再由 $x=yz$ 与 $xyz=1$ 得 $x=\\dfrac{1}{x}$，即 $x^{2}=1$，故 $x=1$；同理 $y=z=1$。</p>\n  <p class=\"concl\"><b>结论</b>$|\\boldsymbol{a}|=|\\boldsymbol{b}|=|\\boldsymbol{c}|=1$，于是 $|\\boldsymbol{a}|+|\\boldsymbol{b}|+|\\boldsymbol{c}|=3$。顺便可知 $\\{\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}\\}$ 是两两垂直的单位向量组，构成一组右手标架。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「叉积等于另一个向量」，按这个顺序出牌：",
+        "items": [
+          "先由「叉积垂直于因子」得到两两垂直，这一步不写就等于没有开始。",
+          "两两垂直的叉积取模 = 模长直接相乘，别把 $\\sin$ 留在式子里。",
+          "遇到 $x=yz,\\ y=zx,\\ z=xy$ 这类对称方程组，三式相乘是最省力的解法，能一次拿到乘积。",
+          "结果 $xyz=1$ 结合 $x=yz$ 得 $x^{2}=1$，用「模为正」排除负根——这一步是严谨性所在。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>三向量两两垂直且均为单位向量，故 $|\\boldsymbol{a}|+|\\boldsymbol{b}|+|\\boldsymbol{c}|=3$",
+      "concl": "<b>结论</b>$|\\boldsymbol{a}|=|\\boldsymbol{b}|=|\\boldsymbol{c}|=1$，于是 $|\\boldsymbol{a}|+|\\boldsymbol{b}|+|\\boldsymbol{c}|=3$。顺便可知 $\\{\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}\\}$ 是两两垂直的单位向量组，构成一组右手标架。",
+      "formulasUsed": [
+        {
+          "name": "叉积垂直于两个因子",
+          "latex": "$$\\boldsymbol{u}\\times\\boldsymbol{v}\\perp\\boldsymbol{u},\\qquad \\boldsymbol{u}\\times\\boldsymbol{v}\\perp\\boldsymbol{v}$$"
+        },
+        {
+          "name": "叉积模长（含夹角的正弦）",
+          "latex": "$$|\\boldsymbol{u}\\times\\boldsymbol{v}|=|\\boldsymbol{u}|\\,|\\boldsymbol{v}|\\sin\\langle\\boldsymbol{u},\\boldsymbol{v}\\rangle$$"
+        },
+        {
+          "name": "两两垂直时正弦为 1，得模方程",
+          "latex": "$$|\\boldsymbol{a}|=|\\boldsymbol{b}|\\,|\\boldsymbol{c}|,\\qquad |\\boldsymbol{b}|=|\\boldsymbol{c}|\\,|\\boldsymbol{a}|,\\qquad |\\boldsymbol{c}|=|\\boldsymbol{a}|\\,|\\boldsymbol{b}|$$"
+        },
+        {
+          "name": "三式相乘后的方程",
+          "latex": "$$xyz=(yz)(zx)(xy)=(xyz)^{2}\\ \\Longrightarrow\\ xyz=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "number": "题 4",
+      "title": "共线设参数 · 反证",
+      "chapter": 5,
+      "stemHtml": "设 $\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}$ 均为非零向量，且两两不共线，但 $\\boldsymbol{a}+\\boldsymbol{b}$ 与 $\\boldsymbol{c}$ 共线，$\\boldsymbol{b}+\\boldsymbol{c}$ 与 $\\boldsymbol{a}$ 共线。试证：$\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=\\boldsymbol{0}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把两个「共线」写成参数式，再让两式相加</h3>\n  <p>【看到「两个向量共线」→ 调用参数式 $\\boldsymbol{u}=\\lambda\\boldsymbol{v}$】。设出参数后，把两式分别改写成「$\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}$ 等于某某」的形式，同一个和式被表示成 $\\boldsymbol{c}$ 的倍数、又被表示成 $\\boldsymbol{a}$ 的倍数，这正是反证的缺口：若和不为零，就逼出 $\\boldsymbol{a}\\parallel\\boldsymbol{c}$，与题设矛盾。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：设参数</h3>\n  <p>由 $\\boldsymbol{a}+\\boldsymbol{b}\\parallel\\boldsymbol{c}$，存在 $\\lambda$ 使 $\\boldsymbol{a}+\\boldsymbol{b}=\\lambda\\boldsymbol{c}$；由 $\\boldsymbol{b}+\\boldsymbol{c}\\parallel\\boldsymbol{a}$，存在 $\\mu$ 使 $\\boldsymbol{b}+\\boldsymbol{c}=\\mu\\boldsymbol{a}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两式相加，得到同一个和式的两种表示</h3>\n  <div class=\"fm\">$$\\left(\\boldsymbol{a}+\\boldsymbol{b}\\right)+\\boldsymbol{c}=(1+\\lambda)\\boldsymbol{c},\\qquad \\boldsymbol{a}+\\left(\\boldsymbol{b}+\\boldsymbol{c}\\right)=(1+\\mu)\\boldsymbol{a}.$$</div>\n  <p>两式左端相同，都是 $\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}$，所以</p>\n  <div class=\"fm\">$$\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=(1+\\lambda)\\boldsymbol{c}=(1+\\mu)\\boldsymbol{a}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：反证——若和不等于零，则 $\\boldsymbol{a}$ 与 $\\boldsymbol{c}$ 共线</h3>\n  <p>若 $\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}\\ne\\boldsymbol{0}$，则由上式两边都非零向量，得</p>\n  <div class=\"fm\">$$\\boldsymbol{a}=\\frac{1+\\lambda}{1+\\mu}\\boldsymbol{c}\\ \\Longrightarrow\\ \\boldsymbol{a}\\parallel\\boldsymbol{c},$$</div>\n  <p>与「两两不共线」矛盾。故只能 $\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=\\boldsymbol{0}$。</p>\n  <p class=\"concl\"><b>结论</b>此时 $(1+\\lambda)\\boldsymbol{c}=\\boldsymbol{0}$ 且 $\\boldsymbol{c}\\ne\\boldsymbol{0}$，还可读出 $\\lambda=-1$（同理 $\\mu=-1$），即 $\\boldsymbol{a}+\\boldsymbol{b}=-\\boldsymbol{c}$、$\\boldsymbol{b}+\\boldsymbol{c}=-\\boldsymbol{a}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「若干线性组合分别与某向量共线」，按这个顺序出牌：",
+        "items": [
+          "一律设参数：$\\boldsymbol{u}=\\lambda\\boldsymbol{v}$，别用「方向相同或相反」这种模糊说法。",
+          "想办法让同一个式子出现两次：把条件按不同方式分组相加、相减，是制造矛盾的最快手法。",
+          "结论要「和为零」时，反证是标配：假设和不为零，立即得到一个共线关系，撞上题设的矛盾。",
+          "证完顺手读出 $\\lambda=\\mu=-1$，这类附加信息常是下一小问的钥匙。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=\\boldsymbol{0}$（且 $\\lambda=\\mu=-1$）",
+      "concl": "<b>结论</b>此时 $(1+\\lambda)\\boldsymbol{c}=\\boldsymbol{0}$ 且 $\\boldsymbol{c}\\ne\\boldsymbol{0}$，还可读出 $\\lambda=-1$（同理 $\\mu=-1$），即 $\\boldsymbol{a}+\\boldsymbol{b}=-\\boldsymbol{c}$、$\\boldsymbol{b}+\\boldsymbol{c}=-\\boldsymbol{a}$。",
+      "formulasUsed": [
+        {
+          "name": "共线的代数定义",
+          "latex": "$$\\boldsymbol{u}\\parallel\\boldsymbol{v}\\ (\\boldsymbol{v}\\ne\\boldsymbol{0})\\iff \\exists\\,\\lambda\\in\\mathbb{R},\\ \\ \\boldsymbol{u}=\\lambda\\boldsymbol{v}$$"
+        },
+        {
+          "name": "把两个条件设成参数式",
+          "latex": "$$\\boldsymbol{a}+\\boldsymbol{b}=\\lambda\\boldsymbol{c},\\qquad \\boldsymbol{b}+\\boldsymbol{c}=\\mu\\boldsymbol{a}$$"
+        },
+        {
+          "name": "两式相加（和式按两种方式分组）",
+          "latex": "$$\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=(1+\\lambda)\\boldsymbol{c}=(1+\\mu)\\boldsymbol{a}$$"
+        },
+        {
+          "name": "共线判据（与题设「两两不共线」冲突时只能用这个）",
+          "latex": "$$\\boldsymbol{u}=t\\,\\boldsymbol{v}\\ \\Longrightarrow\\ \\boldsymbol{u}\\parallel\\boldsymbol{v}$$"
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "number": "题 5",
+      "title": "混合积轮换 · 面内两方向都垂直",
+      "chapter": 5,
+      "stemHtml": "设向量 $\\boldsymbol{a}=\\overrightarrow{OA}$，$\\boldsymbol{b}=\\overrightarrow{OB}$，$\\boldsymbol{c}=\\overrightarrow{OC}$，证明：如果 $\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}$ 不共面，那么向量 $\\boldsymbol{a}\\times\\boldsymbol{b}+\\boldsymbol{b}\\times\\boldsymbol{c}+\\boldsymbol{c}\\times\\boldsymbol{a}$ 垂直于点 $A,B,C$ 确定的平面。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：只需验证它与平面内两个不共线方向都垂直</h3>\n  <p>【看到「证明某向量垂直于某平面」→ 调用「与面内两条不共线方向的内积都为 0」】。平面 $ABC$ 的两个方向取 $\\overrightarrow{AB}=\\boldsymbol{b}-\\boldsymbol{a}$ 与 $\\overrightarrow{AC}=\\boldsymbol{c}-\\boldsymbol{a}$；题目给的 $\\boldsymbol{n}=\\boldsymbol{a}\\times\\boldsymbol{b}+\\boldsymbol{b}\\times\\boldsymbol{c}+\\boldsymbol{c}\\times\\boldsymbol{a}$ 展开后共六项，其中三项含重复因子自动为零，剩下两项靠混合积轮换正好相消。不共面保证 $\\overrightarrow{AB}\\times\\overrightarrow{AC}\\ne\\boldsymbol{0}$，两个方向才真的定住平面。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：算 $\\overrightarrow{AB}\\cdot\\boldsymbol{n}$</h3>\n  <div class=\"fm\">$$\\overrightarrow{AB}\\cdot\\boldsymbol{n}=(\\boldsymbol{b}-\\boldsymbol{a})\\cdot(\\boldsymbol{a}\\times\\boldsymbol{b}+\\boldsymbol{b}\\times\\boldsymbol{c}+\\boldsymbol{c}\\times\\boldsymbol{a}).$$</div>\n  <p>逐项展开，含相同因子的项为零：$\\boldsymbol{b}\\cdot(\\boldsymbol{a}\\times\\boldsymbol{b})=0$，$\\boldsymbol{b}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c})=0$，$\\boldsymbol{a}\\cdot(\\boldsymbol{a}\\times\\boldsymbol{b})=0$，$\\boldsymbol{a}\\cdot(\\boldsymbol{c}\\times\\boldsymbol{a})=0$，只剩下</p>\n  <div class=\"fm\">$$\\overrightarrow{AB}\\cdot\\boldsymbol{n}=\\boldsymbol{b}\\cdot(\\boldsymbol{c}\\times\\boldsymbol{a})-\\boldsymbol{a}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c}).$$</div>\n  <p>由轮换性，$\\boldsymbol{b}\\cdot(\\boldsymbol{c}\\times\\boldsymbol{a})=\\boldsymbol{a}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c})$，故 $\\overrightarrow{AB}\\cdot\\boldsymbol{n}=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算 $\\overrightarrow{AC}\\cdot\\boldsymbol{n}$，同理得 0</h3>\n  <div class=\"fm\">$$\\overrightarrow{AC}\\cdot\\boldsymbol{n}=\\boldsymbol{c}\\cdot(\\boldsymbol{a}\\times\\boldsymbol{b})-\\boldsymbol{a}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c})=\\boldsymbol{a}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c})-\\boldsymbol{a}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c})=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：两点定面，收口</h3>\n  <p>由于 $\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}$ 不共面，$\\overrightarrow{AB}$ 与 $\\overrightarrow{AC}$ 不共线，它们张成平面 $ABC$。$\\boldsymbol{n}$ 与二者都垂直，故 $\\boldsymbol{n}\\perp$ 平面 $ABC$。</p>\n  <p class=\"concl\"><b>结论</b>$\\boldsymbol{a}\\times\\boldsymbol{b}+\\boldsymbol{b}\\times\\boldsymbol{c}+\\boldsymbol{c}\\times\\boldsymbol{a}$ 是平面 $ABC$ 的一个法向量。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「三个位置向量、要证某组合垂直某平面」，按这个顺序出牌：",
+        "items": [
+          "先把平面内的方向写成「两点之差」：$\\overrightarrow{AB}=\\boldsymbol{b}-\\boldsymbol{a}$，这是所有点法式问题的起手式。",
+          "$\\boldsymbol{a}\\times\\boldsymbol{b}+\\boldsymbol{b}\\times\\boldsymbol{c}+\\boldsymbol{c}\\times\\boldsymbol{a}$ 这个组合本身就是「平面 $ABC$ 的法向量」，可以当结论记住——它就是 $\\overrightarrow{AB}\\times\\overrightarrow{AC}$ 的等价的对称写法。",
+          "展开六项时，只要看到同一向量既做点积又出现在叉积里，直接写 0，不要硬算行列式。",
+          "末了一定补一句「$\\overrightarrow{AB},\\overrightarrow{AC}$ 不共线」，否则「垂直于两条线」推不出「垂直于平面」。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>证毕：该向量与 $\\overrightarrow{AB},\\overrightarrow{AC}$ 的内积均为 $0$，因而不共面的两方向张成平面 $ABC$，故它垂直于该平面",
+      "concl": "<b>结论</b>$\\boldsymbol{a}\\times\\boldsymbol{b}+\\boldsymbol{b}\\times\\boldsymbol{c}+\\boldsymbol{c}\\times\\boldsymbol{a}$ 是平面 $ABC$ 的一个法向量。",
+      "formulasUsed": [
+        {
+          "name": "面内两个方向向量",
+          "latex": "$$\\overrightarrow{AB}=\\boldsymbol{b}-\\boldsymbol{a},\\qquad \\overrightarrow{AC}=\\boldsymbol{c}-\\boldsymbol{a}$$"
+        },
+        {
+          "name": "混合积轮换不变",
+          "latex": "$$\\boldsymbol{a}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c})=\\boldsymbol{b}\\cdot(\\boldsymbol{c}\\times\\boldsymbol{a})=\\boldsymbol{c}\\cdot(\\boldsymbol{a}\\times\\boldsymbol{b})$$"
+        },
+        {
+          "name": "混合积里有相同因子即为 0",
+          "latex": "$$\\boldsymbol{a}\\cdot(\\boldsymbol{a}\\times\\boldsymbol{b})=0,\\qquad \\boldsymbol{b}\\cdot(\\boldsymbol{b}\\times\\boldsymbol{c})=0,\\qquad \\boldsymbol{c}\\cdot(\\boldsymbol{c}\\times\\boldsymbol{a})=0$$"
+        },
+        {
+          "name": "垂直平面的判据",
+          "latex": "$$\\boldsymbol{n}\\cdot\\overrightarrow{AB}=\\boldsymbol{n}\\cdot\\overrightarrow{AC}=0,\\ \\ \\overrightarrow{AB}\\times\\overrightarrow{AC}\\ne\\boldsymbol{0}\\ \\Longrightarrow\\ \\boldsymbol{n}\\perp\\text{平面 }ABC$$"
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "number": "题 6",
+      "title": "Euler 线 · 向量平移证角相等",
+      "chapter": 5,
+      "stemHtml": "设四边形 $A_1A_2A_3A_4$ 为圆 $O$ 的内接四边形，$H_1,H_2,H_3,H_4$ 依次是 $\\triangle A_2A_3A_4$、$\\triangle A_3A_4A_1$、$\\triangle A_4A_1A_2$、$\\triangle A_1A_2A_3$ 的垂心。求证：$H_1,H_2,H_3,H_4$ 四点共圆。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把四个垂心都用同一个原点 $O$ 表示出来</h3>\n  <p>【看到「垂心 + 外接圆圆心」→ 调用 Euler 线公式 $\\overrightarrow{OH}=\\overrightarrow{OA}+\\overrightarrow{OB}+\\overrightarrow{OC}$】。四个垂心分别对应「去掉一个顶点」的三个顶点，公式一套就全有了；再把 $\\overrightarrow{H_2H_3}$、$\\overrightarrow{H_3H_4}$ 这些边写成两个 $H$ 之差，它们会神奇地等于原四边形对应边的向量，于是角度全部平移过去，最后靠圆内接四边形对角互补收口。整题不需要画一条辅助线。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：四个垂心的向量表达式</h3>\n  <p>记 $\\boldsymbol{a}_i=\\overrightarrow{OA_i}$（$O$ 为外心，$|\\boldsymbol{a}_i|=R$）。对 $\\triangle A_2A_3A_4$ 用 Euler 线：</p>\n  <div class=\"fm\">$$\\overrightarrow{OH_1}=\\boldsymbol{a}_2+\\boldsymbol{a}_3+\\boldsymbol{a}_4,$$</div>\n  <p>同理</p>\n  <div class=\"fm\">$$\\overrightarrow{OH_2}=\\boldsymbol{a}_1+\\boldsymbol{a}_3+\\boldsymbol{a}_4,\\quad \\overrightarrow{OH_3}=\\boldsymbol{a}_1+\\boldsymbol{a}_2+\\boldsymbol{a}_4,\\quad \\overrightarrow{OH_4}=\\boldsymbol{a}_1+\\boldsymbol{a}_2+\\boldsymbol{a}_3.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：这些边恰好等于原四边形的边</h3>\n  <div class=\"fm\">$$\\overrightarrow{H_2H_3}=\\overrightarrow{OH_3}-\\overrightarrow{OH_2}=\\boldsymbol{a}_2-\\boldsymbol{a}_3=\\overrightarrow{A_3A_2},$$</div>\n  <div class=\"fm\">$$\\overrightarrow{H_3H_4}=\\overrightarrow{OH_4}-\\overrightarrow{OH_3}=\\boldsymbol{a}_3-\\boldsymbol{a}_4=\\overrightarrow{A_4A_3}.$$</div>\n  <p>所以 $H_2H_3\\parallel A_2A_3$，$H_3H_4\\parallel A_3A_4$，并且方向一致，故</p>\n  <div class=\"fm\">$$\\angle H_2H_3H_4=\\angle A_2A_3A_4.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：另一组角同样平移</h3>\n  <div class=\"fm\">$$\\overrightarrow{H_1H_4}=\\boldsymbol{a}_1-\\boldsymbol{a}_4=\\overrightarrow{A_4A_1},\\qquad \\overrightarrow{H_1H_2}=\\boldsymbol{a}_1-\\boldsymbol{a}_2=\\overrightarrow{A_2A_1},$$</div>\n  <p>故 $\\angle H_2H_1H_4=\\angle A_2A_1A_4$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第四步：对角互补，判定共圆</h3>\n  <p>因为 $A_1A_2A_3A_4$ 内接于圆 $O$，对角互补：$\\angle A_2A_3A_4+\\angle A_2A_1A_4=180^{\\circ}$。代入上面两式：</p>\n  <div class=\"fm\">$$\\angle H_2H_3H_4+\\angle H_2H_1H_4=180^{\\circ}\\ \\Longrightarrow\\ H_1,H_2,H_3,H_4\\ \\text{四点共圆}.$$</div>\n  <p class=\"concl\"><b>结论</b>四边形 $H_1H_2H_3H_4$ 与 $A_1A_2A_3A_4$ 的对应边两两平行、对应角相等，因而是「同角度」的四边形，必共圆。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「垂心与圆心同时出现」，按这个顺序出牌：",
+        "items": [
+          "$\\overrightarrow{OH}=\\overrightarrow{OA}+\\overrightarrow{OB}+\\overrightarrow{OC}$ 是万能钥匙，任何「垂心、外心、重心」共线问题都从它起手。",
+          "要证共圆，就证「对角互补」或「同侧张角相等」，用向量平移角是最干净的途径。",
+          "把 $\\overrightarrow{H_iH_j}$ 算成两个 $\\boldsymbol{a}$ 之差，能立刻看出它与某条原边平行且等长——这类「平移等长」是本题的结构。",
+          "结论可推广：任意圆内接 $n$ 边形中，「去掉一个顶点所得三角形的垂心」与顶点有同样的共圆结构。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>证毕：$\\angle H_2H_3H_4=\\angle A_2A_3A_4$，$\\angle H_2H_1H_4=\\angle A_2A_1A_4$，二者互补，故 $H_1,H_2,H_3,H_4$ 四点共圆",
+      "concl": "<b>结论</b>四边形 $H_1H_2H_3H_4$ 与 $A_1A_2A_3A_4$ 的对应边两两平行、对应角相等，因而是「同角度」的四边形，必共圆。",
+      "formulasUsed": [
+        {
+          "name": "三角形的 Euler 线（心向量公式）",
+          "latex": "$$\\overrightarrow{OH}=3\\overrightarrow{OG}=\\overrightarrow{OA}+\\overrightarrow{OB}+\\overrightarrow{OC}$$"
+        },
+        {
+          "name": "四点共圆的判据（对角互补）",
+          "latex": "$$\\angle H_2H_3H_4+\\angle H_2H_1H_4=180^{\\circ}\\ \\Longrightarrow\\ H_1,H_2,H_3,H_4\\ \\text{共圆}$$"
+        },
+        {
+          "name": "同向平行 ⟹ 夹角相等",
+          "latex": "$$\\overrightarrow{H_2H_3}=t\\,\\overrightarrow{A_3A_2}\\ (t>0)\\ \\Longrightarrow\\ \\angle H_2H_3H_4=\\angle A_2A_3A_4$$"
+        },
+        {
+          "name": "圆内接四边形对角互补",
+          "latex": "$$\\angle A_2A_3A_4+\\angle A_2A_1A_4=180^{\\circ}$$"
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "number": "题 7",
+      "title": "中线向量 · 和为零的三向量恒等式",
+      "chapter": 5,
+      "stemHtml": "证明：三角形三条中线的长度的平方和等于三边长度的平方和的 $\\dfrac34$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把中线写成「两边之和的一半」，剩下全是代数</h3>\n  <p>【看到「中线」→ 调用 $\\overrightarrow{AD}=\\frac12(\\overrightarrow{AB}+\\overrightarrow{AC})$】。三条中线都能用三边向量 $\\boldsymbol{a}=\\overrightarrow{AB}$、$\\boldsymbol{b}=\\overrightarrow{BC}$、$\\boldsymbol{c}=\\overrightarrow{CA}$ 表示，且 $\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=\\boldsymbol{0}$；把中线平方和乘 4，就变成「三个差向量的平方和」，正好套用上面的恒等式，一步得到 $\\frac34$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：三边向量与三条中线</h3>\n  <p>取 $\\boldsymbol{a}=\\overrightarrow{AB}$，$\\boldsymbol{b}=\\overrightarrow{BC}$，$\\boldsymbol{c}=\\overrightarrow{CA}$，则 $\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=\\boldsymbol{0}$。设 $D,E,F$ 为三边中点，则</p>\n  <div class=\"fm\">$$\\overrightarrow{AD}=\\frac12\\left(\\boldsymbol{a}-\\boldsymbol{c}\\right),\\qquad \\overrightarrow{BE}=\\frac12\\left(\\boldsymbol{b}-\\boldsymbol{a}\\right),\\qquad \\overrightarrow{CF}=\\frac12\\left(\\boldsymbol{c}-\\boldsymbol{b}\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：平方和乘 4，化成差平方和</h3>\n  <div class=\"fm\">$$4\\left(\\overrightarrow{AD}^{2}+\\overrightarrow{BE}^{2}+\\overrightarrow{CF}^{2}\\right)=\\left(\\boldsymbol{a}-\\boldsymbol{c}\\right)^{2}+\\left(\\boldsymbol{b}-\\boldsymbol{a}\\right)^{2}+\\left(\\boldsymbol{c}-\\boldsymbol{b}\\right)^{2}.$$</div>\n  <p>展开：$=2\\left(\\boldsymbol{a}^{2}+\\boldsymbol{b}^{2}+\\boldsymbol{c}^{2}\\right)-2\\left(\\boldsymbol{a}\\cdot\\boldsymbol{b}+\\boldsymbol{b}\\cdot\\boldsymbol{c}+\\boldsymbol{c}\\cdot\\boldsymbol{a}\\right)$。由和为零，$-2(\\boldsymbol{a}\\cdot\\boldsymbol{b}+\\boldsymbol{b}\\cdot\\boldsymbol{c}+\\boldsymbol{c}\\cdot\\boldsymbol{a})=\\boldsymbol{a}^{2}+\\boldsymbol{b}^{2}+\\boldsymbol{c}^{2}$，所以</p>\n  <div class=\"fm\">$$4\\left(\\overrightarrow{AD}^{2}+\\overrightarrow{BE}^{2}+\\overrightarrow{CF}^{2}\\right)=3\\left(\\boldsymbol{a}^{2}+\\boldsymbol{b}^{2}+\\boldsymbol{c}^{2}\\right)=3\\left(\\overrightarrow{AB}^{2}+\\overrightarrow{BC}^{2}+\\overrightarrow{CA}^{2}\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：除以 4 得结论</h3>\n  <div class=\"fm\">$$\\overrightarrow{AD}^{2}+\\overrightarrow{BE}^{2}+\\overrightarrow{CF}^{2}=\\frac34\\left(\\overrightarrow{AB}^{2}+\\overrightarrow{BC}^{2}+\\overrightarrow{CA}^{2}\\right).$$</div>\n  <p class=\"concl\"><b>结论</b>三中线平方和 $=\\dfrac34$ 三边平方和。若三边为 $a,b,c$，中线为 $m_a,m_b,m_c$，就是 $m_a^{2}+m_b^{2}+m_c^{2}=\\dfrac34\\left(a^{2}+b^{2}+c^{2}\\right)$——这是初中公式的中线版本。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「中线、重心、三边平方和」，按这个顺序出牌：",
+        "items": [
+          "取三边向量首尾相接、和为零，这样任何「连线中点」都写成两边之和的一半，全题只剩代数。",
+          "看到 $\\frac34$ 这种系数，先想「四个差平方和除以 4」，再想「三向量和为零」的恒等式。",
+          "恒等式 $(\\boldsymbol{u}-\\boldsymbol{v})^{2}+\\cdots=3(\\boldsymbol{u}^{2}+\\cdots)-(\\boldsymbol{u}+\\boldsymbol{v}+\\boldsymbol{w})^{2}$ 值得背，它同时解释了「中线平方和」与「重心到三顶点平方和」两个结论。",
+          "本题也可用坐标法硬算，但三边取 $\\boldsymbol{a},\\boldsymbol{b},\\boldsymbol{c}$ 的向量法更短，且能直接推广到空间四面体。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$m_a^{2}+m_b^{2}+m_c^{2}=\\dfrac34\\left(a^{2}+b^{2}+c^{2}\\right)$",
+      "concl": "<b>结论</b>三中线平方和 $=\\dfrac34$ 三边平方和。若三边为 $a,b,c$，中线为 $m_a,m_b,m_c$，就是 $m_a^{2}+m_b^{2}+m_c^{2}=\\dfrac34\\left(a^{2}+b^{2}+c^{2}\\right)$——这是初中公式的中线版本。",
+      "formulasUsed": [
+        {
+          "name": "中线是两边之和的一半",
+          "latex": "$$\\overrightarrow{AD}=\\frac12\\left(\\overrightarrow{AB}+\\overrightarrow{AC}\\right)$$"
+        },
+        {
+          "name": "三边向量首尾相接，和为零",
+          "latex": "$$\\boldsymbol{a}+\\boldsymbol{b}+\\boldsymbol{c}=\\boldsymbol{0}\\ \\Longrightarrow\\ \\boldsymbol{a}^{2}+\\boldsymbol{b}^{2}+\\boldsymbol{c}^{2}=-2\\left(\\boldsymbol{a}\\cdot\\boldsymbol{b}+\\boldsymbol{b}\\cdot\\boldsymbol{c}+\\boldsymbol{c}\\cdot\\boldsymbol{a}\\right)$$"
+        },
+        {
+          "name": "三向量两两之差的平方和恒等式",
+          "latex": "$$\\left(\\boldsymbol{u}-\\boldsymbol{v}\\right)^{2}+\\left(\\boldsymbol{v}-\\boldsymbol{w}\\right)^{2}+\\left(\\boldsymbol{w}-\\boldsymbol{u}\\right)^{2}=3\\left(\\boldsymbol{u}^{2}+\\boldsymbol{v}^{2}+\\boldsymbol{w}^{2}\\right)-(\\boldsymbol{u}+\\boldsymbol{v}+\\boldsymbol{w})^{2}$$"
+        },
+        {
+          "name": "本题用到的简化形式",
+          "latex": "$$\\boldsymbol{u}+\\boldsymbol{v}+\\boldsymbol{w}=\\boldsymbol{0}\\ \\Longrightarrow\\ \\left(\\boldsymbol{u}-\\boldsymbol{v}\\right)^{2}+\\left(\\boldsymbol{v}-\\boldsymbol{w}\\right)^{2}+\\left(\\boldsymbol{w}-\\boldsymbol{u}\\right)^{2}=3\\left(\\boldsymbol{u}^{2}+\\boldsymbol{v}^{2}+\\boldsymbol{w}^{2}\\right)$$"
+        }
+      ]
+    },
+    {
+      "seq": 8,
+      "number": "题 8",
+      "title": "线性相关 + 叉积取模 = 面积加权",
+      "chapter": 5,
+      "stemHtml": "设点 $P$ 是 $\\triangle ABC$ 内的任意一点。求证：\n  $$S_{\\triangle PBC}\\overrightarrow{PA}+S_{\\triangle PCA}\\overrightarrow{PB}+S_{\\triangle PAB}\\overrightarrow{PC}=\\boldsymbol{0}.$$",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先「线性相关」，再「叉积取模」把系数认成面积</h3>\n  <p>【看到「$P,A,B,C$ 共面 + 要证带系数的向量和为 0」→ 调用「三向量线性相关」】。系数一开始是未知的 $k_1,k_2,k_3$，题目要的是具体的三个面积。办法是拿 $\\overrightarrow{PC}$ 去叉乘整条等式，$\\overrightarrow{PC}$ 这一项自动消失，剩下两项都是叉积；再对两边取模，模长之比就是面积之比，系数就被「认」出来了。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出线性相关式</h3>\n  <p>$\\overrightarrow{PA},\\overrightarrow{PB},\\overrightarrow{PC}$ 共面，故存在不全为零的 $k_1,k_2,k_3$ 使</p>\n  <div class=\"fm\">$$k_1\\overrightarrow{PA}+k_2\\overrightarrow{PB}+k_3\\overrightarrow{PC}=\\boldsymbol{0}.$$</div>\n  <p>因 $P$ 在三角形内部，三个向量把平面分成三个张角都小于 $\\pi$ 的区域，$k_i$ 同号（可取全为正）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：两边叉乘 $\\overrightarrow{PC}$，消掉第三项</h3>\n  <div class=\"fm\">$$k_1\\overrightarrow{PA}\\times\\overrightarrow{PC}+k_2\\overrightarrow{PB}\\times\\overrightarrow{PC}=\\boldsymbol{0}\\ \\Longrightarrow\\ k_1\\overrightarrow{PA}\\times\\overrightarrow{PC}=k_2\\overrightarrow{PC}\\times\\overrightarrow{PB}.$$</div>\n  <p>注意 $\\overrightarrow{PB}\\times\\overrightarrow{PC}=-\\overrightarrow{PC}\\times\\overrightarrow{PB}$，移项时符号要跟着走；由于 $k_1,k_2>0$，两边的叉积方向一致。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：取模，把系数比换成面积比</h3>\n  <div class=\"fm\">$$\\frac{k_2}{k_1}=\\frac{|\\overrightarrow{PA}\\times\\overrightarrow{PC}|}{|\\overrightarrow{PC}\\times\\overrightarrow{PB}|}=\\frac{2S_{\\triangle PCA}}{2S_{\\triangle PBC}}=\\frac{S_{\\triangle PCA}}{S_{\\triangle PBC}}.$$</div>\n  <p>同理（两边叉乘 $\\overrightarrow{PB}$）可得 $\\dfrac{k_3}{k_1}=\\dfrac{S_{\\triangle PAB}}{S_{\\triangle PBC}}$。取 $k_1=S_{\\triangle PBC}$，则 $k_2=S_{\\triangle PCA}$，$k_3=S_{\\triangle PAB}$，代回第一步即得所证等式。</p>\n  <p class=\"concl\"><b>结论</b>该式说明 $P$ 的重心坐标就是三个小三角形的面积比；当 $P$ 为重心时三面积相等，退化为 $\\overrightarrow{PA}+\\overrightarrow{PB}+\\overrightarrow{PC}=\\boldsymbol{0}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「三角形内一点 + 向量加权和为零」，按这个顺序出牌：",
+        "items": [
+          "先用共面 ⟹ 线性相关设出系数，别急着猜系数是面积。",
+          "消项靠叉乘：拿要消掉的那个向量去叉乘整条等式，它自己就没了。",
+          "叉积取模 = 2 倍面积，这是把「系数」翻译成「面积」的唯一桥梁，务必写清 $\\sin$ 被吸收掉。",
+          "结论可反用：由面积比读出点的位置（重心、内心、旁心都对应特定的面积比）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>证毕：取 $k_1=S_{\\triangle PBC}$、$k_2=S_{\\triangle PCA}$、$k_3=S_{\\triangle PAB}$，代入线性相关式即得",
+      "concl": "<b>结论</b>该式说明 $P$ 的重心坐标就是三个小三角形的面积比；当 $P$ 为重心时三面积相等，退化为 $\\overrightarrow{PA}+\\overrightarrow{PB}+\\overrightarrow{PC}=\\boldsymbol{0}$。",
+      "formulasUsed": [
+        {
+          "name": "三向量共面 ⟺ 线性相关",
+          "latex": "$$k_1\\overrightarrow{PA}+k_2\\overrightarrow{PB}+k_3\\overrightarrow{PC}=\\boldsymbol{0}\\quad(k_1,k_2,k_3\\ \\text{不全为零})$$"
+        },
+        {
+          "name": "叉积模长 = 平行四边形面积 = 2 倍三角形面积",
+          "latex": "$$|\\overrightarrow{PB}\\times\\overrightarrow{PC}|=2S_{\\triangle PBC},\\qquad |\\overrightarrow{PA}\\times\\overrightarrow{PC}|=2S_{\\triangle PCA}$$"
+        },
+        {
+          "name": "叉积与因子垂直（消项用）",
+          "latex": "$$\\overrightarrow{PC}\\times\\overrightarrow{PC}=\\boldsymbol{0},\\qquad \\overrightarrow{PA}\\cdot\\left(\\overrightarrow{PA}\\times\\overrightarrow{PC}\\right)=0$$"
+        },
+        {
+          "name": "两边取模后的系数比",
+          "latex": "$$\\frac{k_2}{k_1}=\\frac{|\\overrightarrow{PA}\\times\\overrightarrow{PC}|}{|\\overrightarrow{PC}\\times\\overrightarrow{PB}|}=\\frac{S_{\\triangle PCA}}{S_{\\triangle PBC}}$$"
+        }
+      ]
+    },
+    {
+      "seq": 9,
+      "number": "题 9",
+      "title": "面积加权 + 圆心角是圆周角的两倍",
+      "chapter": 5,
+      "stemHtml": "设点 $P$ 是锐角 $\\triangle ABC$ 的外心。求证：对于空间任意一点 $O$，有\n  $$\\overrightarrow{OP}=\\frac{(\\tan B+\\tan C)\\overrightarrow{OA}+(\\tan C+\\tan A)\\overrightarrow{OB}+(\\tan A+\\tan B)\\overrightarrow{OC}}{2(\\tan A+\\tan B+\\tan C)}.$$",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：从题 8 出发，面积用 $2A$ 表示，再统一换成 $\\tan$</h3>\n  <p>【看到「外心 → 到三顶点等距」→ 调用「圆心角等于同弧圆周角的两倍」】。外心 $P$ 满足 $PA=PB=PC=r$，于是三个小三角形都是「两边为 $r$、夹角为 $2A$（或 $2B,2C$）」的等腰三角形，面积立刻写出。题 8 的恒等式给出 $\\overrightarrow{OP}$ 的面积加权表达式，剩下的工作只是把三个 $\\sin 2A$ 统一换算成题给的 $\\tan B+\\tan C$——这一步靠 $B+C=\\pi-A$ 就能完成。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：把题 8 的等式改写成以 $O$ 为起点</h3>\n  <p>由 $S_{\\triangle PBC}\\overrightarrow{PA}+S_{\\triangle PCA}\\overrightarrow{PB}+S_{\\triangle PAB}\\overrightarrow{PC}=\\boldsymbol{0}$，把 $\\overrightarrow{PA}=\\overrightarrow{OA}-\\overrightarrow{OP}$ 等代入并整理：</p>\n  <div class=\"fm\">$$\\left(S_{\\triangle PBC}+S_{\\triangle PCA}+S_{\\triangle PAB}\\right)\\overrightarrow{OP}=S_{\\triangle PBC}\\overrightarrow{OA}+S_{\\triangle PCA}\\overrightarrow{OB}+S_{\\triangle PAB}\\overrightarrow{OC}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：算出三个小三角形的面积</h3>\n  <p>因 $PB=PC=r$，$\\angle BPC=2A$，</p>\n  <div class=\"fm\">$$S_{\\triangle PBC}=\\frac12 r^{2}\\sin 2A,\\qquad S_{\\triangle PCA}=\\frac12 r^{2}\\sin 2B,\\qquad S_{\\triangle PAB}=\\frac12 r^{2}\\sin 2C.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：把 $\\sin 2A$ 换成 $\\tan B+\\tan C$ 的倍数</h3>\n  <p>由 $\\tan B+\\tan C=\\dfrac{\\sin A}{\\cos B\\cos C}$ 及 $\\sin 2A=2\\sin A\\cos A$：</p>\n  <div class=\"fm\">$$\\frac{\\sin 2A}{\\tan B+\\tan C}=2\\cos A\\cos B\\cos C\\ \\Longrightarrow\\ \\sin 2A=2\\cos A\\cos B\\cos C\\left(\\tan B+\\tan C\\right).$$</div>\n  <p>同理 $\\sin 2B=2\\cos A\\cos B\\cos C(\\tan C+\\tan A)$，$\\sin 2C=2\\cos A\\cos B\\cos C(\\tan A+\\tan B)$。公共因子 $2\\cos A\\cos B\\cos C$ 在分子分母同时出现，可以整体约掉。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第四步：约去公因子，得题给形式</h3>\n  <div class=\"fm\">$$\\overrightarrow{OP}=\\frac{(\\tan B+\\tan C)\\overrightarrow{OA}+(\\tan C+\\tan A)\\overrightarrow{OB}+(\\tan A+\\tan B)\\overrightarrow{OC}}{(\\tan B+\\tan C)+(\\tan C+\\tan A)+(\\tan A+\\tan B)},$$</div>\n  <p>而分母恰为 $2(\\tan A+\\tan B+\\tan C)$，正是题目所给的分母。</p>\n  <p class=\"concl\"><b>结论</b>该式对空间任意起点 $O$ 成立，说明它是「点 $P$ 的位置向量」的仿射表达式；取 $O=P$ 时两端化为 $\\boldsymbol{0}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「外心 + 用三顶点表示」，按这个顺序出牌：",
+        "items": [
+          "凡遇到「三角形内（或特殊）一点 + 三顶点权重」，先想题 8 的面积加权公式，它是所有此类表达式的母版。",
+          "外心的面积只与半径、圆心角有关：$S=\\frac12 r^{2}\\sin 2A$，一步写出，不必求底和高。",
+          "$\\tan B+\\tan C=\\dfrac{\\sin A}{\\cos B\\cos C}$ 是三角形里的常用换算式，把 $\\sin 2A$ 与 $\\tan$ 型分母对接就靠它。",
+          "约公因子 $2\\cos A\\cos B\\cos C$ 之前先确认它不为零：锐角三角形中 $\\cos$ 全为正，安全。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>证毕。取 $O$ 为原点即为 $\\overrightarrow{P}=\\dfrac{(\\tan B+\\tan C)\\boldsymbol{a}+(\\tan C+\\tan A)\\boldsymbol{b}+(\\tan A+\\tan B)\\boldsymbol{c}}{2(\\tan A+\\tan B+\\tan C)}$",
+      "concl": "<b>结论</b>该式对空间任意起点 $O$ 成立，说明它是「点 $P$ 的位置向量」的仿射表达式；取 $O=P$ 时两端化为 $\\boldsymbol{0}$。",
+      "formulasUsed": [
+        {
+          "name": "题 8 的面积加权恒等式（本题的骨架）",
+          "latex": "$$S_{\\triangle PBC}\\overrightarrow{PA}+S_{\\triangle PCA}\\overrightarrow{PB}+S_{\\triangle PAB}\\overrightarrow{PC}=\\boldsymbol{0}\\\\ \\Longrightarrow\\ \\left(S_{\\triangle PBC}+S_{\\triangle PCA}+S_{\\triangle PAB}\\right)\\overrightarrow{OP}=S_{\\triangle PBC}\\overrightarrow{OA}+S_{\\triangle PCA}\\overrightarrow{OB}+S_{\\triangle PAB}\\overrightarrow{OC}$$"
+        },
+        {
+          "name": "圆心角是圆周角的两倍",
+          "latex": "$$\\angle BPC=2A,\\qquad \\angle CPA=2B,\\qquad \\angle APB=2C$$"
+        },
+        {
+          "name": "用两边夹一角算面积（$r$ 为外接圆半径）",
+          "latex": "$$S_{\\triangle PBC}=\\frac12 r^{2}\\sin 2A,\\qquad S_{\\triangle PCA}=\\frac12 r^{2}\\sin 2B,\\qquad S_{\\triangle PAB}=\\frac12 r^{2}\\sin 2C$$"
+        },
+        {
+          "name": "把 $\\sin 2A$ 换成 $\\tan$ 的关键恒等式（用 $B+C=\\pi-A$）",
+          "latex": "$$\\tan B+\\tan C=\\frac{\\sin(B+C)}{\\cos B\\cos C}=\\frac{\\sin A}{\\cos B\\cos C}\\ \\Longrightarrow\\ \\frac{\\sin 2A}{\\tan B+\\tan C}=2\\cos A\\cos B\\cos C$$"
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "number": "题 10",
+      "title": "方向余弦 + 互余关系",
+      "chapter": 5,
+      "stemHtml": "设一直线与三坐标面的夹角依次为 $u,v,w$，证明：$\\cos^{2}u+\\cos^{2}v+\\cos^{2}w=2$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先分清「与坐标轴的角」和「与坐标面的角」</h3>\n  <p>【看到「直线与坐标面的夹角」→ 调用「它就是与对应坐标轴夹角的余角」】。记 $\\alpha,\\beta,\\gamma$ 为直线与 $x,y,z$ 三轴的方向角，则 $u,v,w$ 分别是 $yOz$、$zOx$、$xOy$ 面的夹角，而 $yOz$ 面的法向正是 $x$ 轴，所以 $u=\\frac{\\pi}{2}-\\alpha$。把三个 $\\cos^{2}$ 全部转成 $\\sin^{2}$，再用方向余弦平方和为 1，就得到 $3-1=2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出互余关系</h3>\n  <div class=\"fm\">$$u=\\frac{\\pi}{2}-\\alpha,\\qquad v=\\frac{\\pi}{2}-\\beta,\\qquad w=\\frac{\\pi}{2}-\\gamma.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：转成正弦平方和</h3>\n  <div class=\"fm\">$$\\cos^{2}u+\\cos^{2}v+\\cos^{2}w=\\sin^{2}\\alpha+\\sin^{2}\\beta+\\sin^{2}\\gamma.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：用方向余弦平方和为 1 收口</h3>\n  <div class=\"fm\">$$\\sin^{2}\\alpha+\\sin^{2}\\beta+\\sin^{2}\\gamma=3-\\left(\\cos^{2}\\alpha+\\cos^{2}\\beta+\\cos^{2}\\gamma\\right)=3-1=2.$$</div>\n  <p class=\"concl\"><b>结论</b>$\\cos^{2}u+\\cos^{2}v+\\cos^{2}w=2$。这与「与三条坐标轴的夹角余弦平方和为 1」是一对姊妹公式，别记混：轴的用 $\\cos$，面的用 $\\cos$ 但和为 2。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「直线与坐标轴 / 坐标面的夹角」，按这个顺序出牌：",
+        "items": [
+          "先定义清楚：方向角 $\\alpha,\\beta,\\gamma$ 是与三条坐标轴的角，$\\cos$ 平方和为 1。",
+          "与坐标面的角一律写成 $\\frac{\\pi}{2}-$（对应轴的方向角），因为面的法向就是那根轴。",
+          "遇到要求证的常数，先算「轴版」的和，再用 $3-1$ 得「面版」的和，比死算快得多。",
+          "这条结论在求平面法向量、判断直线与面的倾斜程度时经常直接引用。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\cos^{2}u+\\cos^{2}v+\\cos^{2}w=\\sin^{2}\\alpha+\\sin^{2}\\beta+\\sin^{2}\\gamma=3-1=2$",
+      "concl": "<b>结论</b>$\\cos^{2}u+\\cos^{2}v+\\cos^{2}w=2$。这与「与三条坐标轴的夹角余弦平方和为 1」是一对姊妹公式，别记混：轴的用 $\\cos$，面的用 $\\cos$ 但和为 2。",
+      "formulasUsed": [
+        {
+          "name": "方向余弦的平方和为 1（与三条坐标轴）",
+          "latex": "$$\\cos^{2}\\alpha+\\cos^{2}\\beta+\\cos^{2}\\gamma=1$$"
+        },
+        {
+          "name": "直线与坐标面的夹角 = 与对应法向的夹角的余角",
+          "latex": "$$u=\\frac{\\pi}{2}-\\alpha\\ \\ (\\text{与 }yOz\\text{ 面}),\\qquad v=\\frac{\\pi}{2}-\\beta,\\qquad w=\\frac{\\pi}{2}-\\gamma$$"
+        },
+        {
+          "name": "余角公式",
+          "latex": "$$\\cos\\left(\\frac{\\pi}{2}-\\alpha\\right)=\\sin\\alpha$$"
+        },
+        {
+          "name": "正弦平方与余弦平方互补",
+          "latex": "$$\\sin^{2}\\alpha+\\sin^{2}\\beta+\\sin^{2}\\gamma=3-\\left(\\cos^{2}\\alpha+\\cos^{2}\\beta+\\cos^{2}\\gamma\\right)=2$$"
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "number": "题 11",
+      "title": "混合积判异面 · 公垂线 = 两张平面的交线",
+      "chapter": 5,
+      "stemHtml": "已知直线 $L_1:\\dfrac{x-2}{1}=\\dfrac{y-2}{1}=\\dfrac{z+1}{-4}$ 和 $L_2:\\begin{cases}2x+z=1,\\\\ y=1.\\end{cases}$\n  <br>(1) 证明：$L_1$ 和 $L_2$ 是两条异面直线；\n  <br>(2) 求 $L_1,L_2$ 之间的距离；\n  <br>(3) 求 $L_1,L_2$ 的公垂线 $L$ 的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先把两条直线的「点 + 方向」抄出来</h3>\n  <p>【看到「判断异面、求距离」→ 调用「混合积」；看到「公垂线」→ 调用「$\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2$ 作方向，再各配一张平面取交线」】。$L_1$ 已是标准对称式，点 $P_1(2,2,-1)$、方向 $\\boldsymbol{\\tau}_1=(1,1,-4)$；$L_2$ 是一般式，方向要由两平面法向叉乘得到。三件事同用一套数据，按顺序算就行。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：读出 $L_2$ 的点与方向</h3>\n  <p>在 $L_2$ 中令 $x=0$，则 $z=1$、$y=1$，得 $P_2(0,1,1)$。方向为两平面法向的叉积：</p>\n  <div class=\"fm\">$$(2,0,1)\\times(0,1,0)=\\left(0\\cdot0-1\\cdot1,\\ 1\\cdot0-2\\cdot0,\\ 2\\cdot1-0\\cdot0\\right)=(-1,0,2).$$</div>\n  <p>于是 $\\overrightarrow{P_1P_2}=(-2,-1,2)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：(1) 混合积不为零，故异面</h3>\n  <div class=\"fm\">$$(\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2})=\\begin{vmatrix}1&1&-4\\\\ -1&0&2\\\\ -2&-1&2\\end{vmatrix}=1\\cdot(0+2)-1\\cdot(-2+4)+(-4)\\cdot(1)=-4\\ne0.$$</div>\n  <p>三向量不共面，即两直线不共面，故为异面直线。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：(2) 距离 = 混合积 / 公垂方向模</h3>\n  <div class=\"fm\">$$\\boldsymbol{\\tau}=\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2=(1,1,-4)\\times(-1,0,2)=(2,2,1),\\qquad |\\boldsymbol{\\tau}|=3,$$</div>\n  <div class=\"fm\">$$d=\\frac{|(\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2})|}{|\\boldsymbol{\\tau}|}=\\frac{4}{3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第四步：(3) 公垂线的两张辅助平面</h3>\n  <p>过 $L_1$ 且含公垂方向的平面 $\\Pi_1$，法向 $\\boldsymbol{n}_1=\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}=(1,1,-4)\\times(2,2,1)=(9,-9,0)$，过 $P_1(2,2,-1)$：</p>\n  <div class=\"fm\">$$1\\cdot(x-2)-1\\cdot(y-2)=0\\ \\Longrightarrow\\ x-y=0.$$</div>\n  <p>过 $L_2$ 且含公垂方向的平面 $\\Pi_2$，法向 $\\boldsymbol{n}_2=\\boldsymbol{\\tau}_2\\times\\boldsymbol{\\tau}=(-1,0,2)\\times(2,2,1)=(-4,5,-2)$，过 $P_2(0,1,1)$：</p>\n  <div class=\"fm\">$$-4x+5(y-1)-2(z-1)=0\\ \\Longrightarrow\\ 4x-5y+2z+3=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第五步：取交线，并写成对称式</h3>\n  <p>公垂线即 $\\Pi_1\\cap\\Pi_2$：</p>\n  <div class=\"fm\">$$L:\\begin{cases}x-y=0,\\\\ 4x-5y+2z+3=0.\\end{cases}$$</div>\n  <p>求其上一点：令 $x=y=1$，得 $z=-1$，即 $(1,1,-1)$；方向为 $(2,2,1)$，故对称式为</p>\n  <div class=\"fm\">$$\\frac{x-1}{2}=\\frac{y-1}{2}=\\frac{z+1}{1}.$$</div>\n  <p class=\"concl\"><b>结论</b>(1) 异面；(2) $d=\\dfrac43$；(3) 公垂线 $\\dfrac{x-1}{2}=\\dfrac{y-1}{2}=\\dfrac{z+1}{1}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「异面、距离、公垂线」三连问，按这个顺序出牌：",
+        "items": [
+          "先把两条线的「一点 + 一方向」摆出来，一般式一定用 $\\boldsymbol{n}_1\\times\\boldsymbol{n}_2$ 提方向，别硬解方程。",
+          "异面 ⟺ 混合积 $\\ne0$；距离 = 混合积绝对值 / 公垂方向模，两个公式共用同一组数据，算一次用两次。",
+          "公垂线的方向就是 $\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2$，再「各配一张含该方向的平面」，交线即所求——这比设点求垂足快得多。",
+          "最后把交线化成对称式时，任取一个满足两个平面方程的点即可，注意验算回代。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) 混合积 $=-4\\ne0$，异面；(2) $d=\\dfrac43$；(3) $\\dfrac{x-1}{2}=\\dfrac{y-1}{2}=\\dfrac{z+1}{1}$",
+      "concl": "<b>结论</b>(1) 异面；(2) $d=\\dfrac43$；(3) 公垂线 $\\dfrac{x-1}{2}=\\dfrac{y-1}{2}=\\dfrac{z+1}{1}$。",
+      "formulasUsed": [
+        {
+          "name": "从一般式读方向（两个法向叉乘）",
+          "latex": "$$\\boldsymbol{\\tau}_2=\\boldsymbol{n}_1\\times\\boldsymbol{n}_2=(2,0,1)\\times(0,1,0)=(-1,0,2)$$"
+        },
+        {
+          "name": "异面判据（混合积不为零）",
+          "latex": "$$(\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2})=\\begin{vmatrix}1&1&-4\\\\ -1&0&2\\\\ -2&-1&2\\end{vmatrix}\\ne0\\ \\Longrightarrow\\ \\text{异面}$$"
+        },
+        {
+          "name": "异面直线距离公式",
+          "latex": "$$d=\\frac{\\left|(\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2})\\right|}{|\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2|}$$"
+        },
+        {
+          "name": "公垂线的方向与两张辅助平面",
+          "latex": "$$\\boldsymbol{\\tau}=\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2,\\qquad \\boldsymbol{n}_i=\\boldsymbol{\\tau}_i\\times\\boldsymbol{\\tau}\\ (i=1,2),\\qquad L=\\Pi_1\\cap\\Pi_2$$"
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "number": "题 12",
+      "title": "投影垂足 · 中点公式",
+      "chapter": 5,
+      "stemHtml": "设 $M_1$ 与 $M_2$ 是关于直线 $L:\\begin{cases}x+y=1,\\\\ 2x-z=3\\end{cases}$ 对称的两点。已知点 $M_1(2,-1,3)$，求 $M_2$ 的坐标。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：对称点 = 「先找垂足，再对称」</h3>\n  <p>【看到「关于直线对称」→ 调用「垂足 + 中点」】。直线上的对称点问题只有一条路径：把 $M_1$ 投影到 $L$ 上得垂足 $M_0$，$M_0$ 就是 $M_1M_2$ 的中点，于是 $M_2=2M_0-M_1$。垂足用参数式求，参数 $t$ 由垂直条件定，一步到位。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出 $L$ 的参数式</h3>\n  <p>取 $L$ 上一点：令 $x=0$，则 $y=1$、$z=-3$，即 $P_0(0,1,-3)$；方向 $\\boldsymbol{\\tau}=(-1,1,-2)$。故</p>\n  <div class=\"fm\">$$L:\\ x=-t,\\quad y=1+t,\\quad z=-3-2t.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用垂直条件求垂足参数</h3>\n  <p>$\\overrightarrow{P_0M_1}=(2,-2,6)$，令 $(M_1-M_0)\\cdot\\boldsymbol{\\tau}=0$：</p>\n  <div class=\"fm\">$$\\left[(2,-2,6)-t(-1,1,-2)\\right]\\cdot(-1,1,-2)=(-22)+6t=0\\ \\Longrightarrow\\ t=-\\frac{8}{3}.$$</div>\n  <p>于是垂足</p>\n  <div class=\"fm\">$$M_0=\\left(\\frac83,\\ 1-\\frac83,\\ -3+\\frac{16}{3}\\right)=\\left(\\frac83,-\\frac53,\\frac73\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：中点公式给出对称点</h3>\n  <div class=\"fm\">$$M_2=2M_0-M_1=\\left(\\frac{16}{3}-2,\\ -\\frac{10}{3}+1,\\ \\frac{14}{3}-3\\right)=\\left(\\frac{10}{3},-\\frac73,\\frac53\\right).$$</div>\n  <p>验算：$\\overrightarrow{M_1M_2}=\\left(\\frac43,-\\frac43,-\\frac43\\right)=-\\frac43(1,1,1)$… 用与方向的内积检查：$\\left(\\frac43\\right)(-1)+\\left(-\\frac43\\right)(1)+\\left(-\\frac43\\right)(-2)=0$，且中点 $M_0$ 满足 $x+y=1$、$2x-z=3$。</p>\n  <p class=\"concl\"><b>结论</b>$M_2\\left(\\dfrac{10}{3},-\\dfrac73,\\dfrac53\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「关于直线（或平面）对称」，按这个顺序出牌：",
+        "items": [
+          "直线对称：垂足 + 中点；平面对称：法向投影 + 中点。两条路径完全平行，都靠 $M_2=2M_0-M_1$。",
+          "垂足用参数式求最稳：$t=\\dfrac{\\overrightarrow{P_0M}\\cdot\\boldsymbol{\\tau}}{|\\boldsymbol{\\tau}|^{2}}$，分子是投影长度乘以模，分母是模平方。",
+          "算完必须回代验算两个条件：连线垂直方向、中点在直线上，错符号的题都栽在这里。",
+          "方向向量提取：一般式用两法向叉乘，符号可整体取反，不影响结果。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$M_2\\left(\\dfrac{10}{3},-\\dfrac{7}{3},\\dfrac{5}{3}\\right)$",
+      "concl": "<b>结论</b>$M_2\\left(\\dfrac{10}{3},-\\dfrac73,\\dfrac53\\right)$。",
+      "formulasUsed": [
+        {
+          "name": "直线的方向（两法向叉乘）",
+          "latex": "$$\\boldsymbol{\\tau}=(1,1,0)\\times(2,0,-1)=(-1,1,-2)$$"
+        },
+        {
+          "name": "点在直线上的投影（垂足）参数",
+          "latex": "$$M_0=P_0+t\\boldsymbol{\\tau},\\qquad t=\\frac{\\overrightarrow{P_0M_1}\\cdot\\boldsymbol{\\tau}}{|\\boldsymbol{\\tau}|^{2}}$$"
+        },
+        {
+          "name": "对称点 = 以垂足为中点的对称",
+          "latex": "$$M_2=2M_0-M_1$$"
+        },
+        {
+          "name": "等价说法：$M_1M_2\\perp\\boldsymbol{\\tau}$ 且中点在 $L$ 上",
+          "latex": "$$\\overrightarrow{M_1M_2}\\cdot\\boldsymbol{\\tau}=0,\\qquad \\frac{M_1+M_2}{2}\\in L$$"
+        }
+      ]
+    },
+    {
+      "seq": 13,
+      "number": "题 13",
+      "title": "法向 = 方向 × 已知法向",
+      "chapter": 5,
+      "stemHtml": "试求过直线 $\\dfrac{x-1}{2}=\\dfrac{y+2}{-3}=\\dfrac{z-2}{3}$ 且垂直于平面 $3x+2y-z-5=0$ 的平面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两条「垂直」约束一摆，法向量就被唯一确定</h3>\n  <p>【看到「过已知直线 + 垂直已知平面」→ 调用「法向 ⊥ 直线方向、法向 ⊥ 已知法向，取叉积」】。所求平面既要「含」这条直线（法向与方向垂直），又要和已知平面垂直（两法向垂直），两个垂直条件正好把法向定成叉积方向。这一步一写，题目就成了点法式填空。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：定法向量</h3>\n  <div class=\"fm\">$$\\boldsymbol{n}=\\boldsymbol{\\tau}\\times\\boldsymbol{n}_0=\\begin{vmatrix}\\boldsymbol{i}&\\boldsymbol{j}&\\boldsymbol{k}\\\\ 2&-3&3\\\\ 3&2&-1\\end{vmatrix}=\\left(3-6,\\ 9+2,\\ 4+9\\right)=(-3,11,13)\\sim(3,-11,-13).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：取直线上的点写点法式</h3>\n  <p>直线过 $(1,-2,2)$，以 $\\boldsymbol{n}=(3,-11,-13)$：</p>\n  <div class=\"fm\">$$3(x-1)-11(y+2)-13(z-2)=0\\ \\Longrightarrow\\ 3x-11y-13z+1=0.$$</div>\n  <p>验算：直线方向 $(2,-3,3)$ 与 $\\boldsymbol{n}$ 内积为 $6+33-39=0$；已知平面法向 $(3,2,-1)$ 与 $\\boldsymbol{n}$ 内积为 $9-22+13=0$。两条约束都满足。</p>\n  <p class=\"concl\"><b>结论</b>所求平面为 $3x-11y-13z+1=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「平面含直线、又与另一平面垂直」，按这个顺序出牌：",
+        "items": [
+          "把「含直线」翻译成「法向 ⊥ 方向」，把「垂直平面」翻译成「法向 ⊥ 法向」，两句都是内积为零。",
+          "两个垂直约束 = 法向同时垂直两向量 = 叉积，别去设 $A,B,C$ 解方程组。",
+          "叉积符号可整体取反，写 $(3,-11,-13)$ 更整齐；常数项由点代入定。",
+          "最后回代验算两个内积，这是最快发现叉积算错的办法。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$3x-11y-13z+1=0$",
+      "concl": "<b>结论</b>所求平面为 $3x-11y-13z+1=0$。",
+      "formulasUsed": [
+        {
+          "name": "所求平面含已知直线 ⟹ 法向垂直于直线方向",
+          "latex": "$$\\boldsymbol{n}\\cdot\\boldsymbol{\\tau}=0,\\qquad \\boldsymbol{\\tau}=(2,-3,3)$$"
+        },
+        {
+          "name": "两平面垂直 ⟺ 两法向垂直",
+          "latex": "$$\\boldsymbol{n}\\cdot\\boldsymbol{n}_0=0,\\qquad \\boldsymbol{n}_0=(3,2,-1)$$"
+        },
+        {
+          "name": "同时垂直两向量 ⟹ 取叉积",
+          "latex": "$$\\boldsymbol{n}=\\boldsymbol{\\tau}\\times\\boldsymbol{n}_0=(2,-3,3)\\times(3,2,-1)$$"
+        },
+        {
+          "name": "点法式",
+          "latex": "$$A(x-x_0)+B(y-y_0)+C(z-z_0)=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 14,
+      "number": "题 14",
+      "title": "截距式体积公式",
+      "chapter": 5,
+      "stemHtml": "求平行于平面 $2x+y+2z+5=0$ 且与三坐标面构成的四面体体积为 $1$（立方单位）的平面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：平行 ⟹ 只差常数，体积 ⟹ 定常数</h3>\n  <p>【看到「平行于给定平面」→ 调用「法向不变，只改 $D$」】。设所求平面为 $2x+y+2z+D=0$，它与三个坐标面围成的四面体，三条棱分别落在三根坐标轴上、两两垂直，体积就是三个截距乘积的 $\\frac16$。把截距用 $D$ 表示，解出 $D$ 即可。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：设平面并求三截距</h3>\n  <p>令 $y=z=0$ 得 $x=-\\dfrac{D}{2}$；令 $x=z=0$ 得 $y=-D$；令 $x=y=0$ 得 $z=-\\dfrac{D}{2}$。</p>\n  <div class=\"fm\">$$\\left|-\\frac{D}{2}\\right|,\\quad |D|,\\quad \\left|-\\frac{D}{2}\\right|.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用体积定 $D$</h3>\n  <div class=\"fm\">$$V=\\frac16\\cdot\\frac{|D|}{2}\\cdot|D|\\cdot\\frac{|D|}{2}=\\frac{|D|^{3}}{24}=1\\ \\Longrightarrow\\ |D|^{3}=24\\ \\Longrightarrow\\ D=\\pm2\\sqrt[3]{3}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写出两个解</h3>\n  <div class=\"fm\">$$2x+y+2z\\pm2\\sqrt[3]{3}=0.$$</div>\n  <p class=\"concl\"><b>结论</b>所求平面有两个，分居原点两侧：$2x+y+2z+2\\sqrt[3]{3}=0$ 与 $2x+y+2z-2\\sqrt[3]{3}=0$，它们的截距互为相反数，体积都等于 $1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「平面与三坐标面围成四面体」，按这个顺序出牌：",
+        "items": [
+          "先把平面写成截距式 $\\dfrac{x}{a}+\\dfrac{y}{b}+\\dfrac{z}{c}=1$，则 $V=\\dfrac{|abc|}{6}$，一步到位。",
+          "「平行」只改常数项，法向量的三个系数照抄，这样截距全部只依赖一个未知量。",
+          "体积给的是绝对值，解出来必有 $\\pm$ 两个平面，漏一个就丢分。",
+          "本题的 $\\sqrt[3]{3}$ 来自 $24=8\\cdot3$，开立方时先提完全立方因子，别写成 $\\sqrt[3]{24}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2x+y+2z\\pm2\\sqrt[3]{3}=0$（即 $z$ 截距为 $\\pm\\sqrt[3]{3}$ 的两个平面）",
+      "concl": "<b>结论</b>所求平面有两个，分居原点两侧：$2x+y+2z+2\\sqrt[3]{3}=0$ 与 $2x+y+2z-2\\sqrt[3]{3}=0$，它们的截距互为相反数，体积都等于 $1$。",
+      "formulasUsed": [
+        {
+          "name": "平行平面族（只差常数项）",
+          "latex": "$$2x+y+2z+D=0$$"
+        },
+        {
+          "name": "截距（令另外两个变量为 0）",
+          "latex": "$$x\\text{ 截距}:-\\frac{D}{2},\\qquad y\\text{ 截距}:-D,\\qquad z\\text{ 截距}:-\\frac{D}{2}$$"
+        },
+        {
+          "name": "三坐标面上的四面体体积（三条棱两两垂直）",
+          "latex": "$$V=\\frac16\\left|abc\\right|,\\quad a,b,c\\ \\text{为三个截距}$$"
+        },
+        {
+          "name": "本题的方程",
+          "latex": "$$V=\\frac16\\cdot\\frac{|D|^{3}}{4}=1\\ \\Longrightarrow\\ |D|=2\\sqrt[3]{3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 15,
+      "number": "题 15",
+      "title": "定点与定直线定平面 · 方向余弦定方向",
+      "chapter": 5,
+      "stemHtml": "过点 $A(7,3,5)$ 引方向余弦等于 $\\dfrac13,\\dfrac23,\\dfrac23$ 的直线 $L_1$。设直线 $L$ 过点 $B(2,-3,-1)$ 与直线 $L_1$ 相交，且和 $x$ 轴成 $\\dfrac{\\pi}{3}$ 角。求直线 $L$ 的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先定「所有可能的 $L$ 都在哪张平面里」</h3>\n  <p>【看到「过定点且与定直线相交」→ 调用「这样的直线全落在『定点 + 定直线』所定的平面内」】。先用 $B$ 与 $L_1$ 定出这张平面，$L$ 的方向就被限制在该平面内（法向与方向垂直）；再用「与 $x$ 轴夹 $\\frac{\\pi}{3}$」给出方向余弦的第一个分量，两个约束解出单位方向，齐活。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写 $L_1$，并定出平面</h3>\n  <p>$L_1$ 过 $A(7,3,5)$、方向 $\\boldsymbol{\\tau}_1=(1,2,2)$（取整倍数即可）。平面过 $B$，法向</p>\n  <div class=\"fm\">$$\\boldsymbol{n}=\\overrightarrow{BA}\\times\\boldsymbol{\\tau}_1=(5,6,6)\\times(1,2,2)=(0,-4,4)\\ \\sim\\ (0,-1,1).$$</div>\n  <p>故平面为 $-(y+3)+(z+1)=0$，即 $y-z+2=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：设单位方向，写两个约束</h3>\n  <p>设 $L$ 的单位方向为 $(l,m,n)$。由 $L$ 在该平面内：$-m+n=0$，即 $n=m$。由与 $x$ 轴成 $\\frac{\\pi}{3}$：</p>\n  <div class=\"fm\">$$|l|=\\cos\\frac{\\pi}{3}=\\frac12.$$</div>\n  <p>再由 $l^{2}+m^{2}+n^{2}=1$：$\\frac14+2m^{2}=1$，得 $m^{2}=\\frac38$，$m=n=\\pm\\dfrac{\\sqrt6}{4}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：化成对称式，答案成对出现</h3>\n  <p>取 $\\left(\\dfrac12,\\dfrac{\\sqrt6}{4},\\dfrac{\\sqrt6}{4}\\right)$，同乘 $4$ 得 $(2,\\sqrt6,\\sqrt6)$，再同除 $\\sqrt2$ 得 $(\\sqrt2,\\sqrt3,\\sqrt3)$。于是</p>\n  <div class=\"fm\">$$L:\\ \\frac{x-2}{\\sqrt2}=\\frac{y+3}{\\sqrt3}=\\frac{z+1}{\\sqrt3},$$</div>\n  <p>取相反方向还有一支</p>\n  <div class=\"fm\">$$\\frac{x-2}{\\sqrt2}=\\frac{y+3}{-\\sqrt3}=\\frac{z+1}{-\\sqrt3},$$</div>\n  <p>它与前一条是同一条直线的相反写法？不是——两条线的方向 $(\\sqrt2,\\sqrt3,\\sqrt3)$ 与 $(\\sqrt2,-\\sqrt3,-\\sqrt3)$ 不同，它们关于平面 $y-z+2=0$ 对称，都满足题设。</p>\n  <p class=\"concl\"><b>结论</b>满足条件的直线有两条，方向分别为 $(\\sqrt2,\\sqrt3,\\sqrt3)$ 与 $(\\sqrt2,-\\sqrt3,-\\sqrt3)$，公共点为 $B(2,-3,-1)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「过定点、与定直线相交、再给一个角条件」，按这个顺序出牌：",
+        "items": [
+          "「相交」这一条最容易漏，它是「直线落在一张平面内」的等价描述，先定平面，后面才有的放矢。",
+          "与 $x$ 轴夹角给的是 $|l|$，不是 $l$，取绝对值后会出现两支解，答案必须写全。",
+          "单位方向的两个约束（模为 1、垂直于平面法向）解出剩下两个分量，注意 $\\pm$ 的两组。",
+          "最后把方向按比例化简（同乘同除），让根号落在分母上，写成教材习惯的对称式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{x-2}{\\sqrt2}=\\dfrac{y+3}{\\sqrt3}=\\dfrac{z+1}{\\sqrt3}$ 或 $\\dfrac{x-2}{\\sqrt2}=\\dfrac{y+3}{-\\sqrt3}=\\dfrac{z+1}{-\\sqrt3}$",
+      "concl": "<b>结论</b>满足条件的直线有两条，方向分别为 $(\\sqrt2,\\sqrt3,\\sqrt3)$ 与 $(\\sqrt2,-\\sqrt3,-\\sqrt3)$，公共点为 $B(2,-3,-1)$。",
+      "formulasUsed": [
+        {
+          "name": "方向余弦给出单位方向",
+          "latex": "$$\\boldsymbol{\\tau}_1=\\left(\\frac13,\\frac23,\\frac23\\right),\\qquad |\\boldsymbol{\\tau}_1|=1$$"
+        },
+        {
+          "name": "过定点 $B$ 与定直线 $L_1$ 的平面（全部交线的所在平面）",
+          "latex": "$$\\boldsymbol{n}=\\overrightarrow{BA}\\times\\boldsymbol{\\tau}_1=(5,6,6)\\times(1,2,2)=(0,-4,4)\\sim(0,-1,1)$$"
+        },
+        {
+          "name": "与 $x$ 轴成 $\\frac{\\pi}{3}$：方向余弦的绝对值",
+          "latex": "$$\\left|\\cos\\alpha\\right|=\\cos\\frac{\\pi}{3}=\\frac12$$"
+        },
+        {
+          "name": "单位方向的两个约束",
+          "latex": "$$l^{2}+m^{2}+n^{2}=1,\\qquad -m+n=0\\ \\Longrightarrow\\ n=m=\\pm\\frac{\\sqrt6}{4},\\ l=\\pm\\frac12$$"
+        }
+      ]
+    },
+    {
+      "seq": 16,
+      "number": "题 16",
+      "title": "两张「定点 + 定线」平面取交线",
+      "chapter": 5,
+      "stemHtml": "设直线过点 $P(-3,5,-9)$ 且与两直线 $L_1:\\begin{cases}y=3x+5,\\\\ z=2x-3,\\end{cases}$ $L_2:\\begin{cases}y=4x-7,\\\\ z=5x+10\\end{cases}$ 相交。求该直线方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：所求直线被两张平面「夹」出来</h3>\n  <p>【看到「过一点且与两条已知直线都相交」→ 调用「点 + 线定平面，两张平面的交线就是答案」】。过 $P$ 与 $L_1$ 的平面包含所有「过 $P$ 且与 $L_1$ 相交」的直线；过 $P$ 与 $L_2$ 的平面同理。所求直线同时属于两张平面，只能是它们的交线，方向直接取两法向的叉积。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：抄出两条线的点与方向</h3>\n  <p>$L_1$ 写成参数式 $(t,\\ 3t+5,\\ 2t-3)$，方向 $(1,3,2)$，过 $P_1(0,5,-3)$；$L_2$ 写成 $(t,\\ 4t-7,\\ 5t+10)$，方向 $(1,4,5)$，过 $P_2(0,-7,10)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：造两张平面</h3>\n  <p>对 $L_1$：$\\overrightarrow{P_1P}=(-3,0,-6)$，</p>\n  <div class=\"fm\">$$\\boldsymbol{n}_1=(1,3,2)\\times(-3,0,-6)=(-18,0,9)\\sim(-2,0,1),$$</div>\n  <p>过 $P(-3,5,-9)$：$-2(x+3)+(z+9)=0$，即 $2x-z-3=0$（验算 $P$：$-6+9-3=0$ ✓）。</p>\n  <p>对 $L_2$：$\\overrightarrow{P_2P}=(-3,12,-19)$，</p>\n  <div class=\"fm\">$$\\boldsymbol{n}_2=(1,4,5)\\times(-3,12,-19)=(-136,4,24)\\sim(-34,1,6),$$</div>\n  <p>过 $P$：$-34(x+3)+(y-5)+6(z+9)=0$，即 $34x-y-6z+53=0$（验算 $P$：$-102-5+54+53=0$ ✓）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：交线方向 + 一点，写成对称式</h3>\n  <div class=\"fm\">$$\\boldsymbol{\\tau}=(-2,0,1)\\times(-34,1,6)=(-1,-22,-2)\\sim(1,22,2).$$</div>\n  <p>直线过 $P(-3,5,-9)$，故</p>\n  <div class=\"fm\">$$\\frac{x+3}{1}=\\frac{y-5}{22}=\\frac{z+9}{2}.$$</div>\n  <p class=\"concl\"><b>结论</b>$\\dfrac{x+3}{1}=\\dfrac{y-5}{22}=\\dfrac{z+9}{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「过定点且与两条直线相交」，按这个顺序出牌：",
+        "items": [
+          "不要设交点是 $Q_1,Q_2$ 然后解三元方程组——那是四条方程两条直线的暴力法，算到一半必崩。",
+          "「点 + 线」定平面：法向 = 该线方向 × 该点到线上一点的向量；两张平面就是两个条件。",
+          "交线方向取两法向叉积，再配上已知点 $P$，对称式即成。",
+          "每个平面方程都拿 $P$ 回代验一次，两个「=0」都成立才继续往下做。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{x+3}{1}=\\dfrac{y-5}{22}=\\dfrac{z+9}{2}$",
+      "concl": "<b>结论</b>$\\dfrac{x+3}{1}=\\dfrac{y-5}{22}=\\dfrac{z+9}{2}$。",
+      "formulasUsed": [
+        {
+          "name": "由两个「$y,z$ 用 $x$ 表示」的方程读点与方向",
+          "latex": "$$L_1:\\ P_1(0,5,-3),\\ \\boldsymbol{\\tau}_1=(1,3,2);\\qquad L_2:\\ P_2(0,-7,10),\\ \\boldsymbol{\\tau}_2=(1,4,5)$$"
+        },
+        {
+          "name": "过 $P$ 与 $L_1$ 的平面（法向 = 两方向叉乘）",
+          "latex": "$$\\boldsymbol{n}_1=\\boldsymbol{\\tau}_1\\times\\overrightarrow{P_1P}=(-2,0,1)\\ \\Rightarrow\\ 2x-z-3=0$$"
+        },
+        {
+          "name": "过 $P$ 与 $L_2$ 的平面",
+          "latex": "$$\\boldsymbol{n}_2=\\boldsymbol{\\tau}_2\\times\\overrightarrow{P_2P}=(-34,1,6)\\ \\Rightarrow\\ 34x-y-6z+53=0$$"
+        },
+        {
+          "name": "所求直线 = 两平面交线，方向 = 法向叉乘",
+          "latex": "$$\\boldsymbol{\\tau}=\\boldsymbol{n}_1\\times\\boldsymbol{n}_2=(1,22,2)$$"
+        }
+      ]
+    },
+    {
+      "seq": 17,
+      "number": "题 17",
+      "title": "直线方向即平面法向",
+      "chapter": 5,
+      "stemHtml": "求过点 $P(2,1,-1)$ 且垂直于直线 $\\begin{cases}2x+y-z=3,\\\\ x+2y+z=2\\end{cases}$ 的平面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：一句话翻译，题目就结束了</h3>\n  <p>【看到「平面垂直于直线」→ 调用「直线方向直接当平面法向」】。这类题没有第二个思路：先把直线的方向从两个平面法向的叉积中取出来，再拿它作平面法向，代入已知点写点法式。整题两个动作。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：取直线方向</h3>\n  <div class=\"fm\">$$\\boldsymbol{\\tau}=(2,1,-1)\\times(1,2,1)=\\left(1\\cdot1-(-1)\\cdot2,\\ (-1)\\cdot1-2\\cdot1,\\ 2\\cdot2-1\\cdot1\\right)=(3,-3,3)\\sim(1,-1,1).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：点法式写平面</h3>\n  <div class=\"fm\">$$1\\cdot(x-2)-1\\cdot(y-1)+1\\cdot(z+1)=0\\ \\Longrightarrow\\ x-y+z=0.$$</div>\n  <p>验算：平面法向 $(1,-1,1)$ 与直线方向 $(3,-3,3)$ 平行 ✓；点 $P(2,1,-1)$ 满足 $2-1-1=0$ ✓。</p>\n  <p class=\"concl\"><b>结论</b>所求平面为 $x-y+z=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「平面垂直于直线」，按这个顺序出牌：",
+        "items": [
+          "先分清方向关系：垂直直线用「方向当法向」，平行直线才用「方向当方向」。",
+          "一般式直线的方向永远靠两法向叉乘，别试图解出参数式再读方向。",
+          "叉积结果整体可取倍数化简，$(3,-3,3)$ 写成 $(1,-1,1)$ 更省事。",
+          "写完立刻检查「点满足方程 + 法向平行于方向」，两个都对才算完。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x-y+z=0$",
+      "concl": "<b>结论</b>所求平面为 $x-y+z=0$。",
+      "formulasUsed": [
+        {
+          "name": "平面垂直于直线 ⟺ 直线方向就是平面法向",
+          "latex": "$$\\boldsymbol{n}=\\boldsymbol{\\tau}$$"
+        },
+        {
+          "name": "一般式直线的方向",
+          "latex": "$$\\boldsymbol{\\tau}=\\boldsymbol{n}_1\\times\\boldsymbol{n}_2=(2,1,-1)\\times(1,2,1)$$"
+        },
+        {
+          "name": "点法式",
+          "latex": "$$A(x-2)+B(y-1)+C(z+1)=0$$"
+        },
+        {
+          "name": "本题的叉积结果",
+          "latex": "$$(1,-1,1)$$"
+        }
+      ]
+    },
+    {
+      "seq": 18,
+      "number": "题 18",
+      "title": "共面 ⟺ 混合积为零",
+      "chapter": 5,
+      "stemHtml": "试确定 $\\lambda$，使直线 $\\dfrac{x-1}{1}=\\dfrac{y+1}{2}=\\dfrac{z-1}{\\lambda}$ 和直线 $\\dfrac{x+1}{1}=\\dfrac{y-1}{1}=\\dfrac{z}{1}$ 相交。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：相交是共面的特例，先用共面把 $\\lambda$ 卡出来</h3>\n  <p>【看到「两直线相交，求参数」→ 调用「混合积为零」】。两条直线要么共面要么异面；相交一定共面，所以混合积必为 0，这就给出关于 $\\lambda$ 的方程。解完之后还要回代确认「真的相交」（不是平行），这一步是严谨性。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：抄数据，写行列式</h3>\n  <p>$P_1(1,-1,1)$、$\\boldsymbol{\\tau}_1=(1,2,\\lambda)$；$P_2(-1,1,0)$、$\\boldsymbol{\\tau}_2=(1,1,1)$；$\\overrightarrow{P_1P_2}=(-2,2,-1)$。</p>\n  <div class=\"fm\">$$(\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2})=\\begin{vmatrix}1&2&\\lambda\\\\ 1&1&1\\\\ -2&2&-1\\end{vmatrix}=1(-1-2)-2(-1+2)+\\lambda(2+2)=-3-2+4\\lambda.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：令其为零，解出 $\\lambda$</h3>\n  <div class=\"fm\">$$4\\lambda-5=0\\ \\Longrightarrow\\ \\lambda=\\frac54.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：验证是「相交」而不是「平行」</h3>\n  <p>当 $\\lambda=\\frac54$ 时，$\\boldsymbol{\\tau}_1=\\left(1,2,\\frac54\\right)$ 与 $\\boldsymbol{\\tau}_2=(1,1,1)$ 不成比例（$\\frac11=\\frac21\\ne\\frac{5/4}{1}$），故两直线不平行；共面且不平行，必相交。</p>\n  <p class=\"concl\"><b>结论</b>$\\lambda=\\dfrac54$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「两直线相交 / 共面，求参数」，按这个顺序出牌：",
+        "items": [
+          "「相交」先降级成「共面」，混合积为零是必要且（配合不平行）充分的条件。",
+          "行列式按第一行展开最省事，$\\lambda$ 只出现在一个位置上，天然是线性方程。",
+          "解出参数后必须补一句「方向不平行」，否则可能只是平行共面（两条平行线也算共面）。",
+          "若题目问「异面」，就是混合积 $\\ne0$，同一套数据反过来用。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\lambda=\\dfrac54$",
+      "concl": "<b>结论</b>$\\lambda=\\dfrac54$。",
+      "formulasUsed": [
+        {
+          "name": "两直线相交 ⟹ 必共面",
+          "latex": "$$\\text{相交}\\ \\Longrightarrow\\ \\text{共面}\\ \\Longrightarrow\\ (\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2})=0$$"
+        },
+        {
+          "name": "混合积写成行列式",
+          "latex": "$$(\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2})=\\begin{vmatrix}1&2&\\lambda\\\\ 1&1&1\\\\ -2&2&-1\\end{vmatrix}$$"
+        },
+        {
+          "name": "展开后是一次方程",
+          "latex": "$$-3-2+4\\lambda=0$$"
+        },
+        {
+          "name": "答案",
+          "latex": "$$\\lambda=\\frac54$$"
+        }
+      ]
+    },
+    {
+      "seq": 19,
+      "number": "题 19",
+      "title": "含定直线的平面族 + 截距体积",
+      "chapter": 5,
+      "stemHtml": "一平面与 $xOy$ 平面的交线为 $\\begin{cases}2x+y-2=0,\\\\ z=0,\\end{cases}$ 且与三个坐标平面构成一个体积为 $2$ 的四面体。求这平面的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：交线给出「平面族的底」，体积给出「倾斜程度」</h3>\n  <p>【看到「与 $xOy$ 面的交线是某直线」→ 调用「平面族 $2x+y-2+cz=0$，$c$ 待定」】。这条交线在 $z=0$ 上就是 $2x+y-2=0$，所以平面一定长成 $2x+y-2+cz=0$ 的样子；$c$ 控制平面与 $xOy$ 面的夹角，也控制 $z$ 截距，正好由体积条件定出。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：设平面族，读三个截距</h3>\n  <p>令 $y=z=0$：$2x-2=0\\Rightarrow x=1$；令 $x=z=0$：$y=2$；令 $x=y=0$：$cz=2\\Rightarrow z=\\dfrac{2}{c}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用体积定 $c$</h3>\n  <div class=\"fm\">$$V=\\frac16\\cdot1\\cdot2\\cdot\\left|\\frac{2}{c}\\right|=\\frac{2}{3|c|}=2\\ \\Longrightarrow\\ |c|=\\frac13.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：清分母，写成整系数方程</h3>\n  <p>取 $c=\\frac13$：$2x+y-2+\\frac13z=0$，同乘 3 得 $6x+3y+z-6=0$；取 $c=-\\frac13$ 得 $6x+3y-z-6=0$。</p>\n  <p class=\"concl\"><b>结论</b>两个平面 $6x+3y\\pm z-6=0$，分别位于 $xOy$ 面上、下方，截距 $x=1,\\ y=2,\\ z=\\pm2$，体积都等于 $2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「与某坐标面的交线已知，求平面」，按这个顺序出牌：",
+        "items": [
+          "交线在坐标面内，等价于「平面方程在 $z=0$ 时退化成交线方程」，于是可以只补一个 $cz$ 项。",
+          "三个截距一次读出，体积 $\\frac16|abc|$ 直接给方程，比求法向、求夹角快得多。",
+          "出现 $|c|$ 就有两支解，上下各一个平面，漏解是这类题的常见扣分点。",
+          "最后清分母写成整系数，教材答案都要求这种形式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$6x+3y\\pm z-6=0$",
+      "concl": "<b>结论</b>两个平面 $6x+3y\\pm z-6=0$，分别位于 $xOy$ 面上、下方，截距 $x=1,\\ y=2,\\ z=\\pm2$，体积都等于 $2$。",
+      "formulasUsed": [
+        {
+          "name": "与 $xOy$ 面交于定直线的平面族",
+          "latex": "$$2x+y-2+cz=0$$"
+        },
+        {
+          "name": "三截距",
+          "latex": "$$x=1,\\qquad y=2,\\qquad z=\\frac{2}{c}$$"
+        },
+        {
+          "name": "四面体体积",
+          "latex": "$$V=\\frac16\\left|1\\cdot2\\cdot\\frac{2}{c}\\right|=\\frac{2}{3|c|}$$"
+        },
+        {
+          "name": "解法",
+          "latex": "$$\\frac{2}{3|c|}=2\\ \\Longrightarrow\\ |c|=\\frac13\\ \\Longrightarrow\\ c=\\pm\\frac13$$"
+        }
+      ]
+    },
+    {
+      "seq": 20,
+      "number": "题 20",
+      "title": "平行平面间距定半径 · 等距定球心",
+      "chapter": 5,
+      "stemHtml": "设一球面与平面 $x+y+z=3$ 和 $x+y+z=9$ 相切，且中心在直线 $\\begin{cases}2x-y=0,\\\\ 3x-z=0\\end{cases}$ 上。求该球面的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两张平行平面把球「夹」住，圆心必须在中层</h3>\n  <p>【看到「与两张平行平面都相切」→ 调用「半径 = 两平面间距的一半，球心落在中间那张平面上」】。两平面法向相同、只差常数，间距一算就是 $2\\sqrt3$，故 $r=\\sqrt3$；球心还要在给定直线上，于是「中层平面 ∩ 直线」就是球心，一个参数 $t$ 解出来。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：半径</h3>\n  <div class=\"fm\">$$r=\\frac{|3-9|}{2\\sqrt{1+1+1}}=\\frac{6}{2\\sqrt3}=\\sqrt3.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：球心（中层平面 ∩ 直线）</h3>\n  <p>中层平面 $\\dfrac{x+y+z-3}{1}+\\dfrac{x+y+z-9}{1}=0$ 型，即 $x+y+z=6$。直线上点 $(t,2t,3t)$ 代入：$6t=6\\Rightarrow t=1$，故球心 $(1,2,3)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：验距并写方程</h3>\n  <div class=\"fm\">$$d=\\frac{|1+2+3-3|}{\\sqrt3}=\\sqrt3=r,\\qquad d'=\\frac{|1+2+3-9|}{\\sqrt3}=\\sqrt3=r.$$</div>\n  <p>两个距离都等于半径，确认相切：</p>\n  <div class=\"fm\">$$\\left(x-1\\right)^{2}+\\left(y-2\\right)^{2}+\\left(z-3\\right)^{2}=3.$$</div>\n  <p class=\"concl\"><b>结论</b>球面方程 $(x-1)^{2}+(y-2)^{2}+(z-3)^{2}=3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「球与两张平行平面相切」，按这个顺序出牌：",
+        "items": [
+          "先算间距 $d=\\dfrac{|D_1-D_2|}{\\sqrt{A^{2}+B^{2}+C^{2}}}$，半径就是一半，不必设 $r$ 再解。",
+          "球心必在「等距面」上，把两张平面的方程直接相加除以 2 即可（本题 $x+y+z=6$）。",
+          "「球心在某直线上」一定要用参数式代入，比联立两个平面方程快。",
+          "最后把球心到两平面的距离各算一次，验算通过再写最终方程。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$(x-1)^{2}+(y-2)^{2}+(z-3)^{2}=3$",
+      "concl": "<b>结论</b>球面方程 $(x-1)^{2}+(y-2)^{2}+(z-3)^{2}=3$。",
+      "formulasUsed": [
+        {
+          "name": "点到平面距离",
+          "latex": "$$d=\\frac{\\left|Ax_0+By_0+Cz_0+D\\right|}{\\sqrt{A^{2}+B^{2}+C^{2}}}$$"
+        },
+        {
+          "name": "两平行平面之间的距离",
+          "latex": "$$d_{12}=\\frac{|D_1-D_2|}{\\sqrt{A^{2}+B^{2}+C^{2}}}=\\frac{6}{\\sqrt3}=2\\sqrt3$$"
+        },
+        {
+          "name": "与两平行平面都相切 ⟹ 半径是间距的一半",
+          "latex": "$$r=\\frac{d_{12}}{2}=\\sqrt3$$"
+        },
+        {
+          "name": "球心在定直线上（参数式）",
+          "latex": "$$y=2x,\\quad z=3x\\ \\Longrightarrow\\ (t,2t,3t)$$"
+        }
+      ]
+    },
+    {
+      "seq": 21,
+      "number": "题 21",
+      "title": "投影垂足 · 两点定方向",
+      "chapter": 5,
+      "stemHtml": "求过点 $(2,1,3)$ 且与直线 $\\dfrac{x+1}{3}=\\dfrac{y-1}{2}=\\dfrac{z}{-1}$ 垂直相交的直线的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：垂直 + 相交，交点必然是垂足</h3>\n  <p>【看到「垂直相交」→ 调用「先求垂足，再连定点」】。一条直线若既垂直于 $L$ 又与 $L$ 相交，交点就是 $M$ 在 $L$ 上的投影。求出垂足 $Q$ 后，方向就是 $\\overrightarrow{QM}$，剩下的只是写对称式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：求垂足</h3>\n  <p>$L$ 过 $P_0(-1,1,0)$、方向 $(3,2,-1)$，$\\overrightarrow{P_0M}=(3,0,3)$。</p>\n  <div class=\"fm\">$$t=\\frac{(3,0,3)\\cdot(3,2,-1)}{14}=\\frac{9-3}{14}=\\frac37,$$</div>\n  <div class=\"fm\">$$Q=\\left(-1+\\frac97,\\ 1+\\frac67,\\ -\\frac37\\right)=\\left(\\frac27,\\frac{13}7,-\\frac37\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：方向与方程</h3>\n  <div class=\"fm\">$$\\overrightarrow{QM}=\\left(2-\\frac27,\\ 1-\\frac{13}7,\\ 3+\\frac37\\right)=\\left(\\frac{12}7,-\\frac67,\\frac{24}7\\right)\\sim\\left(2,-1,4\\right).$$</div>\n  <p>过 $M(2,1,3)$：</p>\n  <div class=\"fm\">$$\\frac{x-2}{2}=\\frac{y-1}{-1}=\\frac{z-3}{4}.$$</div>\n  <p class=\"concl\"><b>结论</b>所求直线 $\\dfrac{x-2}{2}=\\dfrac{y-1}{-1}=\\dfrac{z-3}{4}$（也可写成参数式 $(2+2s,\\ 1-s,\\ 3+4s)$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「过一点作已知直线的垂线」，按这个顺序出牌：",
+        "items": [
+          "先投影求垂足，参数 $t$ 用「点到线上一点的向量在方向上的投影」算，别解联立方程。",
+          "$\\overrightarrow{QM}$ 就是所求方向，注意从定点指向垂足（或反过来，整体取负等价）。",
+          "验算两条：$\\overrightarrow{QM}\\cdot\\boldsymbol{\\tau}=0$（垂直）与 $Q$ 在 $L$ 上（相交）。",
+          "若题目要求「垂直相交」而结果算出 $\\overrightarrow{QM}=\\boldsymbol{0}$，说明定点本身在 $L$ 上，此时垂线不唯一，要另作说明。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{x-2}{2}=\\dfrac{y-1}{-1}=\\dfrac{z-3}{4}$",
+      "concl": "<b>结论</b>所求直线 $\\dfrac{x-2}{2}=\\dfrac{y-1}{-1}=\\dfrac{z-3}{4}$（也可写成参数式 $(2+2s,\\ 1-s,\\ 3+4s)$）。",
+      "formulasUsed": [
+        {
+          "name": "垂直相交 ⟹ 交点就是垂足",
+          "latex": "$$\\overrightarrow{QM}\\cdot\\boldsymbol{\\tau}=0,\\qquad Q\\in L$$"
+        },
+        {
+          "name": "垂足的参数公式",
+          "latex": "$$Q=P_0+t\\boldsymbol{\\tau},\\qquad t=\\frac{\\overrightarrow{P_0M}\\cdot\\boldsymbol{\\tau}}{|\\boldsymbol{\\tau}|^{2}}$$"
+        },
+        {
+          "name": "所求方向 = 定点到垂足的向量",
+          "latex": "$$\\boldsymbol{\\tau}'=\\overrightarrow{QM}=Q-M$$"
+        },
+        {
+          "name": "本题数据",
+          "latex": "$$P_0(-1,1,0),\\ \\boldsymbol{\\tau}=(3,2,-1),\\ M(2,1,3),\\ |\\boldsymbol{\\tau}|^{2}=14$$"
+        }
+      ]
+    },
+    {
+      "seq": 22,
+      "number": "题 22",
+      "title": "平行平面定「约束面」，交线定交点",
+      "chapter": 5,
+      "stemHtml": "求过点 $A(-1,0,4)$ 且平行于平面 $\\pi:3x-4y+z+10=0$，又与直线 $L:\\dfrac{x+1}{1}=\\dfrac{y-3}{1}=\\dfrac{z}{2}$ 相交的直线方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把「平行」换成「落在一张平面里」</h3>\n  <p>【看到「过定点、平行于定平面」→ 调用「过该点且平行于该平面的唯一平面」】。所求直线一定躺在这张「平行面」里；又要与 $L$ 相交，那么交点就是 $L$ 与这张平行面的交点——一个参数就解出来，方向随即确定。这题与题 16、题 15 是同一套「先定面、再取点」的思路。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写出约束平面</h3>\n  <p>过 $A(-1,0,4)$、法向 $(3,-4,1)$：</p>\n  <div class=\"fm\">$$3(x+1)-4(y-0)+(z-4)=0\\ \\Longrightarrow\\ 3x-4y+z-1=0.$$</div>\n  <p>（验算 $A$：$-3+0+4-1=0$ ✓）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：$L$ 与该平面求交</h3>\n  <p>把 $L:(-1+t,3+t,2t)$ 代入：</p>\n  <div class=\"fm\">$$3(-1+t)-4(3+t)+2t-1=0\\ \\Longrightarrow\\ -16+t=0\\ \\Longrightarrow\\ t=16.$$</div>\n  <p>交点 $B=(15,19,32)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：方向与方程</h3>\n  <div class=\"fm\">$$\\overrightarrow{AB}=(16,19,28),$$</div>\n  <div class=\"fm\">$$\\frac{x+1}{16}=\\frac{y}{19}=\\frac{z-4}{28}.$$</div>\n  <p>验算：方向与 $(3,-4,1)$ 的内积 $=48-76+28=0$ ✓；$B$ 满足方程 ✓。</p>\n  <p class=\"concl\"><b>结论</b>所求直线 $\\dfrac{x+1}{16}=\\dfrac{y}{19}=\\dfrac{z-4}{28}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「过点、平行平面、又与原直线相交」，按这个顺序出牌：",
+        "items": [
+          "「平行于平面」= 方向与法向内积为零 = 整条直线位于过该点的平行面内。",
+          "「与 $L$ 相交」= 交点就是 $L$ 与该平行面的交点，把 $L$ 参数代入平面方程即可。",
+          "两次约束（法向内积、交点回代）都要验算，这是防叉乘/代入错的标准动作。",
+          "同一手法可解「过点、垂直平面、与直线相交」——只是把平行面换成垂直线。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{x+1}{16}=\\dfrac{y}{19}=\\dfrac{z-4}{28}$",
+      "concl": "<b>结论</b>所求直线 $\\dfrac{x+1}{16}=\\dfrac{y}{19}=\\dfrac{z-4}{28}$。",
+      "formulasUsed": [
+        {
+          "name": "直线平行于平面 ⟹ 方向 ⊥ 平面法向",
+          "latex": "$$\\boldsymbol{\\tau}\\cdot\\boldsymbol{n}=0,\\qquad \\boldsymbol{n}=(3,-4,1)$$"
+        },
+        {
+          "name": "过 $A$ 且平行于 $\\pi$ 的平面（直线必在其上）",
+          "latex": "$$3(x+1)-4y+(z-4)=0\\ \\Longrightarrow\\ 3x-4y+z-1=0$$"
+        },
+        {
+          "name": "$L$ 的参数式",
+          "latex": "$$L:\\ (-1+t,\\ 3+t,\\ 2t)$$"
+        },
+        {
+          "name": "交点 = $L$ 与约束面的交点，方向 = 交点 − $A$",
+          "latex": "$$\\boldsymbol{\\tau}=\\overrightarrow{AB}$$"
+        }
+      ]
+    },
+    {
+      "seq": 23,
+      "number": "题 23",
+      "title": "共面判据 · 法向 = 两方向叉乘",
+      "chapter": 5,
+      "stemHtml": "已知直线 $L_1:x+3=\\dfrac{y-4}{-1}=z-1$ 和 $L_2:\\dfrac{x-2}{-1}=y+1=\\dfrac{z}{2}$。\n  <br>(1) 证明：直线 $L_1$ 与直线 $L_2$ 相交。\n  <br>(2) 写出由直线 $L_1$ 与 $L_2$ 所确定的平面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先混合积，再叉积</h3>\n  <p>【看到「证明两直线相交」→ 调用「混合积为零 + 方向不平行」】。共面但方向不平行，两条直线必有唯一交点。第 (2) 问顺理成章：两方向叉积就是公面法向，任取一条线上的点写点法式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：抄数据并算混合积</h3>\n  <p>$P_1(-3,4,1)$、$\\boldsymbol{\\tau}_1=(1,-1,1)$；$P_2(2,-1,0)$、$\\boldsymbol{\\tau}_2=(-1,1,2)$；$\\overrightarrow{P_1P_2}=(5,-5,-1)$。</p>\n  <div class=\"fm\">$$\\begin{vmatrix}1&-1&1\\\\ -1&1&2\\\\ 5&-5&-1\\end{vmatrix}=1(-1+10)+1(1-10)+1(5-5)=9-9+0=0.$$</div>\n  <p>共面。又 $\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2$ 不成比例，故两直线相交，(1) 得证。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：公面法向与平面方程</h3>\n  <div class=\"fm\">$$\\boldsymbol{n}=(1,-1,1)\\times(-1,1,2)=(-2-1,\\ -1-2,\\ 1-1)=(-3,-3,0)\\sim(1,1,0).$$</div>\n  <p>过 $P_1(-3,4,1)$：</p>\n  <div class=\"fm\">$$(x+3)+(y-4)=0\\ \\Longrightarrow\\ x+y-1=0.$$</div>\n  <p>验算：$P_2(2,-1,0)$ 满足 $2-1-1=0$ ✓。</p>\n  <p class=\"concl\"><b>结论</b>(1) 两直线相交；(2) 公面方程 $x+y-1=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「两条直线定平面」，按这个顺序出牌：",
+        "items": [
+          "先证共面（混合积为 0），再证不平行，两条合起来才等于「相交」。",
+          "法向取两方向叉积，注意叉积可能退化成 $z$ 分量为 0（本题即为 $xOy$ 面的垂直平面）。",
+          "平面方程写完，拿另一条线上的点回代验算一次，能立刻发现叉积算错。",
+          "两直线平行时也可定平面（法向取方向与连线叉积），但题意必须是「平行」，别混。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) 混合积为 $0$ 且方向不平行，故相交；(2) $x+y-1=0$",
+      "concl": "<b>结论</b>(1) 两直线相交；(2) 公面方程 $x+y-1=0$。",
+      "formulasUsed": [
+        {
+          "name": "共面判据（混合积为零）",
+          "latex": "$$\\left(\\boldsymbol{\\tau}_1,\\boldsymbol{\\tau}_2,\\overrightarrow{P_1P_2}\\right)=0$$"
+        },
+        {
+          "name": "相交 = 共面 + 方向不平行",
+          "latex": "$$\\boldsymbol{\\tau}_1\\not\\parallel\\boldsymbol{\\tau}_2\\ \\Longrightarrow\\ \\text{相交}$$"
+        },
+        {
+          "name": "两直线的公面法向",
+          "latex": "$$\\boldsymbol{n}=\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2$$"
+        },
+        {
+          "name": "点法式",
+          "latex": "$$A(x-x_0)+B(y-y_0)+C(z-z_0)=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 24,
+      "number": "题 24",
+      "title": "公垂方向 + 平行方向 = 法向",
+      "chapter": 5,
+      "stemHtml": "已知直线 $L_1:x-1=\\dfrac{y+2}{2}=z-5$ 和 $L_2:x=\\dfrac{y+3}{3}=\\dfrac{z+1}{2}$。求经过直线 $L_1$ 与 $L_2$ 的公垂线且平行于向量 $\\boldsymbol{a}=(1,0,-1)$ 的平面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先拿公垂方向，再用「平行于 $\\boldsymbol{a}$」定法向，最后找公垂线上一点</h3>\n  <p>【看到「过公垂线的平面」→ 调用「公垂方向 $\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2$ 是平面内的方向」】。平面既含这条公垂线，又要平行于 $\\boldsymbol{a}$，于是法向同时垂直于 $\\boldsymbol{\\tau}$ 与 $\\boldsymbol{a}$，叉积一步定死。剩下只需在公垂线上取一点——把两条直线上的点写成参数式，令连线平行于 $\\boldsymbol{\\tau}$ 即可解出。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：公垂方向</h3>\n  <div class=\"fm\">$$\\boldsymbol{\\tau}=(1,2,1)\\times(1,3,2)=\\left(4-3,\\ 1-2,\\ 3-2\\right)=(1,-1,1).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：法向与平面方程形式</h3>\n  <div class=\"fm\">$$\\boldsymbol{n}=(1,-1,1)\\times(1,0,-1)=\\left(1-0,\\ 1+1,\\ 0+1\\right)=(1,2,1).$$</div>\n  <p>故平面形如 $x+2y+z=d$，只差常数 $d$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：求公垂线上一点（定 $d$）</h3>\n  <p>设 $Q_1=(1+s,\\ -2+2s,\\ 5+s)$，$Q_2=(t,\\ -3+3t,\\ -1+2t)$，令 $\\overrightarrow{Q_1Q_2}\\parallel\\boldsymbol{\\tau}$：</p>\n  <div class=\"fm\">$$\\left(t-1-s,\\ -1+3t-2s,\\ -6+2t-s\\right)=\\lambda(1,-1,1).$$</div>\n  <p>由第一、二分量相加得 $4t-2-3s=0$；由第二、三分量相减得 $-5+t=0$，即 $t=5$，代入得 $s=6$。于是</p>\n  <div class=\"fm\">$$Q_1=(7,10,11),\\qquad d=7+20+11=38.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第四步：写出方程并验算</h3>\n  <div class=\"fm\">$$x+2y+z-38=0.$$</div>\n  <p>验算：$Q_1$ 满足；法向与 $\\boldsymbol{\\tau}$、$\\boldsymbol{a}$ 的内积分别为 $1-2+1=0$、$1-1=0$ ✓。再查 $Q_2=(5,12,9)$：$5+24+9=38$ ✓，说明公垂线整体都在该平面上。</p>\n  <p class=\"concl\"><b>结论</b>平面方程为 $x+2y+z-38=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「过公垂线的平面 + 附加平行条件」，按这个顺序出牌：",
+        "items": [
+          "公垂方向永远是 $\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2$，它是这类题的「第一块砖」。",
+          "「平行于某向量」= 法向与该向量内积为零，和公垂方向一起就把法向钉死。",
+          "定常数项只需一个点：把两线上的点写成参数，令连线平行于公垂方向，解两个参数。",
+          "最后用另一条线上的垂足回代验算，能证明整条公垂线都在平面内，而不只是一点。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x+2y+z-38=0$",
+      "concl": "<b>结论</b>平面方程为 $x+2y+z-38=0$。",
+      "formulasUsed": [
+        {
+          "name": "公垂线的方向",
+          "latex": "$$\\boldsymbol{\\tau}=\\boldsymbol{\\tau}_1\\times\\boldsymbol{\\tau}_2=(1,2,1)\\times(1,3,2)=(1,-1,1)$$"
+        },
+        {
+          "name": "平面含公垂线且平行 $\\boldsymbol{a}$ ⟹ 法向 ⊥ 两者",
+          "latex": "$$\\boldsymbol{n}=\\boldsymbol{\\tau}\\times\\boldsymbol{a}=(1,-1,1)\\times(1,0,-1)=(1,2,1)$$"
+        },
+        {
+          "name": "公垂线上两点（$L_1,L_2$ 上的垂足）",
+          "latex": "$$Q_1=P_1+s\\boldsymbol{\\tau}_1,\\qquad Q_2=P_2+t\\boldsymbol{\\tau}_2,\\qquad \\overrightarrow{Q_1Q_2}\\parallel\\boldsymbol{\\tau}$$"
+        },
+        {
+          "name": "点法式",
+          "latex": "$$(x-x_0)+2(y-y_0)+(z-z_0)=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 25,
+      "number": "题 25",
+      "title": "截口是抛物线 ⟺ 平面平行于一条母线",
+      "chapter": 5,
+      "stemHtml": "试求通过点 $(1,0,0)$ 和 $(0,-1,0)$ 且与锥面 $x^{2}+y^{2}=z^{2}$ 相交成抛物线的平面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：抛物线截口有一条「角度判据」</h3>\n  <p>【看到「平面截圆锥得抛物线」→ 调用「平面与轴的夹角 = 半顶角，即平面平行于某条母线」】。$x^{2}+y^{2}=z^{2}$ 的半顶角是 $45^{\\circ}$，所以平面法向与 $z$ 轴夹角也是 $45^{\\circ}$，这条给出法向分量之间的平方关系。再叠加「过两个已知点」的一次约束，未知量只剩一个比例，解出 $\\pm$ 两支。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：用两个点约束平面</h3>\n  <p>设平面 $\\alpha x+\\beta y+\\gamma z+D=0$。过 $(1,0,0)$：$\\alpha+D=0$；过 $(0,-1,0)$：$-\\beta+D=0$。故 $D=-\\alpha=\\beta$，平面化为</p>\n  <div class=\"fm\">$$\\alpha(x-y-1)+\\gamma z=0\\ \\Longrightarrow\\ \\boldsymbol{n}=(\\alpha,-\\alpha,\\gamma).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：角度判据定 $\\gamma$</h3>\n  <div class=\"fm\">$$\\frac{\\gamma^{2}}{\\alpha^{2}+\\alpha^{2}+\\gamma^{2}}=\\cos^{2}45^{\\circ}=\\frac12\\ \\Longrightarrow\\ \\gamma^{2}=2\\alpha^{2}\\ \\Longrightarrow\\ \\gamma=\\pm\\sqrt2\\,\\alpha.$$</div>\n  <p>（这与「平面平行于一条母线」等价：平面法向与轴成 $45^{\\circ}$。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写出两解并说明</h3>\n  <div class=\"fm\">$$x-y-1\\pm\\sqrt2\\,z=0.$$</div>\n  <p>两支分别位于 $z$ 轴的两侧，各自与锥面相切于一条母线，截口都是抛物线（不是退化的一对直线，因为平面只过一条母线、不经过顶点）。</p>\n  <p class=\"concl\"><b>结论</b>所求平面为 $x-y\\pm\\sqrt2\\,z-1=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「平面截圆锥得抛物线 / 椭圆 / 双曲线」，按这个顺序出牌：",
+        "items": [
+          "先把锥面化成标准形读半顶角：$x^{2}+y^{2}=z^{2}$ 是 $45^{\\circ}$，$x^{2}+y^{2}=k^{2}z^{2}$ 是 $\\arctan k$。",
+          "抛物线 ⟺ 平面与轴夹角等于半顶角（法向与轴夹角为 $90^{\\circ}$ 减去它），椭圆更「平」，双曲线更「立」。",
+          "两个定点给两个一次方程，正好把平面缩成「只差一个参数」的族，再叠加平方判据。",
+          "平方判据出 $\\pm$，几何上对应「平行于上半母线 / 下半母线」，必须写全两支。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x-y\\pm\\sqrt2\\,z-1=0$",
+      "concl": "<b>结论</b>所求平面为 $x-y\\pm\\sqrt2\\,z-1=0$。",
+      "formulasUsed": [
+        {
+          "name": "锥面 $x^{2}+y^{2}=z^{2}$ 的半顶角（与 $z$ 轴成 $45^{\\circ}$）",
+          "latex": "$$\\text{母线方向 }(\\cos\\theta,\\sin\\theta,1)\\ \\Longrightarrow\\ \\text{母线与 }z\\text{ 轴夹角 }45^{\\circ}$$"
+        },
+        {
+          "name": "截口为抛物线 ⟺ 平面与锥轴夹角等于半顶角",
+          "latex": "$$\\frac{\\left|\\boldsymbol{n}\\cdot\\boldsymbol{k}\\right|}{\\left|\\boldsymbol{n}\\right|}=\\cos 45^{\\circ}=\\frac{1}{\\sqrt2}\\ \\Longrightarrow\\ \\gamma^{2}=\\alpha^{2}+\\beta^{2}$$"
+        },
+        {
+          "name": "过两定点的平面约束",
+          "latex": "$$\\alpha x+\\beta y+\\gamma z+D=0,\\qquad \\alpha+D=0,\\quad -\\beta+D=0$$"
+        },
+        {
+          "name": "化简后的两解",
+          "latex": "$$x-y-1\\pm\\sqrt2\\,z=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "number": "题 26",
+      "title": "旋转面：半径不变",
+      "chapter": 5,
+      "stemHtml": "将直线 $\\begin{cases}y=z,\\\\ x=1\\end{cases}$ 绕 $z$ 轴旋转一周，求旋转曲面的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：旋转面只看「到轴的距离」</h3>\n  <p>【看到「绕坐标轴旋转」→ 调用「绕 $z$ 轴时 $z$ 不变、$x^{2}+y^{2}$ 不变」】。母线上的点既然满足 $x=1$、$y=z$，它到 $z$ 轴的距离平方就是 $1+z^{2}$；旋转后所有点共享同一个 $z$ 和同一个半径平方，直接得到方程。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：取母线上的动点</h3>\n  <p>母线上点可写成 $(1,\\ t,\\ t)$，$t\\in\\mathbb{R}$，它到 $z$ 轴的距离平方为</p>\n  <div class=\"fm\">$$R^{2}=1^{2}+t^{2}=1+t^{2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：旋转后 $z=t$、$x^{2}+y^{2}=R^{2}$</h3>\n  <div class=\"fm\">$$x^{2}+y^{2}=1+z^{2}\\ \\Longrightarrow\\ x^{2}+y^{2}-z^{2}=1.$$</div>\n  <p>这是单叶双曲面（旋转双曲面），$z=0$ 处截出单位圆 $x^{2}+y^{2}=1$，与母线在 $xOy$ 面上的位置一致。</p>\n  <p class=\"concl\"><b>结论</b>旋转曲面方程 $x^{2}+y^{2}-z^{2}=1$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「直线或曲线绕坐标轴旋转」，按这个顺序出牌：",
+        "items": [
+          "绕 $z$ 轴：$z$ 原样保留，把 $x,y$ 换成「到轴的距离」$\\sqrt{x^{2}+y^{2}}$，母线上的 $x_0,y_0$ 满足 $x_0^{2}+y_0^{2}=x^{2}+y^{2}$。",
+          "母线上取一个参数（本题用 $z_0=t$），把 $R^{2}$ 写成 $t$ 的函数，再用 $t=z$ 换回来。",
+          "结果务必检查退化情形：母线若与轴相交，旋转面会过顶点、出现锥面形状。",
+          "认清曲面类型：$x^{2}+y^{2}-z^{2}=1$ 是单叶双曲面，$x^{2}+y^{2}=z^{2}$ 才是锥面。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x^{2}+y^{2}-z^{2}=1$（单叶旋转双曲面）",
+      "concl": "<b>结论</b>旋转曲面方程 $x^{2}+y^{2}-z^{2}=1$。",
+      "formulasUsed": [
+        {
+          "name": "绕 $z$ 轴旋转：到轴的距离不变",
+          "latex": "$$x^{2}+y^{2}=x_0^{2}+y_0^{2},\\qquad z=z_0$$"
+        },
+        {
+          "name": "母线上的点（用 $z_0$ 作参数）",
+          "latex": "$$x_0=1,\\qquad y_0=z_0,\\qquad z_0\\in\\mathbb{R}$$"
+        },
+        {
+          "name": "半径平方",
+          "latex": "$$x_0^{2}+y_0^{2}=1+z_0^{2}=1+z^{2}$$"
+        },
+        {
+          "name": "旋转面方程",
+          "latex": "$$x^{2}+y^{2}-z^{2}=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 27,
+      "number": "题 27",
+      "title": "消去母线参数",
+      "chapter": 5,
+      "stemHtml": "设柱面的准线是 $\\begin{cases}x^{2}+y^{2}=1,\\\\ z=0,\\end{cases}$ 母线平行于向量 $\\boldsymbol{a}=(1,1,1)$。求此柱面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：柱面 = 准线沿母线方向「平移扫出」</h3>\n  <p>【看到「准线 + 母线方向」→ 调用「把准线点沿方向平移，消去平移参数」】。柱面上任一点都可写成「准线上某点 + 母线方向的倍数」，把参数 $t$ 从 $x,y,z$ 三个式子中消掉（本题 $t=z$ 最省事），剩下的就是方程。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写母线参数式</h3>\n  <div class=\"fm\">$$x=x_0+t,\\qquad y=y_0+t,\\qquad z=t,\\qquad x_0^{2}+y_0^{2}=1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：消参并代回</h3>\n  <div class=\"fm\">$$x_0=x-z,\\qquad y_0=y-z\\ \\Longrightarrow\\ \\left(x-z\\right)^{2}+\\left(y-z\\right)^{2}=1.$$</div>\n  <p>检查：与 $z=0$ 相交时应还原为准线 $x^{2}+y^{2}=1$ ✓；柱面母线方向确为 $(1,1,1)$，因为沿该方向平移 $x-z$、$y-z$ 都不变。</p>\n  <p class=\"concl\"><b>结论</b>柱面方程 $(x-z)^{2}+(y-z)^{2}=1$，它是半径 1 的圆柱面，轴沿方向 $(1,1,1)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「准线 + 母线方向」，按这个顺序出牌：",
+        "items": [
+          "先设准线上的点 $(x_0,y_0,z_0)$，再写「点 + $t\\boldsymbol{a}$」，这是标准两行式。",
+          "消参时挑「最容易反解」的坐标（本题 $z=t$），不要硬消三元。",
+          "结果一定做「与某坐标面相交」的验算：应还原成准线，否则参数代错。",
+          "母线平行于坐标轴时（如 $\\boldsymbol{a}=(0,0,1)$），柱面方程就是「准线方程缺 $z$」，这是最常见的特例。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$(x-z)^{2}+(y-z)^{2}=1$",
+      "concl": "<b>结论</b>柱面方程 $(x-z)^{2}+(y-z)^{2}=1$，它是半径 1 的圆柱面，轴沿方向 $(1,1,1)$。",
+      "formulasUsed": [
+        {
+          "name": "母线参数式（过准线点沿 $\\boldsymbol{a}$）",
+          "latex": "$$\\left(x,y,z\\right)=\\left(x_0,y_0,0\\right)+t(1,1,1)$$"
+        },
+        {
+          "name": "消参：用 $z$ 反解 $t$",
+          "latex": "$$t=z,\\qquad x_0=x-z,\\qquad y_0=y-z$$"
+        },
+        {
+          "name": "把 $(x_0,y_0)$ 代回准线",
+          "latex": "$$x_0^{2}+y_0^{2}=1$$"
+        },
+        {
+          "name": "柱面方程",
+          "latex": "$$\\left(x-z\\right)^{2}+\\left(y-z\\right)^{2}=1$$"
+        }
+      ]
+    },
+    {
+      "seq": 28,
+      "number": "题 28",
+      "title": "双动点 + 平行约束 ⟹ 消参得曲面",
+      "chapter": 5,
+      "stemHtml": "求与两直线 $\\begin{cases}x=0,\\\\ y=0\\end{cases}$ 和 $\\begin{cases}x=1,\\\\ z=0\\end{cases}$ 都相交，且平行于平面 $x+y+z=0$ 的直线所构成的曲面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两个「相交」各给一个动点，平行条件把两个参数绑在一起</h3>\n  <p>【看到「与两定直线都相交」→ 各取一个参数点；「平行于定平面」→ 方向与法向内积为零】。这样直线有三个自由度（$z_0,y_1,t$），平行条件消掉一个，剩下两个就是曲面参数，最后把 $t$ 也消掉得到 $x,y,z$ 的关系式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写直线并施加平行条件</h3>\n  <p>过 $A(0,0,z_0)$ 与 $B(1,y_1,0)$，方向 $(1,y_1,-z_0)$。与平面 $x+y+z=0$ 平行：</p>\n  <div class=\"fm\">$$1+y_1-z_0=0\\ \\Longrightarrow\\ z_0=1+y_1.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：参数式并消 $t$</h3>\n  <div class=\"fm\">$$x=t,\\qquad y=y_1t,\\qquad z=z_0(1-t).$$</div>\n  <p>由 $t=x$ 得 $y_1=\\dfrac{y}{x}$，$z_0=1+\\dfrac{y}{x}$，代入第三式：</p>\n  <div class=\"fm\">$$z=\\left(1+\\frac{y}{x}\\right)(1-x)\\ \\Longrightarrow\\ xz=(x+y)(1-x).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：整理成标准形式</h3>\n  <div class=\"fm\">$$xz=x-x^{2}+y-xy\\ \\Longrightarrow\\ x^{2}+xy+xz-x-y=0.$$</div>\n  <p>这是一个二次曲面（含 $xy$、$xz$ 交叉项），过 $z$ 轴与直线 $x=1,z=0$ 上的所有点。</p>\n  <p class=\"concl\"><b>结论</b>曲面方程 $x^{2}+xy+xz-x-y=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「一族直线满足若干相交 / 平行条件，求轨迹曲面」，按这个顺序出牌：",
+        "items": [
+          "每遇到一条「与定直线相交」，就在那条线上设一个参数点，参数个数 = 定直线条数。",
+          "再用「方向平行于平面 / 垂直于向量 / 与某线成定角」把参数绑起来，减少一个未知量。",
+          "把动直线写成参数式 $(x,y,z)=(P)+t\\boldsymbol{\\tau}$，消去 $t$ 即得曲面方程，注意 $x=0$ 时要单独说明。",
+          "最后检查曲面是否确实包含两条定直线（代入验证），这是判断有没有算错的快捷方式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x^{2}+xy+xz-x-y=0$",
+      "concl": "<b>结论</b>曲面方程 $x^{2}+xy+xz-x-y=0$。",
+      "formulasUsed": [
+        {
+          "name": "两定直线的参数点",
+          "latex": "$$A(0,0,z_0)\\ \\ (\\text{即 }z\\text{ 轴}),\\qquad B(1,y_1,0)\\ \\ (\\text{即 }x=1,z=0)$$"
+        },
+        {
+          "name": "方向 = 两点之差",
+          "latex": "$$\\boldsymbol{\\tau}=\\overrightarrow{AB}=(1,\\ y_1,\\ -z_0)$$"
+        },
+        {
+          "name": "平行于平面 ⟹ 方向与法向内积为零",
+          "latex": "$$1+y_1-z_0=0\\ \\Longrightarrow\\ z_0=1+y_1$$"
+        },
+        {
+          "name": "直线参数式与消参",
+          "latex": "$$(x,y,z)=(0,0,z_0)+t(1,y_1,-z_0)$$"
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "number": "题 29",
+      "title": "顶点原点 + 准线定锥面",
+      "chapter": 5,
+      "stemHtml": "求顶点在原点、准线为 $\\begin{cases}x^{2}+y^{2}+(z-5)^{2}=9,\\\\ z=4\\end{cases}$ 的锥面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：锥面 = 顶点与准线上每点的连线</h3>\n  <p>【看到「顶点 + 准线」→ 调用「母线过顶点与准线点，按比例设点」】。把准线上的点 $(x_0,y_0,4)$ 与原点连成射线，射线上任一点是它的倍数；用 $z$ 坐标把倍数解出来，再代回准线方程，就只剩 $x,y,z$ 的关系。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：化简准线</h3>\n  <p>在 $z=4$ 上，$x^{2}+y^{2}+(4-5)^{2}=9$，即 $x^{2}+y^{2}=8$，是半径 $2\\sqrt2$ 的圆。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：连母线、消比例</h3>\n  <div class=\"fm\">$$\\frac{x}{x_0}=\\frac{y}{y_0}=\\frac{z}{4}=\\lambda\\ \\Longrightarrow\\ x_0=\\frac{4x}{z},\\quad y_0=\\frac{4y}{z}.$$</div>\n  <div class=\"fm\">$$\\left(\\frac{4x}{z}\\right)^{2}+\\left(\\frac{4y}{z}\\right)^{2}=8\\ \\Longrightarrow\\ 2\\left(x^{2}+y^{2}\\right)=z^{2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：验证与说明</h3>\n  <p>取 $z=4$：$2(x^{2}+y^{2})=16$，即 $x^{2}+y^{2}=8$，正是准线 ✓。曲面是以原点为顶点、开口沿 $z$ 轴、半顶角 $\\arctan\\sqrt2$ 的圆锥面。</p>\n  <p class=\"concl\"><b>结论</b>锥面方程 $2(x^{2}+y^{2})=z^{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「顶点 + 准线」，按这个顺序出牌：",
+        "items": [
+          "先把准线所在的平面代进去化简，得到「平面内的曲线」这一元二次式。",
+          "母线用比例设：$(x,y,z)=\\lambda(x_0,y_0,z_0)$，挑一个坐标反解 $\\lambda$（本题 $z/4$ 最干净）。",
+          "代回准线，分母里的 $z$ 会带来「齐次」结构，这正是锥面的标志（各项同次）。",
+          "把准线平面代回验算一次，能立刻确认方程没写反。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2(x^{2}+y^{2})=z^{2}$",
+      "concl": "<b>结论</b>锥面方程 $2(x^{2}+y^{2})=z^{2}$。",
+      "formulasUsed": [
+        {
+          "name": "准线在 $z=4$ 平面上是一个圆",
+          "latex": "$$x^{2}+y^{2}+1=9\\ \\Longrightarrow\\ x_0^{2}+y_0^{2}=8$$"
+        },
+        {
+          "name": "锥面：顶点与准线点的连线（母线）",
+          "latex": "$$(x,y,z)=\\lambda\\left(x_0,y_0,4\\right)$$"
+        },
+        {
+          "name": "由 $z=4\\lambda$ 反解 $\\lambda$",
+          "latex": "$$\\lambda=\\frac{z}{4},\\qquad x_0=\\frac{4x}{z},\\qquad y_0=\\frac{4y}{z}$$"
+        },
+        {
+          "name": "代回准线得锥面",
+          "latex": "$$\\frac{16\\left(x^{2}+y^{2}\\right)}{z^{2}}=8\\ \\Longrightarrow\\ 2\\left(x^{2}+y^{2}\\right)=z^{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 30,
+      "number": "题 30",
+      "title": "过球心且垂直定直线的平面 · 消 z 得投影",
+      "chapter": 5,
+      "stemHtml": "求球面 $x^{2}+y^{2}+z^{2}-2x+4y-6z=0$ 与过球心且垂直于直线 $\\begin{cases}x=0,\\\\ y=z\\end{cases}$ 的平面的交线在 $xOy$ 平面上的投影曲线方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：三步 —— 定球心、定平面、消 $z$</h3>\n  <p>【看到「交线在坐标面上的投影」→ 调用「从方程组中消去该坐标，再加一个限制」】。球的交线本身是空间曲线，投影到 $xOy$ 面只需把 $z$ 用 $x,y$ 表示后代入球面方程。平面怎么定？「过球心」+「垂直于给定直线」，法向直接取直线方向。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：球心、半径与平面</h3>\n  <p>配方得球心 $(1,-2,3)$、半径 $\\sqrt{14}$。直线 $\\{x=0,y=z\\}$ 的点为 $(0,t,t)$，方向 $(0,1,1)$，故所求平面</p>\n  <div class=\"fm\">$$0\\cdot(x-1)+1\\cdot(y+2)+1\\cdot(z-3)=0\\ \\Longrightarrow\\ y+z-1=0.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：把 $z=1-y$ 代入球面</h3>\n  <div class=\"fm\">$$x^{2}+y^{2}+(1-y)^{2}-2x+4y-6(1-y)=0$$</div>\n  <div class=\"fm\">$$\\Longrightarrow\\ x^{2}+2y^{2}-2x+8y-5=0\\ \\Longrightarrow\\ (x-1)^{2}+2(y+2)^{2}=14.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写成投影曲线的方程组</h3>\n  <div class=\"fm\">$$\\begin{cases}(x-1)^{2}+2(y+2)^{2}=14,\\\\ z=0.\\end{cases}$$</div>\n  <p>投影是 $xOy$ 面上的椭圆（半轴 $\\sqrt{14}$ 与 $\\sqrt7$），须保留 $z=0$ 的条件，单写平面曲线方程不完整。</p>\n  <p class=\"concl\"><b>结论</b>投影曲线 $\\begin{cases}(x-1)^{2}+2(y+2)^{2}=14,\\\\ z=0.\\end{cases}$</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「空间曲线在坐标面上的投影」，按这个顺序出牌：",
+        "items": [
+          "先弄清交线由哪两张曲面（或曲面 + 平面）给出，题目条件先翻译成具体方程。",
+          "消元方向由投影面决定：投到 $xOy$ 就消 $z$，投到 $yOz$ 就消 $x$。",
+          "消完必须补上「投影面方程」（如 $z=0$），只写一条曲线方程是错的。",
+          "配方看形状：本题 $x^{2}$ 系数 1、$y^{2}$ 系数 2，是椭圆，别忘了写清长短半轴。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$(x-1)^{2}+2(y+2)^{2}=14$ 且 $z=0$（椭圆）",
+      "concl": "<b>结论</b>投影曲线 $\\begin{cases}(x-1)^{2}+2(y+2)^{2}=14,\\\\ z=0.\\end{cases}$",
+      "formulasUsed": [
+        {
+          "name": "配方读球心与半径",
+          "latex": "$$(x-1)^{2}+(y+2)^{2}+(z-3)^{2}=14\\ \\Longrightarrow\\ O_1(1,-2,3),\\ r=\\sqrt{14}$$"
+        },
+        {
+          "name": "直线的方向（把 $\\{x=0,\\ y=z\\}$ 参数化）",
+          "latex": "$$(0,t,t)\\ \\Longrightarrow\\ \\boldsymbol{\\tau}=(0,1,1)$$"
+        },
+        {
+          "name": "平面 ⊥ 该直线 ⟹ 方向作法向，且过球心",
+          "latex": "$$y+z=1$$"
+        },
+        {
+          "name": "投影 = 消去 $z$（并保留 $z=1-y$ 回代）",
+          "latex": "$$z=1-y\\ \\Longrightarrow\\ (x-1)^{2}+2(y+2)^{2}=14$$"
+        }
+      ]
+    },
+    {
+      "seq": 31,
+      "number": "题 31",
+      "title": "展开成矩形 · 两点间直线最短",
+      "chapter": 5,
+      "stemHtml": "在圆柱面 $x^{2}+y^{2}=1$ 上，求从点 $A(1,0,0)$ 到点 $B(-1,0,1)$ 的最短路径的长度。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：曲面上的最短路径，先「摊平」再说</h3>\n  <p>【看到「曲面上两点间最短路径」→ 调用「可展曲面展开成平面，用直线段」】。圆柱面可展，沿母线剪开摊成矩形：横向坐标是弧长 $r\\theta$，纵向是 $z$；曲面上的最短路径（测地线）在展开图上就是直线段，长度由勾股定理给出。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：读出两点的「展开坐标」</h3>\n  <p>$A(1,0,0)$ 对应 $\\theta=0,z=0$；$B(-1,0,1)$ 对应 $\\theta=\\pi,z=1$。展开后 $A=(0,0)$，$B=(\\pi,1)$（横向取弧长 $r\\theta=\\theta$，因 $r=1$）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：勾股定理给长度</h3>\n  <div class=\"fm\">$$L=\\sqrt{\\pi^{2}+1^{2}}=\\sqrt{1+\\pi^{2}}.$$</div>\n  <p>也可用变分验证：在参数 $(t,\\cos t,\\sin t)$ 上取路径，$L=\\int\\sqrt{1+z'^{2}}\\,\\mathrm{d}\\theta\\ge\\sqrt{\\pi^{2}+1}$（等号当 $z$ 对 $\\theta$ 线性时取得）。</p>\n  <p class=\"concl\"><b>结论</b>最短路径长 $\\sqrt{1+\\pi^{2}}$，路径是螺旋线 $(\\cos\\theta,\\sin\\theta,\\theta/\\pi)$，$\\theta\\in[0,\\pi]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「曲面上的最短距离」，按这个顺序出牌：",
+        "items": [
+          "柱面、锥面都是可展曲面，先展开成平面，最短路径变成直线段，长度用勾股。",
+          "展开图的横向坐标是弧长 $r\\theta$，不是角度 $\\theta$，半径不为 1 时这一步最容易错。",
+          "球面不可展，不能摊平——球面上的测地线是大圆弧，用 $L=r\\cdot\\angle AOB$ 算。",
+          "算完回代一条具体路径验证：螺旋线的长度积分确实等于 $\\sqrt{1+\\pi^2}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\sqrt{1+\\pi^{2}}$",
+      "concl": "<b>结论</b>最短路径长 $\\sqrt{1+\\pi^{2}}$，路径是螺旋线 $(\\cos\\theta,\\sin\\theta,\\theta/\\pi)$，$\\theta\\in[0,\\pi]$。",
+      "formulasUsed": [
+        {
+          "name": "圆柱面参数化",
+          "latex": "$$(\\cos\\theta,\\ \\sin\\theta,\\ z),\\qquad \\theta\\in[0,2\\pi)$$"
+        },
+        {
+          "name": "两点的参数坐标",
+          "latex": "$$A:\\ \\theta=0,\\ z=0;\\qquad B:\\ \\theta=\\pi,\\ z=1$$"
+        },
+        {
+          "name": "展开后是平面上的直角三角形（底 = 弧长，高 = $\\Delta z$）",
+          "latex": "$$L=\\sqrt{\\left(r\\Delta\\theta\\right)^{2}+\\left(\\Delta z\\right)^{2}}$$"
+        },
+        {
+          "name": "本题 $r=1$",
+          "latex": "$$L=\\sqrt{\\pi^{2}+1}$$"
+        }
+      ]
+    },
+    {
+      "seq": 32,
+      "number": "题 32",
+      "title": "令 $s=x+y+z$，把曲线拆成两张平面截球",
+      "chapter": 5,
+      "stemHtml": "证明空间曲线 $\\begin{cases}x^{2}+y^{2}+z^{2}=8,\\\\ xy+yz+zx=x+y+z\\end{cases}$ 是两个圆，并求这两个圆的半径。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：第二个方程里藏着 $x+y+z$</h3>\n  <p>【看到「$x^{2}+y^{2}+z^{2}$ 与 $xy+yz+zx$ 同时出现」→ 调用「和的平方」】。设 $s=x+y+z$，则 $s^{2}=x^{2}+y^{2}+z^{2}+2(xy+yz+zx)=8+2s$，解出 $s$ 只有两个值。于是原曲线被拆成「球面 + 两张平面」的两组交线，每组交线都是圆，半径用球心到平面的距离一算即得。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：解出 $s$ 的两个值</h3>\n  <div class=\"fm\">$$s^{2}-2s-8=(s-4)(s+2)=0\\ \\Longrightarrow\\ s=4\\ \\text{或}\\ s=-2.$$</div>\n  <p>这说明曲线完全落在两张平行平面 $x+y+z=4$ 与 $x+y+z=-2$ 上，且两平面都截球面 $x^{2}+y^{2}+z^{2}=8$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：分别算半径</h3>\n  <p>球心在原点，$R^{2}=8$。对 $s=4$：$d=\\dfrac{4}{\\sqrt3}$，</p>\n  <div class=\"fm\">$$r_1^{2}=8-\\frac{16}{3}=\\frac83\\ \\Longrightarrow\\ r_1=\\sqrt{\\frac83}.$$</div>\n  <p>对 $s=-2$：$d=\\dfrac{2}{\\sqrt3}$，</p>\n  <div class=\"fm\">$$r_2^{2}=8-\\frac43=\\frac{20}{3}\\ \\Longrightarrow\\ r_2=\\sqrt{\\frac{20}{3}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：说明「是两个圆」</h3>\n  <p>两个半径都为正，说明两平面都与球面相交于非退化的圆；两张平面平行且不重合，故曲线由两个互不相交的圆组成。</p>\n  <p class=\"concl\"><b>结论</b>曲线是两个圆，半径分别为 $\\sqrt{\\dfrac83}$ 与 $\\sqrt{\\dfrac{20}{3}}$，分别在平面 $x+y+z=4$ 与 $x+y+z=-2$ 上。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「球面 + 含 $xy+yz+zx$ 的二次方程」，按这个顺序出牌：",
+        "items": [
+          "先找「隐藏的整体量」：$x+y+z$、$x^{2}+y^{2}+z^{2}$ 常成对出现，用和的平方把它们连起来。",
+          "解出整体量只取两个值 ⟹ 曲线是两张平面截同一球面，立刻知道是两个圆。",
+          "半径用 $r^{2}=R^{2}-d^{2}$，$d$ 是球心到平面的距离，别忘了分母 $\\sqrt3$。",
+          "两个半径都为正才叫「两个圆」；若某个值为 $\\pm R\\sqrt3$ 就退化成点，要单独讨论。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>两个圆，半径 $\\sqrt{\\dfrac83}$ 与 $\\sqrt{\\dfrac{20}{3}}$",
+      "concl": "<b>结论</b>曲线是两个圆，半径分别为 $\\sqrt{\\dfrac83}$ 与 $\\sqrt{\\dfrac{20}{3}}$，分别在平面 $x+y+z=4$ 与 $x+y+z=-2$ 上。",
+      "formulasUsed": [
+        {
+          "name": "和的平方展开",
+          "latex": "$$\\left(x+y+z\\right)^{2}=x^{2}+y^{2}+z^{2}+2\\left(xy+yz+zx\\right)$$"
+        },
+        {
+          "name": "代入两式得一元二次",
+          "latex": "$$s^{2}=8+2s\\ \\Longrightarrow\\ s^{2}-2s-8=0\\ \\Longrightarrow\\ s=4\\ \\text{或}\\ s=-2$$"
+        },
+        {
+          "name": "球心到平面 $x+y+z=s$ 的距离",
+          "latex": "$$d=\\frac{|s|}{\\sqrt3}$$"
+        },
+        {
+          "name": "截面圆半径",
+          "latex": "$$r^{2}=R^{2}-d^{2}=8-\\frac{s^{2}}{3}$$"
+        },
+        {
+          "name": "两个半径",
+          "latex": "$$r_1^{2}=8-\\frac{16}{3}=\\frac83,\\qquad r_2^{2}=8-\\frac43=\\frac{20}{3}$$"
+        }
+      ]
+    },
+    {
+      "seq": 33,
+      "number": "题 33",
+      "title": "投影成椭圆 × 面积放大因子",
+      "chapter": 5,
+      "stemHtml": "求平面 $4x+2y+z=1$ 与抛物面 $z=2x^{2}+y^{2}$ 的交线（椭圆）所围图形的面积。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先投到 $xOy$ 面算面积，再按倾角放大</h3>\n  <p>【看到「斜平面上的图形面积」→ 调用「投影面积 ÷ $\\cos\\theta$」】。直接在斜面上积分很麻烦；把交线投影到 $xOy$ 面，得到的是一个标准椭圆，面积好算；平面法向与 $z$ 轴夹角 $\\theta$ 的余弦就是面积压缩比，除一下即可。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：消 $z$，得投影椭圆</h3>\n  <p>把 $z=1-4x-2y$ 代入抛物面：</p>\n  <div class=\"fm\">$$2x^{2}+y^{2}=1-4x-2y\\ \\Longrightarrow\\ 2\\left(x+1\\right)^{2}+\\left(y+1\\right)^{2}=4.$$</div>\n  <p>即 $\\dfrac{(x+1)^{2}}{2}+\\dfrac{(y+1)^{2}}{4}=1$，半轴 $a=\\sqrt2$、$b=2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：投影面积与放大因子</h3>\n  <div class=\"fm\">$$S_{\\text{投}}=\\pi ab=2\\sqrt2\\,\\pi,\\qquad \\cos\\theta=\\frac{1}{\\sqrt{4^{2}+2^{2}+1^{2}}}=\\frac{1}{\\sqrt{21}}.$$</div>\n  <div class=\"fm\">$$S=\\frac{S_{\\text{投}}}{\\cos\\theta}=2\\sqrt2\\,\\pi\\sqrt{21}=2\\pi\\sqrt{42}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：核对</h3>\n  <p>$\\sqrt2\\cdot\\sqrt{21}=\\sqrt{42}$，结果 $2\\pi\\sqrt{42}\\approx 40.7$。也可用「平面内二重积分 + 雅可比」验证，两法一致。</p>\n  <p class=\"concl\"><b>结论</b>椭圆面积为 $2\\pi\\sqrt{42}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「平面与曲面交线围成的面积」，按这个顺序出牌：",
+        "items": [
+          "先消去一个变量（通常消 $z$），把交线投到坐标面，得到平面二次曲线，配方读半轴。",
+          "投影面积用 $\\pi ab$（椭圆）或直接积分，注意半轴是配方后的分母开根。",
+          "放大因子 $1/\\cos\\theta$ 中的 $\\cos\\theta$ 是法向与投影面法向的夹角余弦，用分量除以模长。",
+          "最后合并根号时先分解质因数（$\\sqrt2\\sqrt{21}=\\sqrt{42}$），别把答案写成嵌套根式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$2\\pi\\sqrt{42}$",
+      "concl": "<b>结论</b>椭圆面积为 $2\\pi\\sqrt{42}$。",
+      "formulasUsed": [
+        {
+          "name": "联立消 $z$",
+          "latex": "$$2x^{2}+y^{2}+4x+2y-1=0$$"
+        },
+        {
+          "name": "配方成标准椭圆",
+          "latex": "$$2\\left(x+1\\right)^{2}+\\left(y+1\\right)^{2}=4\\ \\Longrightarrow\\ \\frac{\\left(x+1\\right)^{2}}{2}+\\frac{\\left(y+1\\right)^{2}}{4}=1$$"
+        },
+        {
+          "name": "投影椭圆面积（半轴 $\\sqrt2$ 与 $2$）",
+          "latex": "$$S_{\\text{投}}=\\pi\\sqrt2\\cdot2=2\\sqrt2\\,\\pi$$"
+        },
+        {
+          "name": "面积放大因子 = $1/\\cos\\theta$，$\\cos\\theta=\\dfrac{|C|}{\\sqrt{A^{2}+B^{2}+C^{2}}}$",
+          "latex": "$$S=\\frac{S_{\\text{投}}}{\\cos\\theta}=2\\sqrt2\\,\\pi\\cdot\\sqrt{21}=2\\pi\\sqrt{42}$$"
+        }
+      ]
+    },
+    {
+      "seq": 34,
+      "number": "题 34",
+      "title": "同一曲线两种表示 ⟹ 系数成比例",
+      "chapter": 5,
+      "stemHtml": "求过 $x$ 轴且与椭球面 $\\dfrac{x^{2}}{9}+\\dfrac{y^{2}}{16}+\\dfrac{z^{2}}{4}=1$ 的交线为圆的平面方程，并求该圆的半径。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：圆必须「既是椭球截口、又是球截口」</h3>\n  <p>【看到「椭球截口是圆」→ 调用「同一条曲线用两种方程表示，系数成比例」】。过 $x$ 轴设 $z=ky$，代入椭球得到一个只含 $x,y$ 的二次式；圆一定也是某个球面与同一平面的交线，于是又有 $x^{2}+(1+k^{2})y^{2}=r^{2}$。两式描述的是同一条曲线，系数必须成比例，这就给出 $k$ 的方程，$r$ 也随之确定。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：两种表示</h3>\n  <p>椭球截口：$\\dfrac{x^{2}}{9}+\\dfrac{1+4k^{2}}{16}y^{2}=1$；球截口：$x^{2}+(1+k^{2})y^{2}=r^{2}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：比例条件解 $k$</h3>\n  <div class=\"fm\">$$\\frac{1/9}{1}=\\frac{\\left(1+4k^{2}\\right)/16}{1+k^{2}}\\ \\Longrightarrow\\ 20k^{2}=7\\ \\Longrightarrow\\ k=\\pm\\sqrt{\\frac{7}{20}}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：求半径</h3>\n  <p>比例系数为 $\\dfrac{1}{9}$，故 $r^{2}=\\dfrac{1}{1/9}=9$，$r=3$。两个平面为</p>\n  <div class=\"fm\">$$z=\\pm\\sqrt{\\frac{7}{20}}\\,y.$$</div>\n  <p>验算：$k^{2}=\\frac{7}{20}$ 时 $1+4k^{2}=1+\\frac75=\\frac{12}{5}$，$1+k^{2}=\\frac{27}{20}$，比值 $\\frac{12/5}{27/20}=\\frac{16}{9}$ ✓ 与 $\\frac{1/9}{1}$ 对应的 $16:9$ 一致。</p>\n  <p class=\"concl\"><b>结论</b>平面 $z=\\pm\\sqrt{\\dfrac{7}{20}}\\,y$，圆半径 $r=3$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「椭球 / 双曲面被平面截出圆」，按这个顺序出牌：",
+        "items": [
+          "「圆」等价于「某个球面与同一平面的交线」，这是把圆条件代数化的唯一入口。",
+          "过某坐标轴的平面用斜率参数设（过 $x$ 轴用 $z=ky$），未知量只剩一个。",
+          "同一曲线的两种方程系数成比例（含常数项），列比例式解参数，别去硬算二次型化标准形。",
+          "半径由常数项之比直接读出，最后把 $k$ 回代验算比值，防止约分错。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$z=\\pm\\sqrt{\\dfrac{7}{20}}\\,y$，圆半径 $r=3$",
+      "concl": "<b>结论</b>平面 $z=\\pm\\sqrt{\\dfrac{7}{20}}\\,y$，圆半径 $r=3$。",
+      "formulasUsed": [
+        {
+          "name": "过 $x$ 轴的平面（绕 $x$ 轴转）",
+          "latex": "$$z=ky$$"
+        },
+        {
+          "name": "代入椭球得截线在 $yOz$ 方向的二次式",
+          "latex": "$$\\frac{x^{2}}{9}+\\frac{1+4k^{2}}{16}y^{2}=1$$"
+        },
+        {
+          "name": "同一曲线也可写成球与平面的交",
+          "latex": "$$\\begin{cases}x^{2}+y^{2}+z^{2}=r^{2},\\\\ z=ky\\end{cases}\\ \\Longrightarrow\\ x^{2}+\\left(1+k^{2}\\right)y^{2}=r^{2}$$"
+        },
+        {
+          "name": "两式表示同一曲线 ⟹ 系数成比例",
+          "latex": "$$\\frac{1/9}{1}=\\frac{\\left(1+4k^{2}\\right)/16}{1+k^{2}}\\ \\Longrightarrow\\ 9\\left(1+4k^{2}\\right)=16\\left(1+k^{2}\\right)\\ \\Longrightarrow\\ k^{2}=\\frac{7}{20}$$"
+        }
+      ]
+    },
+    {
+      "seq": 35,
+      "number": "题 35",
+      "title": "夹角条件 + 交点在两平面上 ⟹ 消参数",
+      "chapter": 5,
+      "stemHtml": "过 $x$ 轴与 $y$ 轴的两个动平面 $\\Pi_1,\\Pi_2$ 的夹角为 $\\dfrac{\\pi}{6}$，求 $\\Pi_1$ 与 $\\Pi_2$ 的交线所构成的曲面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先把两个平面写成「只差一个参数」的族，再用夹角条件</h3>\n  <p>【看到「过坐标轴的两动平面 + 定夹角」→ 调用「平面族 + 法向夹角余弦公式，最后用交线上的点消参数」】。过 $x$ 轴的平面不含 $x$ 的一次项，形如 $\\lambda y+\\mu z=0$；过 $y$ 轴的同理。两平面夹角只由法向决定，而交线上的点又同时满足两平面——这就提供了「用 $x,y,z$ 表示参数比」的桥梁，代回角度式即可消掉参数。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：夹角条件</h3>\n  <p>$\\boldsymbol{n}_1=(0,\\lambda,\\mu)$，$\\boldsymbol{n}_2=(a,0,b)$，$|\\boldsymbol{n}_1\\cdot\\boldsymbol{n}_2|=\\mu b$。故</p>\n  <div class=\"fm\">$$\\frac{b^{2}\\mu^{2}}{\\left(\\lambda^{2}+\\mu^{2}\\right)\\left(a^{2}+b^{2}\\right)}=\\cos^{2}\\frac{\\pi}{6}=\\frac34.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：用交点消参数</h3>\n  <p>交线上的点 $(x,y,z)$ 满足 $\\lambda y+\\mu z=0$ 与 $ax+bz=0$，于是</p>\n  <div class=\"fm\">$$\\frac{\\lambda}{\\mu}=-\\frac{z}{y},\\quad \\frac{a}{b}=-\\frac{z}{x}\\ \\Longrightarrow\\ \\left(\\frac{\\lambda}{\\mu}\\right)^{2}=\\frac{z^{2}}{y^{2}},\\quad \\left(\\frac{a}{b}\\right)^{2}=\\frac{z^{2}}{x^{2}}.$$</div>\n  <p>把上式左边改写成「分子分母同除 $\\mu^{2}b^{2}$」：</p>\n  <div class=\"fm\">$$\\frac{1}{\\left(\\frac{\\lambda^{2}}{\\mu^{2}}+1\\right)\\left(\\frac{a^{2}}{b^{2}}+1\\right)}=\\frac{1}{\\left(\\frac{z^{2}}{y^{2}}+1\\right)\\left(\\frac{z^{2}}{x^{2}}+1\\right)}=\\frac34.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：整理成曲面方程</h3>\n  <div class=\"fm\">$$\\frac{x^{2}y^{2}}{\\left(y^{2}+z^{2}\\right)\\left(x^{2}+z^{2}\\right)}=\\frac34\\ \\Longrightarrow\\ \\left(x^{2}+z^{2}\\right)\\left(y^{2}+z^{2}\\right)=\\frac{4}{3}x^{2}y^{2}.$$</div>\n  <p>若 $\\mu$ 或 $b$ 为 $0$，对应平面退化为坐标面，夹角不可能为 $\\frac{\\pi}{6}$，故可放心除。</p>\n  <p class=\"concl\"><b>结论</b>曲面方程 $\\left(x^{2}+z^{2}\\right)\\left(y^{2}+z^{2}\\right)=\\dfrac{4}{3}x^{2}y^{2}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「动平面族 + 定角条件，求交线轨迹」，按这个顺序出牌：",
+        "items": [
+          "先写平面族：过坐标轴 ⟹ 缺对应变量的一次项，只需两个参数（齐次，可约成一个比值）。",
+          "角度条件化成分式等式，分子分母都写成参数的齐次式，便于后面整体代换。",
+          "交点同时满足所有平面，是「消参数」的唯一入口；把参数比写成坐标比再回代。",
+          "注意排除参数为零的退化情形，答案才能写成不含绝对值的对称式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\left(x^{2}+z^{2}\\right)\\left(y^{2}+z^{2}\\right)=\\dfrac{4}{3}x^{2}y^{2}$",
+      "concl": "<b>结论</b>曲面方程 $\\left(x^{2}+z^{2}\\right)\\left(y^{2}+z^{2}\\right)=\\dfrac{4}{3}x^{2}y^{2}$。",
+      "formulasUsed": [
+        {
+          "name": "过 $x$ 轴 / 过 $y$ 轴的平面族",
+          "latex": "$$\\Pi_1:\\ \\lambda y+\\mu z=0,\\qquad \\Pi_2:\\ ax+bz=0$$"
+        },
+        {
+          "name": "两平面夹角余弦",
+          "latex": "$$\\cos^{2}\\frac{\\pi}{6}=\\frac{\\left(\\boldsymbol{n}_1\\cdot\\boldsymbol{n}_2\\right)^{2}}{\\left|\\boldsymbol{n}_1\\right|^{2}\\left|\\boldsymbol{n}_2\\right|^{2}}=\\frac{b^{2}\\mu^{2}}{\\left(\\lambda^{2}+\\mu^{2}\\right)\\left(a^{2}+b^{2}\\right)}=\\frac34$$"
+        },
+        {
+          "name": "交线上的点 $(x,y,z)$ 同时满足两个平面 ⟹ 反解参数比",
+          "latex": "$$\\frac{\\lambda}{\\mu}=-\\frac{z}{y},\\qquad \\frac{a}{b}=-\\frac{z}{x}$$"
+        },
+        {
+          "name": "代入并化简",
+          "latex": "$$\\frac{x^{2}y^{2}}{\\left(x^{2}+z^{2}\\right)\\left(y^{2}+z^{2}\\right)}=\\frac34$$"
+        }
+      ]
+    },
+    {
+      "seq": 36,
+      "number": "题 36",
+      "title": "直母线参数代入，恒等式比对系数",
+      "chapter": 5,
+      "stemHtml": "证明：平面 $Ax+By+Cz+D=0$ 与单叶双曲面 $x^{2}+y^{2}-z^{2}=1$ 的交线为两条直线的充要条件是 $A^{2}+B^{2}=C^{2}+D^{2}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：直线在曲面上 ⟹ 「参数代入后恒为零」</h3>\n  <p>【看到「交线是两条直线」→ 调用「在曲面上取一条过某点的直线，参数代入后对 $t$ 恒成立」】。直线若整条都在曲面上，那么任意 $t$ 都满足曲面方程，代入后得到一个关于 $t$ 的二次多项式恒等于零，于是两个系数都为零——这两条就刻画了「直母线」的全部信息。再叠加「直线在给定平面上」，三条线性/二次约束联立，就能推出字母关系。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写方向约束</h3>\n  <p>设交线上的点 $P(x_0,y_0,z_0)$ 满足 $x_0^{2}+y_0^{2}-z_0^{2}=1$、$Ax_0+By_0+Cz_0+D=0$。把直线参数式代入曲面：</p>\n  <div class=\"fm\">$$\\left(u^{2}+v^{2}-w^{2}\\right)t^{2}+2\\left(x_0u+y_0v-z_0w\\right)t=0.$$</div>\n  <p>对一切 $t$ 成立，故 $u^{2}+v^{2}-w^{2}=0$，$x_0u+y_0v-z_0w=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：解出 $(u,v,w)$ 的方向形式</h3>\n  <p>后两式与 $Au+Bv+Cw=0$ 组成关于 $(u,v,w)$ 的齐次方程组：</p>\n  <div class=\"fm\">$$\\begin{cases}x_0u+y_0v-z_0w=0,\\\\ Au+Bv+Cw=0.\\end{cases}\\ \\Longrightarrow\\ (u,v,w)=k\\left(-Bz_0-Cy_0,\\ Az_0+Cx_0,\\ Ay_0-Bx_0\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：把方向代回 $u^{2}+v^{2}=w^{2}$</h3>\n  <p>约去 $k^{2}$，得</p>\n  <div class=\"fm\">$$\\left(Bz_0+Cy_0\\right)^{2}+\\left(Az_0+Cx_0\\right)^{2}=\\left(Ay_0-Bx_0\\right)^{2}.$$</div>\n  <p>展开并用 $x_0^{2}+y_0^{2}-z_0^{2}=1$ 及 $Ax_0+By_0+Cz_0=-D$ 整理：左侧 $=C^{2}\\left(x_0^{2}+y_0^{2}\\right)+z_0^{2}\\left(A^{2}+B^{2}\\right)+2Cz_0\\left(Ax_0+By_0\\right)$，右侧 $=A^{2}y_0^{2}+B^{2}x_0^{2}-2ABx_0y_0$。移项消去交叉项后即得 $A^{2}+B^{2}=C^{2}+D^{2}$。</p>\n  <p class=\"concl\"><b>结论</b>条件为 $A^{2}+B^{2}=C^{2}+D^{2}$（必要性由上述推导给出；充分性可反向取直母线验证）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「平面与二次曲面交线为直线」，按这个顺序出牌：",
+        "items": [
+          "「直线在曲面上」不是几何画图题，是「参数代入后关于 $t$ 恒等」的代数条件，两个系数归零。",
+          "方向 $(u,v,w)$ 一定来自两个线性方程（曲面切向条件 + 平面平行条件）的叉积，写出来最省力。",
+          "把方向代回 $u^{2}+v^{2}-w^{2}=0$，再用曲面方程与平面方程消去 $x_0,y_0,z_0$，剩下的就是字母关系。",
+          "单叶双曲面、双曲抛物面都有直母线，这两题（36、37）是同一模板，只是二次型不同。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>充要条件为 $A^{2}+B^{2}=C^{2}+D^{2}$",
+      "concl": "<b>结论</b>条件为 $A^{2}+B^{2}=C^{2}+D^{2}$（必要性由上述推导给出；充分性可反向取直母线验证）。",
+      "formulasUsed": [
+        {
+          "name": "直线参数式（过曲面上一点 $P(x_0,y_0,z_0)$）",
+          "latex": "$$\\begin{cases}x=x_0+ut,\\\\ y=y_0+vt,\\\\ z=z_0+wt\\end{cases}\\qquad (u,v,w)\\ne\\boldsymbol{0}$$"
+        },
+        {
+          "name": "代入曲面得关于 $t$ 的恒等式",
+          "latex": "$$\\left(u^{2}+v^{2}-w^{2}\\right)t^{2}+2\\left(x_0u+y_0v-z_0w\\right)t=0$$"
+        },
+        {
+          "name": "恒等式 ⟹ 两个系数都为零",
+          "latex": "$$u^{2}+v^{2}-w^{2}=0,\\qquad x_0u+y_0v-z_0w=0$$"
+        },
+        {
+          "name": "直线在平面上 ⟹ 方向与法向内积为零",
+          "latex": "$$Au+Bv+Cw=0$$"
+        },
+        {
+          "name": "解出方向并代入，化简得条件",
+          "latex": "$$A^{2}+B^{2}=C^{2}+D^{2}$$"
+        }
+      ]
+    },
+    {
+      "seq": 37,
+      "number": "题 37",
+      "title": "同模板换二次型：$u^{2}=v^{2}$",
+      "chapter": 5,
+      "stemHtml": "证明：平面 $Ax+By+Cz+D=0$ 与双曲抛物面 $x^{2}-y^{2}=2z$ 的交线为两条直线的充要条件是 $A^{2}-B^{2}-2CD=0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：把 36 题的操作原样再做一遍</h3>\n  <p>【看到「又是『平面截二次曲面得两直线』」→ 调用「参数代入 + 恒等式 + 方向叉积」】。与题 36 唯一的区别是：这里的一次项里 $z$ 只出现一次，所以第二个系数变成 $x_0u-y_0v-w=0$，可以直接把 $w$ 用 $u,v$ 表示，比 36 题还省一步。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：代入曲面，取两个条件</h3>\n  <p>$(x_0+ut)^{2}-(y_0+vt)^{2}=2(z_0+wt)$ 对一切 $t$ 成立：</p>\n  <div class=\"fm\">$$u^{2}-v^{2}=0,\\qquad x_0u-y_0v=w.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：方向由平面条件定</h3>\n  <p>由 $Au+Bv+Cw=0$ 与 $x_0u-y_0v-w=0$ 联立，取叉积方向</p>\n  <div class=\"fm\">$$(u,v,w)=k\\left(-B-Cy_0,\\ A-Cx_0,\\ -Ay_0-Bx_0\\right)\\cdot(-1),$$</div>\n  <p>即 $(u,v,w)=k\\left(-B+Cy_0,\\ A-Cx_0,\\ -Ay_0-Bx_0\\right)$ 的一支（符号整体可调，不影响结论）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：代回并整理</h3>\n  <p>由 $u^{2}=v^{2}$：$\\left(-B+Cy_0\\right)^{2}=\\left(A-Cx_0\\right)^{2}$。展开并用 $Ax_0+By_0+Cz_0=-D$、$x_0^{2}-y_0^{2}=2z_0$ 消去 $x_0,y_0,z_0$，交叉项与二次项逐项抵消，只剩</p>\n  <div class=\"fm\">$$A^{2}-B^{2}-2CD=0.$$</div>\n  <p class=\"concl\"><b>结论</b>充要条件 $A^{2}-B^{2}-2CD=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「单叶双曲面 / 双曲抛物面 + 平面截出直线」，按这个顺序出牌：",
+        "items": [
+          "两个曲面都有直母线，处理方式完全一致：参数代入得恒等式，系数归零。",
+          "注意二次型差异：$x^{2}+y^{2}-z^{2}$ 给 $u^{2}+v^{2}-w^{2}=0$；$x^{2}-y^{2}=2z$ 给 $u^{2}-v^{2}=0$ 且 $w$ 可显式解出。",
+          "方向由「平面平行」+「曲面切向」两式叉乘得到，再代回二次条件。",
+          "结论里出现 $D$（常数项）而不是 $C^{2}$，是因为消元时用到 $Ax_0+By_0+Cz_0=-D$，这是两题的共同特征。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>充要条件 $A^{2}-B^{2}-2CD=0$",
+      "concl": "<b>结论</b>充要条件 $A^{2}-B^{2}-2CD=0$。",
+      "formulasUsed": [
+        {
+          "name": "直线参数式与曲面上一点",
+          "latex": "$$\\begin{cases}x=x_0+ut,\\ y=y_0+vt,\\ z=z_0+wt\\end{cases},\\qquad x_0^{2}-y_0^{2}=2z_0$$"
+        },
+        {
+          "name": "代入后的恒等式",
+          "latex": "$$\\left(u^{2}-v^{2}\\right)t^{2}+2\\left(x_0u-y_0v-w\\right)t=0$$"
+        },
+        {
+          "name": "两个系数归零",
+          "latex": "$$u^{2}=v^{2},\\qquad x_0u-y_0v=w$$"
+        },
+        {
+          "name": "平面内的方向条件",
+          "latex": "$$Au+Bv+Cw=0\\ \\Longrightarrow\\ (u,v,w)=k\\left(-B+Cy_0,\\ A+Cx_0,\\ -Ay_0-Bx_0\\right)$$"
+        },
+        {
+          "name": "代回 $u^{2}=v^{2}$ 并化简",
+          "latex": "$$A^{2}-B^{2}-2CD=0$$"
+        }
+      ]
+    },
+    {
+      "seq": 38,
+      "number": "题 38",
+      "title": "切点处的垂直平面 · 三弦平方和的定值",
+      "chapter": 5,
+      "stemHtml": "在直角坐标系中，球面 $S$ 与直线 $L_1:\\dfrac{x-1}{3}=\\dfrac{y+4}{6}=\\dfrac{z-6}{4}$ 相切于点 $A(1,-4,6)$，与直线 $L_2:\\dfrac{x-4}{2}=\\dfrac{y+3}{1}=\\dfrac{z-2}{-6}$ 相切于点 $B(4,-3,2)$。\n  <br>(1) 求球面 $S$ 的方程；\n  <br>(2) 设点 $P$ 为球面 $S$ 上的动点，过点 $P$ 任作三条两两垂直的弦，长度分别为 $a,b,c$，求证 $a^{2}+b^{2}+c^{2}$ 为定值。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：(1) 球心 = 两张垂直平面的交线 ∩ 等距面</h3>\n  <p>【看到「球与直线相切于某点」→ 调用「球心在该点处垂直于直线的平面上」】。切点处半径与切线垂直，所以球心必在「过切点、以切线方向为法向」的平面上。两个切点给两张平面，交线是一条直线；再叠加 $|QA|=|QB|$，球心就被唯一确定，半径随之得出。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：两张垂直平面</h3>\n  <div class=\"fm\">$$\\Pi_1:\\ 3x+6y+4z-3=0,\\qquad \\Pi_2:\\ 2x+y-6z+7=0.$$</div>\n  <p>（$\\Pi_1$：$3(x-1)+6(y+4)+4(z-6)=0$ 展开；$\\Pi_2$：$2(x-4)+(y+3)-6(z-2)=0$ 展开。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：等距条件定球心</h3>\n  <p>把 $\\Pi_1,\\Pi_2$ 联立消元，并令 $|QA|^{2}=|QB|^{2}$：</p>\n  <div class=\"fm\">$$(x-1)^{2}+(y+4)^{2}+(z-6)^{2}=(x-4)^{2}+(y+3)^{2}+(z-2)^{2}\\ \\Longrightarrow\\ 3x-7y+4z+23=0.$$</div>\n  <p>三式联立解得球心 $Q(-5,3,0)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：半径与方程</h3>\n  <div class=\"fm\">$$r=|QA|=\\sqrt{(-6)^{2}+7^{2}+(-6)^{2}}=\\sqrt{121}=11,$$</div>\n  <div class=\"fm\">$$S:\\ (x+5)^{2}+(y-3)^{2}+z^{2}=121.$$</div>\n  <p>验算：$|QB|=\\sqrt{(-9)^{2}+6^{2}+(-2)^{2}}=\\sqrt{121}=11$ ✓，两处都相切。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第四步：(2) 平移旋转，把三条弦摆到坐标轴上</h3>\n  <p>把球心平移到原点（$r=11$ 不变），再旋转坐标系，使三条两两垂直的弦分别平行于 $x,y,z$ 轴。设 $P(x,y,z)$ 在球面上，则三条弦的另一端点为</p>\n  <div class=\"fm\">$$E(-x,y,z),\\qquad G(x,-y,z),\\qquad H(x,y,-z).$$</div>\n  <p>（因为弦过 $P$ 且沿坐标轴方向，球心在原点时，弦的中点投影即为对称点。）于是</p>\n  <div class=\"fm\">$$a^{2}+b^{2}+c^{2}=|PE|^{2}+|PG|^{2}+|PH|^{2}=4x^{2}+4y^{2}+4z^{2}=4\\left(x^{2}+y^{2}+z^{2}\\right)=4\\cdot121=484.$$</div>\n  <p class=\"concl\"><b>结论</b>(1) $(x+5)^{2}+(y-3)^{2}+z^{2}=121$；(2) $a^{2}+b^{2}+c^{2}=484$ 为定值。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「球与直线相切于定点」，按这个顺序出牌：",
+        "items": [
+          "切点 + 切线方向 = 一张平面（法向取切线方向），球心必在其上；两个切点给两张平面。",
+          "再加等距条件 $|QA|=|QB|$，三式联立即得球心，不必设参数。",
+          "「三条两两垂直的弦」用平移 + 旋转化为坐标轴方向，长度平方直接变成 $4x^{2},4y^{2},4z^{2}$。",
+          "定值题最后一步一定用「$P$ 在球面上」把 $x^{2}+y^{2}+z^{2}$ 换成 $r^{2}$，这是收口的关键。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>(1) $(x+5)^{2}+(y-3)^{2}+z^{2}=121$；(2) $a^{2}+b^{2}+c^{2}=484$",
+      "concl": "<b>结论</b>(1) $(x+5)^{2}+(y-3)^{2}+z^{2}=121$；(2) $a^{2}+b^{2}+c^{2}=484$ 为定值。",
+      "formulasUsed": [
+        {
+          "name": "球与直线切于 $A$ ⟹ 球心在「过 $A$ 且垂直于 $L_1$ 的平面」上",
+          "latex": "$$\\Pi_1:\\ 3(x-1)+6(y+4)+4(z-6)=0$$"
+        },
+        {
+          "name": "同理球心在过 $B$ 垂直于 $L_2$ 的平面",
+          "latex": "$$\\Pi_2:\\ 2(x-4)+(y+3)-6(z-2)=0$$"
+        },
+        {
+          "name": "$|QA|=|QB|=r$",
+          "latex": "$$(x-1)^{2}+(y+4)^{2}+(z-6)^{2}=(x-4)^{2}+(y+3)^{2}+(z-2)^{2}$$"
+        },
+        {
+          "name": "球面方程",
+          "latex": "$$(x+5)^{2}+(y-3)^{2}+z^{2}=121$$"
+        },
+        {
+          "name": "三条两两垂直的弦：平移 + 旋转到坐标轴方向",
+          "latex": "$$a^{2}+b^{2}+c^{2}=4\\left(x^{2}+y^{2}+z^{2}\\right)=4r^{2}=484$$"
+        }
+      ]
+    },
+    {
+      "seq": 39,
+      "number": "题 39",
+      "title": "先求投影线，再按「绕轴半径不变」转",
+      "chapter": 5,
+      "stemHtml": "设 $L_0$ 是直线 $L:\\dfrac{x-1}{1}=\\dfrac{y}{1}=\\dfrac{z-1}{-1}$ 在平面 $\\pi:x-y+2z-1=0$ 上的投影直线，求 $L_0$ 绕 $y$ 轴旋转所成旋转曲面的方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：两件事分开做——先「投影」，再「旋转」</h3>\n  <p>【看到「直线在平面上的投影」→ 调用「过该直线且垂直已知平面的辅助平面，两平面交线即投影」】。投影线求出后，绕 $y$ 轴旋转用标准套路：母线上的点与旋转后的点共享 $y$ 和到轴的距离。整题就是「求一张平面 + 消一次参数」。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：造投影平面并求投影线</h3>\n  <p>$L$ 过 $(1,0,1)$、方向 $(1,1,-1)$；$\\pi$ 的法向 $(1,-1,2)$。取</p>\n  <div class=\"fm\">$$\\boldsymbol{n}_0=(1,-1,2)\\times(1,1,-1)=(-1,3,2)\\ \\Longrightarrow\\ \\pi_0:\\ x-3y-2z+1=0.$$</div>\n  <p>$L_0=\\pi\\cap\\pi_0$：两式相加消 $y$：$2x+?$ 直接解——由 $\\pi$ 得 $x+2z=1+y$，由 $\\pi_0$ 得 $x-2z=3y-1$，相加 $2x=4y$，相减 $4z=2-2y$：</p>\n  <div class=\"fm\">$$L_0:\\ x=2y,\\qquad z=\\frac{1-y}{2}.$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：绕 $y$ 轴旋转</h3>\n  <p>母线上点 $(2t,\\ t,\\ \\frac{1-t}{2})$，其到 $y$ 轴的距离平方</p>\n  <div class=\"fm\">$$R^{2}=x^{2}+z^{2}=4t^{2}+\\frac{\\left(1-t\\right)^{2}}{4}.$$</div>\n  <p>旋转后 $y=t$、$x^{2}+z^{2}=R^{2}$：</p>\n  <div class=\"fm\">$$x^{2}+z^{2}=4y^{2}+\\frac{\\left(1-y\\right)^{2}}{4}\\ \\Longrightarrow\\ 4x^{2}+4z^{2}=16y^{2}+\\left(1-2y+y^{2}\\right).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：整理成标准形式</h3>\n  <div class=\"fm\">$$4x^{2}-17y^{2}+4z^{2}+2y-1=0.$$</div>\n  <p>这是单叶旋转双曲面（$y$ 方向为虚轴方向），$y=0$ 处截出 $4x^{2}+4z^{2}=1$，半径为 $\\frac12$，与母线在 $y=0$ 时的位置一致。</p>\n  <p class=\"concl\"><b>结论</b>$4x^{2}-17y^{2}+4z^{2}+2y-1=0$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「投影直线再旋转」，按这个顺序出牌：",
+        "items": [
+          "投影线 = 「过原直线且垂直目标平面」的平面 ∩ 目标平面，法向取 $\\boldsymbol{n}\\times\\boldsymbol{\\tau}$。",
+          "求交线时先把两式化成「$x$、$z$ 用 $y$ 表示」，因为绕 $y$ 轴旋转最需要这个形式。",
+          "旋转只需 $x^{2}+z^{2}\\to$ 常数，$y$ 保持；半径用母线上的参数表达，再回代 $y$。",
+          "最后清分母、按 $x,y,z$ 顺序排列，便于判断曲面类型（本题 $y^{2}$ 系数为负，是双曲面）。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$4x^{2}-17y^{2}+4z^{2}+2y-1=0$",
+      "concl": "<b>结论</b>$4x^{2}-17y^{2}+4z^{2}+2y-1=0$。",
+      "formulasUsed": [
+        {
+          "name": "投影平面 $\\pi_0$：过 $L$ 且垂直于 $\\pi$",
+          "latex": "$$\\boldsymbol{n}_0=\\boldsymbol{n}\\times\\boldsymbol{\\tau}=(1,-1,2)\\times(1,1,-1)=(-1,3,2)$$"
+        },
+        {
+          "name": "$\\pi_0$ 的方程（过 $L$ 上的点 $(1,0,1)$）",
+          "latex": "$$-(x-1)+3y+2(z-1)=0\\ \\Longrightarrow\\ x-3y-2z+1=0$$"
+        },
+        {
+          "name": "投影直线 $L_0=\\pi\\cap\\pi_0$，解出用 $y$ 表示",
+          "latex": "$$x=2y,\\qquad z=\\frac{1-y}{2}$$"
+        },
+        {
+          "name": "绕 $y$ 轴旋转：$y$ 不变，$x^{2}+z^{2}$ 不变",
+          "latex": "$$x^{2}+z^{2}=4y^{2}+\\frac{\\left(1-y\\right)^{2}}{4}$$"
+        }
+      ]
+    },
+    {
+      "seq": 40,
+      "number": "题 40",
+      "title": "「点 + 线」定平面 · 方向由两平面法向叉乘",
+      "chapter": 5,
+      "stemHtml": "求过点 $A(3,0,-2)$ 且与直线 $L:\\begin{cases}2x-y-6=0,\\\\ x-2y+z-2=0\\end{cases}$ 相交，又平行于平面 $\\pi:2x+y-z-4=0$ 的直线方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>怎么入手：先「锁平面」，再「在平面内挑方向」</h3>\n  <p>【看到「过定点、与定直线相交」→ 调用「点 + 线定平面」；「平行于定平面」→ 调用「方向 ⊥ 该平面法向」】。所求直线被两个条件夹住：它必须躺在「$A$ 与 $L$ 所定的平面」内，同时方向要垂直于 $\\pi$ 的法向。平面内、又垂直于 $\\boldsymbol{n}_\\pi$ 的方向，正是两法向的叉积。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第一步：写 $L$ 的点与方向，定出平面</h3>\n  <p>取 $L$ 上一点：令 $y=-2$，则 $2x+2-6=0\\Rightarrow x=2$；$2+4+z-2=0\\Rightarrow z=-4$，即 $P(2,-2,-4)$。方向</p>\n  <div class=\"fm\">$$\\boldsymbol{\\tau}_L=(2,-1,0)\\times(1,-2,1)=(1,2,3).$$</div>\n  <p>过 $A(3,0,-2)$ 与 $L$ 的平面：法向 $\\boldsymbol{\\tau}_L\\times\\overrightarrow{PA}$，其中 $\\overrightarrow{PA}=(1,2,2)$，</p>\n  <div class=\"fm\">$$(1,2,3)\\times(1,2,2)=(-2,1,0)\\ \\Longrightarrow\\ 2x-y-6=0.$$</div>\n  <p>（该平面恰是 $L$ 的第一张平面，因 $A$ 也满足 $2\\cdot3-0-6=0$。）</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：在平面内取「⊥ $\\pi$ 法向」的方向</h3>\n  <div class=\"fm\">$$\\boldsymbol{\\tau}=(2,-1,0)\\times(2,1,-1)=\\left(1\\cdot(-1)-0\\cdot1,\\ 0\\cdot2-2\\cdot(-1),\\ 2\\cdot1-(-1)\\cdot2\\right)=(1,2,4).$$</div>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：写方程并验算</h3>\n  <div class=\"fm\">$$\\frac{x-3}{1}=\\frac{y}{2}=\\frac{z+2}{4}.$$</div>\n  <p>验算：方向与 $(2,1,-1)$ 内积 $=2+2-4=0$ ✓（平行 $\\pi$）；与 $(2,-1,0)$ 内积 $=2-2=0$ ✓（在平面内，故与 $L$ 共面且不平行，必相交）。</p>\n  <p class=\"concl\"><b>结论</b>所求直线 $\\dfrac{x-3}{1}=\\dfrac{y}{2}=\\dfrac{z+2}{4}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "看到「过点、与定直线相交、平行于定平面」，按这个顺序出牌：",
+        "items": [
+          "「相交」先化成「躺在一张平面内」——过该点与该直线定平面，这是唯一可行的降维。",
+          "「平行于平面」化成「方向 ⊥ 法向」，与「在平面内」一起，用两法向叉积直接得到方向。",
+          "不要设交点解四个方程：方向定了，交点自然存在，最后回代两个内积即可验证。",
+          "若 $A$ 恰在 $L$ 上，题设不成立（过 $A$ 的任意直线都与 $L$ 相交），须另判；本题 $A\\notin L$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{x-3}{1}=\\dfrac{y}{2}=\\dfrac{z+2}{4}$，也可写成 $\\begin{cases}2x+y-z-8=0,\\\\ 2x-y-6=0\\end{cases}$",
+      "concl": "<b>结论</b>所求直线 $\\dfrac{x-3}{1}=\\dfrac{y}{2}=\\dfrac{z+2}{4}$。",
+      "formulasUsed": [
+        {
+          "name": "$L$ 上一点与方向",
+          "latex": "$$P(2,-2,-4),\\qquad \\boldsymbol{\\tau}_L=\\boldsymbol{n}_1\\times\\boldsymbol{n}_2=(2,-1,0)\\times(1,-2,1)=(1,2,3)$$"
+        },
+        {
+          "name": "过 $A$ 与 $L$ 的平面（所求直线必在其上）",
+          "latex": "$$\\boldsymbol{n}=\\boldsymbol{\\tau}_L\\times\\overrightarrow{PA}=(1,2,3)\\times(1,2,2)=(-2,1,0)$$"
+        },
+        {
+          "name": "平行于 $\\pi$ ⟹ 方向 ⊥ 平面法向",
+          "latex": "$$\\boldsymbol{n}_\\pi=(2,1,-1),\\qquad \\boldsymbol{\\tau}\\cdot\\boldsymbol{n}_\\pi=0$$"
+        },
+        {
+          "name": "方向 = 两法向叉乘",
+          "latex": "$$\\boldsymbol{\\tau}=(2,-1,0)\\times(2,1,-1)=(1,2,4)$$"
+        }
+      ]
+    }
+  ]
+}

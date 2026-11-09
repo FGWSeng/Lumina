@@ -1537,3 +1537,17 @@ button { font: inherit; color: inherit; }
 .hint-arrow { transition: transform .15s; }
 .hint.open .hint-arrow { transform: rotate(180deg); }
 .hint-body { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* 同类题分组 */
+.similar-group + .similar-group { border-top: 1px dashed var(--line); margin-top: 4px; padding-top: 6px; }
+.similar-group-title {
+  font-size: 12px; font-weight: 700; color: var(--brand);
+  padding: 6px 10px 2px; letter-spacing: .04em;
+}
+
+/* 同类题分组 */
+.similar-group + .similar-group { border-top: 1px dashed var(--line); margin-top: 4px; padding-top: 6px; }
+.similar-group-title {
+  font-size: 12px; font-weight: 700; color: var(--brand);
+  padding: 6px 10px 2px; letter-spacing: .04em;
+}

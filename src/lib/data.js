@@ -50,7 +50,11 @@ export function filterQuestions(list, { subject, group, category, type, year, ta
     if (group && item.group !== group) return false
     if (category && item.category !== category) return false
     if (type && item.type !== type) return false
-    if (year && item.year !== Number(year)) return false
+    if (year) {
+      if (category === 'training') {
+        if (item.chapter !== Number(year)) return false
+      } else if (item.year !== Number(year)) return false
+    }
     if (tag && !(item.tags || []).includes(tag)) return false
     if (kw) {
       const hay = `${item.title} ${item.stem} ${(item.tags || []).join(' ')} ${item.search}`.toLowerCase()
