@@ -8,18 +8,27 @@ import QuestionNotes from './QuestionNotes'
 import SimilarQuestions from './SimilarQuestions'
 import PickButton from './PickButton'
 
-export default function SingleQuestion({ list, currentId, onSelect }) {
+export default function SingleQuestion({ list, currentId, onSelect, initialOpen, onOpenChange }) {
   useStore()
   const idx = Math.max(0, list.findIndex((q) => q.id === currentId))
   const q = list[idx] || list[0]
   const [detail, setDetail] = useState(null)
-  const [showAnswer, setShowAnswer] = useState(false)
-  const [showExplain, setShowExplain] = useState(false)
-  const [showFormulas, setShowFormulas] = useState(false)
+  const [showAnswer, setShowAnswer] = useState(!!initialOpen?.answer)
+  const [showExplain, setShowExplain] = useState(!!initialOpen?.explain)
+  const [showFormulas, setShowFormulas] = useState(!!initialOpen?.formulas)
   const [showNotes, setShowNotes] = useState(false)
+  const firstRef = useRef(true)
   const navigate = useNavigate()
   const answerRef = useRef(null)
   const explainRef = useRef(null)
+
+  useEffect(() => {
+    onOpenChange?.({ answer: showAnswer, explain: showExplain, formulas: showFormulas })
+  }, [showAnswer, showExplain, showFormulas])
+
+  useEffect(() => {
+    onOpenChange?.({ answer: showAnswer, explain: showExplain, formulas: showFormulas })
+  }, [showAnswer, showExplain, showFormulas])
 
   useEffect(() => {
     if (q && q.id !== currentId) onSelect(q.id, true)
@@ -29,10 +38,14 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
     if (!q) return
     let alive = true
     setDetail(null)
-    setShowAnswer(false)
-    setShowExplain(false)
-    setShowFormulas(false)
-    setShowNotes(false)
+    if (firstRef.current) {
+      firstRef.current = false
+    } else {
+      setShowAnswer(false)
+      setShowExplain(false)
+      setShowFormulas(false)
+      setShowNotes(false)
+    }
     getQuestion(q.id)
       .then((d) => alive && setDetail(d))
       .catch(() => {})

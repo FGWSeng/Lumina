@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ChevronRight, Filter, Search, X } from 'lucide-react'
 import { filterQuestions, findSubject, getLibrary } from '../lib/data'
 import { Empty, QuestionListItem } from '../components/ui'
 import SingleQuestion from '../components/SingleQuestion'
+import { loadProgress, saveProgress } from '../lib/progress'
 
 const PER_PAGE = 20
 
@@ -30,6 +31,34 @@ export default function Subject() {
   const page = Math.max(1, Number(params.get('page') || 1))
   const view = params.get('view') === 'list' ? 'list' : 'single'
   const currentId = params.get('id') || ''
+  const [openState, setOpenState] = useState(() => {
+    const p = loadProgress()
+    return { answer: !!p?.answer, explain: !!p?.explain, formulas: !!p?.formulas }
+  })
+  const restoredRef = useRef(false)
+
+  useEffect(() => {
+    if (!lib || restoredRef.current) return
+    restoredRef.current = true
+    const keys = ['id', 'cat', 'year', 'type', 'tag', 'q', 'page', 'view']
+    if (keys.some((k) => params.get(k))) return
+    const saved = loadProgress()
+    if (!saved) return
+    if (!lib.questions.some((x) => x.id === saved.id)) return
+    const p = new URLSearchParams()
+    p.set('id', saved.id)
+    if (saved.cat) p.set('cat', saved.cat)
+    if (saved.year) p.set('year', saved.year)
+    if (saved.type) p.set('type', saved.type)
+    if (saved.tag) p.set('tag', saved.tag)
+    if (saved.q) p.set('q', saved.q)
+    setParams(p, { replace: true })
+  }, [lib])
+
+  useEffect(() => {
+    if (!lib || !currentId || view !== 'single') return
+    saveProgress({ id: currentId, cat: catId, year, type, tag, q, ...openState })
+  }, [lib, currentId, view, catId, year, type, tag, q, openState])
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -264,7 +293,13 @@ export default function Subject() {
         </div>
 
         {view === 'single' ? (
-          <SingleQuestion list={list} currentId={currentId} onSelect={selectId} />
+          <SingleQuestion
+            list={list}
+            currentId={currentId}
+            onSelect={selectId}
+            initialOpen={openState}
+            onOpenChange={setOpenState}
+          />
         ) : (
           <>
             <div className="row wrap" style={{ justifyContent: 'space-between', marginBottom: 10 }}>
