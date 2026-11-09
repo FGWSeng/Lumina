@@ -74,7 +74,7 @@ export default function Question() {
           <span className="sep">/</span>
           <Link to="/s/math">数学</Link>
           <span className="sep">/</span>
-          <span>{q?.year || '…'}</span>
+          <Link to="/outline">{q?.year || '…'}</Link>
           <span className="sep">/</span>
           <span style={{ color: 'var(--ink-2)' }}>{q?.number || '加载中'}</span>
         </div>

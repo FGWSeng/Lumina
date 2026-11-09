@@ -1805,3 +1805,47 @@ button { font: inherit; color: inherit; }
   .acc-items { grid-template-columns: repeat(2, 1fr); }
   .acc-del { opacity: 1; }
 }
+
+/* 题目目录 */
+.outline-wrap { max-width: 980px; margin: 0 auto; }
+.outline-hero { padding: 20px 0 16px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.outline-hero h1 { font-size: clamp(22px, 4vw, 30px); margin: 8px 0 6px; }
+.outline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.outline-section-title { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.out-group { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin-bottom: 8px; overflow: hidden; }
+.out-head { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 13px; border: 0; background: none; cursor: pointer; text-align: left; }
+.out-head:hover { background: var(--surface-2); }
+.out-name { flex: 1; font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.out-count { font-size: 12px; color: var(--brand); background: var(--brand-soft); padding: 2px 8px; border-radius: 6px; font-variant-numeric: tabular-nums; }
+.out-arrow { color: var(--muted); transition: transform .15s; }
+.out-group.open .out-arrow { transform: rotate(180deg); }
+.out-list { border-top: 1px solid var(--line); padding: 6px; display: flex; flex-direction: column; gap: 1px; max-height: 340px; overflow-y: auto; }
+.out-item { display: flex; gap: 10px; padding: 7px 8px; border-radius: 7px; text-decoration: none; color: var(--ink-2); font-size: 12.5px; }
+.out-item:hover { background: var(--brand-soft); color: var(--brand); }
+.out-no { flex: none; color: var(--muted); font-size: 11.5px; min-width: 48px; }
+.out-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pos-link { border: 0; background: none; cursor: pointer; font-size: 13px; color: var(--muted); padding: 4px 8px; border-radius: 6px; font-variant-numeric: tabular-nums; }
+.pos-link:hover { color: var(--brand); background: var(--brand-soft); }
+@media (max-width: 860px) { .outline-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+/* 题目目录 */
+.outline-wrap { max-width: 980px; margin: 0 auto; }
+.outline-hero { padding: 20px 0 16px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.outline-hero h1 { font-size: clamp(22px, 4vw, 30px); margin: 8px 0 6px; }
+.outline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.outline-section-title { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.out-group { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin-bottom: 8px; overflow: hidden; }
+.out-head { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 13px; border: 0; background: none; cursor: pointer; text-align: left; }
+.out-head:hover { background: var(--surface-2); }
+.out-name { flex: 1; font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.out-count { font-size: 12px; color: var(--brand); background: var(--brand-soft); padding: 2px 8px; border-radius: 6px; font-variant-numeric: tabular-nums; }
+.out-arrow { color: var(--muted); transition: transform .15s; }
+.out-group.open .out-arrow { transform: rotate(180deg); }
+.out-list { border-top: 1px solid var(--line); padding: 6px; display: flex; flex-direction: column; gap: 1px; max-height: 340px; overflow-y: auto; }
+.out-item { display: flex; gap: 10px; padding: 7px 8px; border-radius: 7px; text-decoration: none; color: var(--ink-2); font-size: 12.5px; }
+.out-item:hover { background: var(--brand-soft); color: var(--brand); }
+.out-no { flex: none; color: var(--muted); font-size: 11.5px; min-width: 48px; }
+.out-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pos-link { border: 0; background: none; cursor: pointer; font-size: 13px; color: var(--muted); padding: 4px 8px; border-radius: 6px; font-variant-numeric: tabular-nums; }
+.pos-link:hover { color: var(--brand); background: var(--brand-soft); }
+@media (max-width: 860px) { .outline-grid { grid-template-columns: 1fr; gap: 20px; } }

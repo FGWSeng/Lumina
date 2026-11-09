@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Bookmark, BookmarkCheck, Eye, Lightbulb, ListChecks, Sigma, StickyNote } from 'lucide-react'
 import { getQuestion } from '../lib/data'
 import { Difficulty, Hint } from './ui'
@@ -16,6 +17,7 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
   const [showExplain, setShowExplain] = useState(false)
   const [showFormulas, setShowFormulas] = useState(false)
   const [showNotes, setShowNotes] = useState(false)
+  const navigate = useNavigate()
   const answerRef = useRef(null)
   const explainRef = useRef(null)
 
@@ -192,9 +194,9 @@ export default function SingleQuestion({ list, currentId, onSelect }) {
         <button className="btn sm" disabled={idx <= 0} onClick={() => idx > 0 && onSelect(list[idx - 1].id)}>
           <ArrowLeft size={14} /> 上一题
         </button>
-        <span className="pos">
+        <button className="pos pos-link" onClick={() => navigate('/outline')} title="打开目录选题">
           {idx + 1} / {list.length}
-        </span>
+        </button>
         <button className="btn sm" disabled={idx >= list.length - 1} onClick={() => onSelect(list[idx + 1].id)}>
           下一题 <ArrowRight size={14} />
         </button>

@@ -192,7 +192,7 @@ export default function Subject() {
           <span className="sep">/</span>
           <span style={{ color: 'var(--ink-2)' }}>{group?.name}</span>
           <span className="sep">/</span>
-          <span style={{ color: 'var(--ink-2)' }}>{category?.name}</span>
+          <Link to="/outline" style={{ color: 'var(--ink-2)' }}>{category?.name}</Link>
         </div>
 
         <div className="row page-head" style={{ justifyContent: 'space-between', marginBottom: 14, alignItems: 'flex-end' }}>
