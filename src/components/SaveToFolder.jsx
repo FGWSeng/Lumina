@@ -63,7 +63,13 @@ export default function SaveToFolder({ note, onClose, onSaved }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'same-origin',
-      body: JSON.stringify({ kind: 'image', mime: blob.type || 'image/jpeg', data, title: note.title || '', questionId: note.questionId || '' }),
+      body: JSON.stringify({
+        kind: 'image',
+        mime: blob.type || 'image/jpeg',
+        data,
+        title: note.title || '截图',
+        questionId: note.questionId || '',
+      }),
     })
     const d = await r.json().catch(() => ({}))
     if (!r.ok) throw new Error(d.error || '保存失败')
