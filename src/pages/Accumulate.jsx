@@ -2,15 +2,21 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ChevronDown,
   ChevronRight,
+  ExternalLink,
   FileText,
   Folder,
   FolderOpen,
   FolderPlus,
+  GripVertical,
   ImagePlus,
+  ListOrdered,
   Pencil,
+  RotateCcw,
+  RotateCw,
   Trash2,
   X,
 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useUser } from '../lib/auth'
 import { renderRichText } from '../lib/richtext'
 
@@ -82,6 +88,17 @@ export default function Accumulate() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [dialog, setDialog] = useState(null)
+  const [sorting, setSorting] = useState(false)
+  const [order, setOrder] = useState([])
+  const [dragId, setDragId] = useState('')
+  const [toast, setToast] = useState('')
+  const [rotate, setRotate] = useState(null)
+  const [editItem, setEditItem] = useState(null)
+  const [editTitle, setEditTitle] = useState('')
+  const [editText, setEditText] = useState('')
+  const orderRef = useRef([])
+  const holdRef = useRef(null)
+  const startRef = useRef({ x: 0, y: 0 })
   const [preview, setPreview] = useState('')
   const inputRef = useRef(null)
 
@@ -210,25 +227,41 @@ export default function Accumulate() {
     await loadFolders()
   }
 
-  async function onPickImage(e) {
+  function onPickImage(e) {
     const files = [...(e.target.files || [])].filter((f) => /^image\//.test(f.type))
     e.target.value = ''
     if (!files.length || !currentId) return
+    setRotate({ file: files[0], angle: 0 })
+  }
+
+  async function uploadImage(file, angle) {
     setBusy(true)
     setError('')
     try {
-      for (const f of files) {
-        const blob = await compressImage(f)
-        const base64 = await blobToBase64(blob)
-        const r = await fetch(`/api/folders/${currentId}/items`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          credentials: 'same-origin',
-          body: JSON.stringify({ kind: 'image', mime: 'image/jpeg', data: base64 }),
-        })
-        const d = await r.json().catch(() => ({}))
-        if (!r.ok) throw new Error(d.error || '上传失败')
-      }
+      const bitmap = await createImageBitmap(file)
+      const swap = angle % 180 !== 0
+      const w = swap ? bitmap.height : bitmap.width
+      const h = swap ? bitmap.width : bitmap.height
+      const scale = Math.min(1, 1200 / Math.max(w, h))
+      const canvas = document.createElement('canvas')
+      canvas.width = Math.max(1, Math.round(w * scale))
+      canvas.height = Math.max(1, Math.round(h * scale))
+      const ctx = canvas.getContext('2d')
+      ctx.translate(canvas.width / 2, canvas.height / 2)
+      ctx.rotate((angle * Math.PI) / 180)
+      ctx.scale(scale, scale)
+      ctx.drawImage(bitmap, -bitmap.width / 2, -bitmap.height / 2)
+      const blob = await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.72))
+      const base64 = await blobToBase64(blob)
+      const r = await fetch(`/api/folders/${currentId}/items`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ kind: 'image', mime: 'image/jpeg', data: base64 }),
+      })
+      const d = await r.json().catch(() => ({}))
+      if (!r.ok) throw new Error(d.error || '上传失败')
+      setRotate(null)
       await loadItems(currentId)
       await loadFolders()
     } catch (err) {
@@ -237,6 +270,109 @@ export default function Accumulate() {
       setBusy(false)
     }
   }
+
+  function openEditItem(it) {
+    setEditItem(it)
+    setEditTitle(it.title || '')
+    setEditText(it.text || '')
+  }
+
+  function openEditItem(it) {
+    setEditItem(it)
+    setEditTitle(it.title || '')
+    setEditText(it.text || '')
+  }
+
+  async function saveEdit() {
+    if (!editItem) return
+    setBusy(true)
+    try {
+      const body = editItem.kind === 'text' ? { title: editTitle, text: editText } : { title: editTitle }
+      const r = await fetch(`/api/folder-items/${editItem.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify(body),
+      })
+      const d = await r.json().catch(() => ({}))
+      if (!r.ok) throw new Error(d.error || '保存失败')
+      setEditItem(null)
+      await loadItems(currentId)
+      setToast('已保存')
+      setTimeout(() => setToast(''), 1500)
+    } catch (e) {
+      setError(e.message)
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  function onDown(e, id) {
+    if (!sorting) return
+    startRef.current = { x: e.clientX, y: e.clientY }
+    clearTimeout(holdRef.current)
+    holdRef.current = setTimeout(() => {
+      setDragId(id)
+      if (navigator.vibrate) navigator.vibrate(12)
+    }, 380)
+  }
+
+  function onMove(e) {
+    if (!sorting) return
+    if (holdRef.current) {
+      const d = Math.hypot(e.clientX - startRef.current.x, e.clientY - startRef.current.y)
+      if (d > 8) {
+        clearTimeout(holdRef.current)
+        holdRef.current = null
+      }
+    }
+    if (!dragId) return
+    const rows = [...document.querySelectorAll('[data-acc-id]')]
+    let target = rows.length - 1
+    for (let i = 0; i < rows.length; i++) {
+      const r = rows[i].getBoundingClientRect()
+      if (e.clientY < r.top + r.height / 2) {
+        target = i
+        break
+      }
+    }
+    setOrder((prev) => {
+      const from = prev.findIndex((x) => x.id === dragId)
+      if (from === -1 || from === target) return prev
+      const next = [...prev]
+      const [item] = next.splice(from, 1)
+      next.splice(target, 0, item)
+      orderRef.current = next
+      return next
+    })
+  }
+
+  async function onUp() {
+    if (holdRef.current) {
+      clearTimeout(holdRef.current)
+      holdRef.current = null
+    }
+    if (!dragId) return
+    setDragId('')
+    try {
+      const ids = orderRef.current.map((x) => x.id)
+      await fetch(`/api/folders/${currentId}/items/reorder`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ ids }),
+      })
+      setToast('顺序已保存')
+      setTimeout(() => setToast(''), 1500)
+    } catch {
+      setError('保存顺序失败')
+    }
+  }
+
+  useEffect(() => {
+    setOrder(items)
+    orderRef.current = items
+  }, [items])
 
   async function deleteItem(id) {
     try {
@@ -364,6 +500,11 @@ export default function Accumulate() {
                 <button className="btn sm" onClick={() => setDialog({ type: 'text', id: current.id })} disabled={busy}>
                   <FileText size={15} /> 文字
                 </button>
+                {items.length > 1 && (
+                  <button className={`btn sm ${sorting ? 'on' : ''}`} onClick={() => setSorting((v) => !v)}>
+                    <ListOrdered size={15} /> {sorting ? '完成' : '排序'}
+                  </button>
+                )}
                 <button className="btn sm danger-ghost" onClick={() => setDialog({ type: 'delete', id: current.id })} disabled={busy}>
                   <Trash2 size={15} /> 删除
                 </button>
@@ -423,23 +564,53 @@ export default function Accumulate() {
                 <div className="small">可以上传照片，或添加一段文字。</div>
               </div>
             ) : (
-              <div className="acc-items">
-                {items.map((it) =>
-                  it.kind === 'image' ? (
-                    <div key={it.id} className="acc-item img">
-                      <img src={it.url} alt="照片" loading="lazy" onClick={() => setPreview(it.url)} />
-                      <button className="acc-del" onClick={() => setDialog({ type: 'itemDelete', id: it.id })} aria-label="删除">
-                        <Trash2 size={13} />
-                      </button>
-                    </div>
-                  ) : (
-                    <AccTextItem
-                      key={it.id}
-                      item={it}
-                      onDelete={() => setDialog({ type: 'itemDelete', id: it.id })}
-                    />
-                  ),
-                )}
+              <div className={`acc-items ${sorting ? 'sorting' : ''}`}>
+                {(sorting ? order : items).map((it) => (
+                  <div
+                    key={it.id}
+                    data-acc-id={it.id}
+                    className={`acc-row ${sorting ? 'sortable' : ''} ${dragId === it.id ? 'dragging' : ''}`}
+                    onPointerDown={(e) => onDown(e, it.id)}
+                    onPointerMove={onMove}
+                    onPointerUp={onUp}
+                    onPointerCancel={onUp}
+                  >
+                    {sorting && (
+                      <span className="note-grip" aria-hidden>
+                        <GripVertical size={15} />
+                      </span>
+                    )}
+                    {it.kind === 'image' ? (
+                      <div className="acc-item img">
+                        {it.title && <div className="acc-img-title">{it.title}</div>}
+                        <img src={it.url} alt="照片" loading="lazy" onClick={() => setPreview(it.url)} />
+                        <div className="acc-item-tools">
+                          {it.questionId && (
+                            <Link to={`/q/${it.questionId}`} className="acc-tool-btn" title="回到原题">
+                              <ExternalLink size={13} />
+                            </Link>
+                          )}
+                          <button className="acc-tool-btn" onClick={() => openEditItem(it)} title="编辑">
+                            <Pencil size={13} />
+                          </button>
+                          <button
+                            className="acc-tool-btn danger"
+                            onClick={() => setDialog({ type: 'itemDelete', id: it.id })}
+                            title="删除"
+                          >
+                            <Trash2 size={13} />
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <AccTextItem
+                        item={it}
+                        onDelete={() => setDialog({ type: 'itemDelete', id: it.id })}
+                        onEdit={() => openEditItem(it)}
+                      />
+                    )}
+                  </div>
+                ))}
               </div>
             )}
           </>
@@ -542,6 +713,73 @@ export default function Accumulate() {
           </div>
         )}
 
+        {toast && <div className="acc-toast">{toast}</div>}
+
+        {rotate && (
+          <div className="confirm-mask" onClick={() => setRotate(null)}>
+            <div className="confirm-box" onClick={(e) => e.stopPropagation()}>
+              <div className="confirm-title">需要旋转照片吗？</div>
+              <div className="confirm-text">手机竖拍有时会横向存储，旋转后再上传，预览方向即保存方向。</div>
+              <div className="rotate-actions">
+                <button
+                  className="btn sm"
+                  onClick={() => setRotate((r) => ({ ...r, angle: (r.angle + 270) % 360 }))}
+                >
+                  <RotateCcw size={14} /> 左转 90°
+                </button>
+                <button
+                  className="btn sm"
+                  onClick={() => setRotate((r) => ({ ...r, angle: (r.angle + 90) % 360 }))}
+                >
+                  <RotateCw size={14} /> 右转 90°
+                </button>
+              </div>
+              <div className="small muted" style={{ marginTop: 6 }}>
+                当前旋转：{rotate.angle}°
+              </div>
+              <div className="confirm-actions">
+                <button className="btn sm" onClick={() => setRotate(null)}>
+                  取消
+                </button>
+                <button className="btn sm primary" onClick={() => uploadImage(rotate.file, rotate.angle)} disabled={busy}>
+                  {busy ? '上传中…' : '按当前方向上传'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {editItem && (
+          <div className="confirm-mask" onClick={() => setEditItem(null)}>
+            <div className="confirm-box note-text-dialog" onClick={(e) => e.stopPropagation()}>
+              <div className="confirm-title">编辑内容</div>
+              <input
+                className="input"
+                placeholder="标题（可选）"
+                value={editTitle}
+                maxLength={60}
+                onChange={(e) => setEditTitle(e.target.value)}
+              />
+              {editItem.kind === 'text' && (
+                <textarea
+                  className="input note-textarea"
+                  rows={10}
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                />
+              )}
+              <div className="confirm-actions">
+                <button className="btn sm" onClick={() => setEditItem(null)}>
+                  取消
+                </button>
+                <button className="btn sm primary" onClick={saveEdit} disabled={busy}>
+                  {busy ? '保存中…' : '保存'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {preview && (
           <div className="note-preview" onClick={() => setPreview('')}>
             <img src={preview} alt="预览" />
@@ -555,27 +793,48 @@ export default function Accumulate() {
   )
 }
 
-function AccTextItem({ item, onDelete }) {
+function AccTextItem({ item, onDelete, onEdit }) {
   const [open, setOpen] = useState(true)
   const title = useMemo(() => {
+    if (item.title) return item.title
     const line = String(item.text || '')
       .split('\n')
       .map((x) => x.trim())
       .find(Boolean)
     return (line || '文字笔记').replace(/^[-#*\s]+/, '').slice(0, 40)
-  }, [item.text])
+  }, [item.title, item.text])
   return (
     <div className={`acc-item text ${open ? 'open' : 'collapsed'}`}>
       <div className="acc-text-head" onClick={() => setOpen((v) => !v)} role="button" tabIndex={0}>
         <span className="acc-text-title">{title}</span>
+        <button
+          className="acc-tool-btn"
+          onClick={(e) => {
+            e.stopPropagation()
+            onEdit()
+          }}
+          title="编辑"
+        >
+          <Pencil size={13} />
+        </button>
+        {item.questionId && (
+          <Link
+            to={`/q/${item.questionId}`}
+            className="acc-tool-btn"
+            onClick={(e) => e.stopPropagation()}
+            title="回到原题"
+          >
+            <ExternalLink size={13} />
+          </Link>
+        )}
         <ChevronDown size={14} className={`acc-text-arrow ${open ? 'rot' : ''}`} />
         <button
-          className="acc-del"
+          className="acc-tool-btn danger"
           onClick={(e) => {
             e.stopPropagation()
             onDelete()
           }}
-          aria-label="删除"
+          title="删除"
         >
           <Trash2 size={13} />
         </button>

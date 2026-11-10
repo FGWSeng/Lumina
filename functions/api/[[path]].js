@@ -108,7 +108,7 @@ export async function onRequest(context) {
     if (!user) return json({ error: '未登录' }, 401)
     const fid = folderItems[1]
     const rows = await env.DB.prepare(
-      'SELECT id, kind, text_content, mime, created_at FROM folder_items WHERE user_id = ? AND folder_id = ? ORDER BY created_at ASC',
+      'SELECT id, kind, text_content, mime, title, question_id, created_at FROM folder_items WHERE user_id = ? AND folder_id = ? ORDER BY sort_order ASC, created_at ASC',
     )
       .bind(user.id, fid)
       .all()
@@ -117,6 +117,8 @@ export async function onRequest(context) {
         id: r.id,
         kind: r.kind,
         text: r.text_content || '',
+        title: r.title || '',
+        questionId: r.question_id || '',
         mime: r.mime || '',
         createdAt: r.created_at,
         url: r.kind === 'image' ? `/api/items/${r.id}/file` : '',
@@ -134,14 +136,22 @@ export async function onRequest(context) {
     if (!folder) return json({ error: '文件夹不存在' }, 404)
     const body = await request.json().catch(() => ({}))
     const kind = String(body.kind || '')
+    const title = String(body.title || '').trim().slice(0, 60)
+    const questionId = body.questionId ? String(body.questionId).slice(0, 80) : ''
+    const maxRow = await env.DB.prepare(
+      'SELECT IFNULL(MAX(sort_order), 0) AS m FROM folder_items WHERE user_id = ? AND folder_id = ?',
+    )
+      .bind(user.id, fid)
+      .first()
+    const sortOrder = Number(maxRow?.m || 0) + 1
     if (kind === 'text') {
       const text = String(body.text || '').trim().slice(0, 5000)
       if (!text) return json({ error: '内容不能为空' }, 400)
       const id = crypto.randomUUID()
       await env.DB.prepare(
-        'INSERT INTO folder_items (id, user_id, folder_id, kind, text_content, mime, data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO folder_items (id, user_id, folder_id, kind, text_content, mime, data, created_at, title, question_id, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
       )
-        .bind(id, user.id, fid, 'text', text, '', '', Date.now())
+        .bind(id, user.id, fid, 'text', text, '', '', Date.now(), title, questionId, sortOrder)
         .run()
       return json({ id, kind: 'text', text })
     }
@@ -154,13 +164,55 @@ export async function onRequest(context) {
       if (bytes > MAX_BYTES) return json({ error: '图片超过 800KB，请压缩后再传' }, 413)
       const id = crypto.randomUUID()
       await env.DB.prepare(
-        'INSERT INTO folder_items (id, user_id, folder_id, kind, text_content, mime, data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO folder_items (id, user_id, folder_id, kind, text_content, mime, data, created_at, title, question_id, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
       )
-        .bind(id, user.id, fid, 'image', '', mime, data, Date.now())
+        .bind(id, user.id, fid, 'image', '', mime, data, Date.now(), title, questionId, sortOrder)
         .run()
       return json({ id, kind: 'image', url: `/api/items/${id}/file` })
     }
     return json({ error: '未知类型' }, 400)
+  }
+
+  const itemsReorder = path.match(/^\/folders\/([^/]+)\/items\/reorder$/)
+  if (itemsReorder && method === 'PATCH') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const body = await request.json().catch(() => ({}))
+    const ids = Array.isArray(body.ids) ? body.ids.slice(0, 500) : []
+    if (!ids.length) return json({ error: '缺少顺序' }, 400)
+    const stmts = ids.map((id, i) =>
+      env.DB.prepare('UPDATE folder_items SET sort_order = ? WHERE id = ? AND user_id = ?').bind(
+        i + 1,
+        String(id),
+        user.id,
+      ),
+    )
+    await env.DB.batch(stmts)
+    return json({ ok: true, count: stmts.length })
+  }
+
+  const itemEdit = path.match(/^\/folder-items\/([^/]+)$/)
+  if (itemEdit && method === 'PATCH') {
+    const user = await currentUser(request, env)
+    if (!user) return json({ error: '未登录' }, 401)
+    const row = await env.DB.prepare('SELECT kind FROM folder_items WHERE id = ? AND user_id = ?')
+      .bind(itemEdit[1], user.id)
+      .first()
+    if (!row) return json({ error: '内容不存在' }, 404)
+    const body = await request.json().catch(() => ({}))
+    const title = String(body.title || '').trim().slice(0, 60)
+    if (row.kind === 'text') {
+      const text = String(body.text || '').trim().slice(0, 5000)
+      if (!text) return json({ error: '内容不能为空' }, 400)
+      await env.DB.prepare('UPDATE folder_items SET title = ?, text_content = ? WHERE id = ? AND user_id = ?')
+        .bind(title, text, itemEdit[1], user.id)
+        .run()
+      return json({ ok: true, title, text })
+    }
+    await env.DB.prepare('UPDATE folder_items SET title = ? WHERE id = ? AND user_id = ?')
+      .bind(title, itemEdit[1], user.id)
+      .run()
+    return json({ ok: true, title })
   }
 
   const folderOne = path.match(/^\/folders\/([^/]+)$/)
