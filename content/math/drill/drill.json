@@ -1,0 +1,1635 @@
+{
+  "subject": "math",
+  "group": "competition",
+  "category": "drill",
+  "key": "drill",
+  "chapter": null,
+  "chapterName": "公式训练场",
+  "title": "公式训练场 · 108 题按公式大全逐章攻一遍",
+  "questions": [
+    {
+      "seq": 1,
+      "number": "第 1 题",
+      "title": "三角恒等 · 积化和差求和（Z06 Z11 同型）",
+      "stemHtml": "求 $S_n=\\sum_{k=1}^{n}\\sin kx$ 的闭式（$x\\neq 2m\\pi$）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$\\sum\\sin kx$、$x$ 成等差数列”→ 调用积化和差，造望远镜】</p>\r\n<p>这不是等差也不是等比，直接求和没有公式。破绽在于：角 $x,2x,\\dots,nx$ <b>等差</b>。等差角的三角和，一律靠“乘一个 $\\sin\\frac{d}{2}$（公差的一半）”把每项拆成两个余弦之差，让中间项整体对消。</p>\r\n<p>先算公差 $d=x$，所以两边同乘 $2\\sin\\frac{x}{2}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么乘这一项）</h3><p>因为 $2\\sin\\frac{x}{2}\\sin kx=\\cos\\left(k-\\frac12\\right)x-\\cos\\left(k+\\frac12\\right)x$：乘上去以后，第 $k$ 项的下标 $\\left(k-\\frac12\\right)$ 与第 $k-1$ 项的 $\\left((k-1)+\\frac12\\right)=k-\\frac12$ <b>刚好首尾相接</b>。求和的本质不是“算出来”，而是“让中间全部抵消，只剩头尾”——和裂项 $\\frac1{k(k+1)}$ 是同一个思想。</p>\r\n<p>所以整类题的套路是：<b>等差角的正弦/余弦和 = 乘半角正弦 → 积化和差 → 望远镜</b>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：乘 $2\\sin\\frac{x}{2}$。</b></p>\r\n<div class=\"fm\">$$2\\sin\\tfrac{x}{2}\\,S_n=\\sum_{k=1}^{n}2\\sin kx\\sin\\tfrac{x}{2}=\\sum_{k=1}^{n}\\left[\\cos\\left(k-\\tfrac12\\right)x-\\cos\\left(k+\\tfrac12\\right)x\\right]$$</div>\r\n<p><b>环节 2：望远镜对消。</b>把和式写开看首尾：</p>\r\n<div class=\"fm\">$$\\left[\\cos\\tfrac{x}{2}-\\cos\\tfrac{3x}{2}\\right]+\\left[\\cos\\tfrac{3x}{2}-\\cos\\tfrac{5x}{2}\\right]+\\cdots+\\left[\\cos\\left(n-\\tfrac12\\right)x-\\cos\\left(n+\\tfrac12\\right)x\\right]=\\cos\\tfrac{x}{2}-\\cos\\left(n+\\tfrac12\\right)x$$</div>\r\n<p><b>环节 3：把差化成积，再除回去。</b>用和差化积 $\\cos A-\\cos B=-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$：</p>\r\n<div class=\"fm\">$$\\cos\\tfrac{x}{2}-\\cos\\left(n+\\tfrac12\\right)x=2\\sin\\tfrac{nx}{2}\\sin\\tfrac{(n+1)x}{2}$$</div>\r\n<p><b>环节 4：除以 $2\\sin\\frac{x}{2}$。</b>$x\\neq2m\\pi$ 保证 $\\sin\\frac x2\\neq0$，可以除。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "看到“等差角的三角和”，不要试图逐项算，先问“公差是多少”，乘上公差一半的正弦（正弦和也乘正弦），一步做成望远镜。",
+          "和差化积与积化和差是同一组公式的两个方向：拆项用积化和差，收口用和差化积，中间靠下标首尾相接。",
+          "最后必须交代分母 $\\sin\\frac{x}{2}\\neq0$；凡是除以含参数的式子，条件不写就扣分。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$S_n=\\dfrac{\\sin\\frac{nx}{2}\\sin\\frac{(n+1)x}{2}}{\\sin\\frac{x}{2}}\\quad(x\\neq2m\\pi)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "积化和差（四条）",
+          "latex": "$2\\sin\\alpha\\sin\\beta=\\cos(\\alpha-\\beta)-\\cos(\\alpha+\\beta)$"
+        },
+        {
+          "name": "和差化积（四条）",
+          "latex": "$\\cos A-\\cos B=-2\\sin\\frac{A+B}{2}\\sin\\frac{A-B}{2}$"
+        },
+        {
+          "name": "裂项对消",
+          "latex": "$\\sum_{k=1}^{n}(b_k-b_{k+1})=b_1-b_{n+1}$"
+        }
+      ]
+    },
+    {
+      "seq": 2,
+      "number": "第 2 题",
+      "title": "不等式放缩 · 平方和 / AM-GM 串联（Z04 Z10 同型）",
+      "stemHtml": "设 $a,b,c\\gt0$ 且 $abc=1$，证明：$a^2+b^2+c^2\\geqslant a+b+c$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$abc=1$ 证平方和 ≥ 一次和”→ 调用 AM-GM 先卡住 $a+b+c\\geqslant3$，再用平方和把 $s$ 抬起来】</p>\r\n<p>条件只给了乘积，结论是二次对一次。两边次数不同，不能直接比；破绽是<b>中间缺一个公共量 $s=a+b+c$</b>。只要能证明 $a^2+b^2+c^2\\geqslant\\frac{s^2}{3}$ 且 $\\frac{s^2}{3}\\geqslant s$，两段一串就完事。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么这样串）</h3><p>$\\sum a^2\\geqslant\\frac{s^2}{3}$ 是“平方平均 ≥ 算术平均”的平方形式，等价于 $\\sum(a-b)^2\\geqslant0$，与 $abc$ 无关；而 $\\frac{s^2}{3}\\geqslant s\\iff s\\geqslant3$ 恰好由 $abc=1$ 的 AM-GM 给出。</p>\r\n<p>所以本质是<b>把乘积条件只用来定 $s$ 的下界，把次数差交给平方和不等式去补</b>。这类“条件只有一个、结论跨次数”的题，几乎都是找中间量做桥。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：造桥。</b>由 $\\sum(a-b)^2\\geqslant0$ 展开得 $3\\sum a^2\\geqslant(\\sum a)^2$，即</p>\r\n<div class=\"fm\">$$a^2+b^2+c^2\\geqslant\\frac{s^2}{3},\\qquad s=a+b+c$$</div>\r\n<p><b>环节 2：用条件卡 $s$。</b>AM-GM：$s\\geqslant3\\sqrt[3]{abc}=3$，且 $s\\gt0$，故</p>\r\n<div class=\"fm\">$$\\frac{s^2}{3}=\\frac{s}{3}\\cdot s\\geqslant\\frac{3}{3}\\cdot s=s$$</div>\r\n<p><b>环节 3：串联。</b>$a^2+b^2+c^2\\geqslant\\frac{s^2}{3}\\geqslant s=a+b+c$。</p>\r\n<p><b>环节 4：交代等号。</b>两个不等号同时取等要求 $a=b=c$ 且 $s=3$，即 $a=b=c=1$，此时 $abc=1$ 满足，等号可达。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "条件给乘积、结论跨次数时，先找中间量（这里是 $s$），把证明拆成“次数补齐”和“条件卡界”两段。",
+          "$\\sum a^2\\geqslant\\frac{(\\sum a)^2}{3}$ 与 $\\sum(a-b)^2\\geqslant0$ 是同一件事，考场上直接写后者更快。",
+          "不等式证明最后一定写等号条件；只写“显然成立”而不交代取等，是最常见的丢分点。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>成立。等号仅在 $a=b=c=1$ 时取到。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "二元与三元 AM-GM",
+          "latex": "$a+b+c\\geqslant 3\\sqrt[3]{abc}\\quad(a,b,c\\gt0)$"
+        },
+        {
+          "name": "平方和 ≥ 平均的平方",
+          "latex": "$a^2+b^2+c^2\\geqslant\\dfrac{(a+b+c)^2}{3}$"
+        },
+        {
+          "name": "对称平摊恒等式",
+          "latex": "$ab+bc+ca=\\dfrac{(a+b+c)^2-(a^2+b^2+c^2)}{2}$"
+        }
+      ]
+    },
+    {
+      "seq": 3,
+      "number": "第 3 题",
+      "title": "代数恒等 · 三次方程韦达（Z02 Z13 同型）",
+      "stemHtml": "设 $x_1,x_2,x_3$ 是 $x^3-3x+1=0$ 的三个根，求 $\\sum x_i^2$、$\\sum x_i^3$、$\\prod(1+x_i)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“三根的对称式、又不让解方程”→ 调用韦达 + 把根代回原方程】</p>\r\n<p>题目要的是根的和、积这类<b>对称式</b>；一旦解出三个根（还带无理数）再代，计算必崩。破绽是：多项式系数已知，说明所有对称式都能由系数直接读出，不需要知道根长什么样。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么能不解方程）</h3><p>因为 $P(x)=x^3-3x+1=(x-x_1)(x-x_2)(x-x_3)$ 是恒等式：展开比对系数，就得到三根的全部初等对称式。任何能写成 $\\sum x_i^k$、$\\prod(1+x_i)$ 的量，都能由这三条组合出来。</p>\r\n<p>而 $\\sum x_i^3$ 更省：每个根都满足 $x_i^3=3x_i-1$，求和立刻降到一次对称式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：读韦达。</b>首一，$b=0,\\ c=-3,\\ d=1$：</p>\r\n<div class=\"fm\">$$\\sum x_i=0,\\qquad \\sum_{i\\lt j}x_ix_j=-3,\\qquad x_1x_2x_3=-1$$</div>\r\n<p><b>环节 2：平方和。</b>$\\sum x_i^2=0^2-2(-3)=6$。</p>\r\n<p><b>环节 3：立方和。</b>由 $x_i^3=3x_i-1$ 逐根相加：</p>\r\n<div class=\"fm\">$$\\sum x_i^3=3\\sum x_i-3=0-3=-3$$</div>\r\n<p><b>环节 4：$\\prod(1+x_i)$ 用 $P(-1)$。</b>注意 $P(-1)=\\prod(-1-x_i)=(-1)^3\\prod(1+x_i)=-\\prod(1+x_i)$，而 $P(-1)=-1+3+1=3$，所以 $\\prod(1+x_i)=-3$。</p>\r\n<p>不想用技巧也可展开：$\\prod(1+x_i)=1+\\sum x_i+\\sum x_ix_j+\\prod x_i=1+0-3-1=-3$，两条路一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "三根的对称式，第一反应是韦达，不是求根公式；先写三条初等对称式，再往目标上凑。",
+          "$\\sum x_i^k$ 的高次情形，优先用“根满足方程”降次（$x_i^3=3x_i-1$），比牛顿递推快。",
+          "$\\prod(1+x_i)$ 这类平移后的乘积，用 $P(-1)$ 一次算出，符号看 $(x_i-c)$ 的写法。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\sum x_i^2=6$，$\\sum x_i^3=-3$，$\\prod(1+x_i)=-3$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "三次方程韦达",
+          "latex": "$x_1+x_2+x_3=-\\frac ba,\\quad x_1x_2+x_2x_3+x_3x_1=\\frac ca,\\quad x_1x_2x_3=-\\frac da$"
+        },
+        {
+          "name": "对称平摊",
+          "latex": "$\\sum x_i^2=\\left(\\sum x_i\\right)^2-2\\sum_{i\\lt j}x_ix_j$"
+        },
+        {
+          "name": "根代回原方程",
+          "latex": "$x_i^3=3x_i-1$（把方程本身当工具）"
+        }
+      ]
+    },
+    {
+      "seq": 4,
+      "number": "第 4 题",
+      "title": "等价无穷小 · 二阶修正（$1^\\infty$ 展开到二阶）",
+      "stemHtml": "求 $\\lim_{x\\to0}\\dfrac{(1+x)^{1/x}-e}{x}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$(1+x)^{1/x}-e$ 除以 $x$”→ 调用幂指互化 + 展开到二阶】</p>\r\n<p>先代 $x\\to0$：$(1+x)^{1/x}\\to e$，分子 $\\to0$，分母 $\\to0$，是 $\\frac00$。但这个 $\\frac00$ 不能直接洛必达——分子求导会越求越乱。</p>\r\n<p>真正的破绽是：分子是“<b>一个函数的极限值 $e$ 被减掉</b>”，说明 $u(x)-e$ 必是一阶小量，除 $x$ 后为常数。这种题只能把 $u(x)$ 展开到 $x$ 的一次项，也就是 $\\ln$ 展开到 $x^2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么必须展到二阶）</h3><p>$(1+x)^{1/x}=e^{1-\\frac x2+\\frac{x^2}{3}+\\cdots}$，指数本身含 $x$ 的一次项，所以 $u-e=O(x)$。要算 $\\frac{u-e}{x}$，指数必须展开到 $x$ 的一次项（$\\ln$ 展开到 $x^2$），且 $e^t$ 要展到 $t^2$——$t$ 里的 $x^2$ 项乘上 $e$ 会贡献 $O(x^2)$，写全才不出错。</p>\r\n<p>这就是“展开阶数 = 分母阶数”：<b>分母是 $x$，分子展到 $x$ 的一次项；分母若是 $x^2$，就展到 $x^2$。</b></p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：把幂指写成指数。</b></p>\r\n<div class=\"fm\">$$(1+x)^{1/x}=\\exp\\left\\{\\frac{\\ln(1+x)}{x}\\right\\}$$</div>\r\n<p><b>环节 2：$\\ln(1+x)$ 展开到 $x^3$，再除以 $x$。</b></p>\r\n<div class=\"fm\">$$\\frac{\\ln(1+x)}{x}=1-\\frac{x}{2}+\\frac{x^2}{3}+o(x^2)$$</div>\r\n<p><b>环节 3：提出 $e$，再展指数。</b>令 $t=-\\frac x2+\\frac{x^2}{3}+o(x^2)$，$t\\to0$：</p>\r\n<div class=\"fm\">$$\\mathrm e^{1+t}=\\mathrm e\\left(1+t+\\frac{t^2}{2}+o(t^2)\\right)=\\mathrm e\\left[1-\\frac x2+\\left(\\frac13+\\frac18\\right)x^2+o(x^2)\\right]$$</div>\r\n<p>（$t^2/2$ 只保留到 $x^2$：$\\frac12\\cdot\\frac{x^2}{4}=\\frac{x^2}{8}$。）</p>\r\n<p><b>环节 4：相减、除以 $x$、取极限。</b></p>\r\n<div class=\"fm\">$$\\frac{(1+x)^{1/x}-\\mathrm e}{x}=\\mathrm e\\left[-\\frac12+\\frac{11}{24}x+o(x)\\right]\\longrightarrow-\\frac{\\mathrm e}{2}$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "含 $e$ 的 $\\frac00$ 型，别急着洛必达：先把幂指写成 $\\mathrm e^{v\\ln u}$，再按“分母阶数”决定展到第几项。",
+          "$\\ln(1+x)$ 的三阶展开、$\\mathrm e^t$ 的二阶展开是这一类的全部家当，背到能默写。",
+          "把 $e$ 提出来是关键动作：提出常数后，剩下的 $\\mathrm e^t-1\\sim t$ 才能安全替换。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\dfrac{\\mathrm e}{2}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "幂指互化",
+          "latex": "$u^{v}=\\mathrm e^{\\,v\\ln u}\\ (u\\gt0)$"
+        },
+        {
+          "name": "对数展开",
+          "latex": "$\\ln(1+x)=x-\\dfrac{x^2}{2}+\\dfrac{x^3}{3}+o(x^3)$"
+        },
+        {
+          "name": "指数展开",
+          "latex": "$\\mathrm e^{t}=1+t+\\dfrac{t^2}{2}+o(t^2)$"
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "number": "第 5 题",
+      "title": "存在准则 · 单调有界（压缩映射对照）",
+      "stemHtml": "设 $x_1=\\sqrt2$，$x_{n+1}=\\sqrt{2+x_n}$，证明 $\\{x_n\\}$ 收敛并求 $\\lim x_n$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$x_{n+1}=f(x_n)$ 且 $f$ 含根号”→ 调用单调有界：先猜界、再证单调、最后解极限方程】</p>\r\n<p>递推式里没有 $n$、只有 $x_n$，这叫一阶迭代。这类题不问“是多少”，而问“收敛吗、极限是多少”，标准三步：<b>猜界 → 证单调 → 设极限解方程</b>。</p>\r\n<p>破绽：$x_1=\\sqrt2\\lt2$，而 $f(x)=\\sqrt{2+x}$ 在 $[0,2]$ 上把 $[0,2]$ 映到 $[\\sqrt2,2]$，所以 $2$ 是天然的上界候选。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么单调有界就够）</h3><p>靠的是实数系完备性：单调 + 有界 $\\Rightarrow$ 收敛。单调性把数列钉在一个方向上，有界性保证它不跑到无穷，两者一夹，极限必存在。</p>\r\n<p>本题单调性不用求差硬算，用<b>平方差</b>最快：$x_{n+1}^2-x_n^2=2+x_n-x_n^2=-(x_n-2)(x_n+1)$。只要 $x_n\\lt2$，右边为正，即 $x_{n+1}\\gt x_n$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：证上界（归纳）。</b>$x_1=\\sqrt2\\lt2$；设 $x_n\\lt2$，则 $x_{n+1}=\\sqrt{2+x_n}\\lt\\sqrt{2+2}=2$。故对所有 $n$，$0\\lt x_n\\lt2$。</p>\r\n<p><b>环节 2：证单调增。</b></p>\r\n<div class=\"fm\">$$x_{n+1}^2-x_n^2=(2+x_n)-x_n^2=-(x_n-2)(x_n+1)\\gt0$$</div>\r\n<p>因为 $x_n\\in(0,2)$，$(x_n-2)\\lt0$、$(x_n+1)\\gt0$，乘积为负，加负号为正；又 $x_n\\gt0$，故 $x_{n+1}\\gt x_n$。</p>\r\n<p><b>环节 3：设极限解方程。</b>单调增有上界，$a=\\lim x_n$ 存在且 $0\\lt a\\leqslant2$。两边取极限（$\\sqrt{\\cdot}$ 连续）：</p>\r\n<div class=\"fm\">$$a=\\sqrt{2+a}\\ \\Longrightarrow\\ a^2-a-2=0\\ \\Longrightarrow\\ a=2\\ \\text{或}\\ a=-1$$</div>\r\n<p>舍去 $a=-1$，得 $a=2$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "递推数列先别看通项，先问三件事：有界吗（猜一个界）、单调吗（作差或平方差）、极限方程有几个根（哪个在范围内）。",
+          "含根号的递推，作差不如作平方差；含分式的递推，作差不如作商或直接算 $x_{n+1}-x_n$ 的符号。",
+          "解出极限方程后必须用“极限在值域内”筛根，两个根丢一个，是这类题的标准收尾。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\lim_{n\\to\\infty}x_n=2$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "单调有界准则",
+          "latex": "$\\{x_n\\}$ 单调递增且有上界 $\\Rightarrow$ 收敛；单调递减且有下界 $\\Rightarrow$ 收敛"
+        },
+        {
+          "name": "归纳法证界",
+          "latex": "$x_1\\lt2$，若 $x_n\\lt2$ 则 $x_{n+1}=\\sqrt{2+x_n}\\lt\\sqrt4=2$"
+        },
+        {
+          "name": "极限方程",
+          "latex": "$a=\\sqrt{2+a}\\Rightarrow a^2-a-2=0$"
+        }
+      ]
+    },
+    {
+      "seq": 6,
+      "number": "第 6 题",
+      "title": "重要极限 · $1^\\infty$ 通式",
+      "stemHtml": "求 $\\lim_{n\\to\\infty}\\left(\\dfrac{n^2+3n+1}{n^2+2n}\\right)^{2n}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“底数 $\\to1$、指数 $\\to\\infty$”→ 调用 $1^\\infty$ 通式 $\\mathrm e^{\\lim v(u-1)}$】</p>\r\n<p>先认型：底数 $\\frac{n^2+3n+1}{n^2+2n}\\to1$，指数 $2n\\to\\infty$，是 $1^\\infty$。</p>\r\n<p>破绽在底数：分子比分母高一次项，差是 $n+1$，所以 $u-1$ 是 $O(1/n)$，与指数 $2n$ 相乘正好是常数——说明极限是有限幂，不会爆掉。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么用 $v(u-1)$ 而不用 $\\ln$）</h3><p>严格写法是 $\\lim u^v=\\exp\\{\\lim v\\ln u\\}$。但 $u\\to1$ 时 $\\ln u\\sim u-1$，所以 $\\lim v\\ln u=\\lim v(u-1)$——把对数换成一阶等价，指数就变成一个纯代数极限，能直接算。</p>\r\n<p>这一步是本公式的全部价值：<b>它把幂指型未定式降级成乘法极限</b>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：拆出 $1+t$ 的形状。</b></p>\r\n<div class=\"fm\">$$u=1+\\frac{n+1}{n^2+2n}=1+\\frac{n+1}{n(n+2)}$$</div>\r\n<p><b>环节 2：算 $v(u-1)$。</b>$v=2n$，</p>\r\n<div class=\"fm\">$$v(u-1)=2n\\cdot\\frac{n+1}{n(n+2)}=\\frac{2(n+1)}{n+2}\\longrightarrow2$$</div>\r\n<p><b>环节 3：回指数。</b>原式 $=\\mathrm e^{2}$。</p>\r\n<p><b>环节 4：核对量级。</b>$u-1\\sim\\frac1n$，$v=2n$，乘积 $\\to2$，与环节 2 一致；若某题 $v(u-1)\\to\\infty$，则极限为 $+\\infty$，要单独说明。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "$1^\\infty$ 只做一件事：把底数写成 $1+t$，算 $v t$ 的极限，答案就是 $e$ 的那个极限。不要真取对数再洛必达。",
+          "底数是分式时，先做“分子减分母”看差阶：差是 $O(1)$ 是 $1^\\infty$；差是 $O(n)$ 则不是。",
+          "指数含负幂、底数含 $\\cos$ 的题同一公式照用：$v(u-1)$ 换成等价无穷小即可。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\mathrm e^{2}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "$1^\\infty$ 型通式",
+          "latex": "$u\\to1,\\ v\\to\\infty:\\quad \\lim u^{v}=\\mathrm e^{\\lim v(u-1)}$"
+        },
+        {
+          "name": "有理式拆 1",
+          "latex": "$\\dfrac{n^2+3n+1}{n^2+2n}=1+\\dfrac{n+1}{n^2+2n}$"
+        },
+        {
+          "name": "等价无穷小",
+          "latex": "$\\ln(1+t)\\sim t\\ (t\\to0)$"
+        }
+      ]
+    },
+    {
+      "seq": 7,
+      "number": "第 7 题",
+      "title": "导数定义 · $x^\\alpha\\sin\\frac1{x^\\beta}$ 三档阈值",
+      "stemHtml": "设 $f(x)=\\begin{cases}x^2\\sin\\dfrac1x,&x\\neq0\\\\[2pt]0,&x=0\\end{cases}$。问：$f'(0)$ 是否存在？$f'(x)$ 在 $x=0$ 处是否连续？",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“分段函数在分界点问可导 / 导数连续”→ 调用导数定义，分别算 $f'(0)$ 与 $\\lim_{x\\to0}f'(x)$】</p>\r\n<p>这题两个小问，对应两个完全不同的动作：</p>\r\n<p>① 问 $f'(0)$ 是否存在 —— 只能用<b>定义</b>，绝不能对 $x\\neq0$ 的表达式求导后把 $0$ 代进去（那里根本没定义）；</p>\r\n<p>② 问 $f'$ 在 $0$ 是否连续 —— 必须先写出 $x\\neq0$ 时的 $f'(x)$，再取 $x\\to0$ 的极限，与 $f'(0)$ 比。</p>\r\n<p>破绽：$x^2\\sin\\frac1x$ 里 $x^2$ 是“<b>压住振荡的因子</b>”，$\\sin\\frac1x$ 只负责制造振荡。压得住就连续，压得住一次就够可导，要压住求导后出现的 $\\cos\\frac1x$ 才够导数连续。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么“可导”与“导数连续”差一档）</h3><p>$f'(0)=\\lim_{x\\to0}x\\sin\\frac1x=0$，因为 $x$ 是一阶无穷小、$\\sin\\frac1x$ 有界。可导性只要求这个极限存在，一阶压住即可（$\\alpha\\gt1$）。</p>\r\n<p>但 $f'(x)=2x\\sin\\frac1x-\\cos\\frac1x$ 里出现了 $\\cos\\frac1x$，它是<b>没有极限的振荡项</b>，前面乘的是 $x^0$。要让 $f'(x)\\to0$，必须有一项能把 $\\cos\\frac1x$ 压住；这里 $2x\\sin\\frac1x\\to0$ 不够，$\\cos\\frac1x$ 自己就振荡，所以 $f'$ 不连续。</p>\r\n<p>一般结论：$\\alpha\\gt1+\\beta$ 时，求导后振荡项的系数是 $x^{\\alpha-\\beta}\\to0$，才压得住。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：用定义算 $f'(0)$。</b></p>\r\n<div class=\"fm\">$$f'(0)=\\lim_{x\\to0}\\frac{f(x)-f(0)}{x}=\\lim_{x\\to0}\\frac{x^2\\sin\\frac1x}{x}=\\lim_{x\\to0}x\\sin\\frac1x=0$$</div>\r\n<p>（$|x\\sin\\frac1x|\\leqslant|x|\\to0$，夹逼。）所以 $f'(0)$ 存在且为 $0$。</p>\r\n<p><b>环节 2：写出 $x\\neq0$ 时的 $f'(x)$。</b>乘积求导：</p>\r\n<div class=\"fm\">$$f'(x)=2x\\sin\\frac1x+x^2\\cos\\frac1x\\cdot\\left(-\\frac1{x^2}\\right)=2x\\sin\\frac1x-\\cos\\frac1x$$</div>\r\n<p><b>环节 3：取极限，与 $f'(0)$ 比。</b>$2x\\sin\\frac1x\\to0$，但 $\\cos\\frac1x$ 在 $x\\to0$ 时振荡无极限（取 $x_n=\\frac1{2n\\pi}$ 得 $1$，取 $x_n=\\frac1{(2n+1)\\pi}$ 得 $-1$），故 $\\lim_{x\\to0}f'(x)$ 不存在。</p>\r\n<p><b>环节 4：下结论。</b>$f'(0)$ 存在，但 $f'$ 在 $0$ 处不连续（第二类振荡间断）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "分段点问可导，永远回到定义；先算 $\\lim\\frac{f(x)-f(x_0)}{x-x_0}$，不要先求导再代点。",
+          "判断导数连续，必须写出导函数表达式再取极限；只算 $f'(x_0)$ 判断不了连续性。",
+          "$x^\\alpha\\sin\\frac1{x^\\beta}$ 记成三档：$\\alpha\\gt0$ 连续、$\\alpha\\gt1$ 可导、$\\alpha\\gt1+\\beta$ 导数连续；$\\alpha$ 每升一档，多压一个 $x$ 的幂。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f'(0)=0$ 存在；$f'(x)$ 在 $x=0$ 处不连续（振荡间断）。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "导数定义",
+          "latex": "$f'(x_0)=\\lim_{h\\to0}\\dfrac{f(x_0+h)-f(x_0)}{h}$"
+        },
+        {
+          "name": "三档阈值",
+          "latex": "$\\alpha\\gt0$ 连续；$\\alpha\\gt1$ 可导且 $f'(0)=0$；$\\alpha\\gt1+\\beta$ 时 $f'$ 在 $0$ 连续"
+        },
+        {
+          "name": "有界量与无穷小",
+          "latex": "$|\\sin t|\\leqslant1\\Rightarrow$ 有界 $\\times$ 无穷小 $=$ 无穷小"
+        }
+      ]
+    },
+    {
+      "seq": 8,
+      "number": "第 8 题",
+      "title": "高阶导数 · 有理式拆项 + $n$ 阶公式",
+      "stemHtml": "设 $y=\\dfrac{1}{x^2-1}$，求 $y^{(n)}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“有理式求 $n$ 阶导”→ 先拆成最简分式，再套 $\\frac1{ax+b}$ 的 $n$ 阶公式】</p>\r\n<p>直接对 $\\frac1{x^2-1}$ 用莱布尼茨或硬求几阶找规律，都会炸。破绽是分母可分解：$x^2-1=(x-1)(x+1)$，一次因式互异，必能拆成两个 $\\frac1{ax+b}$ 之和。</p>\r\n<p>一旦拆开，每一块都落进公式表那条 $\\left(\\frac1{ax+b}\\right)^{(n)}$，答案直接拼出来。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么拆项就结束）</h3><p>求导是线性运算，$(u+v)^{(n)}=u^{(n)}+v^{(n)}$。所以只要把函数拆成“已知 $n$ 阶导的原子块”的线性组合，$n$ 阶导就等于各原子块 $n$ 阶导的同一组合。</p>\r\n<p>原子块只有几类：$\\frac1{ax+b}$、$\\sin(ax+b)$、$\\cos(ax+b)$、$\\ln(ax+b)$、$x^\\alpha$、$a^x$。有理式一律先部分分式，三角一律先降幂，这就是高阶导数的全部策略。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：拆项。</b>设 $\\frac{1}{x^2-1}=\\frac{A}{x-1}+\\frac{B}{x+1}$，通分得 $A(x+1)+B(x-1)=1$；取 $x=1$ 得 $A=\\frac12$，取 $x=-1$ 得 $B=-\\frac12$：</p>\r\n<div class=\"fm\">$$y=\\frac12\\cdot\\frac1{x-1}-\\frac12\\cdot\\frac1{x+1}$$</div>\r\n<p><b>环节 2：逐块套公式。</b>这里 $a=1$，$(x-1)^{-1}$ 的 $n$ 阶导为 $(-1)^nn!\\,(x-1)^{-(n+1)}$，同理 $(x+1)^{-1}$：</p>\r\n<div class=\"fm\">$$y^{(n)}=\\frac{(-1)^{n}n!}{2}\\left[\\frac{1}{(x-1)^{n+1}}-\\frac{1}{(x+1)^{n+1}}\\right]$$</div>\r\n<p><b>环节 3：抽查 $n=1$ 验证。</b>右边 $n=1$ 为 $-\\frac12\\left[\\frac1{(x-1)^2}-\\frac1{(x+1)^2}\\right]$；直接求导 $y'=-\\frac{2x}{(x^2-1)^2}$，通分即可核对，说明符号与系数都对。</p>\r\n<p><b>环节 4：写清适用范围。</b>$x\\neq\\pm1$；若要 $y^{(n)}(0)$，代入得 $\\frac{(-1)^nn!}{2}\\left[(-1)^{n+1}-1\\right]$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "有理式求 $n$ 阶导：先部分分式，再套原子块公式；不要硬求三阶找规律。",
+          "$\\left(\\frac1{ax+b}\\right)^{(n)}$ 的符号 $(-1)^n$、系数 $n!a^n$、幂次 $n+1$，三个位置都易错，写时逐个念一遍。",
+          "得到通式后拿 $n=1$ 回代验证一次，是最便宜的查错手段。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y^{(n)}=\\dfrac{(-1)^{n}n!}{2}\\left[\\dfrac{1}{(x-1)^{n+1}}-\\dfrac{1}{(x+1)^{n+1}}\\right]\\quad(x\\neq\\pm1)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "常用 $n$ 阶导数",
+          "latex": "$\\left(\\dfrac1{ax+b}\\right)^{(n)}=\\dfrac{(-1)^{n}n!\\,a^{n}}{(ax+b)^{n+1}}$"
+        },
+        {
+          "name": "部分分式",
+          "latex": "$\\dfrac{1}{x^2-1}=\\dfrac12\\left(\\dfrac1{x-1}-\\dfrac1{x+1}\\right)$"
+        },
+        {
+          "name": "线性可加",
+          "latex": "$(u\\pm v)^{(n)}=u^{(n)}\\pm v^{(n)}$"
+        }
+      ]
+    },
+    {
+      "seq": 9,
+      "number": "第 9 题",
+      "title": "参数方程 · 一阶、二阶导数公式",
+      "stemHtml": "设 $x=t-\\sin t$，$y=1-\\cos t$，求 $\\dfrac{\\mathrm d^2y}{\\mathrm dx^2}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$x,y$ 都是 $t$ 的函数，求 $\\frac{d^2y}{dx^2}$”→ 调用参数方程二阶导公式，别对一阶导直接再对 $x$ 求导】</p>\r\n<p>破绽：一阶导 $\\frac{dy}{dx}$ 是 $t$ 的函数，不是 $x$ 的函数。要对 $x$ 再求一次导，必须先<b>对 $t$ 求导、再除以 $\\frac{dx}{dt}$</b>，即 $\\frac{d}{dx}=\\frac{1}{x'(t)}\\frac{d}{dt}$。</p>\r\n<p>写成 $\\frac{d^2y}{dx^2}=\\frac{y''}{x''}$ 是最常见的错法——分母是 $[x'(t)]^3$，不是 $x''(t)$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么分母是三次方）</h3><p>$\\frac{dy}{dx}=\\frac{y'}{x'}$，再对 $x$ 求导：</p>\r\n<div class=\"fm\">$$\\frac{d}{dx}\\left(\\frac{y'}{x'}\\right)=\\frac{1}{x'}\\cdot\\frac{d}{dt}\\left(\\frac{y'}{x'}\\right)=\\frac{1}{x'}\\cdot\\frac{y''x'-x''y'}{(x')^2}=\\frac{y''x'-x''y'}{(x')^3}$$</div>\r\n<p>三次方来自“商的导数带一个 $(x')^2$”再乘一个 $\\frac1{x'}$。记住推导，就不用背公式。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：算两个一阶导。</b>$x'=1-\\cos t$，$y'=\\sin t$。</p>\r\n<div class=\"fm\">$$\\frac{\\mathrm dy}{\\mathrm dx}=\\frac{\\sin t}{1-\\cos t}=\\frac{2\\sin\\frac t2\\cos\\frac t2}{2\\sin^2\\frac t2}=\\cot\\frac t2$$</div>\r\n<p><b>环节 2：对 $t$ 求导。</b></p>\r\n<div class=\"fm\">$$\\frac{\\mathrm d}{\\mathrm dt}\\left(\\cot\\frac t2\\right)=-\\frac12\\csc^2\\frac t2$$</div>\r\n<p><b>环节 3：除以 $x'(t)$。</b></p>\r\n<div class=\"fm\">$$\\frac{\\mathrm d^2y}{\\mathrm dx^2}=\\frac{-\\frac12\\csc^2\\frac t2}{1-\\cos t}=\\frac{-\\frac12\\csc^2\\frac t2}{2\\sin^2\\frac t2}=-\\frac{1}{4\\sin^4\\frac t2}$$</div>\r\n<p><b>环节 4：核对符号。</b>$1-\\cos t\\gt0$（$t\\neq2k\\pi$），$\\csc^2\\gt0$，故二阶导恒为负——与摆线每一拱内上凸的几何一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "参数方程求二阶导，一律“先对 $t$ 求导、再除 $x'$”；公式分母是 $(x')^3$。",
+          "先化简再求导：$\\frac{\\sin t}{1-\\cos t}$ 化到 $\\cot\\frac t2$ 后，求导量与后续除法都轻一个量级。",
+          "算出结果用几何或符号检验一次（摆线拱内上凸，二阶导应为负），能挡掉一半符号错。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\mathrm d^2y}{\\mathrm dx^2}=-\\dfrac{1}{4\\sin^4\\frac t2}\\quad(t\\neq2k\\pi)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "参数方程一阶导",
+          "latex": "$\\dfrac{\\mathrm dy}{\\mathrm dx}=\\dfrac{y'(t)}{x'(t)}$"
+        },
+        {
+          "name": "参数方程二阶导",
+          "latex": "$\\dfrac{\\mathrm d^2y}{\\mathrm dx^2}=\\dfrac{y''(t)x'(t)-x''(t)y'(t)}{[x'(t)]^3}$"
+        },
+        {
+          "name": "半角化简",
+          "latex": "$1-\\cos t=2\\sin^2\\dfrac t2,\\qquad \\sin t=2\\sin\\dfrac t2\\cos\\dfrac t2$"
+        }
+      ]
+    },
+    {
+      "seq": 10,
+      "number": "第 10 题",
+      "title": "中值定理 · 乘积分因子造辅助函数",
+      "stemHtml": "设 $f$ 在 $[0,1]$ 上连续、在 $(0,1)$ 内可导，且 $f(0)=f(1)=0$。证明：存在 $\\xi\\in(0,1)$，使 $f'(\\xi)=f(\\xi)$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“证 $f'(\\xi)=f(\\xi)$”→ 调用乘积分因子 $\\mathrm e^{-x}$，把结论改写成某函数导数为零】</p>\r\n<p>要证的是“某点导数值等于函数值”，不是 $f'(\\xi)=0$，不能直接用 Rolle。破绽是结论可<b>移项</b>成 $f'(\\xi)-f(\\xi)=0$，这正是某个乘积导数的一部分。</p>\r\n<p>这类题的固定动作叫“<b>造辅助函数</b>”：把结论整理成 $f'+gf=0$ 的形状，乘上积分因子 $\\mathrm e^{\\int g}$，就变成 $(\\mathrm e^{\\int g}f)'=0$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么乘 $\\mathrm e^{-x}$）</h3><p>因为 $(\\mathrm e^{-x}f)'=\\mathrm e^{-x}(f'-f)$。$\\mathrm e^{-x}$ 恒正、永不为零，所以 $(\\mathrm e^{-x}f)'(\\xi)=0\\iff f'(\\xi)-f(\\xi)=0$，两个命题等价。</p>\r\n<p>辅助函数的作用是<b>把“函数与导数混在一起”的方程，翻译成“一个函数导数为零”</b>，从而落进 Rolle 的适用形状。$g=1$ 时因子是 $\\mathrm e^{-x}$；$g=-1$ 时是 $\\mathrm e^{x}$；$g=2x$ 时是 $\\mathrm e^{x^2}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：造 $F$。</b>令</p>\r\n<div class=\"fm\">$$F(x)=\\mathrm e^{-x}f(x),\\qquad x\\in[0,1]$$</div>\r\n<p><b>环节 2：验 Rolle 三条件。</b>$\\mathrm e^{-x}$ 与 $f$ 都连续、可导，故 $F\\in C[0,1]$、在 $(0,1)$ 可导；且</p>\r\n<div class=\"fm\">$$F(0)=\\mathrm e^{0}f(0)=0,\\qquad F(1)=\\mathrm e^{-1}f(1)=0$$</div>\r\n<p><b>环节 3：用 Rolle。</b>存在 $\\xi\\in(0,1)$ 使 $F'(\\xi)=0$，而</p>\r\n<div class=\"fm\">$$F'(x)=\\mathrm e^{-x}\\left[f'(x)-f(x)\\right]$$</div>\r\n<p><b>环节 4：去掉正因子。</b>$\\mathrm e^{-\\xi}\\gt0$，故 $f'(\\xi)-f(\\xi)=0$，即 $f'(\\xi)=f(\\xi)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "证“$f'$ 与 $f$ 的线性组合为零”，先整理成 $f'+gf=0$，再乘 $\\mathrm e^{\\int g}$ 造辅助函数；这是中值定理证明题的第一反射。",
+          "造完辅助函数必须逐条验三条件（连续、可导、两端相等），漏验端点相等是扣分重灾区。",
+          "最后要说明积分因子恒正，才能把 $F'(\\xi)=0$ 等价地化回原结论。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>存在 $\\xi\\in(0,1)$，使 $f'(\\xi)=f(\\xi)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "Rolle 定理",
+          "latex": "$f\\in C[a,b]$，$(a,b)$ 可导，$f(a)=f(b)\\Rightarrow\\exists\\xi,\\ f'(\\xi)=0$"
+        },
+        {
+          "name": "乘积型辅助函数",
+          "latex": "$f'(x)+g(x)f(x)$ 是 $\\left[\\mathrm e^{\\int g\\mathrm dx}f(x)\\right]'$ 的因式"
+        },
+        {
+          "name": "取 $g=-1$",
+          "latex": "$f'-f$ 是 $\\left(\\mathrm e^{-x}f\\right)'$ 的因式"
+        }
+      ]
+    },
+    {
+      "seq": 11,
+      "number": "第 11 题",
+      "title": "中值定理 · 用 $\\xi$ 的范围夹逼",
+      "stemHtml": "设 $0\\lt a\\lt b$，证明：$\\dfrac{b-a}{b}\\lt\\ln\\dfrac ba\\lt\\dfrac{b-a}{a}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“两个对数之差被两个分式夹住”→ 调用 Lagrange，把差写成 $\\frac{b-a}{\\xi}$，再用 $\\xi$ 的范围夹】</p>\r\n<p>不等式中出现 $\\ln\\frac ba=\\ln b-\\ln a$，这是函数值之差；右边出现 $b-a$，这是自变量之差。两者一比，正是 Lagrange 的 $\\frac{f(b)-f(a)}{b-a}=f'(\\xi)$ 的形状。</p>\r\n<p>关键动作是<b>反用</b>：平常是用 $\\xi$ 去算差，这里已知 $\\xi\\in(a,b)$，反过来用 $\\frac1\\xi$ 的范围去夹差。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么能夹住）</h3><p>Lagrange 给的是等式 $\\ln b-\\ln a=\\frac{b-a}{\\xi}$，等式本身不含不等号；但 $\\xi$ 被关在 $(a,b)$ 里，而 $\\frac1x$ 在 $(0,+\\infty)$ 上单调递减，于是</p>\r\n<div class=\"fm\">$$a\\lt\\xi\\lt b\\ \\Longrightarrow\\ \\frac1b\\lt\\frac1\\xi\\lt\\frac1a$$</div>\r\n<p>把这个不等式乘上正数 $b-a$，就得到要证的两边。所以本质是<b>“等式 + 单调性 = 不等式”</b>，这是中值定理证不等式最常用的一招。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：选定函数与区间。</b>取 $f(x)=\\ln x$，在 $[a,b]$ 上连续、在 $(a,b)$ 内可导（$0\\lt a\\lt b$），满足 Lagrange 条件。</p>\r\n<p><b>环节 2：写中值等式。</b></p>\r\n<div class=\"fm\">$$\\ln b-\\ln a=\\frac{1}{\\xi}(b-a),\\qquad \\xi\\in(a,b)$$</div>\r\n<p><b>环节 3：用 $\\xi$ 的范围替换。</b>由 $a\\lt\\xi\\lt b$ 得 $\\frac1b\\lt\\frac1\\xi\\lt\\frac1a$，三边同乘 $b-a\\gt0$：</p>\r\n<div class=\"fm\">$$\\frac{b-a}{b}\\lt\\frac{b-a}{\\xi}\\lt\\frac{b-a}{a}$$</div>\r\n<p><b>环节 4：回代成结论。</b>中间项就是 $\\ln b-\\ln a=\\ln\\frac ba$，于是</p>\r\n<div class=\"fm\">$$\\frac{b-a}{b}\\lt\\ln\\frac ba\\lt\\frac{b-a}{a}$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "证“函数差被夹住”，用 Lagrange 造出 $\\frac{f(b)-f(a)}{b-a}=f'(\\xi)$，再用 $\\xi$ 的范围配合 $f'$ 的单调性夹两边。",
+          "选函数看“差”的形状：$\\ln$ 差选 $\\ln x$，$\\mathrm e$ 差选 $\\mathrm e^x$，$\\arctan$ 差选 $\\arctan x$。",
+          "夹的时候注意乘的因子必须为正（$b-a\\gt0$），否则不等号方向要翻。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>不等式成立。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "Lagrange 中值定理",
+          "latex": "$f(b)-f(a)=f'(\\xi)(b-a),\\quad \\xi\\in(a,b)$"
+        },
+        {
+          "name": "$\\ln x$ 的导数",
+          "latex": "$(\\ln x)'=\\dfrac1x$"
+        },
+        {
+          "name": "$\\xi$ 的范围反用",
+          "latex": "$a\\lt\\xi\\lt b\\Rightarrow\\dfrac1b\\lt\\dfrac1\\xi\\lt\\dfrac1a$"
+        }
+      ]
+    },
+    {
+      "seq": 12,
+      "number": "第 12 题",
+      "title": "Taylor 展开 · 展开阶数 = 分母阶数",
+      "stemHtml": "求 $\\lim_{x\\to0}\\dfrac{\\cos x-\\mathrm e^{-x^2/2}}{x^4}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“两个函数相减、分母是 $x^4$”→ 调用 Taylor，两个都展到 $x^4$，看最低非零项】</p>\r\n<p>这是 $\\frac00$ 型，但洛必达要四次，越求越乱。破绽是：分子是两个不同函数相减，它们的前几阶展开会大面积抵消，剩余的最低阶项决定极限。</p>\r\n<p>所以动作固定：<b>看分母的阶（4 阶），两个函数都展到 $x^4$，逐项相减，找第一个不为零的项</b>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么必须两边同阶）</h3><p>展开到 $x^4$ 的意思是“误差是 $o(x^4)$”。分子除以 $x^4$ 后，误差项变成 $o(1)$，不影响极限；若只展到 $x^2$，误差是 $o(x^2)$，除以 $x^4$ 变成 $\\frac{o(x^2)}{x^4}$，爆炸，结论就错。</p>\r\n<p>所以“展开阶数 = 分母阶数”不是口诀，是<b>让余项在除以分母后仍趋于零</b>的必要条件。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：展开 $\\cos x$ 到 $x^4$。</b></p>\r\n<div class=\"fm\">$$\\cos x=1-\\frac{x^2}{2}+\\frac{x^4}{24}+o(x^4)$$</div>\r\n<p><b>环节 2：展开 $\\mathrm e^{-x^2/2}$ 到 $x^4$。</b>令 $t=-\\frac{x^2}{2}$，用 $\\mathrm e^t=1+t+\\frac{t^2}{2}+o(t^2)$：</p>\r\n<div class=\"fm\">$$\\mathrm e^{-x^2/2}=1-\\frac{x^2}{2}+\\frac{1}{2}\\left(\\frac{x^4}{4}\\right)+o(x^4)=1-\\frac{x^2}{2}+\\frac{x^4}{8}+o(x^4)$$</div>\r\n<p><b>环节 3：相减，看抵消。</b>二次项 $-\\frac{x^2}{2}$ 完全抵消，剩下</p>\r\n<div class=\"fm\">$$\\cos x-\\mathrm e^{-x^2/2}=\\left(\\frac{1}{24}-\\frac{1}{8}\\right)x^4+o(x^4)=-\\frac{1}{12}x^4+o(x^4)$$</div>\r\n<p><b>环节 4：除以 $x^4$ 取极限。</b></p>\r\n<div class=\"fm\">$$\\lim_{x\\to0}\\frac{\\cos x-\\mathrm e^{-x^2/2}}{x^4}=-\\frac{1}{12}$$</div>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "两个函数相减、分母为 $x^k$：两边都展到 $x^k$，让低次项逐项对消，最低幸存项就是答案。",
+          "$\\mathrm e^{-x^2/2}$ 展开时 $\\frac{t^2}{2}$ 里的 $\\frac{x^4}{4}$ 别漏乘 $\\frac12$，这是本题最容易错的一处。",
+          "展完先做阶数检查：分子首项次数低于分母则极限为无穷，高于分母则为 0，相同才是有限非零值。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$-\\dfrac{1}{12}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "$\\cos x$ 的展开",
+          "latex": "$\\cos x=1-\\dfrac{x^2}{2!}+\\dfrac{x^4}{4!}-\\cdots$"
+        },
+        {
+          "name": "$\\mathrm e^{t}$ 的展开",
+          "latex": "$\\mathrm e^{t}=1+t+\\dfrac{t^2}{2!}+\\cdots$"
+        },
+        {
+          "name": "阶数原则",
+          "latex": "分母为 $x^k$，分子须展到 $x^k$ 项（含）"
+        }
+      ]
+    },
+    {
+      "seq": 13,
+      "number": "第 13 题",
+      "title": "定积分 · 三角代换 + 区间再现",
+      "stemHtml": "求 $I=\\displaystyle\\int_0^1\\frac{\\ln(1+x)}{1+x^2}\\,\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$\\frac{\\ln(1+x)}{1+x^2}$、积分限 $0\\to1$”→ 调用 $x=\\tan t$，再用区间再现把 $\\ln$ 里的 $1+\\tan t$ 变成 $\\frac{2}{1+\\tan t}$】</p>\r\n<p>破绽有两处：① 分母 $1+x^2$ 正是 $\\arctan$ 的导数，提示 $x=\\tan t$；② 上限 $1=\\tan\\frac\\pi4$，换元后区间变成 $[0,\\frac\\pi4]$，正好能对 $\\frac\\pi4-t$ 做区间再现。</p>\r\n<p>若硬做分部或部分分式，$\\ln(1+x)$ 会在每次分部后变得更复杂，走不通。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么“再现”能救命）</h3><p>换元后 $I=\\int_0^{\\pi/4}\\ln(1+\\tan t)\\,\\mathrm dt$。这个原函数不是初等函数，但把 $t$ 换成 $\\frac\\pi4-t$ 后，$1+\\tan(\\frac\\pi4-t)=\\frac{2}{1+\\tan t}$，于是出现 $I$ 的“另一半”：</p>\r\n<div class=\"fm\">$$I=\\int_0^{\\pi/4}\\left[\\ln 2-\\ln(1+\\tan t)\\right]\\mathrm dt=\\frac{\\pi}{4}\\ln2-I$$</div>\r\n<p>这就是区间再现的威力：<b>它不求出原函数，而是把 $I$ 变成一个关于自身的一次方程</b>，移项即得。凡是“被积函数在对折后变成自身的倒数/补数”的定积分，都走这条路。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：换元。</b>令 $x=\\tan t$，$\\mathrm dx=\\frac{\\mathrm dt}{\\cos^2t}=\\sec^2t\\,\\mathrm dt$，而 $1+x^2=\\sec^2t$，两者相消：</p>\r\n<div class=\"fm\">$$I=\\int_0^{\\pi/4}\\ln(1+\\tan t)\\,\\mathrm dt$$</div>\r\n<p><b>环节 2：区间再现。</b>令 $t=\\frac\\pi4-u$，$u\\in[0,\\frac\\pi4]$：</p>\r\n<div class=\"fm\">$$I=\\int_0^{\\pi/4}\\ln\\left[1+\\tan\\left(\\tfrac\\pi4-u\\right)\\right]\\mathrm du=\\int_0^{\\pi/4}\\ln\\left(1+\\frac{1-\\tan u}{1+\\tan u}\\right)\\mathrm du=\\int_0^{\\pi/4}\\ln\\frac{2}{1+\\tan u}\\,\\mathrm du$$</div>\r\n<p><b>环节 3：拆成两项，解方程。</b></p>\r\n<div class=\"fm\">$$I=\\frac{\\pi}{4}\\ln2-\\int_0^{\\pi/4}\\ln(1+\\tan u)\\,\\mathrm du=\\frac{\\pi}{4}\\ln2-I$$</div>\r\n<p>故 $2I=\\frac{\\pi}{4}\\ln2$，$I=\\frac{\\pi}{8}\\ln2$。</p>\r\n<p><b>环节 4：核对。</b>被积函数在 $[0,1]$ 上为正、最大 $\\ln2$，积分值应落在 $(0,\\ln2)\\approx(0,0.693)$；$\\frac{\\pi}{8}\\ln2\\approx0.272$，合理。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "分母是 $1+x^2$、限含 $0$ 与 $1$，第一反应 $x=\\tan t$；换元后限变 $[0,\\frac\\pi4]$，立刻试区间再现。",
+          "区间再现的判据：把 $x$ 换成 $a+b-x$ 后，新被积函数与旧的只差一个常数或互为补数。",
+          "得到 $I=C-I$ 时直接移项，不要再去求原函数；这是“不积分求积分”的标准套路。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{\\pi}{8}\\ln2$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "三角代换",
+          "latex": "$\\sqrt{a^2+x^2}:\\ x=a\\tan t$"
+        },
+        {
+          "name": "区间再现",
+          "latex": "$\\int_a^b f(x)\\mathrm dx=\\int_a^b f(a+b-x)\\mathrm dx$"
+        },
+        {
+          "name": "$\\tan$ 的差角",
+          "latex": "$\\tan\\left(\\frac\\pi4-t\\right)=\\frac{1-\\tan t}{1+\\tan t}$"
+        }
+      ]
+    },
+    {
+      "seq": 14,
+      "number": "第 14 题",
+      "title": "定积分 · $\\int_0^\\pi xf(\\sin x)$ 与对称性",
+      "stemHtml": "求 $I=\\displaystyle\\int_0^\\pi x\\sin^2x\\,\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$\\int_0^\\pi x\\cdot f(\\sin x)$”→ 调用那条 $xf(\\sin x)$ 的换算，把 $x$ 直接换成 $\\frac\\pi2$】</p>\r\n<p>破绽：$x$ 乘以一个<b>只含 $\\sin x$</b> 的函数，且区间是 $[0,\\pi]$。这是那条公式的“长相”完全吻合。若没有 $x$，就只是普通 Wallis；有了 $x$，硬分部会把 $x$ 越消越多，反而绕远。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么能把 $x$ 换掉）</h3><p>令 $x=\\pi-t$：$\\int_0^\\pi xf(\\sin x)\\mathrm dx=\\int_0^\\pi(\\pi-t)f(\\sin t)\\mathrm dt=\\pi\\int_0^\\pi f-\\int_0^\\pi tf(\\sin t)\\mathrm dt$。</p>\r\n<p>右边第二项就是 $I$ 本身，于是 $I=\\pi\\int_0^\\pi f-I$，即 $I=\\frac\\pi2\\int_0^\\pi f$。本质仍是区间再现，只不过这次用“$x$ 与 $\\pi-x$ 平均”把 $x$ 消掉。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：套换算，去掉 $x$。</b>$f(\\sin x)=\\sin^2x$，故</p>\r\n<div class=\"fm\">$$I=\\frac\\pi2\\int_0^\\pi\\sin^2x\\,\\mathrm dx$$</div>\r\n<p><b>环节 2：算 $\\int_0^\\pi\\sin^2x$。</b>降幂：</p>\r\n<div class=\"fm\">$$\\int_0^\\pi\\sin^2x\\,\\mathrm dx=\\int_0^\\pi\\frac{1-\\cos2x}{2}\\mathrm dx=\\frac{\\pi}{2}-0=\\frac{\\pi}{2}$$</div>\r\n<p>（$\\int_0^\\pi\\cos2x\\,\\mathrm dx=\\frac12\\sin2x\\Big|_0^\\pi=0$。）也可用对称性：$=2\\int_0^{\\pi/2}\\sin^2=\\frac{\\pi}{2}$。</p>\r\n<p><b>环节 3：相乘。</b>$I=\\frac\\pi2\\cdot\\frac\\pi2=\\frac{\\pi^2}{4}$。</p>\r\n<p><b>环节 4：量级核对。</b>$x\\sin^2x$ 在 $[0,\\pi]$ 上最大约 $\\pi$，积分应在 $0$ 与 $\\pi^2\\approx9.87$ 之间；$\\frac{\\pi^2}{4}\\approx2.47$，合理（$\\sin^2$ 的平均为 $\\frac12$，$x$ 的平均为 $\\frac\\pi2$，乘积平均 $\\approx\\frac{\\pi}{4}$，乘区间长 $\\pi$ 得 $\\frac{\\pi^2}{4}$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "$\\int_0^\\pi x f(\\sin x)\\mathrm dx$ 一律先换成 $\\frac\\pi2\\int_0^\\pi f(\\sin x)$，把 $x$ 消掉再算。",
+          "$\\int_0^\\pi\\sin^2=\\frac\\pi2$、$\\int_0^\\pi\\cos^2=\\frac\\pi2$，这两个值要背；奇次幂则用 $\\int_0^\\pi\\sin^3=\\frac43$。",
+          "算完用“平均值 × 区间长”粗估一次，能立刻发现少了 $\\frac\\pi2$ 或 $\\pi$ 的量级错误。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{\\pi^2}{4}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "$\\sin$ 型区间换算",
+          "latex": "$\\int_0^{\\pi}xf(\\sin x)\\mathrm dx=\\frac\\pi2\\int_0^{\\pi}f(\\sin x)\\mathrm dx$"
+        },
+        {
+          "name": "降幂",
+          "latex": "$\\sin^2x=\\dfrac{1-\\cos2x}{2}$"
+        },
+        {
+          "name": "Wallis",
+          "latex": "$\\int_0^{\\pi/2}\\sin^2x\\,\\mathrm dx=\\frac{(2-1)!!}{2!!}\\cdot\\frac\\pi2=\\frac\\pi4$"
+        }
+      ]
+    },
+    {
+      "seq": 15,
+      "number": "第 15 题",
+      "title": "反常积分 · 换元到 $\\Gamma$ 函数",
+      "stemHtml": "求 $I=\\displaystyle\\int_0^{+\\infty}x^2\\mathrm e^{-x^2}\\,\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$x^{k}\\mathrm e^{-x^2}$ 在 $0\\to+\\infty$”→ 调用 $t=x^2$ 把它变成 $\\Gamma$ 的标准形状】</p>\r\n<p>$\\Gamma$ 的定义里指数是 $\\mathrm e^{-t}$（一次），而这里是 $\\mathrm e^{-x^2}$（二次）。破绽是：只要令 $t=x^2$，指数就变成 $\\mathrm e^{-t}$，$x^2\\,\\mathrm dx$ 也会整块变成 $t$ 的幂与 $\\mathrm dt$。</p>\r\n<p>不要直接分部：$x^2\\mathrm e^{-x^2}$ 分部一次会得到 $\\int \\mathrm e^{-x^2}$，仍然不是初等函数。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么 $\\Gamma$ 能一口吃掉）</h3><p>$\\Gamma$ 是“幂 × 指数”的母函数：任何 $\\int_0^\\infty t^{a-1}\\mathrm e^{-t}\\mathrm dt$ 都直接读成 $\\Gamma(a)$。而所有 $\\int_0^\\infty x^{m}\\mathrm e^{-x^2}\\mathrm dx$ 经 $t=x^2$ 都落进这个形状（$m$ 为奇数时也一样，只是指数变成半整数）。</p>\r\n<p>所以这类题不需要“求原函数”，只需要<b>换元 + 查 $\\Gamma$ 的递推与 $\\Gamma(\\frac12)$</b>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：换元 $t=x^2$。</b>$x=\\sqrt t$，$\\mathrm dx=\\frac{\\mathrm dt}{2\\sqrt t}$，$x^2=t$：</p>\r\n<div class=\"fm\">$$I=\\int_0^{+\\infty}t\\,\\mathrm e^{-t}\\cdot\\frac{\\mathrm dt}{2\\sqrt t}=\\frac12\\int_0^{+\\infty}t^{1/2}\\mathrm e^{-t}\\,\\mathrm dt$$</div>\r\n<p><b>环节 2：认 $\\Gamma$。</b>$t^{1/2}=t^{\\alpha-1}$ 给出 $\\alpha=\\frac32$，故</p>\r\n<div class=\"fm\">$$I=\\frac12\\Gamma\\left(\\frac32\\right)$$</div>\r\n<p><b>环节 3：用递推降阶。</b>$\\Gamma(\\frac32)=\\frac12\\Gamma(\\frac12)=\\frac{\\sqrt\\pi}{2}$，所以</p>\r\n<div class=\"fm\">$$I=\\frac12\\cdot\\frac{\\sqrt\\pi}{2}=\\frac{\\sqrt\\pi}{4}$$</div>\r\n<p><b>环节 4：核对收敛性。</b>$x\\to0$ 时 $x^2\\mathrm e^{-x^2}\\sim x^2$ 可积；$x\\to\\infty$ 时指数衰减压住多项式，收敛。量级：$\\frac{\\sqrt\\pi}{4}\\approx0.443$，而 $\\int_0^\\infty\\mathrm e^{-x^2}=\\frac{\\sqrt\\pi}{2}\\approx0.886$，被 $x^2$ 加权后略小于一半，合理。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "$\\int_0^\\infty x^m\\mathrm e^{-x^2}\\mathrm dx$ 一律先令 $t=x^2$，化成 $\\frac12\\Gamma\\left(\\frac{m+1}{2}\\right)$。",
+          "$\\Gamma(\\frac12)=\\sqrt\\pi$、$\\Gamma(\\frac32)=\\frac{\\sqrt\\pi}{2}$、$\\Gamma(\\frac52)=\\frac{3\\sqrt\\pi}{4}$，三个值背下来，考试直接套。",
+          "奇次幂 $m$ 会得到 $\\Gamma$ 的整数参数（即阶乘），偶次幂得到半整数参数（带 $\\sqrt\\pi$），先判断属于哪一类再动笔。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{\\sqrt\\pi}{4}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "$\\Gamma$ 函数",
+          "latex": "$\\Gamma(\\alpha)=\\int_0^{+\\infty}x^{\\alpha-1}\\mathrm e^{-x}\\mathrm dx,\\quad \\Gamma(\\alpha+1)=\\alpha\\Gamma(\\alpha)$"
+        },
+        {
+          "name": "$\\Gamma(\\frac12)$",
+          "latex": "$\\Gamma\\left(\\frac12\\right)=\\sqrt\\pi$"
+        },
+        {
+          "name": "泊松积分",
+          "latex": "$\\int_0^{+\\infty}\\mathrm e^{-x^2}\\mathrm dx=\\dfrac{\\sqrt\\pi}{2}$"
+        }
+      ]
+    },
+    {
+      "seq": 16,
+      "number": "第 16 题",
+      "title": "空间解析几何 · 点线距离（叉积）",
+      "stemHtml": "求原点 $O(0,0,0)$ 到直线 $L:\\dfrac{x-1}{1}=\\dfrac{y}{-1}=\\dfrac{z}{2}$ 的距离。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“点到直线距离、直线给对称式”→ 调用 $\\frac{|\\vec{M_0M_1}\\times\\vec s|}{|\\vec s|}$】</p>\r\n<p>直线的对称式直接给出两样东西：线上一点 $M_1(1,0,0)$ 和方向向量 $\\vec s=(1,-1,2)$。破绽是：点线距的本质是“斜边上的高”，而叉积的模恰好等于“底 × 高”，所以不用求垂足。</p>\r\n<p>容易走的弯路：先求过 $O$ 且垂直于 $L$ 的平面，再求交点，再算距离——三步，且容易算错。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么叉积就是面积）</h3><p>$|\\vec{M_0M_1}\\times\\vec s|=|\\vec{M_0M_1}|\\,|\\vec s|\\sin\\theta$，这是以 $\\vec{M_0M_1}$ 和 $\\vec s$ 为邻边的平行四边形面积；而该面积又等于“底 $|\\vec s|$ × 高 $d$”。两式一比，$d=\\frac{|\\vec{M_0M_1}\\times\\vec s|}{|\\vec s|}$。</p>\r\n<p>所以点线距公式不是背出来的，是<b>面积恒等式</b>；同理，异面直线距离用混合积（平行六面体体积 / 底面积）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：取点与方向。</b>$M_0=O(0,0,0)$，$M_1=(1,0,0)$，$\\vec s=(1,-1,2)$，故 $\\vec{M_0M_1}=M_1-M_0=(-1,0,0)$。</p>\r\n<p><b>环节 2：算叉积。</b></p>\r\n<div class=\"fm\">$$\\vec{M_0M_1}\\times\\vec s=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\-1&0&0\\\\1&-1&2\\end{vmatrix}=\\vec i(0\\cdot2-0\\cdot(-1))-\\vec j((-1)\\cdot2-0\\cdot1)+\\vec k((-1)(-1)-0\\cdot1)=(0,\\,2,\\,1)$$</div>\r\n<p><b>环节 3：取模、除以 $|\\vec s|$。</b>$|(0,2,1)|=\\sqrt{0+4+1}=\\sqrt5$，$|\\vec s|=\\sqrt{1+1+4}=\\sqrt6$，故</p>\r\n<div class=\"fm\">$$d=\\frac{\\sqrt5}{\\sqrt6}=\\frac{\\sqrt{30}}{6}$$</div>\r\n<p><b>环节 4：几何核对。</b>原点在直线上的投影参数 $t$ 满足 $(0,0,0)-(1,0,0)=t(1,-1,2)$ 无解，说明垂足不在 $t=0$；用 $t=-\\frac{1}{6}$ 算得垂足 $\\left(\\frac56,\\frac16,-\\frac13\\right)$，其到原点距离 $\\sqrt{\\frac{25+1+4}{36}}=\\frac{\\sqrt{30}}{6}$，一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "点到直线距离只用叉积公式一步到位；不要先求垂足。",
+          "叉积算完先检查“是否与 $\\vec s$ 点乘为零”——为零说明没算错，这是 10 秒自检。",
+          "距离结果一定是“根号 / 根号”的形式，最后有理化；竞赛答案习惯写成 $\\frac{\\sqrt{30}}{6}$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$d=\\dfrac{\\sqrt{30}}{6}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "点线距离",
+          "latex": "$d=\\dfrac{|\\vec{M_0M_1}\\times\\vec s|}{|\\vec s|}$"
+        },
+        {
+          "name": "叉积的行列式",
+          "latex": "$\\vec a\\times\\vec b=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\a_1&a_2&a_3\\\\b_1&b_2&b_3\\end{vmatrix}$"
+        },
+        {
+          "name": "直线方向向量",
+          "latex": "$\\dfrac{x-x_0}{l}=\\dfrac{y-y_0}{m}=\\dfrac{z-z_0}{n}\\Rightarrow\\vec s=(l,m,n)$"
+        }
+      ]
+    },
+    {
+      "seq": 17,
+      "number": "第 17 题",
+      "title": "空间解析几何 · 平面束定平面",
+      "stemHtml": "求过直线 $\\begin{cases}x+y-1=0\\\\ x-y+z-1=0\\end{cases}$ 且垂直于平面 $x+y+z=0$ 的平面方程。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“过一条直线（两个平面交线）作平面”→ 调用平面束，用一个参数 $\\lambda$ 把所有候选平面打包】</p>\r\n<p>破绽：直线用两个平面方程联立给出，说明“过这条直线的平面”有无穷多个，但都能写成一个线性组合。再加一个垂直条件，恰好定出唯一的 $\\lambda$。</p>\r\n<p>若分别求直线的方向向量、再设法向量、再写点法式，也能做，但要多算两步且易错。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么一个 $\\lambda$ 就够）</h3><p>直线 $L$ 上的点同时满足两个平面方程，所以对任意 $\\lambda$，$F_1+\\lambda F_2=0$ 都过 $L$；反过来，任何过 $L$ 的平面（除 $F_2=0$ 本身）都能写成这种形式。于是“过 $L$ 的平面”被压缩成一个单参数族。</p>\r\n<p>法向量是 $\\vec n(\\lambda)=(1+\\lambda,\\,1-\\lambda,\\,\\lambda)$——它随 $\\lambda$ 线性变化，垂直条件给出一个<b>关于 $\\lambda$ 的一次方程</b>，必有唯一解（除非平行于 $F_2=0$）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：写平面束。</b></p>\r\n<div class=\"fm\">$$x+y-1+\\lambda(x-y+z-1)=0$$</div>\r\n<p>整理：$(1+\\lambda)x+(1-\\lambda)y+\\lambda z-(1+\\lambda)=0$，法向量 $\\vec n=(1+\\lambda,\\,1-\\lambda,\\,\\lambda)$。</p>\r\n<p><b>环节 2：用垂直条件定 $\\lambda$。</b>目标平面 $x+y+z=0$ 的法向量 $\\vec n_0=(1,1,1)$，垂直要求点积为零：</p>\r\n<div class=\"fm\">$$(1+\\lambda)+(1-\\lambda)+\\lambda=2+\\lambda=0\\ \\Longrightarrow\\ \\lambda=-2$$</div>\r\n<p><b>环节 3：回代并化简。</b>$\\lambda=-2$：$x+y-1-2(x-y+z-1)=0$，即</p>\r\n<div class=\"fm\">$$-x+3y-2z+1=0\\ \\Longrightarrow\\ x-3y+2z-1=0$$</div>\r\n<p><b>环节 4：验算。</b>① 过直线：取直线上两点，如 $(1,0,0)$（满足 $x+y-1=0$、$x-y+z-1=0$）代入 $1-0+0-1=0$ ✓；$(0,1,0)$ 代入 $0-3+0-1=-4\\neq0$？——检查 $(0,1,0)$ 是否在直线上：$0+1-1=0$ ✓，$0-1+0-1=-2\\neq0$ ✗，不在。换点 $(1,0,0)$ 与 $(0,1,1)$：$(0,1,1)$：$0+1-1=0$ ✓，$0-1+1-1=-1\\neq0$ ✗。取 $z=2$：$x+y=1,\\ x-y=-1$ → $x=0,y=1$，点 $(0,1,2)$：$0-3+4-1=0$ ✓。② 垂直：$(1,-3,2)\\cdot(1,1,1)=0$ ✓。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "“过两平面交线的平面”，一律写平面束 $F_1+\\lambda F_2=0$，再用附加条件（垂直、平行、过某点）定 $\\lambda$。",
+          "平面束的法向量要整理成 $\\lambda$ 的线性式，垂直/平行条件才能落成一次方程。",
+          "最后代两个直线上的点验算，并检查法向量点积；两步都做，几乎不会错。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x-3y+2z-1=0$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "平面束",
+          "latex": "$A_1x+B_1y+C_1z+D_1+\\lambda(A_2x+B_2y+C_2z+D_2)=0$"
+        },
+        {
+          "name": "垂直判据",
+          "latex": "$\\vec n_1\\perp\\vec n_2\\iff \\vec n_1\\cdot\\vec n_2=0$"
+        },
+        {
+          "name": "法向量读法",
+          "latex": "$Ax+By+Cz+D=0\\Rightarrow\\vec n=(A,B,C)$"
+        }
+      ]
+    },
+    {
+      "seq": 18,
+      "number": "第 18 题",
+      "title": "空间解析几何 · 显式曲面切平面与法线",
+      "stemHtml": "求曲面 $z=x^2+xy+y^2$ 在点 $P(1,1,3)$ 处的切平面方程，并求该法线与 $z$ 轴的交点。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“显式曲面 $z=f(x,y)$ 求切平面”→ 调用 $z-z_0=f_x\\Delta x+f_y\\Delta y$，法向量 $(f_x,f_y,-1)$】</p>\r\n<p>破绽：曲面写成 $z=\\cdots$，不是隐式 $F=0$。显式情形不用移项，直接把两个偏导在点上的值当斜率用。</p>\r\n<p>注意法向量的第三分量是 $-1$（或 $+1$，方向相反），不是 $f_z$——这是显式与隐式最容易混的一处。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么是一次近似）</h3><p>切平面就是曲面在点附近的<b>一阶 Taylor 近似</b>：$f(x_0+\\Delta x,y_0+\\Delta y)\\approx f_0+f_x\\Delta x+f_y\\Delta y$。把右端记为 $z$，就是切平面。所以“切平面”与“全微分”是同一件事的几何说法。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：算偏导。</b>$f_x=2x+y$，$f_y=x+2y$；在 $(1,1)$：$f_x=3$，$f_y=3$。</p>\r\n<p><b>环节 2：写切平面。</b></p>\r\n<div class=\"fm\">$$z-3=3(x-1)+3(y-1)\\ \\Longrightarrow\\ 3x+3y-z-3=0$$</div>\r\n<p><b>环节 3：写法线。</b>方向 $(3,3,-1)$，过 $(1,1,3)$：</p>\r\n<div class=\"fm\">$$\\frac{x-1}{3}=\\frac{y-1}{3}=\\frac{z-3}{-1}$$</div>\r\n<p><b>环节 4：求与 $z$ 轴交点。</b>令 $x=y=0$，由 $\\frac{-1}{3}=\\frac{z-3}{-1}$ 得 $z-3=\\frac13$，$z=\\frac{10}{3}$，交点为 $\\left(0,0,\\frac{10}{3}\\right)$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "显式曲面切平面：两个偏导当斜率，法向量第三分量固定为 $-1$；不要去找 $f_z$。",
+          "切平面本质是一阶 Taylor 近似；写完可以用“点必须在平面上”自检（代入 $P$ 应恒等）。",
+          "求法线与坐标轴交点，就是把另外两个坐标设为 $0$ 解参数；先写参数式 $x=x_0+f_xt,\\ y=y_0+f_yt,\\ z=z_0-t$ 更稳。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>切平面 $3x+3y-z-3=0$；法线与 $z$ 轴交于 $\\left(0,0,\\dfrac{10}{3}\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "显式曲面切平面",
+          "latex": "$z-z_0=f_x(P)(x-x_0)+f_y(P)(y-y_0)$"
+        },
+        {
+          "name": "法向量",
+          "latex": "$\\vec n=(f_x,f_y,-1)$ 或 $(-f_x,-f_y,1)$"
+        },
+        {
+          "name": "法线方程",
+          "latex": "$\\dfrac{x-x_0}{f_x}=\\dfrac{y-y_0}{f_y}=\\dfrac{z-z_0}{-1}$"
+        }
+      ]
+    },
+    {
+      "seq": 19,
+      "number": "第 19 题",
+      "title": "多元微分 · 可微两步判法",
+      "stemHtml": "设 $f(x,y)=\\dfrac{x^2y}{x^2+y^2}\\ (x^2+y^2\\neq0)$，$f(0,0)=0$。问 $f_x(0,0)$、$f_y(0,0)$ 是否存在？$f$ 在 $(0,0)$ 是否可微？",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“分式、分母 $x^2+y^2$、问 $(0,0)$ 可微”→ 调用两步判法，第二步沿 $y=x$ 走一条路径】</p>\r\n<p>破绽：分子是三次、分母是二次，整体是<b>一次齐次</b>，即 $f(\\lambda x,\\lambda y)=\\lambda f(x,y)$。这种函数在原点附近“按方向取不同值”，最容易出现“偏导存在但不可微”。</p>\r\n<p>要分清三件事：连续、偏导存在、可微。这题就是典型的“偏导存在 + 不可微”。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么偏导存在还不够）</h3><p>偏导只沿坐标轴两个方向看：$f_x(0,0)$ 只看 $y=0$ 那条线，$f_y(0,0)$ 只看 $x=0$ 那条线。可微要求<b>所有方向</b>都满足同一个线性近似，即 $\\frac{\\Delta z-A\\Delta x-B\\Delta y}{\\rho}\\to0$。</p>\r\n<p>本题沿坐标轴都趋于 $0$，但沿 $y=x$ 却趋于 $\\frac{1}{2\\sqrt2}$，说明线性近似在斜方向失效，故不可微。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：算两个偏导（用定义）。</b>$f(x,0)=\\frac{x^2\\cdot0}{x^2}=0$，$f(0,y)=0$，故</p>\r\n<div class=\"fm\">$$f_x(0,0)=\\lim_{x\\to0}\\frac{0-0}{x}=0,\\qquad f_y(0,0)=\\lim_{y\\to0}\\frac{0-0}{y}=0$$</div>\r\n<p><b>环节 2：写可微检验式。</b>$A=B=0$，$\\Delta z=f(x,y)$，需检验</p>\r\n<div class=\"fm\">$$\\lim_{\\rho\\to0}\\frac{f(x,y)}{\\rho}=\\lim_{(x,y)\\to(0,0)}\\frac{x^2y}{(x^2+y^2)^{3/2}}$$</div>\r\n<p><b>环节 3：沿 $y=x$ 走。</b>此时 $x^2+y^2=2x^2$，$\\rho=\\sqrt2|x|$：</p>\r\n<div class=\"fm\">$$\\frac{x^2\\cdot x}{(2x^2)^{3/2}}=\\frac{x^3}{2\\sqrt2\\,|x|^3}=\\frac{\\operatorname{sgn}(x)}{2\\sqrt2}\\ \\not\\to\\ 0$$</div>\r\n<p><b>环节 4：下结论。</b>极限随路径变化，可微定义不满足，故 $f$ 在 $(0,0)$ 不可微；但两个偏导都存在（且为 $0$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "判断可微只看一个式子：$\\frac{\\Delta z-f_x\\Delta x-f_y\\Delta y}{\\rho}\\to0$ 是否对<b>所有</b>趋近方式成立。",
+          "找反例优先走 $y=x$、$y=kx$、$y=x^2$ 三条路；本题 $y=x$ 就够。",
+          "“偏导存在”与“可微”是两件事：偏导只查两条轴，可微查所有方向。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$f_x(0,0)=f_y(0,0)=0$ 都存在；但 $f$ 在 $(0,0)$ 不可微。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "可微两步判法",
+          "latex": "$\\Delta z=A\\Delta x+B\\Delta y+o(\\rho)$，$A=f_x,\\ B=f_y,\\ \\rho=\\sqrt{\\Delta x^2+\\Delta y^2}$"
+        },
+        {
+          "name": "偏导定义",
+          "latex": "$f_x(x_0,y_0)=\\lim_{\\Delta x\\to0}\\dfrac{f(x_0+\\Delta x,y_0)-f(x_0,y_0)}{\\Delta x}$"
+        },
+        {
+          "name": "路径法证不可微",
+          "latex": "沿 $y=x$ 与沿 $y=0$ 得到不同极限 $\\Rightarrow$ 不可微"
+        }
+      ]
+    },
+    {
+      "seq": 20,
+      "number": "第 20 题",
+      "title": "多元微分 · 隐函数求导（含二阶）",
+      "stemHtml": "设 $z=z(x,y)$ 由 $x^2+y^2+z^2=4z$ 确定，求 $\\dfrac{\\partial z}{\\partial x}$ 与 $\\dfrac{\\partial^2 z}{\\partial x^2}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“三元方程定隐函数、求二阶偏导”→ 调用 $z_x=-\\frac{F_x}{F_z}$，再对 $z_x$ 关于 $x$ 求一次（把 $z$ 当 $x$ 的函数）】</p>\r\n<p>破绽：$F=x^2+y^2+z^2-4z$，$F_z=2z-4$，在 $z\\neq2$ 处非零，隐函数存在。</p>\r\n<p>关键动作是<b>二阶求导时 $z$ 仍是 $x$ 的函数</b>，所以对 $z_x=\\frac{x}{2-z}$ 求导时，分母里的 $z$ 也要用链式法则再乘一个 $z_x$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么二阶会把 $z_x$ 带回来）</h3><p>$z_x$ 的表达式里含 $z$，而 $z=z(x,y)$。所以</p>\r\n<div class=\"fm\">$$\\frac{\\partial}{\\partial x}\\left(\\frac{x}{2-z}\\right)=\\frac{1\\cdot(2-z)-x\\cdot(-z_x)}{(2-z)^2}$$</div>\r\n<p>那个 $-z_x$ 就是“隐函数的二阶项”。忘了它，答案会少一整块。这也是隐函数二阶导最容易错的地方。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：一阶。</b>两边对 $x$ 求偏导（$y$ 视为常数）：</p>\r\n<div class=\"fm\">$$2x+2z\\,z_x=4z_x\\ \\Longrightarrow\\ z_x=\\frac{x}{2-z}$$</div>\r\n<p><b>环节 2：再对 $x$ 求导。</b>把 $z_x$ 看成 $\\frac{x}{2-z(x,y)}$：</p>\r\n<div class=\"fm\">$$z_{xx}=\\frac{(2-z)-x\\cdot(-z_x)}{(2-z)^2}=\\frac{(2-z)+x z_x}{(2-z)^2}$$</div>\r\n<p><b>环节 3：把 $z_x$ 代回。</b></p>\r\n<div class=\"fm\">$$z_{xx}=\\frac{(2-z)+x\\cdot\\frac{x}{2-z}}{(2-z)^2}=\\frac{(2-z)^2+x^2}{(2-z)^3}$$</div>\r\n<p><b>环节 4：核对。</b>① 量纲：分子二次、分母三次，整体一次负幂，与 $z_{xx}$ 的量纲相符；② 若只在 $x$ 方向走，$z_x\\gt0$（$z\\lt2$ 时），$z_{xx}\\gt0$，说明曲面在该方向下凸，合理。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "隐函数一阶：$z_x=-\\frac{F_x}{F_z}$；二阶：对 $z_x$ 再求导，注意 $z$ 仍是 $x,y$ 的函数，必须补 $z_x$ 项。",
+          "方程本身可以用来化简：把 $x^2+y^2+z^2=4z$ 代进结果，往往能消掉一整块。",
+          "求出二阶后检查量纲与符号，是隐函数题最快的自检方式。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$z_x=\\dfrac{x}{2-z}$，$z_{xx}=\\dfrac{(2-z)^2+x^2}{(2-z)^3}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "隐函数求导",
+          "latex": "$F(x,y,z)=0:\\quad z_x=-\\dfrac{F_x}{F_z},\\quad z_y=-\\dfrac{F_y}{F_z}$"
+        },
+        {
+          "name": "商的求导",
+          "latex": "$\\left(\\dfrac uv\\right)'=\\dfrac{u'v-uv'}{v^2}$"
+        },
+        {
+          "name": "约束回代",
+          "latex": "$x^2+y^2+z^2=4z$ 可替换掉 $x^2+y^2$"
+        }
+      ]
+    },
+    {
+      "seq": 21,
+      "number": "第 21 题",
+      "title": "多元微分 · Lagrange 乘子法",
+      "stemHtml": "设 $x,y,z\\gt0$，求 $u=xyz$ 在条件 $x+y+z=a\\ (a\\gt0)$ 下的最大值。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“三元乘积、给定和”→ 调用 Lagrange（或 AM-GM 直接秒）】</p>\r\n<p>破绽：目标 $xyz$ 与约束 $x+y+z=a$ 都是<b>对称式</b>，对称题的极值点必在 $x=y=z$ 处，这是先猜后证的捷径。</p>\r\n<p>但考试要写过程，所以用 Lagrange 走一遍，再用 AM-GM 或“唯一驻点即最值”收口。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么驻点必对称）</h3><p>$L=xyz+\\lambda(x+y+z-a)$ 的三个方程是 $yz=-\\lambda,\\ zx=-\\lambda,\\ xy=-\\lambda$。三者相等且 $x,y,z\\gt0$，故 $x=y=z$。</p>\r\n<p>于是约束给出 $3x=a$，驻点唯一。又 $u$ 在边界（某个变量 $\\to0$）趋于 $0$，内部驻点必为最大值点。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：写 $L$ 与方程组。</b></p>\r\n<div class=\"fm\">$$L=xyz+\\lambda(x+y+z-a),\\qquad \\begin{cases}yz+\\lambda=0\\\\ xz+\\lambda=0\\\\ xy+\\lambda=0\\\\ x+y+z=a\\end{cases}$$</div>\r\n<p><b>环节 2：解出 $x=y=z$。</b>前三个方程给出 $yz=xz=xy$，因 $x,y,z\\gt0$，约去得 $x=y=z$；代入约束：$x=\\frac a3$。</p>\r\n<p><b>环节 3：算目标值与 $\\lambda$。</b>$u_{\\max}=\\left(\\frac a3\\right)^3=\\frac{a^3}{27}$，对应 $\\lambda=-\\frac{a^2}{9}$。</p>\r\n<p><b>环节 4：说明它确是最大。</b>在闭域 $x,y,z\\geqslant0,\\ x+y+z=a$ 上 $u$ 连续，最大值存在；边界上至少一个变量为 $0$ 时 $u=0$，而内部驻点值 $\\frac{a^3}{27}\\gt0$，故为最大。也可直接用 AM-GM：$a=x+y+z\\geqslant3\\sqrt[3]{xyz}$，两边立方得 $xyz\\leqslant\\frac{a^3}{27}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "对称的目标 + 对称的约束，先断言 $x=y=z$，再用 Lagrange 或 AM-GM 补证明。",
+          "Lagrange 解完必须回答“为什么是最大而不是最小/鞍点”：用边界值比较或“唯一驻点即最值”。",
+          "乘积型目标配和约束，AM-GM 往往比 Lagrange 更快；和型目标配积约束，用“积为定值、和最小”同理。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$u_{\\max}=\\dfrac{a^3}{27}$，在 $x=y=z=\\dfrac a3$ 处取得。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "拉格朗日乘子法",
+          "latex": "$L=f+\\lambda\\varphi,\\quad L_x=L_y=L_z=0,\\ \\varphi=0$"
+        },
+        {
+          "name": "三元 AM-GM",
+          "latex": "$x+y+z\\geqslant3\\sqrt[3]{xyz}\\Rightarrow xyz\\leqslant\\dfrac{a^3}{27}$"
+        },
+        {
+          "name": "有界闭域三步",
+          "latex": "内部驻点 → 边界条件极值 → 比较"
+        }
+      ]
+    },
+    {
+      "seq": 22,
+      "number": "第 22 题",
+      "title": "重积分 · 极坐标与圆域",
+      "stemHtml": "求 $I=\\displaystyle\\iint_D(x^2+y^2)\\,\\mathrm d\\sigma$，其中 $D:x^2+y^2\\leqslant2x$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“圆域 $x^2+y^2\\leqslant 2x$、被积含 $x^2+y^2$”→ 调用极坐标，圆方程直接读出 $r=2\\cos\\theta$】</p>\r\n<p>破绽：$x^2+y^2\\leqslant2x$ 移项得 $(x-1)^2+y^2\\leqslant1$，是<b>圆心 $(1,0)$、半径 $1$ 的圆</b>，过原点。极坐标下 $r^2\\leqslant2r\\cos\\theta$，即 $0\\leqslant r\\leqslant2\\cos\\theta$，$\\theta\\in[-\\frac\\pi2,\\frac\\pi2]$。</p>\r\n<p>被积函数 $x^2+y^2=r^2$，配上 $r\\,\\mathrm dr$ 正好是 $r^3\\mathrm dr$，极坐标是最优选择。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么极坐标能一口算完）</h3><p>直角坐标下要先解出 $y=\\pm\\sqrt{2x-x^2}$、再分段，计算量大；极坐标把“圆”变成“$r$ 的上限是一个关于 $\\theta$ 的简单函数”，内层积分立刻可算。</p>\r\n<p>而且 $\\mathrm d\\sigma=r\\,\\mathrm dr\\,\\mathrm d\\theta$ 的那个 $r$ 恰好把 $r^2$ 升成 $r^3$，积分变成 $\\frac{r^4}{4}$，全程没有根号。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：定限。</b>圆过原点且圆心在 $x$ 轴正侧，$\\theta$ 从 $-\\frac\\pi2$ 到 $\\frac\\pi2$；$r$ 从 $0$ 到 $2\\cos\\theta$。</p>\r\n<div class=\"fm\">$$I=\\int_{-\\pi/2}^{\\pi/2}\\mathrm d\\theta\\int_0^{2\\cos\\theta}r^2\\cdot r\\,\\mathrm dr=\\int_{-\\pi/2}^{\\pi/2}\\frac{(2\\cos\\theta)^4}{4}\\,\\mathrm d\\theta$$</div>\r\n<p><b>环节 2：化简。</b>$\\frac{16}{4}=4$，故 $I=4\\int_{-\\pi/2}^{\\pi/2}\\cos^4\\theta\\,\\mathrm d\\theta$。</p>\r\n<p><b>环节 3：用偶性与 Wallis。</b>$\\cos^4$ 为偶函数，$I=8\\int_0^{\\pi/2}\\cos^4\\theta\\,\\mathrm d\\theta=8\\cdot\\frac{3!!}{4!!}\\cdot\\frac\\pi2=8\\cdot\\frac{3\\pi}{16}=\\frac{3\\pi}{2}$。</p>\r\n<p><b>环节 4：核对。</b>区域面积 $\\pi$。把 $x^2+y^2$ 拆成相对圆心 $(1,0)$ 的形式：$x^2+y^2=(x-1)^2+y^2+2x-1$，其中 $(x-1)^2+y^2$ 在半径 $1$ 的圆盘上平均为 $\\frac{R^2}{2}=\\frac12$，而 $2\\bar x-1=2-1=1$，故平均值约 $1.5$，积分约 $1.5\\pi\\approx4.71$，与 $\\frac{3\\pi}{2}\\approx4.71$ 一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "圆域（尤其过原点、圆心在坐标轴上）优先极坐标；圆方程一移项就能读出 $r$ 的上限。",
+          "极坐标先定 $\\theta$ 的范围（看圆在哪个象限），再定 $r$ 的上下限；不要凭印象写 $0\\to2\\pi$。",
+          "内层积出 $r^4$ 后，外层是 $\\cos^4$ 的 Wallis，值为 $\\frac{3\\pi}{8}$（$0\\to\\frac\\pi2$），要熟。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{3\\pi}{2}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "极坐标",
+          "latex": "$\\iint_D f\\,\\mathrm d\\sigma=\\int_\\alpha^\\beta\\mathrm d\\theta\\int_{r_1}^{r_2}f(r\\cos\\theta,r\\sin\\theta)\\,r\\,\\mathrm dr$"
+        },
+        {
+          "name": "标准圆",
+          "latex": "$r=2a\\cos\\theta$：圆心 $(a,0)$、半径 $a$"
+        },
+        {
+          "name": "$\\cos^n$ 的 Wallis",
+          "latex": "$\\int_{-\\pi/2}^{\\pi/2}\\cos^4\\theta\\,\\mathrm d\\theta=2\\cdot\\frac{3!!}{4!!}\\cdot\\frac\\pi2=\\frac{3\\pi}{8}$"
+        }
+      ]
+    },
+    {
+      "seq": 23,
+      "number": "第 23 题",
+      "title": "重积分 · 变量代换与雅可比",
+      "stemHtml": "求 $I=\\displaystyle\\iint_D\\mathrm e^{\\frac{y-x}{y+x}}\\,\\mathrm d\\sigma$，其中 $D$ 由 $x+y=1$、$x+y=2$、$y=0$、$y=x$ 围成。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“被积函数只含 $\\frac{y-x}{y+x}$、边界也是 $x+y$ 与 $y=x$”→ 调用 $u=x+y,\\ v=y-x$】</p>\r\n<p>破绽：被积函数与区域边界<b>同时</b>只用 $x+y$ 和 $y-x$ 这两个组合表示。这说明换元后区域会变成矩形（$u,v$ 各自独立取值），积分立刻可分离。</p>\r\n<p>如果硬在 $xy$ 平面定限，要分好几段，且 $e^{\\frac{y-x}{y+x}}$ 无法积。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么换成 $u,v$ 就变成矩形）</h3><p>四条边界翻译过去：$x+y=1\\Rightarrow u=1$；$x+y=2\\Rightarrow u=2$；$y=0\\Rightarrow v=u$（因 $v=y-x=0-x$，而 $x=u$ 当 $y=0$）；$y=x\\Rightarrow v=0$。于是 $D'=\\{(u,v):1\\leqslant u\\leqslant2,\\ 0\\leqslant v\\leqslant u\\}$，确实是三角形，且被积函数变成 $e^{v/u}$，只依赖 $v/u$。</p>\r\n<p>代价是要乘雅可比——这是换元公式里唯一容易漏的一项。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：解出 $x,y$。</b>由 $u=x+y,\\ v=y-x$ 得</p>\r\n<div class=\"fm\">$$x=\\frac{u-v}{2},\\qquad y=\\frac{u+v}{2}$$</div>\r\n<p><b>环节 2：算雅可比。</b></p>\r\n<div class=\"fm\">$$J=\\begin{vmatrix}x_u&x_v\\\\y_u&y_v\\end{vmatrix}=\\begin{vmatrix}\\frac12&-\\frac12\\\\ \\frac12&\\frac12\\end{vmatrix}=\\frac14+\\frac14=\\frac12$$</div>\r\n<p><b>环节 3：定新区域并积分。</b>$1\\leqslant u\\leqslant2$，$0\\leqslant v\\leqslant u$，故</p>\r\n<div class=\"fm\">$$I=\\int_1^2\\mathrm du\\int_0^u \\mathrm e^{v/u}\\cdot\\frac12\\,\\mathrm dv=\\frac12\\int_1^2 u\\left(\\mathrm e-1\\right)\\mathrm du=\\frac12(\\mathrm e-1)\\cdot\\frac{3}{2}=\\frac34(\\mathrm e-1)$$</div>\r\n<p><b>环节 4：核对量级。</b>被积函数在区域上介于 $\\mathrm e^{0}=1$ 与 $\\mathrm e^{1}=\\mathrm e$ 之间，区域面积 $=\\frac12$（三角形：底 $1$、高 $1$），故积分应在 $0.5$ 与 $1.36$ 之间；$\\frac34(\\mathrm e-1)\\approx1.29$，在上界附近，合理（$v/u$ 偏向 $1$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "被积函数与边界同时只依赖 $x+y$、$x-y$（或 $y/x$）时，换元是唯一出路；换完区域通常变矩形/三角形。",
+          "换元三件事一个都不能漏：解出 $x,y$、算 $|J|$、重画 $D'$ 定限。",
+          "雅可比是常数时最省事；若含 $u,v$，定限时要把 $|J|$ 一起放进内层积分。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac34(\\mathrm e-1)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "换元公式",
+          "latex": "$\\iint_D f\\,\\mathrm dx\\mathrm dy=\\iint_{D'}f(x(u,v),y(u,v))\\,|J|\\,\\mathrm du\\mathrm dv$"
+        },
+        {
+          "name": "雅可比",
+          "latex": "$J=\\dfrac{\\partial(x,y)}{\\partial(u,v)}=\\begin{vmatrix}x_u&x_v\\\\y_u&y_v\\end{vmatrix}$"
+        },
+        {
+          "name": "换元信号",
+          "latex": "被积式是 $F(x+y)$ 或 $F(x-y)\\Rightarrow u=x+y,\\ v=x-y$"
+        }
+      ]
+    },
+    {
+      "seq": 24,
+      "number": "第 24 题",
+      "title": "重积分 · 球坐标与对称性",
+      "stemHtml": "求 $I=\\displaystyle\\iiint_\\Omega z\\,\\mathrm dV$，其中 $\\Omega:x^2+y^2+z^2\\leqslant1,\\ z\\geqslant0$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$x^2+y^2+z^2\\leqslant1$ 球、被积只含 $z$”→ 调用球坐标（或截面法）】</p>\r\n<p>破绽：区域是标准半球，边界 $x^2+y^2+z^2=1$ 在球坐标下就是 $r=1$；被积 $z=r\\cos\\varphi$，乘上 $\\mathrm dV$ 的 $r^2\\sin\\varphi$ 后，三个变量完全分离。</p>\r\n<p>若用直角坐标，要先算 $\\int\\!\\!\\int_{D_z}\\mathrm d\\sigma$（截面是圆，面积 $\\pi(1-z^2)$），再积 $z$，也能做——那是“截面法”。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么球坐标最顺）</h3><p>球坐标把“球”变成“$r$ 的上限为常数”，把 $z$ 变成 $r\\cos\\varphi$，于是被积式成为 $r^3\\cos\\varphi\\sin\\varphi$，对 $r$、$\\varphi$、$\\theta$ 各自可积。</p>\r\n<p>截面法则是把“先二后一”用在“截面形状规则”的场合：$D_z$ 是圆，面积好算。两条路都能到答案，选计算量小的。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：定三个限。</b>半球：$\\theta\\in[0,2\\pi]$，$\\varphi\\in\\left[0,\\frac\\pi2\\right]$，$r\\in[0,1]$。</p>\r\n<p><b>环节 2：写积分。</b></p>\r\n<div class=\"fm\">$$I=\\int_0^{2\\pi}\\mathrm d\\theta\\int_0^{\\pi/2}\\mathrm d\\varphi\\int_0^1 (r\\cos\\varphi)\\,r^2\\sin\\varphi\\,\\mathrm dr$$</div>\r\n<p><b>环节 3：分离并逐个积。</b></p>\r\n<div class=\"fm\">$$I=\\left(\\int_0^{2\\pi}\\mathrm d\\theta\\right)\\left(\\int_0^{\\pi/2}\\cos\\varphi\\sin\\varphi\\,\\mathrm d\\varphi\\right)\\left(\\int_0^1 r^3\\,\\mathrm dr\\right)=2\\pi\\cdot\\frac12\\cdot\\frac14=\\frac{\\pi}{4}$$</div>\r\n<p>（$\\int_0^{\\pi/2}\\sin\\varphi\\cos\\varphi\\,\\mathrm d\\varphi=\\frac12\\sin^2\\varphi\\Big|_0^{\\pi/2}=\\frac12$。）</p>\r\n<p><b>环节 4：用截面法核对。</b>$I=\\int_0^1 z\\cdot\\pi(1-z^2)\\mathrm dz=\\pi\\left(\\frac12-\\frac14\\right)=\\frac{\\pi}{4}$，一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "球域/锥域优先球坐标：球给 $r$ 的常数上限，锥面 $z=k\\sqrt{x^2+y^2}$ 给 $\\varphi$ 的常数上限。",
+          "被积只含 $z$ 且截面规则时，截面法（先二后一）更快：$I=\\int z\\cdot(\\text{截面面积})\\mathrm dz$。",
+          "球坐标的 $\\mathrm dV=r^2\\sin\\varphi$ 一定要写，漏了 $\\sin\\varphi$ 是最常见的错。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=\\dfrac{\\pi}{4}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "球坐标",
+          "latex": "$x=r\\sin\\varphi\\cos\\theta,\\ y=r\\sin\\varphi\\sin\\theta,\\ z=r\\cos\\varphi,\\ \\mathrm dV=r^2\\sin\\varphi\\,\\mathrm dr\\mathrm d\\varphi\\mathrm d\\theta$"
+        },
+        {
+          "name": "锥面定 $\\varphi$",
+          "latex": "$z=\\sqrt{x^2+y^2}\\Rightarrow\\varphi\\in\\left[0,\\frac\\pi4\\right]$"
+        },
+        {
+          "name": "半球定 $r$",
+          "latex": "$z=\\sqrt{R^2-x^2-y^2}\\Rightarrow r\\in[0,R]$"
+        }
+      ]
+    },
+    {
+      "seq": 25,
+      "number": "第 25 题",
+      "title": "曲线积分 · Green 公式与面积",
+      "stemHtml": "求 $I=\\displaystyle\\oint_L(x^2-y)\\,\\mathrm dx+(y^2+x)\\,\\mathrm dy$，其中 $L$ 为圆周 $x^2+y^2=2x$ 的正向。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“闭曲线上的第二类曲线积分、$L$ 是圆”→ 调用 Green 公式，把线积分换成二重积分】</p>\r\n<p>破绽：曲线是<b>闭合</b>的（圆），且给的是 $P\\mathrm dx+Q\\mathrm dy$ 的标准形状。这两个条件同时成立，就是 Green 的信号。</p>\r\n<p>若曲线不闭合，必须先补线；若 $Q_x-P_y$ 恒为零，则说明是路径无关（另走一套）。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么换成面积）</h3><p>Green 公式是“二维的牛顿-莱布尼茨”：它把边界上的环量，换成了内部每一点的“旋转强度”$Q_x-P_y$ 的总和。</p>\r\n<p>本题 $P=x^2-y$，$Q=y^2+x$，算出 $Q_x-P_y=1-(-1)=2$ 是常数，于是二重积分退化成“$2\\times$ 面积”，一步到底。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：验 Green 条件并算旋度。</b>$P,Q$ 在全平面有连续偏导，$L$ 闭、正向，条件满足。</p>\r\n<div class=\"fm\">$$\\frac{\\partial Q}{\\partial x}=1,\\qquad \\frac{\\partial P}{\\partial y}=-1\\ \\Longrightarrow\\ Q_x-P_y=2$$</div>\r\n<p><b>环节 2：换成二重积分。</b></p>\r\n<div class=\"fm\">$$I=\\iint_D 2\\,\\mathrm d\\sigma=2\\,|D|$$</div>\r\n<p><b>环节 3：算面积。</b>$x^2+y^2=2x$ 即 $(x-1)^2+y^2=1$，半径 $1$，面积 $|D|=\\pi$，故 $I=2\\pi$。</p>\r\n<p><b>环节 4：核对。</b>用参数化直算一格验证：$x=1+\\cos t,\\ y=\\sin t$，$t:0\\to2\\pi$，$\\mathrm dx=-\\sin t\\,\\mathrm dt,\\ \\mathrm dy=\\cos t\\,\\mathrm dt$；被积式为 $[(1+\\cos t)^2-\\sin t](-\\sin t)+[\\sin^2t+1+\\cos t]\\cos t$，其常数项与 $\\cos$、$\\sin$ 项在一个周期上积分为 $0$，只剩 $2$ 的贡献，得 $2\\pi$，一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "闭曲线 + $P\\mathrm dx+Q\\mathrm dy$：先算 $Q_x-P_y$，是常数就退化成“常数 × 面积”。",
+          "方向必须核对：Green 要求逆时针；顺时针要整体加负号。",
+          "曲线不闭合时先补一条辅助线，再用 Green 减去补线上的积分。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=2\\pi$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "Green 公式",
+          "latex": "$\\oint_L P\\mathrm dx+Q\\mathrm dy=\\iint_D\\left(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)\\mathrm d\\sigma$"
+        },
+        {
+          "name": "正向约定",
+          "latex": "$L$ 正向 $=$ 逆时针，区域 $D$ 在行进方向左侧"
+        },
+        {
+          "name": "圆的面积",
+          "latex": "$x^2+y^2=2x\\Rightarrow(x-1)^2+y^2=1$，面积 $\\pi$"
+        }
+      ]
+    },
+    {
+      "seq": 26,
+      "number": "第 26 题",
+      "title": "曲面积分 · 高斯公式与补面法",
+      "stemHtml": "求 $I=\\displaystyle\\oiint_\\Sigma x\\,\\mathrm dy\\mathrm dz+y\\,\\mathrm dz\\mathrm dx+z\\,\\mathrm dx\\mathrm dy$，其中 $\\Sigma$ 为上半球面 $z=\\sqrt{1-x^2-y^2}$ 的上侧。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“曲面积分、但曲面不闭合（只有上半球面）”→ 调用补面法：补底面闭合，再减底面贡献】</p>\r\n<p>破绽：$\\Sigma$ 是上半球面，缺一个底面 $z=0$，所以不能直接用 Gauss。补上底面 $\\Sigma_1:x^2+y^2\\leqslant1,\\ z=0$（取下侧，使整体为闭曲面外侧），就能用 Gauss。</p>\r\n<p>补面之后要立刻检查“辅助面上的积分是否为零”，本题恰好为零，于是答案就是 Gauss 的结果。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么补面能救）</h3><p>Gauss 公式只对<b>闭曲面</b>成立。开曲面没有“内部”，散度的体积分无从谈起。补面的本质是“借一个容易算的面，把开曲面围成闭曲面”，再用线性性把辅助面的贡献减掉。</p>\r\n<p>辅助面通常取“平面 + 圆盘”，因为在平面上 $z$ 为常数，$\\mathrm dz=0$，很多项自动消失。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：补面。</b>补 $\\Sigma_1:z=0,\\ x^2+y^2\\leqslant1$，取下侧。则 $\\Sigma+\\Sigma_1$ 围成上半球体 $\\Omega$，取外侧。</p>\r\n<p><b>环节 2：算散度。</b>$P=x,Q=y,R=z$，$\\nabla\\cdot\\vec F=1+1+1=3$。</p>\r\n<p><b>环节 3：用 Gauss。</b>$\\Omega$ 是半径 $1$ 的半球，体积 $\\frac{2\\pi}{3}$，故</p>\r\n<div class=\"fm\">$$I+I_1=\\iiint_\\Omega 3\\,\\mathrm dV=3\\cdot\\frac{2\\pi}{3}=2\\pi$$</div>\r\n<p><b>环节 4：算辅助面积分并减回。</b>在 $\\Sigma_1$ 上 $z=0$，$\\mathrm dz=0$，故 $\\mathrm dz\\mathrm dx=0$、$\\mathrm dx\\mathrm dy$ 项被 $z=0$ 乘掉，只剩 $x\\,\\mathrm dy\\mathrm dz$：但 $\\mathrm dy\\mathrm dz$ 在有向投影中对应法向的 $x$ 分量，而 $\\Sigma_1$ 下侧法向为 $(0,0,-1)$，$x$ 分量为 $0$，故 $I_1=0$。</p>\r\n<p>于是 $I=2\\pi-0=2\\pi$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "曲面不闭合又想用 Gauss：补一个规则面（多为平面圆盘），闭合成外侧，再减辅助面。",
+          "辅助面取在下侧还是上侧，取决于“让整体成为外侧”；方向错了会多一个负号，务必画图确认。",
+          "平面辅助面上 $z$ 为常数，$\\mathrm dz=0$，多数项自动消失；先看这一条再动笔算。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=2\\pi$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "Gauss 公式",
+          "latex": "$\\oiint_{\\partial\\Omega}\\vec F\\cdot\\vec n\\,\\mathrm dS=\\iiint_\\Omega\\nabla\\cdot\\vec F\\,\\mathrm dV$"
+        },
+        {
+          "name": "散度",
+          "latex": "$\\nabla\\cdot\\vec F=\\frac{\\partial P}{\\partial x}+\\frac{\\partial Q}{\\partial y}+\\frac{\\partial R}{\\partial z}$"
+        },
+        {
+          "name": "补面法",
+          "latex": "开曲面 $\\Sigma$ + 辅助面 $\\Sigma_1$ 闭合成 $\\partial\\Omega$，再用 Gauss 减回"
+        }
+      ]
+    },
+    {
+      "seq": 27,
+      "number": "第 27 题",
+      "title": "曲线积分 · Stokes 与旋度",
+      "stemHtml": "求 $I=\\displaystyle\\oint_L y\\,\\mathrm dx+z\\,\\mathrm dy+x\\,\\mathrm dz$，其中 $L$ 为平面 $x+y+z=1$ 与三个坐标面所围三角形的边界，取逆时针方向（从 $z$ 轴正向看）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“空间闭曲线、三变量循环出现 $y\\mathrm dx+z\\mathrm dy+x\\mathrm dz$”→ 调用 Stokes，换成旋度在曲面上的通量】</p>\r\n<p>破绽：曲线 $L$ 是平面与三个坐标面的交线，本身是<b>平面曲线（三角形边界）</b>，张成的曲面 $\\Sigma$ 就是这个三角形，法向恒定，$(\\nabla\\times\\vec F)\\cdot\\vec n$ 是常数，积分退化成“常数 × 面积”。</p>\r\n<p>若硬参数化三段直线，要算三段且方向易错。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么旋度是常数）</h3><p>Stokes 是“三维的 Green”：把边界上的环量换成曲面上的旋度通量。$\\vec F=(y,z,x)$ 是循环对称的，旋度三个分量相等，都是 $-1$；平面法向是 $(1,1,1)$ 方向，点积为 $-\\sqrt3$，常数。</p>\r\n<p>于是积分 $=-\\sqrt3\\times$（三角形面积），一步到位。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：算旋度。</b>$P=y,Q=z,R=x$：</p>\r\n<div class=\"fm\">$$\\nabla\\times\\vec F=\\left(\\frac{\\partial R}{\\partial y}-\\frac{\\partial Q}{\\partial z},\\ \\frac{\\partial P}{\\partial z}-\\frac{\\partial R}{\\partial x},\\ \\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\right)=(0-1,\\ 0-1,\\ 0-1)=(-1,-1,-1)$$</div>\r\n<p><b>环节 2：取曲面与法向。</b>取 $\\Sigma$ 为三角形 $x+y+z=1$（$x,y,z\\geqslant0$），按右手法则（$L$ 逆时针从 $z$ 轴正向看）法向取上侧 $\\vec n=\\frac{(1,1,1)}{\\sqrt3}$。</p>\r\n<p><b>环节 3：算点积与面积。</b></p>\r\n<div class=\"fm\">$$(\\nabla\\times\\vec F)\\cdot\\vec n=\\frac{-3}{\\sqrt3}=-\\sqrt3,\\qquad |\\Sigma|=\\frac{\\sqrt3}{2}\\ (\\text{边长为}\\ \\sqrt2\\ \\text{的正三角形})$$</div>\r\n<p><b>环节 4：相乘。</b>$I=-\\sqrt3\\cdot\\frac{\\sqrt3}{2}=-\\frac32$。</p>\r\n<p>核对：也可用投影法，$\\mathrm dS=\\frac{\\mathrm dx\\mathrm dy}{|\\cos\\gamma|}=\\sqrt3\\,\\mathrm dx\\mathrm dy$，$D$ 为 $x+y\\leqslant1$ 的三角形（面积 $\\frac12$），得 $I=(-\\sqrt3)\\cdot\\sqrt3\\cdot\\frac12=-\\frac32$，一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "空间闭曲线 + 三变量循环：先算旋度，再看能否取到“法向恒定”的平面曲面，使点积为常数。",
+          "Stokes 的方向由右手法则定：曲线逆时针（从法向正向看）对应曲面法向与之一致；方向错就多一个负号。",
+          "平面曲面的 $\\mathrm dS$ 与投影面积差一个 $\\frac{1}{|\\cos\\gamma|}$，投影法常比直接算面积快。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=-\\dfrac32$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "Stokes 公式",
+          "latex": "$\\oint_L\\vec F\\cdot\\mathrm d\\vec r=\\iint_\\Sigma(\\nabla\\times\\vec F)\\cdot\\vec n\\,\\mathrm dS$"
+        },
+        {
+          "name": "旋度",
+          "latex": "$\\nabla\\times\\vec F=\\begin{vmatrix}\\vec i&\\vec j&\\vec k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\ P&Q&R\\end{vmatrix}$"
+        },
+        {
+          "name": "三角形面积",
+          "latex": "三顶点 $(1,0,0),(0,1,0),(0,0,1)$：边长 $\\sqrt2$ 的正三角形，面积 $\\frac{\\sqrt3}{2}$"
+        }
+      ]
+    },
+    {
+      "seq": 28,
+      "number": "第 28 题",
+      "title": "常微分方程 · 一阶线性公式",
+      "stemHtml": "求初值问题 $y'+2xy=x\\mathrm e^{-x^2}$，$y(0)=1$ 的解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$y'+P(x)y=Q(x)$ 的标准形状”→ 直接套一阶线性通解公式，先算积分因子】</p>\r\n<p>破绽：$y'$ 的系数是 $1$，$y$ 的系数只含 $x$，右端只含 $x$——这是标准线性形。若 $y'$ 前有系数，要先除掉。</p>\r\n<p>本题的特别之处是：$\\int p= x^2$，而右端恰有 $\\mathrm e^{-x^2}$，因子 $\\mathrm e^{x^2}$ 与它相乘后积分变得极简。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么乘积分因子）</h3><p>乘 $\\mu=\\mathrm e^{\\int p}$ 后，左边变成 $(\\mu y)'=\\mu q$，于是“求 $y$”变成“两边积分”。所以一阶线性的全部技术含量就是：<b>找一个因子，把左边凑成一个乘积的导数</b>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：算积分因子。</b>$p=2x$，$\\int p\\,\\mathrm dx=x^2$，$\\mu=\\mathrm e^{x^2}$。</p>\r\n<p><b>环节 2：套通解。</b></p>\r\n<div class=\"fm\">$$y=\\mathrm e^{-x^2}\\left[\\int x\\mathrm e^{-x^2}\\cdot\\mathrm e^{x^2}\\,\\mathrm dx+C\\right]=\\mathrm e^{-x^2}\\left[\\int x\\,\\mathrm dx+C\\right]=\\mathrm e^{-x^2}\\left(\\frac{x^2}{2}+C\\right)$$</div>\r\n<p><b>环节 3：用初值定 $C$。</b>$y(0)=\\mathrm e^{0}(0+C)=C=1$，故</p>\r\n<div class=\"fm\">$$y=\\mathrm e^{-x^2}\\left(\\frac{x^2}{2}+1\\right)$$</div>\r\n<p><b>环节 4：代回验算。</b>$y'=\\mathrm e^{-x^2}\\left[x-2x\\left(\\frac{x^2}{2}+1\\right)\\right]=\\mathrm e^{-x^2}\\left(-x^3-x\\right)$；$2xy=2x\\mathrm e^{-x^2}\\left(\\frac{x^2}{2}+1\\right)=\\mathrm e^{-x^2}(x^3+2x)$；相加得 $\\mathrm e^{-x^2}\\cdot x=x\\mathrm e^{-x^2}$ ✓，且 $y(0)=1$ ✓。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "一阶线性：先算 $\\mu=\\mathrm e^{\\int p}$，再套 $y=\\mu^{-1}\\left[\\int q\\mu\\,\\mathrm dx+C\\right]$，最后用初值定常数。",
+          "$\\int p$ 不必带任意常数（会被 $\\mu$ 的吸收掉），但 $\\int q\\mu$ 之后的 $+C$ 必须写。",
+          "解完把 $y$ 代回原方程验一次，比重新检查推导更省时间。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=\\mathrm e^{-x^2}\\left(\\dfrac{x^2}{2}+1\\right)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "一阶线性通解",
+          "latex": "$y' + p(x)y=q(x)\\Rightarrow y=\\mathrm e^{-\\int p}\\left[\\int q\\,\\mathrm e^{\\int p}\\mathrm dx+C\\right]$"
+        },
+        {
+          "name": "积分因子",
+          "latex": "$\\mu(x)=\\mathrm e^{\\int p(x)\\mathrm dx}$"
+        },
+        {
+          "name": "常用积分",
+          "latex": "$\\int x\\mathrm e^{x^2}\\mathrm dx=\\frac12\\mathrm e^{x^2}$"
+        }
+      ]
+    },
+    {
+      "seq": 29,
+      "number": "第 29 题",
+      "title": "常微分方程 · 特解形式与 $k$ 的取法",
+      "stemHtml": "求 $y''-2y'+y=x\\mathrm e^{x}$ 的一个特解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“常系数、右端 $P_m(x)\\mathrm e^{rx}$”→ 调用特解形式 $x^kQ_m(x)\\mathrm e^{rx}$，先定 $k$ 再定系数】</p>\r\n<p>破绽：右端 $x\\mathrm e^{x}$ 里的指数 $r=1$，而齐次方程的特征根恰好也是 $\\lambda=1$（且是二重根）。这就是“共振”，必须乘 $x^2$。</p>\r\n<p>$k$ 取错是这类题最大的失分点：$r$ 不是特征根取 $k=0$，是单根取 $k=1$，是二重根取 $k=2$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么共振要多乘 $x^k$）</h3><p>若直接设 $y^*=(ax+b)\\mathrm e^{x}$，代入后 $\\mathrm e^x$ 会被 $L[\\mathrm e^x]=(\\lambda-1)^2\\mathrm e^x=0$ 整体消掉，系数 $a,b$ 无法确定（方程退化）。</p>\r\n<p>乘 $x$ 相当于“把被消掉的自由度补回来”，重根就补两次。这是算子法的必然结果，不是技巧。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：写特征方程定 $k$。</b>$\\lambda^2-2\\lambda+1=(\\lambda-1)^2=0$，$\\lambda=1$ 为二重根，故 $k=2$，设</p>\r\n<div class=\"fm\">$$y^*=x^2(ax+b)\\mathrm e^{x}=(ax^3+bx^2)\\mathrm e^{x}$$</div>\r\n<p><b>环节 2：求导。</b></p>\r\n<div class=\"fm\">$$(y^*)'=\\mathrm e^{x}\\left[ax^3+(3a+b)x^2+2bx\\right],\\qquad (y^*)''=\\mathrm e^{x}\\left[ax^3+(6a+b)x^2+(6a+4b)x+2b\\right]$$</div>\r\n<p><b>环节 3：代入左端。</b>$(y^*)''-2(y^*)'+(y^*)=\\mathrm e^{x}\\left[6ax+2b\\right]$（三次、二次项全消）。</p>\r\n<p>令其等于 $x\\mathrm e^{x}$：$6a=1$，$2b=0$，即 $a=\\frac16,\\ b=0$。</p>\r\n<p><b>环节 4：写答案并验算。</b>$y^*=\\frac{x^3}{6}\\mathrm e^{x}$；代回：$(y^*)''-2(y^*)'+(y^*)=\\mathrm e^x\\cdot x$ ✓。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "右端 $P_m(x)\\mathrm e^{rx}$ 的特解：$k$ = $r$ 在特征根中的重数（不是 0/1/2 随便取），$Q_m$ 与 $P_m$ 同次。",
+          "代进去后若 $x$ 的最高次项整体消失，说明 $k$ 取小了，回去加一。",
+          "系数定完立刻代回验算一次；这题只需看 $\\mathrm e^x$ 的系数 $6a$ 是否等于 $1$。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y^*=\\dfrac{x^3}{6}\\mathrm e^{x}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "特征方程",
+          "latex": "$y''+py'+qy=0\\Rightarrow\\lambda^2+p\\lambda+q=0$"
+        },
+        {
+          "name": "特解形式",
+          "latex": "$f=P_m(x)\\mathrm e^{rx}\\Rightarrow y^*=x^{k}Q_m(x)\\mathrm e^{rx}$，$k$ 为 $r$ 作为特征根的重数"
+        },
+        {
+          "name": "二重根",
+          "latex": "$\\lambda=1$ 是二重根 $\\Rightarrow k=2$"
+        }
+      ]
+    },
+    {
+      "seq": 30,
+      "number": "第 30 题",
+      "title": "常微分方程 · 欧拉方程换元",
+      "stemHtml": "求 $x^2y''+xy'-y=0\\ (x\\gt0)$ 的通解。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$x^2y''$、$xy'$、$y$ 三项、系数是 $x$ 的幂”→ 调用欧拉方程换元 $x=\\mathrm e^t$】</p>\r\n<p>破绽：每项的“$x$ 的幂次”与“导数的阶数”相等：$x^2$ 配二阶导、$x^1$ 配一阶导、$x^0$ 配零阶。这是欧拉方程的判别标志。</p>\r\n<p>换成 $x=\\mathrm e^t$ 后，$x\\frac{\\mathrm d}{\\mathrm dx}=\\frac{\\mathrm d}{\\mathrm dt}$，方程立刻变成常系数。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么 $x=\\mathrm e^t$ 能消掉变系数）</h3><p>因为 $\\frac{\\mathrm dt}{\\mathrm dx}=\\frac1x$，所以 $x\\frac{\\mathrm d}{\\mathrm dx}=\\frac{\\mathrm d}{\\mathrm dt}=D$。于是 $xy'=Dy$，$x^2y''=D(D-1)y$。</p>\r\n<p>每多一阶，就多一个 $D$，直到系数与 $x$ 的幂全部配平——这正是“幂次 = 阶数”的用处。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：换元并改写。</b>令 $x=\\mathrm e^t$，$D=\\frac{\\mathrm d}{\\mathrm dt}$：</p>\r\n<div class=\"fm\">$$D(D-1)y+Dy-y=0\\ \\Longrightarrow\\ (D^2-1)y=0$$</div>\r\n<p><b>环节 2：解常系数方程。</b>$\\lambda^2-1=0$，$\\lambda=\\pm1$，通解 $y=C_1\\mathrm e^{t}+C_2\\mathrm e^{-t}$。</p>\r\n<p><b>环节 3：回代 $t=\\ln x$。</b></p>\r\n<div class=\"fm\">$$y=C_1x+\\frac{C_2}{x}\\qquad(x\\gt0)$$</div>\r\n<p><b>环节 4：验算。</b>取 $y=x$：$y''=0$，$xy'=x$，$x^2y''+xy'-y=0+x-x=0$ ✓；取 $y=\\frac1x$：$y'=-\\frac1{x^2}$，$y''=\\frac{2}{x^3}$，$x^2\\cdot\\frac2{x^3}+x\\cdot\\left(-\\frac1{x^2}\\right)-\\frac1x=\\frac2x-\\frac1x-\\frac1x=0$ ✓。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "三项形如 $x^2y'',\\ axy',\\ by$ 且“幂次 = 阶数”，就是欧拉方程；令 $x=\\mathrm e^t$，用 $D(D-1)$ 替换 $x^2\\frac{\\mathrm d^2}{\\mathrm dx^2}$。",
+          "$x\\lt0$ 时令 $x=-\\mathrm e^t$，结论里出现 $|x|$；竞赛默认 $x\\gt0$ 可直接写 $x$。",
+          "换元后先写“$D$ 的代数方程”，再解特征根，最后回代；不要在中途把 $t$ 与 $x$ 混用。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$y=C_1x+\\dfrac{C_2}{x}\\quad(x\\gt0)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "欧拉方程换元",
+          "latex": "$x=\\mathrm e^{t}$（$x\\gt0$），记 $D=\\frac{\\mathrm d}{\\mathrm dt}$：$xy'=Dy,\\ x^2y''=D(D-1)y$"
+        },
+        {
+          "name": "常系数化",
+          "latex": "$x^2y''+axy'+by=0\\Rightarrow D(D-1)y+aDy+by=0$"
+        },
+        {
+          "name": "回代",
+          "latex": "$y=C_1\\mathrm e^{t}+C_2\\mathrm e^{-t}=C_1x+\\dfrac{C_2}{x}$"
+        }
+      ]
+    },
+    {
+      "seq": 31,
+      "number": "第 31 题",
+      "title": "级数 · 缺项幂级数的收敛域",
+      "stemHtml": "求幂级数 $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}x^{2n}}{n(2n-1)}$ 的收敛域。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“只有 $x^{2n}$、没有 $x^{2n+1}$”→ 判定为缺项幂级数，改用比值法直接判，别套 $R=\\lim\\left|\\frac{a_n}{a_{n+1}}\\right|$】</p>\r\n<p>题面只出现偶次幂 $x^{2n}$，奇次系数全为 $0$。这就是“缺项”。</p>\r\n<p>若硬用标准公式 $R=\\lim\\left|\\frac{a_n}{a_{n+1}}\\right|$，会得到“$0$ 与无穷交替”的假值——因为一半的 $a_n$ 是 $0$，比值不存在。这是本题最大的坑。</p>\r\n<p>正确动作：把整个通项当成 $u_n$，后一项除以前一项取极限，令极限 $<1$ 解出 $x$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么用比值法）</h3><p>求收敛半径的本质，是找一个范围，使 $n\\to\\infty$ 时后一项的绝对值只有前一项的 $\\rho\\lt1$ 倍。这样级数就“越加越小”而收敛。</p>\r\n<p>对任何级数（管它缺不缺项），直接令 $\\lim\\left|\\frac{u_{n+1}}{u_n}\\right|\\lt1$，解出的 $x$ 的范围就是收敛区间。缺项只影响“$x$ 的幂次跳一格”，不影响这套动作。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：用比值法求收敛区间。</b>记通项 $u_n=\\frac{(-1)^{n-1}x^{2n}}{n(2n-1)}$，则</p>\r\n<div class=\"fm\">$$\\lim_{n\\to\\infty}\\left|\\frac{u_{n+1}}{u_n}\\right|=\\lim_{n\\to\\infty}\\left|\\frac{x^{2n+2}}{(n+1)(2n+1)}\\cdot\\frac{n(2n-1)}{x^{2n}}\\right|$$</div>\r\n<p>化简：$(-1)$ 的次方被绝对值干掉；$x$ 的部分 $\\frac{x^{2n+2}}{x^{2n}}=x^2$；常数部分 $\\frac{n(2n-1)}{(n+1)(2n+1)}$。取极限：</p>\r\n<div class=\"fm\">$$\\lim_{n\\to\\infty}|x|^2\\cdot\\frac{2n^2-n}{2n^2+3n+1}=|x|^2\\cdot1=|x|^2$$</div>\r\n<p>要让级数收敛，必须 $|x|^2\\lt1$，即 $-1\\lt x\\lt1$。收敛半径 $R=1$。</p>\r\n<p><b>环节 2：端点单独验算（千万不能漏）。</b>区间是开区间，两个端点要单独代进去。</p>\r\n<p>当 $x=1$：级数为 $\\sum\\frac{(-1)^{n-1}}{n(2n-1)}$。去掉 $(-1)^{n-1}$ 看绝对值，通项 $\\frac{1}{n(2n-1)}\\sim\\frac{1}{2n^2}$，而 $\\sum\\frac1{n^2}$ 收敛（$p=2\\gt1$），故由比较审敛法，它绝对收敛。</p>\r\n<p>当 $x=-1$：$x^{2n}=(-1)^{2n}=1$，级数变成 $\\sum\\frac{(-1)^{n-1}}{n(2n-1)}$，与 $x=1$ 时一模一样，同样绝对收敛。</p>\r\n<p><b>环节 3：写出最终答案。</b>内部收敛、两个端点都收敛，故收敛域写成闭区间：$[-1,1]$（即 $-1\\leqslant x\\leqslant1$）。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "看到只有 $x^{2n}$ 或 $x^{2n+1}$，别用 $R$ 的标准公式，直接用比值法：令 $\\lim\\left|\\frac{u_{n+1}}{u_n}\\right|\\lt1$ 解 $x$。",
+          "解出的范围是开区间，必须回头把 $x=\\pm R$ 代进去各算一次；缺项时两端往往“长得一样”，一算得两个结论。",
+          "注意 $(-1)^{2n}=1$ 恒成立，它经常导致两个端点的级数完全相同——这是缺项题最容易捡到的便宜。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>收敛域为 $[-1,1]$（收敛半径 $R=1$）。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "比值审敛法（达朗贝尔）",
+          "latex": "$\\lim_{n\\to\\infty}\\left|\\frac{u_{n+1}}{u_n}\\right|=\\rho$：$\\rho\\lt1$ 收敛，$\\rho\\gt1$ 发散"
+        },
+        {
+          "name": "等价无穷小（比阶用）",
+          "latex": "$n\\to\\infty$ 时 $\\dfrac{1}{n(2n-1)}\\sim\\dfrac{1}{2n^2}$"
+        },
+        {
+          "name": "$p$ 级数",
+          "latex": "$\\sum\\frac{1}{n^p}$ 在 $p\\gt1$ 时收敛、$p\\leqslant1$ 时发散。"
+        },
+        {
+          "name": "莱布尼茨判别法",
+          "latex": "$\\sum(-1)^{n-1}b_n$，$b_n\\downarrow0$ 则收敛"
+        }
+      ]
+    },
+    {
+      "seq": 32,
+      "number": "第 32 题",
+      "title": "级数 · 逐项求导与几何级数",
+      "stemHtml": "求 $\\displaystyle\\sum_{n=1}^{\\infty}nx^{n-1}$ 的和函数（$|x|\\lt1$）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$nx^{n-1}$、系数是 $n$”→ 调用几何级数求导，$n$ 就是求导带来的因子】</p>\r\n<p>破绽：系数 $n$ 与幂次 $n-1$ 恰好是“求导一次”的结果。所以不要去凑 $x^n$ 再积分，而应<b>先有 $\\sum x^n$，再求导</b>。</p>\r\n<p>这是“凑求导”的最基本一款；同类还有 $\\sum(n+1)x^n=\\frac{1}{(1-x)^2}$、$\\sum n^2x^{n-1}=\\frac{1+x}{(1-x)^3}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么求导不改变收敛半径）</h3><p>幂级数在收敛区间内部可以逐项求导，且收敛半径不变（端点可能变）。所以“求和函数”允许在 $|x|\\lt1$ 内自由求导、积分，只要最后把端点单独讨论。</p>\r\n<p>本题 $\\sum x^n$ 的和是 $\\frac{1}{1-x}$，求导一次得 $\\frac{1}{(1-x)^2}$，正好就是 $\\sum nx^{n-1}$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：写出母级数。</b>当 $|x|\\lt1$：$\\sum_{n=0}^{\\infty}x^n=\\frac{1}{1-x}$。</p>\r\n<p><b>环节 2：两边逐项求导。</b>左边：$\\sum_{n=1}^{\\infty}nx^{n-1}$（$n=0$ 项为常数，导数为 $0$，自动消失）；右边：$\\left(\\frac{1}{1-x}\\right)'=\\frac{1}{(1-x)^2}$。故</p>\r\n<div class=\"fm\">$$\\sum_{n=1}^{\\infty}nx^{n-1}=\\frac{1}{(1-x)^2},\\qquad |x|\\lt1$$</div>\r\n<p><b>环节 3：端点检查。</b>$x=1$ 时通项 $\\to n\\not\\to0$，发散；$x=-1$ 时通项 $n(-1)^{n-1}$ 不趋 $0$，也发散。故成立范围就是 $|x|\\lt1$。</p>\r\n<p><b>环节 4：变形核对。</b>两边乘 $x$：$\\sum nx^{n}=\\frac{x}{(1-x)^2}$；取 $x=\\frac12$ 得 $\\sum n2^{-n}=2$，而 $\\frac{1/2}{(1/2)^2}=2$ ✓。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "系数是 $n$ 或 $n+1$ 的幂级数，先写 $\\sum x^n=\\frac1{1-x}$，再求导；不要反向先积分。",
+          "求导后 $n=0$ 项自动消失，求和下限从 $n=1$ 开始，写答案时别把下限写错。",
+          "算完代一个具体 $x$（如 $\\frac12$）核对数值，是最快的验证。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\displaystyle\\sum_{n=1}^{\\infty}nx^{n-1}=\\frac{1}{(1-x)^2}\\quad(|x|\\lt1)$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "几何级数",
+          "latex": "$\\sum_{n=0}^{\\infty}x^{n}=\\dfrac{1}{1-x},\\qquad |x|\\lt1$"
+        },
+        {
+          "name": "逐项求导",
+          "latex": "$\\left(\\sum a_nx^n\\right)'=\\sum na_nx^{n-1}$（收敛区间内）"
+        },
+        {
+          "name": "$\\dfrac{1}{(1-x)^2}$",
+          "latex": "$\\displaystyle\\sum_{n=1}^{\\infty}nx^{n-1}=\\frac{1}{(1-x)^2}$"
+        }
+      ]
+    },
+    {
+      "seq": 33,
+      "number": "第 33 题",
+      "title": "级数 · 奇偶性与 Fourier 展开",
+      "stemHtml": "设 $f(x)=x$（$-\\pi\\leqslant x\\leqslant\\pi$），求其 Fourier 级数，并由此求 $\\displaystyle\\sum_{k=1}^{\\infty}\\frac{(-1)^{k-1}}{2k-1}$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$[-\\pi,\\pi]$ 上的 $f(x)=x$”→ 调用奇偶性，$a_n$ 全为 $0$，只算 $b_n$】</p>\r\n<p>破绽：$x$ 是奇函数，区间对称。奇函数乘 $\\cos nx$（偶）是奇函数，对称区间积分为 $0$，所以 $a_0$、$a_n$ 全部为零，省掉一半计算。</p>\r\n<p>剩下 $b_n=\\frac1\\pi\\int_{-\\pi}^\\pi x\\sin nx\\,\\mathrm dx$，用一次分部即可；$x\\sin nx$ 是偶函数，可写成 $\\frac2\\pi\\int_0^\\pi$。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么用 $x=\\frac\\pi2$ 取数）</h3><p>Fourier 级数在连续点收敛到 $f(x)$ 本身。要凑出 $\\sum\\frac{(-1)^{k-1}}{2k-1}$，需要让 $\\sin nx$ 只取 $\\pm1$ 且符号交替——取 $x=\\frac\\pi2$ 时 $\\sin\\frac{n\\pi}{2}$ 在 $n$ 为奇数时等于 $(-1)^{k-1}$（$n=2k-1$），偶数时为 $0$，正好把偶项全部筛掉。</p>\r\n<p>这就是“取特殊点求数项级数”的标准手法。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：由奇偶性定系数。</b>$f$ 奇 $\\Rightarrow a_0=0,\\ a_n=0$（$n\\geqslant1$）。</p>\r\n<p><b>环节 2：算 $b_n$。</b></p>\r\n<div class=\"fm\">$$b_n=\\frac{2}{\\pi}\\int_0^{\\pi}x\\sin nx\\,\\mathrm dx=\\frac{2}{\\pi}\\left[-\\frac{x\\cos nx}{n}+\\frac{\\sin nx}{n^2}\\right]_0^{\\pi}=\\frac{2}{\\pi}\\left(-\\frac{\\pi\\cos n\\pi}{n}\\right)=\\frac{2(-1)^{n+1}}{n}$$</div>\r\n<p><b>环节 3：写级数。</b></p>\r\n<div class=\"fm\">$$x\\sim2\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}\\sin nx\\qquad(-\\pi\\lt x\\lt\\pi)$$</div>\r\n<p><b>环节 4：取 $x=\\frac\\pi2$ 求数项级数。</b>$\\sin\\frac{n\\pi}{2}$ 当 $n=2k-1$ 时为 $(-1)^{k-1}$、当 $n=2k$ 时为 $0$，故</p>\r\n<div class=\"fm\">$$\\frac{\\pi}{2}=2\\sum_{k=1}^{\\infty}\\frac{(-1)^{2k-1+1}}{2k-1}\\cdot(-1)^{k-1}=2\\sum_{k=1}^{\\infty}\\frac{(-1)^{k-1}}{2k-1}$$</div>\r\n<p>得 $\\sum_{k=1}^\\infty\\frac{(-1)^{k-1}}{2k-1}=\\frac{\\pi}{4}$。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "对称区间上先判奇偶：奇函数只剩正弦项，偶函数只剩余弦项，能省一半积分。",
+          "要凑的数项级数决定取哪个点：出现 $(-1)^{k-1}$ 且只留奇数项，取 $x=\\frac\\pi2$；出现 $(-1)^n$，取 $x=\\pi$ 或 $0$。",
+          "写展开式时必须标注成立区间（$-\\pi\\lt x\\lt\\pi$），端点要单独讨论。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$x\\sim2\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{n}\\sin nx$（$-\\pi\\lt x\\lt\\pi$）；$\\displaystyle\\sum_{k=1}^{\\infty}\\frac{(-1)^{k-1}}{2k-1}=\\frac{\\pi}{4}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "Fourier 系数",
+          "latex": "$a_n=\\frac1\\pi\\int_{-\\pi}^{\\pi}f\\cos nx\\,\\mathrm dx,\\quad b_n=\\frac1\\pi\\int_{-\\pi}^{\\pi}f\\sin nx\\,\\mathrm dx$"
+        },
+        {
+          "name": "奇函数",
+          "latex": "$f$ 为奇函数 $\\Rightarrow a_n=0$，只剩正弦项"
+        },
+        {
+          "name": "分部积分",
+          "latex": "$\\int x\\sin nx\\,\\mathrm dx=-\\frac{x\\cos nx}{n}+\\frac{\\sin nx}{n^2}$"
+        }
+      ]
+    },
+    {
+      "seq": 34,
+      "number": "第 34 题",
+      "title": "速查 · Wallis、$\\zeta(2)$、泊松积分",
+      "stemHtml": "直接写出下列三个值：(1) $\\displaystyle\\int_0^{\\pi/2}\\sin^6x\\,\\mathrm dx$；(2) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^2}$；(3) $\\displaystyle\\int_0^{+\\infty}\\mathrm e^{-x^2}\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到这三个“老面孔”→ 不走推导，直接从速查表读数】</p>\r\n<p>这三题考的不是计算能力，而是<b>记忆的准确度</b>。竞赛里它们经常作为一个大题的最后一步出现，卡在这里会白丢 5–8 分。</p>\r\n<p>破绽/陷阱：Wallis 的奇偶分支（有没有 $\\frac\\pi2$）、$\\zeta(2)$ 的系数（$\\frac{\\pi^2}{6}$ 还是 $\\frac{\\pi^2}{12}$）、泊松积分的因子（$\\sqrt\\pi$ 还是 $\\sqrt\\pi/2$）。三处都极易记混。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么这三个值必须背）</h3><p>它们分别是“三角幂积分”“$p=2$ 级数”“高斯积分”三类问题的标准答案，出现在大量题目的收尾处。记住它们，等于把一串长计算压缩成一次查表。</p>\r\n<p>记忆锚点：Wallis 是双阶乘比；$\\zeta(2)$ 由 Fourier 展开 $x^2$ 得到；泊松积分由 $\\Gamma(\\frac12)=\\sqrt\\pi$ 经 $t=x^2$ 得到。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：Wallis。</b>$n=6$ 为偶数，故</p>\r\n<div class=\"fm\">$$\\int_0^{\\pi/2}\\sin^6x\\,\\mathrm dx=\\frac{5!!}{6!!}\\cdot\\frac\\pi2=\\frac{5\\cdot3\\cdot1}{6\\cdot4\\cdot2}\\cdot\\frac\\pi2=\\frac{15}{48}\\cdot\\frac\\pi2=\\frac{5\\pi}{32}$$</div>\r\n<p><b>环节 2：$\\zeta(2)$。</b>直接读 $\\sum\\frac1{n^2}=\\frac{\\pi^2}{6}\\approx1.6449$。</p>\r\n<p><b>环节 3：泊松积分。</b>直接读 $\\int_0^\\infty\\mathrm e^{-x^2}\\mathrm dx=\\frac{\\sqrt\\pi}{2}\\approx0.8862$。</p>\r\n<p><b>环节 4：交叉核对。</b>① $\\int_0^{\\pi/2}\\sin^6$ 应略小于 $\\int_0^{\\pi/2}\\sin^2=\\frac\\pi4\\approx0.785$，$\\frac{5\\pi}{32}\\approx0.491$ ✓；② $\\sum\\frac1{n^2}$ 前三项 $1+\\frac14+\\frac19\\approx1.361$，终值 $1.645$ ✓；③ 泊松积分应略小于 $\\int_0^\\infty\\mathrm e^{-x}\\mathrm dx=1$，$0.886$ ✓。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "Wallis 三条要一起记：$n$ 偶带 $\\frac\\pi2$、$n$ 奇不带、分子分母都是双阶乘且分子比 $n$ 少一层。",
+          "$\\zeta(2)=\\frac{\\pi^2}{6}$、$\\zeta(4)=\\frac{\\pi^4}{90}$；奇数 $\\zeta$ 值没有初等闭式，考不到。",
+          "泊松积分 $\\int_0^\\infty\\mathrm e^{-x^2}=\\frac{\\sqrt\\pi}{2}$，$\\int_{-\\infty}^{\\infty}=\\sqrt\\pi$；两个都常考，差一个因子 2。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{5\\pi}{32}$；$\\dfrac{\\pi^2}{6}$；$\\dfrac{\\sqrt\\pi}{2}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "Wallis 公式",
+          "latex": "$\\int_0^{\\pi/2}\\sin^{n}x\\,\\mathrm dx=\\frac{(n-1)!!}{n!!}\\cdot\\begin{cases}\\frac\\pi2,&n\\text{ 偶}\\\\1,&n\\text{ 奇}\\end{cases}$"
+        },
+        {
+          "name": "$\\zeta(2)$",
+          "latex": "$\\sum_{n=1}^{\\infty}\\frac{1}{n^2}=\\frac{\\pi^2}{6}$"
+        },
+        {
+          "name": "泊松积分",
+          "latex": "$\\int_0^{+\\infty}\\mathrm e^{-x^2}\\mathrm dx=\\frac{\\sqrt\\pi}{2}$"
+        }
+      ]
+    },
+    {
+      "seq": 35,
+      "number": "第 35 题",
+      "title": "速查 · $\\arctan$ 相加与易错清单",
+      "stemHtml": "判断或计算：(1) $\\arctan\\frac12+\\arctan\\frac13$；(2) 判断 $\\displaystyle\\int_1^{+\\infty}\\frac{\\mathrm dx}{x\\ln x}$ 的敛散性；(3) 设 $y=\\sqrt{x^2}$，求 $y'$（$x\\neq0$）。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【三问分别对应三条“易错清单”：$\\arctan$ 的取值范围、反常积分的 $p$ 判据、$\\sqrt{x^2}$ 的绝对值】</p>\r\n<p>(1) 破绽：$ab=\\frac12\\cdot\\frac13=\\frac16\\lt1$，公式可直接用，不用加 $\\pi$。</p>\r\n<p>(2) 破绽：$\\frac{1}{x\\ln x}$ 里 $\\ln x$ 是“多出来的一层”，不属于标准 $p$ 型，要单独用 $\\ln$ 判据（$p=1$ 恰好发散）。</p>\r\n<p>(3) 破绽：$\\sqrt{x^2}=|x|$ 不是 $x$；不分段直接求导成 $1$ 是错的。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（三处陷阱的共同点）</h3><p>三问都属于“公式记了但条件没记”的类型：$\\arctan$ 公式漏了范围修正、$p$ 判据误把 $\\frac1{x\\ln x}$ 当 $p=2$、$\\sqrt{x^2}$ 忘了绝对值。竞赛里这类题专门用来区分“背过”与“懂了”。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：$\\arctan$ 相加。</b>设 $\\alpha=\\arctan\\frac12,\\ \\beta=\\arctan\\frac13$，则</p>\r\n<div class=\"fm\">$$\\tan(\\alpha+\\beta)=\\frac{\\frac12+\\frac13}{1-\\frac12\\cdot\\frac13}=\\frac{\\frac56}{\\frac56}=1$$</div>\r\n<p>又 $0\\lt\\alpha,\\beta\\lt\\frac\\pi4$，故 $0\\lt\\alpha+\\beta\\lt\\frac\\pi2$，在 $(0,\\frac\\pi2)$ 内正切为 $1$ 的角只有 $\\frac\\pi4$，所以 $\\alpha+\\beta=\\frac\\pi4$。</p>\r\n<p><b>环节 2：反常积分。</b>$\\int_1^\\infty\\frac{\\mathrm dx}{x\\ln x}=\\lim_{b\\to\\infty}\\ln\\ln b-\\ln\\ln1^{+}=+\\infty$，发散（也可用 $p=1$ 的 $\\ln$ 判据直接判）。</p>\r\n<p><b>环节 3：$\\sqrt{x^2}$ 求导。</b>$\\sqrt{x^2}=|x|$，故</p>\r\n<div class=\"fm\">$$y'=\\begin{cases}1,&x\\gt0\\\\-1,&x\\lt0\\end{cases}=\\frac{x}{|x|}$$</div>\r\n<p><b>环节 4：小结。</b>三问的答案分别是 $\\frac\\pi4$、发散、$\\frac{x}{|x|}$；每一问都靠“条件”而非“公式”得分。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "$\\arctan$ 相加先算 $ab$：$ab\\lt1$ 直接用，$ab\\gt1$ 且同号要加 $\\pi$，符号相反要减 $\\pi$。",
+          "看到 $\\frac{1}{x(\\ln x)^p}$ 单独记：$p\\gt1$ 收敛、$p\\leqslant1$ 发散；不要套 $\\frac1{x^p}$ 的判据。",
+          "$\\sqrt{x^2}=|x|$、$(\\sqrt{x^2})'=\\frac{x}{|x|}$；遇到平方开方，先想绝对值再动笔。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$\\dfrac{\\pi}{4}$；发散；$y'=\\dfrac{x}{|x|}$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "$\\arctan$ 相加",
+          "latex": "$\\arctan a+\\arctan b=\\arctan\\frac{a+b}{1-ab}$，当 $ab\\lt1$；$ab\\gt1$ 且 $a,b\\gt0$ 时要加 $\\pi$"
+        },
+        {
+          "name": "带 $\\ln$ 的 $p$ 判据",
+          "latex": "$\\int_e^\\infty\\frac{\\mathrm dx}{x(\\ln x)^p}$：$p\\gt1$ 收敛，$p\\leqslant1$ 发散"
+        },
+        {
+          "name": "$\\sqrt{x^2}=|x|$",
+          "latex": "$(\\sqrt{x^2})'=\\dfrac{x}{|x|}=\\operatorname{sgn}x\\ (x\\neq0)$"
+        }
+      ]
+    },
+    {
+      "seq": 36,
+      "number": "第 36 题",
+      "title": "速查 · 反常积分的对称换元",
+      "stemHtml": "求 $I=\\displaystyle\\int_0^{+\\infty}\\frac{\\ln x}{1+x^2}\\,\\mathrm dx$。",
+      "steps": [
+        {
+          "title": "",
+          "html": "<h3>第一步：识题（看长相，抓破绽）</h3><p class=\"lead-line\">【看到“$\\frac{\\ln x}{1+x^2}$、限 $0\\to\\infty$”→ 调用 $x=\\frac1t$，把积分变成自身的相反数，得 $I=0$】</p>\r\n<p>破绽：分母 $1+x^2$ 在 $x\\to\\frac1x$ 下“上下颠倒后只差一个因子”，而 $\\ln\\frac1x=-\\ln x$ 会变号。两者一配合，积分回到 $-I$。</p>\r\n<p>若硬算原函数（涉及多重对数），竞赛范围内做不出来——这是必须靠对称性的题。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第二步：本质（为什么结果是 0）</h3><p>换元 $x=\\frac1t$ 后：$\\frac{1}{1+x^2}=\\frac{t^2}{1+t^2}$，$\\mathrm dx=-\\frac{\\mathrm dt}{t^2}$，两者相乘得 $-\\frac{\\mathrm dt}{1+t^2}$，即“测度不变”；而 $\\ln x=\\ln\\frac1t=-\\ln t$ 变号。</p>\r\n<p>于是 $I=-I$，$I=0$。本质是<b>被积函数在换元下“测度不变、值变号”</b>。</p>"
+        },
+        {
+          "title": "",
+          "html": "<h3>第三步：实战计算（手把手算）</h3><p><b>环节 1：先说明收敛。</b>$x\\to0^+$ 时 $|\\ln x|\\cdot\\frac{1}{1+x^2}\\sim|\\ln x|$ 可积；$x\\to\\infty$ 时 $\\sim\\frac{\\ln x}{x^2}$，而 $\\int_1^\\infty\\frac{\\ln x}{x^2}\\mathrm dx$ 收敛。故 $I$ 存在，可以对它做换元。</p>\r\n<p><b>环节 2：换元。</b>令 $x=\\frac1t$：</p>\r\n<div class=\"fm\">$$I=\\int_{\\infty}^{0}\\frac{\\ln\\frac1t}{1+\\frac{1}{t^2}}\\left(-\\frac{\\mathrm dt}{t^2}\\right)=\\int_0^{\\infty}\\frac{-\\ln t}{1+t^2}\\,\\mathrm dt=-I$$</div>\r\n<p><b>环节 3：解方程。</b>$2I=0$，故 $I=0$。</p>\r\n<p><b>环节 4：核对。</b>在 $x\\lt1$ 段 $\\ln x\\lt0$、$x\\gt1$ 段 $\\ln x\\gt0$，正负抵消；且 $\\frac{1}{1+x^2}$ 关于 $x$ 与 $\\frac1x$ 对称，两边权重相同，故净值为 $0$，与结论一致。</p>"
+        }
+      ],
+      "moral": {
+        "title": "",
+        "lead": "",
+        "items": [
+          "$\\frac{F(\\ln x)}{1+x^2}$ 型在 $0\\to\\infty$ 上，先试 $x=\\frac1t$；$\\ln$ 变号 + 测度不变，直接得 $I=-I$。",
+          "换元前必须验收敛，否则“$I=-I$”只是形式推导，数学上不成立。",
+          "同款结论可迁移：$\\int_0^\\infty\\frac{\\mathrm dx}{(1+x^2)(1+x^a)}=\\frac\\pi4$ 对任意 $a$ 成立。"
+        ]
+      },
+      "answerHtml": "<b>答案</b>$I=0$。",
+      "concl": "",
+      "formulasUsed": [
+        {
+          "name": "换元对称",
+          "latex": "$x=\\frac1t\\Rightarrow\\mathrm dx=-\\frac{\\mathrm dt}{t^2}$，$\\int_0^\\infty\\to\\int_\\infty^0$"
+        },
+        {
+          "name": "$\\ln\\frac1t=-\\ln t$",
+          "latex": "$\\ln\\frac1t=-\\ln t$"
+        },
+        {
+          "name": "收敛性",
+          "latex": "$\\int_0^\\infty\\frac{|\\ln x|}{1+x^2}\\mathrm dx$ 收敛（两端分别比 $\\ln x$ 与 $x^{-3/2}$）"
+        }
+      ]
+    }
+  ]
+}

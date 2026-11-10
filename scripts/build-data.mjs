@@ -207,7 +207,7 @@ for (const subject of registry.subjects) {
 
       const files = fs
         .readdirSync(dir)
-        .filter((f) => /^(\d{4}|ch\d+)\.json$/.test(f))
+        .filter((f) => /^(\d{4}|ch\d+|drill)\.json$/.test(f))
         .sort((a, b) => Number(a.replace(/\D/g, '')) - Number(b.replace(/\D/g, '')))
       const papers = files.map((f) => readJSON(path.join(dir, f)))
       const periodMap = new Map()
@@ -217,7 +217,7 @@ for (const subject of registry.subjects) {
       for (const paper of papers) {
         let yearCount = 0
         for (const q of paper.questions || []) {
-          const key = paper.year || `ch${paper.chapter}`
+          const key = paper.year || paper.key || (paper.chapter ? `ch${paper.chapter}` : 'items')
           const id = `${subject.id}-${group.id}-${cat.id}-${key}-${String(q.seq).padStart(2, '0')}`
           const stemText = plain(q.stemHtml)
           const stemHtml = renderMath(q.stemHtml)
@@ -273,7 +273,9 @@ for (const subject of registry.subjects) {
             difficulty: q.difficulty || 3,
             source: paper.year
               ? `${paper.source || paper.paper} · ${q.number}`
-              : `第 ${paper.chapter} 章 · ${paper.chapterName || ''}`,
+              : paper.chapter
+                ? `第 ${paper.chapter} 章 · ${paper.chapterName || ''}`
+                : paper.chapterName || '',
             stem: stemText.slice(0, 110),
             stemHtml: renderMathLite(q.stemHtml),
             preview: previewHtml,
@@ -288,13 +290,15 @@ for (const subject of registry.subjects) {
           typeMap.set(q.type, (typeMap.get(q.type) || 0) + 1)
           for (const t of tags) tagMap.set(t, (tagMap.get(t) || 0) + 1)
         }
-        periodMap.set(paper.year || `ch${paper.chapter}`, {
-          year: paper.year || 0,
-          chapter: paper.chapter || null,
-          name: paper.chapterName || paper.paper || '',
-          paper: paper.paper || paper.chapterName || '',
-          count: yearCount,
-        })
+        if (paper.year || paper.chapter) {
+          periodMap.set(paper.year || `ch${paper.chapter}`, {
+            year: paper.year || 0,
+            chapter: paper.chapter || null,
+            name: paper.chapterName || paper.paper || '',
+            paper: paper.paper || paper.chapterName || '',
+            count: yearCount,
+          })
+        }
       }
 
       categories.push({
