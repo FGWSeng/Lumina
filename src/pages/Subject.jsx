@@ -14,6 +14,16 @@ export default function Subject() {
   const [params, setParams] = useSearchParams()
   const [kw, setKw] = useState(params.get('q') || '')
   const [openFilter, setOpenFilter] = useState(false)
+  const [expandedCats, setExpandedCats] = useState(() => new Set())
+
+  function toggleCat(id) {
+    setExpandedCats((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
 
   useEffect(() => {
     getLibrary().then(setLib)
@@ -36,6 +46,11 @@ export default function Subject() {
     return { answer: !!p?.answer, explain: !!p?.explain, formulas: !!p?.formulas }
   })
   const restoredRef = useRef(false)
+
+  useEffect(() => {
+    if (!catId) return
+    setExpandedCats((prev) => (prev.has(catId) ? prev : new Set(prev).add(catId)))
+  }, [catId])
 
   useEffect(() => {
     if (!lib || restoredRef.current) return
@@ -162,12 +177,21 @@ export default function Subject() {
             <div className="tree">
               <div className="tree-group-label">{group?.name}</div>
               {categories.map((c) => (
-                <div key={c.id}>
-                  <button className={`tree-item ${c.id === catId ? 'active' : ''}`} onClick={() => patch('cat', c.id)}>
-                    {c.name}
-                    <span className="count">{c.count}</span>
-                  </button>
-                  {c.id === catId && c.years?.length > 0 && (
+                <div key={c.id} className="tree-cat">
+                  <div className="tree-cat-row">
+                    <button
+                      className={`tree-arrow ${expandedCats.has(c.id) ? 'open' : ''}`}
+                      onClick={() => toggleCat(c.id)}
+                      aria-label={expandedCats.has(c.id) ? '收起' : '展开'}
+                    >
+                      <ChevronRight size={13} />
+                    </button>
+                    <button className={`tree-item ${c.id === catId ? 'active' : ''}`} onClick={() => patch('cat', c.id)}>
+                      {c.name}
+                      <span className="count">{c.count}</span>
+                    </button>
+                  </div>
+                  {expandedCats.has(c.id) && c.years?.length > 0 && (
                     <div className="tree-sub">
                       {c.years.map((y) => {
                         const key = y.chapter ?? y.year
@@ -252,6 +276,39 @@ export default function Subject() {
             </button>
           </div>
         </div>
+
+        <div className="mobile-cats">
+          {categories.map((c) => (
+            <button
+              key={c.id}
+              className={`mobile-cat ${c.id === catId ? 'active' : ''}`}
+              onClick={() => patch('cat', c.id)}
+            >
+              {c.name}
+              <em>{c.count}</em>
+            </button>
+          ))}
+        </div>
+
+        {category?.years?.length > 0 && (
+          <div className="mobile-subs">
+            <button className={`sub-chip ${!year ? 'on' : ''}`} onClick={() => patch('year', '')}>
+              全部
+            </button>
+            {category.years.map((y) => {
+              const key = y.chapter ?? y.year
+              return (
+                <button
+                  key={key}
+                  className={`sub-chip ${String(key) === year ? 'on' : ''}`}
+                  onClick={() => patch('year', String(key) === year ? '' : String(key))}
+                >
+                  {y.chapter ? `第 ${y.chapter} 章` : y.year}
+                </button>
+              )
+            })}
+          </div>
+        )}
 
         <div className="toolbar">
           <div className="search">
