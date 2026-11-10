@@ -146,17 +146,14 @@ export default function SimilarQuestions({ question, limit = 8 }) {
       <summary>
         <Layers size={15} />
         <span>
-          同类题 · {main.length + secondary.length + cross.length} 道
-          {cross.length ? `（相关${isTraining ? '真题' : '训练'} ${cross.length} 道）` : ''}
+          同类题{cross.length ? `（相关${isTraining ? '真题' : '训练'}）` : ''}
         </span>
         <ChevronDown size={15} className="similar-arrow" />
       </summary>
 
       {main.length > 0 && (
         <div className="similar-group">
-          <div className="similar-group-title">
-            {isTraining ? '同章同思路' : '考点重合'} · {main.length}
-          </div>
+          <div className="similar-group-title">{isTraining ? '同章同思路' : '考点重合'}</div>
           <ul className="similar-list">
             {main.map((q) => (
               <Item key={q.id} q={q} />
@@ -167,9 +164,7 @@ export default function SimilarQuestions({ question, limit = 8 }) {
 
       {secondary.length > 0 && (
         <div className="similar-group">
-          <div className="similar-group-title">
-            {isTraining ? '同章其他' : '同章相关'} · {secondary.length}
-          </div>
+          <div className="similar-group-title">{isTraining ? '同章其他' : '同章相关'}</div>
           <ul className="similar-list">
             {secondary.map((q) => (
               <Item key={q.id} q={q} />
@@ -180,9 +175,7 @@ export default function SimilarQuestions({ question, limit = 8 }) {
 
       {cross.length > 0 && (
         <div className="similar-group">
-          <div className="similar-group-title">
-            {isTraining ? '相关真题' : '能力拓展（相关）'} · {cross.length}
-          </div>
+          <div className="similar-group-title">{isTraining ? '相关真题' : '能力拓展（相关）'}</div>
           <ul className="similar-list">
             {cross.map((q) => (
               <Item key={q.id} q={q} />

@@ -8,7 +8,7 @@ import QuestionNotes from './QuestionNotes'
 import SimilarQuestions from './SimilarQuestions'
 import PickButton from './PickButton'
 
-export default function SingleQuestion({ list, currentId, onSelect, initialOpen, onOpenChange }) {
+export default function SingleQuestion({ list, currentId, onSelect, initialOpen, onOpenChange, scopeOf }) {
   useStore()
   const idx = Math.max(0, list.findIndex((q) => q.id === currentId))
   const q = list[idx] || list[0]
@@ -208,7 +208,10 @@ export default function SingleQuestion({ list, currentId, onSelect, initialOpen,
           <ArrowLeft size={14} /> 上一题
         </button>
         <button className="pos pos-link" onClick={() => navigate('/outline')} title="打开目录选题">
-          {idx + 1} / {list.length}
+          {(() => {
+            const scope = scopeOf?.(q)
+            return scope ? `${scope.label} · ${scope.total} 题` : `${idx + 1} / ${list.length}`
+          })()}
         </button>
         <button className="btn sm" disabled={idx >= list.length - 1} onClick={() => onSelect(list[idx + 1].id)}>
           下一题 <ArrowRight size={14} />

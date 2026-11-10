@@ -32,7 +32,12 @@ export default function Subject() {
   const subject = findSubject(lib, subjectId)
   const group = subject?.groups?.[0]
   const categories = group?.categories || []
-  const catId = params.get('cat') || categories[0]?.id || ''
+  const catFromId = useMemo(() => {
+    const id = params.get('id') || ''
+    const m = id.match(/^[a-z]+-[a-z]+-([a-z]+)-/)
+    return m ? m[1] : ''
+  }, [params])
+  const catId = params.get('cat') || catFromId || categories[0]?.id || ''
   const category = categories.find((c) => c.id === catId)
   const type = params.get('type') || ''
   const year = params.get('year') || ''
@@ -91,6 +96,17 @@ export default function Subject() {
     }, 300)
     return () => clearTimeout(t)
   }, [kw])
+
+  function scopeOf(item) {
+    if (!item || !category) return null
+    if (item.category === 'training') {
+      const hit = (category.years || []).find((y) => y.chapter === item.chapter)
+      return { label: `第 ${item.chapter} 章`, total: hit?.count || 0 }
+    }
+    if (item.category === 'drill') return { label: '公式训练场', total: category.count || 0 }
+    const hit = (category.years || []).find((y) => y.year === item.year)
+    return { label: `${item.year} 初赛`, total: hit?.count || 0 }
+  }
 
   const list = useMemo(() => {
     if (!lib) return []
@@ -356,6 +372,7 @@ export default function Subject() {
             onSelect={selectId}
             initialOpen={openState}
             onOpenChange={setOpenState}
+            scopeOf={scopeOf}
           />
         ) : (
           <>

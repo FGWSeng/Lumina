@@ -37,6 +37,19 @@ export default function Question() {
   }, [questionId])
 
   const q = lib ? findQuestion(lib, questionId) : null
+  const scopeText = (() => {
+    if (!q || !lib) return ''
+    const cats = (lib.subjects || []).flatMap((x) => x.groups || []).flatMap((g) => g.categories || [])
+    const cat = cats.find((c) => c.id === q.category)
+    if (!cat) return ''
+    if (q.category === 'training') {
+      const hit = (cat.years || []).find((y) => y.chapter === q.chapter)
+      return `第 ${q.chapter} 章 · ${hit?.count || 0} 题`
+    }
+    if (q.category === 'drill') return `公式训练场 · ${cat.count || 0} 题`
+    const hit = (cat.years || []).find((y) => y.year === q.year)
+    return `${q.year} 初赛 · ${hit?.count || 0} 题`
+  })()
   const { prev, next, index, total } = lib ? questionNeighbors(lib, questionId) : { prev: null, next: null, index: -1, total: 0 }
   const fav = isFavorite(questionId)
   const mastery = getMastery(questionId)
@@ -85,7 +98,7 @@ export default function Question() {
             <span className="q-src">{q?.source}</span>
             {q && <Difficulty value={q.difficulty} />}
             <span className="q-src" style={{ marginLeft: 'auto' }}>
-              {q?.typeName}
+              {scopeText || q?.typeName}
             </span>
           </div>
 
@@ -200,9 +213,7 @@ export default function Question() {
           <button className="btn sm" disabled={!prev} onClick={() => prev && navigate(`/q/${prev.id}`)}>
             <ArrowLeft size={14} /> 上一题
           </button>
-          <span className="pos">
-            {index >= 0 ? index + 1 : '—'} / {total}
-          </span>
+          <span className="pos">{scopeText || (index >= 0 ? `${index + 1} / ${total}` : '—')}</span>
           <button className="btn sm" disabled={!next} onClick={() => next && navigate(`/q/${next.id}`)}>
             下一题 <ArrowRight size={14} />
           </button>
