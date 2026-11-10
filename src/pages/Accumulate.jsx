@@ -19,6 +19,7 @@ import {
 import { Link } from 'react-router-dom'
 import { useUser } from '../lib/auth'
 import { renderRichText } from '../lib/richtext'
+import NoteUploader from '../components/NoteUploader'
 
 async function compressImage(file, maxW = 1200, quality = 0.72) {
   const bitmap = await createImageBitmap(file)
@@ -92,7 +93,7 @@ export default function Accumulate() {
   const [order, setOrder] = useState([])
   const [dragId, setDragId] = useState('')
   const [toast, setToast] = useState('')
-  const [rotate, setRotate] = useState(null)
+  const [pending, setPending] = useState([])
   const [editItem, setEditItem] = useState(null)
   const [editTitle, setEditTitle] = useState('')
   const [editText, setEditText] = useState('')
@@ -231,56 +232,7 @@ export default function Accumulate() {
     const files = [...(e.target.files || [])].filter((f) => /^image\//.test(f.type))
     e.target.value = ''
     if (!files.length || !currentId) return
-    setRotate({ file: files[0], angle: 0 })
-  }
-
-  async function uploadImage(file, angle) {
-    setBusy(true)
-    setError('')
-    try {
-      const bitmap = await createImageBitmap(file)
-      const swap = angle % 180 !== 0
-      const w = swap ? bitmap.height : bitmap.width
-      const h = swap ? bitmap.width : bitmap.height
-      const scale = Math.min(1, 1200 / Math.max(w, h))
-      const canvas = document.createElement('canvas')
-      canvas.width = Math.max(1, Math.round(w * scale))
-      canvas.height = Math.max(1, Math.round(h * scale))
-      const ctx = canvas.getContext('2d')
-      ctx.translate(canvas.width / 2, canvas.height / 2)
-      ctx.rotate((angle * Math.PI) / 180)
-      ctx.scale(scale, scale)
-      ctx.drawImage(bitmap, -bitmap.width / 2, -bitmap.height / 2)
-      const blob = await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.72))
-      const base64 = await blobToBase64(blob)
-      const r = await fetch(`/api/folders/${currentId}/items`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'same-origin',
-        body: JSON.stringify({ kind: 'image', mime: 'image/jpeg', data: base64 }),
-      })
-      const d = await r.json().catch(() => ({}))
-      if (!r.ok) throw new Error(d.error || '上传失败')
-      setRotate(null)
-      await loadItems(currentId)
-      await loadFolders()
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setBusy(false)
-    }
-  }
-
-  function openEditItem(it) {
-    setEditItem(it)
-    setEditTitle(it.title || '')
-    setEditText(it.text || '')
-  }
-
-  function openEditItem(it) {
-    setEditItem(it)
-    setEditTitle(it.title || '')
-    setEditText(it.text || '')
+    setPending(files)
   }
 
   async function saveEdit() {
@@ -715,38 +667,17 @@ export default function Accumulate() {
 
         {toast && <div className="acc-toast">{toast}</div>}
 
-        {rotate && (
-          <div className="confirm-mask" onClick={() => setRotate(null)}>
-            <div className="confirm-box" onClick={(e) => e.stopPropagation()}>
-              <div className="confirm-title">需要旋转照片吗？</div>
-              <div className="confirm-text">手机竖拍有时会横向存储，旋转后再上传，预览方向即保存方向。</div>
-              <div className="rotate-actions">
-                <button
-                  className="btn sm"
-                  onClick={() => setRotate((r) => ({ ...r, angle: (r.angle + 270) % 360 }))}
-                >
-                  <RotateCcw size={14} /> 左转 90°
-                </button>
-                <button
-                  className="btn sm"
-                  onClick={() => setRotate((r) => ({ ...r, angle: (r.angle + 90) % 360 }))}
-                >
-                  <RotateCw size={14} /> 右转 90°
-                </button>
-              </div>
-              <div className="small muted" style={{ marginTop: 6 }}>
-                当前旋转：{rotate.angle}°
-              </div>
-              <div className="confirm-actions">
-                <button className="btn sm" onClick={() => setRotate(null)}>
-                  取消
-                </button>
-                <button className="btn sm primary" onClick={() => uploadImage(rotate.file, rotate.angle)} disabled={busy}>
-                  {busy ? '上传中…' : '按当前方向上传'}
-                </button>
-              </div>
-            </div>
-          </div>
+        {pending.length > 0 && (
+          <NoteUploader
+            files={pending}
+            folderId={currentId}
+            onDone={() => {
+              setPending([])
+              loadItems(currentId)
+              loadFolders()
+            }}
+            onCancel={() => setPending([])}
+          />
         )}
 
         {editItem && (

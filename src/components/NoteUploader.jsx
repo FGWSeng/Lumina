@@ -62,7 +62,7 @@ function blobToBase64(blob) {
   })
 }
 
-export default function NoteUploader({ files, questionId, onDone, onCancel }) {
+export default function NoteUploader({ files, questionId, folderId, onDone, onCancel }) {
   const [idx, setIdx] = useState(0)
   const [img, setImg] = useState(null)
   const [angle, setAngle] = useState(0)
@@ -114,11 +114,15 @@ export default function NoteUploader({ files, questionId, onDone, onCancel }) {
     try {
       const blob = await renderBlob(img, angle)
       const base64 = await blobToBase64(blob)
-      const r = await fetch('/api/notes', {
+      const url = folderId ? `/api/folders/${folderId}/items` : '/api/notes'
+      const payload = folderId
+        ? { kind: 'image', mime: 'image/jpeg', data: base64 }
+        : { questionId, mime: 'image/jpeg', data: base64 }
+      const r = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'same-origin',
-        body: JSON.stringify({ questionId, mime: 'image/jpeg', data: base64 }),
+        body: JSON.stringify(payload),
       })
       const d = await r.json().catch(() => ({}))
       if (!r.ok) throw new Error(d.error || '上传失败')
