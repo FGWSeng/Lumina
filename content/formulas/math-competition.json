@@ -114,6 +114,18 @@
               "memoryHtml": "\"底数搬到 $e$ 上，指数变系数\"；第二式记\"平方出来先加绝对值\"。",
               "whenHtml": "$1^\\infty$、$0^0$、$\\infty^0$ 三种未定式，一律先化成 $e^{v\\ln u}$；含 $\\ln f^2$ 的题（如 $\\int\\frac{f'}{f}$ 型）必须先带绝对值，否则负半轴出错。",
               "jjNo": "1.7"
+            },
+            {
+              "seq": 8,
+              "id": "f-1-1-8",
+              "name": "等比数列求和（有限与无穷）",
+              "expr": "$$\\sum_{k=0}^{n}q^k=\\frac{1-q^{\\,n+1}}{1-q}\\ (q\\ne1),\\qquad \\sum_{k=0}^{\\infty}q^k=\\frac{1}{1-q}\\ (|q|<1)$$",
+              "tags": [],
+              "tip": "竞赛里常反过来用：把 $\\dfrac{1-q^{n+1}}{1-q}$ 拆成两项，或把循环小数、几何级数一眼化成 $\\dfrac{1}{1-q}$。",
+              "deriveHtml": "<p>错位相减：$S_n=1+q+\\cdots+q^n$，两边乘 $q$ 后相减得 $(1-q)S_n=1-q^{n+1}$。令 $n\\to\\infty$，当 $|q|<1$ 时 $q^{n+1}\\to0$，得到无穷和。</p>",
+              "memoryHtml": "<p>有限和记「首项 × (1 − q 的项数次方) / (1 − q)」；无穷和只在 $|q|<1$ 时存在，等于 $\\dfrac{1}{1-q}$。</p>",
+              "whenHtml": "<p><strong>条件</strong>：$q\\ne1$（有限和）；$|q|<1$（无穷和）。$|q|\\ge1$ 时级数发散。</p>",
+              "jjNo": ""
             }
           ]
         },
@@ -208,6 +220,18 @@
               "memoryHtml": "\"$2t$、$1-t^2$、$1+t^2$\"三个块，分母永远是 $1+t^2$；$dx$ 的分子是 $2$。",
               "whenHtml": "$\\int R(\\sin x,\\cos x)dx$ 凑不出 $d(\\sin x)$、$d(\\cos x)$ 时的保底招（如 $\\int\\frac{dx}{2+\\cos x}$）。代价是有理分式次数变高，能凑微分就别用它。",
               "jjNo": "1.14"
+            },
+            {
+              "seq": 8,
+              "id": "f-1-2-8",
+              "name": "正弦定理与余弦定理",
+              "expr": "$$\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}=2R,\\qquad a^{2}=b^{2}+c^{2}-2bc\\cos A$$",
+              "tags": [],
+              "tip": "几何应用题里，把「角度关系」翻译成「边长关系」靠余弦定理，把「边长比」翻译成「角的正弦比」靠正弦定理。",
+              "deriveHtml": "<p>正弦定理：作外接圆，同弧所对圆周角相等，配合直径所对直角可得 $a=2R\\sin A$。余弦定理：把 $\\vec a=\\vec b-\\vec c$ 两边平方即得。</p>",
+              "memoryHtml": "<p>正弦定理「边比等于对角正弦比，等于 2R」；余弦定理「第三边平方 = 两边平方和 − 2 倍两边乘夹角余弦」。</p>",
+              "whenHtml": "<p><strong>适用</strong>：任意三角形。已知两角一边用正弦定理；已知两边及夹角、或三边求角用余弦定理。</p>",
+              "jjNo": ""
             }
           ]
         },
@@ -375,6 +399,18 @@
               "memoryHtml": "\"平方的和 × 平方的和 ≥ 和的平方\"，两边的\"次数\"要配平（都是二次）。",
               "whenHtml": "求和式上界的第一选择；与积分型柯西（第 5 章）是一对，竞赛两版都考。看到 $\\sum a_ib_i$ 想估上界就用它。",
               "jjNo": "1.25"
+            },
+            {
+              "seq": 9,
+              "id": "f-1-4-9",
+              "name": "排序不等式与 Chebyshev",
+              "expr": "$$\\sum_{k=1}^{n}a_kb_k\\ \\ge\\ \\sum_{k=1}^{n}a_kb_{\\sigma(k)}\\ \\ge\\ \\sum_{k=1}^{n}a_kb_{n+1-k}\\quad(a_1\\le\\cdots\\le a_n,\\ b_1\\le\\cdots\\le b_n)$$$$\\frac1n\\sum_{k=1}^{n}a_kb_k\\ \\ge\\ \\Big(\\frac1n\\sum_{k=1}^{n}a_k\\Big)\\Big(\\frac1n\\sum_{k=1}^{n}b_k\\Big)\\quad(\\text{同序})$$",
+              "tags": [],
+              "tip": "看到「和 × 和」与「乘积和」比较，先想 Chebyshev；看到「重新排列后最大/最小」，用排序不等式，同序最大、逆序最小。",
+              "deriveHtml": "<p>排序不等式：任意交换两项会改变总和，同序相乘每项都最大。Chebyshev 由排序不等式把 $n$ 个同序配对相加后取平均得到。</p>",
+              "memoryHtml": "<p>「同序最大、逆序最小、乱序居中」；Chebyshev 就是「平均的乘积 ≤ 乘积的平均」（同序时）。</p>",
+              "whenHtml": "<p><strong>条件</strong>：两组数都单调同向（同序）。一组递增一组递减时不等号反向。</p>",
+              "jjNo": ""
             }
           ]
         }
@@ -555,6 +591,18 @@
               "memoryHtml": "\"看到 $\\frac in$ 和 $\\frac1n\\sum$，就是 $x$ 和 $dx$\"。",
               "whenHtml": "和式极限里能提出 $\\frac1n$ 且剩余部分是 $\\frac in$ 的函数时；比夹逼省事，也常用于证 $\\sum\\frac1{1+(i/n)^2}\\to\\frac\\pi4$ 型。",
               "jjNo": "2.11"
+            },
+            {
+              "seq": 6,
+              "id": "f-2-2-6",
+              "name": "洛必达法则（三种未定式与前提）",
+              "expr": "$$\\lim_{x\\to a}\\frac{f(x)}{g(x)}=\\lim_{x\\to a}\\frac{f'(x)}{g'(x)}\\quad\\Big(\\frac00\\ \\text{或}\\ \\frac{\\infty}{\\infty}\\Big),\\qquad \\lim f\\,g=\\lim\\frac{f}{1/g}\\ (0\\cdot\\infty)$$",
+              "tags": [],
+              "tip": "竞赛里洛必达多用于「验证答案」，正式解答更爱用等价无穷小与泰勒；一旦分子分母出现振荡（如 $\\sin\\frac1x$），洛必达直接失效。",
+              "deriveHtml": "<p>$0/0$ 型由 Cauchy 中值定理：$\\dfrac{f(x)-f(a)}{g(x)-g(a)}=\\dfrac{f'(\\xi)}{g'(\\xi)}$，令 $x\\to a$ 即得。$\\infty/\\infty$ 型另作变换后用同样思路。</p>",
+              "memoryHtml": "<p>「上下都趋 0 或都趋 ∞，才能上下分别求导」；乘积型先化成分式，幂指型先取对数。</p>",
+              "whenHtml": "<p><strong>三个前提</strong>：① 是 $\\frac00$ 或 $\\frac\\infty\\infty$；② 去心邻域内可导且 $g'(x)\\ne0$；③ 导数之比的极限存在（或为 $\\pm\\infty$）。缺一不可，且右端不存在时不能反推左端不存在。</p>",
+              "jjNo": ""
             }
           ]
         },
@@ -654,6 +702,18 @@
               "memoryHtml": "\"和式的阶 = 积分一次\"，即 $\\sum k^p\\sim\\frac{n^{p+1}}{p+1}$；$\\ln n!$ 只需\"$n\\ln n$ 减去 $n$\"。",
               "whenHtml": "估阶题的落点：判 $\\sum\\frac1{k}$ 发散、判 $\\frac{\\ln n!}{n\\ln n}\\to1$、估计 $\\sum k^p$ 的增长率。",
               "jjNo": "2.17"
+            },
+            {
+              "seq": 3,
+              "id": "f-2-4-3",
+              "name": "Stirling 公式（阶乘的阶）",
+              "expr": "$$n!\\ \\sim\\ \\sqrt{2\\pi n}\\,\\Big(\\frac{n}{\\mathrm e}\\Big)^{n},\\qquad \\ln n!=n\\ln n-n+O(\\ln n)$$",
+              "tags": [],
+              "tip": "凡是出现 $\\sqrt[n]{n!}$、$\\dfrac{n!}{n^n}$、$\\ln(n!)$ 的极限，先用 Stirling 把阶乘换成幂，再取对数定阶。",
+              "deriveHtml": "<p>由 $\\ln n!=\\sum_{k=1}^{n}\\ln k$ 与积分 $\\int_1^n\\ln x\\,\\mathrm dx$ 比较（Euler–Maclaurin 展开到一阶），得到 $\\ln n!=n\\ln n-n+\\frac12\\ln(2\\pi n)+o(1)$，取指数即得。</p>",
+              "memoryHtml": "<p>记「$n!\\approx\\sqrt{2\\pi n}\\,(n/\\mathrm e)^n$」；只要阶就记「$\\ln n!\\sim n\\ln n$」。</p>",
+              "whenHtml": "<p><strong>用途</strong>：$n\\to\\infty$ 时估计阶乘的量级；$\\sqrt[n]{n!}\\sim\\dfrac{n}{\\mathrm e}$。不是等式，只保证比值趋于 1。</p>",
+              "jjNo": ""
             }
           ]
         },
